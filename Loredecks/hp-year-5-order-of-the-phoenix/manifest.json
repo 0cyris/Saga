@@ -9,7 +9,7 @@
   "era": "Year 5: Order of the Phoenix",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "defaultLocale": "en",
   "generatedAt": "2026-06-05",
   "assets": {
@@ -38,11 +38,12 @@
     "familyOrder": 60
   },
   "tags": [
-    "fandom:harry-potter",
     "era:golden-trio",
-    "structure:split-loredeck",
+    "fandom:harry-potter",
     "quality:human-vetted",
-    "school-year:5"
+    "quality:relevance-curated",
+    "school-year:5",
+    "structure:split-loredeck"
   ],
   "source": {
     "kind": "bundled",
@@ -73,32 +74,34 @@
     "characters/adult_character_phase_baselines.json",
     "characters/present_character_baselines.json",
     "chronology/major_events.json",
-    "chronology/school_years.json",
     "events/school_year_windows.json",
     "expanded_books/book_5_order_of_the_phoenix_expansion.json",
     "future_guards/major_spoilers.json",
     "lexicon_calendars/year_5_ootp_calendar_anchors.json",
     "places/institution_states.json",
     "skills/school_year_skill_bands.json",
-    "spell_gates/expanded_spell_gates.json"
+    "spell_gates/expanded_spell_gates.json",
+    "relevance_gates/timeline_knowledge_guards.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 53,
+    "entryCount": 58,
     "categoryCounts": {
-      "character": 20,
+      "character": 21,
       "event": 11,
-      "faction": 7,
-      "knowledge": 6,
+      "faction": 8,
+      "knowledge": 7,
       "location": 4,
-      "spell": 2,
-      "timeline": 3
+      "rule": 1,
+      "secret": 1,
+      "spell": 3,
+      "timeline": 2
     },
     "timelineAnchorCount": 55,
     "timelineWindowCount": 10
   },
-  "updatedAt": 1780617600000
+  "updatedAt": 1780876800000
 }

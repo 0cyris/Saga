@@ -1,0 +1,797 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_han_leia_marriage_after_courtship",
+      "title": "Han and Leia Marriage Starts After Courtship",
+      "kind": "temporal_gate",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.han_leia_married",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Han and Leia Married",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Dathomir",
+          "Hapes"
+        ],
+        "topics": [
+          "marriage",
+          "family",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Hapes Consortium"
+        ]
+      },
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "faction:hapes-consortium",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "place:dathomir",
+        "place:hapes",
+        "scope:new-republic",
+        "topic:family",
+        "topic:future-guard",
+        "topic:marriage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa"
+          ],
+          "topicsAny": [
+            "marriage",
+            "family",
+            "future guard"
+          ],
+          "locationsAny": [
+            "Dathomir",
+            "Hapes"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Hapes Consortium"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Han and Leia’s marriage belongs after the Courtship/Dathomir/Hapes period, not immediately after Endor by default.",
+        "injection": "Before the marriage anchor, write Han and Leia as committed but not yet married unless the user’s story changes it; after it, use spouse/family dynamics.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Han and Leia Married.",
+          "Respect story-position bounds from Han and Leia Married to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "characters/relationships_and_family_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_solo_children_create_security_pressure",
+      "title": "Solo Children Create Security Pressure",
+      "kind": "status_change",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.thrawn_defeated",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Thrawn Defeated",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Jacen Solo",
+          "Jaina Solo",
+          "Anakin Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "children",
+          "security"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:anakin-solo",
+        "character:han-solo",
+        "character:jacen-solo",
+        "character:jaina-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:children",
+        "topic:family",
+        "topic:security"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Jacen Solo",
+            "Jaina Solo",
+            "Anakin Solo"
+          ],
+          "topicsAny": [
+            "family",
+            "children",
+            "security"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Solo children make Han and Leia’s public family life a recurring security, political, and emotional pressure point.",
+        "injection": "After the children are born, include kidnapping risk, protection arrangements, public scrutiny, and parental strain when relevant.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Defeated.",
+          "Respect story-position bounds from Thrawn Defeated to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "characters/relationships_and_family_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_luke_leia_siblings_publicly_sensitive",
+      "title": "Luke and Leia Sibling Bond Has Political Sensitivity",
+      "kind": "knowledge_gate",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "identity",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:family",
+        "topic:identity",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Darth Vader"
+          ],
+          "topicsAny": [
+            "family",
+            "identity",
+            "politics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke and Leia’s sibling bond and Vader lineage can carry personal and political sensitivity in New Republic contexts.",
+        "injection": "Use Luke and Leia’s relationship as both emotional support and political risk when Vader’s legacy or Force lineage is relevant. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "characters/relationships_and_family_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_mara_luke_slow_burn_from_distrust",
+      "title": "Mara and Luke Slow Burn Starts from Distrust",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "relationship",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:future-guard",
+        "topic:relationship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade",
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "relationship",
+            "future guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Mara and Luke’s later bond grows from distrust, survival, mutual respect, and unresolved Imperial trauma.",
+        "injection": "Before Hand of Thrawn, frame Mara/Luke with tension and hard-won respect rather than instant domestic romance.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "characters/relationships_and_family_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_leia_vader_legacy_public_burden",
+      "title": "Leia Carries Vader Legacy as Public Burden",
+      "kind": "knowledge_gate",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Darth Vader",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "identity",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:family",
+        "topic:identity",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Darth Vader",
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "family",
+            "identity",
+            "politics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Leia’s biological link to Vader is personally painful and politically exploitable in New Republic society.",
+        "injection": "When Vader lineage is in play, let Leia’s public role make the secret or revelation more politically loaded than Luke’s private Jedi identity. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "characters/relationships_and_family_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_children_do_not_erase_leia_agency",
+      "title": "Children Do Not Erase Leia’s Agency",
+      "kind": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Han Solo",
+          "Jacen Solo",
+          "Jaina Solo",
+          "Anakin Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "government"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:anakin-solo",
+        "character:han-solo",
+        "character:jacen-solo",
+        "character:jaina-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:family",
+        "topic:government"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Han Solo",
+            "Jacen Solo",
+            "Jaina Solo",
+            "Anakin Solo"
+          ],
+          "topicsAny": [
+            "family",
+            "government"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Leia’s motherhood adds obligations and vulnerabilities but does not remove her agency as diplomat, leader, and Force-sensitive Skywalker.",
+        "injection": "Do not write post-childbirth Leia as sidelined by default; balance family stakes with political and personal agency. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "characters/relationships_and_family_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_han_luke_friendship_survives_new_roles",
+      "title": "Han and Luke Friendship Survives New Roles",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 76,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 70,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "relationship",
+          "family",
+          "jedi"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:han-solo",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:family",
+        "topic:jedi",
+        "topic:relationship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "relationship",
+            "family",
+            "jedi"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Han and Luke’s friendship adapts as Luke becomes Jedi restorer and Han becomes husband/father/state actor.",
+        "injection": "In New Republic scenes, keep Han and Luke’s trust and banter, but allow their obligations to pull them into different worlds. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "characters/relationships_and_family_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

@@ -10,7 +10,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -122,15 +122,19 @@
       },
       "content": {
         "fact": "Across Years 1-4, Dumbledore is the calm, eccentric, highly perceptive Headmaster: benevolent, indirect, morally serious, and usually several steps ahead without explaining everything.",
-        "injection": "Write Dumbledore in his early Headmaster phase: serene, eccentric, perceptive, warm but withholding, using indirect guidance rather than blunt command unless the situation demands authority.",
+        "injection": "Write Dumbledore in his early Headmaster phase: serene, eccentric, perceptive, warm but withholding, using indirect guidance rather than blunt command unless the situation demands authority. Enforce this as a high-priority Context gate for Years 1-4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Keep him powerful and composed, but not omniscient; he may infer more than others, yet still leaves room for uncertainty and mistakes.",
           "He should often guide through questions, hints, silence, and institutional authority rather than ordinary exposition.",
           "Do not make him casually confessional about private plans, old guilt, Horcrux strategy, or endgame wartime calculations unless accepted story lore has established otherwise.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not import Year 5 political siege behavior or Year 6 physical decline into the Years 1-4 baseline."
+          "Do not import Year 5 political siege behavior or Year 6 physical decline into the Years 1-4 baseline.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -179,7 +183,24 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:goblet-of-fire",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "character:albus-dumbledore",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -188,7 +209,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -196,7 +217,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -308,15 +329,19 @@
       },
       "content": {
         "fact": "Across Years 1-5, Snape is a severe Potions master: exacting, sarcastic, controlled, resentful, biased in class, and professionally dangerous when crossed.",
-        "injection": "Write Snape in his Years 1-5 Potions-master phase: cold, precise, cutting, controlled, impatient with weakness, and inclined to weaponize authority through sarcasm and grading rather than open emotional display.",
+        "injection": "Write Snape in his Years 1-5 Potions-master phase: cold, precise, cutting, controlled, impatient with weakness, and inclined to weaponize authority through sarcasm and grading rather than open emotional display. Enforce this as a high-priority Context gate for Years 1-5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Keep his speech economical, acidic, and disciplined; avoid sentimental confession or obvious vulnerability.",
           "He can be protective or strategically useful without becoming warm, approachable, or openly heroic.",
           "Do not reveal full motives, loyalties, or late-canon emotional history unless a separate reveal gate allows it.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not import the fully explained tragic-hero reading of Snape into early-year public characterization."
+          "Do not import the fully explained tragic-hero reading of Snape into early-year public characterization.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -367,7 +392,26 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:goblet-of-fire",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "character:severus-snape",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -376,7 +420,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 86,
       "injectableByDefault": true,
@@ -384,7 +428,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -479,15 +523,19 @@
       },
       "content": {
         "fact": "Across Years 1-2, Hagrid is Hogwarts groundskeeper and informal ally to students: warm, impulsive, loyal, emotionally transparent, and often careless with sensitive information.",
-        "injection": "Write Hagrid in his early groundskeeper phase: large-hearted, blunt, protective, impulsive, rustic in speech, and prone to underestimating danger from creatures or secrets.",
+        "injection": "Write Hagrid in his early groundskeeper phase: large-hearted, blunt, protective, impulsive, rustic in speech, and prone to underestimating danger from creatures or secrets. Enforce this as a high-priority Context gate for Years 1-2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Keep him emotionally direct and practically competent with grounds and creatures, but not academically polished.",
           "He may be brave and loyal without becoming strategically subtle.",
           "Keep event-specific creatures, arrests, punishments, and revelations modular.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write early Hagrid as a formal professor or tactician."
+          "Do not write early Hagrid as a formal professor or tactician.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -534,7 +582,19 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:philosophers-stone",
+        "character:ron-weasley",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -543,7 +603,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -551,7 +611,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -658,15 +718,19 @@
       },
       "content": {
         "fact": "Across Years 3-6, Hagrid is both groundskeeper and Care of Magical Creatures professor: affectionate, insecure about teaching, creature-obsessed, brave, and easily wounded by ridicule.",
-        "injection": "Write Hagrid in his professor phase: kind, loyal, creature-obsessed, emotionally open, sometimes insecure about teaching, and prone to choosing hazardous lessons because he sees creatures more generously than others do.",
+        "injection": "Write Hagrid in his professor phase: kind, loyal, creature-obsessed, emotionally open, sometimes insecure about teaching, and prone to choosing hazardous lessons because he sees creatures more generously than others do. Enforce this as a high-priority Context gate for Years 3-6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should remain plainspoken and affectionate, not polished or bureaucratic.",
           "His creature expertise should be real, but his risk assessment should often be poor by student or parent standards.",
           "Keep individual class incidents, family revelations, and disciplinary outcomes in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 3-6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make Hagrid an elegant lecturer, political operator, or detached professional instructor."
+          "Do not make Hagrid an elegant lecturer, political operator, or detached professional instructor.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -715,7 +779,24 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:prisoner-of-azkaban",
+        "character:ron-weasley",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -724,7 +805,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -732,7 +813,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -846,15 +927,19 @@
       },
       "content": {
         "fact": "Across Years 1-6, McGonagall is strict, fair, dry, disciplined, and deeply protective beneath a formal exterior.",
-        "injection": "Write McGonagall as Deputy Headmistress: crisp, exacting, dryly witty, rule-bound but morally courageous, with affection expressed through standards, protection, and practical action rather than sentimentality.",
+        "injection": "Write McGonagall as Deputy Headmistress: crisp, exacting, dryly witty, rule-bound but morally courageous, with affection expressed through standards, protection, and practical action rather than sentimentality. Enforce this as a high-priority Context gate for Years 1-6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "She should be severe without being petty, and protective without becoming indulgent.",
           "Her speech should be formal, clipped, and precise, especially with students.",
           "Keep specific confrontations, injuries, and institutional changes in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write McGonagall as either a soft grandmother figure or an arbitrary authoritarian."
+          "Do not write McGonagall as either a soft grandmother figure or an arbitrary authoritarian.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -906,7 +991,27 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -915,7 +1020,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -923,7 +1028,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1022,15 +1127,19 @@
       },
       "content": {
         "fact": "Across Years 5-7, Lupin is a restrained Order member: kind, weary, ashamed, useful in dangerous work, and habitually self-denying.",
-        "injection": "Write Lupin in his Order phase: gentle, controlled, worn down by poverty and stigma, brave when needed, but prone to withdrawing or self-blame rather than demanding comfort.",
+        "injection": "Write Lupin in his Order phase: gentle, controlled, worn down by poverty and stigma, brave when needed, but prone to withdrawing or self-blame rather than demanding comfort. Enforce this as a high-priority Context gate for Years 5-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make him casually secure, socially carefree, or rhetorically flamboyant.",
           "His courage should be quiet and dutiful rather than swaggering.",
           "Keep specific missions, romantic/family status, deaths, and reveal timing in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 5-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Order-era Lupin as emotionally uncomplicated or socially confident."
+          "Do not write Order-era Lupin as emotionally uncomplicated or socially confident.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1078,7 +1187,21 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "character:remus-lupin",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1087,7 +1210,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 86,
       "injectableByDefault": true,
@@ -1095,7 +1218,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1192,15 +1315,19 @@
       },
       "content": {
         "fact": "Across Years 6-7 after public acknowledgment, Voldemort is an embodied war leader: controlled, sadistic, status-obsessed, paranoid about weakness, and increasingly dominant over followers.",
-        "injection": "Write Voldemort in the open-war phase as embodied, commanding, cruel, status-obsessed, magically supreme, and intolerant of failure; his calm should feel predatory rather than theatrical.",
+        "injection": "Write Voldemort in the open-war phase as embodied, commanding, cruel, status-obsessed, magically supreme, and intolerant of failure; his calm should feel predatory rather than theatrical. Enforce this as a high-priority Context gate for Years 6-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make him casually vulnerable, sentimental, or politically moderate.",
           "He should command through fear, reward, humiliation, and ideology, not ordinary friendship or loyalty.",
           "Keep Horcrux discovery, wand allegiance, battle outcomes, and death state governed by separate entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 6-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write open-war Voldemort as a generic battlefield commander detached from obsession, terror, and magical dominance."
+          "Do not write open-war Voldemort as a generic battlefield commander detached from obsession, terror, and magical dominance.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1247,7 +1374,18 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "book:half-blood-prince",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "fandom:harry-potter",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1256,7 +1394,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1264,7 +1402,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1364,15 +1502,19 @@
       },
       "content": {
         "fact": "After Year 4’s impostor exposure and before his death, the real Moody is a scarred, paranoid, practical Order veteran with extreme vigilance and little patience for softness.",
-        "injection": "Write real Moody as a battle-scarred veteran: paranoid, blunt, security-minded, gruffly protective, and practical about danger rather than emotionally reassuring.",
+        "injection": "Write real Moody as a battle-scarred veteran: paranoid, blunt, security-minded, gruffly protective, and practical about danger rather than emotionally reassuring. Enforce this as a high-priority Context gate for Years 5-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not confuse the real Moody with the Year 4 impostor persona unless the scene is explicitly about that deception.",
           "His paranoia should be grounded in experience, not random comedy alone.",
           "Keep death outcome and specific missions in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 5-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write real Moody as a gentle mentor or relaxed comic eccentric."
+          "Do not write real Moody as a gentle mentor or relaxed comic eccentric.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1420,7 +1562,20 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "character:alastor-moody",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1429,7 +1584,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 86,
       "injectableByDefault": true,
@@ -1437,7 +1592,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1535,15 +1690,19 @@
       },
       "content": {
         "fact": "Across Years 6-7, Slughorn is sociable, self-protective, status-conscious, gifted at Potions, and eager to collect talented or well-connected students.",
-        "injection": "Write Slughorn as genial, evasive, status-conscious, indulgent toward promising students, genuinely skilled, and more cowardly or self-protective than malicious.",
+        "injection": "Write Slughorn as genial, evasive, status-conscious, indulgent toward promising students, genuinely skilled, and more cowardly or self-protective than malicious. Enforce this as a high-priority Context gate for Years 6-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should flatter and network rather than dominate through intimidation.",
           "Do not make him either transparently evil or purely benevolent; his vanity and avoidance matter.",
           "Keep memory revelations, party events, and battle participation in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 6-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Slughorn as a second Snape or as a selfless saint."
+          "Do not write Slughorn as a second Snape or as a selfless saint.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1591,7 +1750,17 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "book:half-blood-prince",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1600,7 +1769,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1608,7 +1777,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1724,15 +1893,19 @@
       },
       "content": {
         "fact": "Across the school years, Flitwick is a small, precise, enthusiastic Charms professor: encouraging, academically exact, and more formidable than his cheerful manner suggests.",
-        "injection": "Write Flitwick as warm, precise, academically rigorous, encouraging, and quietly formidable; his small stature should not reduce his competence or authority.",
+        "injection": "Write Flitwick as warm, precise, academically rigorous, encouraging, and quietly formidable; his small stature should not reduce his competence or authority. Enforce this as a high-priority Context gate for Years 1-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make him a joke character or ineffectual merely because he is cheerful.",
           "Keep specific duels, wartime actions, and institutional changes in separate dated entries.",
           "His classroom demeanor should be lively but technically exacting.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Flitwick as weak, childish, or unserious."
+          "Do not write Flitwick as weak, childish, or unserious.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1784,7 +1957,30 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1793,7 +1989,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1801,7 +1997,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1917,15 +2113,19 @@
       },
       "content": {
         "fact": "Across the school years, Sprout is practical, earthy, fair-minded, and sturdy: a teacher who values hard work, competence, and student care without theatrics.",
-        "injection": "Write Sprout as practical, good-humored, steady, earthy, and professionally competent; she should feel rooted in work, plants, and student welfare rather than drama.",
+        "injection": "Write Sprout as practical, good-humored, steady, earthy, and professionally competent; she should feel rooted in work, plants, and student welfare rather than drama. Enforce this as a high-priority Context gate for Years 1-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make her helpless or ornamental; her competence is practical and durable.",
           "Keep specific plant incidents and wartime actions in separate dated entries.",
           "Her warmth should be grounded and no-nonsense.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Sprout as a generic soft background teacher with no authority."
+          "Do not write Sprout as a generic soft background teacher with no authority.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1977,7 +2177,30 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1986,7 +2209,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1994,7 +2217,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -2109,15 +2332,19 @@
       },
       "content": {
         "fact": "Across the school years, Madam Pomfrey is brisk, protective, professionally private, and highly competent, prioritizing patient care over curiosity or drama.",
-        "injection": "Write Madam Pomfrey as brisk, protective, medically competent, and intolerant of nonsense; she should guard patient privacy and recovery rather than indulge dramatic interruptions.",
+        "injection": "Write Madam Pomfrey as brisk, protective, medically competent, and intolerant of nonsense; she should guard patient privacy and recovery rather than indulge dramatic interruptions. Enforce this as a high-priority Context gate for Years 1-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make her casually reveal patient details for convenience.",
           "Her irritation should usually serve care, triage, and order rather than cruelty.",
           "Keep specific injuries, recoveries, and medical secrets in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Madam Pomfrey as incompetent, gossipy, or medically indifferent."
+          "Do not write Madam Pomfrey as incompetent, gossipy, or medically indifferent.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -2169,7 +2396,30 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -2178,7 +2428,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -2186,7 +2436,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -2297,15 +2547,19 @@
       },
       "content": {
         "fact": "Across the school years, Filch is resentful, punitive, suspicious, and obsessive about rule-breaking, with a grievance-driven relationship to students and magic.",
-        "injection": "Write Filch as sour, watchful, punitive, rule-obsessed, and resentful; he should seek infractions and enjoy student discomfort more than ordinary teaching staff would.",
+        "injection": "Write Filch as sour, watchful, punitive, rule-obsessed, and resentful; he should seek infractions and enjoy student discomfort more than ordinary teaching staff would. Enforce this as a high-priority Context gate for Years 1-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make him magically competent unless story lore changes his status.",
           "His cruelty should be petty and disciplinary rather than grand strategic villainy.",
           "Keep specific alliances, decrees, and punishments modular.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Filch as a kindly janitor or as a major magical antagonist."
+          "Do not write Filch as a kindly janitor or as a major magical antagonist.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -2357,7 +2611,30 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -2366,7 +2643,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -2374,7 +2651,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -2481,15 +2758,19 @@
       },
       "content": {
         "fact": "Across her active school years, Trelawney is theatrical, misty, insecure, doom-laden, and often ridiculous, with occasional moments of uncanny significance controlled by separate prophecy lore.",
-        "injection": "Write Trelawney as theatrical, tremulous, doom-haunted, self-important, and insecure; her ordinary manner should be performative rather than consistently reliable.",
+        "injection": "Write Trelawney as theatrical, tremulous, doom-haunted, self-important, and insecure; her ordinary manner should be performative rather than consistently reliable. Enforce this as a high-priority Context gate for Years 3-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make every prediction accurate or consciously meaningful.",
           "Do not reveal prophecy mechanics or rare genuine prophecy events unless separate lore permits it.",
           "Her comedy should coexist with vulnerability, not erase it.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 3-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Trelawney as a confident, consistently lucid seer in ordinary scenes."
+          "Do not write Trelawney as a confident, consistently lucid seer in ordinary scenes.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -2539,7 +2820,26 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:prophecy"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -2548,7 +2848,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -2556,7 +2856,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -2671,15 +2971,19 @@
       },
       "content": {
         "fact": "Across the school years, Madam Hooch is brisk, athletic, safety-conscious, and authoritative around flying and Quidditch.",
-        "injection": "Write Madam Hooch as clipped, athletic, safety-minded, and authoritative around brooms, flying lessons, and Quidditch procedure.",
+        "injection": "Write Madam Hooch as clipped, athletic, safety-minded, and authoritative around brooms, flying lessons, and Quidditch procedure. Enforce this as a high-priority Context gate for Years 1-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make her ornamental or passive in flying-related scenes.",
           "Keep specific matches, injuries, and team politics in separate dated entries.",
           "Her expertise should be practical and immediate.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Madam Hooch as indifferent to flying safety or match discipline."
+          "Do not write Madam Hooch as indifferent to flying safety or match discipline.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -2731,7 +3035,31 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -2740,7 +3068,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -2748,7 +3076,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -2867,15 +3195,19 @@
       },
       "content": {
         "fact": "Across the school years, Arthur Weasley is kind, curious, principled, somewhat eccentric about Muggle artifacts, and quietly brave beneath a mild exterior.",
-        "injection": "Write Arthur Weasley as gentle, curious, principled, understated, and fascinated by Muggle objects; his courage is modest and practical rather than showy.",
+        "injection": "Write Arthur Weasley as gentle, curious, principled, understated, and fascinated by Muggle objects; his courage is modest and practical rather than showy. Enforce this as a high-priority Context gate for Years 1-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make him foolish merely because his Muggle fascination is comic.",
           "Do not make him politically ruthless or socially grandiose.",
           "Keep specific Ministry roles, injuries, and wartime incidents in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Arthur as a buffoon or as a hardened political operator."
+          "Do not write Arthur as a buffoon or as a hardened political operator.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -2927,7 +3259,30 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -2936,7 +3291,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -2944,7 +3299,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -3062,15 +3417,19 @@
       },
       "content": {
         "fact": "Across the school years, Molly Weasley is warm, forceful, anxious, practical, protective, and capable of sharp anger when family safety or standards are threatened.",
-        "injection": "Write Molly Weasley as nurturing but formidable: practical, anxious, protective, domestic in skill but not in passivity, and quick to scold when fear becomes anger.",
+        "injection": "Write Molly Weasley as nurturing but formidable: practical, anxious, protective, domestic in skill but not in passivity, and quick to scold when fear becomes anger. Enforce this as a high-priority Context gate for Years 1-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not reduce her to comic fussing; her protectiveness has moral weight and real force.",
           "Do not make her casually permissive about danger to children.",
           "Keep specific family conflicts, losses, and battle actions in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Molly as either harmlessly soft or uniformly overbearing without warmth."
+          "Do not write Molly as either harmlessly soft or uniformly overbearing without warmth.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -3122,7 +3481,29 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -3131,7 +3512,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -3139,7 +3520,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -3246,15 +3627,19 @@
       },
       "content": {
         "fact": "Across Years 1-4, Lucius Malfoy is an elegant, contemptuous, politically connected patriarch who masks intimidation and prejudice behind wealth, manners, and influence.",
-        "injection": "Write Lucius Malfoy in his public-patriarch phase as polished, cold, class-conscious, politically connected, and threatening through implication more often than open violence.",
+        "injection": "Write Lucius Malfoy in his public-patriarch phase as polished, cold, class-conscious, politically connected, and threatening through implication more often than open violence. Enforce this as a high-priority Context gate for Years 1-4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make him crude or impulsive in public unless cornered; his menace is aristocratic and controlled.",
           "Do not reveal illegal loyalties or hidden plans casually without separate lore support.",
           "Keep specific schemes, artifacts, exposure, and legal consequences in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write early Lucius as a battlefield fanatic or openly powerless dependant."
+          "Do not write early Lucius as a battlefield fanatic or openly powerless dependant.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -3303,7 +3688,23 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:goblet-of-fire",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "faction:ministry-of-magic",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -3312,7 +3713,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -3320,7 +3721,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -3420,15 +3821,19 @@
       },
       "content": {
         "fact": "Across the later war period, Lucius Malfoy remains proud and prejudiced, but his authority is increasingly compromised by fear, failure, and dependence on Voldemort’s favor.",
-        "injection": "Write Lucius Malfoy in the later-war phase as still aristocratic and prejudiced, but more fearful, diminished, and dependent on the regime than his earlier public confidence suggested.",
+        "injection": "Write Lucius Malfoy in the later-war phase as still aristocratic and prejudiced, but more fearful, diminished, and dependent on the regime than his earlier public confidence suggested. Enforce this as a high-priority Context gate for Years 5-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not give him the effortless social dominance of early years if later-war disgrace or pressure is active.",
           "Do not make him suddenly egalitarian or morally clear without explicit story divergence.",
           "Keep imprisonment, release, family crises, and battle outcomes in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 5-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write late-war Lucius as fully secure, unafraid, or independent of Voldemort."
+          "Do not write late-war Lucius as fully secure, unafraid, or independent of Voldemort.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -3476,7 +3881,21 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -3485,7 +3904,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -3493,7 +3912,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -3609,15 +4028,19 @@
       },
       "content": {
         "fact": "Across the canon years, Narcissa Malfoy is cold, aristocratic, socially controlled, and intensely family-centered, with self-preservation and family survival overriding abstract ideology when pressed.",
-        "injection": "Write Narcissa Malfoy as controlled, aristocratic, proud, emotionally guarded, and fiercely family-centered; her warmth is private and selective, not broadly charitable.",
+        "injection": "Write Narcissa Malfoy as controlled, aristocratic, proud, emotionally guarded, and fiercely family-centered; her warmth is private and selective, not broadly charitable. Enforce this as a high-priority Context gate for Years 1-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make her casually affectionate outside trusted family contexts.",
           "Do not make her a generic cackling Death Eater; her priorities are narrower and more familial.",
           "Keep specific vows, betrayals, and battle choices in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Narcissa as either openly soft-hearted to everyone or identical in temperament to Bellatrix."
+          "Do not write Narcissa as either openly soft-hearted to everyone or identical in temperament to Bellatrix.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -3669,7 +4092,29 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -3678,7 +4123,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -3686,7 +4131,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -3786,15 +4231,19 @@
       },
       "content": {
         "fact": "After her return to active relevance in the later war period, Bellatrix is fanatical, sadistic, aristocratic, volatile, and devoted to Voldemort’s supremacy.",
-        "injection": "Write Bellatrix as fanatical, cruel, theatrical, aristocratic, and violently devoted to Voldemort; her instability should feel dangerous rather than merely comic.",
+        "injection": "Write Bellatrix as fanatical, cruel, theatrical, aristocratic, and violently devoted to Voldemort; her instability should feel dangerous rather than merely comic. Enforce this as a high-priority Context gate for Years 5-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make her moderate, maternal, or politically subtle without explicit AU change.",
           "Her violence should be ideological, personal, and performative.",
           "Keep specific prison escape details, torture scenes, vault events, and death outcome in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 5-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Bellatrix as interchangeable with Narcissa or as a generic henchwoman with no class-coded arrogance."
+          "Do not write Bellatrix as interchangeable with Narcissa or as a generic henchwoman with no class-coded arrogance.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -3842,7 +4291,21 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -3851,7 +4314,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -3859,7 +4322,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -3960,15 +4423,19 @@
       },
       "content": {
         "fact": "Across Years 5-7, Kingsley Shacklebolt is calm, professional, discreet, physically imposing, and politically aware, with competence expressed through restraint.",
-        "injection": "Write Kingsley as calm, deep-voiced, controlled, competent, discreet, and professionally formidable; he should project steadiness rather than melodrama.",
+        "injection": "Write Kingsley as calm, deep-voiced, controlled, competent, discreet, and professionally formidable; he should project steadiness rather than melodrama. Enforce this as a high-priority Context gate for Years 5-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make him reckless, chatty, or easily rattled.",
           "Keep specific undercover roles, Ministry shifts, and political outcomes in separate dated entries.",
           "His authority should be quiet and credible.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 5-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Kingsley as a generic hotheaded fighter."
+          "Do not write Kingsley as a generic hotheaded fighter.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -4016,7 +4483,20 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -4025,7 +4505,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -4033,7 +4513,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -4131,15 +4611,19 @@
       },
       "content": {
         "fact": "Across Years 5-7 before her death, Tonks is young, capable, informal, clumsy in ordinary movement, skilled as a Metamorphmagus and Auror, and emotionally more vulnerable than her jokes suggest.",
-        "injection": "Write Tonks as informal, funny, clumsy, capable, brave, and emotionally open beneath professional competence; she should feel younger and less guarded than older Order members.",
+        "injection": "Write Tonks as informal, funny, clumsy, capable, brave, and emotionally open beneath professional competence; she should feel younger and less guarded than older Order members. Enforce this as a high-priority Context gate for Years 5-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make her incompetent because she is clumsy; her Auror skill and Metamorphmagus ability are real.",
           "Do not reduce her to comic hair changes or romance status.",
           "Keep relationship developments, pregnancy/family status, missions, and death outcome in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 5-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Tonks as a polished, aloof veteran or as merely a gag character."
+          "Do not write Tonks as a polished, aloof veteran or as merely a gag character.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -4187,7 +4671,19 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -4196,7 +4692,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -4204,7 +4700,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -4312,10 +4808,14 @@
           "Do not make him a visionary leader or hardened wartime realist.",
           "His friendliness should not erase insecurity or institutional self-protection.",
           "Keep specific Ministry decisions, scandals, and public-belief shifts in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 1-4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write early Fudge as either purely malicious or unusually brave."
+          "Do not write early Fudge as either purely malicious or unusually brave.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -4364,7 +4864,23 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:goblet-of-fire",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -4373,7 +4889,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 86,
       "injectableByDefault": true,
@@ -4381,7 +4897,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -4477,15 +4993,19 @@
       },
       "content": {
         "fact": "As wartime Minister, Scrimgeour is tougher and more realistic than Fudge, but still politically image-conscious, coercive, and focused on public morale and Ministry control.",
-        "injection": "Write Scrimgeour as a hard, scarred wartime bureaucrat: practical, suspicious, politically calculating, and willing to pressure symbols of resistance for public morale.",
+        "injection": "Write Scrimgeour as a hard, scarred wartime bureaucrat: practical, suspicious, politically calculating, and willing to pressure symbols of resistance for public morale. Enforce this as a high-priority Context gate for Years 6-7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make him warm, transparent, or free of propaganda instincts.",
           "Do not make him identical to Fudge; he is harsher, more competent, and more war-conscious.",
           "Keep specific bequests, Ministry fall events, and death/outcome lore modular.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Years 6-7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Scrimgeour as either a pure ally or a comic denialist."
+          "Do not write Scrimgeour as either a pure ally or a comic denialist.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -4532,7 +5052,17 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "book:half-blood-prince",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "fandom:harry-potter",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     }
   ]
 }

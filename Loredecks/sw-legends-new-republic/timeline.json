@@ -1,0 +1,988 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "summary": "Story-position anchors for the Star Wars Legends New Republic deck. Use story anchors/windows first; BBY/ABY dates are secondary metadata.",
+  "anchors": [
+    {
+      "id": "sw.nr.endor_aftermath",
+      "label": "Endor Aftermath",
+      "sortKey": 8000,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "after endor",
+        "post endor",
+        "after return of the jedi",
+        "rotj aftermath"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:early-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Endor Aftermath"
+      }
+    },
+    {
+      "id": "sw.nr.truce_at_bakura",
+      "label": "Truce at Bakura",
+      "sortKey": 8050,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "bakura",
+        "truce at bakura",
+        "ssi-ruuk crisis"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:early-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Truce at Bakura"
+      }
+    },
+    {
+      "id": "sw.nr.alliance_to_new_republic",
+      "label": "Alliance Begins New Republic Transition",
+      "sortKey": 8200,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "5 ABY"
+      },
+      "aliases": [
+        "new republic transition",
+        "alliance becomes new republic",
+        "provisional council"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:early-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Alliance Begins New Republic Transition"
+      }
+    },
+    {
+      "id": "sw.nr.imperial_fragmentation",
+      "label": "Imperial Fragmentation",
+      "sortKey": 8350,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "8 ABY"
+      },
+      "aliases": [
+        "imperial remnant fragments",
+        "warlord era",
+        "imperial warlords"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:early-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Imperial Fragmentation"
+      }
+    },
+    {
+      "id": "sw.nr.rogue_squadron_campaigns",
+      "label": "Rogue Squadron New Republic Campaigns",
+      "sortKey": 8600,
+      "dateRange": {
+        "from": "6 ABY",
+        "to": "7 ABY"
+      },
+      "aliases": [
+        "rogue squadron era",
+        "x-wing novels",
+        "wedge campaign"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:early-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Rogue Squadron New Republic Campaigns"
+      }
+    },
+    {
+      "id": "sw.nr.coruscant_liberated",
+      "label": "Coruscant Liberated",
+      "sortKey": 9000,
+      "dateRange": {
+        "from": "6 ABY",
+        "to": "7 ABY"
+      },
+      "aliases": [
+        "coruscant liberated",
+        "new republic takes coruscant",
+        "fall of imperial center"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:early-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Coruscant Liberated"
+      }
+    },
+    {
+      "id": "sw.nr.isard_bacta_war",
+      "label": "Isard and the Bacta War",
+      "sortKey": 9300,
+      "dateRange": {
+        "from": "7 ABY",
+        "to": "7 ABY"
+      },
+      "aliases": [
+        "bacta war",
+        "isard",
+        "thyferra crisis"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:early-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Isard and the Bacta War"
+      }
+    },
+    {
+      "id": "sw.nr.zsinj_campaign",
+      "label": "Zsinj Campaign",
+      "sortKey": 9700,
+      "dateRange": {
+        "from": "7 ABY",
+        "to": "8 ABY"
+      },
+      "aliases": [
+        "warlord zsinj",
+        "iron fist",
+        "wraith squadron"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:early-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Zsinj Campaign"
+      }
+    },
+    {
+      "id": "sw.nr.han_leia_married",
+      "label": "Han and Leia Married",
+      "sortKey": 10000,
+      "dateRange": {
+        "from": "8 ABY",
+        "to": "8 ABY"
+      },
+      "aliases": [
+        "courtship of princess leia",
+        "han leia married",
+        "dathomir hapes"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:early-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Han and Leia Married"
+      }
+    },
+    {
+      "id": "sw.nr.thrawn_returns",
+      "label": "Thrawn Returns",
+      "sortKey": 11000,
+      "dateRange": {
+        "from": "9 ABY",
+        "to": "9 ABY"
+      },
+      "aliases": [
+        "thrawn returns",
+        "heir to the empire begins",
+        "thrawn trilogy begins"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:thrawn-campaign"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Thrawn Returns"
+      }
+    },
+    {
+      "id": "sw.nr.heir_to_empire",
+      "label": "Heir to the Empire Crisis",
+      "sortKey": 11200,
+      "dateRange": {
+        "from": "9 ABY",
+        "to": "9 ABY"
+      },
+      "aliases": [
+        "heir to the empire",
+        "mount tantiss rumors",
+        "cbaoth appears"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:thrawn-campaign"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Heir to the Empire Crisis"
+      }
+    },
+    {
+      "id": "sw.nr.katana_fleet_race",
+      "label": "Katana Fleet Race",
+      "sortKey": 11500,
+      "dateRange": {
+        "from": "9 ABY",
+        "to": "9 ABY"
+      },
+      "aliases": [
+        "katana fleet",
+        "dark force",
+        "dark force rising"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:thrawn-campaign"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Katana Fleet Race"
+      }
+    },
+    {
+      "id": "sw.nr.noghri_truth",
+      "label": "Noghri Truth Revealed",
+      "sortKey": 11800,
+      "dateRange": {
+        "from": "9 ABY",
+        "to": "9 ABY"
+      },
+      "aliases": [
+        "noghri truth",
+        "khabarakh",
+        "honoghr deception"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:thrawn-campaign"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Noghri Truth Revealed"
+      }
+    },
+    {
+      "id": "sw.nr.thrawn_defeated",
+      "label": "Thrawn Defeated",
+      "sortKey": 12000,
+      "dateRange": {
+        "from": "9 ABY",
+        "to": "9 ABY"
+      },
+      "aliases": [
+        "thrawn defeated",
+        "last command ending",
+        "bilbringi"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:thrawn-campaign"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Thrawn Defeated"
+      }
+    },
+    {
+      "id": "sw.nr.dark_empire_begins",
+      "label": "Dark Empire Crisis Begins",
+      "sortKey": 12500,
+      "dateRange": {
+        "from": "10 ABY",
+        "to": "10 ABY"
+      },
+      "aliases": [
+        "dark empire begins",
+        "palpatine returns",
+        "clone emperor"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:dark-empire"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dark Empire Crisis Begins"
+      }
+    },
+    {
+      "id": "sw.nr.world_devastators",
+      "label": "World Devastators Attack",
+      "sortKey": 12600,
+      "dateRange": {
+        "from": "10 ABY",
+        "to": "10 ABY"
+      },
+      "aliases": [
+        "world devastators",
+        "mon calamari attack"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:dark-empire"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "World Devastators Attack"
+      }
+    },
+    {
+      "id": "sw.nr.byss_and_eclipse",
+      "label": "Byss and Eclipse Revealed",
+      "sortKey": 12700,
+      "dateRange": {
+        "from": "10 ABY",
+        "to": "10 ABY"
+      },
+      "aliases": [
+        "byss",
+        "eclipse",
+        "palpatine clone world"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:dark-empire"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Byss and Eclipse Revealed"
+      }
+    },
+    {
+      "id": "sw.nr.palpatine_clone_defeated",
+      "label": "Palpatine Clone Threat Defeated",
+      "sortKey": 13000,
+      "dateRange": {
+        "from": "11 ABY",
+        "to": "11 ABY"
+      },
+      "aliases": [
+        "palpatine clone defeated",
+        "dark empire ending",
+        "empire end"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:dark-empire"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Palpatine Clone Threat Defeated"
+      }
+    },
+    {
+      "id": "sw.nr.jedi_academy_founded",
+      "label": "Luke Founds the Jedi Academy",
+      "sortKey": 14000,
+      "dateRange": {
+        "from": "11 ABY",
+        "to": "11 ABY"
+      },
+      "aliases": [
+        "jedi academy founded",
+        "yavin praxeum",
+        "luke trains new jedi"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:jedi-academy-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Luke Founds the Jedi Academy"
+      }
+    },
+    {
+      "id": "sw.nr.kyp_and_sun_crusher",
+      "label": "Kyp Durron and Sun Crusher Crisis",
+      "sortKey": 14200,
+      "dateRange": {
+        "from": "11 ABY",
+        "to": "11 ABY"
+      },
+      "aliases": [
+        "kyp durron",
+        "sun crusher",
+        "maw installation"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:jedi-academy-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Kyp Durron and Sun Crusher Crisis"
+      }
+    },
+    {
+      "id": "sw.nr.exar_kun_defeated",
+      "label": "Exar Kun Defeated at Yavin IV",
+      "sortKey": 14300,
+      "dateRange": {
+        "from": "11 ABY",
+        "to": "11 ABY"
+      },
+      "aliases": [
+        "exar kun defeated",
+        "dark apprentice",
+        "yavin academy crisis"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:jedi-academy-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Exar Kun Defeated at Yavin IV"
+      }
+    },
+    {
+      "id": "sw.nr.daala_campaigns",
+      "label": "Daala and Imperial Holdout Campaigns",
+      "sortKey": 14500,
+      "dateRange": {
+        "from": "11 ABY",
+        "to": "12 ABY"
+      },
+      "aliases": [
+        "admiral daala",
+        "darksaber",
+        "imperial holdouts"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:jedi-academy-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Daala and Imperial Holdout Campaigns"
+      }
+    },
+    {
+      "id": "sw.nr.praxeum_stabilizes",
+      "label": "Jedi Praxeum Stabilizes",
+      "sortKey": 15000,
+      "dateRange": {
+        "from": "12 ABY",
+        "to": "14 ABY"
+      },
+      "aliases": [
+        "new jedi order early",
+        "praxeum stable",
+        "luke students"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:mid-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Jedi Praxeum Stabilizes"
+      }
+    },
+    {
+      "id": "sw.nr.corellian_crisis",
+      "label": "Corellian Crisis",
+      "sortKey": 16000,
+      "dateRange": {
+        "from": "18 ABY",
+        "to": "18 ABY"
+      },
+      "aliases": [
+        "corellian trilogy",
+        "centerpoint crisis",
+        "corellian crisis"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:mid-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Corellian Crisis"
+      }
+    },
+    {
+      "id": "sw.nr.black_fleet_crisis",
+      "label": "Black Fleet Crisis",
+      "sortKey": 17000,
+      "dateRange": {
+        "from": "16 ABY",
+        "to": "17 ABY"
+      },
+      "aliases": [
+        "black fleet crisis",
+        "yelavethan crisis",
+        "nil spaar"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:mid-new-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Black Fleet Crisis"
+      }
+    },
+    {
+      "id": "sw.nr.caamas_document_crisis",
+      "label": "Caamas Document Crisis",
+      "sortKey": 18000,
+      "dateRange": {
+        "from": "19 ABY",
+        "to": "19 ABY"
+      },
+      "aliases": [
+        "caamas document",
+        "specter of the past",
+        "vision of the future"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:hand-of-thrawn-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Caamas Document Crisis"
+      }
+    },
+    {
+      "id": "sw.nr.hand_of_thrawn_resolution",
+      "label": "Hand of Thrawn Resolution",
+      "sortKey": 19000,
+      "dateRange": {
+        "from": "19 ABY",
+        "to": "19 ABY"
+      },
+      "aliases": [
+        "hand of thrawn",
+        "nirauan",
+        "thrawn clone rumor",
+        "vision of the future ending"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:hand-of-thrawn-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Hand of Thrawn Resolution"
+      }
+    },
+    {
+      "id": "sw.nr.imperial_peace",
+      "label": "New Republic and Imperial Remnant Peace",
+      "sortKey": 19500,
+      "dateRange": {
+        "from": "19 ABY",
+        "to": "19 ABY"
+      },
+      "aliases": [
+        "imperial peace",
+        "pellaeon gavrisom treaty",
+        "bastion treaty"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:hand-of-thrawn-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic and Imperial Remnant Peace"
+      }
+    },
+    {
+      "id": "sw.nr.njo_threshold",
+      "label": "New Jedi Order Threshold",
+      "sortKey": 20000,
+      "dateRange": {
+        "from": "25 ABY",
+        "to": "25 ABY"
+      },
+      "aliases": [
+        "before njo",
+        "pre njo",
+        "before yuuzhan vong",
+        "new jedi order threshold"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:new-republic",
+        "era:new-jedi-order-threshold"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Jedi Order Threshold"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "sw.nr.window.post-endor-transition",
+      "label": "Immediate post-Endor transition",
+      "anchorFrom": "sw.nr.endor_aftermath",
+      "anchorTo": "sw.nr.alliance_to_new_republic",
+      "sortKeyFrom": 8000,
+      "sortKeyTo": 8200,
+      "aliases": [
+        "immediate post-endor transition"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends"
+      ]
+    },
+    {
+      "id": "sw.nr.window.early-new-republic",
+      "label": "Early New Republic",
+      "anchorFrom": "sw.nr.endor_aftermath",
+      "anchorTo": "sw.nr.han_leia_married",
+      "sortKeyFrom": 8000,
+      "sortKeyTo": 10000,
+      "aliases": [
+        "early new republic"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends"
+      ]
+    },
+    {
+      "id": "sw.nr.window.warlord-campaigns",
+      "label": "Imperial fragmentation and warlord campaigns",
+      "anchorFrom": "sw.nr.imperial_fragmentation",
+      "anchorTo": "sw.nr.zsinj_campaign",
+      "sortKeyFrom": 8350,
+      "sortKeyTo": 9700,
+      "aliases": [
+        "imperial fragmentation and warlord campaigns"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends"
+      ]
+    },
+    {
+      "id": "sw.nr.window.xwing-campaigns",
+      "label": "Rogue Squadron / Coruscant / Bacta War",
+      "anchorFrom": "sw.nr.rogue_squadron_campaigns",
+      "anchorTo": "sw.nr.isard_bacta_war",
+      "sortKeyFrom": 8600,
+      "sortKeyTo": 9300,
+      "aliases": [
+        "rogue squadron / coruscant / bacta war"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends"
+      ]
+    },
+    {
+      "id": "sw.nr.window.thrawn-campaign",
+      "label": "Thrawn Campaign",
+      "anchorFrom": "sw.nr.thrawn_returns",
+      "anchorTo": "sw.nr.thrawn_defeated",
+      "sortKeyFrom": 11000,
+      "sortKeyTo": 12000,
+      "aliases": [
+        "thrawn campaign"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends"
+      ]
+    },
+    {
+      "id": "sw.nr.window.dark-empire",
+      "label": "Dark Empire crisis",
+      "anchorFrom": "sw.nr.dark_empire_begins",
+      "anchorTo": "sw.nr.palpatine_clone_defeated",
+      "sortKeyFrom": 12500,
+      "sortKeyTo": 13000,
+      "aliases": [
+        "dark empire crisis"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends"
+      ]
+    },
+    {
+      "id": "sw.nr.window.jedi-academy",
+      "label": "Jedi Academy founding era",
+      "anchorFrom": "sw.nr.jedi_academy_founded",
+      "anchorTo": "sw.nr.praxeum_stabilizes",
+      "sortKeyFrom": 14000,
+      "sortKeyTo": 15000,
+      "aliases": [
+        "jedi academy founding era"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends"
+      ]
+    },
+    {
+      "id": "sw.nr.window.mid-new-republic",
+      "label": "Mid New Republic crises",
+      "anchorFrom": "sw.nr.praxeum_stabilizes",
+      "anchorTo": "sw.nr.caamas_document_crisis",
+      "sortKeyFrom": 15000,
+      "sortKeyTo": 18000,
+      "aliases": [
+        "mid new republic crises"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends"
+      ]
+    },
+    {
+      "id": "sw.nr.window.hand-of-thrawn",
+      "label": "Hand of Thrawn / Imperial peace",
+      "anchorFrom": "sw.nr.caamas_document_crisis",
+      "anchorTo": "sw.nr.imperial_peace",
+      "sortKeyFrom": 18000,
+      "sortKeyTo": 19500,
+      "aliases": [
+        "hand of thrawn / imperial peace"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends"
+      ]
+    },
+    {
+      "id": "sw.nr.window.pre-njo",
+      "label": "Post-Endor New Republic before the New Jedi Order",
+      "anchorFrom": "sw.nr.endor_aftermath",
+      "anchorTo": "sw.nr.njo_threshold",
+      "sortKeyFrom": 8000,
+      "sortKeyTo": 20000,
+      "aliases": [
+        "post-endor new republic before the new jedi order"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "sw.nr.phase.early-new-republic",
+      "label": "Early New Republic",
+      "sortKeyFrom": 8000,
+      "sortKeyTo": 10000,
+      "aliases": [
+        "early new republic"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends",
+        "era:early-new-republic"
+      ]
+    },
+    {
+      "id": "sw.nr.phase.thrawn-campaign",
+      "label": "Thrawn Campaign",
+      "sortKeyFrom": 11000,
+      "sortKeyTo": 12000,
+      "aliases": [
+        "thrawn campaign"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends",
+        "era:thrawn-campaign"
+      ]
+    },
+    {
+      "id": "sw.nr.phase.dark-empire",
+      "label": "Dark Empire",
+      "sortKeyFrom": 12500,
+      "sortKeyTo": 13000,
+      "aliases": [
+        "dark empire"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends",
+        "era:dark-empire"
+      ]
+    },
+    {
+      "id": "sw.nr.phase.jedi-academy-era",
+      "label": "Jedi Academy Era",
+      "sortKeyFrom": 14000,
+      "sortKeyTo": 14500,
+      "aliases": [
+        "jedi academy era"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends",
+        "era:jedi-academy-era"
+      ]
+    },
+    {
+      "id": "sw.nr.phase.mid-new-republic",
+      "label": "Mid New Republic",
+      "sortKeyFrom": 15000,
+      "sortKeyTo": 17000,
+      "aliases": [
+        "mid new republic"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends",
+        "era:mid-new-republic"
+      ]
+    },
+    {
+      "id": "sw.nr.phase.hand-of-thrawn-era",
+      "label": "Hand of Thrawn Era",
+      "sortKeyFrom": 18000,
+      "sortKeyTo": 19500,
+      "aliases": [
+        "hand of thrawn era"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends",
+        "era:hand-of-thrawn-era"
+      ]
+    },
+    {
+      "id": "sw.nr.phase.new-jedi-order-threshold",
+      "label": "New Jedi Order Threshold",
+      "sortKeyFrom": 20000,
+      "sortKeyTo": 20000,
+      "aliases": [
+        "new jedi order threshold"
+      ],
+      "tags": [
+        "scope:new-republic",
+        "continuity:legends",
+        "era:new-jedi-order-threshold"
+      ]
+    }
+  ],
+  "arcs": []
+}

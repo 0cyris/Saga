@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "sw-legends-core",
+  "type": "bundled",
+  "title": "Star Wars Legends: Core",
+  "description": "Reusable Star Wars Legends foundation lore: continuity boundaries, Force rules, major factions, galaxy structure, technology, species/culture constraints, and spoiler-safe baseline guards for Saga Loredeck stacks.",
+  "fandom": "Star Wars",
+  "era": "Legends Core",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "1.1.0-dev",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-08",
+  "databaseId": "saga.sw-legends-core",
+  "deckFamilyId": "sw-legends",
+  "family": {
+    "id": "sw-legends",
+    "title": "Star Wars Legends",
+    "role": "core",
+    "recommendedCoreDeckId": ""
+  },
+  "recommendedStack": [],
+  "library": {
+    "suggestedPath": [
+      "Star Wars",
+      "Legends"
+    ],
+    "familyOrder": 10
+  },
+  "tags": [
+    "fandom:star-wars",
+    "continuity:legends",
+    "structure:split-loredeck",
+    "quality:draft",
+    "scope:core",
+    "density:core-expanded"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "star-wars-legends",
+    "canonTier": "legends",
+    "adaptation": "mixed",
+    "sourceBoundary": "Broad Legends continuity scaffold; intended to be stacked under narrower era/source decks.",
+    "notes": "Development deck. Do not silently blend with Disney canon decks."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "tags": "tags.json",
+    "timeline": "timeline.json",
+    "resolver": "resolver.json",
+    "entities": "entities.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "rules/force_and_jedi.json",
+    "rules/sith_dark_side.json",
+    "factions/galactic_powers.json",
+    "rules/hyperspace_and_starships.json",
+    "rules/droids_and_society.json",
+    "locations/galaxy_regions.json",
+    "species/species_and_cultures.json",
+    "items/technology_and_weapons.json",
+    "factions/crime_and_underworld.json",
+    "knowledge/continuity_guards.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 108,
+    "categoryCounts": {
+      "character": 5,
+      "faction": 28,
+      "item": 13,
+      "knowledge": 13,
+      "location": 11,
+      "relationship": 2,
+      "rule": 32,
+      "secret": 4
+    },
+    "timelineAnchorCount": 17,
+    "timelineWindowCount": 15,
+    "tagCount": 144,
+    "entityCount": 49,
+    "timelinePhaseCount": 6
+  },
+  "generatedBy": {
+    "tool": "ChatGPT",
+    "workflow": "Saga Loredeck Creator staged workflow",
+    "reviewStatus": "draft",
+    "notes": "Expanded sw-legends-core from 8 to 96 draft Lorecards in the first development pass.",
+    "curationPass": {
+      "name": "timeline-control-review",
+      "version": "1.1.0-dev",
+      "date": "2026-06-08",
+      "notes": "Removed low-value deck-operation Lorecards, tightened model-facing injections, added Context constraints and anti-lore, and normalized schema-supported lorePurpose values."
+    }
+  },
+  "updatedAt": 1780876800000
+}

@@ -1,0 +1,2705 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "character:aayla-secura": {
+      "type": "character",
+      "label": "Aayla Secura",
+      "aliases": [
+        "Aayla Secura"
+      ],
+      "canonicalNames": [
+        "Aayla Secura"
+      ],
+      "tags": [
+        "character:aayla-secura"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:ahsoka-tano": {
+      "type": "character",
+      "label": "Ahsoka Tano",
+      "aliases": [
+        "Ahsoka Tano"
+      ],
+      "canonicalNames": [
+        "Ahsoka Tano"
+      ],
+      "tags": [
+        "character:ahsoka-tano"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:anakin-skywalker": {
+      "type": "character",
+      "label": "Anakin Skywalker",
+      "aliases": [
+        "Anakin Skywalker"
+      ],
+      "canonicalNames": [
+        "Anakin Skywalker"
+      ],
+      "tags": [
+        "character:anakin-skywalker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:arc-troopers": {
+      "type": "character",
+      "label": "ARC Troopers",
+      "aliases": [
+        "ARC Troopers"
+      ],
+      "canonicalNames": [
+        "ARC Troopers"
+      ],
+      "tags": [
+        "character:arc-troopers"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:asajj-ventress": {
+      "type": "character",
+      "label": "Asajj Ventress",
+      "aliases": [
+        "Asajj Ventress"
+      ],
+      "canonicalNames": [
+        "Asajj Ventress"
+      ],
+      "tags": [
+        "character:asajj-ventress"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:bail-organa": {
+      "type": "character",
+      "label": "Bail Organa",
+      "aliases": [
+        "Bail Organa"
+      ],
+      "canonicalNames": [
+        "Bail Organa"
+      ],
+      "tags": [
+        "character:bail-organa"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:boba-fett": {
+      "type": "character",
+      "label": "Boba Fett",
+      "aliases": [
+        "Boba Fett"
+      ],
+      "canonicalNames": [
+        "Boba Fett"
+      ],
+      "tags": [
+        "character:boba-fett"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:cade-skywalker": {
+      "type": "character",
+      "label": "Cade Skywalker",
+      "aliases": [
+        "Cade Skywalker"
+      ],
+      "canonicalNames": [
+        "Cade Skywalker"
+      ],
+      "tags": [
+        "character:cade-skywalker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:captain-rex": {
+      "type": "character",
+      "label": "Captain Rex",
+      "aliases": [
+        "Captain Rex"
+      ],
+      "canonicalNames": [
+        "Captain Rex"
+      ],
+      "tags": [
+        "character:captain-rex"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:clone-commandos": {
+      "type": "character",
+      "label": "Clone Commandos",
+      "aliases": [
+        "Clone Commandos"
+      ],
+      "canonicalNames": [
+        "Clone Commandos"
+      ],
+      "tags": [
+        "character:clone-commandos"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:clone-troopers": {
+      "type": "character",
+      "label": "Clone Troopers",
+      "aliases": [
+        "Clone Troopers"
+      ],
+      "canonicalNames": [
+        "Clone Troopers"
+      ],
+      "tags": [
+        "character:clone-troopers"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:commander-cody": {
+      "type": "character",
+      "label": "Commander Cody",
+      "aliases": [
+        "Commander Cody"
+      ],
+      "canonicalNames": [
+        "Commander Cody"
+      ],
+      "tags": [
+        "character:commander-cody"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:count-dooku": {
+      "type": "character",
+      "label": "Count Dooku",
+      "aliases": [
+        "Count Dooku"
+      ],
+      "canonicalNames": [
+        "Count Dooku"
+      ],
+      "tags": [
+        "character:count-dooku"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:darth-bane": {
+      "type": "character",
+      "label": "Darth Bane",
+      "aliases": [
+        "Darth Bane"
+      ],
+      "canonicalNames": [
+        "Darth Bane"
+      ],
+      "tags": [
+        "character:darth-bane"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:darth-krayt": {
+      "type": "character",
+      "label": "Darth Krayt",
+      "aliases": [
+        "Darth Krayt"
+      ],
+      "canonicalNames": [
+        "Darth Krayt"
+      ],
+      "tags": [
+        "character:darth-krayt"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:darth-maul": {
+      "type": "character",
+      "label": "Darth Maul",
+      "aliases": [
+        "Darth Maul"
+      ],
+      "canonicalNames": [
+        "Darth Maul"
+      ],
+      "tags": [
+        "character:darth-maul"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:darth-sidious": {
+      "type": "character",
+      "label": "Darth Sidious",
+      "aliases": [
+        "Darth Sidious"
+      ],
+      "canonicalNames": [
+        "Darth Sidious"
+      ],
+      "tags": [
+        "character:darth-sidious"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:darth-tyranus": {
+      "type": "character",
+      "label": "Darth Tyranus",
+      "aliases": [
+        "Darth Tyranus"
+      ],
+      "canonicalNames": [
+        "Darth Tyranus"
+      ],
+      "tags": [
+        "character:darth-tyranus"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:darth-vader": {
+      "type": "character",
+      "label": "Darth Vader",
+      "aliases": [
+        "Darth Vader"
+      ],
+      "canonicalNames": [
+        "Darth Vader"
+      ],
+      "tags": [
+        "character:darth-vader"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:durge": {
+      "type": "character",
+      "label": "Durge",
+      "aliases": [
+        "Durge"
+      ],
+      "canonicalNames": [
+        "Durge"
+      ],
+      "tags": [
+        "character:durge"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:general-grievous": {
+      "type": "character",
+      "label": "General Grievous",
+      "aliases": [
+        "General Grievous"
+      ],
+      "canonicalNames": [
+        "General Grievous"
+      ],
+      "tags": [
+        "character:general-grievous"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:jacen-solo": {
+      "type": "character",
+      "label": "Jacen Solo",
+      "aliases": [
+        "Jacen Solo"
+      ],
+      "canonicalNames": [
+        "Jacen Solo"
+      ],
+      "tags": [
+        "character:jacen-solo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:jango-fett": {
+      "type": "character",
+      "label": "Jango Fett",
+      "aliases": [
+        "Jango Fett"
+      ],
+      "canonicalNames": [
+        "Jango Fett"
+      ],
+      "tags": [
+        "character:jango-fett"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:jedi-generals": {
+      "type": "character",
+      "label": "Jedi Generals",
+      "aliases": [
+        "Jedi Generals"
+      ],
+      "canonicalNames": [
+        "Jedi Generals"
+      ],
+      "tags": [
+        "character:jedi-generals"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:jedi-knights": {
+      "type": "character",
+      "label": "Jedi Knights",
+      "aliases": [
+        "Jedi Knights"
+      ],
+      "canonicalNames": [
+        "Jedi Knights"
+      ],
+      "tags": [
+        "character:jedi-knights"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:jedi-survivors": {
+      "type": "character",
+      "label": "Jedi Survivors",
+      "aliases": [
+        "Jedi Survivors"
+      ],
+      "canonicalNames": [
+        "Jedi Survivors"
+      ],
+      "tags": [
+        "character:jedi-survivors"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:jorus-cbaoth": {
+      "type": "character",
+      "label": "Jorus Cbaoth",
+      "aliases": [
+        "Jorus Cbaoth"
+      ],
+      "canonicalNames": [
+        "Jorus Cbaoth"
+      ],
+      "tags": [
+        "character:jorus-cbaoth"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:leia-organa": {
+      "type": "character",
+      "label": "Leia Organa",
+      "aliases": [
+        "Leia Organa"
+      ],
+      "canonicalNames": [
+        "Leia Organa"
+      ],
+      "tags": [
+        "character:leia-organa"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:luke-skywalker": {
+      "type": "character",
+      "label": "Luke Skywalker",
+      "aliases": [
+        "Luke Skywalker"
+      ],
+      "canonicalNames": [
+        "Luke Skywalker"
+      ],
+      "tags": [
+        "character:luke-skywalker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:mace-windu": {
+      "type": "character",
+      "label": "Mace Windu",
+      "aliases": [
+        "Mace Windu"
+      ],
+      "canonicalNames": [
+        "Mace Windu"
+      ],
+      "tags": [
+        "character:mace-windu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:mara-jade": {
+      "type": "character",
+      "label": "Mara Jade",
+      "aliases": [
+        "Mara Jade"
+      ],
+      "canonicalNames": [
+        "Mara Jade"
+      ],
+      "tags": [
+        "character:mara-jade"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:mon-mothma": {
+      "type": "character",
+      "label": "Mon Mothma",
+      "aliases": [
+        "Mon Mothma"
+      ],
+      "canonicalNames": [
+        "Mon Mothma"
+      ],
+      "tags": [
+        "character:mon-mothma"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:nute-gunray": {
+      "type": "character",
+      "label": "Nute Gunray",
+      "aliases": [
+        "Nute Gunray"
+      ],
+      "canonicalNames": [
+        "Nute Gunray"
+      ],
+      "tags": [
+        "character:nute-gunray"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:obi-wan-kenobi": {
+      "type": "character",
+      "label": "Obi-Wan Kenobi",
+      "aliases": [
+        "Obi-Wan Kenobi"
+      ],
+      "canonicalNames": [
+        "Obi-Wan Kenobi"
+      ],
+      "tags": [
+        "character:obi-wan-kenobi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:padme-amidala": {
+      "type": "character",
+      "label": "Padme Amidala",
+      "aliases": [
+        "Padme Amidala"
+      ],
+      "canonicalNames": [
+        "Padme Amidala"
+      ],
+      "tags": [
+        "character:padme-amidala"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:palpatine": {
+      "type": "character",
+      "label": "Palpatine",
+      "aliases": [
+        "Palpatine"
+      ],
+      "canonicalNames": [
+        "Palpatine"
+      ],
+      "tags": [
+        "character:palpatine"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:qui-gon-jinn": {
+      "type": "character",
+      "label": "Qui-Gon Jinn",
+      "aliases": [
+        "Qui-Gon Jinn"
+      ],
+      "canonicalNames": [
+        "Qui-Gon Jinn"
+      ],
+      "tags": [
+        "character:qui-gon-jinn"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:quinlan-vos": {
+      "type": "character",
+      "label": "Quinlan Vos",
+      "aliases": [
+        "Quinlan Vos"
+      ],
+      "canonicalNames": [
+        "Quinlan Vos"
+      ],
+      "tags": [
+        "character:quinlan-vos"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:rebel-alliance": {
+      "type": "character",
+      "label": "Rebel Alliance",
+      "aliases": [
+        "Rebel Alliance"
+      ],
+      "canonicalNames": [
+        "Rebel Alliance"
+      ],
+      "tags": [
+        "character:rebel-alliance"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:sifo-dyas": {
+      "type": "character",
+      "label": "Sifo-Dyas",
+      "aliases": [
+        "Sifo-Dyas"
+      ],
+      "canonicalNames": [
+        "Sifo-Dyas"
+      ],
+      "tags": [
+        "character:sifo-dyas"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:thrawn": {
+      "type": "character",
+      "label": "Thrawn",
+      "aliases": [
+        "Thrawn"
+      ],
+      "canonicalNames": [
+        "Thrawn"
+      ],
+      "tags": [
+        "character:thrawn"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:wilhuff-tarkin": {
+      "type": "character",
+      "label": "Wilhuff Tarkin",
+      "aliases": [
+        "Wilhuff Tarkin"
+      ],
+      "canonicalNames": [
+        "Wilhuff Tarkin"
+      ],
+      "tags": [
+        "character:wilhuff-tarkin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "character:yoda": {
+      "type": "character",
+      "label": "Yoda",
+      "aliases": [
+        "Yoda"
+      ],
+      "canonicalNames": [
+        "Yoda"
+      ],
+      "tags": [
+        "character:yoda"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:bounty-hunters": {
+      "type": "faction",
+      "label": "Bounty Hunters",
+      "aliases": [
+        "Bounty Hunters"
+      ],
+      "canonicalNames": [
+        "Bounty Hunters"
+      ],
+      "tags": [
+        "faction:bounty-hunters"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:chiss-ascendancy": {
+      "type": "faction",
+      "label": "Chiss Ascendancy",
+      "aliases": [
+        "Chiss Ascendancy"
+      ],
+      "canonicalNames": [
+        "Chiss Ascendancy"
+      ],
+      "tags": [
+        "faction:chiss-ascendancy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:clone-army": {
+      "type": "faction",
+      "label": "Clone Army",
+      "aliases": [
+        "Clone Army"
+      ],
+      "canonicalNames": [
+        "Clone Army"
+      ],
+      "tags": [
+        "faction:clone-army"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:commerce-guild": {
+      "type": "faction",
+      "label": "Commerce Guild",
+      "aliases": [
+        "Commerce Guild"
+      ],
+      "canonicalNames": [
+        "Commerce Guild"
+      ],
+      "tags": [
+        "faction:commerce-guild"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:confederacy-of-independent-systems": {
+      "type": "faction",
+      "label": "Confederacy of Independent Systems",
+      "aliases": [
+        "Confederacy of Independent Systems"
+      ],
+      "canonicalNames": [
+        "Confederacy of Independent Systems"
+      ],
+      "tags": [
+        "faction:confederacy-of-independent-systems"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:death-watch": {
+      "type": "faction",
+      "label": "Death Watch",
+      "aliases": [
+        "Death Watch"
+      ],
+      "canonicalNames": [
+        "Death Watch"
+      ],
+      "tags": [
+        "faction:death-watch"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:fel-empire": {
+      "type": "faction",
+      "label": "Fel Empire",
+      "aliases": [
+        "Fel Empire"
+      ],
+      "canonicalNames": [
+        "Fel Empire"
+      ],
+      "tags": [
+        "faction:fel-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:galactic-empire": {
+      "type": "faction",
+      "label": "Galactic Empire",
+      "aliases": [
+        "Galactic Empire"
+      ],
+      "canonicalNames": [
+        "Galactic Empire"
+      ],
+      "tags": [
+        "faction:galactic-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:galactic-republic": {
+      "type": "faction",
+      "label": "Galactic Republic",
+      "aliases": [
+        "Galactic Republic"
+      ],
+      "canonicalNames": [
+        "Galactic Republic"
+      ],
+      "tags": [
+        "faction:galactic-republic"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:galactic-senate": {
+      "type": "faction",
+      "label": "Galactic Senate",
+      "aliases": [
+        "Galactic Senate"
+      ],
+      "canonicalNames": [
+        "Galactic Senate"
+      ],
+      "tags": [
+        "faction:galactic-senate"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:imperial-remnant": {
+      "type": "faction",
+      "label": "Imperial Remnant",
+      "aliases": [
+        "Imperial Remnant"
+      ],
+      "canonicalNames": [
+        "Imperial Remnant"
+      ],
+      "tags": [
+        "faction:imperial-remnant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:inquisitors": {
+      "type": "faction",
+      "label": "Inquisitors",
+      "aliases": [
+        "Inquisitors"
+      ],
+      "canonicalNames": [
+        "Inquisitors"
+      ],
+      "tags": [
+        "faction:inquisitors"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:intergalactic-banking-clan": {
+      "type": "faction",
+      "label": "InterGalactic Banking Clan",
+      "aliases": [
+        "InterGalactic Banking Clan"
+      ],
+      "canonicalNames": [
+        "InterGalactic Banking Clan"
+      ],
+      "tags": [
+        "faction:intergalactic-banking-clan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:jedi-order": {
+      "type": "faction",
+      "label": "Jedi Order",
+      "aliases": [
+        "Jedi Order"
+      ],
+      "canonicalNames": [
+        "Jedi Order"
+      ],
+      "tags": [
+        "faction:jedi-order"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:kaminoans": {
+      "type": "faction",
+      "label": "Kaminoans",
+      "aliases": [
+        "Kaminoans"
+      ],
+      "canonicalNames": [
+        "Kaminoans"
+      ],
+      "tags": [
+        "faction:kaminoans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:lars-family": {
+      "type": "faction",
+      "label": "Lars Family",
+      "aliases": [
+        "Lars Family"
+      ],
+      "canonicalNames": [
+        "Lars Family"
+      ],
+      "tags": [
+        "faction:lars-family"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:loyalist-committee": {
+      "type": "faction",
+      "label": "Loyalist Committee",
+      "aliases": [
+        "Loyalist Committee"
+      ],
+      "canonicalNames": [
+        "Loyalist Committee"
+      ],
+      "tags": [
+        "faction:loyalist-committee"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:mandalorians": {
+      "type": "faction",
+      "label": "Mandalorians",
+      "aliases": [
+        "Mandalorians"
+      ],
+      "canonicalNames": [
+        "Mandalorians"
+      ],
+      "tags": [
+        "faction:mandalorians"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:naboo-royal-house": {
+      "type": "faction",
+      "label": "Naboo Royal House",
+      "aliases": [
+        "Naboo Royal House"
+      ],
+      "canonicalNames": [
+        "Naboo Royal House"
+      ],
+      "tags": [
+        "faction:naboo-royal-house"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:new-jedi-order": {
+      "type": "faction",
+      "label": "New Jedi Order",
+      "aliases": [
+        "New Jedi Order"
+      ],
+      "canonicalNames": [
+        "New Jedi Order"
+      ],
+      "tags": [
+        "faction:new-jedi-order"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:new-republic": {
+      "type": "faction",
+      "label": "New Republic",
+      "aliases": [
+        "New Republic"
+      ],
+      "canonicalNames": [
+        "New Republic"
+      ],
+      "tags": [
+        "faction:new-republic"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:organa-family": {
+      "type": "faction",
+      "label": "Organa Family",
+      "aliases": [
+        "Organa Family"
+      ],
+      "canonicalNames": [
+        "Organa Family"
+      ],
+      "tags": [
+        "faction:organa-family"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:rebel-alliance": {
+      "type": "faction",
+      "label": "Rebel Alliance",
+      "aliases": [
+        "Rebel Alliance"
+      ],
+      "canonicalNames": [
+        "Rebel Alliance"
+      ],
+      "tags": [
+        "faction:rebel-alliance"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:republic-navy": {
+      "type": "faction",
+      "label": "Republic Navy",
+      "aliases": [
+        "Republic Navy"
+      ],
+      "canonicalNames": [
+        "Republic Navy"
+      ],
+      "tags": [
+        "faction:republic-navy"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:separatists": {
+      "type": "faction",
+      "label": "Separatists",
+      "aliases": [
+        "Separatists"
+      ],
+      "canonicalNames": [
+        "Separatists"
+      ],
+      "tags": [
+        "faction:separatists"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:sith": {
+      "type": "faction",
+      "label": "Sith",
+      "aliases": [
+        "Sith"
+      ],
+      "canonicalNames": [
+        "Sith"
+      ],
+      "tags": [
+        "faction:sith"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:techno-union": {
+      "type": "faction",
+      "label": "Techno Union",
+      "aliases": [
+        "Techno Union"
+      ],
+      "canonicalNames": [
+        "Techno Union"
+      ],
+      "tags": [
+        "faction:techno-union"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:trade-federation": {
+      "type": "faction",
+      "label": "Trade Federation",
+      "aliases": [
+        "Trade Federation"
+      ],
+      "canonicalNames": [
+        "Trade Federation"
+      ],
+      "tags": [
+        "faction:trade-federation"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "faction:yuuzhan-vong": {
+      "type": "faction",
+      "label": "Yuuzhan Vong",
+      "aliases": [
+        "Yuuzhan Vong"
+      ],
+      "canonicalNames": [
+        "Yuuzhan Vong"
+      ],
+      "tags": [
+        "faction:yuuzhan-vong"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:bacta": {
+      "type": "item",
+      "label": "Bacta",
+      "aliases": [
+        "Bacta"
+      ],
+      "canonicalNames": [
+        "Bacta"
+      ],
+      "tags": [
+        "item:bacta"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:battle-droid": {
+      "type": "item",
+      "label": "Battle Droid",
+      "aliases": [
+        "Battle Droid"
+      ],
+      "canonicalNames": [
+        "Battle Droid"
+      ],
+      "tags": [
+        "item:battle-droid"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:clone-armor": {
+      "type": "item",
+      "label": "Clone Armor",
+      "aliases": [
+        "Clone Armor"
+      ],
+      "canonicalNames": [
+        "Clone Armor"
+      ],
+      "tags": [
+        "item:clone-armor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:cybernetics": {
+      "type": "item",
+      "label": "Cybernetics",
+      "aliases": [
+        "Cybernetics"
+      ],
+      "canonicalNames": [
+        "Cybernetics"
+      ],
+      "tags": [
+        "item:cybernetics"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:droideka": {
+      "type": "item",
+      "label": "Droideka",
+      "aliases": [
+        "Droideka"
+      ],
+      "canonicalNames": [
+        "Droideka"
+      ],
+      "tags": [
+        "item:droideka"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:holonet": {
+      "type": "item",
+      "label": "HoloNet",
+      "aliases": [
+        "HoloNet"
+      ],
+      "canonicalNames": [
+        "HoloNet"
+      ],
+      "tags": [
+        "item:holonet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:invisible-hand": {
+      "type": "item",
+      "label": "Invisible Hand",
+      "aliases": [
+        "Invisible Hand"
+      ],
+      "canonicalNames": [
+        "Invisible Hand"
+      ],
+      "tags": [
+        "item:invisible-hand"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:jedi-archives": {
+      "type": "item",
+      "label": "Jedi Archives",
+      "aliases": [
+        "Jedi Archives"
+      ],
+      "canonicalNames": [
+        "Jedi Archives"
+      ],
+      "tags": [
+        "item:jedi-archives"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:laat-gunship": {
+      "type": "item",
+      "label": "LAAT Gunship",
+      "aliases": [
+        "LAAT Gunship"
+      ],
+      "canonicalNames": [
+        "LAAT Gunship"
+      ],
+      "tags": [
+        "item:laat-gunship"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:lightsaber": {
+      "type": "item",
+      "label": "Lightsaber",
+      "aliases": [
+        "Lightsaber"
+      ],
+      "canonicalNames": [
+        "Lightsaber"
+      ],
+      "tags": [
+        "item:lightsaber"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:order-66-protocol": {
+      "type": "item",
+      "label": "Order 66 Protocol",
+      "aliases": [
+        "Order 66 Protocol"
+      ],
+      "canonicalNames": [
+        "Order 66 Protocol"
+      ],
+      "tags": [
+        "item:order-66-protocol"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:sith-holocron": {
+      "type": "item",
+      "label": "Sith Holocron",
+      "aliases": [
+        "Sith Holocron"
+      ],
+      "canonicalNames": [
+        "Sith Holocron"
+      ],
+      "tags": [
+        "item:sith-holocron"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:super-battle-droid": {
+      "type": "item",
+      "label": "Super Battle Droid",
+      "aliases": [
+        "Super Battle Droid"
+      ],
+      "canonicalNames": [
+        "Super Battle Droid"
+      ],
+      "tags": [
+        "item:super-battle-droid"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "item:venator-class-star-destroyer": {
+      "type": "item",
+      "label": "Venator-class Star Destroyer",
+      "aliases": [
+        "Venator-class Star Destroyer"
+      ],
+      "canonicalNames": [
+        "Venator-class Star Destroyer"
+      ],
+      "tags": [
+        "item:venator-class-star-destroyer"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:alderaan": {
+      "type": "location",
+      "label": "Alderaan",
+      "aliases": [
+        "Alderaan"
+      ],
+      "canonicalNames": [
+        "Alderaan"
+      ],
+      "tags": [
+        "location:alderaan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:coruscant": {
+      "type": "location",
+      "label": "Coruscant",
+      "aliases": [
+        "Coruscant"
+      ],
+      "canonicalNames": [
+        "Coruscant"
+      ],
+      "tags": [
+        "location:coruscant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:dagobah": {
+      "type": "location",
+      "label": "Dagobah",
+      "aliases": [
+        "Dagobah"
+      ],
+      "canonicalNames": [
+        "Dagobah"
+      ],
+      "tags": [
+        "location:dagobah"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:geonosis": {
+      "type": "location",
+      "label": "Geonosis",
+      "aliases": [
+        "Geonosis"
+      ],
+      "canonicalNames": [
+        "Geonosis"
+      ],
+      "tags": [
+        "location:geonosis"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:hypori": {
+      "type": "location",
+      "label": "Hypori",
+      "aliases": [
+        "Hypori"
+      ],
+      "canonicalNames": [
+        "Hypori"
+      ],
+      "tags": [
+        "location:hypori"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:jabiim": {
+      "type": "location",
+      "label": "Jabiim",
+      "aliases": [
+        "Jabiim"
+      ],
+      "canonicalNames": [
+        "Jabiim"
+      ],
+      "tags": [
+        "location:jabiim"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:jedi-temple": {
+      "type": "location",
+      "label": "Jedi Temple",
+      "aliases": [
+        "Jedi Temple"
+      ],
+      "canonicalNames": [
+        "Jedi Temple"
+      ],
+      "tags": [
+        "location:jedi-temple"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:kamino": {
+      "type": "location",
+      "label": "Kamino",
+      "aliases": [
+        "Kamino"
+      ],
+      "canonicalNames": [
+        "Kamino"
+      ],
+      "tags": [
+        "location:kamino"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:mustafar": {
+      "type": "location",
+      "label": "Mustafar",
+      "aliases": [
+        "Mustafar"
+      ],
+      "canonicalNames": [
+        "Mustafar"
+      ],
+      "tags": [
+        "location:mustafar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:muunilinst": {
+      "type": "location",
+      "label": "Muunilinst",
+      "aliases": [
+        "Muunilinst"
+      ],
+      "canonicalNames": [
+        "Muunilinst"
+      ],
+      "tags": [
+        "location:muunilinst"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:naboo": {
+      "type": "location",
+      "label": "Naboo",
+      "aliases": [
+        "Naboo"
+      ],
+      "canonicalNames": [
+        "Naboo"
+      ],
+      "tags": [
+        "location:naboo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:outer-rim": {
+      "type": "location",
+      "label": "Outer Rim",
+      "aliases": [
+        "Outer Rim"
+      ],
+      "canonicalNames": [
+        "Outer Rim"
+      ],
+      "tags": [
+        "location:outer-rim"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:tatooine": {
+      "type": "location",
+      "label": "Tatooine",
+      "aliases": [
+        "Tatooine"
+      ],
+      "canonicalNames": [
+        "Tatooine"
+      ],
+      "tags": [
+        "location:tatooine"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "location:utapau": {
+      "type": "location",
+      "label": "Utapau",
+      "aliases": [
+        "Utapau"
+      ],
+      "canonicalNames": [
+        "Utapau"
+      ],
+      "tags": [
+        "location:utapau"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    }
+  }
+}

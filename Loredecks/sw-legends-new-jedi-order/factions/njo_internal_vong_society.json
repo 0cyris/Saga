@@ -1,0 +1,441 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_domains_compete_inside_vong",
+      "title": "Domains Compete Inside Vong Society",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.war_ends",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 32500,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "New Jedi Order / Yuuzhan Vong War",
+        "phase": "Vector Prime to Unifying Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yuuzhan Vong"
+        ],
+        "locations": [],
+        "topics": [
+          "politics",
+          "religion"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime-to-unifying-force",
+        "character:yuuzhan-vong",
+        "faction:yuuzhan-vong",
+        "topic:politics",
+        "topic:religion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuuzhan Vong"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "politics",
+            "religion"
+          ],
+          "factionsAny": [
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Yuuzhan Vong domains and elites compete for status, favor, and survival inside the invasion structure.",
+        "injection": "In Yuuzhan Vong political scenes, include domain rivalry, caste pressure, prestige competition, and fear of disgrace; do not write the invasion hierarchy as perfectly unified.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: New Jedi Order / Yuuzhan Vong War.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_pain_has_status_meaning",
+      "title": "Pain Has Status Meaning",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.war_ends",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 32500,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "New Jedi Order / Yuuzhan Vong War",
+        "phase": "Vector Prime to Unifying Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yuuzhan Vong"
+        ],
+        "locations": [],
+        "topics": [
+          "religion",
+          "theocracy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime-to-unifying-force",
+        "character:yuuzhan-vong",
+        "faction:yuuzhan-vong",
+        "topic:religion",
+        "topic:theocracy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuuzhan Vong"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "religion",
+            "theocracy"
+          ],
+          "factionsAny": [
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Pain, scars, sacrifice, and bodily alteration carry status and religious meaning in Yuuzhan Vong culture.",
+        "injection": "Do not write Vong pain tolerance as mere toughness; connect it to status, faith, and identity. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: New Jedi Order / Yuuzhan Vong War.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_machines_are_abomination",
+      "title": "Machines Are Abomination",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.war_ends",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 32500,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "New Jedi Order / Yuuzhan Vong War",
+        "phase": "Vector Prime to Unifying Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yuuzhan Vong"
+        ],
+        "locations": [],
+        "topics": [
+          "religion",
+          "biotechnology"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime-to-unifying-force",
+        "character:yuuzhan-vong",
+        "faction:yuuzhan-vong",
+        "topic:religion",
+        "topic:biotechnology"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuuzhan Vong"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "religion",
+            "biotechnology"
+          ],
+          "factionsAny": [
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Yuuzhan Vong ideology treats mechanical technology as profane or abominable.",
+        "injection": "In Vong scenes, show disgust or taboo toward droids/mechanical technology where relevant. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: New Jedi Order / Yuuzhan Vong War.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_shamed_ones_can_destabilize_order",
+      "title": "Shamed Ones Destabilize Order",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.enemy_lines_borleias",
+        "validToAnchor": "sw.njo.ebaQ9",
+        "sortKeyFrom": 26000,
+        "sortKeyTo": 29000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Galactic Alliance transition",
+        "phase": "Galactic Alliance Transition to Turning Point",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yuuzhan Vong"
+        ],
+        "locations": [],
+        "topics": [
+          "religion",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:galactic-alliance-transition-to-turning-point",
+        "character:yuuzhan-vong",
+        "faction:yuuzhan-vong",
+        "topic:religion",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuuzhan Vong"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "religion",
+            "politics"
+          ],
+          "factionsAny": [
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Shamed Ones can become a destabilizing underclass whose suffering and belief shift late-war dynamics.",
+        "injection": "Use Shamed Ones as internal pressure that can matter politically and spiritually, especially late war.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Alliance transition.",
+          "Respect story-position bounds from Borleias Resistance to Battle of Ebaq 9."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

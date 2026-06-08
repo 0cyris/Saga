@@ -6,144 +6,292 @@
 export const HP_LEGACY_LOREDECK_ID = 'hp-golden-trio';
 export const DEFAULT_HP_LOREDECK_ID = 'hp-core';
 export const DEFAULT_HP_LOREDECK_FOLDER_ID = 'folder_harry-potter__golden-trio';
-export const DEFAULT_HP_LOREDECK_UPDATED_AT = 1780617600000;
+export const DEFAULT_HP_LOREDECK_UPDATED_AT = 1780876800000;
 export const DEFAULT_LOTR_LOREDECK_UPDATED_AT = 1780876800000;
 export const DEFAULT_MHA_LOREDECK_UPDATED_AT = 1780876800000;
+export const DEFAULT_STAR_WARS_LEGENDS_LOREDECK_UPDATED_AT = 1780876800000;
 
 const HP_LIBRARY_PATH = Object.freeze(['Harry Potter', 'Golden Trio']);
 const LOTR_LIBRARY_PATH = Object.freeze(['Lord of The Rings', 'War of the Ring']);
 const MHA_LIBRARY_PATH = Object.freeze(['My Hero Academia', 'Manga Main']);
+const STAR_WARS_LEGENDS_LIBRARY_PATH = Object.freeze(['Star Wars', 'Legends']);
 const HP_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
 const LOTR_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
 const MHA_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
+const STAR_WARS_LEGENDS_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
 
 const HP_SPLIT_LOREDECKS = Object.freeze([
     {
-        packId: 'hp-core',
-        title: 'Harry Potter: Core',
-        description: 'Reusable Hogwarts, magical Britain, school-cycle, and world-rule scaffolding for Harry Potter Golden Trio Loredecks.',
-        era: 'Golden Trio Core',
-        familyOrder: 10,
-        tags: ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted', 'scope:core'],
-        stats: {
-            entryCount: 74,
-            categoryCounts: { character: 47, faction: 1, item: 4, knowledge: 9, location: 4, rule: 1, spell: 6, timeline: 2 },
-            timelineAnchorCount: 22,
-            timelineWindowCount: 6,
-        },
+        "packId": "hp-core",
+        "title": "Harry Potter: Core",
+        "description": "Reusable Hogwarts, magical Britain, school-cycle, and world-rule scaffolding for Harry Potter Golden Trio Loredecks.",
+        "era": "Golden Trio Core",
+        "familyOrder": 10,
+        "tags": [
+            "era:golden-trio",
+            "fandom:harry-potter",
+            "quality:human-vetted",
+            "quality:relevance-curated",
+            "scope:core",
+            "structure:split-loredeck"
+        ],
+        "stats": {
+            "entryCount": 79,
+            "categoryCounts": {
+                "character": 47,
+                "faction": 1,
+                "item": 4,
+                "knowledge": 13,
+                "location": 4,
+                "rule": 1,
+                "secret": 1,
+                "spell": 6,
+                "timeline": 2
+            },
+            "timelineAnchorCount": 22,
+            "timelineWindowCount": 6
+        }
     },
     {
-        packId: 'hp-year-1-philosophers-stone',
-        title: "Harry Potter Year 1: Philosopher's Stone",
-        description: "Year 1 Golden Trio Loredeck for Philosopher's Stone, from pre-Hogwarts discovery through the Stone incident aftermath.",
-        era: "Year 1: Philosopher's Stone",
-        familyOrder: 20,
-        tags: ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted', 'school-year:1'],
-        stats: {
-            entryCount: 45,
-            categoryCounts: { character: 15, event: 18, item: 5, knowledge: 3, relationship: 2, timeline: 2 },
-            timelineAnchorCount: 55,
-            timelineWindowCount: 9,
-        },
+        "packId": "hp-year-1-philosophers-stone",
+        "title": "Harry Potter Year 1: Philosopher's Stone",
+        "description": "Year 1 Golden Trio Loredeck for Philosopher's Stone, from pre-Hogwarts discovery through the Stone incident aftermath.",
+        "era": "Year 1: Philosopher's Stone",
+        "familyOrder": 20,
+        "tags": [
+            "era:golden-trio",
+            "fandom:harry-potter",
+            "quality:human-vetted",
+            "quality:relevance-curated",
+            "school-year:1",
+            "structure:split-loredeck"
+        ],
+        "stats": {
+            "entryCount": 49,
+            "categoryCounts": {
+                "character": 15,
+                "event": 18,
+                "item": 6,
+                "knowledge": 5,
+                "relationship": 3,
+                "secret": 1,
+                "timeline": 1
+            },
+            "timelineAnchorCount": 55,
+            "timelineWindowCount": 9
+        }
     },
     {
-        packId: 'hp-year-2-chamber-of-secrets',
-        title: 'Harry Potter Year 2: Chamber of Secrets',
-        description: 'Year 2 Golden Trio Loredeck for Dobby, the Chamber attacks, Polyjuice investigation, and the basilisk climax.',
-        era: 'Year 2: Chamber of Secrets',
-        familyOrder: 30,
-        tags: ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted', 'school-year:2'],
-        stats: {
-            entryCount: 43,
-            categoryCounts: { character: 17, event: 13, item: 1, knowledge: 8, location: 2, spell: 1, timeline: 1 },
-            timelineAnchorCount: 55,
-            timelineWindowCount: 9,
-        },
+        "packId": "hp-year-2-chamber-of-secrets",
+        "title": "Harry Potter Year 2: Chamber of Secrets",
+        "description": "Year 2 Golden Trio Loredeck for Dobby, the Chamber attacks, Polyjuice investigation, and the basilisk climax.",
+        "era": "Year 2: Chamber of Secrets",
+        "familyOrder": 30,
+        "tags": [
+            "era:golden-trio",
+            "fandom:harry-potter",
+            "quality:human-vetted",
+            "quality:relevance-curated",
+            "school-year:2",
+            "structure:split-loredeck"
+        ],
+        "stats": {
+            "entryCount": 47,
+            "categoryCounts": {
+                "character": 17,
+                "event": 13,
+                "item": 1,
+                "knowledge": 10,
+                "location": 2,
+                "secret": 3,
+                "spell": 1
+            },
+            "timelineAnchorCount": 55,
+            "timelineWindowCount": 9
+        }
     },
     {
-        packId: 'hp-year-3-prisoner-of-azkaban',
-        title: 'Harry Potter Year 3: Prisoner of Azkaban',
-        description: 'Year 3 Golden Trio Loredeck for Sirius, Dementors, Hogsmeade, Patronus training, Buckbeak, and the Time-Turner rescue.',
-        era: 'Year 3: Prisoner of Azkaban',
-        familyOrder: 40,
-        tags: ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted', 'school-year:3'],
-        stats: {
-            entryCount: 46,
-            categoryCounts: { character: 14, event: 13, item: 5, knowledge: 6, location: 3, relationship: 1, spell: 3, timeline: 1 },
-            timelineAnchorCount: 55,
-            timelineWindowCount: 9,
-        },
+        "packId": "hp-year-3-prisoner-of-azkaban",
+        "title": "Harry Potter Year 3: Prisoner of Azkaban",
+        "description": "Year 3 Golden Trio Loredeck for Sirius, Dementors, Hogsmeade, Patronus training, Buckbeak, and the Time-Turner rescue.",
+        "era": "Year 3: Prisoner of Azkaban",
+        "familyOrder": 40,
+        "tags": [
+            "era:golden-trio",
+            "fandom:harry-potter",
+            "quality:human-vetted",
+            "quality:relevance-curated",
+            "school-year:3",
+            "structure:split-loredeck"
+        ],
+        "stats": {
+            "entryCount": 50,
+            "categoryCounts": {
+                "character": 14,
+                "event": 13,
+                "item": 5,
+                "knowledge": 7,
+                "location": 3,
+                "relationship": 1,
+                "secret": 3,
+                "spell": 4
+            },
+            "timelineAnchorCount": 55,
+            "timelineWindowCount": 9
+        }
     },
     {
-        packId: 'hp-year-4-goblet-of-fire',
-        title: 'Harry Potter Year 4: Goblet of Fire',
-        description: 'Year 4 Golden Trio Loredeck for the Quidditch World Cup, Triwizard Tournament, graveyard return, and Voldemort aftermath.',
-        era: 'Year 4: Goblet of Fire',
-        familyOrder: 50,
-        tags: ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted', 'school-year:4'],
-        stats: {
-            entryCount: 53,
-            categoryCounts: { character: 17, event: 18, faction: 1, knowledge: 7, location: 2, relationship: 1, spell: 4, timeline: 3 },
-            timelineAnchorCount: 56,
-            timelineWindowCount: 9,
-        },
+        "packId": "hp-year-4-goblet-of-fire",
+        "title": "Harry Potter Year 4: Goblet of Fire",
+        "description": "Year 4 Golden Trio Loredeck for the Quidditch World Cup, Triwizard Tournament, graveyard return, and Voldemort aftermath.",
+        "era": "Year 4: Goblet of Fire",
+        "familyOrder": 50,
+        "tags": [
+            "era:golden-trio",
+            "fandom:harry-potter",
+            "quality:human-vetted",
+            "quality:relevance-curated",
+            "school-year:4",
+            "structure:split-loredeck"
+        ],
+        "stats": {
+            "entryCount": 57,
+            "categoryCounts": {
+                "character": 17,
+                "event": 19,
+                "faction": 2,
+                "knowledge": 7,
+                "location": 2,
+                "relationship": 2,
+                "secret": 2,
+                "spell": 4,
+                "timeline": 2
+            },
+            "timelineAnchorCount": 56,
+            "timelineWindowCount": 9
+        }
     },
     {
-        packId: 'hp-year-5-order-of-the-phoenix',
-        title: 'Harry Potter Year 5: Order of the Phoenix',
-        description: 'Year 5 Golden Trio Loredeck for Ministry denial, Umbridge, Dumbledore’s Army, Occlumency, OWLs, and the Department of Mysteries.',
-        era: 'Year 5: Order of the Phoenix',
-        familyOrder: 60,
-        tags: ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted', 'school-year:5'],
-        stats: {
-            entryCount: 53,
-            categoryCounts: { character: 20, event: 11, faction: 7, knowledge: 6, location: 4, spell: 2, timeline: 3 },
-            timelineAnchorCount: 55,
-            timelineWindowCount: 10,
-        },
+        "packId": "hp-year-5-order-of-the-phoenix",
+        "title": "Harry Potter Year 5: Order of the Phoenix",
+        "description": "Year 5 Golden Trio Loredeck for Ministry denial, Umbridge, Dumbledore’s Army, Occlumency, OWLs, and the Department of Mysteries.",
+        "era": "Year 5: Order of the Phoenix",
+        "familyOrder": 60,
+        "tags": [
+            "era:golden-trio",
+            "fandom:harry-potter",
+            "quality:human-vetted",
+            "quality:relevance-curated",
+            "school-year:5",
+            "structure:split-loredeck"
+        ],
+        "stats": {
+            "entryCount": 58,
+            "categoryCounts": {
+                "character": 21,
+                "event": 11,
+                "faction": 8,
+                "knowledge": 7,
+                "location": 4,
+                "rule": 1,
+                "secret": 1,
+                "spell": 3,
+                "timeline": 2
+            },
+            "timelineAnchorCount": 55,
+            "timelineWindowCount": 10
+        }
     },
     {
-        packId: 'hp-year-6-half-blood-prince',
-        title: 'Harry Potter Year 6: Half-Blood Prince',
-        description: 'Year 6 Golden Trio Loredeck for Slughorn, the Prince book, Draco suspicion, Apparition lessons, Horcrux memory, Sectumsempra, and the Tower crisis.',
-        era: 'Year 6: Half-Blood Prince',
-        familyOrder: 70,
-        tags: ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted', 'school-year:6'],
-        stats: {
-            entryCount: 53,
-            categoryCounts: { character: 18, event: 14, faction: 2, item: 3, knowledge: 8, location: 1, relationship: 2, spell: 2, timeline: 3 },
-            timelineAnchorCount: 57,
-            timelineWindowCount: 15,
-        },
+        "packId": "hp-year-6-half-blood-prince",
+        "title": "Harry Potter Year 6: Half-Blood Prince",
+        "description": "Year 6 Golden Trio Loredeck for Slughorn, the Prince book, Draco suspicion, Apparition lessons, Horcrux memory, Sectumsempra, and the Tower crisis.",
+        "era": "Year 6: Half-Blood Prince",
+        "familyOrder": 70,
+        "tags": [
+            "era:golden-trio",
+            "fandom:harry-potter",
+            "quality:human-vetted",
+            "quality:relevance-curated",
+            "school-year:6",
+            "structure:split-loredeck"
+        ],
+        "stats": {
+            "entryCount": 59,
+            "categoryCounts": {
+                "character": 19,
+                "event": 13,
+                "faction": 2,
+                "item": 3,
+                "knowledge": 13,
+                "location": 1,
+                "relationship": 2,
+                "secret": 2,
+                "spell": 2,
+                "timeline": 2
+            },
+            "timelineAnchorCount": 57,
+            "timelineWindowCount": 15
+        }
     },
     {
-        packId: 'hp-year-7-deathly-hallows',
-        title: 'Harry Potter Year 7: Deathly Hallows',
-        description: 'Year 7 Golden Trio Loredeck for the Seven Potters, Horcrux hunt, Hallows, Malfoy Manor, Shell Cottage, Gringotts, Hogwarts return, and Battle of Hogwarts.',
-        era: 'Year 7: Deathly Hallows',
-        familyOrder: 80,
-        tags: ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted', 'school-year:7'],
-        stats: {
-            entryCount: 63,
-            categoryCounts: { character: 29, event: 16, item: 4, knowledge: 5, location: 3, relationship: 2, timeline: 4 },
-            timelineAnchorCount: 70,
-            timelineWindowCount: 18,
-        },
+        "packId": "hp-year-7-deathly-hallows",
+        "title": "Harry Potter Year 7: Deathly Hallows",
+        "description": "Year 7 Golden Trio Loredeck for the Seven Potters, Horcrux hunt, Hallows, Malfoy Manor, Shell Cottage, Gringotts, Hogwarts return, and Battle of Hogwarts.",
+        "era": "Year 7: Deathly Hallows",
+        "familyOrder": 80,
+        "tags": [
+            "era:golden-trio",
+            "fandom:harry-potter",
+            "quality:human-vetted",
+            "quality:relevance-curated",
+            "school-year:7",
+            "structure:split-loredeck"
+        ],
+        "stats": {
+            "entryCount": 70,
+            "categoryCounts": {
+                "character": 30,
+                "event": 16,
+                "faction": 1,
+                "item": 5,
+                "knowledge": 7,
+                "location": 3,
+                "relationship": 3,
+                "secret": 2,
+                "timeline": 3
+            },
+            "timelineAnchorCount": 70,
+            "timelineWindowCount": 18
+        }
     },
     {
-        packId: 'hp-epilogue-post-war',
-        title: 'Harry Potter: Post-War Years & Epilogue',
-        description: 'Post-war Golden Trio Loredeck for wizarding reconstruction, Ministry reforms, Harry as an Auror, the 2014 Quidditch World Cup, and the 2017 new-generation platform scene.',
-        era: 'Post-War Years & Epilogue',
-        familyOrder: 90,
-        tags: ['fandom:harry-potter', 'era:golden-trio', 'structure:split-loredeck', 'quality:human-vetted', 'scope:post-war', 'era:post-war'],
-        stats: {
-            entryCount: 5,
-            categoryCounts: { event: 3, location: 1, timeline: 1 },
-            timelineAnchorCount: 29,
-            timelineWindowCount: 7,
-        },
-    },
+        "packId": "hp-epilogue-post-war",
+        "title": "Harry Potter: Post-War Years & Epilogue",
+        "description": "Post-war Golden Trio Loredeck for wizarding reconstruction, Ministry reforms, Harry as an Auror, the 2014 Quidditch World Cup, and the 2017 new-generation platform scene.",
+        "era": "Post-War Years & Epilogue",
+        "familyOrder": 90,
+        "tags": [
+            "era:golden-trio",
+            "era:post-war",
+            "fandom:harry-potter",
+            "quality:human-vetted",
+            "quality:relevance-curated",
+            "scope:post-war",
+            "structure:split-loredeck"
+        ],
+        "stats": {
+            "entryCount": 7,
+            "categoryCounts": {
+                "event": 3,
+                "knowledge": 1,
+                "location": 1,
+                "timeline": 2
+            },
+            "timelineAnchorCount": 29,
+            "timelineWindowCount": 7
+        }
+    }
 ]);
 
 const LOTR_SPLIT_LOREDECKS = Object.freeze([
@@ -542,10 +690,175 @@ const MHA_SPLIT_LOREDECKS = Object.freeze([
     },
 ]);
 
+const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
+    {
+        packId: 'sw-legends-core',
+        title: 'Star Wars Legends: Core',
+        description: 'Reusable Star Wars Legends foundation lore: continuity boundaries, Force rules, major factions, galaxy structure, technology, species/culture constraints, and spoiler-safe baseline guards for Saga Loredeck stacks.',
+        era: 'Legends Core',
+        familyOrder: 10,
+        tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:core', 'density:core-expanded'],
+        stats: {
+            entryCount: 108,
+            categoryCounts: { character: 5, faction: 28, item: 13, knowledge: 13, location: 11, relationship: 2, rule: 32, secret: 4 },
+            timelineAnchorCount: 17,
+            timelineWindowCount: 15,
+            tagCount: 144,
+            entityCount: 49,
+            timelinePhaseCount: 6,
+        },
+    },
+    {
+        packId: 'sw-legends-film-spine',
+        title: 'Star Wars Legends: Film Spine',
+        description: 'Expanded Episode I-VI anchor deck for Legends-compatible story-position gates, especially before/after movie and major-event windows.',
+        era: 'Film Spine: Episodes I-VI',
+        familyOrder: 20,
+        tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:film-spine'],
+        stats: {
+            entryCount: 123,
+            categoryCounts: { character: 18, event: 25, faction: 10, item: 5, knowledge: 12, location: 5, relationship: 10, rule: 9, secret: 26, timeline: 3 },
+            timelineAnchorCount: 40,
+            timelineWindowCount: 17,
+            timelinePhaseCount: 5,
+            tagCount: 112,
+            entityCount: 57,
+        },
+    },
+    {
+        packId: 'sw-legends-old-republic',
+        title: 'Star Wars Legends: Old Republic',
+        description: 'Legends Old Republic deck covering ancient Sith/Jedi foundations, Tales of the Jedi context, Mandalorian Wars, KOTOR, KOTOR II, SWTOR-era conflicts, and late Old Republic spoiler guards.',
+        era: 'Old Republic: ancient Sith through SWTOR and late pre-Ruusan transition',
+        familyOrder: 30,
+        tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:old-republic'],
+        stats: {
+            entryCount: 106,
+            categoryCounts: { character: 20, event: 14, faction: 16, item: 8, knowledge: 10, location: 14, relationship: 2, rule: 16, secret: 5, timeline: 1 },
+            timelineAnchorCount: 22,
+            timelineWindowCount: 11,
+            tagCount: 353,
+            entityCount: 73,
+            timelinePhaseCount: 3,
+        },
+    },
+    {
+        packId: 'sw-legends-rise-of-empire',
+        title: 'Star Wars Legends: Rise of Empire',
+        description: 'Legends late-Republic and Clone Wars deck covering the Naboo crisis, Separatist crisis, Clone Wars multimedia-era state, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation.',
+        era: 'Rise of Empire: late Republic, Clone Wars, Order 66, and early Empire',
+        familyOrder: 40,
+        tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:rise-of-empire'],
+        stats: {
+            entryCount: 155,
+            categoryCounts: { character: 36, event: 8, faction: 30, item: 14, knowledge: 17, location: 15, relationship: 2, rule: 4, secret: 28, timeline: 1 },
+            tagCount: 388,
+            entityCount: 100,
+            timelineAnchorCount: 25,
+            timelineWindowCount: 15,
+            timelinePhaseCount: 1,
+        },
+    },
+    {
+        packId: 'sw-legends-rebellion-era',
+        title: 'Star Wars Legends: Rebellion Era',
+        description: 'Legends-compatible Galactic Civil War era deck focused on Original Trilogy story state, Rebel/Imperial pressure, ESB-to-ROTJ windows, Shadows-adjacent Legends support, and spoiler-safe future guards.',
+        era: 'Rebellion Era: Original Trilogy',
+        familyOrder: 50,
+        tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era'],
+        stats: {
+            entryCount: 148,
+            categoryCounts: { character: 46, event: 25, faction: 13, item: 16, knowledge: 16, location: 10, relationship: 10, rule: 4, secret: 8 },
+            timelineAnchorCount: 30,
+            timelineWindowCount: 15,
+            tagCount: 145,
+            entityCount: 47,
+            timelinePhaseCount: 5,
+        },
+    },
+    {
+        packId: 'sw-legends-new-republic',
+        title: 'Star Wars Legends: New Republic',
+        description: 'Post-Endor Legends deck covering the New Republic, Imperial Remnant, Thrawn campaign, Dark Empire, Jedi Academy, Hand of Thrawn, and pre-NJO spoiler guards.',
+        era: 'New Republic: Post-Endor through Hand of Thrawn',
+        familyOrder: 60,
+        tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:new-republic'],
+        stats: {
+            entryCount: 143,
+            categoryCounts: { character: 31, event: 14, faction: 22, item: 18, knowledge: 12, location: 15, relationship: 9, rule: 16, secret: 5, timeline: 1 },
+            timelineAnchorCount: 29,
+            timelineWindowCount: 17,
+            tagCount: 142,
+            entityCount: 82,
+            timelinePhaseCount: 7,
+        },
+    },
+    {
+        packId: 'sw-legends-new-jedi-order',
+        title: 'Star Wars Legends: New Jedi Order',
+        description: 'Legends New Jedi Order deck covering the Yuuzhan Vong War from Vector Prime through The Unifying Force, including Jedi crisis, Vong biotechnology, Coruscant fall, Galactic Alliance transition, and spoiler guards.',
+        era: 'New Jedi Order / Yuuzhan Vong War',
+        familyOrder: 70,
+        tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:njo'],
+        stats: {
+            entryCount: 141,
+            categoryCounts: { character: 20, event: 21, faction: 14, item: 16, knowledge: 39, location: 10, relationship: 8, rule: 13 },
+            timelineAnchorCount: 22,
+            timelineWindowCount: 18,
+            tagCount: 108,
+            entityCount: 61,
+            timelinePhaseCount: 8,
+        },
+    },
+    {
+        packId: 'sw-legends-late-post-endor',
+        title: 'Star Wars Legends: Late Post-Endor',
+        description: 'Late post-Endor Legends deck covering Dark Nest, Legacy of the Force, Fate of the Jedi, Abeloth/Lost Tribe material, Caedus-era family rupture, and Crucible-era transition guards.',
+        era: 'Late Post-Endor / Dark Nest to Crucible',
+        familyOrder: 80,
+        tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:late-post-endor'],
+        stats: {
+            entryCount: 139,
+            categoryCounts: { character: 27, event: 31, faction: 14, item: 2, knowledge: 20, location: 6, relationship: 12, rule: 16, secret: 1, timeline: 10 },
+            timelineAnchorCount: 25,
+            timelineWindowCount: 20,
+            tagCount: 108,
+            entityCount: 53,
+            timelinePhaseCount: 9,
+        },
+    },
+    {
+        packId: 'sw-legends-legacy-comics',
+        title: 'Star Wars Legends: Legacy Comics',
+        description: "Far-future Legends deck covering Star Wars: Legacy volume 1 and volume 2: Cade Skywalker, Darth Krayt's One Sith, Fel Imperial schism, Galactic Alliance Remnant, Jedi survivors, Imperial Knights, and Ania Solo-era fallout.",
+        era: 'Legacy Comics / Far-Future Legends',
+        familyOrder: 90,
+        tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:legacy-comics'],
+        stats: {
+            entryCount: 144,
+            categoryCounts: { character: 30, event: 32, faction: 12, item: 6, knowledge: 29, location: 8, relationship: 10, rule: 9, secret: 2, timeline: 6 },
+            timelineAnchorCount: 29,
+            timelineWindowCount: 16,
+            tagCount: 263,
+            entityCount: 75,
+            timelinePhaseCount: 2,
+        },
+    },
+]);
+
 function buildBundledLoredeckRecord(deck, options = {}) {
     const libraryPath = options.libraryPath || [];
     const updatedAt = Number.isFinite(Number(options.updatedAt)) ? Number(options.updatedAt) : 0;
-    return Object.freeze({
+    const fallbackAssets = options.defaultAssets === false
+        ? null
+        : {
+            cover: {
+                path: 'assets/cover.png',
+                alt: `${deck.title} Loredeck cover`,
+            },
+        };
+    const assets = deck.assets || fallbackAssets;
+    const record = {
         packId: deck.packId,
         type: 'bundled',
         title: deck.title,
@@ -562,22 +875,20 @@ function buildBundledLoredeckRecord(deck, options = {}) {
             suggestedPath: libraryPath,
             familyOrder: deck.familyOrder,
         },
-        assets: deck.assets || {
-            cover: {
-                path: 'assets/cover.png',
-                alt: `${deck.title} Loredeck cover`,
-            },
-        },
         stats: deck.stats,
         installedAt: updatedAt,
         updatedAt,
-    });
+    };
+    if (assets && typeof assets === 'object' && !Array.isArray(assets) && Object.keys(assets).length) {
+        record.assets = assets;
+    }
+    return Object.freeze(record);
 }
 
 function buildHpLoredeckRecord(deck) {
     return buildBundledLoredeckRecord(deck, {
         fandom: 'Harry Potter',
-        version: '0.1.0',
+        version: '0.2.0',
         source: HP_SOURCE,
         libraryPath: HP_LIBRARY_PATH,
         updatedAt: DEFAULT_HP_LOREDECK_UPDATED_AT,
@@ -601,6 +912,17 @@ function buildMhaLoredeckRecord(deck) {
         source: MHA_SOURCE,
         libraryPath: MHA_LIBRARY_PATH,
         updatedAt: DEFAULT_MHA_LOREDECK_UPDATED_AT,
+    });
+}
+
+function buildStarWarsLegendsLoredeckRecord(deck) {
+    return buildBundledLoredeckRecord(deck, {
+        fandom: 'Star Wars',
+        version: '1.1.0-dev',
+        source: STAR_WARS_LEGENDS_SOURCE,
+        libraryPath: STAR_WARS_LEGENDS_LIBRARY_PATH,
+        updatedAt: DEFAULT_STAR_WARS_LEGENDS_LOREDECK_UPDATED_AT,
+        defaultAssets: false,
     });
 }
 
@@ -648,6 +970,10 @@ function buildMhaLoredeckContext(deck) {
     return buildLoredeckContext(deck, 'anchor_window');
 }
 
+function buildStarWarsLegendsLoredeckContext(deck) {
+    return buildLoredeckContext(deck, 'anchor_window');
+}
+
 export const DEFAULT_HP_LOREDECK_LIBRARY_RECORDS = Object.freeze(HP_SPLIT_LOREDECKS.map(buildHpLoredeckRecord));
 export const DEFAULT_HP_LOREDECK_LIBRARY_PACKS = Object.freeze(Object.fromEntries(
     DEFAULT_HP_LOREDECK_LIBRARY_RECORDS.map(record => [record.packId, record])
@@ -673,31 +999,44 @@ export const DEFAULT_MHA_LOREDECK_CONTEXTS = Object.freeze(Object.fromEntries(
     MHA_SPLIT_LOREDECKS.map(deck => [deck.packId, buildMhaLoredeckContext(deck)])
 ));
 export const DEFAULT_MHA_LOREDECK_IDS = Object.freeze(MHA_SPLIT_LOREDECKS.map(deck => deck.packId));
+export const DEFAULT_STAR_WARS_LEGENDS_LOREDECK_LIBRARY_RECORDS = Object.freeze(STAR_WARS_LEGENDS_LOREDECKS.map(buildStarWarsLegendsLoredeckRecord));
+export const DEFAULT_STAR_WARS_LEGENDS_LOREDECK_LIBRARY_PACKS = Object.freeze(Object.fromEntries(
+    DEFAULT_STAR_WARS_LEGENDS_LOREDECK_LIBRARY_RECORDS.map(record => [record.packId, record])
+));
+export const DEFAULT_STAR_WARS_LEGENDS_LOREDECK_CONTEXTS = Object.freeze(Object.fromEntries(
+    STAR_WARS_LEGENDS_LOREDECKS.map(deck => [deck.packId, buildStarWarsLegendsLoredeckContext(deck)])
+));
+export const DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS = Object.freeze(STAR_WARS_LEGENDS_LOREDECKS.map(deck => deck.packId));
 export const DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORDS = Object.freeze([
     ...DEFAULT_HP_LOREDECK_LIBRARY_RECORDS,
     ...DEFAULT_LOTR_LOREDECK_LIBRARY_RECORDS,
     ...DEFAULT_MHA_LOREDECK_LIBRARY_RECORDS,
+    ...DEFAULT_STAR_WARS_LEGENDS_LOREDECK_LIBRARY_RECORDS,
 ]);
 export const DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS = Object.freeze({
     ...DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
     ...DEFAULT_LOTR_LOREDECK_LIBRARY_PACKS,
     ...DEFAULT_MHA_LOREDECK_LIBRARY_PACKS,
+    ...DEFAULT_STAR_WARS_LEGENDS_LOREDECK_LIBRARY_PACKS,
 });
 export const DEFAULT_BUNDLED_LOREDECK_CONTEXTS = Object.freeze({
     ...DEFAULT_HP_LOREDECK_CONTEXTS,
     ...DEFAULT_LOTR_LOREDECK_CONTEXTS,
     ...DEFAULT_MHA_LOREDECK_CONTEXTS,
+    ...DEFAULT_STAR_WARS_LEGENDS_LOREDECK_CONTEXTS,
 });
 export const DEFAULT_BUNDLED_LOREDECK_IDS = Object.freeze([
     ...DEFAULT_HP_LOREDECK_IDS,
     ...DEFAULT_LOTR_LOREDECK_IDS,
     ...DEFAULT_MHA_LOREDECK_IDS,
+    ...DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS,
 ]);
 
 const DEFAULT_LOREDECK_CONTEXT_TYPES = Object.freeze({
     ...Object.fromEntries(DEFAULT_HP_LOREDECK_IDS.map(id => [id, 'calendar'])),
     ...Object.fromEntries(DEFAULT_LOTR_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
     ...Object.fromEntries(DEFAULT_MHA_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
+    ...Object.fromEntries(DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
 });
 
 export function isDefaultHarryPotterLoredeckId(packId = '') {
@@ -710,6 +1049,10 @@ export function isDefaultLordOfTheRingsLoredeckId(packId = '') {
 
 export function isDefaultMyHeroAcademiaLoredeckId(packId = '') {
     return DEFAULT_MHA_LOREDECK_IDS.includes(String(packId || '').trim());
+}
+
+export function isDefaultStarWarsLegendsLoredeckId(packId = '') {
+    return DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS.includes(String(packId || '').trim());
 }
 
 export function isDefaultBundledLoredeckId(packId = '') {

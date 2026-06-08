@@ -1,0 +1,717 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy_far_future_lineage_weight_rule",
+      "title": "Far-Future Lineage Weight Rule",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.pre_war_recovery",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Legacy Comics full far-future era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Cade Skywalker",
+          "Ania Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "lineage",
+          "characterization"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "category:rule",
+        "character:ania-solo",
+        "character:cade-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:characterization",
+        "topic:lineage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Cade Skywalker",
+            "Ania Solo"
+          ],
+          "topicsAny": [
+            "lineage",
+            "characterization"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Skywalker and Solo names carry mythic weight, but far-future descendants have their own lives, flaws, and social positions.",
+        "injection": "Use famous lineage as pressure and symbolism, not as an automatic personality template. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Comics full far-future era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Comics full far-future era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy_legacy_tone_gritty_rule",
+      "title": "Legacy Gritty Tone Rule",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "low",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.pre_war_recovery",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Legacy Comics full far-future era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Cade Skywalker",
+          "Ania Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "tone",
+          "scene constraint"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "One Sith",
+          "Galactic Alliance Remnant"
+        ]
+      },
+      "tags": [
+        "category:rule",
+        "character:ania-solo",
+        "character:cade-skywalker",
+        "continuity:legends",
+        "faction:galactic-alliance-remnant",
+        "faction:one-sith",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:scene-constraint",
+        "topic:tone"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Cade Skywalker",
+            "Ania Solo"
+          ],
+          "topicsAny": [
+            "tone",
+            "scene constraint"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "One Sith",
+            "Galactic Alliance Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Legacy comics often lean into a grittier far-future tone of occupation, outlaw survival, Sith rule, and fractured institutions.",
+        "injection": "For Legacy scenes, favor fractured institutions and hard choices over clean film-era adventure unless the scene calls for relief.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Comics full far-future era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Comics full far-future era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy_force_orders_are_plural",
+      "title": "Force Orders Are Plural",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.pre_war_recovery",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Legacy Comics full far-future era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Cade Skywalker",
+          "Darth Krayt",
+          "Jao Assam"
+        ],
+        "locations": [],
+        "topics": [
+          "force orders"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "One Sith",
+          "Imperial Knights"
+        ]
+      },
+      "tags": [
+        "category:rule",
+        "character:cade-skywalker",
+        "character:darth-krayt",
+        "character:jao-assam",
+        "continuity:legends",
+        "faction:imperial-knights",
+        "faction:jedi-order",
+        "faction:one-sith",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:force-orders"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Cade Skywalker",
+            "Darth Krayt",
+            "Jao Assam"
+          ],
+          "topicsAny": [
+            "force orders"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "One Sith",
+            "Imperial Knights"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Legacy scenes may involve Jedi, Sith, and Imperial Knights simultaneously, each with distinct doctrine and command structure.",
+        "injection": "Do not collapse all Force-users into Jedi/Sith binary if Imperial Knights are active. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Comics full far-future era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Comics full far-future era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy_empire_can_be_anti_sith",
+      "title": "Empire Can Be Anti-Sith",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.pre_war_recovery",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Legacy Comics full far-future era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Roan Fel",
+          "Marasiah Fel"
+        ],
+        "locations": [],
+        "topics": [
+          "empire",
+          "faction"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Fel Loyalists",
+          "Sith Empire",
+          "Imperial Knights"
+        ]
+      },
+      "tags": [
+        "category:rule",
+        "character:marasiah-fel",
+        "character:roan-fel",
+        "continuity:legends",
+        "faction:fel-loyalists",
+        "faction:imperial-knights",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:empire",
+        "topic:faction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Roan Fel",
+            "Marasiah Fel"
+          ],
+          "topicsAny": [
+            "empire",
+            "faction"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Fel Loyalists",
+            "Sith Empire",
+            "Imperial Knights"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Legacy, some Imperial factions are anti-Sith, especially Fel loyalists and Imperial Knights.",
+        "injection": "Do not assume “Imperial” means Sith loyalist; resolve Fel/Sith alignment first. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Comics full far-future era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Comics full far-future era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy_cade_not_default_jedi_voice",
+      "title": "Cade Not Default Jedi Voice",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.cade_outlaw_years",
+        "validToAnchor": "sw.legacy.cade_korriban_escape",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 4300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy opening / Broken",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Cade Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "voice",
+          "characterization"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Underworld",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "category:rule",
+        "character:cade-skywalker",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:underworld",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:characterization",
+        "topic:voice"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Cade Skywalker"
+          ],
+          "topicsAny": [
+            "voice",
+            "characterization"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Underworld",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Cade’s dialogue and choices should reflect outlaw cynicism and trauma before Jedi duty fully reasserts itself.",
+        "injection": "In early and mid Legacy, write Cade Skywalker as wounded, evasive, cynical, and resistant to Jedi expectations; do not default him to serene Jedi Master diction.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy opening / Broken.",
+          "Respect story-position bounds from Cade's Outlaw Years to Cade Escapes Korriban."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy opening / Broken",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy_sith_are_political_and_personal",
+      "title": "Sith Threat Is Political and Personal",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.krayt_reign_opening",
+        "validToAnchor": "sw.legacy.krayt_apparent_death",
+        "sortKeyFrom": 3600,
+        "sortKeyTo": 5150,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Darth Krayt's reign",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Krayt",
+          "Cade Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "sith",
+          "stakes"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "One Sith",
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "category:rule",
+        "character:cade-skywalker",
+        "character:darth-krayt",
+        "continuity:legends",
+        "faction:one-sith",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:sith",
+        "topic:stakes"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Krayt",
+            "Cade Skywalker"
+          ],
+          "topicsAny": [
+            "sith",
+            "stakes"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "One Sith",
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The One Sith threaten both galactic institutions and individual identity, especially Cade’s lineage and Krayt’s body/ideology.",
+        "injection": "Balance Sith empire-scale politics with intimate temptation, injury, and identity pressure.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Darth Krayt's reign.",
+          "Respect story-position bounds from Darth Krayt's Sith Empire Reign to Darth Krayt's Apparent Death."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Darth Krayt's reign",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy_legacy2_smaller_camera_rule",
+      "title": "Legacy II Smaller Camera Rule",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.ania_solo_opening",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy Volume 2 / Ania Solo era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ania Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "scene scale",
+          "legacy volume 2"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "category:rule",
+        "character:ania-solo",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:legacy-volume-2",
+        "topic:scene-scale"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ania Solo"
+          ],
+          "topicsAny": [
+            "scene scale",
+            "legacy volume 2"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Legacy II often starts from Ania Solo’s smaller camera before escalating into Imperial Knight and Sith-remnant stakes.",
+        "injection": "In Legacy II Context, begin with grounded local survival unless the selected anchor is already late-war escalation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Volume 2 / Ania Solo era.",
+          "Respect story-position bounds from Ania Solo Era Opens to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Volume 2 / Ania Solo era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

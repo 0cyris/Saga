@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.y5.privet_drive_isolation",
         "validToAnchor": "hp.y5.dementor_attack_little_whinging",
         "sortKeyFrom": 9344,
-        "sortKeyTo": 9347,
+        "sortKeyTo": 9350,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -68,7 +68,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -91,8 +91,14 @@
       },
       "content": {
         "fact": "Dementors attack Harry and Dudley in Little Whinging, forcing Harry to use a Patronus and triggering his Ministry hearing.",
-        "injection": "Dementors attack Harry and Dudley in Little Whinging, forcing Harry to use a Patronus and triggering his Ministry hearing.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Dementors attack Harry and Dudley in Little Whinging, forcing Harry to use a Patronus and triggering his Ministry hearing. Keep this bounded to Order of the Phoenix: Year 5; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -123,7 +129,18 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5",
+        "spell:patronus"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -132,7 +149,7 @@
       "kind": "place_fact",
       "gateType": "place_fact",
       "category": "location",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "location_state",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -140,7 +157,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -149,8 +166,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.privet_drive_isolation",
         "validToAnchor": "hp.y5.patronus_underage_magic_charge",
-        "sortKeyFrom": 9348,
-        "sortKeyTo": 9353,
+        "sortKeyFrom": 9344,
+        "sortKeyTo": 9356,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -215,8 +232,16 @@
       },
       "content": {
         "fact": "After reaching Grimmauld Place, Harry joins the Order household and spends days amid tense housecleaning, family conflict, and restricted war information.",
-        "injection": "After reaching Grimmauld Place, Harry joins the Order household and spends days amid tense housecleaning, family conflict, and restricted war information.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "After reaching Grimmauld Place, Harry joins the Order household and spends days amid tense housecleaning, family conflict, and restricted war information. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -247,7 +272,18 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:sirius-black",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -256,7 +292,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -264,7 +300,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -273,8 +309,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.dementor_attack_little_whinging",
         "validToAnchor": "hp.y5.order_rescue",
-        "sortKeyFrom": 9354,
-        "sortKeyTo": 9361,
+        "sortKeyFrom": 9350,
+        "sortKeyTo": 9362,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -339,8 +375,16 @@
       },
       "content": {
         "fact": "Harry’s disciplinary hearing is moved earlier and relocated to a more intimidating court, but Dumbledore’s defense helps secure his acquittal.",
-        "injection": "Harry’s disciplinary hearing is moved earlier and relocated to a more intimidating court, but Dumbledore’s defense helps secure his acquittal.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry’s disciplinary hearing is moved earlier and relocated to a more intimidating court, but Dumbledore’s defense helps secure his acquittal. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -371,7 +415,18 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:albus-dumbledore",
+        "character:dolores-umbridge",
+        "character:harry-potter",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -397,8 +452,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.grimmauld_arrival",
         "validToAnchor": "hp.y5.order_headquarters_context",
-        "sortKeyFrom": 9373,
-        "sortKeyTo": 9375,
+        "sortKeyFrom": 9368,
+        "sortKeyTo": 9380,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -437,7 +492,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -461,8 +516,14 @@
       },
       "content": {
         "fact": "Ron and Hermione receive prefect badges as the Ministry creates the mechanism for appointing teachers through Educational Decree 22.",
-        "injection": "Ron and Hermione receive prefect badges as the Ministry creates the mechanism for appointing teachers through Educational Decree 22.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Ron and Hermione receive prefect badges as the Ministry creates the mechanism for appointing teachers through Educational Decree 22. Keep this bounded to Order of the Phoenix: Year 5; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -493,7 +554,18 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:dolores-umbridge",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -519,7 +591,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.order_headquarters_context",
-        "sortKeyFrom": 9376,
+        "sortKeyFrom": 9374,
         "sortKeyTo": 9380,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -561,7 +633,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -584,8 +656,14 @@
       },
       "content": {
         "fact": "Umbridge’s early DADA conflict with Harry leads to repeated detentions using a blood quill, marking her abuse of authority.",
-        "injection": "Umbridge’s early DADA conflict with Harry leads to repeated detentions using a blood quill, marking her abuse of authority.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Umbridge’s early DADA conflict with Harry leads to repeated detentions using a blood quill, marking her abuse of authority. Keep this bounded to Order of the Phoenix: Year 5; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -616,7 +694,18 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:dolores-umbridge",
+        "character:harry-potter",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -642,8 +731,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.order_headquarters_context",
         "validToAnchor": "hp.y5.ministry_hearing",
-        "sortKeyFrom": 9381,
-        "sortKeyTo": 9388,
+        "sortKeyFrom": 9380,
+        "sortKeyTo": 9392,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -680,7 +769,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -702,8 +791,14 @@
       },
       "content": {
         "fact": "Educational Decree 23 makes Umbridge Hogwarts High Inquisitor, giving her formal inspection authority over teachers and classes.",
-        "injection": "Educational Decree 23 makes Umbridge Hogwarts High Inquisitor, giving her formal inspection authority over teachers and classes.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Educational Decree 23 makes Umbridge Hogwarts High Inquisitor, giving her formal inspection authority over teachers and classes. Keep this bounded to Order of the Phoenix: Year 5; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -734,7 +829,16 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:dolores-umbridge",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -743,7 +847,7 @@
       "kind": "skill_band",
       "gateType": "skill_band",
       "category": "event",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -751,7 +855,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -760,7 +864,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.decree_22_umbridge_defense",
         "validToAnchor": "hp.y5.blood_quill_detention_begins",
-        "sortKeyFrom": 9412,
+        "sortKeyFrom": 9410,
         "sortKeyTo": 9435,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -801,8 +905,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -826,8 +930,16 @@
       },
       "content": {
         "fact": "The first practical Dumbledore’s Army meeting begins student-led defensive training outside Umbridge’s approved curriculum.",
-        "injection": "The first practical Dumbledore’s Army meeting begins student-led defensive training outside Umbridge’s approved curriculum.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "The first practical Dumbledore’s Army meeting begins student-led defensive training outside Umbridge’s approved curriculum. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -858,7 +970,21 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:albus-dumbledore",
+        "character:dolores-umbridge",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -867,7 +993,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -875,7 +1001,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -884,8 +1010,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.blood_quill_detention_begins",
         "validToAnchor": "hp.y5.high_inquisitor_decree_23",
-        "sortKeyFrom": 9436,
-        "sortKeyTo": 9443,
+        "sortKeyFrom": 9435,
+        "sortKeyTo": 9447,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -954,8 +1080,16 @@
       },
       "content": {
         "fact": "After the Gryffindor-Slytherin match, Harry, Fred, and George are banned from Quidditch; Hagrid returns with hidden injuries.",
-        "injection": "After the Gryffindor-Slytherin match, Harry, Fred, and George are banned from Quidditch; Hagrid returns with hidden injuries.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "After the Gryffindor-Slytherin match, Harry, Fred, and George are banned from Quidditch; Hagrid returns with hidden injuries. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -986,7 +1120,20 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:dolores-umbridge",
+        "character:fred-weasley",
+        "character:george-weasley",
+        "character:harry-potter",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1012,7 +1159,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.da_progress_patronus_training",
         "validToAnchor": "hp.y5.quidditch_match_and_bans",
-        "sortKeyFrom": 9482,
+        "sortKeyFrom": 9477,
         "sortKeyTo": 9489,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -1055,7 +1202,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -1082,8 +1229,14 @@
       },
       "content": {
         "fact": "Harry dreams from the snake’s perspective as Arthur Weasley is attacked, leading to a Grimmauld return and a Christmas St Mungo’s visit.",
-        "injection": "Harry dreams from the snake’s perspective as Arthur Weasley is attacked, leading to a Grimmauld return and a Christmas St Mungo’s visit.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry dreams from the snake’s perspective as Arthur Weasley is attacked, leading to a Grimmauld return and a Christmas St Mungo’s visit. Keep this bounded to Order of the Phoenix: Year 5; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1114,7 +1267,18 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1123,7 +1287,7 @@
       "kind": "skill_band",
       "gateType": "skill_band",
       "category": "event",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1131,7 +1295,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1141,7 +1305,7 @@
         "validFromAnchor": "hp.y5.neville_parents_revealed",
         "validToAnchor": "hp.y5.firenze_hired",
         "sortKeyFrom": 9508,
-        "sortKeyTo": 9548,
+        "sortKeyTo": 9550,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -1179,8 +1343,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -1202,8 +1366,16 @@
       },
       "content": {
         "fact": "Snape begins Harry’s Occlumency lessons as Death Eaters escape Azkaban and the Ministry’s public narrative begins to strain.",
-        "injection": "Snape begins Harry’s Occlumency lessons as Death Eaters escape Azkaban and the Ministry’s public narrative begins to strain.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Snape begins Harry’s Occlumency lessons as Death Eaters escape Azkaban and the Ministry’s public narrative begins to strain. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1234,7 +1406,21 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "character:severus-snape",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1260,7 +1446,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.trelawney_sacked",
         "validToAnchor": "hp.y5.da_caught",
-        "sortKeyFrom": 9549,
+        "sortKeyFrom": 9544,
         "sortKeyTo": 9556,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -1302,7 +1488,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -1328,8 +1514,14 @@
       },
       "content": {
         "fact": "Harry’s Quibbler interview circulates widely, and Umbridge responds by banning the magazine, which only increases attention on his account.",
-        "injection": "Harry’s Quibbler interview circulates widely, and Umbridge responds by banning the magazine, which only increases attention on his account.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry’s Quibbler interview circulates widely, and Umbridge responds by banning the magazine, which only increases attention on his account. Keep this bounded to Order of the Phoenix: Year 5; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1360,7 +1552,19 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:dolores-umbridge",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:luna-lovegood",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1369,7 +1573,7 @@
       "kind": "institution_state",
       "gateType": "institution_state",
       "category": "faction",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1377,7 +1581,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1386,8 +1590,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.marietta_betrayal",
         "validToAnchor": "hp.y5.dumbledore_flees",
-        "sortKeyFrom": 9563,
-        "sortKeyTo": 9570,
+        "sortKeyFrom": 9562,
+        "sortKeyTo": 9574,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -1450,8 +1654,16 @@
       },
       "content": {
         "fact": "Umbridge sacks Trelawney, but Dumbledore appoints Firenze, creating a direct challenge to Umbridge’s control over Hogwarts staffing.",
-        "injection": "Umbridge sacks Trelawney, but Dumbledore appoints Firenze, creating a direct challenge to Umbridge’s control over Hogwarts staffing.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Umbridge sacks Trelawney, but Dumbledore appoints Firenze, creating a direct challenge to Umbridge’s control over Hogwarts staffing. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1482,7 +1694,17 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:albus-dumbledore",
+        "character:dolores-umbridge",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1491,7 +1713,7 @@
       "kind": "institution_state",
       "gateType": "institution_state",
       "category": "faction",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1508,8 +1730,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.twins_fireworks_phase",
         "validToAnchor": "hp.y5.owls_begin",
-        "sortKeyFrom": 9587,
-        "sortKeyTo": 9594,
+        "sortKeyFrom": 9586,
+        "sortKeyTo": 9599,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -1576,8 +1798,16 @@
       },
       "content": {
         "fact": "DA members are caught after Patronus practice, Dumbledore takes responsibility, escapes arrest, and Umbridge becomes Headmistress.",
-        "injection": "DA members are caught after Patronus practice, Dumbledore takes responsibility, escapes arrest, and Umbridge becomes Headmistress.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "DA members are caught after Patronus practice, Dumbledore takes responsibility, escapes arrest, and Umbridge becomes Headmistress. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1608,7 +1838,21 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:albus-dumbledore",
+        "character:dolores-umbridge",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5",
+        "spell:patronus"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1634,8 +1878,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.hagrid_removal_attempt",
         "validToAnchor": "hp.y5.sirius_torture_vision",
-        "sortKeyFrom": 9607,
-        "sortKeyTo": 9614,
+        "sortKeyFrom": 9605,
+        "sortKeyTo": 9617,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -1674,7 +1918,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -1698,8 +1942,14 @@
       },
       "content": {
         "fact": "Fred and George create a swamp, defy Umbridge, and leave Hogwarts to pursue Weasleys’ Wizard Wheezes.",
-        "injection": "Fred and George create a swamp, defy Umbridge, and leave Hogwarts to pursue Weasleys’ Wizard Wheezes.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Fred and George create a swamp, defy Umbridge, and leave Hogwarts to pursue Weasleys’ Wizard Wheezes. Keep this bounded to Order of the Phoenix: Year 5; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1730,7 +1980,18 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:dolores-umbridge",
+        "character:fred-weasley",
+        "character:george-weasley",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1756,8 +2017,8 @@
         "scope": "anchor",
         "validFromAnchor": "hp.y5.prophecy_explained",
         "validToAnchor": "hp.y5.grief_and_train_home",
-        "sortKeyFrom": 9666,
-        "sortKeyTo": 9666,
+        "sortKeyFrom": 9665,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -1797,7 +2058,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -1822,8 +2083,14 @@
       },
       "content": {
         "fact": "During OWL week, Umbridge moves against Hagrid during the Astronomy practical, and McGonagall is injured while trying to intervene.",
-        "injection": "During OWL week, Umbridge moves against Hagrid during the Astronomy practical, and McGonagall is injured while trying to intervene.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "During OWL week, Umbridge moves against Hagrid during the Astronomy practical, and McGonagall is injured while trying to intervene. Keep this bounded to Order of the Phoenix: Year 5; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1854,7 +2121,19 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:dolores-umbridge",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1863,7 +2142,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1880,8 +2159,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.prophecy_explained",
         "validToAnchor": "hp.y5.grief_and_train_home",
-        "sortKeyFrom": 9667,
-        "sortKeyTo": 9674,
+        "sortKeyFrom": 9665,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -1950,8 +2229,16 @@
       },
       "content": {
         "fact": "The Ministry battle ends with Sirius dead, Death Eaters captured, and Fudge forced to acknowledge Voldemort’s return publicly.",
-        "injection": "The Ministry battle ends with Sirius dead, Death Eaters captured, and Fudge forced to acknowledge Voldemort’s return publicly.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "The Ministry battle ends with Sirius dead, Death Eaters captured, and Fudge forced to acknowledge Voldemort’s return publicly. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1982,7 +2269,20 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:sirius-black",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5"
+      ]
     }
   ]
 }

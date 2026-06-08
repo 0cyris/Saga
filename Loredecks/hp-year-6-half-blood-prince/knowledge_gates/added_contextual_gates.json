@@ -10,7 +10,7 @@
       "kind": "behavior_gate",
       "gateType": "behavior_gate",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 75,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,7 +27,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.funeral",
-        "sortKeyFrom": 9740,
+        "sortKeyFrom": 9735,
         "sortKeyTo": 10042,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -59,8 +59,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Hermione Granger"
@@ -77,7 +77,13 @@
         "fact": "In Year 6, Hermione is precise, skeptical, and research-driven, but her knowledge remains bounded by what the story has established she discovered.",
         "injection": "Write Year 6 Hermione as precise, skeptical, rule-aware, and intensely research-driven; she should ask for evidence and seek library/professor routes, but she should not know hidden plot truths before our story establishes how she learned them.",
         "constraints": [
-          "Do not let Hermione’s intelligence become automatic knowledge of unrevealed secrets."
+          "Do not let Hermione’s intelligence become automatic knowledge of unrevealed secrets.",
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "sourceInfo": {
@@ -91,7 +97,14 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -100,7 +113,7 @@
       "kind": "institution_state",
       "gateType": "institution_state",
       "category": "faction",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -108,7 +121,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -117,7 +130,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.funeral",
-        "sortKeyFrom": 9740,
+        "sortKeyFrom": 9735,
         "sortKeyTo": 10042,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -148,8 +161,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "locationsAny": [
             "Hogwarts"
@@ -165,7 +178,13 @@
         "fact": "During the 1996-1997 school year before the Astronomy Tower crisis, Hogwarts operates under heightened security and Dumbledore remains the decisive authority.",
         "injection": "During Year 6 before the Astronomy Tower crisis, Hogwarts operates under heightened security and Dumbledore remains the decisive authority; suspicious attacks, secret movement, and unusual magic should draw more scrutiny than in ordinary school years.",
         "constraints": [
-          "Keep Year 6 Hogwarts more security-conscious than ordinary school years."
+          "Keep Year 6 Hogwarts more security-conscious than ordinary school years.",
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "sourceInfo": {
@@ -186,7 +205,17 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     }
   ]
 }

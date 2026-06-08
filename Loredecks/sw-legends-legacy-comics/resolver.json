@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to Star Wars Legends Legacy comics story position.",
+  "preferredFields": [
+    "volume",
+    "arc",
+    "beforeAfter",
+    "majorEvent",
+    "characterFocus"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer Legacy comics issue/arc anchors such as Ossus Massacre, Darth Krayt reign, Wyyrlok interregnum, final war, or Ania Solo/Legacy II over invented exact ABY dates. Prefer story-position anchors and windows over raw BBY/ABY dates; never invent timeline anchors outside this deck registry.",
+  "localPatterns": [
+    {
+      "pattern": "legacy comics",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legacy.pre_war_recovery",
+        "anchorTo": "sw.legacy.legacy2_resolution",
+        "label": "Legacy Comics full era"
+      }
+    },
+    {
+      "pattern": "cade skywalker era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legacy.cade_outlaw_years",
+        "anchorTo": "sw.legacy.legacy_aftermath",
+        "label": "Cade Skywalker / Legacy Volume 1 era"
+      }
+    },
+    {
+      "pattern": "after ossus massacre",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legacy.ossus_massacre",
+        "anchorTo": "sw.legacy.krayt_reign_opening",
+        "label": "After Massacre at Ossus"
+      }
+    },
+    {
+      "pattern": "during sith-imperial war",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legacy.sith_imperial_war_begins",
+        "anchorTo": "sw.legacy.ossus_massacre",
+        "label": "During the Sith-Imperial War"
+      }
+    },
+    {
+      "pattern": "during krayt reign",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legacy.krayt_reign_opening",
+        "anchorTo": "sw.legacy.krayt_apparent_death",
+        "label": "During Darth Krayt's reign"
+      }
+    },
+    {
+      "pattern": "before krayt returns",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legacy.krayt_apparent_death",
+        "anchorTo": "sw.legacy.krayt_returns",
+        "label": "After Krayt's apparent death, before his return"
+      }
+    },
+    {
+      "pattern": "after krayt returns",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legacy.krayt_returns",
+        "anchorTo": "sw.legacy.legacy_aftermath",
+        "label": "After Darth Krayt returns"
+      }
+    },
+    {
+      "pattern": "legacy ii",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legacy.ania_solo_opening",
+        "anchorTo": "sw.legacy.legacy2_resolution",
+        "label": "Legacy Volume 2 / Ania Solo era"
+      }
+    },
+    {
+      "pattern": "ania solo era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legacy.ania_solo_opening",
+        "anchorTo": "sw.legacy.legacy2_resolution",
+        "label": "Ania Solo era"
+      }
+    },
+    {
+      "pattern": "after cade and krayt",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legacy.krayt_final_defeat",
+        "anchorTo": "sw.legacy.legacy2_resolution",
+        "label": "After Darth Krayt's final defeat"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

@@ -9,7 +9,7 @@
   "era": "Year 4: Goblet of Fire",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "defaultLocale": "en",
   "generatedAt": "2026-06-05",
   "assets": {
@@ -38,11 +38,12 @@
     "familyOrder": 50
   },
   "tags": [
-    "fandom:harry-potter",
     "era:golden-trio",
-    "structure:split-loredeck",
+    "fandom:harry-potter",
     "quality:human-vetted",
-    "school-year:4"
+    "quality:relevance-curated",
+    "school-year:4",
+    "structure:split-loredeck"
   ],
   "source": {
     "kind": "bundled",
@@ -73,7 +74,6 @@
     "characters/adult_character_phase_baselines.json",
     "characters/present_character_baselines.json",
     "chronology/major_events.json",
-    "chronology/school_years.json",
     "events/school_year_windows.json",
     "expanded_books/book_4_goblet_of_fire_expansion.json",
     "future_guards/expanded_future_guards.json",
@@ -81,26 +81,28 @@
     "lexicon_calendars/year_4_gof_calendar_anchors.json",
     "skills/school_year_skill_bands.json",
     "spell_gates/expanded_spell_gates.json",
-    "spell_gates/spell_gates.json"
+    "spell_gates/spell_gates.json",
+    "relevance_gates/timeline_knowledge_guards.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 53,
+    "entryCount": 57,
     "categoryCounts": {
       "character": 17,
-      "event": 18,
-      "faction": 1,
+      "event": 19,
+      "faction": 2,
       "knowledge": 7,
       "location": 2,
-      "relationship": 1,
+      "relationship": 2,
+      "secret": 2,
       "spell": 4,
-      "timeline": 3
+      "timeline": 2
     },
     "timelineAnchorCount": 56,
     "timelineWindowCount": 9
   },
-  "updatedAt": 1780617600000
+  "updatedAt": 1780876800000
 }

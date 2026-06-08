@@ -1,0 +1,1069 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_jedi_cannot_ignore_ga_law",
+      "title": "Jedi Cannot Ignore GA Law",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "government",
+          "jedi"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-faction:jedi-order",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "faction:jedi-order",
+        "faction:galactic-alliance",
+        "topic:government",
+        "topic:jedi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "government",
+            "jedi"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Late-era Jedi frequently operate under pressure from Galactic Alliance law, courts, media, and executive authority.",
+        "injection": "When late-era Jedi act publicly, consider legal/political consequences instead of assuming unquestioned Jedi autonomy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_private_secrets_drive_public_wars",
+      "title": "Private Secrets Drive Public Wars",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lotf_betrayal",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 40000,
+        "sortKeyTo": 45000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy of the Force / Caedus War",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "secret",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-faction:galactic-alliance",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "faction:galactic-alliance",
+        "faction:jedi-order",
+        "topic:secret",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "secret",
+            "politics"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Secrets around Jacen, Allana, Lumiya, and Jedi knowledge often drive public military and political crises.",
+        "injection": "Use hidden-knowledge pressure in late Legends rather than only battlefield causality. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy of the Force / Caedus War.",
+          "Respect story-position bounds from Legacy of the Force Begins / Betrayal to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_family_lore_high_relevance",
+      "title": "Family Lore High Relevance",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "family",
+          "retrieval"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": []
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "topic:family",
+        "topic:retrieval"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "retrieval"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Skywalker-Solo family state is central late-era continuity, not incidental background.",
+        "injection": "When Luke, Leia, Han, Jaina, Jacen, Ben, Allana, or Tenel Ka appear, check family-state gates before injecting generic lore.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_force_mysticism_escalates",
+      "title": "Force Mysticism Escalates",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.fotj_outcast",
+        "validToAnchor": "sw.late.apocalypse_endgame",
+        "sortKeyFrom": 47000,
+        "sortKeyTo": 51000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Fate of the Jedi / Abeloth crisis",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "force",
+          "rule constraint"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "faction:jedi-order",
+        "topic:force",
+        "topic:rule-constraint"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "force",
+            "rule constraint"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Late Legends increasingly uses esoteric Force travel, visions, mind states, and cosmic entities.",
+        "injection": "In FOTJ-adjacent scenes, allow stranger Force metaphysics than OT-era baselines, but keep them gated to the era.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Fate of the Jedi / Abeloth crisis.",
+          "Respect story-position bounds from Fate of the Jedi Begins / Outcast to Apocalypse Endgame."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_no_clean_sith_binary",
+      "title": "No Clean Sith Binary",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "sith",
+          "continuity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Lost Tribe of the Sith",
+          "One Sith"
+        ],
+        "entityIds": [
+          "sw-faction:lost-tribe-of-the-sith",
+          "sw-faction:one-sith"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "faction:lost-tribe-of-the-sith",
+        "faction:one-sith",
+        "topic:sith",
+        "topic:continuity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "sith",
+            "continuity"
+          ],
+          "factionsAny": [
+            "Lost Tribe of the Sith",
+            "One Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Late Legends contains multiple Sith-adjacent lines and factions; Lumiya, Caedus, Lost Tribe, and One Sith should not be conflated.",
+        "injection": "Keep Sith factions distinct by era and lineage; do not merge every dark-side actor into one organization. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_caedus_war_not_njo",
+      "title": "Caedus War Not NJO",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lotf_betrayal",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 40000,
+        "sortKeyTo": 45000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy of the Force / Caedus War",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "continuity",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-faction:galactic-alliance",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "faction:galactic-alliance",
+        "faction:jedi-order",
+        "topic:continuity",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "continuity",
+            "war"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "The Caedus/LOTF conflict is post-NJO and should not be treated as part of the Yuuzhan Vong War.",
+        "injection": "Do not inject Yuuzhan Vong war assumptions into Caedus-era politics unless characters are recalling trauma.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy of the Force / Caedus War.",
+          "Respect story-position bounds from Legacy of the Force Begins / Betrayal to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_dark_nest_not_vong_war",
+      "title": "Dark Nest Not Vong War",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.dark_nest_begins",
+        "validToAnchor": "sw.late.swarm_war",
+        "sortKeyFrom": 35000,
+        "sortKeyTo": 36000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Nest crisis",
+        "phase": "Dark Nest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "continuity",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Killik Hives"
+        ],
+        "entityIds": [
+          "sw-faction:killik-hives"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:dark-nest",
+        "faction:killik-hives",
+        "topic:continuity",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "continuity",
+            "war"
+          ],
+          "factionsAny": [
+            "Killik Hives"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Dark Nest is a post-NJO Killik/Joiner crisis, not a continuation of Yuuzhan Vong military invasion.",
+        "injection": "In Dark Nest scenes, focus on Colony/Joiner influence and border escalation rather than Vong battlefronts. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Nest crisis.",
+          "Respect story-position bounds from Dark Nest Crisis Begins to Swarm War."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_crucible_veteran_tone",
+      "title": "Crucible Veteran Tone",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.crucible",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 53000,
+        "sortKeyTo": 53000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Crucible / Big Three Transition",
+        "phase": "Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "character tone",
+          "behavior constraint"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": []
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:crucible",
+        "topic:character-tone",
+        "topic:behavior-constraint"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "character tone",
+            "behavior constraint"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Crucible-era Luke, Han, and Leia should feel like aged veterans at the edge of transition.",
+        "injection": "For Crucible context, use accumulated fatigue and legacy rather than youthful adventure tone.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Crucible / Big Three Transition.",
+          "Respect story-position bounds from Crucible / Big Three Transition to Crucible / Big Three Transition."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_names_are_context_sensitive",
+      "title": "Names Are Context-Sensitive",
+      "kind": "knowledge_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo",
+          "Darth Caedus",
+          "Allana Solo",
+          "Raynar Thul"
+        ],
+        "locations": [],
+        "topics": [
+          "knowledge gate",
+          "identity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:jacen-solo",
+          "sw-character:darth-caedus",
+          "sw-character:allana-solo",
+          "sw-character:raynar-thul"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "character:jacen-solo",
+        "character:darth-caedus",
+        "character:allana-solo",
+        "character:raynar-thul",
+        "topic:knowledge-gate",
+        "topic:identity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo",
+            "Darth Caedus",
+            "Allana Solo",
+            "Raynar Thul"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "knowledge gate",
+            "identity"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Jacen/Caedus, Allana/Amelia, Raynar/UnuThul, and other names depend on Context and who knows the identity.",
+        "injection": "Choose character names according to story point and point-of-view knowledge, not just omniscient canon labels. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_romance_not_primary_simplifier",
+      "title": "Romance Not Primary Simplifier",
+      "kind": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jaina Solo",
+          "Jagged Fel",
+          "Ben Skywalker",
+          "Vestara Khai",
+          "Jacen Solo",
+          "Tenel Ka Djo"
+        ],
+        "locations": [],
+        "topics": [
+          "relationship",
+          "behavior constraint"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:jaina-solo",
+          "sw-character:jagged-fel",
+          "sw-character:ben-skywalker",
+          "sw-character:vestara-khai",
+          "sw-character:jacen-solo",
+          "sw-character:tenel-ka-djo"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "character:jaina-solo",
+        "character:jagged-fel",
+        "character:ben-skywalker",
+        "character:vestara-khai",
+        "character:jacen-solo",
+        "character:tenel-ka-djo",
+        "topic:relationship",
+        "topic:behavior-constraint"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jaina Solo",
+            "Jagged Fel",
+            "Ben Skywalker",
+            "Vestara Khai",
+            "Jacen Solo",
+            "Tenel Ka Djo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "relationship",
+            "behavior constraint"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Late-era romances sit inside political, family, and war pressures and should not flatten the plot into shipping-only logic.",
+        "injection": "When writing Jaina/Jag, Ben/Vestara, or Jacen/Tenel Ka dynamics, keep political and safety stakes active. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

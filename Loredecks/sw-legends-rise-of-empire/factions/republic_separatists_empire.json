@@ -1,0 +1,1878 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_galactic_republic_still_legal_state",
+      "title": "Galactic Republic Still Legal State",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Galactic Republic Still Legal State",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "legal state",
+          "republic government"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:legal-state",
+        "topic:republic-government"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "legal state",
+            "republic government"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Imperial declaration, the Republic remains the legal government even as it is militarized and manipulated.",
+        "injection": "Before the Empire is declared, call the state the Republic unless characters are speaking conspiratorially or prophetically.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Republic Still Legal State.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Republic Still Legal State",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_galactic_senate_loses_power_before_empire",
+      "title": "Galactic Senate Loses Power Before Empire",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.palpatine_chancellor",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 1350,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Galactic Senate Loses Power Before Empire",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "senate erosion",
+          "emergency powers"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Senate"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-senate",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:emergency-powers",
+        "topic:senate-erosion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "senate erosion",
+            "emergency powers"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Senate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Senate continues to exist before the Empire but loses practical power to emergency authority and wartime executive control.",
+        "injection": "During the Clone Wars, show the Senate as relevant but increasingly bypassed by security logic. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Senate Loses Power Before Empire.",
+          "Respect story-position bounds from Palpatine Becomes Chancellor to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Senate Loses Power Before Empire",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_jedi_order_bound_to_republic_trap",
+      "title": "Jedi Order Bound To Republic Trap",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.palpatine_chancellor",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 1350,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Order Bound To Republic Trap",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "institutional trap",
+          "republic allegiance"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:institutional-trap",
+        "topic:republic-allegiance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "institutional trap",
+            "republic allegiance"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Jedi Order’s institutional bond to the Republic makes it vulnerable when the Republic itself becomes the Sith trap.",
+        "injection": "Do not write the Jedi as independent from Republic politics during the war; their authority is entangled with the state.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Order Bound To Republic Trap.",
+          "Respect story-position bounds from Palpatine Becomes Chancellor to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Jedi Order Bound To Republic Trap",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_cis_is_public_secession_coalition",
+      "title": "CIS Is Public Secession Coalition",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.separatist_crisis",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "CIS Is Public Secession Coalition",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "secession",
+          "separatist politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Confederacy of Independent Systems"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:secession",
+        "topic:separatist-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "secession",
+            "separatist politics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Confederacy of Independent Systems"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The CIS is publicly a secessionist coalition, even though Sith and corporate interests control much of its leadership.",
+        "injection": "Use CIS public rhetoric about independence alongside its exploitative droid-war machinery. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: CIS Is Public Secession Coalition.",
+          "Respect story-position bounds from Separatist Crisis to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "CIS Is Public Secession Coalition",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_corporate_guilds_supply_separatist_war",
+      "title": "Corporate Guilds Supply Separatist War",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.separatist_crisis",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Corporate Guilds Supply Separatist War",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "corporate war machine",
+          "separatist logistics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Trade Federation",
+          "Techno Union",
+          "Commerce Guild",
+          "InterGalactic Banking Clan"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:commerce-guild",
+        "faction:intergalactic-banking-clan",
+        "faction:techno-union",
+        "faction:trade-federation",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:corporate-war-machine",
+        "topic:separatist-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "corporate war machine",
+            "separatist logistics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Trade Federation",
+            "Techno Union",
+            "Commerce Guild",
+            "InterGalactic Banking Clan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Trade Federation, Techno Union, Commerce Guild, Banking Clan, and other corporate powers supply much of the Separatist war machine.",
+        "injection": "In Separatist logistics scenes, make corporations and guilds central to droids, ships, credit, and leverage. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Corporate Guilds Supply Separatist War.",
+          "Respect story-position bounds from Separatist Crisis to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Corporate Guilds Supply Separatist War",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_clone_army_is_republic_backbone",
+      "title": "Clone Army Is Republic Backbone",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Army Is Republic Backbone",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "clone army",
+          "military backbone"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Clone Army",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:clone-army",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:clone-army",
+        "topic:military-backbone"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "clone army",
+            "military backbone"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Clone Army",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The clone army becomes the Republic’s military backbone during the Clone Wars.",
+        "injection": "During the war, Republic ground operations should normally depend on clone forces rather than ordinary planetary militia alone.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Army Is Republic Backbone.",
+          "Respect story-position bounds from First Battle of Geonosis to Order 66."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Army Is Republic Backbone",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_kaminoans_are_contractors_not_republic_patriots",
+      "title": "Kaminoans Are Contractors Not Republic Patriots",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.kamino_discovery",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 2450,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Kaminoans Are Contractors Not Republic Patriots",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "clone production",
+          "contractors"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Kaminoans"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:kaminoans",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:clone-production",
+        "topic:contractors"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "clone production",
+            "contractors"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Kaminoans"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Kaminoans treat clone production as a technical and contractual enterprise, not Republic patriotism.",
+        "injection": "Write Kaminoan behavior as clinical, contractual, and quality-focused rather than emotionally Republic-loyal. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Kaminoans Are Contractors Not Republic Patriots.",
+          "Respect story-position bounds from Kamino Clone Army Discovered to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Kaminoans Are Contractors Not Republic Patriots",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_sith_are_hidden_command_structure",
+      "title": "Sith Hidden Command Structure",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.palpatine_chancellor",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 1350,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sith Hidden Command Structure",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "hidden command",
+          "grand plan"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:grand-plan",
+        "topic:hidden-command"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "hidden command",
+            "grand plan"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Sith function as the hidden command structure behind both Republic authoritarian drift and Separatist escalation.",
+        "injection": "Before the reveal, keep Sith command hidden behind public institutions and proxies. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Sith Hidden Command Structure.",
+          "Respect story-position bounds from Palpatine Becomes Chancellor to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Sith Hidden Command Structure",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_galactic_empire_replaces_republic_institutions",
+      "title": "Galactic Empire Replaces Republic Institutions",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.empire_declared",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 4925,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Galactic Empire Replaces Republic Institutions",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "institutional continuity",
+          "imperial transition"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Empire",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-empire",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:imperial-transition",
+        "topic:institutional-continuity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "institutional continuity",
+            "imperial transition"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Empire",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Empire inherits and repurposes Republic institutions instead of appearing from nothing.",
+        "injection": "After the declaration, treat many offices, fleets, and officers as rebranded or hardened Republic-era structures.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Empire Replaces Republic Institutions.",
+          "Respect story-position bounds from Galactic Empire Declared to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Empire Replaces Republic Institutions",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_imperial_military_absorbs_clone_war_infrastructure",
+      "title": "Imperial Military Absorbs Clone War Infrastructure",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.empire_declared",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 4925,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Imperial Military Absorbs Clone War Infrastructure",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "military transition",
+          "clone war infrastructure"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Empire",
+          "Clone Army"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:clone-army",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:clone-war-infrastructure",
+        "topic:military-transition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "military transition",
+            "clone war infrastructure"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Empire",
+            "Clone Army"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The early Imperial military absorbs Clone Wars command structures, ships, bases, and personnel.",
+        "injection": "In early Empire scenes, Imperial power should feel like militarized Republic infrastructure now openly authoritarian.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial Military Absorbs Clone War Infrastructure.",
+          "Respect story-position bounds from Galactic Empire Declared to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Imperial Military Absorbs Clone War Infrastructure",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_inquisitorious_is_early_purge_tool",
+      "title": "Inquisitors Are Early Purge Tool",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.jedi_purge_early",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 5300,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Inquisitors Are Early Purge Tool",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "jedi hunters",
+          "dark side agents"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Inquisitors",
+          "Galactic Empire"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-empire",
+        "faction:inquisitors",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:dark-side-agents",
+        "topic:jedi-hunters"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "jedi hunters",
+            "dark side agents"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Inquisitors",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Inquisitor-style dark-side agents and purge forces serve the early Empire’s Jedi-hunting needs when that layer is active.",
+        "injection": "Use Inquisitors as purge tools only after the Empire forms; do not put them in ordinary pre-Order-66 Republic scenes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Inquisitors Are Early Purge Tool.",
+          "Respect story-position bounds from Early Jedi Purge to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Inquisitors Are Early Purge Tool",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_loyalist_senators_are_not_open_rebels_yet",
+      "title": "Loyalist Senators Not Open Rebels Yet",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.separatist_crisis",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Loyalist Senators Not Open Rebels Yet",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "loyalist senators",
+          "early rebellion seeds"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Loyalist Committee",
+          "Galactic Senate"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-senate",
+        "faction:loyalist-committee",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:early-rebellion-seeds",
+        "topic:loyalist-senators"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "loyalist senators",
+            "early rebellion seeds"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Loyalist Committee",
+            "Galactic Senate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Bail, Mon Mothma, Padme, and aligned senators oppose authoritarian drift before a safe open Rebellion exists.",
+        "injection": "Before the formal Rebellion era, write dissident senators as cautious, procedural, and watched. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Loyalist Senators Not Open Rebels Yet.",
+          "Respect story-position bounds from Separatist Crisis to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Loyalist Senators Not Open Rebels Yet",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_separatist_holdouts_possible_after_empire",
+      "title": "Separatist Holdouts Possible After Empire",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.empire_declared",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 4925,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Separatist Holdouts Possible After Empire",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "separatist holdouts",
+          "postwar remnants"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Confederacy of Independent Systems",
+          "Galactic Empire"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:postwar-remnants",
+        "topic:separatist-holdouts"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "separatist holdouts",
+            "postwar remnants"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Confederacy of Independent Systems",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the Empire forms, some Separatist remnants or local holdouts can persist, but the CIS as a central government is decapitated.",
+        "injection": "Use post-ROTS Separatists as remnants or local holdouts, not as the intact wartime CIS high command. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Separatist Holdouts Possible After Empire.",
+          "Respect story-position bounds from Galactic Empire Declared to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Separatist Holdouts Possible After Empire",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_order_66_reframes_jedi_as_traitors",
+      "title": "Order 66 Reframes Jedi As Traitors",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.order_66",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 4850,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Order 66 Reframes Jedi As Traitors",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "anti-jedi propaganda",
+          "traitor narrative"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Empire",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-empire",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:anti-jedi-propaganda",
+        "topic:traitor-narrative"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "anti-jedi propaganda",
+            "traitor narrative"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Empire",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Imperial propaganda frames Jedi as traitors who attempted a coup, making public sympathy dangerous and uneven.",
+        "injection": "After Order 66, ordinary citizens may fear, believe, doubt, or quietly resist the official anti-Jedi narrative.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Order 66 Reframes Jedi As Traitors.",
+          "Respect story-position bounds from Order 66 to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Order 66 Reframes Jedi As Traitors",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_planetary_security_becomes_imperialized",
+      "title": "Planetary Security Becomes Imperialized",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.empire_declared",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 4925,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Planetary Security Becomes Imperialized",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "sector security",
+          "imperialization"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Empire"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:imperialization",
+        "topic:sector-security"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "sector security",
+            "imperialization"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Republic-aligned planetary and sector security structures are pressured into Imperial loyalty after the declaration.",
+        "injection": "In early Empire scenes, local authorities often survive by cooperating with Imperial command. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Planetary Security Becomes Imperialized.",
+          "Respect story-position bounds from Galactic Empire Declared to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Planetary Security Becomes Imperialized",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_nonhuman_marginalization_increases_under_empire",
+      "title": "Nonhuman Marginalization Increases Under Empire",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.empire_declared",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 4925,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Nonhuman Marginalization Increases Under Empire",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "humanocentrism",
+          "anti-alien prejudice"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Empire"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:anti-alien-prejudice",
+        "topic:humanocentrism"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "humanocentrism",
+            "anti-alien prejudice"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Imperial order intensifies humanocentric and anti-alien prejudice compared with the late Republic baseline.",
+        "injection": "After the Empire forms, nonhuman characters should face greater institutional hostility and suspicion. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Nonhuman Marginalization Increases Under Empire.",
+          "Respect story-position bounds from Galactic Empire Declared to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Nonhuman Marginalization Increases Under Empire",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_banking_clan_finance_war_pressure",
+      "title": "Banking Clan Finance War Pressure",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.separatist_crisis",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Banking Clan Finance War Pressure",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "war finance",
+          "debt"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "InterGalactic Banking Clan"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:intergalactic-banking-clan",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:debt",
+        "topic:war-finance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "war finance",
+            "debt"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "InterGalactic Banking Clan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Financial institutions such as the Banking Clan help turn the war into a credit, debt, and leverage crisis.",
+        "injection": "Use wartime finance as a pressure point for planets, fleets, and corporate factions. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Banking Clan Finance War Pressure.",
+          "Respect story-position bounds from Separatist Crisis to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Banking Clan Finance War Pressure",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_trade_federation_after_naboo_still_powerful",
+      "title": "Trade Federation Still Powerful After Naboo",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.palpatine_chancellor",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 1350,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Trade Federation Still Powerful After Naboo",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "corporate influence",
+          "naboo aftermath"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Trade Federation"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:trade-federation",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:corporate-influence",
+        "topic:naboo-aftermath"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "corporate influence",
+            "naboo aftermath"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Trade Federation"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Trade Federation remains politically and economically powerful after Naboo despite its visible aggression.",
+        "injection": "Do not assume the Naboo crisis destroys the Trade Federation’s galactic influence. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Trade Federation Still Powerful After Naboo.",
+          "Respect story-position bounds from Palpatine Becomes Chancellor to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Trade Federation Still Powerful After Naboo",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_republic_navy_expands_from_emergency_war",
+      "title": "Republic Navy Expands From Emergency War",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Republic Navy Expands From Emergency War",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "wartime navy",
+          "militarization"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Republic Navy",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-republic",
+        "faction:republic-navy",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:militarization",
+        "topic:wartime-navy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "wartime navy",
+            "militarization"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Republic Navy",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Republic’s centralized navy expands rapidly under wartime emergency conditions.",
+        "injection": "During Clone Wars scenes, present Republic naval power as new, expanding, and increasingly normalized. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Republic Navy Expands From Emergency War.",
+          "Respect story-position bounds from First Battle of Geonosis to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Republic Navy Expands From Emergency War",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_imperial_security_state_begins_immediately",
+      "title": "Imperial Security State Begins Immediately",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.empire_declared",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 4925,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Imperial Security State Begins Immediately",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "security state",
+          "imperial consolidation"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Empire"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:imperial-consolidation",
+        "topic:security-state"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "security state",
+            "imperial consolidation"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The early Empire begins consolidating surveillance, compliance, military governors, and anti-Jedi enforcement almost immediately.",
+        "injection": "After the Empire declaration, shift the setting tone toward surveillance, denunciation, purges, and military order.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial Security State Begins Immediately.",
+          "Respect story-position bounds from Galactic Empire Declared to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Imperial Security State Begins Immediately",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

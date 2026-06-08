@@ -1,0 +1,1925 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "sw-legacy:char:ag-37": {
+      "type": "character",
+      "label": "AG-37",
+      "aliases": [],
+      "canonicalNames": [
+        "AG-37"
+      ],
+      "tags": [
+        "character:ag-37"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:anakin-skywalker": {
+      "type": "character",
+      "label": "Anakin Skywalker",
+      "aliases": [],
+      "canonicalNames": [
+        "Anakin Skywalker"
+      ],
+      "tags": [
+        "character:anakin-skywalker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:ania-solo": {
+      "type": "character",
+      "label": "Ania Solo",
+      "aliases": [
+        "Ania",
+        "Solo descendant"
+      ],
+      "canonicalNames": [
+        "Ania Solo"
+      ],
+      "tags": [
+        "character:ania-solo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:antares-draco": {
+      "type": "character",
+      "label": "Antares Draco",
+      "aliases": [],
+      "canonicalNames": [
+        "Antares Draco"
+      ],
+      "tags": [
+        "character:antares-draco"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:asharad-hett": {
+      "type": "character",
+      "label": "A’Sharad Hett",
+      "aliases": [
+        "A Sharad Hett",
+        "Hett"
+      ],
+      "canonicalNames": [
+        "A’Sharad Hett"
+      ],
+      "tags": [
+        "character:asharad-hett"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:azlyn-rae": {
+      "type": "character",
+      "label": "Azlyn Rae",
+      "aliases": [],
+      "canonicalNames": [
+        "Azlyn Rae"
+      ],
+      "tags": [
+        "character:azlyn-rae"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:ben-skywalker": {
+      "type": "character",
+      "label": "Ben Skywalker",
+      "aliases": [],
+      "canonicalNames": [
+        "Ben Skywalker"
+      ],
+      "tags": [
+        "character:ben-skywalker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:cade-skywalker": {
+      "type": "character",
+      "label": "Cade Skywalker",
+      "aliases": [
+        "Cade",
+        "Skywalker heir",
+        "last Skywalker"
+      ],
+      "canonicalNames": [
+        "Cade Skywalker"
+      ],
+      "tags": [
+        "character:cade-skywalker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:celeste-morne": {
+      "type": "character",
+      "label": "Celeste Morne",
+      "aliases": [],
+      "canonicalNames": [
+        "Celeste Morne"
+      ],
+      "tags": [
+        "character:celeste-morne"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:darth-azard": {
+      "type": "character",
+      "label": "Darth Azard",
+      "aliases": [],
+      "canonicalNames": [
+        "Darth Azard"
+      ],
+      "tags": [
+        "character:darth-azard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:darth-caedus": {
+      "type": "character",
+      "label": "Darth Caedus",
+      "aliases": [],
+      "canonicalNames": [
+        "Darth Caedus"
+      ],
+      "tags": [
+        "character:darth-caedus"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:darth-havok": {
+      "type": "character",
+      "label": "Darth Havok",
+      "aliases": [],
+      "canonicalNames": [
+        "Darth Havok"
+      ],
+      "tags": [
+        "character:darth-havok"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:darth-krayt": {
+      "type": "character",
+      "label": "Darth Krayt",
+      "aliases": [
+        "Krayt",
+        "Sith Emperor",
+        "A’Sharad Hett"
+      ],
+      "canonicalNames": [
+        "Darth Krayt"
+      ],
+      "tags": [
+        "character:darth-krayt"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:darth-maladi": {
+      "type": "character",
+      "label": "Darth Maladi",
+      "aliases": [
+        "Maladi"
+      ],
+      "canonicalNames": [
+        "Darth Maladi"
+      ],
+      "tags": [
+        "character:darth-maladi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:darth-nihl": {
+      "type": "character",
+      "label": "Darth Nihl",
+      "aliases": [
+        "Nihl"
+      ],
+      "canonicalNames": [
+        "Darth Nihl"
+      ],
+      "tags": [
+        "character:darth-nihl"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:darth-stryfe": {
+      "type": "character",
+      "label": "Darth Stryfe",
+      "aliases": [],
+      "canonicalNames": [
+        "Darth Stryfe"
+      ],
+      "tags": [
+        "character:darth-stryfe"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:darth-talon": {
+      "type": "character",
+      "label": "Darth Talon",
+      "aliases": [
+        "Talon"
+      ],
+      "canonicalNames": [
+        "Darth Talon"
+      ],
+      "tags": [
+        "character:darth-talon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:darth-wyyrlok": {
+      "type": "character",
+      "label": "Darth Wyyrlok",
+      "aliases": [
+        "Wyyrlok"
+      ],
+      "canonicalNames": [
+        "Darth Wyyrlok"
+      ],
+      "tags": [
+        "character:darth-wyyrlok"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:deliah-blue": {
+      "type": "character",
+      "label": "Deliah Blue",
+      "aliases": [],
+      "canonicalNames": [
+        "Deliah Blue"
+      ],
+      "tags": [
+        "character:deliah-blue"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:ganner-krieg": {
+      "type": "character",
+      "label": "Ganner Krieg",
+      "aliases": [],
+      "canonicalNames": [
+        "Ganner Krieg"
+      ],
+      "tags": [
+        "character:ganner-krieg"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:gar-stazi": {
+      "type": "character",
+      "label": "Gar Stazi",
+      "aliases": [
+        "Admiral Stazi",
+        "Stazi"
+      ],
+      "canonicalNames": [
+        "Gar Stazi"
+      ],
+      "tags": [
+        "character:gar-stazi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:han-solo": {
+      "type": "character",
+      "label": "Han Solo",
+      "aliases": [],
+      "canonicalNames": [
+        "Han Solo"
+      ],
+      "tags": [
+        "character:han-solo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:jacen-solo": {
+      "type": "character",
+      "label": "Jacen Solo",
+      "aliases": [],
+      "canonicalNames": [
+        "Jacen Solo"
+      ],
+      "tags": [
+        "character:jacen-solo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:jao-assam": {
+      "type": "character",
+      "label": "Jao Assam",
+      "aliases": [
+        "Jao",
+        "Imperial Knight Jao"
+      ],
+      "canonicalNames": [
+        "Jao Assam"
+      ],
+      "tags": [
+        "character:jao-assam"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:jariah-syn": {
+      "type": "character",
+      "label": "Jariah Syn",
+      "aliases": [],
+      "canonicalNames": [
+        "Jariah Syn"
+      ],
+      "tags": [
+        "character:jariah-syn"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:kee": {
+      "type": "character",
+      "label": "Kee",
+      "aliases": [],
+      "canonicalNames": [
+        "Kee"
+      ],
+      "tags": [
+        "character:kee"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:kkruhk": {
+      "type": "character",
+      "label": "K’Kruhk",
+      "aliases": [],
+      "canonicalNames": [
+        "K’Kruhk"
+      ],
+      "tags": [
+        "character:kkruhk"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:kol-skywalker": {
+      "type": "character",
+      "label": "Kol Skywalker",
+      "aliases": [],
+      "canonicalNames": [
+        "Kol Skywalker"
+      ],
+      "tags": [
+        "character:kol-skywalker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:kylo-ren": {
+      "type": "character",
+      "label": "Kylo Ren",
+      "aliases": [],
+      "canonicalNames": [
+        "Kylo Ren"
+      ],
+      "tags": [
+        "character:kylo-ren"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:leia-organa-solo": {
+      "type": "character",
+      "label": "Leia Organa Solo",
+      "aliases": [],
+      "canonicalNames": [
+        "Leia Organa Solo"
+      ],
+      "tags": [
+        "character:leia-organa-solo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:luke-skywalker": {
+      "type": "character",
+      "label": "Luke Skywalker",
+      "aliases": [],
+      "canonicalNames": [
+        "Luke Skywalker"
+      ],
+      "tags": [
+        "character:luke-skywalker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:marasiah-fel": {
+      "type": "character",
+      "label": "Marasiah Fel",
+      "aliases": [
+        "Sia Fel",
+        "Empress Fel"
+      ],
+      "canonicalNames": [
+        "Marasiah Fel"
+      ],
+      "tags": [
+        "character:marasiah-fel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:morrigan-corde": {
+      "type": "character",
+      "label": "Morrigan Corde",
+      "aliases": [],
+      "canonicalNames": [
+        "Morrigan Corde"
+      ],
+      "tags": [
+        "character:morrigan-corde"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:nyna-calixte": {
+      "type": "character",
+      "label": "Nyna Calixte",
+      "aliases": [],
+      "canonicalNames": [
+        "Nyna Calixte"
+      ],
+      "tags": [
+        "character:nyna-calixte"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:palpatine": {
+      "type": "character",
+      "label": "Palpatine",
+      "aliases": [],
+      "canonicalNames": [
+        "Palpatine"
+      ],
+      "tags": [
+        "character:palpatine"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:revan": {
+      "type": "character",
+      "label": "Revan",
+      "aliases": [],
+      "canonicalNames": [
+        "Revan"
+      ],
+      "tags": [
+        "character:revan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:rey": {
+      "type": "character",
+      "label": "Rey",
+      "aliases": [],
+      "canonicalNames": [
+        "Rey"
+      ],
+      "tags": [
+        "character:rey"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:roan-fel": {
+      "type": "character",
+      "label": "Roan Fel",
+      "aliases": [
+        "Emperor Fel",
+        "Fel"
+      ],
+      "canonicalNames": [
+        "Roan Fel"
+      ],
+      "tags": [
+        "character:roan-fel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:sauk": {
+      "type": "character",
+      "label": "Sauk",
+      "aliases": [],
+      "canonicalNames": [
+        "Sauk"
+      ],
+      "tags": [
+        "character:sauk"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:shado-vao": {
+      "type": "character",
+      "label": "Shado Vao",
+      "aliases": [],
+      "canonicalNames": [
+        "Shado Vao"
+      ],
+      "tags": [
+        "character:shado-vao"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:sia-fel": {
+      "type": "character",
+      "label": "Sia Fel",
+      "aliases": [],
+      "canonicalNames": [
+        "Sia Fel"
+      ],
+      "tags": [
+        "character:sia-fel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:wolf-sazen": {
+      "type": "character",
+      "label": "Wolf Sazen",
+      "aliases": [],
+      "canonicalNames": [
+        "Wolf Sazen"
+      ],
+      "tags": [
+        "character:wolf-sazen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:yage": {
+      "type": "character",
+      "label": "Yage",
+      "aliases": [],
+      "canonicalNames": [
+        "Yage"
+      ],
+      "tags": [
+        "character:yage"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:char:yalta-val": {
+      "type": "character",
+      "label": "Yalta Val",
+      "aliases": [],
+      "canonicalNames": [
+        "Yalta Val"
+      ],
+      "tags": [
+        "character:yalta-val"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:fel-empire": {
+      "type": "faction",
+      "label": "Fel Empire",
+      "aliases": [],
+      "canonicalNames": [
+        "Fel Empire"
+      ],
+      "tags": [
+        "faction:fel-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:fel-loyalists": {
+      "type": "faction",
+      "label": "Fel Loyalists",
+      "aliases": [
+        "Fel Empire loyalists",
+        "Roan Fel loyalists"
+      ],
+      "canonicalNames": [
+        "Fel Loyalists"
+      ],
+      "tags": [
+        "faction:fel-loyalists"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:first-order": {
+      "type": "faction",
+      "label": "First Order",
+      "aliases": [],
+      "canonicalNames": [
+        "First Order"
+      ],
+      "tags": [
+        "faction:first-order"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:galactic-alliance": {
+      "type": "faction",
+      "label": "Galactic Alliance",
+      "aliases": [],
+      "canonicalNames": [
+        "Galactic Alliance"
+      ],
+      "tags": [
+        "faction:galactic-alliance"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:galactic-alliance-remnant": {
+      "type": "faction",
+      "label": "Galactic Alliance Remnant",
+      "aliases": [
+        "Alliance Remnant",
+        "Stazi fleet"
+      ],
+      "canonicalNames": [
+        "Galactic Alliance Remnant"
+      ],
+      "tags": [
+        "faction:galactic-alliance-remnant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:imperial-knights": {
+      "type": "faction",
+      "label": "Imperial Knights",
+      "aliases": [
+        "IKs"
+      ],
+      "canonicalNames": [
+        "Imperial Knights"
+      ],
+      "tags": [
+        "faction:imperial-knights"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:jedi-order": {
+      "type": "faction",
+      "label": "Jedi Order",
+      "aliases": [],
+      "canonicalNames": [
+        "Jedi Order"
+      ],
+      "tags": [
+        "faction:jedi-order"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:new-republic": {
+      "type": "faction",
+      "label": "New Republic",
+      "aliases": [],
+      "canonicalNames": [
+        "New Republic"
+      ],
+      "tags": [
+        "faction:new-republic"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:old-republic": {
+      "type": "faction",
+      "label": "Old Republic",
+      "aliases": [],
+      "canonicalNames": [
+        "Old Republic"
+      ],
+      "tags": [
+        "faction:old-republic"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:one-sith": {
+      "type": "faction",
+      "label": "One Sith",
+      "aliases": [
+        "Krayt Sith",
+        "Krayt’s Sith"
+      ],
+      "canonicalNames": [
+        "One Sith"
+      ],
+      "tags": [
+        "faction:one-sith"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:rebel-alliance": {
+      "type": "faction",
+      "label": "Rebel Alliance",
+      "aliases": [],
+      "canonicalNames": [
+        "Rebel Alliance"
+      ],
+      "tags": [
+        "faction:rebel-alliance"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:resistance": {
+      "type": "faction",
+      "label": "Resistance",
+      "aliases": [],
+      "canonicalNames": [
+        "Resistance"
+      ],
+      "tags": [
+        "faction:resistance"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:sith-empire": {
+      "type": "faction",
+      "label": "Sith Empire",
+      "aliases": [],
+      "canonicalNames": [
+        "Sith Empire"
+      ],
+      "tags": [
+        "faction:sith-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:underworld": {
+      "type": "faction",
+      "label": "Underworld",
+      "aliases": [],
+      "canonicalNames": [
+        "Underworld"
+      ],
+      "tags": [
+        "faction:underworld"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:faction:yuuzhan-vong": {
+      "type": "faction",
+      "label": "Yuuzhan Vong",
+      "aliases": [],
+      "canonicalNames": [
+        "Yuuzhan Vong"
+      ],
+      "tags": [
+        "faction:yuuzhan-vong"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:item:ag-37": {
+      "type": "item",
+      "label": "AG-37",
+      "aliases": [],
+      "canonicalNames": [
+        "AG-37"
+      ],
+      "tags": [
+        "item:ag-37"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:item:alliance-fleet": {
+      "type": "item",
+      "label": "Alliance fleet",
+      "aliases": [],
+      "canonicalNames": [
+        "Alliance fleet"
+      ],
+      "tags": [
+        "item:alliance-fleet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:item:bacta": {
+      "type": "item",
+      "label": "bacta",
+      "aliases": [],
+      "canonicalNames": [
+        "bacta"
+      ],
+      "tags": [
+        "item:bacta"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:item:cybernetics": {
+      "type": "item",
+      "label": "cybernetics",
+      "aliases": [],
+      "canonicalNames": [
+        "cybernetics"
+      ],
+      "tags": [
+        "item:cybernetics"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:item:death-sticks": {
+      "type": "item",
+      "label": "death sticks",
+      "aliases": [],
+      "canonicalNames": [
+        "death sticks"
+      ],
+      "tags": [
+        "item:death-sticks"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:item:imperial-armor": {
+      "type": "item",
+      "label": "imperial armor",
+      "aliases": [],
+      "canonicalNames": [
+        "imperial armor"
+      ],
+      "tags": [
+        "item:imperial-armor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:item:lightsaber": {
+      "type": "item",
+      "label": "lightsaber",
+      "aliases": [],
+      "canonicalNames": [
+        "lightsaber"
+      ],
+      "tags": [
+        "item:lightsaber"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:item:muur-talisman": {
+      "type": "item",
+      "label": "Muur Talisman",
+      "aliases": [],
+      "canonicalNames": [
+        "Muur Talisman"
+      ],
+      "tags": [
+        "item:muur-talisman"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:loc:bastion": {
+      "type": "location",
+      "label": "Bastion",
+      "aliases": [],
+      "canonicalNames": [
+        "Bastion"
+      ],
+      "tags": [
+        "location:bastion"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:loc:coruscant": {
+      "type": "location",
+      "label": "Coruscant",
+      "aliases": [],
+      "canonicalNames": [
+        "Coruscant"
+      ],
+      "tags": [
+        "location:coruscant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:loc:dac": {
+      "type": "location",
+      "label": "Dac",
+      "aliases": [],
+      "canonicalNames": [
+        "Dac"
+      ],
+      "tags": [
+        "location:dac"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:loc:had-abbadon": {
+      "type": "location",
+      "label": "Had Abbadon",
+      "aliases": [],
+      "canonicalNames": [
+        "Had Abbadon"
+      ],
+      "tags": [
+        "location:had-abbadon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:loc:korriban": {
+      "type": "location",
+      "label": "Korriban",
+      "aliases": [],
+      "canonicalNames": [
+        "Korriban"
+      ],
+      "tags": [
+        "location:korriban"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:loc:ossus": {
+      "type": "location",
+      "label": "Ossus",
+      "aliases": [],
+      "canonicalNames": [
+        "Ossus"
+      ],
+      "tags": [
+        "location:ossus"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:loc:tatooine": {
+      "type": "location",
+      "label": "Tatooine",
+      "aliases": [],
+      "canonicalNames": [
+        "Tatooine"
+      ],
+      "tags": [
+        "location:tatooine"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-legacy:loc:vendaxa": {
+      "type": "location",
+      "label": "Vendaxa",
+      "aliases": [],
+      "canonicalNames": [
+        "Vendaxa"
+      ],
+      "tags": [
+        "location:vendaxa"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    }
+  }
+}

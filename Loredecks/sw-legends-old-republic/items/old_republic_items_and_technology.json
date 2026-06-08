@@ -1,0 +1,1052 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_star_maps_are_context_path_not_treasure",
+      "title": "Star Maps Are Context Path, Not Treasure",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.star_forge_campaign",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Revan",
+          "Bastila Shan"
+        ],
+        "locations": [
+          "Dantooine",
+          "Kashyyyk",
+          "Tatooine",
+          "Manaan",
+          "Korriban"
+        ],
+        "topics": [
+          "star maps",
+          "quest route",
+          "rakata"
+        ],
+        "objects": [
+          "Star Map"
+        ],
+        "spells": [],
+        "factions": [
+          "Rakata"
+        ]
+      },
+      "tags": [
+        "character:bastila-shan",
+        "character:revan",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:rakata",
+        "fandom:star-wars",
+        "item:star-map",
+        "location:dantooine",
+        "location:kashyyyk",
+        "location:korriban",
+        "location:manaan",
+        "location:tatooine",
+        "scope:old-republic",
+        "topic:quest-route",
+        "topic:rakata",
+        "topic:star-maps"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Revan",
+            "Bastila Shan"
+          ],
+          "topicsAny": [
+            "star maps",
+            "quest route",
+            "rakata"
+          ],
+          "locationsAny": [
+            "Dantooine",
+            "Kashyyyk",
+            "Tatooine",
+            "Manaan",
+            "Korriban"
+          ],
+          "factionsAny": [
+            "Rakata"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Star Maps are a KOTOR-era path mechanism toward the Star Forge, not generic treasure maps usable in every era.",
+        "injection": "Use Star Maps only when KOTOR-era Star Forge discovery is active; do not scatter them casually in unrelated Old Republic scenes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Star Forge Campaign."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_ebon_hawk_is_mobile_party_hub",
+      "title": "Ebon Hawk Is Mobile Party Hub",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.malachor_finale",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Revan",
+          "Meetra Surik"
+        ],
+        "locations": [],
+        "topics": [
+          "ship",
+          "party hub",
+          "smuggling freighter"
+        ],
+        "objects": [
+          "Ebon Hawk"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:meetra-surik",
+        "character:revan",
+        "continuity:legends",
+        "era:kotor-era",
+        "fandom:star-wars",
+        "item:ebon-hawk",
+        "scope:old-republic",
+        "topic:party-hub",
+        "topic:ship",
+        "topic:smuggling-freighter"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Revan",
+            "Meetra Surik"
+          ],
+          "topicsAny": [
+            "ship",
+            "party hub",
+            "smuggling freighter"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Ebon Hawk serves as a mobile party hub across KOTOR and KOTOR II contexts.",
+        "injection": "When the Ebon Hawk is active, use it as a compact social stage for companions, repairs, pursuit, arguments, and travel.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Malachor V Finale."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_hk47_memory_and_ownership_shift_by_context",
+      "title": "HK-47 Memory and Ownership Shift by Context",
+      "kind": "knowledge_gate",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.eternal_empire_crisis",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 7800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "HK-47",
+          "Revan"
+        ],
+        "locations": [],
+        "topics": [
+          "assassin droid",
+          "memory",
+          "ownership"
+        ],
+        "objects": [
+          "HK-47"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:hk-47",
+        "character:revan",
+        "continuity:legends",
+        "era:kotor-era",
+        "fandom:star-wars",
+        "item:hk-47",
+        "scope:old-republic",
+        "topic:assassin-droid",
+        "topic:memory",
+        "topic:ownership"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "HK-47",
+            "Revan"
+          ],
+          "topicsAny": [
+            "assassin droid",
+            "memory",
+            "ownership"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "HK-47’s memory, ownership, and operational state vary across Old Republic contexts.",
+        "injection": "Before using HK-47, match his memory and allegiance to the active era; do not assume every later character knows his Revan-era history.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Eternal Empire Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_mass_shadow_generator_is_not_normal_weapon",
+      "title": "Mass Shadow Generator Is Not Normal Weapon",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.malachor_v",
+        "validToAnchor": "sw.or.malachor_finale",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Mandalorian Wars",
+        "phase": "Mandalorian Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Meetra Surik"
+        ],
+        "locations": [
+          "Malachor V"
+        ],
+        "topics": [
+          "superweapon",
+          "malachor",
+          "trauma"
+        ],
+        "objects": [
+          "Mass Shadow Generator"
+        ],
+        "spells": [],
+        "factions": [
+          "Galactic Republic",
+          "Mandalorians"
+        ]
+      },
+      "tags": [
+        "character:meetra-surik",
+        "continuity:legends",
+        "era:mandalorian-wars",
+        "faction:galactic-republic",
+        "faction:mandalorians",
+        "fandom:star-wars",
+        "item:mass-shadow-generator",
+        "location:malachor-v",
+        "scope:old-republic",
+        "topic:malachor",
+        "topic:superweapon",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Meetra Surik"
+          ],
+          "topicsAny": [
+            "superweapon",
+            "malachor",
+            "trauma"
+          ],
+          "locationsAny": [
+            "Malachor V"
+          ],
+          "factionsAny": [
+            "Galactic Republic",
+            "Mandalorians"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Mass Shadow Generator is a catastrophic Malachor-specific superweapon event, not a repeatable battlefield gadget.",
+        "injection": "Treat the Mass Shadow Generator as a singular moral catastrophe unless the story deliberately creates a custom divergence.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mandalorian Wars.",
+          "Respect story-position bounds from Malachor V Ends the Mandalorian Wars to Malachor V Finale."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Mandalorian Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_kolto_pre_bacta_medical_importance",
+      "title": "Kolto Has Pre-Bacta Medical Importance",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.republic_jedi_foundations",
+        "validToAnchor": "sw.or.swtor_class_era",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Old Republic",
+        "phase": "Old Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Manaan"
+        ],
+        "topics": [
+          "kolto",
+          "medicine",
+          "bacta precursor"
+        ],
+        "objects": [
+          "Kolto"
+        ],
+        "spells": [],
+        "factions": [
+          "Selkath"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:old-republic",
+        "faction:selkath",
+        "fandom:star-wars",
+        "item:kolto",
+        "location:manaan",
+        "scope:old-republic",
+        "topic:bacta-precursor",
+        "topic:kolto",
+        "topic:medicine"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "kolto",
+            "medicine",
+            "bacta precursor"
+          ],
+          "locationsAny": [
+            "Manaan"
+          ],
+          "factionsAny": [
+            "Selkath"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Old Republic contexts, kolto can be more central than later bacta as a strategic medical resource.",
+        "injection": "Use kolto as a major Old Republic healing commodity, especially around Manaan, rather than defaulting automatically to film-era bacta ubiquity.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Old Republic.",
+          "Respect story-position bounds from Old Republic and Jedi Foundations to SWTOR Class-Story Era."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Republic",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_lightsabers_are_common_jedi_sith_symbols",
+      "title": "Lightsabers Are Common Jedi/Sith Symbols",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.republic_jedi_foundations",
+        "validToAnchor": "sw.or.ruusan_reformation",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Old Republic",
+        "phase": "Old Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "lightsaber",
+          "force orders",
+          "war"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:old-republic",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "item:lightsaber",
+        "scope:old-republic",
+        "topic:force-orders",
+        "topic:lightsaber",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "lightsaber",
+            "force orders",
+            "war"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Old Republic battlefields can include many lightsabers because Jedi and Sith are both numerous in several eras.",
+        "injection": "Unlike the OT era, Old Republic scenes can plausibly feature many active Jedi/Sith lightsaber users when the Context supports war or academies.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Old Republic.",
+          "Respect story-position bounds from Old Republic and Jedi Foundations to Ruusan Reformation and Old Republic End-State."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Republic",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_ancient_droids_can_persist_but_need_reason",
+      "title": "Ancient Droids Can Persist But Need Reason",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.republic_jedi_foundations",
+        "validToAnchor": "sw.or.ruusan_reformation",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Old Republic",
+        "phase": "Old Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "droids",
+          "memory wipe",
+          "ancient continuity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "era:old-republic",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:ancient-continuity",
+        "topic:droids",
+        "topic:memory-wipe"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "droids",
+            "memory wipe",
+            "ancient continuity"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Droids can persist across long periods, but intact memories and personalities require maintenance, motive, or exceptional circumstances.",
+        "injection": "Do not use millennia-old droid memory continuity casually; give preservation, repair, or deliberate non-wipe reasons.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Old Republic.",
+          "Respect story-position bounds from Old Republic and Jedi Foundations to Ruusan Reformation and Old Republic End-State."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Republic",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_sith_alchemy_is_dangerous_specialized_lore",
+      "title": "Sith Alchemy Is Dangerous Specialized Lore",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.old_sith_empire",
+        "validToAnchor": "sw.or.ruusan_reformation",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ancient Sith Foundations",
+        "phase": "Ancient Sith Foundations",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Korriban"
+        ],
+        "topics": [
+          "sith alchemy",
+          "dark side",
+          "mutation"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:ancient-sith-foundations",
+        "faction:sith",
+        "fandom:star-wars",
+        "location:korriban",
+        "scope:old-republic",
+        "topic:dark-side",
+        "topic:mutation",
+        "topic:sith-alchemy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "sith alchemy",
+            "dark side",
+            "mutation"
+          ],
+          "locationsAny": [
+            "Korriban"
+          ],
+          "factionsAny": [
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sith alchemy and sorcery are specialized dark-side traditions, not casual Force tricks every Sith can use fluently.",
+        "injection": "When Sith alchemy appears, treat it as dangerous ritual knowledge requiring training, artifacts, laboratories, or ancient sources.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Ancient Sith Foundations.",
+          "Respect story-position bounds from Old Sith Empire Ascendant to Ruusan Reformation and Old Republic End-State."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Ancient Sith Foundations",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_battle_meditation_affects_groups_not_private_duel_only",
+      "title": "Battle Meditation Affects Groups",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_sith_war_begins",
+        "validToAnchor": "sw.or.star_forge_destroyed",
+        "sortKeyFrom": 4000,
+        "sortKeyTo": 5600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Bastila Shan",
+          "Nomi Sunrider"
+        ],
+        "locations": [],
+        "topics": [
+          "battle meditation",
+          "fleet morale",
+          "force coordination"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:bastila-shan",
+        "character:nomi-sunrider",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:battle-meditation",
+        "topic:fleet-morale",
+        "topic:force-coordination"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bastila Shan",
+            "Nomi Sunrider"
+          ],
+          "topicsAny": [
+            "battle meditation",
+            "fleet morale",
+            "force coordination"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Battle Meditation is important because it affects groups, fleets, morale, and coordination, not merely one duel.",
+        "injection": "When Battle Meditation is active, show strategic-scale effects and make opponents treat the user as a military priority.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Great Sith War Begins to Star Forge Destroyed."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_force_bonds_can_be_intimate_and_dangerous",
+      "title": "Force Bonds Can Be Intimate and Dangerous",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.malachor_finale",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Revan",
+          "Bastila Shan",
+          "Meetra Surik",
+          "Kreia"
+        ],
+        "locations": [],
+        "topics": [
+          "force bond",
+          "companions",
+          "influence"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:bastila-shan",
+        "character:kreia",
+        "character:meetra-surik",
+        "character:revan",
+        "continuity:legends",
+        "era:kotor-era",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:companions",
+        "topic:force-bond",
+        "topic:influence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Revan",
+            "Bastila Shan",
+            "Meetra Surik",
+            "Kreia"
+          ],
+          "topicsAny": [
+            "force bond",
+            "companions",
+            "influence"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "KOTOR-era Force bonds can carry intimacy, teaching, manipulation, influence, and danger.",
+        "injection": "Use Force bonds to affect perception, loyalty, pain, teaching, and manipulation when the active story establishes such a bond.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Malachor V Finale."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

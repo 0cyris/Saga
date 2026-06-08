@@ -10,19 +10,23 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "normal",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "school-year:3",
+        "book:prisoner-of-azkaban",
         "calendar-year:1993",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
         "place:azkaban",
-        "place:hogwarts"
+        "place:hogwarts",
+        "school-year:3"
       ],
-      "priority": 75,
+      "priority": 85,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -31,8 +35,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "date_window",
         "windowKind": "wide",
         "label": "1993-09-01 to 1994-08-31",
@@ -89,8 +93,14 @@
       },
       "content": {
         "fact": "From September 1993 through August 1994, the main school-year context aligns with Harry Potter's third year at Hogwarts.",
-        "injection": "From September 1993 through August 1994, the main school-year context aligns with Harry Potter's third year at Hogwarts.",
-        "publicVersion": "Harry Potter is a third-year student at Hogwarts."
+        "injection": "From September 1993 through August 1994, the main school-year context aligns with Harry Potter's third year at Hogwarts. Keep this bounded to 1993-09-01 to 1994-08-31; do not apply the state before or after its Context window without an explicit story override.",
+        "publicVersion": "Harry Potter is a third-year student at Hogwarts.",
+        "constraints": [
+          "Apply only when Saga Context matches 1993-09-01 to 1994-08-31; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -98,7 +108,8 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     }
   ]
 }

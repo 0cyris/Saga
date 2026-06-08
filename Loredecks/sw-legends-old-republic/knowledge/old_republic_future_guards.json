@@ -1,0 +1,651 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_pre_revan_no_star_forge_knowledge",
+      "title": "Pre-Revan No Star Forge Knowledge",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.republic_jedi_foundations",
+        "validToAnchor": "sw.or.jedi_civil_war_begins",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ancient Old Republic",
+        "phase": "Ancient Old Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Revan"
+        ],
+        "locations": [
+          "Lehon"
+        ],
+        "topics": [
+          "star forge",
+          "future guard",
+          "rakata"
+        ],
+        "objects": [
+          "Star Forge"
+        ],
+        "spells": [],
+        "factions": [
+          "Rakata"
+        ]
+      },
+      "tags": [
+        "character:revan",
+        "continuity:legends",
+        "era:ancient-old-republic",
+        "faction:rakata",
+        "fandom:star-wars",
+        "item:star-forge",
+        "location:lehon",
+        "scope:old-republic",
+        "topic:future-guard",
+        "topic:rakata",
+        "topic:star-forge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Revan"
+          ],
+          "topicsAny": [
+            "star forge",
+            "future guard",
+            "rakata"
+          ],
+          "locationsAny": [
+            "Lehon"
+          ],
+          "factionsAny": [
+            "Rakata"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the KOTOR-era search begins, the Star Forge should not be common Republic/Jedi/Sith knowledge.",
+        "injection": "In pre-KOTOR scenes, block casual references to the Star Forge unless the story has found ancient Rakatan leads.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Ancient Old Republic.",
+          "Respect story-position bounds from Old Republic and Jedi Foundations to Jedi Civil War Begins."
+        ],
+        "antiLore": [
+          "Do not leak KOTOR central mystery into Tales-era or Mandalorian Wars scenes.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Ancient Old Republic",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_pre_mandalorian_wars_no_revan_sith_fall",
+      "title": "Pre-Mandalorian Wars No Revan Sith Fall",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.republic_jedi_foundations",
+        "validToAnchor": "sw.or.revan_crusaders_intervene",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Mandalorian Wars",
+        "phase": "Mandalorian Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Revan",
+          "Darth Malak"
+        ],
+        "locations": [],
+        "topics": [
+          "revan fall",
+          "future guard",
+          "jedi civil war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "character:darth-malak",
+        "character:revan",
+        "continuity:legends",
+        "era:mandalorian-wars",
+        "faction:jedi-order",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:future-guard",
+        "topic:jedi-civil-war",
+        "topic:revan-fall"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Revan",
+            "Darth Malak"
+          ],
+          "topicsAny": [
+            "revan fall",
+            "future guard",
+            "jedi civil war"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Revan’s intervention and later fall, characters should not treat Revan as an established Sith conqueror.",
+        "injection": "In pre-fall scenes, write Revan as a controversial Jedi or unknown future figure, not already Darth Revan ruling a Sith empire.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mandalorian Wars.",
+          "Respect story-position bounds from Old Republic and Jedi Foundations to Revanite Jedi Intervene."
+        ],
+        "antiLore": [
+          "Block Darth Revan/Malak future state before Context reaches it.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Mandalorian Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_pre_dark_wars_no_triumvirate_public_knowledge",
+      "title": "Pre-Dark Wars No Triumvirate Public Knowledge",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.jedi_civil_war_begins",
+        "validToAnchor": "sw.or.dark_wars_begin",
+        "sortKeyFrom": 5300,
+        "sortKeyTo": 5750,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Kreia",
+          "Darth Nihilus",
+          "Darth Sion"
+        ],
+        "locations": [],
+        "topics": [
+          "sith triumvirate",
+          "future guard",
+          "hidden sith"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Triumvirate"
+        ]
+      },
+      "tags": [
+        "character:darth-nihilus",
+        "character:darth-sion",
+        "character:kreia",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:sith-triumvirate",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:future-guard",
+        "topic:hidden-sith",
+        "topic:sith-triumvirate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kreia",
+            "Darth Nihilus",
+            "Darth Sion"
+          ],
+          "topicsAny": [
+            "sith triumvirate",
+            "future guard",
+            "hidden sith"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Sith Triumvirate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Dark Wars, the Sith Triumvirate should not be public active knowledge.",
+        "injection": "During KOTOR-era scenes before the Dark Wars, block Nihilus/Sion/Kreia-as-Triumvirate references unless the story is deliberately foreshadowing with hidden knowledge.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Jedi Civil War Begins to Dark Wars Begin."
+        ],
+        "antiLore": [
+          "Do not leak KOTOR II villains into KOTOR I context.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_pre_swtor_no_satele_malgus_public_roles",
+      "title": "Pre-SWTOR No Satele/Malgus Public Roles",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_destroyed",
+        "validToAnchor": "sw.or.great_galactic_war",
+        "sortKeyFrom": 5600,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Wars",
+        "phase": "Dark Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Satele Shan",
+          "Darth Malgus"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "swtor characters",
+          "great galactic war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "character:darth-malgus",
+        "character:satele-shan",
+        "continuity:legends",
+        "era:dark-wars",
+        "faction:jedi-order",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:future-guard",
+        "topic:great-galactic-war",
+        "topic:swtor-characters"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Satele Shan",
+            "Darth Malgus"
+          ],
+          "topicsAny": [
+            "future guard",
+            "swtor characters",
+            "great galactic war"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Great Galactic War/SWTOR era, Satele Shan and Darth Malgus should not appear as public current figures.",
+        "injection": "Do not pull Satele or Malgus into KOTOR-era scenes unless the user’s story is time-travel, reincarnation, or AU.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Wars.",
+          "Respect story-position bounds from Star Forge Destroyed to Great Galactic War Begins."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dark Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_pre_eternal_empire_no_zakuul_dominance",
+      "title": "Pre-Eternal Empire No Zakuul Dominance",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_galactic_war",
+        "validToAnchor": "sw.or.revanite_crisis",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "SWTOR Era",
+        "phase": "SWTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Valkorion"
+        ],
+        "locations": [
+          "Zakuul"
+        ],
+        "topics": [
+          "future guard",
+          "zakuul",
+          "eternal empire"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Eternal Empire"
+        ]
+      },
+      "tags": [
+        "character:valkorion",
+        "continuity:legends",
+        "era:swtor-era",
+        "faction:eternal-empire",
+        "fandom:star-wars",
+        "location:zakuul",
+        "scope:old-republic",
+        "topic:eternal-empire",
+        "topic:future-guard",
+        "topic:zakuul"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Valkorion"
+          ],
+          "topicsAny": [
+            "future guard",
+            "zakuul",
+            "eternal empire"
+          ],
+          "locationsAny": [
+            "Zakuul"
+          ],
+          "factionsAny": [
+            "Eternal Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Eternal Empire arc, Zakuul and the Eternal Fleet should not dominate ordinary Republic/Sith politics.",
+        "injection": "In early SWTOR scenes, keep Zakuul/Eternal Empire material hidden or irrelevant unless Context has advanced to that crisis.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: SWTOR Era.",
+          "Respect story-position bounds from Great Galactic War Begins to Revanite Crisis."
+        ],
+        "antiLore": [
+          "Do not spoil or import Eternal Empire dominance early.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "SWTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_pre_ruusan_no_bane_reformation",
+      "title": "Pre-Ruusan No Bane Reformation",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.republic_jedi_foundations",
+        "validToAnchor": "sw.or.late_new_sith_wars",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 9000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Old Republic",
+        "phase": "Old Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Bane"
+        ],
+        "locations": [
+          "Ruusan"
+        ],
+        "topics": [
+          "rule of two",
+          "future guard",
+          "ruusan"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith"
+        ]
+      },
+      "tags": [
+        "character:darth-bane",
+        "continuity:legends",
+        "era:old-republic",
+        "faction:sith",
+        "fandom:star-wars",
+        "location:ruusan",
+        "scope:old-republic",
+        "topic:future-guard",
+        "topic:rule-of-two",
+        "topic:ruusan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Bane"
+          ],
+          "topicsAny": [
+            "rule of two",
+            "future guard",
+            "ruusan"
+          ],
+          "locationsAny": [
+            "Ruusan"
+          ],
+          "factionsAny": [
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the late New Sith Wars, Darth Bane’s reform is not active doctrine.",
+        "injection": "In ancient/KOTOR/SWTOR contexts, Sith can be numerous, aristocratic, militarized, or factional; do not assume Bane’s structure.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Old Republic.",
+          "Respect story-position bounds from Old Republic and Jedi Foundations to Late New Sith Wars."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Republic",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

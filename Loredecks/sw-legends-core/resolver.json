@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve natural Star Wars Legends story-position phrases into pack-local Context anchors and windows.",
+  "preferredFields": [
+    "continuity",
+    "era",
+    "film",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer film, era, or named Legends-source before/after windows over invented exact BBY/ABY dates. Reject Disney-canon-only anchors for this Legends pack. Prefer story-position anchors and windows over raw BBY/ABY dates; never invent timeline anchors outside this deck registry.",
+  "localPatterns": [
+    {
+      "pattern": "after empire before return",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_5_esb",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back, before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "between empire and jedi",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_5_esb",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back, before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "between empire and return",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_5_esb",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back, before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "post esb pre rotj",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_5_esb",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back, before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "post esb",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_5_esb",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back"
+      }
+    },
+    {
+      "pattern": "after empire",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_5_esb",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back"
+      }
+    },
+    {
+      "pattern": "after cloud city",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_5_esb",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back"
+      }
+    },
+    {
+      "pattern": "pre rotj",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "Before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "before return",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "Before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "before endor",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "Before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "prequel era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_1_tpm",
+        "anchorTo": "sw.film.episode_3_rots",
+        "label": "Prequel Era"
+      }
+    },
+    {
+      "pattern": "during clone wars",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_2_aotc",
+        "anchorTo": "sw.film.episode_3_rots",
+        "label": "Clone Wars"
+      }
+    },
+    {
+      "pattern": "imperial era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_3_rots",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "Imperial Era"
+      }
+    },
+    {
+      "pattern": "rebellion era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_4_anh",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "Rebellion Era"
+      }
+    },
+    {
+      "pattern": "post endor",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_6_rotj",
+        "anchorTo": "sw.legends.njo",
+        "label": "Post-Endor Legends"
+      }
+    },
+    {
+      "pattern": "new republic era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.episode_6_rotj",
+        "anchorTo": "sw.legends.njo",
+        "label": "New Republic Legends"
+      }
+    },
+    {
+      "pattern": "thrawn trilogy era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legends.thrawn_trilogy",
+        "anchorTo": "sw.legends.dark_empire",
+        "label": "Thrawn Trilogy Era"
+      }
+    },
+    {
+      "pattern": "dark empire era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legends.dark_empire",
+        "anchorTo": "sw.legends.jedi_academy",
+        "label": "Dark Empire Era"
+      }
+    },
+    {
+      "pattern": "jedi academy era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legends.jedi_academy",
+        "anchorTo": "sw.legends.hand_of_thrawn",
+        "label": "Jedi Academy Era"
+      }
+    },
+    {
+      "pattern": "njo era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legends.njo",
+        "anchorTo": "sw.legends.legacy",
+        "label": "New Jedi Order Era"
+      }
+    },
+    {
+      "pattern": "yuuzhan vong war",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.legends.njo",
+        "anchorTo": "sw.legends.legacy",
+        "label": "New Jedi Order / Yuuzhan Vong War"
+      }
+    },
+    {
+      "pattern": "a new hope",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_4_anh",
+        "label": "A New Hope"
+      }
+    },
+    {
+      "pattern": "battle of yavin",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_4_anh",
+        "label": "Battle of Yavin"
+      }
+    },
+    {
+      "pattern": "empire strikes back",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_5_esb",
+        "label": "The Empire Strikes Back"
+      }
+    },
+    {
+      "pattern": "return of the jedi",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_6_rotj",
+        "label": "Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "heir to the empire",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.legends.thrawn_trilogy",
+        "label": "Thrawn Trilogy Era"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

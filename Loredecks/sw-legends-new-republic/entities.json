@@ -1,0 +1,2099 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "sw:ackbar": {
+      "type": "character",
+      "label": "Ackbar",
+      "aliases": [],
+      "canonicalNames": [
+        "Ackbar"
+      ],
+      "tags": [
+        "character:ackbar"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:admiral-daala": {
+      "type": "character",
+      "label": "Admiral Daala",
+      "aliases": [
+        "Daala"
+      ],
+      "canonicalNames": [
+        "Admiral Daala"
+      ],
+      "tags": [
+        "character:admiral-daala"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:anakin-solo": {
+      "type": "character",
+      "label": "Anakin Solo",
+      "aliases": [
+        "Anakin Solo"
+      ],
+      "canonicalNames": [
+        "Anakin Solo"
+      ],
+      "tags": [
+        "character:anakin-solo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:bacta": {
+      "type": "item",
+      "label": "Bacta",
+      "aliases": [],
+      "canonicalNames": [
+        "Bacta"
+      ],
+      "tags": [
+        "item:bacta"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:bakura": {
+      "type": "location",
+      "label": "Bakura",
+      "aliases": [],
+      "canonicalNames": [
+        "Bakura"
+      ],
+      "tags": [
+        "location:bakura"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:bastion": {
+      "type": "location",
+      "label": "Bastion",
+      "aliases": [],
+      "canonicalNames": [
+        "Bastion"
+      ],
+      "tags": [
+        "location:bastion"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:ben-skywalker": {
+      "type": "character",
+      "label": "Ben Skywalker",
+      "aliases": [],
+      "canonicalNames": [
+        "Ben Skywalker"
+      ],
+      "tags": [
+        "character:ben-skywalker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:bothans": {
+      "type": "faction",
+      "label": "Bothans",
+      "aliases": [],
+      "canonicalNames": [
+        "Bothans"
+      ],
+      "tags": [
+        "faction:bothans"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:bothawui": {
+      "type": "location",
+      "label": "Bothawui",
+      "aliases": [],
+      "canonicalNames": [
+        "Bothawui"
+      ],
+      "tags": [
+        "location:bothawui"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:byss": {
+      "type": "location",
+      "label": "Byss",
+      "aliases": [],
+      "canonicalNames": [
+        "Byss"
+      ],
+      "tags": [
+        "location:byss"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:caamas": {
+      "type": "location",
+      "label": "Caamas",
+      "aliases": [],
+      "canonicalNames": [
+        "Caamas"
+      ],
+      "tags": [
+        "location:caamas"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:centerpoint-station": {
+      "type": "location",
+      "label": "Centerpoint Station",
+      "aliases": [],
+      "canonicalNames": [
+        "Centerpoint Station"
+      ],
+      "tags": [
+        "location:centerpoint-station"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:chiss": {
+      "type": "faction",
+      "label": "Chiss",
+      "aliases": [],
+      "canonicalNames": [
+        "Chiss"
+      ],
+      "tags": [
+        "faction:chiss"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:corsec": {
+      "type": "faction",
+      "label": "CorSec",
+      "aliases": [],
+      "canonicalNames": [
+        "CorSec"
+      ],
+      "tags": [
+        "faction:corsec"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:corellia": {
+      "type": "location",
+      "label": "Corellia",
+      "aliases": [],
+      "canonicalNames": [
+        "Corellia"
+      ],
+      "tags": [
+        "location:corellia"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:corran-horn": {
+      "type": "character",
+      "label": "Corran Horn",
+      "aliases": [
+        "Corran"
+      ],
+      "canonicalNames": [
+        "Corran Horn"
+      ],
+      "tags": [
+        "character:corran-horn"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:coruscant": {
+      "type": "location",
+      "label": "Coruscant",
+      "aliases": [],
+      "canonicalNames": [
+        "Coruscant"
+      ],
+      "tags": [
+        "location:coruscant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:criminal-underworld": {
+      "type": "character",
+      "label": "Criminal Underworld",
+      "aliases": [],
+      "canonicalNames": [
+        "Criminal Underworld"
+      ],
+      "tags": [
+        "character:criminal-underworld"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:darth-vader": {
+      "type": "character",
+      "label": "Darth Vader",
+      "aliases": [],
+      "canonicalNames": [
+        "Darth Vader"
+      ],
+      "tags": [
+        "character:darth-vader"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:dathomir": {
+      "type": "location",
+      "label": "Dathomir",
+      "aliases": [],
+      "canonicalNames": [
+        "Dathomir"
+      ],
+      "tags": [
+        "location:dathomir"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:dreadnaught": {
+      "type": "item",
+      "label": "Dreadnaught",
+      "aliases": [],
+      "canonicalNames": [
+        "Dreadnaught"
+      ],
+      "tags": [
+        "item:dreadnaught"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:eclipse": {
+      "type": "item",
+      "label": "Eclipse",
+      "aliases": [],
+      "canonicalNames": [
+        "Eclipse"
+      ],
+      "tags": [
+        "item:eclipse"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:exar-kun": {
+      "type": "character",
+      "label": "Exar Kun",
+      "aliases": [],
+      "canonicalNames": [
+        "Exar Kun"
+      ],
+      "tags": [
+        "character:exar-kun"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:galactic-empire": {
+      "type": "faction",
+      "label": "Galactic Empire",
+      "aliases": [],
+      "canonicalNames": [
+        "Galactic Empire"
+      ],
+      "tags": [
+        "faction:galactic-empire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:grand-admiral-thrawn": {
+      "type": "character",
+      "label": "Grand Admiral Thrawn",
+      "aliases": [
+        "Thrawn",
+        "Mitthrawnuroudo",
+        "Mitth’raw’nuruodo"
+      ],
+      "canonicalNames": [
+        "Grand Admiral Thrawn"
+      ],
+      "tags": [
+        "character:grand-admiral-thrawn"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:han-solo": {
+      "type": "character",
+      "label": "Han Solo",
+      "aliases": [
+        "Han"
+      ],
+      "canonicalNames": [
+        "Han Solo"
+      ],
+      "tags": [
+        "character:han-solo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:hapes": {
+      "type": "location",
+      "label": "Hapes",
+      "aliases": [],
+      "canonicalNames": [
+        "Hapes"
+      ],
+      "tags": [
+        "location:hapes"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:hapes-consortium": {
+      "type": "faction",
+      "label": "Hapes Consortium",
+      "aliases": [],
+      "canonicalNames": [
+        "Hapes Consortium"
+      ],
+      "tags": [
+        "faction:hapes-consortium"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:holocron": {
+      "type": "item",
+      "label": "Holocron",
+      "aliases": [],
+      "canonicalNames": [
+        "Holocron"
+      ],
+      "tags": [
+        "item:holocron"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:honoghr": {
+      "type": "location",
+      "label": "Honoghr",
+      "aliases": [],
+      "canonicalNames": [
+        "Honoghr"
+      ],
+      "tags": [
+        "location:honoghr"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:imperial-court": {
+      "type": "faction",
+      "label": "Imperial Court",
+      "aliases": [],
+      "canonicalNames": [
+        "Imperial Court"
+      ],
+      "tags": [
+        "faction:imperial-court"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:imperial-intelligence": {
+      "type": "faction",
+      "label": "Imperial Intelligence",
+      "aliases": [],
+      "canonicalNames": [
+        "Imperial Intelligence"
+      ],
+      "tags": [
+        "faction:imperial-intelligence"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:imperial-remnant": {
+      "type": "faction",
+      "label": "Imperial Remnant",
+      "aliases": [],
+      "canonicalNames": [
+        "Imperial Remnant"
+      ],
+      "tags": [
+        "faction:imperial-remnant"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:imperial-warlords": {
+      "type": "faction",
+      "label": "Imperial Warlords",
+      "aliases": [],
+      "canonicalNames": [
+        "Imperial Warlords"
+      ],
+      "tags": [
+        "faction:imperial-warlords"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:iron-fist": {
+      "type": "item",
+      "label": "Iron Fist",
+      "aliases": [],
+      "canonicalNames": [
+        "Iron Fist"
+      ],
+      "tags": [
+        "item:iron-fist"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:jacen-solo": {
+      "type": "character",
+      "label": "Jacen Solo",
+      "aliases": [
+        "Jacen"
+      ],
+      "canonicalNames": [
+        "Jacen Solo"
+      ],
+      "tags": [
+        "character:jacen-solo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:jaina-solo": {
+      "type": "character",
+      "label": "Jaina Solo",
+      "aliases": [
+        "Jaina"
+      ],
+      "canonicalNames": [
+        "Jaina Solo"
+      ],
+      "tags": [
+        "character:jaina-solo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:jedi-order": {
+      "type": "faction",
+      "label": "Jedi Order",
+      "aliases": [],
+      "canonicalNames": [
+        "Jedi Order"
+      ],
+      "tags": [
+        "faction:jedi-order"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:joruus-cbaoth": {
+      "type": "character",
+      "label": "Joruus Cbaoth",
+      "aliases": [
+        "Joruus C’baoth",
+        "Cbaoth"
+      ],
+      "canonicalNames": [
+        "Joruus Cbaoth"
+      ],
+      "tags": [
+        "character:joruus-cbaoth"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:katana-fleet": {
+      "type": "item",
+      "label": "Katana Fleet",
+      "aliases": [],
+      "canonicalNames": [
+        "Katana Fleet"
+      ],
+      "tags": [
+        "item:katana-fleet"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:kyp-durron": {
+      "type": "character",
+      "label": "Kyp Durron",
+      "aliases": [
+        "Kyp"
+      ],
+      "canonicalNames": [
+        "Kyp Durron"
+      ],
+      "tags": [
+        "character:kyp-durron"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:lando-calrissian": {
+      "type": "character",
+      "label": "Lando Calrissian",
+      "aliases": [],
+      "canonicalNames": [
+        "Lando Calrissian"
+      ],
+      "tags": [
+        "character:lando-calrissian"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:leia-organa": {
+      "type": "character",
+      "label": "Leia Organa",
+      "aliases": [
+        "Princess Leia",
+        "Leia Organa Solo"
+      ],
+      "canonicalNames": [
+        "Leia Organa"
+      ],
+      "tags": [
+        "character:leia-organa"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:lightsaber": {
+      "type": "item",
+      "label": "Lightsaber",
+      "aliases": [],
+      "canonicalNames": [
+        "Lightsaber"
+      ],
+      "tags": [
+        "item:lightsaber"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:luke-skywalker": {
+      "type": "character",
+      "label": "Luke Skywalker",
+      "aliases": [
+        "Luke"
+      ],
+      "canonicalNames": [
+        "Luke Skywalker"
+      ],
+      "tags": [
+        "character:luke-skywalker"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:mara-jade": {
+      "type": "character",
+      "label": "Mara Jade",
+      "aliases": [
+        "Emperor’s Hand",
+        "Mara Jade Skywalker"
+      ],
+      "canonicalNames": [
+        "Mara Jade"
+      ],
+      "tags": [
+        "character:mara-jade"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:maw-installation": {
+      "type": "location",
+      "label": "Maw Installation",
+      "aliases": [],
+      "canonicalNames": [
+        "Maw Installation"
+      ],
+      "tags": [
+        "location:maw-installation"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:mon-calamari": {
+      "type": "location",
+      "label": "Mon Calamari",
+      "aliases": [],
+      "canonicalNames": [
+        "Mon Calamari"
+      ],
+      "tags": [
+        "location:mon-calamari"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:mon-mothma": {
+      "type": "character",
+      "label": "Mon Mothma",
+      "aliases": [
+        "Mothma"
+      ],
+      "canonicalNames": [
+        "Mon Mothma"
+      ],
+      "tags": [
+        "character:mon-mothma"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:mount-tantiss": {
+      "type": "location",
+      "label": "Mount Tantiss",
+      "aliases": [],
+      "canonicalNames": [
+        "Mount Tantiss"
+      ],
+      "tags": [
+        "location:mount-tantiss"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:new-republic": {
+      "type": "faction",
+      "label": "New Republic",
+      "aliases": [],
+      "canonicalNames": [
+        "New Republic"
+      ],
+      "tags": [
+        "faction:new-republic"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:new-republic-intelligence": {
+      "type": "character",
+      "label": "New Republic Intelligence",
+      "aliases": [],
+      "canonicalNames": [
+        "New Republic Intelligence"
+      ],
+      "tags": [
+        "character:new-republic-intelligence"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:nirauan": {
+      "type": "location",
+      "label": "Nirauan",
+      "aliases": [],
+      "canonicalNames": [
+        "Nirauan"
+      ],
+      "tags": [
+        "location:nirauan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:noghri": {
+      "type": "faction",
+      "label": "Noghri",
+      "aliases": [],
+      "canonicalNames": [
+        "Noghri"
+      ],
+      "tags": [
+        "faction:noghri"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:palpatine": {
+      "type": "character",
+      "label": "Palpatine",
+      "aliases": [
+        "Emperor Palpatine",
+        "Darth Sidious",
+        "Clone Emperor"
+      ],
+      "canonicalNames": [
+        "Palpatine"
+      ],
+      "tags": [
+        "character:palpatine"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:pellaeon": {
+      "type": "character",
+      "label": "Pellaeon",
+      "aliases": [
+        "Gilad Pellaeon",
+        "Captain Pellaeon"
+      ],
+      "canonicalNames": [
+        "Pellaeon"
+      ],
+      "tags": [
+        "character:pellaeon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:rebel-alliance": {
+      "type": "faction",
+      "label": "Rebel Alliance",
+      "aliases": [],
+      "canonicalNames": [
+        "Rebel Alliance"
+      ],
+      "tags": [
+        "faction:rebel-alliance"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:rogue-squadron": {
+      "type": "faction",
+      "label": "Rogue Squadron",
+      "aliases": [],
+      "canonicalNames": [
+        "Rogue Squadron"
+      ],
+      "tags": [
+        "faction:rogue-squadron"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:rukh": {
+      "type": "character",
+      "label": "Rukh",
+      "aliases": [],
+      "canonicalNames": [
+        "Rukh"
+      ],
+      "tags": [
+        "character:rukh"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:sith": {
+      "type": "faction",
+      "label": "Sith",
+      "aliases": [],
+      "canonicalNames": [
+        "Sith"
+      ],
+      "tags": [
+        "faction:sith"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:smugglers": {
+      "type": "faction",
+      "label": "Smugglers",
+      "aliases": [],
+      "canonicalNames": [
+        "Smugglers"
+      ],
+      "tags": [
+        "faction:smugglers"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:spaarti-cylinders": {
+      "type": "item",
+      "label": "Spaarti cylinders",
+      "aliases": [],
+      "canonicalNames": [
+        "Spaarti cylinders"
+      ],
+      "tags": [
+        "item:spaarti-cylinders"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:ssi-ruuk": {
+      "type": "faction",
+      "label": "Ssi-ruuk",
+      "aliases": [],
+      "canonicalNames": [
+        "Ssi-ruuk"
+      ],
+      "tags": [
+        "faction:ssi-ruuk"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:streen": {
+      "type": "character",
+      "label": "Streen",
+      "aliases": [],
+      "canonicalNames": [
+        "Streen"
+      ],
+      "tags": [
+        "character:streen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:sun-crusher": {
+      "type": "item",
+      "label": "Sun Crusher",
+      "aliases": [],
+      "canonicalNames": [
+        "Sun Crusher"
+      ],
+      "tags": [
+        "item:sun-crusher"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:super-star-destroyer": {
+      "type": "item",
+      "label": "Super Star Destroyer",
+      "aliases": [],
+      "canonicalNames": [
+        "Super Star Destroyer"
+      ],
+      "tags": [
+        "item:super-star-destroyer"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:superweapon": {
+      "type": "character",
+      "label": "Superweapon",
+      "aliases": [],
+      "canonicalNames": [
+        "Superweapon"
+      ],
+      "tags": [
+        "character:superweapon"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:talon-karrde": {
+      "type": "character",
+      "label": "Talon Karrde",
+      "aliases": [
+        "Karrde"
+      ],
+      "canonicalNames": [
+        "Talon Karrde"
+      ],
+      "tags": [
+        "character:talon-karrde"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:thyferra": {
+      "type": "location",
+      "label": "Thyferra",
+      "aliases": [],
+      "canonicalNames": [
+        "Thyferra"
+      ],
+      "tags": [
+        "location:thyferra"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:tionne": {
+      "type": "character",
+      "label": "Tionne",
+      "aliases": [],
+      "canonicalNames": [
+        "Tionne"
+      ],
+      "tags": [
+        "character:tionne"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:warlord-zsinj": {
+      "type": "character",
+      "label": "Warlord Zsinj",
+      "aliases": [],
+      "canonicalNames": [
+        "Warlord Zsinj"
+      ],
+      "tags": [
+        "character:warlord-zsinj"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:wayland": {
+      "type": "location",
+      "label": "Wayland",
+      "aliases": [],
+      "canonicalNames": [
+        "Wayland"
+      ],
+      "tags": [
+        "location:wayland"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:wedge-antilles": {
+      "type": "character",
+      "label": "Wedge Antilles",
+      "aliases": [
+        "Wedge"
+      ],
+      "canonicalNames": [
+        "Wedge Antilles"
+      ],
+      "tags": [
+        "character:wedge-antilles"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:witches-of-dathomir": {
+      "type": "faction",
+      "label": "Witches of Dathomir",
+      "aliases": [],
+      "canonicalNames": [
+        "Witches of Dathomir"
+      ],
+      "tags": [
+        "faction:witches-of-dathomir"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:world-devastator": {
+      "type": "item",
+      "label": "World Devastator",
+      "aliases": [],
+      "canonicalNames": [
+        "World Devastator"
+      ],
+      "tags": [
+        "item:world-devastator"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:wraith-squadron": {
+      "type": "faction",
+      "label": "Wraith Squadron",
+      "aliases": [],
+      "canonicalNames": [
+        "Wraith Squadron"
+      ],
+      "tags": [
+        "faction:wraith-squadron"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:x-wing": {
+      "type": "character",
+      "label": "X-wing",
+      "aliases": [],
+      "canonicalNames": [
+        "X-wing"
+      ],
+      "tags": [
+        "character:x-wing"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:yavin-iv": {
+      "type": "location",
+      "label": "Yavin IV",
+      "aliases": [],
+      "canonicalNames": [
+        "Yavin IV"
+      ],
+      "tags": [
+        "location:yavin-iv"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:yevetha": {
+      "type": "faction",
+      "label": "Yevetha",
+      "aliases": [],
+      "canonicalNames": [
+        "Yevetha"
+      ],
+      "tags": [
+        "faction:yevetha"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:ysalamiri": {
+      "type": "item",
+      "label": "Ysalamiri",
+      "aliases": [],
+      "canonicalNames": [
+        "Ysalamiri"
+      ],
+      "tags": [
+        "item:ysalamiri"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:ysanne-isard": {
+      "type": "character",
+      "label": "Ysanne Isard",
+      "aliases": [
+        "Isard"
+      ],
+      "canonicalNames": [
+        "Ysanne Isard"
+      ],
+      "tags": [
+        "character:ysanne-isard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:yuuzhan-vong": {
+      "type": "character",
+      "label": "Yuuzhan Vong",
+      "aliases": [],
+      "canonicalNames": [
+        "Yuuzhan Vong"
+      ],
+      "tags": [
+        "character:yuuzhan-vong"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    }
+  }
+}

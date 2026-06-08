@@ -1,0 +1,764 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "summary": "Story-position anchors for the Star Wars Legends Old Republic deck. Use story anchors/windows first; BBY dates are secondary metadata.",
+  "anchors": [
+    {
+      "id": "sw.or.republic_jedi_foundations",
+      "label": "Old Republic and Jedi Foundations",
+      "sortKey": 1000,
+      "dateRange": {
+        "from": "25000 BBY",
+        "to": "20000 BBY"
+      },
+      "aliases": [
+        "old republic beginnings",
+        "early old republic",
+        "ancient republic",
+        "jedi foundations"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:ancient-old-republic",
+        "scope:old-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Republic and Jedi Foundations"
+      }
+    },
+    {
+      "id": "sw.or.hundred_year_darkness",
+      "label": "Hundred-Year Darkness and Sith Schism",
+      "sortKey": 1500,
+      "dateRange": {
+        "from": "7000 BBY",
+        "to": "6900 BBY"
+      },
+      "aliases": [
+        "hundred-year darkness",
+        "sith schism",
+        "dark jedi exile"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:ancient-sith",
+        "topic:sith-schism"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Hundred-Year Darkness and Sith Schism"
+      }
+    },
+    {
+      "id": "sw.or.old_sith_empire",
+      "label": "Old Sith Empire Ascendant",
+      "sortKey": 2200,
+      "dateRange": {
+        "from": "6900 BBY",
+        "to": "5000 BBY"
+      },
+      "aliases": [
+        "old sith empire",
+        "ancient sith empire",
+        "sith space"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:ancient-sith",
+        "faction:old-sith-empire"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Sith Empire Ascendant"
+      }
+    },
+    {
+      "id": "sw.or.great_hyperspace_war",
+      "label": "Great Hyperspace War",
+      "sortKey": 3000,
+      "dateRange": {
+        "from": "5000 BBY",
+        "to": "5000 BBY"
+      },
+      "aliases": [
+        "great hyperspace war",
+        "naga sadow war",
+        "sith invade republic"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:great-hyperspace-war",
+        "event:great-hyperspace-war"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Great Hyperspace War"
+      }
+    },
+    {
+      "id": "sw.or.great_sith_war_begins",
+      "label": "Great Sith War Begins",
+      "sortKey": 4000,
+      "dateRange": {
+        "from": "3996 BBY",
+        "to": "3996 BBY"
+      },
+      "aliases": [
+        "great sith war",
+        "exar kun war begins",
+        "qel-droma war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:great-sith-war",
+        "event:great-sith-war"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Great Sith War Begins"
+      }
+    },
+    {
+      "id": "sw.or.exar_kun_defeat",
+      "label": "Exar Kun Defeated on Yavin IV",
+      "sortKey": 4200,
+      "dateRange": {
+        "from": "3996 BBY",
+        "to": "3996 BBY"
+      },
+      "aliases": [
+        "exar kun defeated",
+        "yavin sith temples",
+        "end of great sith war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:great-sith-war",
+        "character:exar-kun"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Exar Kun Defeated on Yavin IV"
+      }
+    },
+    {
+      "id": "sw.or.mandalorian_wars_begin",
+      "label": "Mandalorian Wars Begin",
+      "sortKey": 5000,
+      "dateRange": {
+        "from": "3976 BBY",
+        "to": "3976 BBY"
+      },
+      "aliases": [
+        "mandalorian wars",
+        "mandalorian crusade",
+        "mandalorians attack republic"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:mandalorian-wars",
+        "faction:mandalorians"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Mandalorian Wars Begin"
+      }
+    },
+    {
+      "id": "sw.or.revan_crusaders_intervene",
+      "label": "Revanite Jedi Intervene",
+      "sortKey": 5100,
+      "dateRange": {
+        "from": "3964 BBY",
+        "to": "3962 BBY"
+      },
+      "aliases": [
+        "revan joins war",
+        "jedi crusaders",
+        "revanchists"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:mandalorian-wars",
+        "character:revan"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Revanite Jedi Intervene"
+      }
+    },
+    {
+      "id": "sw.or.malachor_v",
+      "label": "Malachor V Ends the Mandalorian Wars",
+      "sortKey": 5200,
+      "dateRange": {
+        "from": "3960 BBY",
+        "to": "3960 BBY"
+      },
+      "aliases": [
+        "malachor v",
+        "mass shadow generator",
+        "end of mandalorian wars"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:mandalorian-wars",
+        "location:malachor-v"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Malachor V Ends the Mandalorian Wars"
+      }
+    },
+    {
+      "id": "sw.or.jedi_civil_war_begins",
+      "label": "Jedi Civil War Begins",
+      "sortKey": 5300,
+      "dateRange": {
+        "from": "3959 BBY",
+        "to": "3959 BBY"
+      },
+      "aliases": [
+        "jedi civil war",
+        "revan and malak return",
+        "sith armada"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:jedi-civil-war",
+        "character:revan",
+        "character:darth-malak"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Jedi Civil War Begins"
+      }
+    },
+    {
+      "id": "sw.or.star_forge_campaign",
+      "label": "Star Forge Campaign",
+      "sortKey": 5450,
+      "dateRange": {
+        "from": "3956 BBY",
+        "to": "3956 BBY"
+      },
+      "aliases": [
+        "kotor",
+        "knights of the old republic",
+        "star forge campaign",
+        "bastila captured"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:kotor",
+        "event:star-forge-campaign"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Star Forge Campaign"
+      }
+    },
+    {
+      "id": "sw.or.star_forge_destroyed",
+      "label": "Star Forge Destroyed",
+      "sortKey": 5600,
+      "dateRange": {
+        "from": "3956 BBY",
+        "to": "3956 BBY"
+      },
+      "aliases": [
+        "star forge destroyed",
+        "malak defeated",
+        "revan redeemed"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:kotor",
+        "item:star-forge"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Star Forge Destroyed"
+      }
+    },
+    {
+      "id": "sw.or.dark_wars_begin",
+      "label": "Dark Wars Begin",
+      "sortKey": 5750,
+      "dateRange": {
+        "from": "3955 BBY",
+        "to": "3951 BBY"
+      },
+      "aliases": [
+        "kotor 2",
+        "dark wars",
+        "jedi purge after kotor",
+        "sith triumvirate"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:dark-wars",
+        "faction:sith-triumvirate"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dark Wars Begin"
+      }
+    },
+    {
+      "id": "sw.or.malachor_finale",
+      "label": "Malachor V Finale",
+      "sortKey": 5900,
+      "dateRange": {
+        "from": "3951 BBY",
+        "to": "3951 BBY"
+      },
+      "aliases": [
+        "malachor finale",
+        "trayus academy",
+        "exile confronts kreia"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:dark-wars",
+        "location:malachor-v",
+        "character:meetra-surik"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Malachor V Finale"
+      }
+    },
+    {
+      "id": "sw.or.great_galactic_war",
+      "label": "Great Galactic War Begins",
+      "sortKey": 7000,
+      "dateRange": {
+        "from": "3681 BBY",
+        "to": "3681 BBY"
+      },
+      "aliases": [
+        "great galactic war",
+        "sith empire returns",
+        "return of the sith empire"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:great-galactic-war",
+        "faction:sith-empire"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Great Galactic War Begins"
+      }
+    },
+    {
+      "id": "sw.or.sacking_coruscant",
+      "label": "Sacking of Coruscant",
+      "sortKey": 7150,
+      "dateRange": {
+        "from": "3653 BBY",
+        "to": "3653 BBY"
+      },
+      "aliases": [
+        "sacking of coruscant",
+        "coruscant treaty crisis",
+        "jedi temple sacked"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:great-galactic-war",
+        "location:coruscant"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Sacking of Coruscant"
+      }
+    },
+    {
+      "id": "sw.or.treaty_cold_war",
+      "label": "Treaty of Coruscant and Cold War",
+      "sortKey": 7300,
+      "dateRange": {
+        "from": "3653 BBY",
+        "to": "3643 BBY"
+      },
+      "aliases": [
+        "treaty of coruscant",
+        "cold war",
+        "swtor cold war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:old-republic-cold-war",
+        "event:treaty-of-coruscant"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Treaty of Coruscant and Cold War"
+      }
+    },
+    {
+      "id": "sw.or.swtor_class_era",
+      "label": "SWTOR Class-Story Era",
+      "sortKey": 7450,
+      "dateRange": {
+        "from": "3643 BBY",
+        "to": "3640 BBY"
+      },
+      "aliases": [
+        "swtor class era",
+        "old republic mmo era",
+        "republic empire cold war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:swtor",
+        "scope:old-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "SWTOR Class-Story Era"
+      }
+    },
+    {
+      "id": "sw.or.revanite_crisis",
+      "label": "Revanite Crisis",
+      "sortKey": 7600,
+      "dateRange": {
+        "from": "3640 BBY",
+        "to": "3637 BBY"
+      },
+      "aliases": [
+        "revanite crisis",
+        "shadow of revan",
+        "revan returns"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:revanite-crisis",
+        "character:revan"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Revanite Crisis"
+      }
+    },
+    {
+      "id": "sw.or.eternal_empire_crisis",
+      "label": "Eternal Empire Crisis",
+      "sortKey": 7800,
+      "dateRange": {
+        "from": "3636 BBY",
+        "to": "3630 BBY"
+      },
+      "aliases": [
+        "eternal empire",
+        "zakuul",
+        "knights of the fallen empire",
+        "vitiate valkorion"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:eternal-empire",
+        "faction:eternal-empire"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Eternal Empire Crisis"
+      }
+    },
+    {
+      "id": "sw.or.late_new_sith_wars",
+      "label": "Late New Sith Wars",
+      "sortKey": 9000,
+      "dateRange": {
+        "from": "2000 BBY",
+        "to": "1000 BBY"
+      },
+      "aliases": [
+        "new sith wars",
+        "late old republic wars",
+        "pre ruusan"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:new-sith-wars",
+        "topic:rule-of-two-setup"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Late New Sith Wars"
+      }
+    },
+    {
+      "id": "sw.or.ruusan_reformation",
+      "label": "Ruusan Reformation and Old Republic End-State",
+      "sortKey": 9300,
+      "dateRange": {
+        "from": "1000 BBY",
+        "to": "1000 BBY"
+      },
+      "aliases": [
+        "ruusan",
+        "ruusan reformation",
+        "bane era",
+        "end of old republic era"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:old-republic",
+        "era:ruusan",
+        "topic:rule-of-two-setup"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Ruusan Reformation and Old Republic End-State"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "sw.or.window.ancient_sith",
+      "label": "Ancient Sith Foundations",
+      "anchorFrom": "sw.or.hundred_year_darkness",
+      "anchorTo": "sw.or.great_hyperspace_war",
+      "sortKeyFrom": 1500,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "ancient sith era",
+        "old sith empire era",
+        "before great hyperspace war"
+      ],
+      "tags": [
+        "era:ancient-sith"
+      ]
+    },
+    {
+      "id": "sw.or.window.great_sith_war",
+      "label": "Great Sith War Era",
+      "anchorFrom": "sw.or.great_sith_war_begins",
+      "anchorTo": "sw.or.exar_kun_defeat",
+      "sortKeyFrom": 4000,
+      "sortKeyTo": 4200,
+      "aliases": [
+        "during great sith war",
+        "exar kun war",
+        "qel-droma war"
+      ],
+      "tags": [
+        "era:great-sith-war"
+      ]
+    },
+    {
+      "id": "sw.or.window.mandalorian_wars",
+      "label": "Mandalorian Wars",
+      "anchorFrom": "sw.or.mandalorian_wars_begin",
+      "anchorTo": "sw.or.malachor_v",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 5200,
+      "aliases": [
+        "during mandalorian wars",
+        "revanite crusade",
+        "mandalorian crusade"
+      ],
+      "tags": [
+        "era:mandalorian-wars"
+      ]
+    },
+    {
+      "id": "sw.or.window.kotor",
+      "label": "Knights of the Old Republic / Jedi Civil War",
+      "anchorFrom": "sw.or.jedi_civil_war_begins",
+      "anchorTo": "sw.or.star_forge_destroyed",
+      "sortKeyFrom": 5300,
+      "sortKeyTo": 5600,
+      "aliases": [
+        "kotor era",
+        "jedi civil war",
+        "star forge campaign"
+      ],
+      "tags": [
+        "era:kotor",
+        "era:jedi-civil-war"
+      ]
+    },
+    {
+      "id": "sw.or.window.dark_wars",
+      "label": "KOTOR II / Dark Wars",
+      "anchorFrom": "sw.or.dark_wars_begin",
+      "anchorTo": "sw.or.malachor_finale",
+      "sortKeyFrom": 5750,
+      "sortKeyTo": 5900,
+      "aliases": [
+        "kotor 2 era",
+        "dark wars",
+        "sith triumvirate era"
+      ],
+      "tags": [
+        "era:dark-wars"
+      ]
+    },
+    {
+      "id": "sw.or.window.swtor_great_war",
+      "label": "SWTOR Great War and Cold War",
+      "anchorFrom": "sw.or.great_galactic_war",
+      "anchorTo": "sw.or.swtor_class_era",
+      "sortKeyFrom": 7000,
+      "sortKeyTo": 7450,
+      "aliases": [
+        "swtor era",
+        "great galactic war",
+        "old republic cold war"
+      ],
+      "tags": [
+        "era:swtor"
+      ]
+    },
+    {
+      "id": "sw.or.window.revanite_eternal",
+      "label": "Revanite and Eternal Empire Crises",
+      "anchorFrom": "sw.or.revanite_crisis",
+      "anchorTo": "sw.or.eternal_empire_crisis",
+      "sortKeyFrom": 7600,
+      "sortKeyTo": 7800,
+      "aliases": [
+        "shadow of revan",
+        "eternal empire era",
+        "valkorion crisis"
+      ],
+      "tags": [
+        "era:revanite-crisis",
+        "era:eternal-empire"
+      ]
+    },
+    {
+      "id": "sw.or.window.late_sith_wars",
+      "label": "Late New Sith Wars and Ruusan Transition",
+      "anchorFrom": "sw.or.late_new_sith_wars",
+      "anchorTo": "sw.or.ruusan_reformation",
+      "sortKeyFrom": 9000,
+      "sortKeyTo": 9300,
+      "aliases": [
+        "new sith wars",
+        "ruusan era",
+        "pre bane era"
+      ],
+      "tags": [
+        "era:new-sith-wars",
+        "era:ruusan"
+      ]
+    }
+  ],
+  "arcs": [],
+  "phases": [
+    {
+      "id": "sw.or.phase.ancient_sith",
+      "label": "Ancient Sith Foundations",
+      "sortKeyFrom": 1500,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "ancient sith",
+        "old sith empire"
+      ],
+      "tags": [
+        "era:ancient-sith"
+      ]
+    },
+    {
+      "id": "sw.or.phase.kotor",
+      "label": "KOTOR / Jedi Civil War / Dark Wars",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 5900,
+      "aliases": [
+        "kotor era",
+        "jedi civil war",
+        "dark wars"
+      ],
+      "tags": [
+        "era:kotor",
+        "era:dark-wars"
+      ]
+    },
+    {
+      "id": "sw.or.phase.swtor",
+      "label": "SWTOR / Great Galactic War / Cold War",
+      "sortKeyFrom": 7000,
+      "sortKeyTo": 7800,
+      "aliases": [
+        "swtor",
+        "old republic mmo era"
+      ],
+      "tags": [
+        "era:swtor"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1172 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_hyperspace_requires_routes",
+      "title": "Hyperspace Needs Navigation",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:hyperspace",
+        "faction:galactic-empire",
+        "faction:rebel-alliance"
+      ],
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Outer Rim",
+          "Core Worlds"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "hyperspace",
+          "hyperdrive",
+          "navicomputer",
+          "charted routes",
+          "interdiction"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Outer Rim",
+            "Core Worlds"
+          ],
+          "topicsAny": [
+            "hyperspace",
+            "hyperdrive",
+            "navicomputer",
+            "charted routes",
+            "interdiction",
+            "Galactic Empire",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hyperspace travel is fast but not arbitrary; safe jumps depend on hyperdrives, navigation data, known routes, and avoiding gravity hazards.",
+        "injection": "Hyperspace is not teleportation. Ships need coordinates, routes, calculations, and safe exits; bad jumps can be lethal or impossible.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_hyperlanes_shape_strategy",
+      "title": "Hyperlanes Shape Strategy",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:hyperspace",
+        "topic:trade",
+        "place:core-worlds",
+        "place:outer-rim"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Core Worlds",
+          "Outer Rim"
+        ],
+        "factions": [],
+        "topics": [
+          "hyperlanes",
+          "trade routes",
+          "chokepoints",
+          "strategy"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Core Worlds",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "hyperlanes",
+            "trade routes",
+            "chokepoints",
+            "strategy"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Major hyperlanes and chokepoints shape trade, military campaigns, blockade logic, smuggling routes, and regional wealth.",
+        "injection": "Use hyperlanes as strategic geography. Distance alone is not the only factor; safe routes, choke points, charts, and patrols matter.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_navicomputers_and_astromechs_matter",
+      "title": "Navicomputers and Astromechs Matter",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "item_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:hyperspace",
+        "topic:droid",
+        "character:r2-d2",
+        "object:starship"
+      ],
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "R2-D2"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "navicomputer",
+          "astromech",
+          "hyperspace calculations",
+          "repairs"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "R2-D2"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "navicomputer",
+            "astromech",
+            "hyperspace calculations",
+            "repairs"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Starships often rely on navicomputers or astromech support for hyperspace calculations, repairs, diagnostics, and emergency problem-solving.",
+        "injection": "Do not ignore navigation hardware. Damaged navicomputers, missing astromechs, outdated charts, or rushed calculations should create real travel problems.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_interdiction_blocks_hyperspace",
+      "title": "Interdiction Blocks Escape",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:hyperspace",
+        "topic:interdiction",
+        "faction:galactic-empire"
+      ],
+      "priority": 64,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Empire"
+        ],
+        "topics": [
+          "interdiction",
+          "gravity well",
+          "mass shadow",
+          "escape"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "interdiction",
+            "gravity well",
+            "mass shadow",
+            "escape",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gravity wells, interdiction fields, and mass shadows can prevent hyperspace entry or drag ships out of hyperspace.",
+        "injection": "When interdiction is present, ships cannot simply jump away. They must disable the source, escape the field, or survive conventional pursuit.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_starships_need_maintenance",
+      "title": "Starships Need Maintenance",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "object:starship",
+        "topic:technology",
+        "topic:logistics",
+        "object:millennium-falcon"
+      ],
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Chewbacca"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "ship maintenance",
+          "fuel",
+          "repairs",
+          "spare parts"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Chewbacca"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "ship maintenance",
+            "fuel",
+            "repairs",
+            "spare parts"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Starships require fuel, parts, repairs, crews, docking, inspections, and maintenance; even famous ships break down or need refits.",
+        "injection": "Treat ships as machines with wear, faults, costs, and logistics. Avoid making any vessel endlessly operational without maintenance or supply.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_sublight_combat_has_scale",
+      "title": "Space Combat Has Scale",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "object:starship",
+        "topic:space-combat",
+        "topic:military"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "starfighters",
+          "capital ships",
+          "freighters",
+          "tactics"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "starfighters",
+            "capital ships",
+            "freighters",
+            "tactics",
+            "Galactic Empire",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Capital ships, starfighters, transports, and freighters operate at different combat scales with different roles, vulnerabilities, and tactical uses.",
+        "injection": "Do not treat every ship as interchangeable. Fighters, freighters, cruisers, and Star Destroyers should differ in weapons, crew, agility, shields, and mission role.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_shields_absorb_not_invincible",
+      "title": "Shields Absorb, Not Invincibility",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:technology",
+        "topic:space-combat",
+        "object:starship"
+      ],
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "deflector shields",
+          "overload",
+          "power management"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "deflector shields",
+            "overload",
+            "power management"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Deflector shields protect ships and installations but can overload, fail, have coverage gaps, or require power tradeoffs.",
+        "injection": "Use shields as protection with limits. Sustained fire, ion weapons, sabotage, power loss, or tactical angles can defeat them.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_tractor_beams_need_position_power",
+      "title": "Tractor Beams Need Position and Power",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:technology",
+        "topic:space-combat",
+        "faction:galactic-empire"
+      ],
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Empire"
+        ],
+        "topics": [
+          "tractor beam",
+          "capture",
+          "escape"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "tractor beam",
+            "capture",
+            "escape",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Tractor beams are powerful capture tools but depend on range, alignment, target size, relative power, and countermeasures.",
+        "injection": "Use tractor beams as tactical constraints, not automatic capture at any distance. Fast, shielded, small, or prepared targets may evade or resist.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_ion_weapons_disable_systems",
+      "title": "Ion Weapons Disable Systems",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:technology",
+        "object:ion-cannon",
+        "topic:space-combat",
+        "topic:droid"
+      ],
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "ion cannon",
+          "disable systems",
+          "electronics",
+          "capture"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "ion cannon",
+            "disable systems",
+            "electronics",
+            "capture"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ion weapons are used to disable electronics, shields, droids, or ship systems rather than simply vaporizing targets.",
+        "injection": "Use ion damage for capture, disabling, or system failure. It can shut down or disrupt without necessarily killing everyone aboard.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_holonet_and_comms_are_infrastructure",
+      "title": "Comms Depend on Infrastructure",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:technology",
+        "topic:holonet",
+        "topic:intelligence"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "HoloNet",
+          "comms",
+          "encryption",
+          "jamming"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "HoloNet",
+            "comms",
+            "encryption",
+            "jamming",
+            "Galactic Empire",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Long-range communication depends on comm equipment, relays, encryption, jamming, HoloNet access, and political/military control.",
+        "injection": "Do not make galaxy-wide communication effortless in every scene. Range, encryption, jamming, damaged equipment, and Imperial monitoring can matter.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_sensors_have_limits",
+      "title": "Sensors Have Limits",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:technology",
+        "topic:sensors",
+        "topic:space-combat"
+      ],
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "sensors",
+          "scanners",
+          "jamming",
+          "stealth"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "sensors",
+            "scanners",
+            "jamming",
+            "stealth"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ship and base sensors can scan, track, identify, or miss contacts depending on range, stealth, masking, interference, and operator skill.",
+        "injection": "Use sensors as imperfect information. Nebulae, jamming, stealth, terrain, clutter, or forged signals can limit detection.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_starfighters_need_support",
+      "title": "Starfighters Need Support",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "object:starfighter",
+        "topic:military",
+        "topic:logistics",
+        "faction:rebel-alliance"
+      ],
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "starfighters",
+          "hangars",
+          "rearmament",
+          "maintenance"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "starfighters",
+            "hangars",
+            "rearmament",
+            "maintenance",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Starfighters often need carriers, bases, hangars, astromechs, ordnance, fuel, maintenance crews, and recovery plans.",
+        "injection": "Treat starfighter operations as logistics-heavy. Pilots need somewhere to launch, repair, rearm, land, and receive intelligence.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    }
+  ]
+}

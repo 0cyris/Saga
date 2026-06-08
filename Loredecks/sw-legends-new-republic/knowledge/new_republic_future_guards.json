@@ -1,0 +1,989 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_guard_no_yuuzhan_vong_before_njo",
+      "title": "No Yuuzhan Vong Before NJO",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 96,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yuuzhan Vong"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "spoiler guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:yuuzhan-vong",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuuzhan Vong"
+          ],
+          "topicsAny": [
+            "future guard",
+            "spoiler guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Yuuzhan Vong invasion has not begun before the New Jedi Order threshold and should not be common galactic knowledge.",
+        "injection": "Before NJO context, do not mention Yuuzhan Vong invasion, biotechnology war, or Vong-shaped galactic trauma unless the user explicitly imports it. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "knowledge/new_republic_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_guard_no_jacen_caedus_before_late_era",
+      "title": "No Darth Caedus Backport",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 96,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "children"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:jacen-solo",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:children",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo"
+          ],
+          "topicsAny": [
+            "future guard",
+            "children"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Jacen Solo’s later fall as Darth Caedus belongs to much later Legends and must not affect child or pre-NJO Jacen by default.",
+        "injection": "Before Legacy of the Force context, do not foreshadow or portray Jacen as Darth Caedus unless the user’s story explicitly introduces that future. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "knowledge/new_republic_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_guard_no_anakin_solo_death_before_njo",
+      "title": "No Anakin Solo Death Backport",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "children"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:anakin-solo",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:children",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Solo"
+          ],
+          "topicsAny": [
+            "future guard",
+            "children"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Anakin Solo’s later death is future-canon relative to the New Republic deck and should not leak into earlier family scenes.",
+        "injection": "Before the relevant NJO context, write Anakin Solo as alive and future-unknown, not doomed in narration. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "knowledge/new_republic_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_guard_no_mara_death_or_ben_skywalker",
+      "title": "No Mara Death or Ben Skywalker Backport",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade",
+          "Luke Skywalker",
+          "Ben Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:ben-skywalker",
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:family",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade",
+            "Luke Skywalker",
+            "Ben Skywalker"
+          ],
+          "topicsAny": [
+            "future guard",
+            "family"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Mara’s later death and Ben Skywalker’s later role belong beyond this deck’s boundary.",
+        "injection": "In New Republic/Hand of Thrawn contexts, do not inject Mara’s later death or Ben Skywalker’s future unless explicitly requested. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "knowledge/new_republic_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_guard_no_luke_exile_disney",
+      "title": "No Disney Luke Exile Default",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "continuity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:continuity",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "future guard",
+            "continuity"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Disney-canon Luke exile, Jedi temple destruction by Ben Solo, and sequel-era failure states are outside this Legends deck.",
+        "injection": "In Legends New Republic scenes, block Disney-sequel Luke exile, Ahch-To isolation, Ben Solo temple-fall guilt, and Rey-training defaults unless a Disney/crossover deck is explicitly active.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "knowledge/new_republic_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_guard_no_first_order",
+      "title": "No First Order in Legends New Republic",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "continuity",
+          "imperial remnant"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:continuity",
+        "topic:future-guard",
+        "topic:imperial-remnant"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "future guard",
+            "continuity",
+            "imperial remnant"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The First Order is Disney-canon sequel-era material and does not belong to Legends New Republic by default.",
+        "injection": "Use Imperial Remnant, warlords, or other Legends factions instead of First Order unless the user stacks a Disney canon deck. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "knowledge/new_republic_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_guard_no_rey_snoke_kylo",
+      "title": "No Rey, Snoke, or Kylo Defaults",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "continuity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:continuity",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "future guard",
+            "continuity"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Rey, Snoke, and Kylo Ren are outside the Legends New Republic source boundary.",
+        "injection": "Do not introduce Rey, Snoke, Kylo Ren, or Ben Solo sequel roles into this deck’s scenes by default. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "knowledge/new_republic_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_guard_thrawn_survival_clone_rumors_gated",
+      "title": "Thrawn Clone Rumors Stay Hand-of-Thrawn Gated",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Grand Admiral Thrawn"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "clone",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:clone",
+        "topic:future-guard",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Grand Admiral Thrawn"
+          ],
+          "topicsAny": [
+            "future guard",
+            "clone",
+            "secret"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Rumors around Thrawn’s return and clone possibilities should not appear before Hand of Thrawn-era setup.",
+        "injection": "Before Hand of Thrawn context, avoid casual Thrawn-clone rumor material unless the story explicitly invokes it. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "knowledge/new_republic_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_guard_dark_nest_later",
+      "title": "No Dark Nest Backport",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "future guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Dark Nest material belongs after the New Jedi Order and should not shape this deck’s New Republic context.",
+        "injection": "Before post-NJO context, do not use Dark Nest politics, Killiks, or later Jedi schisms as active lore. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "knowledge/new_republic_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_guard_abeloth_fate_later",
+      "title": "No Abeloth / Fate of the Jedi Backport",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "never_before_context",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Ben Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:ben-skywalker",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Ben Skywalker"
+          ],
+          "topicsAny": [
+            "future guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Abeloth and Fate of the Jedi material belongs far beyond this New Republic deck.",
+        "injection": "Do not inject Abeloth, Lost Tribe escalation, or Fate-era Luke/Ben quests into New Republic scenes. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "knowledge/new_republic_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1193 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "character:abeloth": {
+      "label": "Abeloth",
+      "description": "Abeloth retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "abeloth"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:alema-rar": {
+      "label": "Alema Rar",
+      "description": "Alema Rar retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "alema rar"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:allana-solo": {
+      "label": "Allana Solo",
+      "description": "Allana Solo retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "allana solo"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:anakin-solo": {
+      "label": "Anakin Solo",
+      "description": "Anakin Solo retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "anakin solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ben-skywalker": {
+      "label": "Ben Skywalker",
+      "description": "Ben Skywalker retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "ben skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:boba-fett": {
+      "label": "Boba Fett",
+      "description": "Boba Fett retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "boba fett"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:cal-omas": {
+      "label": "Cal Omas",
+      "description": "Cal Omas retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "cal omas"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:chewbacca": {
+      "label": "Chewbacca",
+      "description": "Chewbacca retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "chewbacca"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:corran-horn": {
+      "label": "Corran Horn",
+      "description": "Corran Horn retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "corran horn"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-caedus": {
+      "label": "Darth Caedus",
+      "description": "Darth Caedus retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "darth caedus"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:han-solo": {
+      "label": "Han Solo",
+      "description": "Han Solo retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "han solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jacen-solo": {
+      "label": "Jacen Solo",
+      "description": "Jacen Solo retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "jacen solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jagged-fel": {
+      "label": "Jagged Fel",
+      "description": "Jagged Fel retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "jagged fel"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jaina-solo": {
+      "label": "Jaina Solo",
+      "description": "Jaina Solo retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "jaina solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kyp-durron": {
+      "label": "Kyp Durron",
+      "description": "Kyp Durron retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "kyp durron"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:leia-organa-solo": {
+      "label": "Leia Organa Solo",
+      "description": "Leia Organa Solo retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "leia organa solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:lowbacca": {
+      "label": "Lowbacca",
+      "description": "Lowbacca retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "lowbacca"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:luke-skywalker": {
+      "label": "Luke Skywalker",
+      "description": "Luke Skywalker retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "luke skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:lumiya": {
+      "label": "Lumiya",
+      "description": "Lumiya retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "lumiya"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mara-jade-skywalker": {
+      "label": "Mara Jade Skywalker",
+      "description": "Mara Jade Skywalker retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "mara jade skywalker"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mirta-gev": {
+      "label": "Mirta Gev",
+      "description": "Mirta Gev retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "mirta gev"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:natasi-daala": {
+      "label": "Natasi Daala",
+      "description": "Natasi Daala retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "natasi daala"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:niathal": {
+      "label": "Niathal",
+      "description": "Niathal retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "niathal"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:raynar-thul": {
+      "label": "Raynar Thul",
+      "description": "Raynar Thul retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "raynar thul"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:saba-sebatyne": {
+      "label": "Saba Sebatyne",
+      "description": "Saba Sebatyne retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "saba sebatyne"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tahiri-veila": {
+      "label": "Tahiri Veila",
+      "description": "Tahiri Veila retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "tahiri veila"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tenel-ka-djo": {
+      "label": "Tenel Ka Djo",
+      "description": "Tenel Ka Djo retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "tenel ka djo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tesar-sebatyne": {
+      "label": "Tesar Sebatyne",
+      "description": "Tesar Sebatyne retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "tesar sebatyne"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:vergere": {
+      "label": "Vergere",
+      "description": "Vergere retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "vergere"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:vestara-khai": {
+      "label": "Vestara Khai",
+      "description": "Vestara Khai retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "vestara khai"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:zekk": {
+      "label": "Zekk",
+      "description": "Zekk retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "zekk"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:legends": {
+      "label": "Legends",
+      "description": "Legends retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "legends"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:crucible": {
+      "label": "Crucible",
+      "description": "Crucible retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "crucible"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:dark-nest": {
+      "label": "Dark Nest",
+      "description": "Dark Nest retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "dark nest"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:fate-of-the-jedi": {
+      "label": "Fate Of The Jedi",
+      "description": "Fate Of The Jedi retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "fate of the jedi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:late-post-endor": {
+      "label": "Late Post-Endor",
+      "description": "Late Post-Endor retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "late post endor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:legacy-comics-future-guard": {
+      "label": "Legacy Comics Future Guard",
+      "description": "Legacy Comics Future Guard retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "legacy comics future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:legacy-of-the-force": {
+      "label": "Legacy Of The Force",
+      "description": "Legacy Of The Force retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "legacy of the force"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:legacy-of-the-force-to-post-legacy-reckoning": {
+      "label": "Legacy Of The Force To Post Legacy Reckoning",
+      "description": "Legacy Of The Force To Post Legacy Reckoning retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "legacy of the force to post legacy reckoning"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:post-dark-nest-to-legacy-of-the-force": {
+      "label": "Post Dark Nest To Legacy Of The Force",
+      "description": "Post Dark Nest To Legacy Of The Force retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "post dark nest to legacy of the force"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:post-njo-recovery": {
+      "label": "Post Njo Recovery",
+      "description": "Post Njo Recovery retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "post njo recovery"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:post-njo-recovery-to-crucible": {
+      "label": "Post Njo Recovery To Crucible",
+      "description": "Post Njo Recovery To Crucible retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "post njo recovery to crucible"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:confederation": {
+      "label": "Confederation",
+      "description": "Confederation retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "confederation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:corellia": {
+      "label": "Corellia",
+      "description": "Corellia retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "corellia"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:dark-nest": {
+      "label": "Dark Nest",
+      "description": "Dark Nest retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "dark nest"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-alliance": {
+      "label": "Galactic Alliance",
+      "description": "Galactic Alliance retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "galactic alliance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-alliance-guard": {
+      "label": "Galactic Alliance Guard",
+      "description": "Galactic Alliance Guard retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "galactic alliance guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:hapes-consortium": {
+      "label": "Hapes Consortium",
+      "description": "Hapes Consortium retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "hapes consortium"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:imperial-remnant": {
+      "label": "Imperial Remnant",
+      "description": "Imperial Remnant retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "imperial remnant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jedi-order": {
+      "label": "Jedi Order",
+      "description": "Jedi Order retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "jedi order"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:killik-hives": {
+      "label": "Killik Hives",
+      "description": "Killik Hives retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "killik hives"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:lost-tribe-of-the-sith": {
+      "label": "Lost Tribe Of The Sith",
+      "description": "Lost Tribe Of The Sith retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "lost tribe of the sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:mandalorians": {
+      "label": "Mandalorians",
+      "description": "Mandalorians retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "mandalorians"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:one-sith": {
+      "label": "One Sith",
+      "description": "One Sith retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "one sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:star-wars": {
+      "label": "Star Wars",
+      "description": "Star Wars retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "star wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:corellia": {
+      "label": "Corellia",
+      "description": "Corellia retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "corellia"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:coruscant": {
+      "label": "Coruscant",
+      "description": "Coruscant retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "coruscant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:hapes": {
+      "label": "Hapes",
+      "description": "Hapes retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "hapes"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:kesh": {
+      "label": "Kesh",
+      "description": "Kesh retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "kesh"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:kessel": {
+      "label": "Kessel",
+      "description": "Kessel retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "kessel"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:maw": {
+      "label": "Maw",
+      "description": "Maw retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "maw"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:ossus": {
+      "label": "Ossus",
+      "description": "Ossus retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "ossus"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:shedu-maad": {
+      "label": "Shedu Maad",
+      "description": "Shedu Maad retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "shedu maad"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:centerpoint-station": {
+      "label": "Centerpoint Station",
+      "description": "Centerpoint Station retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "centerpoint station"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:flow-walking": {
+      "label": "Flow Walking",
+      "description": "Flow Walking retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "flow walking"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:mind-walking": {
+      "label": "Mind Walking",
+      "description": "Mind Walking retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "mind walking"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft": {
+      "label": "Draft",
+      "description": "Draft retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "draft"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:era": {
+      "label": "Era Deck",
+      "description": "Era Deck retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "era"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:late-post-endor": {
+      "label": "Late Post-Endor Deck",
+      "description": "Late Post-Endor Deck retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "late post endor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "structure:split-loredeck": {
+      "label": "Split Loredeck",
+      "description": "Split Loredeck retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "split loredeck"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:behavior-constraint": {
+      "label": "Behavior Constraint",
+      "description": "Behavior Constraint retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "behavior constraint"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:character-tone": {
+      "label": "Character Tone",
+      "description": "Character Tone retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "character tone"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:chiss": {
+      "label": "Chiss",
+      "description": "Chiss retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "chiss"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:combat": {
+      "label": "Combat",
+      "description": "Combat retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "combat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:continuity": {
+      "label": "Continuity",
+      "description": "Continuity retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "continuity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:council": {
+      "label": "Council",
+      "description": "Council retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "council"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-side": {
+      "label": "Dark Side",
+      "description": "Dark Side retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "dark side"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:deck-behavior": {
+      "label": "Deck Behavior",
+      "description": "Deck Behavior retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "deck behavior"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:family": {
+      "label": "Family",
+      "description": "Family retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "family"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force": {
+      "label": "Force",
+      "description": "Force retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "force"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-guard": {
+      "label": "Future Guard",
+      "description": "Future Guard retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:government": {
+      "label": "Government",
+      "description": "Government retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "government"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:identity": {
+      "label": "Identity",
+      "description": "Identity retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "identity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:infiltration": {
+      "label": "Infiltration",
+      "description": "Infiltration retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "infiltration"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:investigation": {
+      "label": "Investigation",
+      "description": "Investigation retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "investigation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi": {
+      "label": "Jedi",
+      "description": "Jedi retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "jedi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:joiners": {
+      "label": "Joiners",
+      "description": "Joiners retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "joiners"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:knowledge-gate": {
+      "label": "Knowledge Gate",
+      "description": "Knowledge Gate retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "knowledge gate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:leadership": {
+      "label": "Leadership",
+      "description": "Leadership retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "leadership"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:location": {
+      "label": "Location",
+      "description": "Location retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "location"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mandalorian": {
+      "label": "Mandalorian",
+      "description": "Mandalorian retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "mandalorian"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:medical": {
+      "label": "Medical",
+      "description": "Medical retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "medical"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:military": {
+      "label": "Military",
+      "description": "Military retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "military"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:politics": {
+      "label": "Politics",
+      "description": "Politics retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:postwar": {
+      "label": "Postwar",
+      "description": "Postwar retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "postwar"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:prophecy": {
+      "label": "Prophecy",
+      "description": "Prophecy retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "prophecy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:relationship": {
+      "label": "Relationship",
+      "description": "Relationship retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "relationship"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:retrieval": {
+      "label": "Retrieval",
+      "description": "Retrieval retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "retrieval"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rule-constraint": {
+      "label": "Rule Constraint",
+      "description": "Rule Constraint retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "rule constraint"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret": {
+      "label": "Secret",
+      "description": "Secret retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "secret"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:security": {
+      "label": "Security",
+      "description": "Security retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "security"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith": {
+      "label": "Sith",
+      "description": "Sith retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:species": {
+      "label": "Species",
+      "description": "Species retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "species"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:spoiler-guard": {
+      "label": "Spoiler Guard",
+      "description": "Spoiler Guard retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "spoiler guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:superweapon": {
+      "label": "Superweapon",
+      "description": "Superweapon retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "superweapon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:temporal-gate": {
+      "label": "Temporal Gate",
+      "description": "Temporal Gate retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "temporal gate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trauma": {
+      "label": "Trauma",
+      "description": "Trauma retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "trauma"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war": {
+      "label": "War",
+      "description": "War retrieval/filter tag for the Star Wars Legends late post-Endor development deck.",
+      "aliases": [
+        "war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

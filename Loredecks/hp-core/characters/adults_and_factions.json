@@ -10,7 +10,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -19,12 +19,24 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
         "character:albus-dumbledore",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
         "place:hogwarts",
-        "role:headmaster",
-        "faction:order-of-the-phoenix"
+        "role:headmaster"
       ],
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -117,9 +129,15 @@
         "fact": "Before the Astronomy Tower event, Dumbledore is alive and remains Hogwarts Headmaster.",
         "injection": "Before the Astronomy Tower event, Dumbledore is alive and remains a decisive authority at Hogwarts; do not treat him as dead, memorialized, or absent unless our story has established a different outcome.",
         "constraints": [
-          "After the Tower event, use Dumbledore death-state lore instead."
+          "After the Tower event, use Dumbledore death-state lore instead.",
+          "Apply only when Saga Context matches 1991-09-01 to 1997-06-30; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
-        "publicVersion": "Dumbledore is Hogwarts Headmaster."
+        "publicVersion": "Dumbledore is Hogwarts Headmaster.",
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "deathStateGatePass": {
@@ -140,7 +158,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -149,12 +167,23 @@
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
         "character:severus-snape",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
         "place:hogwarts",
-        "subject:potions",
-        "subject:defense-against-the-dark-arts"
+        "subject:defense-against-the-dark-arts",
+        "subject:potions"
       ],
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -249,8 +278,16 @@
       },
       "content": {
         "fact": "Severus Snape is a Hogwarts professor; he teaches Potions before the 1996-1997 school year and Defense Against the Dark Arts during Year 6.",
-        "injection": "Severus Snape is a Hogwarts professor; he teaches Potions before the 1996-1997 school year and Defense Against the Dark Arts during Year 6.",
-        "publicVersion": "Snape is a Hogwarts professor with a severe reputation."
+        "injection": "Severus Snape is a Hogwarts professor; he teaches Potions before the 1996-1997 school year and Defense Against the Dark Arts during Year 6. Enforce this as a high-priority Context gate for 1991-09-01 to 1997-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "Snape is a Hogwarts professor with a severe reputation.",
+        "constraints": [
+          "Apply only when Saga Context matches 1991-09-01 to 1997-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {

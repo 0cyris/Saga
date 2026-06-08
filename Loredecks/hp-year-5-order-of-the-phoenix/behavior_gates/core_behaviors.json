@@ -10,7 +10,7 @@
       "kind": "behavior_gate",
       "gateType": "behavior_gate",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 75,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -57,9 +57,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter"
@@ -75,7 +75,13 @@
         "fact": "Harry is angry, traumatized, and frustrated by disbelief during Year 5. He distrusts Ministry narratives and is protective of friends.",
         "injection": "Harry is angry, traumatized, and frustrated by disbelief during Year 5; He distrusts Ministry narratives and is protective of friends; His volatility should cool or shift if the current scene gives him relief; do not keep anger permanently maxed without reinforcement.",
         "constraints": [
-          "His volatility should cool or shift if the current scene gives him relief; do not keep anger permanently maxed without reinforcement."
+          "His volatility should cool or shift if the current scene gives him relief; do not keep anger permanently maxed without reinforcement.",
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -100,7 +106,16 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5"
+      ]
     }
   ]
 }

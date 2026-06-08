@@ -1,0 +1,1610 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-08",
+  "sourcePackId": "sw-legends-film-spine",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_before_aotc_no_clone_wars",
+      "title": "Before Attack of the Clones: No Clone Wars",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "timeline",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:prequel",
+        "event:clone-wars-begin",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.tpm_anakin_accepted_for_training",
+        "validToAnchor": "sw.film.episode_2_aotc",
+        "sortKeyFrom": 1160,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After The Phantom Menace, before Attack of the Clones",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic",
+          "Separatists"
+        ],
+        "topics": [
+          "Clone Wars gate",
+          "war state"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Clone Wars gate",
+            "war state",
+            "Jedi Order",
+            "Galactic Republic",
+            "Separatists"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Attack of the Clones, the Clone Wars have not begun.",
+        "injection": "If context is before AOTC, block Clone Wars military state, Jedi generals, and open Republic-Separatist war unless the story creates a branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After The Phantom Menace, before Attack of the Clones.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_before_rots_no_order66",
+      "title": "Before Revenge of the Sith: No Order 66",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "timeline",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:order-66",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.aotc_clone_wars_begin",
+        "validToAnchor": "sw.film.episode_3_rots",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Attack of the Clones, before Revenge of the Sith",
+        "phase": "Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "Order 66 gate",
+          "Jedi purge"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Order 66 gate",
+            "Jedi purge",
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Order 66 point in Revenge of the Sith, the Jedi Purge has not happened.",
+        "injection": "In pre-Order 66 contexts, do not write Jedi as already purged, exiled, or universally hunted unless the story diverges.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Attack of the Clones, before Revenge of the Sith.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_before_anh_alderaan_alive",
+      "title": "Before A New Hope Destruction: Alderaan Exists",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "location",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:alderaan-destruction",
+        "fandom:star-wars",
+        "location:alderaan",
+        "scope:film-spine",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.rots_vader_armored",
+        "validToAnchor": "sw.film.episode_4_anh",
+        "sortKeyFrom": 3300,
+        "sortKeyTo": 5000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Revenge of the Sith, before A New Hope",
+        "phase": "Imperial Era to Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa"
+        ],
+        "locations": [
+          "Alderaan"
+        ],
+        "factions": [],
+        "topics": [
+          "Alderaan status"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Alderaan"
+          ],
+          "topicsAny": [
+            "Alderaan status"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Death Star destroys Alderaan, Alderaan still exists as Leia’s homeworld and political base.",
+        "injection": "Before Alderaan’s destruction, do not treat it as already gone; after the Death Star event, do not restore it without an alternate branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Revenge of the Sith, before A New Hope.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_before_esb_no_bespin_reveal",
+      "title": "Before Empire: No Vader Paternity Reveal to Luke",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:family-secret",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.anh_yavin_victory",
+        "validToAnchor": "sw.film.episode_5_esb",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After A New Hope, before The Empire Strikes Back",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "paternity gate"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "paternity gate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Bespin in Empire, Luke does not know Vader is his father.",
+        "injection": "Before ESB Bespin, block Luke paternity knowledge; after Bespin, Luke may know Vader’s claim. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After A New Hope, before The Empire Strikes Back.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_before_rotj_no_leia_sibling_reveal",
+      "title": "Before Return: No Leia Sibling Reveal",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:family-secret",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.esb_han_frozen",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 6300,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After The Empire Strikes Back, before Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "sibling gate"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "sibling gate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Return of the Jedi, Leia’s status as Luke’s sister is not known in ordinary character knowledge.",
+        "injection": "Before the ROTJ reveal, block sibling-aware behavior between Luke and Leia unless the story explicitly changes the reveal timing.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After The Empire Strikes Back, before Return of the Jedi.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_before_rotj_no_vader_redemption",
+      "title": "Before Return: Vader Not Redeemed",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "future",
+      "revealPolicy": "guard",
+      "tags": [
+        "character:darth-vader",
+        "continuity:legends",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.esb_han_frozen",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 6300,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After The Empire Strikes Back, before Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "redemption gate"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "guard"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "redemption gate",
+            "Sith",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Vader’s ROTJ choice, Vader is not redeemed in active story state.",
+        "injection": "Before ROTJ redemption, write Vader as conflictable but still an Imperial Sith enforcer; do not inject his final redemption as already complete.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After The Empire Strikes Back, before Return of the Jedi.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_film_spine_do_not_import_disney_sequel_state",
+      "title": "Do Not Import Disney Sequel State into Legends Film Spine",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:context-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.legends.post_endor_begins",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 7300,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Episodes I-VI film spine",
+        "phase": "Prequel Era to New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "continuity boundary",
+          "Disney canon split"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "continuity boundary",
+            "Disney canon split"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Legends film spine should not assume Disney sequel-era politics, First Order history, or sequel trilogy character outcomes.",
+        "injection": "When this deck is active as Legends film spine, keep Disney sequel continuity out unless a separate Disney canon or crossover deck is deliberately stacked.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episodes I-VI film spine.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_film_spine_force_power_not_video_game_scale",
+      "title": "Film Force Scale Remains Cinematic",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:force",
+        "ability:jedi-training",
+        "ability:sith-training",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.legends.post_endor_begins",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 7300,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Episodes I-VI film spine",
+        "phase": "Prequel Era to New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "Force scale",
+          "ability boundary"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Force scale",
+            "ability boundary",
+            "Jedi Order",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The film spine presents Force use as cinematic, disciplined, and character-limited rather than game-stat scaling.",
+        "injection": "Do not inflate Force powers into unrestricted video-game mechanics when only the film spine is loaded; use conservative cinematic limits unless another deck changes scope.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episodes I-VI film spine.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_film_spine_rebel_victories_are_costly",
+      "title": "Rebel Victories Are Costly and Precarious",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.anh_yavin_victory",
+        "validToAnchor": "sw.film.episode_5_esb",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After A New Hope, before The Empire Strikes Back",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Rebel logistics",
+          "strategic pressure"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Rebel logistics",
+            "strategic pressure",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Major Rebel victories in the films are strategically important but costly and do not make the Rebellion safe until the Empire is materially disrupted at Endor.",
+        "injection": "Through the OT spine, keep Rebel successes precarious and hard-won rather than turning each victory into immediate strategic dominance.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After A New Hope, before The Empire Strikes Back.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_film_spine_imperial_authority_depends_on_fear",
+      "title": "Imperial Authority Depends on Fear and Coercion",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:behavior-constraint"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.rots_vader_armored",
+        "validToAnchor": "sw.film.episode_4_anh",
+        "sortKeyFrom": 3300,
+        "sortKeyTo": 5000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Revenge of the Sith, before A New Hope",
+        "phase": "Imperial Era to Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Imperial fear",
+          "coercion",
+          "military rule"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Imperial fear",
+            "coercion",
+            "military rule",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Imperial authority in the film spine relies on fear, surveillance, military force, and willingness to punish populations.",
+        "injection": "When writing Imperial scenes, emphasize coercive order, chain of command, and intimidation rather than neutral civil administration.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Revenge of the Sith, before A New Hope.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_film_spine_jedi_survivor_knowledge_sparse",
+      "title": "Jedi Survivor Knowledge Is Sparse",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "continuity:legends",
+        "event:order-66",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:knowledge-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.rots_vader_armored",
+        "validToAnchor": "sw.film.episode_4_anh",
+        "sortKeyFrom": 3300,
+        "sortKeyTo": 5000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Revenge of the Sith, before A New Hope",
+        "phase": "Imperial Era to Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Jedi survivors",
+          "hidden knowledge"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi survivors",
+            "hidden knowledge",
+            "Jedi Order",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Between ROTS and ANH, knowledge of surviving Jedi is sparse, dangerous, and often hidden.",
+        "injection": "Do not let ordinary characters casually know where surviving Jedi are after the purge; survivor knowledge should be rare and consequential.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Revenge of the Sith, before A New Hope.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_film_spine_sith_rule_of_two_visible_only_as_pattern",
+      "title": "Sith Master-Apprentice Pattern, Not Public Doctrine",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "continuity:legends",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:knowledge-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.legends.post_endor_begins",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 7300,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Episodes I-VI film spine",
+        "phase": "Prequel Era to New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Darth Vader",
+          "Darth Maul",
+          "Count Dooku"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith"
+        ],
+        "topics": [
+          "Sith apprenticeship",
+          "hidden doctrine"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Darth Vader",
+            "Darth Maul",
+            "Count Dooku"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Sith apprenticeship",
+            "hidden doctrine",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The film spine shows Sith master-apprentice succession patterns, but that doctrine is not public galactic knowledge.",
+        "injection": "Use Sith master/apprentice dynamics for Sith-side or informed scenes; do not make ordinary characters fluent in Sith doctrine without cause.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episodes I-VI film spine.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_film_spine_droids_can_carry_plot_knowledge",
+      "title": "Droids Can Carry Plot Knowledge",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:c-3po",
+        "character:r2-d2",
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:droids",
+        "scope:film-spine",
+        "topic:knowledge-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.legends.post_endor_begins",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 7300,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Episodes I-VI film spine",
+        "phase": "Prequel Era to New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "R2-D2",
+          "C-3PO"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "message carrier",
+          "continuity witness"
+        ],
+        "objects": [
+          "droids"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "R2-D2",
+            "C-3PO"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "message carrier",
+            "continuity witness",
+            "droids"
+          ]
+        }
+      },
+      "content": {
+        "fact": "R2-D2 and C-3PO often carry information, messages, or continuity between factions and scenes.",
+        "injection": "When relevant, let the droids function as carriers of plans, messages, recordings, and witness knowledge, while still respecting memory/context limits.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episodes I-VI film spine.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_film_spine_romance_knowledge_is_not_public_default",
+      "title": "Romance and Family Knowledge Is Not Public by Default",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "guard",
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "relationship:family-secret",
+        "relationship:secret-marriage",
+        "scope:film-spine",
+        "topic:spoiler-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.legends.post_endor_begins",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 7300,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Episodes I-VI film spine",
+        "phase": "Prequel Era to New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Padme Amidala",
+          "Luke Skywalker",
+          "Leia Organa",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "relationship secrecy",
+          "family reveal gates"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "guard"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Padme Amidala",
+            "Luke Skywalker",
+            "Leia Organa",
+            "Darth Vader"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "relationship secrecy",
+            "family reveal gates"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Major film-spine relationships and family truths are often private, secret, or revealed late.",
+        "injection": "Do not treat Anakin/Padme marriage, Luke/Vader paternity, or Luke/Leia sibling truth as public knowledge before their reveal windows.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episodes I-VI film spine.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_film_spine_character_status_should_follow_context",
+      "title": "Character Status Must Follow Film Context",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "timeline",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:context-gate",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.legends.post_endor_begins",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 7300,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Episodes I-VI film spine",
+        "phase": "Prequel Era to New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "status gates",
+          "timeline coherence"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "status gates",
+            "timeline coherence"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Deaths, injuries, prosthetics, exile status, captivity, and faction allegiance must follow the selected film Context.",
+        "injection": "When Saga resolves a film-spine Context, align character status to that point instead of mixing prequel, OT, and post-Endor states.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episodes I-VI film spine.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    }
+  ]
+}

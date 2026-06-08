@@ -1,0 +1,1930 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "sw-character:anakin-solo": {
+      "type": "character",
+      "label": "Anakin Solo",
+      "aliases": [
+        "Anakin Solo"
+      ],
+      "canonicalNames": [
+        "Anakin Solo",
+        "Anakin Solo"
+      ],
+      "tags": [
+        "character:anakin-solo",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:borsk-feylya": {
+      "type": "character",
+      "label": "Borsk Feylya",
+      "aliases": [
+        "Borsk Fey'lya",
+        "Borsk Feylya"
+      ],
+      "canonicalNames": [
+        "Borsk Feylya",
+        "Borsk Fey'lya",
+        "Borsk Feylya"
+      ],
+      "tags": [
+        "character:borsk-feylya",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:cal-omas": {
+      "type": "character",
+      "label": "Cal Omas",
+      "aliases": [
+        "Cal Omas"
+      ],
+      "canonicalNames": [
+        "Cal Omas",
+        "Cal Omas"
+      ],
+      "tags": [
+        "character:cal-omas",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:chewbacca": {
+      "type": "character",
+      "label": "Chewbacca",
+      "aliases": [
+        "Chewie"
+      ],
+      "canonicalNames": [
+        "Chewbacca",
+        "Chewie"
+      ],
+      "tags": [
+        "character:chewbacca",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:corran-horn": {
+      "type": "character",
+      "label": "Corran Horn",
+      "aliases": [
+        "Corran"
+      ],
+      "canonicalNames": [
+        "Corran Horn",
+        "Corran"
+      ],
+      "tags": [
+        "character:corran-horn",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:danni-quee": {
+      "type": "character",
+      "label": "Danni Quee",
+      "aliases": [
+        "Danni"
+      ],
+      "canonicalNames": [
+        "Danni Quee",
+        "Danni"
+      ],
+      "tags": [
+        "character:danni-quee",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:ganner-rhysode": {
+      "type": "character",
+      "label": "Ganner Rhysode",
+      "aliases": [
+        "Ganner"
+      ],
+      "canonicalNames": [
+        "Ganner Rhysode",
+        "Ganner"
+      ],
+      "tags": [
+        "character:ganner-rhysode",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:han-solo": {
+      "type": "character",
+      "label": "Han Solo",
+      "aliases": [
+        "Han"
+      ],
+      "canonicalNames": [
+        "Han Solo",
+        "Han"
+      ],
+      "tags": [
+        "character:han-solo",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:harrar": {
+      "type": "character",
+      "label": "Harrar",
+      "aliases": [
+        "Harrar"
+      ],
+      "canonicalNames": [
+        "Harrar",
+        "Harrar"
+      ],
+      "tags": [
+        "character:harrar",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:jacen-solo": {
+      "type": "character",
+      "label": "Jacen Solo",
+      "aliases": [
+        "Jacen"
+      ],
+      "canonicalNames": [
+        "Jacen Solo",
+        "Jacen"
+      ],
+      "tags": [
+        "character:jacen-solo",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:jagged-fel": {
+      "type": "character",
+      "label": "Jagged Fel",
+      "aliases": [
+        "Jag Fel",
+        "Jagged Fel"
+      ],
+      "canonicalNames": [
+        "Jagged Fel",
+        "Jag Fel",
+        "Jagged Fel"
+      ],
+      "tags": [
+        "character:jagged-fel",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:jaina-solo": {
+      "type": "character",
+      "label": "Jaina Solo",
+      "aliases": [
+        "Jaina"
+      ],
+      "canonicalNames": [
+        "Jaina Solo",
+        "Jaina"
+      ],
+      "tags": [
+        "character:jaina-solo",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:kyp-durron": {
+      "type": "character",
+      "label": "Kyp Durron",
+      "aliases": [
+        "Kyp"
+      ],
+      "canonicalNames": [
+        "Kyp Durron",
+        "Kyp"
+      ],
+      "tags": [
+        "character:kyp-durron",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:lando-calrissian": {
+      "type": "character",
+      "label": "Lando Calrissian",
+      "aliases": [
+        "Lando"
+      ],
+      "canonicalNames": [
+        "Lando Calrissian",
+        "Lando"
+      ],
+      "tags": [
+        "character:lando-calrissian",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:leia-organa-solo": {
+      "type": "character",
+      "label": "Leia Organa Solo",
+      "aliases": [
+        "Leia",
+        "Leia Organa",
+        "Princess Leia"
+      ],
+      "canonicalNames": [
+        "Leia Organa Solo",
+        "Leia",
+        "Leia Organa"
+      ],
+      "tags": [
+        "character:leia-organa-solo",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:luke-skywalker": {
+      "type": "character",
+      "label": "Luke Skywalker",
+      "aliases": [
+        "Luke",
+        "Master Skywalker"
+      ],
+      "canonicalNames": [
+        "Luke Skywalker",
+        "Luke",
+        "Master Skywalker"
+      ],
+      "tags": [
+        "character:luke-skywalker",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:mara-jade-skywalker": {
+      "type": "character",
+      "label": "Mara Jade Skywalker",
+      "aliases": [
+        "Mara Jade",
+        "Mara",
+        "Mara Skywalker"
+      ],
+      "canonicalNames": [
+        "Mara Jade Skywalker",
+        "Mara Jade",
+        "Mara"
+      ],
+      "tags": [
+        "character:mara-jade-skywalker",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:miko-reglia": {
+      "type": "character",
+      "label": "Miko Reglia",
+      "aliases": [
+        "Miko Reglia"
+      ],
+      "canonicalNames": [
+        "Miko Reglia",
+        "Miko Reglia"
+      ],
+      "tags": [
+        "character:miko-reglia",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:nas-choka": {
+      "type": "character",
+      "label": "Nas Choka",
+      "aliases": [
+        "Nas Choka"
+      ],
+      "canonicalNames": [
+        "Nas Choka",
+        "Nas Choka"
+      ],
+      "tags": [
+        "character:nas-choka",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:nen-yim": {
+      "type": "character",
+      "label": "Nen Yim",
+      "aliases": [
+        "Master Shaper Nen Yim",
+        "Nen Yim"
+      ],
+      "canonicalNames": [
+        "Nen Yim",
+        "Master Shaper Nen Yim",
+        "Nen Yim"
+      ],
+      "tags": [
+        "character:nen-yim",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:nom-anor": {
+      "type": "character",
+      "label": "Nom Anor",
+      "aliases": [
+        "Nom Anor"
+      ],
+      "canonicalNames": [
+        "Nom Anor",
+        "Nom Anor"
+      ],
+      "tags": [
+        "character:nom-anor",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:onimi": {
+      "type": "character",
+      "label": "Onimi",
+      "aliases": [
+        "Onimi"
+      ],
+      "canonicalNames": [
+        "Onimi",
+        "Onimi"
+      ],
+      "tags": [
+        "character:onimi",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:pellaeon": {
+      "type": "character",
+      "label": "Pellaeon",
+      "aliases": [
+        "Gilad Pellaeon",
+        "Admiral Pellaeon"
+      ],
+      "canonicalNames": [
+        "Pellaeon",
+        "Gilad Pellaeon",
+        "Admiral Pellaeon"
+      ],
+      "tags": [
+        "character:pellaeon",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:shedao-shai": {
+      "type": "character",
+      "label": "Shedao Shai",
+      "aliases": [
+        "Shedao Shai"
+      ],
+      "canonicalNames": [
+        "Shedao Shai",
+        "Shedao Shai"
+      ],
+      "tags": [
+        "character:shedao-shai",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:shimrra-jamaane": {
+      "type": "character",
+      "label": "Shimrra Jamaane",
+      "aliases": [
+        "Supreme Overlord Shimrra",
+        "Shimrra"
+      ],
+      "canonicalNames": [
+        "Shimrra Jamaane",
+        "Supreme Overlord Shimrra",
+        "Shimrra"
+      ],
+      "tags": [
+        "character:shimrra-jamaane",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:sien-sovv": {
+      "type": "character",
+      "label": "Sien Sovv",
+      "aliases": [
+        "Sien Sovv"
+      ],
+      "canonicalNames": [
+        "Sien Sovv",
+        "Sien Sovv"
+      ],
+      "tags": [
+        "character:sien-sovv",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:tahiri-veila": {
+      "type": "character",
+      "label": "Tahiri Veila",
+      "aliases": [
+        "Tahiri"
+      ],
+      "canonicalNames": [
+        "Tahiri Veila",
+        "Tahiri"
+      ],
+      "tags": [
+        "character:tahiri-veila",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:tenel-ka-djo": {
+      "type": "character",
+      "label": "Tenel Ka Djo",
+      "aliases": [
+        "Tenel Ka"
+      ],
+      "canonicalNames": [
+        "Tenel Ka Djo",
+        "Tenel Ka"
+      ],
+      "tags": [
+        "character:tenel-ka-djo",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:traest-krefey": {
+      "type": "character",
+      "label": "Traest Kre'fey",
+      "aliases": [
+        "Traest Kre'fey",
+        "Admiral Kre'fey"
+      ],
+      "canonicalNames": [
+        "Traest Kre'fey",
+        "Traest Kre'fey",
+        "Admiral Kre'fey"
+      ],
+      "tags": [
+        "character:traest-krefey",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:tsavong-lah": {
+      "type": "character",
+      "label": "Tsavong Lah",
+      "aliases": [
+        "Warmaster Tsavong Lah",
+        "Tsavong"
+      ],
+      "canonicalNames": [
+        "Tsavong Lah",
+        "Warmaster Tsavong Lah",
+        "Tsavong"
+      ],
+      "tags": [
+        "character:tsavong-lah",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:vergere": {
+      "type": "character",
+      "label": "Vergere",
+      "aliases": [
+        "Vergere"
+      ],
+      "canonicalNames": [
+        "Vergere",
+        "Vergere"
+      ],
+      "tags": [
+        "character:vergere",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-character:wedge-antilles": {
+      "type": "character",
+      "label": "Wedge Antilles",
+      "aliases": [
+        "Wedge"
+      ],
+      "canonicalNames": [
+        "Wedge Antilles",
+        "Wedge"
+      ],
+      "tags": [
+        "character:wedge-antilles",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-faction:chiss-ascendancy": {
+      "type": "faction",
+      "label": "Chiss Ascendancy",
+      "aliases": [
+        "Chiss"
+      ],
+      "canonicalNames": [
+        "Chiss Ascendancy",
+        "Chiss"
+      ],
+      "tags": [
+        "faction:chiss-ascendancy",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-faction:galactic-alliance": {
+      "type": "faction",
+      "label": "Galactic Alliance",
+      "aliases": [
+        "GFFA"
+      ],
+      "canonicalNames": [
+        "Galactic Alliance",
+        "GFFA"
+      ],
+      "tags": [
+        "faction:galactic-alliance",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-faction:hapes-consortium": {
+      "type": "faction",
+      "label": "Hapes Consortium",
+      "aliases": [
+        "Hapes"
+      ],
+      "canonicalNames": [
+        "Hapes Consortium",
+        "Hapes"
+      ],
+      "tags": [
+        "faction:hapes-consortium",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-faction:imperial-remnant": {
+      "type": "faction",
+      "label": "Imperial Remnant",
+      "aliases": [
+        "Remnant"
+      ],
+      "canonicalNames": [
+        "Imperial Remnant",
+        "Remnant"
+      ],
+      "tags": [
+        "faction:imperial-remnant",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-faction:jedi-order": {
+      "type": "faction",
+      "label": "Jedi Order",
+      "aliases": [
+        "New Jedi Order",
+        "Jedi"
+      ],
+      "canonicalNames": [
+        "Jedi Order",
+        "New Jedi Order",
+        "Jedi"
+      ],
+      "tags": [
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-faction:new-republic": {
+      "type": "faction",
+      "label": "New Republic",
+      "aliases": [
+        "NR"
+      ],
+      "canonicalNames": [
+        "New Republic",
+        "NR"
+      ],
+      "tags": [
+        "faction:new-republic",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-faction:peace-brigade": {
+      "type": "faction",
+      "label": "Peace Brigade",
+      "aliases": [
+        "Peace Brigaders"
+      ],
+      "canonicalNames": [
+        "Peace Brigade",
+        "Peace Brigaders"
+      ],
+      "tags": [
+        "faction:peace-brigade",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-faction:yuuzhan-vong": {
+      "type": "faction",
+      "label": "Yuuzhan Vong",
+      "aliases": [
+        "Vong",
+        "Far Outsiders"
+      ],
+      "canonicalNames": [
+        "Yuuzhan Vong",
+        "Vong",
+        "Far Outsiders"
+      ],
+      "tags": [
+        "faction:yuuzhan-vong",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-location:borleias": {
+      "type": "location",
+      "label": "Borleias",
+      "aliases": [
+        "Borleias"
+      ],
+      "canonicalNames": [
+        "Borleias",
+        "Borleias"
+      ],
+      "tags": [
+        "location:borleias",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-location:coruscant": {
+      "type": "location",
+      "label": "Coruscant",
+      "aliases": [
+        "Imperial Center",
+        "Yuuzhan'tar"
+      ],
+      "canonicalNames": [
+        "Coruscant",
+        "Imperial Center",
+        "Yuuzhan'tar"
+      ],
+      "tags": [
+        "location:coruscant",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-location:duro": {
+      "type": "location",
+      "label": "Duro",
+      "aliases": [
+        "Duro"
+      ],
+      "canonicalNames": [
+        "Duro",
+        "Duro"
+      ],
+      "tags": [
+        "location:duro",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-location:ebaq-9": {
+      "type": "location",
+      "label": "Ebaq 9",
+      "aliases": [
+        "Ebaq Nine"
+      ],
+      "canonicalNames": [
+        "Ebaq 9",
+        "Ebaq Nine"
+      ],
+      "tags": [
+        "location:ebaq-9",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-location:helska-iv": {
+      "type": "location",
+      "label": "Helska IV",
+      "aliases": [
+        "Helska"
+      ],
+      "canonicalNames": [
+        "Helska IV",
+        "Helska"
+      ],
+      "tags": [
+        "location:helska-iv",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-location:ithor": {
+      "type": "location",
+      "label": "Ithor",
+      "aliases": [
+        "Ithor"
+      ],
+      "canonicalNames": [
+        "Ithor",
+        "Ithor"
+      ],
+      "tags": [
+        "location:ithor",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-location:mon-calamari": {
+      "type": "location",
+      "label": "Mon Calamari",
+      "aliases": [
+        "Mon Cala"
+      ],
+      "canonicalNames": [
+        "Mon Calamari",
+        "Mon Cala"
+      ],
+      "tags": [
+        "location:mon-calamari",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-location:myrkr": {
+      "type": "location",
+      "label": "Myrkr",
+      "aliases": [
+        "Myrkr"
+      ],
+      "canonicalNames": [
+        "Myrkr",
+        "Myrkr"
+      ],
+      "tags": [
+        "location:myrkr",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-location:sernpidal": {
+      "type": "location",
+      "label": "Sernpidal",
+      "aliases": [
+        "Sernpidal"
+      ],
+      "canonicalNames": [
+        "Sernpidal",
+        "Sernpidal"
+      ],
+      "tags": [
+        "location:sernpidal",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-location:yuuzhantar": {
+      "type": "location",
+      "label": "Yuuzhan'tar",
+      "aliases": [
+        "Vongformed Coruscant",
+        "Yuuzhantar"
+      ],
+      "canonicalNames": [
+        "Yuuzhan'tar",
+        "Vongformed Coruscant",
+        "Yuuzhantar"
+      ],
+      "tags": [
+        "location:yuuzhantar",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-location:zonama-sekot": {
+      "type": "location",
+      "label": "Zonama Sekot",
+      "aliases": [
+        "Sekot"
+      ],
+      "canonicalNames": [
+        "Zonama Sekot",
+        "Sekot"
+      ],
+      "tags": [
+        "location:zonama-sekot",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-object:alpha-red": {
+      "type": "item",
+      "label": "Alpha Red",
+      "aliases": [
+        "Alpha Red"
+      ],
+      "canonicalNames": [
+        "Alpha Red",
+        "Alpha Red"
+      ],
+      "tags": [
+        "item:alpha-red",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-object:amphistaff": {
+      "type": "item",
+      "label": "Amphistaff",
+      "aliases": [
+        "amphistaff"
+      ],
+      "canonicalNames": [
+        "Amphistaff",
+        "amphistaff"
+      ],
+      "tags": [
+        "item:amphistaff",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-object:coralskipper": {
+      "type": "item",
+      "label": "Coralskipper",
+      "aliases": [
+        "yorik-et",
+        "coralskipper"
+      ],
+      "canonicalNames": [
+        "Coralskipper",
+        "yorik-et",
+        "coralskipper"
+      ],
+      "tags": [
+        "item:coralskipper",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-object:dovin-basal": {
+      "type": "item",
+      "label": "Dovin Basal",
+      "aliases": [
+        "dovin basal",
+        "dovin basals"
+      ],
+      "canonicalNames": [
+        "Dovin Basal",
+        "dovin basal",
+        "dovin basals"
+      ],
+      "tags": [
+        "item:dovin-basal",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-object:ooglith-masquer": {
+      "type": "item",
+      "label": "Ooglith Masquer",
+      "aliases": [
+        "ooglith masquer"
+      ],
+      "canonicalNames": [
+        "Ooglith Masquer",
+        "ooglith masquer"
+      ],
+      "tags": [
+        "item:ooglith-masquer",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-object:villip": {
+      "type": "item",
+      "label": "Villip",
+      "aliases": [
+        "villip"
+      ],
+      "canonicalNames": [
+        "Villip",
+        "villip"
+      ],
+      "tags": [
+        "item:villip",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-object:vonduun-crab-armor": {
+      "type": "item",
+      "label": "Vonduun Crab Armor",
+      "aliases": [
+        "vonduun crab armor"
+      ],
+      "canonicalNames": [
+        "Vonduun Crab Armor",
+        "vonduun crab armor"
+      ],
+      "tags": [
+        "item:vonduun-crab-armor",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-object:voxyn": {
+      "type": "item",
+      "label": "Voxyn",
+      "aliases": [
+        "voxyn"
+      ],
+      "canonicalNames": [
+        "Voxyn",
+        "voxyn"
+      ],
+      "tags": [
+        "item:voxyn",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-object:worldship": {
+      "type": "item",
+      "label": "Worldship",
+      "aliases": [
+        "worldship"
+      ],
+      "canonicalNames": [
+        "Worldship",
+        "worldship"
+      ],
+      "tags": [
+        "item:worldship",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "sw-object:yammosk": {
+      "type": "item",
+      "label": "Yammosk",
+      "aliases": [
+        "war coordinator"
+      ],
+      "canonicalNames": [
+        "Yammosk",
+        "war coordinator"
+      ],
+      "tags": [
+        "item:yammosk",
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    }
+  }
+}

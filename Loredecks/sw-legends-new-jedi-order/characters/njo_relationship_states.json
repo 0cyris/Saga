@@ -1,0 +1,930 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_han_anakin_strain_after_chewie",
+      "title": "Han and Anakin Strain After Chewie",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.sernpidal",
+        "validToAnchor": "sw.njo.ithor_devastated",
+        "sortKeyFrom": 20100,
+        "sortKeyTo": 21200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Sernpidal, before Ithor falls",
+        "phase": "Vector Prime to Early War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Anakin Solo",
+          "Chewbacca"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "trauma"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:han-solo",
+          "sw-character:anakin-solo",
+          "sw-character:chewbacca"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime-to-early-war",
+        "character:han-solo",
+        "character:anakin-solo",
+        "character:chewbacca",
+        "topic:family",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Anakin Solo",
+            "Chewbacca"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "trauma"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Han’s grief over Chewbacca strains his relationship with Anakin Solo after Sernpidal.",
+        "injection": "Post-Sernpidal, do not smooth over Han/Anakin tension; use grief, blame, avoidance, and slow repair if relevant.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Sernpidal, before Ithor falls.",
+          "Respect story-position bounds from Sernpidal Disaster to Ithor Devastated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_solo_twins_separated_by_war",
+      "title": "Solo Twins Separated by War",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.war_ends",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 32500,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "New Jedi Order / Yuuzhan Vong War",
+        "phase": "Vector Prime to Unifying Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo",
+          "Jaina Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "jedi",
+          "trauma"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:jacen-solo",
+          "sw-character:jaina-solo"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime-to-unifying-force",
+        "character:jacen-solo",
+        "character:jaina-solo",
+        "topic:family",
+        "topic:jedi",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo",
+            "Jaina Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "jedi",
+            "trauma"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Jacen and Jaina are repeatedly separated by missions, capture, grief, and divergent wartime philosophies.",
+        "injection": "NJO twin scenes should carry pressure from separation and different responses to trauma, especially after Myrkr.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: New Jedi Order / Yuuzhan Vong War.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_luke_mara_parenthood_during_war",
+      "title": "Luke and Mara Parenthood During War",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 93,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.edge_of_victory",
+        "validToAnchor": "sw.njo.edge_of_victory",
+        "sortKeyFrom": 23500,
+        "sortKeyTo": 23500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Edge of Victory / Jedi Survival",
+        "phase": "Jedi Under Siege",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Mara Jade Skywalker",
+          "Ben Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "jedi",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:mara-jade-skywalker",
+          "sw-character:ben-skywalker"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:jedi-under-siege",
+        "character:luke-skywalker",
+        "character:mara-jade-skywalker",
+        "character:ben-skywalker",
+        "topic:family",
+        "topic:jedi",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Mara Jade Skywalker",
+            "Ben Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "jedi",
+            "war"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Luke and Mara become parents during a galaxy-wide war, adding infant safety to Jedi leadership burdens.",
+        "injection": "After Ben’s birth, include parenthood as an active constraint in Luke/Mara scenes when relevant. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Edge of Victory / Jedi Survival.",
+          "Respect story-position bounds from Edge of Victory / Jedi Survival to Edge of Victory / Jedi Survival."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_anakin_tahiri_bond_before_myrkr",
+      "title": "Anakin and Tahiri Bond Before Myrkr",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.jedi_hunt_escalates",
+        "validToAnchor": "sw.njo.myrkr_mission",
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 24200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi under siege before Myrkr",
+        "phase": "Jedi Under Siege to Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Solo",
+          "Tahiri Veila"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "relationship"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:anakin-solo",
+          "sw-character:tahiri-veila"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:jedi-under-siege-to-myrkr-and-coruscant-fall",
+        "character:anakin-solo",
+        "character:tahiri-veila",
+        "topic:family",
+        "topic:relationship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Solo",
+            "Tahiri Veila"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "relationship"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Anakin Solo and Tahiri Veila have a close emotional bond before Anakin’s death.",
+        "injection": "Before Myrkr, allow Anakin/Tahiri closeness; after Myrkr, convert it into grief rather than ongoing romance. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi under siege before Myrkr.",
+          "Respect story-position bounds from Jedi Hunt Escalates to Myrkr Voxyn Mission."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_jaina_jag_wartime_tension",
+      "title": "Jaina and Jag Wartime Tension",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.enemy_lines_borleias",
+        "validToAnchor": "sw.njo.ebaQ9",
+        "sortKeyFrom": 26000,
+        "sortKeyTo": 29000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Galactic Alliance transition",
+        "phase": "Galactic Alliance Transition to Turning Point",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jaina Solo",
+          "Jagged Fel"
+        ],
+        "locations": [],
+        "topics": [
+          "relationship",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Chiss Ascendancy",
+          "Imperial Remnant"
+        ],
+        "entityIds": [
+          "sw-character:jaina-solo",
+          "sw-character:jagged-fel",
+          "sw-faction:galactic-alliance",
+          "sw-faction:chiss-ascendancy",
+          "sw-faction:imperial-remnant"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:galactic-alliance-transition-to-turning-point",
+        "character:jaina-solo",
+        "character:jagged-fel",
+        "faction:galactic-alliance",
+        "faction:chiss-ascendancy",
+        "faction:imperial-remnant",
+        "topic:relationship",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jaina Solo",
+            "Jagged Fel"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "relationship",
+            "war"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Chiss Ascendancy",
+            "Imperial Remnant"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Jaina Solo and Jagged Fel’s dynamic carries wartime competence, attraction, faction difference, and emotional guardedness.",
+        "injection": "Use Jaina/Jag as restrained wartime tension; do not backport later relationship outcomes too early. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Alliance transition.",
+          "Respect story-position bounds from Borleias Resistance to Battle of Ebaq 9."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_jacen_vergere_not_simple_master_apprentice",
+      "title": "Jacen and Vergere Not Simple Master-Apprentice",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.traitor_jacen_captive",
+        "validToAnchor": "sw.njo.traitor_jacen_captive",
+        "sortKeyFrom": 27000,
+        "sortKeyTo": 27000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jacen Captive / Traitor",
+        "phase": "Galactic Alliance Transition",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo",
+          "Vergere"
+        ],
+        "locations": [],
+        "topics": [
+          "force",
+          "trauma",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:jacen-solo",
+          "sw-character:vergere",
+          "sw-faction:jedi-order",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:galactic-alliance-transition",
+        "character:jacen-solo",
+        "character:vergere",
+        "faction:jedi-order",
+        "faction:yuuzhan-vong",
+        "topic:force",
+        "topic:trauma",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo",
+            "Vergere"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "force",
+            "trauma",
+            "secret"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Vergere’s relationship with Jacen is captivity, teaching, manipulation, and philosophical rupture, not normal Jedi apprenticeship.",
+        "injection": "In Traitor context, avoid clean mentor tropes; keep Jacen/Vergere charged with coercion, pain, ambiguity, and transformation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jacen Captive / Traitor.",
+          "Respect story-position bounds from Jacen Captive / Traitor to Jacen Captive / Traitor."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_leia_han_marriage_under_wartime_grief",
+      "title": "Han and Leia Marriage Under Wartime Grief",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.war_ends",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 32500,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "New Jedi Order / Yuuzhan Vong War",
+        "phase": "Vector Prime to Unifying Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa Solo",
+          "Chewbacca",
+          "Jacen Solo",
+          "Jaina Solo",
+          "Anakin Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "trauma",
+          "refugees"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:han-solo",
+          "sw-character:leia-organa-solo",
+          "sw-character:chewbacca",
+          "sw-character:jacen-solo",
+          "sw-character:jaina-solo",
+          "sw-character:anakin-solo"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime-to-unifying-force",
+        "character:han-solo",
+        "character:leia-organa-solo",
+        "character:chewbacca",
+        "character:jacen-solo",
+        "character:jaina-solo",
+        "character:anakin-solo",
+        "topic:family",
+        "topic:trauma",
+        "topic:refugees"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa Solo",
+            "Chewbacca",
+            "Jacen Solo",
+            "Jaina Solo",
+            "Anakin Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "trauma",
+            "refugees"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Han and Leia’s marriage is stressed by Chewbacca’s death, children in danger, refugee crises, and galactic collapse.",
+        "injection": "During NJO, use marriage strain and repair as contextual pressure; do not write them as untouched OT-era banter only.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: New Jedi Order / Yuuzhan Vong War.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_luke_kyp_jedi_policy_rivalry",
+      "title": "Luke and Kyp Jedi Policy Rivalry",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.jedi_hunt_escalates",
+        "validToAnchor": "sw.njo.myrkr_mission",
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 24200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi under siege before Myrkr",
+        "phase": "Jedi Under Siege to Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Kyp Durron"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "war",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:kyp-durron",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:jedi-under-siege-to-myrkr-and-coruscant-fall",
+        "character:luke-skywalker",
+        "character:kyp-durron",
+        "faction:jedi-order",
+        "topic:jedi",
+        "topic:war",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Kyp Durron"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "jedi",
+            "war",
+            "politics"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Luke and Kyp’s disagreement reflects a real split over Jedi military aggression and responsibility.",
+        "injection": "When both appear, let Jedi policy disagreement matter instead of making Kyp merely insubordinate comic relief.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi under siege before Myrkr.",
+          "Respect story-position bounds from Jedi Hunt Escalates to Myrkr Voxyn Mission."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

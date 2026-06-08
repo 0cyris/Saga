@@ -10,7 +10,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.privet_summer_after_sirius",
         "validToAnchor": "hp.y6.hogwarts_express_slug_club",
-        "sortKeyFrom": 9678,
-        "sortKeyTo": 9739,
+        "sortKeyFrom": 9692,
+        "sortKeyTo": 9742,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -66,8 +66,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Severus Snape",
@@ -89,7 +89,15 @@
       },
       "content": {
         "fact": "Before Year 6 unfolds, Narcissa and Snape's Unbreakable Vow concerning Draco's mission is hidden from Harry and most observers.",
-        "injection": "Before Year 6 unfolds, Narcissa and Snape's Unbreakable Vow concerning Draco's mission is hidden from Harry and most observers."
+        "injection": "Before Year 6 unfolds, Narcissa and Snape's Unbreakable Vow concerning Draco's mission is hidden from Harry and most observers. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -113,7 +121,16 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -122,7 +139,7 @@
       "kind": "institution_state",
       "gateType": "institution_state",
       "category": "location",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -130,7 +147,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -139,8 +156,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.felix_felicis_won",
-        "sortKeyFrom": 9740,
-        "sortKeyTo": 9784,
+        "sortKeyFrom": 9735,
+        "sortKeyTo": 9785,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -181,8 +198,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Horace Slughorn",
@@ -204,7 +221,15 @@
       },
       "content": {
         "fact": "Slughorn returns as Potions professor and cultivates the Slug Club around talented, famous, or well-connected students.",
-        "injection": "Slughorn returns as Potions professor and cultivates the Slug Club around talented, famous, or well-connected students."
+        "injection": "Slughorn returns as Potions professor and cultivates the Slug Club around talented, famous, or well-connected students. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -228,7 +253,17 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -237,7 +272,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -245,7 +280,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -295,8 +330,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -318,7 +353,15 @@
       },
       "content": {
         "fact": "Before Harry learns the truth, the Half-Blood Prince's identity remains hidden; the annotated Potions book should provide help without revealing Snape as its former owner.",
-        "injection": "Before Harry learns the truth, the Half-Blood Prince's identity remains hidden; the annotated Potions book should provide help without revealing Snape as its former owner."
+        "injection": "Before Harry learns the truth, the Half-Blood Prince's identity remains hidden; the annotated Potions book should provide help without revealing Snape as its former owner. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -342,7 +385,17 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -351,7 +404,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -359,7 +412,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -410,8 +463,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -434,7 +487,15 @@
       },
       "content": {
         "fact": "Harry's Potions success and Felix Felicis prize change his academic confidence and social leverage during Year 6.",
-        "injection": "Harry's Potions success and Felix Felicis prize change his academic confidence and social leverage during Year 6."
+        "injection": "Harry's Potions success and Felix Felicis prize change his academic confidence and social leverage during Year 6. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -458,7 +519,17 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -467,7 +538,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -475,20 +546,20 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
-      "priority": 90,
+      "priority": 110,
       "status": "active",
       "protected": false,
       "locked": true,
       "userEditable": true,
       "context": {
         "scope": "window",
-        "validFromAnchor": "hp.y6.christmas_break_burrow",
-        "validToAnchor": "hp.y6.ron_love_potion",
-        "sortKeyFrom": 9851,
-        "sortKeyTo": 9920,
-        "precision": "school_year_window",
-        "windowKind": "school_year",
-        "label": "Half-Blood Prince: Year 6",
+        "validFromAnchor": "hp.y6.first_memory_lesson_gaunts",
+        "validToAnchor": "hp.y6.horcrux_truth_revealed",
+        "sortKeyFrom": 9798,
+        "sortKeyTo": 9972,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Memory lessons through true Horcrux revelation",
         "approximate": false
       },
       "scope": {
@@ -526,8 +597,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -549,8 +620,18 @@
         }
       },
       "content": {
-        "fact": "Dumbledore's private lessons teach Harry Voldemort's history through collected memories, gradually building toward Horcrux knowledge.",
-        "injection": "Dumbledore's private lessons teach Harry Voldemort's history through collected memories, gradually building toward Horcrux knowledge."
+        "fact": "Dumbledore’s memories reveal Voldemort’s background in stages and culminate in the true Slughorn memory; before that culmination, the full Horcrux framework remains incomplete.",
+        "injection": "Use the memory lessons as staged revelation: before the true Slughorn memory, avoid full Horcrux mechanics; at and after the true memory, Harry and Dumbledore understand the central Horcrux problem.",
+        "constraints": [
+          "Ron and Hermione do not automatically receive the full memory-lesson content unless Harry shares it in-story.",
+          "Apply only when Saga Context matches Memory lessons through true Horcrux revelation; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not flatten all Year 6 Dumbledore lessons into immediate full Horcrux knowledge.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -574,7 +655,18 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6",
+        "topic:horcruxes"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -583,7 +675,7 @@
       "kind": "spell_gate",
       "gateType": "spell_gate",
       "category": "spell",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 60,
       "injectableByDefault": false,
@@ -591,7 +683,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 10,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -601,7 +693,7 @@
         "validFromAnchor": "hp.y6.harry_bezoar_save",
         "validToAnchor": "hp.y6.snape_half_blood_prince_reveal",
         "sortKeyFrom": 9921,
-        "sortKeyTo": 10012,
+        "sortKeyTo": 10023,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -644,8 +736,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -668,7 +760,15 @@
       },
       "content": {
         "fact": "Harry uses Sectumsempra without fully understanding it, badly injuring Draco and triggering serious consequences around the Prince book.",
-        "injection": "Harry uses Sectumsempra without fully understanding it, badly injuring Draco and triggering serious consequences around the Prince book."
+        "injection": "Harry uses Sectumsempra without fully understanding it, badly injuring Draco and triggering serious consequences around the Prince book. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -692,7 +792,18 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6",
+        "spell:sectumsempra"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -701,7 +812,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -709,7 +820,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -719,7 +830,7 @@
         "validFromAnchor": "hp.y6.harry_bezoar_save",
         "validToAnchor": "hp.y6.snape_half_blood_prince_reveal",
         "sortKeyFrom": 9921,
-        "sortKeyTo": 10012,
+        "sortKeyTo": 10023,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -761,8 +872,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Draco Malfoy",
@@ -786,7 +897,15 @@
       },
       "content": {
         "fact": "Draco is attempting to repair the Vanishing Cabinet as part of a Death Eater entry plan; the full mechanism and timing remain hidden before the Tower night.",
-        "injection": "Draco is attempting to repair the Vanishing Cabinet as part of a Death Eater entry plan; the full mechanism and timing remain hidden before the Tower night."
+        "injection": "Draco is attempting to repair the Vanishing Cabinet as part of a Death Eater entry plan; the full mechanism and timing remain hidden before the Tower night. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -810,7 +929,18 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:vanishing-cabinet",
+        "book:half-blood-prince",
+        "character:draco-malfoy",
+        "character:severus-snape",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -819,7 +949,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -827,20 +957,20 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 100,
+      "priority": 115,
       "status": "active",
       "protected": false,
       "locked": true,
       "userEditable": true,
       "context": {
         "scope": "window",
-        "validFromAnchor": "hp.y6.harry_ginny_start",
+        "validFromAnchor": "hp.y6.dumbledore_cave_mission",
         "validToAnchor": "hp.y6.funeral",
-        "sortKeyFrom": 10013,
+        "sortKeyFrom": 10018,
         "sortKeyTo": 10042,
-        "precision": "school_year_window",
-        "windowKind": "school_year",
-        "label": "Half-Blood Prince: Year 6",
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Cave, fake locket, and R.A.B. clue aftermath",
         "approximate": false
       },
       "scope": {
@@ -877,8 +1007,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -899,8 +1029,19 @@
         }
       },
       "content": {
-        "fact": "The cave mission yields a fake locket and R.A.B. clue rather than a destroyed Horcrux, leaving the real locket unresolved after Dumbledore is weakened.",
-        "injection": "The cave mission yields a fake locket and R.A.B. clue rather than a destroyed Horcrux, leaving the real locket unresolved after Dumbledore is weakened."
+        "fact": "The cave mission does not destroy a Horcrux; it leaves Harry with a fake locket, an R.A.B. clue, Dumbledore dead soon after, and the real locket unresolved.",
+        "injection": "After the cave/Tower sequence, treat the locket recovery as a failed Horcrux retrieval: the real locket remains missing, R.A.B. is only a clue, and the Year 7 search has not yet begun.",
+        "constraints": [
+          "Do not treat the locket Horcrux as destroyed in Year 6.",
+          "Do not import Kreacher, Umbridge, or Ministry-infiltration knowledge before Year 7 reveals it.",
+          "Apply only when Saga Context matches Cave, fake locket, and R.A.B. clue aftermath; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not write the cave locket as the true destroyed Slytherin locket.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -924,7 +1065,16 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6",
+        "topic:horcruxes"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -933,7 +1083,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -941,20 +1091,20 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 100,
+      "priority": 120,
       "status": "active",
       "protected": false,
       "locked": true,
       "userEditable": true,
       "context": {
         "scope": "window",
-        "validFromAnchor": "hp.y6.horcrux_hunt_decision",
+        "validFromAnchor": "hp.y6.dumbledore_killed",
         "validToAnchor": "hp.y6.horcrux_hunt_decision",
-        "sortKeyFrom": 10042,
-        "sortKeyTo": 10087,
-        "precision": "school_year_window",
-        "windowKind": "school_year",
-        "label": "Half-Blood Prince: Year 6",
+        "sortKeyFrom": 10019,
+        "sortKeyTo": 10042,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dumbledore death, funeral, and hunt decision",
         "approximate": false
       },
       "scope": {
@@ -992,8 +1142,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Albus Dumbledore",
@@ -1017,8 +1167,20 @@
         }
       },
       "content": {
-        "fact": "After Dumbledore dies on the Astronomy Tower, Hogwarts enters mourning and Harry, Ron, and Hermione commit to leaving school to pursue Horcruxes.",
-        "injection": "After Dumbledore dies on the Astronomy Tower, Hogwarts enters mourning and Harry, Ron, and Hermione commit to leaving school to pursue Horcruxes."
+        "fact": "After Dumbledore dies, Hogwarts is in mourning and Harry moves toward the Horcrux hunt decision with Ron and Hermione.",
+        "injection": "After the Astronomy Tower death, treat Dumbledore as dead, Snape as publicly perceived traitorous, and Harry as shifting from school-year life toward the Horcrux hunt; do not start the Year 7 camping plot until that Context is active.",
+        "constraints": [
+          "Snape’s true loyalty remains hidden until Year 7 memories.",
+          "Ron and Hermione join the decision after Harry shares enough; before that, do not assume full operational knowledge.",
+          "Apply only when Saga Context matches Dumbledore death, funeral, and hunt decision; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not keep Dumbledore alive in standard canon after this anchor.",
+          "Do not turn the funeral decision into an already-completed Horcrux hunt.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1047,7 +1209,21 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6",
+        "topic:horcruxes"
+      ]
     }
   ]
 }

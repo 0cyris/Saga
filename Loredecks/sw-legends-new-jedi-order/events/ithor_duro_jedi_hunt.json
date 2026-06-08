@@ -1,0 +1,1233 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_ithor_has_symbolic_ecological_stakes",
+      "title": "Ithor Has Symbolic Ecological Stakes",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.ithor_campaign",
+        "validToAnchor": "sw.njo.ithor_campaign",
+        "sortKeyFrom": 21000,
+        "sortKeyTo": 21000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ithor Campaign",
+        "phase": "Early War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Corran Horn",
+          "Shedao Shai"
+        ],
+        "locations": [
+          "Ithor"
+        ],
+        "topics": [
+          "war",
+          "ecology",
+          "jedi"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Yuuzhan Vong",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:corran-horn",
+          "sw-character:shedao-shai",
+          "sw-location:ithor",
+          "sw-faction:new-republic",
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:early-war",
+        "character:corran-horn",
+        "character:shedao-shai",
+        "location:ithor",
+        "faction:new-republic",
+        "faction:yuuzhan-vong",
+        "faction:jedi-order",
+        "topic:war",
+        "topic:ecology",
+        "topic:jedi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Corran Horn",
+            "Shedao Shai"
+          ],
+          "locationsAny": [
+            "Ithor"
+          ],
+          "topicsAny": [
+            "war",
+            "ecology",
+            "jedi"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Yuuzhan Vong",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Ithor is not just another battlefield; it carries ecological, cultural, and moral significance.",
+        "injection": "During Ithor context, frame its destruction or defense as a moral/ecological wound, not a disposable tactical map.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Ithor Campaign.",
+          "Respect story-position bounds from Ithor Campaign to Ithor Campaign."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_shedao_shai_duel_cultural_stakes",
+      "title": "Shedao Shai Duel Has Cultural Stakes",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.ithor_campaign",
+        "validToAnchor": "sw.njo.ithor_campaign",
+        "sortKeyFrom": 21000,
+        "sortKeyTo": 21000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ithor Campaign",
+        "phase": "Early War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Shedao Shai",
+          "Corran Horn"
+        ],
+        "locations": [
+          "Ithor"
+        ],
+        "topics": [
+          "religion",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Yuuzhan Vong",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:shedao-shai",
+          "sw-character:corran-horn",
+          "sw-location:ithor",
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:early-war",
+        "character:shedao-shai",
+        "character:corran-horn",
+        "location:ithor",
+        "faction:yuuzhan-vong",
+        "faction:jedi-order",
+        "topic:religion",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shedao Shai",
+            "Corran Horn"
+          ],
+          "locationsAny": [
+            "Ithor"
+          ],
+          "topicsAny": [
+            "religion",
+            "war"
+          ],
+          "factionsAny": [
+            "Yuuzhan Vong",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Shedao Shai’s conflict with Corran Horn reflects Yuuzhan Vong honor and escalation, not ordinary villain-of-the-week combat.",
+        "injection": "Use the Corran/Shedao Shai confrontation as culture-clash and honor conflict, with consequences beyond the duel.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Ithor Campaign.",
+          "Respect story-position bounds from Ithor Campaign to Ithor Campaign."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_ithor_devastation_shakes_jedi_public_trust",
+      "title": "Ithor Devastation Shakes Jedi Public Trust",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.ithor_devastated",
+        "validToAnchor": "sw.njo.ithor_devastated",
+        "sortKeyFrom": 21200,
+        "sortKeyTo": 21200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ithor Devastated",
+        "phase": "Early War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Corran Horn",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Ithor"
+        ],
+        "topics": [
+          "politics",
+          "jedi",
+          "trauma"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:corran-horn",
+          "sw-character:luke-skywalker",
+          "sw-location:ithor",
+          "sw-faction:new-republic",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:early-war",
+        "character:corran-horn",
+        "character:luke-skywalker",
+        "location:ithor",
+        "faction:new-republic",
+        "faction:jedi-order",
+        "topic:politics",
+        "topic:jedi",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Corran Horn",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Ithor"
+          ],
+          "topicsAny": [
+            "politics",
+            "jedi",
+            "trauma"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Ithor’s devastation fuels distrust, blame, and fear around Jedi involvement in the war.",
+        "injection": "After Ithor, allow civilians and politicians to question whether Jedi help attracts catastrophe. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Ithor Devastated.",
+          "Respect story-position bounds from Ithor Devastated to Ithor Devastated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_duro_refugee_crisis_normalizes_displacement",
+      "title": "Duro Crisis Normalizes Refugee Pressure",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.balance_point_duro",
+        "validToAnchor": "sw.njo.balance_point_duro",
+        "sortKeyFrom": 22000,
+        "sortKeyTo": 22000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Balance Point / Duro Crisis",
+        "phase": "Early War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa Solo",
+          "Jacen Solo"
+        ],
+        "locations": [
+          "Duro"
+        ],
+        "topics": [
+          "refugees",
+          "government",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ],
+        "entityIds": [
+          "sw-character:leia-organa-solo",
+          "sw-character:jacen-solo",
+          "sw-location:duro",
+          "sw-faction:new-republic"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:early-war",
+        "character:leia-organa-solo",
+        "character:jacen-solo",
+        "location:duro",
+        "faction:new-republic",
+        "topic:refugees",
+        "topic:government",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa Solo",
+            "Jacen Solo"
+          ],
+          "locationsAny": [
+            "Duro"
+          ],
+          "topicsAny": [
+            "refugees",
+            "government",
+            "war"
+          ],
+          "factionsAny": [
+            "New Republic"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "The Duro crisis makes refugee pressure and ecological/infrastructure collapse central to the war experience.",
+        "injection": "During Duro/Balancing Point context, bring refugee logistics, crowding, disease, and political exhaustion into relevant scenes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Balance Point / Duro Crisis.",
+          "Respect story-position bounds from Balance Point / Duro Crisis to Balance Point / Duro Crisis."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_jedi_hunt_socially_isolates_jedi",
+      "title": "Jedi Hunt Socially Isolates Jedi",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.jedi_hunt_escalates",
+        "validToAnchor": "sw.njo.jedi_hunt_escalates",
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jedi Hunt Escalates",
+        "phase": "Jedi Under Siege",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Mara Jade Skywalker",
+          "Jacen Solo",
+          "Jaina Solo",
+          "Anakin Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "politics",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Peace Brigade",
+          "New Republic"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:mara-jade-skywalker",
+          "sw-character:jacen-solo",
+          "sw-character:jaina-solo",
+          "sw-character:anakin-solo",
+          "sw-faction:jedi-order",
+          "sw-faction:peace-brigade",
+          "sw-faction:new-republic"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:jedi-under-siege",
+        "character:luke-skywalker",
+        "character:mara-jade-skywalker",
+        "character:jacen-solo",
+        "character:jaina-solo",
+        "character:anakin-solo",
+        "faction:jedi-order",
+        "faction:peace-brigade",
+        "faction:new-republic",
+        "topic:jedi",
+        "topic:politics",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Mara Jade Skywalker",
+            "Jacen Solo",
+            "Jaina Solo",
+            "Anakin Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "jedi",
+            "politics",
+            "war"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Peace Brigade",
+            "New Republic"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "As the war worsens, Jedi can be blamed, hunted, or traded by fearful civilians and opportunists.",
+        "injection": "During the Jedi-hunt window, do not assume public gratitude toward Jedi; include fear, betrayal, bounties, and concealment pressures.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Hunt Escalates.",
+          "Respect story-position bounds from Jedi Hunt Escalates to Jedi Hunt Escalates."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_peace_brigade_collaborates_for_survival",
+      "title": "Peace Brigade Collaborates for Survival",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.jedi_hunt_escalates",
+        "validToAnchor": "sw.njo.jedi_hunt_escalates",
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jedi Hunt Escalates",
+        "phase": "Jedi Under Siege",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "infiltration",
+          "politics",
+          "jedi"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Peace Brigade",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-faction:peace-brigade",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:jedi-under-siege",
+        "faction:peace-brigade",
+        "faction:yuuzhan-vong",
+        "topic:infiltration",
+        "topic:politics",
+        "topic:jedi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "infiltration",
+            "politics",
+            "jedi"
+          ],
+          "factionsAny": [
+            "Peace Brigade",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "The Peace Brigade collaborates with Yuuzhan Vong power through fear, opportunism, and anti-Jedi resentment.",
+        "injection": "Use Peace Brigade actors as collaborators and informants; they are not a formal Imperial successor or heroic resistance faction.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Hunt Escalates.",
+          "Respect story-position bounds from Jedi Hunt Escalates to Jedi Hunt Escalates."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_luke_jedi_policy_debate",
+      "title": "Luke Faces Jedi Policy Debate",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.jedi_hunt_escalates",
+        "validToAnchor": "sw.njo.myrkr_mission",
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 24200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi under siege before Myrkr",
+        "phase": "Jedi Under Siege to Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Kyp Durron",
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "force",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "New Republic"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:kyp-durron",
+          "sw-character:jacen-solo",
+          "sw-faction:jedi-order",
+          "sw-faction:new-republic"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:jedi-under-siege-to-myrkr-and-coruscant-fall",
+        "character:luke-skywalker",
+        "character:kyp-durron",
+        "character:jacen-solo",
+        "faction:jedi-order",
+        "faction:new-republic",
+        "topic:jedi",
+        "topic:force",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Kyp Durron",
+            "Jacen Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "jedi",
+            "force",
+            "politics"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "New Republic"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Luke must balance Jedi defense, noninterference, public hostility, and whether Jedi should lead military resistance.",
+        "injection": "In NJO Jedi scenes, preserve philosophical disagreement over Jedi roles instead of making the Order a single tactical bloc.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi under siege before Myrkr.",
+          "Respect story-position bounds from Jedi Hunt Escalates to Myrkr Voxyn Mission."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_kyp_aggressive_jedi_faction",
+      "title": "Kyp Represents Aggressive Jedi Faction",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.jedi_hunt_escalates",
+        "validToAnchor": "sw.njo.myrkr_mission",
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 24200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi under siege before Myrkr",
+        "phase": "Jedi Under Siege to Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Kyp Durron",
+          "Luke Skywalker",
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "war",
+          "force"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:kyp-durron",
+          "sw-character:luke-skywalker",
+          "sw-character:jacen-solo",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:jedi-under-siege-to-myrkr-and-coruscant-fall",
+        "character:kyp-durron",
+        "character:luke-skywalker",
+        "character:jacen-solo",
+        "faction:jedi-order",
+        "topic:jedi",
+        "topic:war",
+        "topic:force"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kyp Durron",
+            "Luke Skywalker",
+            "Jacen Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "jedi",
+            "war",
+            "force"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Kyp Durron often represents a more aggressive Jedi response to the Yuuzhan Vong war than Luke’s caution.",
+        "injection": "When Kyp is relevant, contrast proactive strike logic with Luke’s restraint and Jacen’s philosophical doubts. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi under siege before Myrkr.",
+          "Respect story-position bounds from Jedi Hunt Escalates to Myrkr Voxyn Mission."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_mara_illness_yuuzhan_vong_bioweapon",
+      "title": "Mara Illness Has Vong Bioweapon Weight",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.ithor_devastated",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 21200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early Yuuzhan Vong invasion",
+        "phase": "Vector Prime to Early War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade Skywalker",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "biotechnology",
+          "family",
+          "trauma"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:mara-jade-skywalker",
+          "sw-character:luke-skywalker",
+          "sw-faction:jedi-order",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime-to-early-war",
+        "character:mara-jade-skywalker",
+        "character:luke-skywalker",
+        "faction:jedi-order",
+        "faction:yuuzhan-vong",
+        "topic:biotechnology",
+        "topic:family",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade Skywalker",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "biotechnology",
+            "family",
+            "trauma"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Mara’s serious illness during early NJO is tied to Yuuzhan Vong biological threat and affects her pregnancy/family stakes.",
+        "injection": "In early NJO Mara scenes, include illness risk and family stakes when relevant; do not write her as simply operating at normal baseline.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early Yuuzhan Vong invasion.",
+          "Respect story-position bounds from Vector Prime / Invasion Begins to Ithor Devastated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_ben_skywalker_birth_after_mara_illness",
+      "title": "Ben Skywalker Birth Follows Mara Illness Arc",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 93,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.edge_of_victory",
+        "validToAnchor": "sw.njo.edge_of_victory",
+        "sortKeyFrom": 23500,
+        "sortKeyTo": 23500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Edge of Victory / Jedi Survival",
+        "phase": "Jedi Under Siege",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade Skywalker",
+          "Luke Skywalker",
+          "Ben Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:mara-jade-skywalker",
+          "sw-character:luke-skywalker",
+          "sw-character:ben-skywalker",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:jedi-under-siege",
+        "character:mara-jade-skywalker",
+        "character:luke-skywalker",
+        "character:ben-skywalker",
+        "faction:jedi-order",
+        "topic:family",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade Skywalker",
+            "Luke Skywalker",
+            "Ben Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "future guard"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Ben Skywalker is born during the NJO era after Mara’s illness creates serious family risk.",
+        "injection": "After Ben’s birth, Luke and Mara have infant-family obligations; before that context, do not include Ben as present.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Edge of Victory / Jedi Survival.",
+          "Respect story-position bounds from Edge of Victory / Jedi Survival to Edge of Victory / Jedi Survival."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

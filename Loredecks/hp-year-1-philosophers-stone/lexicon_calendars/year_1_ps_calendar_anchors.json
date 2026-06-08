@@ -10,7 +10,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "normal",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 25,
+      "priority": 85,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -26,8 +26,8 @@
       "context": {
         "scope": "window",
         "validToAnchor": "hp.y1.letters_escalate",
-        "sortKeyFrom": 7842,
-        "sortKeyTo": 7873,
+        "sortKeyFrom": 7843,
+        "sortKeyTo": 7876,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -95,8 +95,14 @@
       },
       "content": {
         "fact": "After Dudley’s zoo birthday incident, Harry is punished at Privet Drive and kept in his cupboard before the Hogwarts letters begin.",
-        "injection": "After Dudley’s zoo birthday incident, Harry is punished at Privet Drive and kept in his cupboard before the Hogwarts letters begin.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "After Dudley’s zoo birthday incident, Harry is punished at Privet Drive and kept in his cupboard before the Hogwarts letters begin. Keep this bounded to Philosopher's Stone: Year 1; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -127,7 +133,16 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -136,7 +151,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "normal",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -144,7 +159,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 85,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -152,8 +167,8 @@
       "context": {
         "scope": "window",
         "validToAnchor": "hp.y1.hut_on_rock",
-        "sortKeyFrom": 7874,
-        "sortKeyTo": 7880,
+        "sortKeyFrom": 7869,
+        "sortKeyTo": 7883,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -192,7 +207,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -215,8 +230,14 @@
       },
       "content": {
         "fact": "The first Hogwarts letter forces the Dursleys to move Harry from the cupboard to Dudley’s second bedroom, even before they allow him to read any letter.",
-        "injection": "The first Hogwarts letter forces the Dursleys to move Harry from the cupboard to Dudley’s second bedroom, even before they allow him to read any letter.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "The first Hogwarts letter forces the Dursleys to move Harry from the cupboard to Dudley’s second bedroom, even before they allow him to read any letter. Keep this bounded to Philosopher's Stone: Year 1; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -247,7 +268,16 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -256,7 +286,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -264,7 +294,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -272,8 +302,8 @@
       "context": {
         "scope": "window",
         "validToAnchor": "hp.y1.hagrid_reveals_harry",
-        "sortKeyFrom": 7881,
-        "sortKeyTo": 7888,
+        "sortKeyFrom": 7876,
+        "sortKeyTo": 7890,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -335,8 +365,16 @@
       },
       "content": {
         "fact": "On Harry’s eleventh birthday, Hagrid arrives at the sea hut, tells Harry he is a wizard, and initiates his entrance into the wizarding world.",
-        "injection": "On Harry’s eleventh birthday, Hagrid arrives at the sea hut, tells Harry he is a wizard, and initiates his entrance into the wizarding world.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "On Harry’s eleventh birthday, Hagrid arrives at the sea hut, tells Harry he is a wizard, and initiates his entrance into the wizarding world. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -367,7 +405,16 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -376,7 +423,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -384,7 +431,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -392,8 +439,8 @@
       "context": {
         "scope": "window",
         "validToAnchor": "hp.y1.hagrid_reveals_harry",
-        "sortKeyFrom": 7881,
-        "sortKeyTo": 7888,
+        "sortKeyFrom": 7876,
+        "sortKeyTo": 7890,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -461,8 +508,16 @@
       },
       "content": {
         "fact": "During Harry’s first Diagon Alley trip, Ollivander matches him with a holly and phoenix-feather wand whose core is paired with Voldemort’s wand.",
-        "injection": "During Harry’s first Diagon Alley trip, Ollivander matches him with a holly and phoenix-feather wand whose core is paired with Voldemort’s wand.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "During Harry’s first Diagon Alley trip, Ollivander matches him with a holly and phoenix-feather wand whose core is paired with Voldemort’s wand. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -493,7 +548,17 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:rubeus-hagrid",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -518,8 +583,8 @@
       "context": {
         "scope": "window",
         "validToAnchor": "hp.y1.hagrid_reveals_harry",
-        "sortKeyFrom": 7881,
-        "sortKeyTo": 7888,
+        "sortKeyFrom": 7876,
+        "sortKeyTo": 7890,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -563,7 +628,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -588,8 +653,14 @@
       },
       "content": {
         "fact": "Hagrid retrieves the Philosopher’s Stone from Gringotts on the same day an attempted theft of its vault fails, moving the Stone toward Hogwarts protection.",
-        "injection": "Hagrid retrieves the Philosopher’s Stone from Gringotts on the same day an attempted theft of its vault fails, moving the Stone toward Hogwarts protection.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Hagrid retrieves the Philosopher’s Stone from Gringotts on the same day an attempted theft of its vault fails, moving the Stone toward Hogwarts protection. Keep this bounded to Philosopher's Stone: Year 1; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -620,7 +691,18 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:quirinus-quirrell",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -629,7 +711,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "normal",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -637,7 +719,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 85,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -646,8 +728,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.harry_meets_quirrell",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 7917,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 7923,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -686,7 +768,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -710,8 +792,14 @@
       },
       "content": {
         "fact": "On Harry’s first Hogwarts departure, Molly Weasley helps him find Platform Nine and Three-Quarters, leading to his first sustained contact with the Weasley family.",
-        "injection": "On Harry’s first Hogwarts departure, Molly Weasley helps him find Platform Nine and Three-Quarters, leading to his first sustained contact with the Weasley family.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "On Harry’s first Hogwarts departure, Molly Weasley helps him find Platform Nine and Three-Quarters, leading to his first sustained contact with the Weasley family. Keep this bounded to Philosopher's Stone: Year 1; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -742,7 +830,17 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -768,8 +866,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.harry_meets_quirrell",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 7917,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 7923,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -810,7 +908,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -836,8 +934,14 @@
       },
       "content": {
         "fact": "Harry arrives at Hogwarts by boat with other first-years and is sorted into Gryffindor during the opening feast.",
-        "injection": "Harry arrives at Hogwarts by boat with other first-years and is sorted into Gryffindor during the opening feast.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry arrives at Hogwarts by boat with other first-years and is sorted into Gryffindor during the opening feast. Keep this bounded to Philosopher's Stone: Year 1; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -868,7 +972,19 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -877,7 +993,7 @@
       "kind": "behavior_gate",
       "gateType": "behavior_gate",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -885,7 +1001,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -894,7 +1010,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.cauldron_and_school_supplies",
         "validToAnchor": "hp.y1.harry_meets_quirrell",
-        "sortKeyFrom": 7918,
+        "sortKeyFrom": 7916,
         "sortKeyTo": 7923,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -956,8 +1072,16 @@
       },
       "content": {
         "fact": "In Harry’s first Potions lesson, Snape publicly singles him out and begins an antagonistic classroom dynamic that persists through the year.",
-        "injection": "In Harry’s first Potions lesson, Snape publicly singles him out and begins an antagonistic classroom dynamic that persists through the year.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "In Harry’s first Potions lesson, Snape publicly singles him out and begins an antagonistic classroom dynamic that persists through the year. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -988,7 +1112,17 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -997,7 +1131,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "normal",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1005,7 +1139,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 85,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1014,8 +1148,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.harry_meets_quirrell",
         "validToAnchor": "hp.y1.ollivander_wand",
-        "sortKeyFrom": 7924,
-        "sortKeyTo": 7931,
+        "sortKeyFrom": 7923,
+        "sortKeyTo": 7937,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -1057,7 +1191,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -1082,8 +1216,14 @@
       },
       "content": {
         "fact": "After Neville is injured during flying lessons and Harry confronts Draco in the air, McGonagall recruits Harry as Gryffindor Seeker.",
-        "injection": "After Neville is injured during flying lessons and Harry confronts Draco in the air, McGonagall recruits Harry as Gryffindor Seeker.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "After Neville is injured during flying lessons and Harry confronts Draco in the air, McGonagall recruits Harry as Gryffindor Seeker. Keep this bounded to Philosopher's Stone: Year 1; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1114,7 +1254,19 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1123,7 +1275,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1131,7 +1283,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1140,8 +1292,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.harry_meets_quirrell",
         "validToAnchor": "hp.y1.ollivander_wand",
-        "sortKeyFrom": 7924,
-        "sortKeyTo": 7931,
+        "sortKeyFrom": 7923,
+        "sortKeyTo": 7937,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -1208,8 +1360,16 @@
       },
       "content": {
         "fact": "The attempted midnight duel leads Harry, Ron, Hermione, and Neville to discover the three-headed dog guarding the forbidden third-floor corridor.",
-        "injection": "The attempted midnight duel leads Harry, Ron, Hermione, and Neville to discover the three-headed dog guarding the forbidden third-floor corridor.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "The attempted midnight duel leads Harry, Ron, Hermione, and Neville to discover the three-headed dog guarding the forbidden third-floor corridor. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1240,7 +1400,20 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1266,8 +1439,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.gringotts_vault_visit",
         "validToAnchor": "hp.y1.draco_train_rivalry",
-        "sortKeyFrom": 7932,
-        "sortKeyTo": 7972,
+        "sortKeyFrom": 7930,
+        "sortKeyTo": 7977,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -1333,8 +1506,14 @@
       },
       "content": {
         "fact": "Harry receives his Nimbus 2000 and begins Gryffindor Quidditch training as a first-year Seeker.",
-        "injection": "Harry receives his Nimbus 2000 and begins Gryffindor Quidditch training as a first-year Seeker.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry receives his Nimbus 2000 and begins Gryffindor Quidditch training as a first-year Seeker. Keep this bounded to Philosopher's Stone: Year 1; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1365,7 +1544,16 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1374,7 +1562,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1382,7 +1570,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1391,8 +1579,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.hermione_train_intro",
         "validToAnchor": "hp.y1.arrival_and_sorting",
-        "sortKeyFrom": 7973,
-        "sortKeyTo": 7981,
+        "sortKeyFrom": 7970,
+        "sortKeyTo": 7984,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -1455,8 +1643,16 @@
       },
       "content": {
         "fact": "After the mountain troll enters Hogwarts, Harry and Ron rescue Hermione; the aftermath establishes the core trio friendship.",
-        "injection": "After the mountain troll enters Hogwarts, Harry and Ron rescue Hermione; the aftermath establishes the core trio friendship.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "After the mountain troll enters Hogwarts, Harry and Ron rescue Hermione; the aftermath establishes the core trio friendship. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1487,7 +1683,18 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1496,7 +1703,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1504,7 +1711,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1513,8 +1720,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.draco_train_rivalry",
         "validToAnchor": "hp.y1.common_room_first_night",
-        "sortKeyFrom": 7982,
-        "sortKeyTo": 7989,
+        "sortKeyFrom": 7977,
+        "sortKeyTo": 7990,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -1577,8 +1784,16 @@
       },
       "content": {
         "fact": "During Harry’s first Quidditch match, Quirrell tries to jinx his broom while Snape quietly counters the jinx; Gryffindor wins when Harry catches the Snitch.",
-        "injection": "During Harry’s first Quidditch match, Quirrell tries to jinx his broom while Snape quietly counters the jinx; Gryffindor wins when Harry catches the Snitch.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "During Harry’s first Quidditch match, Quirrell tries to jinx his broom while Snape quietly counters the jinx; Gryffindor wins when Harry catches the Snitch. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1609,7 +1824,18 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:quirinus-quirrell",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1618,7 +1844,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1626,7 +1852,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1635,8 +1861,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.malfoy_midnight_duel_challenge",
         "validToAnchor": "hp.y1.fluffy_trapdoor_theory",
-        "sortKeyFrom": 8028,
-        "sortKeyTo": 8035,
+        "sortKeyFrom": 8024,
+        "sortKeyTo": 8037,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -1703,8 +1929,16 @@
       },
       "content": {
         "fact": "Harry receives the Invisibility Cloak at Christmas and soon discovers the Mirror of Erised, creating a winter secret centered on his family longing.",
-        "injection": "Harry receives the Invisibility Cloak at Christmas and soon discovers the Mirror of Erised, creating a winter secret centered on his family longing.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry receives the Invisibility Cloak at Christmas and soon discovers the Mirror of Erised, creating a winter secret centered on his family longing. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1735,7 +1969,19 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:invisibility-cloak",
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1744,7 +1990,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "normal",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1752,7 +1998,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 85,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1761,8 +2007,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.exams_end",
         "validToAnchor": "hp.y1.chess_trial_ron_sacrifice",
-        "sortKeyFrom": 8164,
-        "sortKeyTo": 8171,
+        "sortKeyFrom": 8158,
+        "sortKeyTo": 8172,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -1802,7 +2048,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -1827,8 +2073,14 @@
       },
       "content": {
         "fact": "After Norbert is removed by Charlie’s friends, Harry, Hermione, and Neville are caught out of bed and lose a large number of points, isolating them socially.",
-        "injection": "After Norbert is removed by Charlie’s friends, Harry, Hermione, and Neville are caught out of bed and lose a large number of points, isolating them socially.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "After Norbert is removed by Charlie’s friends, Harry, Hermione, and Neville are caught out of bed and lose a large number of points, isolating them socially. Keep this bounded to Philosopher's Stone: Year 1; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1859,7 +2111,20 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1868,7 +2133,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1876,7 +2141,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1885,8 +2150,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.quirrell_voldemort_reveal",
         "validToAnchor": "hp.y1.hospital_aftermath",
-        "sortKeyFrom": 8181,
-        "sortKeyTo": 8189,
+        "sortKeyFrom": 8179,
+        "sortKeyTo": 8192,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -1951,8 +2216,16 @@
       },
       "content": {
         "fact": "Harry’s Forbidden Forest detention exposes him to the unicorn-blood mystery and a direct threat connected to Voldemort’s survival.",
-        "injection": "Harry’s Forbidden Forest detention exposes him to the unicorn-blood mystery and a direct threat connected to Voldemort’s survival.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry’s Forbidden Forest detention exposes him to the unicorn-blood mystery and a direct threat connected to Voldemort’s survival. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1983,7 +2256,18 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:rubeus-hagrid",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1992,7 +2276,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -2000,7 +2284,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -2009,8 +2293,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.stone_destroyed",
         "validToAnchor": "hp.y1.house_cup_shift",
-        "sortKeyFrom": 8190,
-        "sortKeyTo": 8197,
+        "sortKeyFrom": 8185,
+        "sortKeyTo": 8199,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -2082,8 +2366,16 @@
       },
       "content": {
         "fact": "After exams, Harry, Ron, and Hermione enter the trapdoor route; Harry confronts Quirrell and Voldemort, then spends several days unconscious in the hospital wing.",
-        "injection": "After exams, Harry, Ron, and Hermione enter the trapdoor route; Harry confronts Quirrell and Voldemort, then spends several days unconscious in the hospital wing.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "After exams, Harry, Ron, and Hermione enter the trapdoor route; Harry confronts Quirrell and Voldemort, then spends several days unconscious in the hospital wing. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -2114,7 +2406,21 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:quirinus-quirrell",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     }
   ]
 }

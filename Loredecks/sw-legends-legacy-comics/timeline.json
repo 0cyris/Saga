@@ -1,0 +1,1082 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "sw.legacy.pre_war_recovery",
+      "label": "Pre-War Galactic Recovery Before Legacy",
+      "sortKey": 1000,
+      "dateRange": {
+        "from": "120 ABY",
+        "to": "126 ABY"
+      },
+      "aliases": [
+        "before legacy comics",
+        "pre-legacy era",
+        "before sith-imperial war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "era:pre-legacy",
+        "topic:galactic-recovery"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Pre-War Galactic Recovery Before Legacy"
+      }
+    },
+    {
+      "id": "sw.legacy.ossus_project",
+      "label": "Ossus Project Begins",
+      "sortKey": 1150,
+      "dateRange": {
+        "from": "126 ABY",
+        "to": "127 ABY"
+      },
+      "aliases": [
+        "ossus project",
+        "yuuzhan vongforming project",
+        "ossus rehabilitation project"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "location:ossus",
+        "topic:ossus-project",
+        "faction:jedi-order"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Ossus Project Begins"
+      }
+    },
+    {
+      "id": "sw.legacy.ossus_sabotage",
+      "label": "Ossus Project Sabotaged",
+      "sortKey": 1300,
+      "dateRange": {
+        "from": "127 ABY",
+        "to": "127 ABY"
+      },
+      "aliases": [
+        "ossus sabotage",
+        "ossus project fails",
+        "sabotaged vongforming"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "location:ossus",
+        "topic:ossus-project",
+        "faction:one-sith"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Ossus Project Sabotaged"
+      }
+    },
+    {
+      "id": "sw.legacy.sith_imperial_war_begins",
+      "label": "Sith-Imperial War Begins",
+      "sortKey": 1500,
+      "dateRange": {
+        "from": "127 ABY",
+        "to": "127 ABY"
+      },
+      "aliases": [
+        "sith-imperial war begins",
+        "start of legacy war",
+        "fel empire attacks alliance"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "event:sith-imperial-war",
+        "faction:fel-empire",
+        "faction:galactic-alliance"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Sith-Imperial War Begins"
+      }
+    },
+    {
+      "id": "sw.legacy.galactic_alliance_defeated",
+      "label": "Galactic Alliance Defeated",
+      "sortKey": 1850,
+      "dateRange": {
+        "from": "130 ABY",
+        "to": "130 ABY"
+      },
+      "aliases": [
+        "galactic alliance defeated",
+        "alliance loses the war",
+        "fall of the alliance"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "faction:galactic-alliance-remnant",
+        "event:sith-imperial-war"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Galactic Alliance Defeated"
+      }
+    },
+    {
+      "id": "sw.legacy.coruscant_falls_to_sith",
+      "label": "Coruscant Falls to Sith-Imperial Control",
+      "sortKey": 2000,
+      "dateRange": {
+        "from": "130 ABY",
+        "to": "130 ABY"
+      },
+      "aliases": [
+        "coruscant falls",
+        "sith take coruscant",
+        "krayt on coruscant"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "location:coruscant",
+        "faction:one-sith",
+        "faction:fel-empire"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Coruscant Falls to Sith-Imperial Control"
+      }
+    },
+    {
+      "id": "sw.legacy.ossus_massacre",
+      "label": "Massacre at Ossus",
+      "sortKey": 2150,
+      "dateRange": {
+        "from": "130 ABY",
+        "to": "130 ABY"
+      },
+      "aliases": [
+        "ossus massacre",
+        "jedi massacre on ossus",
+        "kol skywalker dies"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "location:ossus",
+        "faction:jedi-order",
+        "character:kol-skywalker"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Massacre at Ossus"
+      }
+    },
+    {
+      "id": "sw.legacy.cade_survives_ossus",
+      "label": "Cade Survives Ossus",
+      "sortKey": 2250,
+      "dateRange": {
+        "from": "130 ABY",
+        "to": "130 ABY"
+      },
+      "aliases": [
+        "cade survives ossus",
+        "cade after ossus",
+        "skywalker heir survives"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:cade-skywalker",
+        "location:ossus",
+        "topic:skywalker-lineage"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Cade Survives Ossus"
+      }
+    },
+    {
+      "id": "sw.legacy.cade_outlaw_years",
+      "label": "Cade's Outlaw Years",
+      "sortKey": 3000,
+      "dateRange": {
+        "from": "130 ABY",
+        "to": "137 ABY"
+      },
+      "aliases": [
+        "cade pirate years",
+        "cade bounty hunter",
+        "cade as pirate"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:cade-skywalker",
+        "topic:underworld"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Cade's Outlaw Years"
+      }
+    },
+    {
+      "id": "sw.legacy.krayt_reign_opening",
+      "label": "Darth Krayt's Sith Empire Reign",
+      "sortKey": 3600,
+      "dateRange": {
+        "from": "137 ABY",
+        "to": "137 ABY"
+      },
+      "aliases": [
+        "legacy opening",
+        "krayt reign",
+        "one sith empire"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:darth-krayt",
+        "faction:one-sith",
+        "faction:sith-empire"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Darth Krayt's Sith Empire Reign"
+      }
+    },
+    {
+      "id": "sw.legacy.stazi_resistance_active",
+      "label": "Stazi's Galactic Alliance Remnant Active",
+      "sortKey": 3750,
+      "dateRange": {
+        "from": "137 ABY",
+        "to": "137 ABY"
+      },
+      "aliases": [
+        "gar stazi resistance",
+        "galactic alliance remnant fleet",
+        "stazi fleet"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:gar-stazi",
+        "faction:galactic-alliance-remnant"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Stazi's Galactic Alliance Remnant Active"
+      }
+    },
+    {
+      "id": "sw.legacy.fel_exile_resistance",
+      "label": "Roan Fel's Exile Resistance",
+      "sortKey": 3850,
+      "dateRange": {
+        "from": "137 ABY",
+        "to": "137 ABY"
+      },
+      "aliases": [
+        "roan fel in exile",
+        "fel loyalists",
+        "true emperor fel"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:roan-fel",
+        "faction:fel-loyalists",
+        "faction:imperial-knights"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Roan Fel's Exile Resistance"
+      }
+    },
+    {
+      "id": "sw.legacy.cade_captured_vendaxa",
+      "label": "Cade Captured on Vendaxa",
+      "sortKey": 4100,
+      "dateRange": {
+        "from": "137 ABY",
+        "to": "137 ABY"
+      },
+      "aliases": [
+        "cade captured",
+        "vendaxa capture",
+        "cade taken to krayt"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:cade-skywalker",
+        "location:vendaxa",
+        "character:darth-talon"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Cade Captured on Vendaxa"
+      }
+    },
+    {
+      "id": "sw.legacy.cade_korriban_escape",
+      "label": "Cade Escapes Korriban",
+      "sortKey": 4300,
+      "dateRange": {
+        "from": "137 ABY",
+        "to": "137 ABY"
+      },
+      "aliases": [
+        "cade escapes korriban",
+        "escape from krayt",
+        "cade rejects krayt"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:cade-skywalker",
+        "location:korriban",
+        "character:darth-krayt"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Cade Escapes Korriban"
+      }
+    },
+    {
+      "id": "sw.legacy.tatooine_hett_reveal",
+      "label": "A'Sharad Hett Identity Revealed",
+      "sortKey": 4500,
+      "dateRange": {
+        "from": "137 ABY",
+        "to": "137 ABY"
+      },
+      "aliases": [
+        "hett reveal",
+        "krayt is a'sharad hett",
+        "tatooine reveal"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:darth-krayt",
+        "character:asharad-hett",
+        "location:tatooine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "A'Sharad Hett Identity Revealed"
+      }
+    },
+    {
+      "id": "sw.legacy.vector_muur_talisman",
+      "label": "Muur Talisman Crisis",
+      "sortKey": 4700,
+      "dateRange": {
+        "from": "137 ABY",
+        "to": "137 ABY"
+      },
+      "aliases": [
+        "vector legacy",
+        "muur talisman",
+        "rakghoul talisman"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "item:muur-talisman",
+        "character:celeste-morne",
+        "topic:rakghouls"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Muur Talisman Crisis"
+      }
+    },
+    {
+      "id": "sw.legacy.had_abbadon_trap",
+      "label": "Had Abbadon Trap",
+      "sortKey": 5000,
+      "dateRange": {
+        "from": "137 ABY",
+        "to": "137 ABY"
+      },
+      "aliases": [
+        "had abbadon",
+        "krayt trap",
+        "cade and krayt on had abbadon"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "location:had-abbadon",
+        "character:cade-skywalker",
+        "character:darth-krayt"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Had Abbadon Trap"
+      }
+    },
+    {
+      "id": "sw.legacy.krayt_apparent_death",
+      "label": "Darth Krayt's Apparent Death",
+      "sortKey": 5150,
+      "dateRange": {
+        "from": "137 ABY",
+        "to": "137 ABY"
+      },
+      "aliases": [
+        "krayt apparent death",
+        "krayt supposedly dies",
+        "wyyrlok kills krayt"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:darth-krayt",
+        "character:darth-wyyrlok",
+        "faction:one-sith"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Darth Krayt's Apparent Death"
+      }
+    },
+    {
+      "id": "sw.legacy.wyyrlok_regency",
+      "label": "Darth Wyyrlok's Sith Regency",
+      "sortKey": 5400,
+      "dateRange": {
+        "from": "137 ABY",
+        "to": "138 ABY"
+      },
+      "aliases": [
+        "wyyrlok regency",
+        "after krayt death",
+        "one sith under wyyrlok"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:darth-wyyrlok",
+        "faction:one-sith"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Darth Wyyrlok's Sith Regency"
+      }
+    },
+    {
+      "id": "sw.legacy.tri_faction_alliance",
+      "label": "Tri-Faction Anti-Sith Alliance",
+      "sortKey": 5700,
+      "dateRange": {
+        "from": "138 ABY",
+        "to": "138 ABY"
+      },
+      "aliases": [
+        "stazi fel jedi alliance",
+        "anti-sith alliance",
+        "galactic alliance fel jedi coalition"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "faction:galactic-alliance-remnant",
+        "faction:fel-loyalists",
+        "faction:jedi-order"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Tri-Faction Anti-Sith Alliance"
+      }
+    },
+    {
+      "id": "sw.legacy.krayt_returns",
+      "label": "Darth Krayt Returns",
+      "sortKey": 6000,
+      "dateRange": {
+        "from": "138 ABY",
+        "to": "138 ABY"
+      },
+      "aliases": [
+        "krayt returns",
+        "darth krayt reborn",
+        "krayt kills wyyrlok"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:darth-krayt",
+        "character:darth-wyyrlok",
+        "faction:one-sith"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Darth Krayt Returns"
+      }
+    },
+    {
+      "id": "sw.legacy.final_war_coruscant",
+      "label": "Final War for Coruscant",
+      "sortKey": 6300,
+      "dateRange": {
+        "from": "138 ABY",
+        "to": "138 ABY"
+      },
+      "aliases": [
+        "legacy war",
+        "final battle coruscant",
+        "war against krayt"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "location:coruscant",
+        "event:legacy-war",
+        "faction:one-sith"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Final War for Coruscant"
+      }
+    },
+    {
+      "id": "sw.legacy.krayt_final_defeat",
+      "label": "Darth Krayt Finally Defeated",
+      "sortKey": 6500,
+      "dateRange": {
+        "from": "138 ABY",
+        "to": "138 ABY"
+      },
+      "aliases": [
+        "krayt final defeat",
+        "cade kills krayt",
+        "end of krayt"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:cade-skywalker",
+        "character:darth-krayt",
+        "event:legacy-war"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Darth Krayt Finally Defeated"
+      }
+    },
+    {
+      "id": "sw.legacy.legacy_aftermath",
+      "label": "Legacy War Aftermath",
+      "sortKey": 6800,
+      "dateRange": {
+        "from": "138 ABY",
+        "to": "138 ABY"
+      },
+      "aliases": [
+        "after krayt defeat",
+        "legacy aftermath",
+        "post-krayt galaxy"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "event:legacy-war",
+        "topic:postwar"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy War Aftermath"
+      }
+    },
+    {
+      "id": "sw.legacy.ania_solo_opening",
+      "label": "Ania Solo Era Opens",
+      "sortKey": 7200,
+      "dateRange": {
+        "from": "138 ABY",
+        "to": "138 ABY"
+      },
+      "aliases": [
+        "legacy volume 2",
+        "ania solo opening",
+        "ania solo era"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:ania-solo",
+        "scope:legacy-volume-2"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Ania Solo Era Opens"
+      }
+    },
+    {
+      "id": "sw.legacy.legacy2_sith_hunt",
+      "label": "Legacy II Sith Hunt",
+      "sortKey": 7500,
+      "dateRange": {
+        "from": "138 ABY",
+        "to": "139 ABY"
+      },
+      "aliases": [
+        "sith hunt legacy 2",
+        "sith murdered by sith",
+        "jao and ania investigate"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:ania-solo",
+        "character:jao-assam",
+        "faction:imperial-knights"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy II Sith Hunt"
+      }
+    },
+    {
+      "id": "sw.legacy.jao_dark_side_enslaved",
+      "label": "Jao Assam Enslaved by the Dark Side",
+      "sortKey": 7800,
+      "dateRange": {
+        "from": "139 ABY",
+        "to": "139 ABY"
+      },
+      "aliases": [
+        "jao dark side",
+        "jao enslaved",
+        "imperial knight dark side"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:jao-assam",
+        "faction:imperial-knights"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Jao Assam Enslaved by the Dark Side"
+      }
+    },
+    {
+      "id": "sw.legacy.legacy2_empress_alliance",
+      "label": "Ania and Imperial Knights Fight Beside the Empress",
+      "sortKey": 8000,
+      "dateRange": {
+        "from": "139 ABY",
+        "to": "139 ABY"
+      },
+      "aliases": [
+        "legacy 18",
+        "ania fights with empress",
+        "imperial knights and empress"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:ania-solo",
+        "character:marasiiah-fel",
+        "faction:imperial-knights"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Ania and Imperial Knights Fight Beside the Empress"
+      }
+    },
+    {
+      "id": "sw.legacy.legacy2_resolution",
+      "label": "Legacy II Resolution",
+      "sortKey": 8300,
+      "dateRange": {
+        "from": "139 ABY",
+        "to": "139 ABY"
+      },
+      "aliases": [
+        "legacy ii ending",
+        "legacy comics ending",
+        "ania solo resolution"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "scope:legacy-volume-2",
+        "topic:postwar"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy II Resolution"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "sw.legacy.window.pre_war",
+      "label": "Pre-War Legacy Setup",
+      "anchorFrom": "sw.legacy.pre_war_recovery",
+      "anchorTo": "sw.legacy.sith_imperial_war_begins",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1500,
+      "aliases": [
+        "before legacy war",
+        "before sith-imperial war",
+        "ossus project setup"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "era:pre-legacy"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.legacy.window.sith_imperial_war",
+      "label": "Sith-Imperial War",
+      "anchorFrom": "sw.legacy.sith_imperial_war_begins",
+      "anchorTo": "sw.legacy.ossus_massacre",
+      "sortKeyFrom": 1500,
+      "sortKeyTo": 2150,
+      "aliases": [
+        "during sith-imperial war",
+        "legacy war opening",
+        "alliance falls"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "event:sith-imperial-war"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.legacy.window.ossus_fall",
+      "label": "Ossus Massacre and Cade Survival",
+      "anchorFrom": "sw.legacy.ossus_massacre",
+      "anchorTo": "sw.legacy.cade_outlaw_years",
+      "sortKeyFrom": 2150,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "after ossus massacre",
+        "cade survives ossus",
+        "fall of ossus"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "location:ossus",
+        "character:cade-skywalker"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.legacy.window.broken_opening",
+      "label": "Broken Opening Era",
+      "anchorFrom": "sw.legacy.cade_outlaw_years",
+      "anchorTo": "sw.legacy.cade_korriban_escape",
+      "sortKeyFrom": 3000,
+      "sortKeyTo": 4300,
+      "aliases": [
+        "legacy broken",
+        "legacy opening",
+        "cade bounty hunter era"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "arc:broken",
+        "character:cade-skywalker"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.legacy.window.krayt_reign",
+      "label": "Darth Krayt's Reign",
+      "anchorFrom": "sw.legacy.krayt_reign_opening",
+      "anchorTo": "sw.legacy.krayt_apparent_death",
+      "sortKeyFrom": 3600,
+      "sortKeyTo": 5150,
+      "aliases": [
+        "during krayt reign",
+        "one sith empire era",
+        "before krayt apparent death"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:darth-krayt",
+        "faction:one-sith"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.legacy.window.hett_reveal_and_vector",
+      "label": "Hett Reveal and Muur Talisman Crisis",
+      "anchorFrom": "sw.legacy.tatooine_hett_reveal",
+      "anchorTo": "sw.legacy.had_abbadon_trap",
+      "sortKeyFrom": 4500,
+      "sortKeyTo": 5000,
+      "aliases": [
+        "after hett reveal",
+        "vector legacy",
+        "muur talisman crisis"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "item:muur-talisman",
+        "character:darth-krayt"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.legacy.window.wyyrlok_interregnum",
+      "label": "Wyyrlok Interregnum",
+      "anchorFrom": "sw.legacy.krayt_apparent_death",
+      "anchorTo": "sw.legacy.krayt_returns",
+      "sortKeyFrom": 5150,
+      "sortKeyTo": 6000,
+      "aliases": [
+        "after krayt apparent death",
+        "wyyrlok interregnum",
+        "before krayt returns"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "character:darth-wyyrlok",
+        "faction:one-sith"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.legacy.window.final_war",
+      "label": "Final War Against Krayt",
+      "anchorFrom": "sw.legacy.krayt_returns",
+      "anchorTo": "sw.legacy.legacy_aftermath",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 6800,
+      "aliases": [
+        "legacy final war",
+        "after krayt returns",
+        "war against krayt"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "event:legacy-war",
+        "character:darth-krayt"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.legacy.window.legacy2",
+      "label": "Legacy Volume 2 / Ania Solo Era",
+      "anchorFrom": "sw.legacy.ania_solo_opening",
+      "anchorTo": "sw.legacy.legacy2_resolution",
+      "sortKeyFrom": 7200,
+      "sortKeyTo": 8300,
+      "aliases": [
+        "legacy volume 2",
+        "ania solo era",
+        "legacy ii"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "scope:legacy-volume-2",
+        "character:ania-solo"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.legacy.window.full_legacy_comics",
+      "label": "Legacy Comics Full Era",
+      "anchorFrom": "sw.legacy.pre_war_recovery",
+      "anchorTo": "sw.legacy.legacy2_resolution",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 8300,
+      "aliases": [
+        "legacy comics era",
+        "far future legends",
+        "cades legacy era"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:legacy-comics",
+        "scope:legacy-comics"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    }
+  ],
+  "arcs": [
+    {
+      "id": "sw.legacy.arc.broken",
+      "label": "Broken / Cade opening",
+      "sortKeyFrom": 3000,
+      "sortKeyTo": 4300,
+      "aliases": [
+        "Broken",
+        "Cade opening"
+      ],
+      "tags": [
+        "arc:broken"
+      ]
+    },
+    {
+      "id": "sw.legacy.arc.vector",
+      "label": "Vector / Muur Talisman",
+      "sortKeyFrom": 4500,
+      "sortKeyTo": 5000,
+      "aliases": [
+        "Vector",
+        "Muur Talisman"
+      ],
+      "tags": [
+        "arc:vector"
+      ]
+    },
+    {
+      "id": "sw.legacy.arc.final_war",
+      "label": "Final War Against Krayt",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 6800,
+      "aliases": [
+        "Legacy War",
+        "final war"
+      ],
+      "tags": [
+        "event:legacy-war"
+      ]
+    },
+    {
+      "id": "sw.legacy.arc.legacy2",
+      "label": "Legacy Volume 2 / Ania Solo",
+      "sortKeyFrom": 7200,
+      "sortKeyTo": 8300,
+      "aliases": [
+        "Legacy II",
+        "Ania Solo era"
+      ],
+      "tags": [
+        "scope:legacy-volume-2"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "sw.legacy.phase.volume1",
+      "label": "Legacy Volume 1",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 6800,
+      "aliases": [
+        "Cade era",
+        "Legacy volume 1"
+      ],
+      "tags": [
+        "scope:legacy-volume-1"
+      ]
+    },
+    {
+      "id": "sw.legacy.phase.volume2",
+      "label": "Legacy Volume 2",
+      "sortKeyFrom": 7200,
+      "sortKeyTo": 8300,
+      "aliases": [
+        "Ania Solo era",
+        "Legacy II"
+      ],
+      "tags": [
+        "scope:legacy-volume-2"
+      ]
+    }
+  ]
+}

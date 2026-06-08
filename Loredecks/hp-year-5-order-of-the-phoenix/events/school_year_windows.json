@@ -10,19 +10,25 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "school-year:5",
+        "book:order-of-the-phoenix",
         "calendar-year:1995",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
         "faction:order-of-the-phoenix",
-        "faction:ministry-of-magic"
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
       ],
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -32,7 +38,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "date_window",
         "windowKind": "wide",
         "label": "1995-09-01 to 1996-08-31",
@@ -97,8 +103,16 @@
       },
       "content": {
         "fact": "From September 1995 through August 1996, the main school-year context aligns with Harry Potter's fifth year and the Ministry's public denial of Voldemort's return.",
-        "injection": "From September 1995 through August 1996, the main school-year context aligns with Harry Potter's fifth year and the Ministry's public denial of Voldemort's return.",
-        "publicVersion": "Harry Potter is a fifth-year student under a tense Ministry-controlled climate."
+        "injection": "From September 1995 through August 1996, the main school-year context aligns with Harry Potter's fifth year and the Ministry's public denial of Voldemort's return. Enforce this as a high-priority Context gate for 1995-09-01 to 1996-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "Harry Potter is a fifth-year student under a tense Ministry-controlled climate.",
+        "constraints": [
+          "Apply only when Saga Context matches 1995-09-01 to 1996-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -106,7 +120,8 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     }
   ]
 }

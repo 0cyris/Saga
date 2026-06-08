@@ -1,0 +1,1515 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "faction:galactic-republic": {
+      "type": "faction",
+      "label": "Galactic Republic",
+      "aliases": [
+        "Old Republic",
+        "Republic"
+      ],
+      "canonicalNames": [
+        "Galactic Republic"
+      ],
+      "tags": [
+        "faction:galactic-republic"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:jedi-order": {
+      "type": "faction",
+      "label": "Jedi Order",
+      "aliases": [
+        "Jedi"
+      ],
+      "canonicalNames": [
+        "Jedi Order"
+      ],
+      "tags": [
+        "faction:jedi-order"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:coruscant": {
+      "type": "location",
+      "label": "Coruscant",
+      "aliases": [],
+      "canonicalNames": [
+        "Coruscant"
+      ],
+      "tags": [
+        "location:coruscant"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:sith": {
+      "type": "faction",
+      "label": "Sith",
+      "aliases": [],
+      "canonicalNames": [
+        "Sith"
+      ],
+      "tags": [
+        "faction:sith"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:old-sith-empire": {
+      "type": "faction",
+      "label": "Old Sith Empire",
+      "aliases": [
+        "Ancient Sith Empire"
+      ],
+      "canonicalNames": [
+        "Old Sith Empire"
+      ],
+      "tags": [
+        "faction:old-sith-empire"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:korriban": {
+      "type": "location",
+      "label": "Korriban",
+      "aliases": [
+        "Moraband"
+      ],
+      "canonicalNames": [
+        "Korriban"
+      ],
+      "tags": [
+        "location:korriban"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:yavin-iv": {
+      "type": "location",
+      "label": "Yavin IV",
+      "aliases": [],
+      "canonicalNames": [
+        "Yavin IV"
+      ],
+      "tags": [
+        "location:yavin-iv"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "item:sith-holocron": {
+      "type": "item",
+      "label": "Sith holocron",
+      "aliases": [
+        "holocron"
+      ],
+      "canonicalNames": [
+        "Sith holocron"
+      ],
+      "tags": [
+        "item:sith-holocron"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:exar-kun": {
+      "type": "character",
+      "label": "Exar Kun",
+      "aliases": [],
+      "canonicalNames": [
+        "Exar Kun"
+      ],
+      "tags": [
+        "character:exar-kun"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:ulic-qel-droma": {
+      "type": "character",
+      "label": "Ulic Qel-Droma",
+      "aliases": [],
+      "canonicalNames": [
+        "Ulic Qel-Droma"
+      ],
+      "tags": [
+        "character:ulic-qel-droma"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:nomi-sunrider": {
+      "type": "character",
+      "label": "Nomi Sunrider",
+      "aliases": [],
+      "canonicalNames": [
+        "Nomi Sunrider"
+      ],
+      "tags": [
+        "character:nomi-sunrider"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:onderon": {
+      "type": "location",
+      "label": "Onderon",
+      "aliases": [],
+      "canonicalNames": [
+        "Onderon"
+      ],
+      "tags": [
+        "location:onderon"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:mandalorians": {
+      "type": "faction",
+      "label": "Mandalorians",
+      "aliases": [
+        "Mandalorian clans"
+      ],
+      "canonicalNames": [
+        "Mandalorians"
+      ],
+      "tags": [
+        "faction:mandalorians"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:outer-rim": {
+      "type": "location",
+      "label": "Outer Rim",
+      "aliases": [],
+      "canonicalNames": [
+        "Outer Rim"
+      ],
+      "tags": [
+        "location:outer-rim"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:revan": {
+      "type": "character",
+      "label": "Revan",
+      "aliases": [
+        "Darth Revan",
+        "The Revanchist"
+      ],
+      "canonicalNames": [
+        "Revan"
+      ],
+      "tags": [
+        "character:revan"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:malak": {
+      "type": "character",
+      "label": "Malak",
+      "aliases": [],
+      "canonicalNames": [
+        "Malak"
+      ],
+      "tags": [
+        "character:malak"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:meetra-surik": {
+      "type": "character",
+      "label": "Meetra Surik",
+      "aliases": [
+        "Jedi Exile",
+        "The Exile"
+      ],
+      "canonicalNames": [
+        "Meetra Surik"
+      ],
+      "tags": [
+        "character:meetra-surik"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:mandalore-the-ultimate": {
+      "type": "character",
+      "label": "Mandalore the Ultimate",
+      "aliases": [],
+      "canonicalNames": [
+        "Mandalore the Ultimate"
+      ],
+      "tags": [
+        "character:mandalore-the-ultimate"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:malachor-v": {
+      "type": "location",
+      "label": "Malachor V",
+      "aliases": [
+        "Malachor"
+      ],
+      "canonicalNames": [
+        "Malachor V"
+      ],
+      "tags": [
+        "location:malachor-v"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "item:mass-shadow-generator": {
+      "type": "item",
+      "label": "Mass Shadow Generator",
+      "aliases": [],
+      "canonicalNames": [
+        "Mass Shadow Generator"
+      ],
+      "tags": [
+        "item:mass-shadow-generator"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:mandalore": {
+      "type": "location",
+      "label": "Mandalore",
+      "aliases": [],
+      "canonicalNames": [
+        "Mandalore"
+      ],
+      "tags": [
+        "location:mandalore"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:darth-malak": {
+      "type": "character",
+      "label": "Darth Malak",
+      "aliases": [
+        "Malak"
+      ],
+      "canonicalNames": [
+        "Darth Malak"
+      ],
+      "tags": [
+        "character:darth-malak"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:sith-empire": {
+      "type": "faction",
+      "label": "Sith Empire",
+      "aliases": [
+        "Reconstituted Sith Empire"
+      ],
+      "canonicalNames": [
+        "Sith Empire"
+      ],
+      "tags": [
+        "faction:sith-empire"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:lehon": {
+      "type": "location",
+      "label": "Lehon",
+      "aliases": [
+        "Rakata Prime"
+      ],
+      "canonicalNames": [
+        "Lehon"
+      ],
+      "tags": [
+        "location:lehon"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "item:star-forge": {
+      "type": "item",
+      "label": "Star Forge",
+      "aliases": [],
+      "canonicalNames": [
+        "Star Forge"
+      ],
+      "tags": [
+        "item:star-forge"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:bastila-shan": {
+      "type": "character",
+      "label": "Bastila Shan",
+      "aliases": [],
+      "canonicalNames": [
+        "Bastila Shan"
+      ],
+      "tags": [
+        "character:bastila-shan"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:darth-nihilus": {
+      "type": "character",
+      "label": "Darth Nihilus",
+      "aliases": [],
+      "canonicalNames": [
+        "Darth Nihilus"
+      ],
+      "tags": [
+        "character:darth-nihilus"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:darth-sion": {
+      "type": "character",
+      "label": "Darth Sion",
+      "aliases": [],
+      "canonicalNames": [
+        "Darth Sion"
+      ],
+      "tags": [
+        "character:darth-sion"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:kreia": {
+      "type": "character",
+      "label": "Kreia",
+      "aliases": [
+        "Darth Traya"
+      ],
+      "canonicalNames": [
+        "Kreia"
+      ],
+      "tags": [
+        "character:kreia"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:sith-triumvirate": {
+      "type": "faction",
+      "label": "Sith Triumvirate",
+      "aliases": [],
+      "canonicalNames": [
+        "Sith Triumvirate"
+      ],
+      "tags": [
+        "faction:sith-triumvirate"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:vitiate": {
+      "type": "character",
+      "label": "Vitiate",
+      "aliases": [
+        "Sith Emperor",
+        "Tenebrae",
+        "Valkorion"
+      ],
+      "canonicalNames": [
+        "Vitiate"
+      ],
+      "tags": [
+        "character:vitiate"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:dromund-kaas": {
+      "type": "location",
+      "label": "Dromund Kaas",
+      "aliases": [],
+      "canonicalNames": [
+        "Dromund Kaas"
+      ],
+      "tags": [
+        "location:dromund-kaas"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:unknown-regions": {
+      "type": "location",
+      "label": "Unknown Regions",
+      "aliases": [],
+      "canonicalNames": [
+        "Unknown Regions"
+      ],
+      "tags": [
+        "location:unknown-regions"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:darth-malgus": {
+      "type": "character",
+      "label": "Darth Malgus",
+      "aliases": [],
+      "canonicalNames": [
+        "Darth Malgus"
+      ],
+      "tags": [
+        "character:darth-malgus"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:satele-shan": {
+      "type": "character",
+      "label": "Satele Shan",
+      "aliases": [],
+      "canonicalNames": [
+        "Satele Shan"
+      ],
+      "tags": [
+        "character:satele-shan"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:tython": {
+      "type": "location",
+      "label": "Tython",
+      "aliases": [],
+      "canonicalNames": [
+        "Tython"
+      ],
+      "tags": [
+        "location:tython"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:eternal-empire": {
+      "type": "faction",
+      "label": "Eternal Empire",
+      "aliases": [
+        "Zakuul"
+      ],
+      "canonicalNames": [
+        "Eternal Empire"
+      ],
+      "tags": [
+        "faction:eternal-empire"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:zakuul": {
+      "type": "location",
+      "label": "Zakuul",
+      "aliases": [],
+      "canonicalNames": [
+        "Zakuul"
+      ],
+      "tags": [
+        "location:zakuul"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:revanites": {
+      "type": "faction",
+      "label": "Revanites",
+      "aliases": [],
+      "canonicalNames": [
+        "Revanites"
+      ],
+      "tags": [
+        "faction:revanites"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:valkorion": {
+      "type": "character",
+      "label": "Valkorion",
+      "aliases": [
+        "Vitiate",
+        "Sith Emperor"
+      ],
+      "canonicalNames": [
+        "Valkorion"
+      ],
+      "tags": [
+        "character:valkorion"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:arcann": {
+      "type": "character",
+      "label": "Arcann",
+      "aliases": [],
+      "canonicalNames": [
+        "Arcann"
+      ],
+      "tags": [
+        "character:arcann"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:thexan": {
+      "type": "character",
+      "label": "Thexan",
+      "aliases": [],
+      "canonicalNames": [
+        "Thexan"
+      ],
+      "tags": [
+        "character:thexan"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:vaylin": {
+      "type": "character",
+      "label": "Vaylin",
+      "aliases": [],
+      "canonicalNames": [
+        "Vaylin"
+      ],
+      "tags": [
+        "character:vaylin"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:ruusan": {
+      "type": "location",
+      "label": "Ruusan",
+      "aliases": [],
+      "canonicalNames": [
+        "Ruusan"
+      ],
+      "tags": [
+        "location:ruusan"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:carth-onasi": {
+      "type": "character",
+      "label": "Carth Onasi",
+      "aliases": [],
+      "canonicalNames": [
+        "Carth Onasi"
+      ],
+      "tags": [
+        "character:carth-onasi"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:saul-karath": {
+      "type": "character",
+      "label": "Saul Karath",
+      "aliases": [],
+      "canonicalNames": [
+        "Saul Karath"
+      ],
+      "tags": [
+        "character:saul-karath"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:mission-vao": {
+      "type": "character",
+      "label": "Mission Vao",
+      "aliases": [],
+      "canonicalNames": [
+        "Mission Vao"
+      ],
+      "tags": [
+        "character:mission-vao"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:zaalbar": {
+      "type": "character",
+      "label": "Zaalbar",
+      "aliases": [],
+      "canonicalNames": [
+        "Zaalbar"
+      ],
+      "tags": [
+        "character:zaalbar"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:taris": {
+      "type": "location",
+      "label": "Taris",
+      "aliases": [],
+      "canonicalNames": [
+        "Taris"
+      ],
+      "tags": [
+        "location:taris"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:kashyyyk": {
+      "type": "location",
+      "label": "Kashyyyk",
+      "aliases": [],
+      "canonicalNames": [
+        "Kashyyyk"
+      ],
+      "tags": [
+        "location:kashyyyk"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:jolee-bindo": {
+      "type": "character",
+      "label": "Jolee Bindo",
+      "aliases": [],
+      "canonicalNames": [
+        "Jolee Bindo"
+      ],
+      "tags": [
+        "character:jolee-bindo"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:hk-47": {
+      "type": "character",
+      "label": "HK-47",
+      "aliases": [],
+      "canonicalNames": [
+        "HK-47"
+      ],
+      "tags": [
+        "character:hk-47"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "item:hk-47": {
+      "type": "item",
+      "label": "HK-47",
+      "aliases": [],
+      "canonicalNames": [
+        "HK-47"
+      ],
+      "tags": [
+        "item:hk-47"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:mandalore-the-preserver": {
+      "type": "character",
+      "label": "Mandalore the Preserver",
+      "aliases": [
+        "Canderous Ordo"
+      ],
+      "canonicalNames": [
+        "Mandalore the Preserver"
+      ],
+      "tags": [
+        "character:mandalore-the-preserver"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:core-worlds": {
+      "type": "location",
+      "label": "Core Worlds",
+      "aliases": [],
+      "canonicalNames": [
+        "Core Worlds"
+      ],
+      "tags": [
+        "location:core-worlds"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:dantooine": {
+      "type": "location",
+      "label": "Dantooine",
+      "aliases": [],
+      "canonicalNames": [
+        "Dantooine"
+      ],
+      "tags": [
+        "location:dantooine"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:dxun": {
+      "type": "location",
+      "label": "Dxun",
+      "aliases": [],
+      "canonicalNames": [
+        "Dxun"
+      ],
+      "tags": [
+        "location:dxun"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:czerka-corporation": {
+      "type": "faction",
+      "label": "Czerka Corporation",
+      "aliases": [
+        "Czerka"
+      ],
+      "canonicalNames": [
+        "Czerka Corporation"
+      ],
+      "tags": [
+        "faction:czerka-corporation"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:tatooine": {
+      "type": "location",
+      "label": "Tatooine",
+      "aliases": [],
+      "canonicalNames": [
+        "Tatooine"
+      ],
+      "tags": [
+        "location:tatooine"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:exchange": {
+      "type": "faction",
+      "label": "Exchange",
+      "aliases": [
+        "The Exchange"
+      ],
+      "canonicalNames": [
+        "Exchange"
+      ],
+      "tags": [
+        "faction:exchange"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:nar-shaddaa": {
+      "type": "location",
+      "label": "Nar Shaddaa",
+      "aliases": [],
+      "canonicalNames": [
+        "Nar Shaddaa"
+      ],
+      "tags": [
+        "location:nar-shaddaa"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:rakata": {
+      "type": "faction",
+      "label": "Rakata",
+      "aliases": [
+        "Infinite Empire"
+      ],
+      "canonicalNames": [
+        "Rakata"
+      ],
+      "tags": [
+        "faction:rakata"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:hutts": {
+      "type": "faction",
+      "label": "Hutts",
+      "aliases": [],
+      "canonicalNames": [
+        "Hutts"
+      ],
+      "tags": [
+        "faction:hutts"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:hutt-space": {
+      "type": "location",
+      "label": "Hutt Space",
+      "aliases": [],
+      "canonicalNames": [
+        "Hutt Space"
+      ],
+      "tags": [
+        "location:hutt-space"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:selkath": {
+      "type": "faction",
+      "label": "Selkath",
+      "aliases": [],
+      "canonicalNames": [
+        "Selkath"
+      ],
+      "tags": [
+        "faction:selkath"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:manaan": {
+      "type": "location",
+      "label": "Manaan",
+      "aliases": [],
+      "canonicalNames": [
+        "Manaan"
+      ],
+      "tags": [
+        "location:manaan"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "faction:wookiees": {
+      "type": "faction",
+      "label": "Wookiees",
+      "aliases": [],
+      "canonicalNames": [
+        "Wookiees"
+      ],
+      "tags": [
+        "faction:wookiees"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "location:telos-iv": {
+      "type": "location",
+      "label": "Telos IV",
+      "aliases": [
+        "Telos"
+      ],
+      "canonicalNames": [
+        "Telos IV"
+      ],
+      "tags": [
+        "location:telos-iv"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "item:star-map": {
+      "type": "item",
+      "label": "Star Map",
+      "aliases": [
+        "Rakatan Star Map"
+      ],
+      "canonicalNames": [
+        "Star Map"
+      ],
+      "tags": [
+        "item:star-map"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "item:ebon-hawk": {
+      "type": "item",
+      "label": "Ebon Hawk",
+      "aliases": [],
+      "canonicalNames": [
+        "Ebon Hawk"
+      ],
+      "tags": [
+        "item:ebon-hawk"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "item:kolto": {
+      "type": "item",
+      "label": "Kolto",
+      "aliases": [],
+      "canonicalNames": [
+        "Kolto"
+      ],
+      "tags": [
+        "item:kolto"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "item:lightsaber": {
+      "type": "item",
+      "label": "Lightsaber",
+      "aliases": [],
+      "canonicalNames": [
+        "Lightsaber"
+      ],
+      "tags": [
+        "item:lightsaber"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    },
+    "character:darth-bane": {
+      "type": "character",
+      "label": "Darth Bane",
+      "aliases": [],
+      "canonicalNames": [
+        "Darth Bane"
+      ],
+      "tags": [
+        "character:darth-bane"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends"
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.72
+      },
+      "extensions": {}
+    }
+  }
+}

@@ -1,0 +1,817 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_bounty_hunters_follow_contracts_and_reputation",
+      "title": "Bounty Hunters Follow Contracts and Reputation",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:bounty-hunters",
+        "topic:underworld",
+        "character:boba-fett",
+        "faction:hutts"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Boba Fett"
+        ],
+        "locations": [],
+        "factions": [
+          "Bounty hunters",
+          "Hutts",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "bounty contracts",
+          "reputation",
+          "capture"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Boba Fett"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "bounty contracts",
+            "reputation",
+            "capture",
+            "Bounty hunters",
+            "Hutts",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Bounty hunters operate through contracts, guild norms, criminal clients, Imperial bounties, reputation, personal codes, and payment risk.",
+        "injection": "Use bounty hunters as professional actors with incentives. They may be ruthless, honorable, opportunistic, or specialized, but payment and reputation matter.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_smugglers_need_contacts_and_routes",
+      "title": "Smugglers Need Contacts and Routes",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:smuggling",
+        "topic:underworld",
+        "character:han-solo",
+        "object:millennium-falcon"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Chewbacca"
+        ],
+        "locations": [],
+        "factions": [
+          "Criminal underworld"
+        ],
+        "topics": [
+          "smuggling",
+          "contacts",
+          "cargo",
+          "false papers"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Chewbacca"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "smuggling",
+            "contacts",
+            "cargo",
+            "false papers",
+            "Criminal underworld"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Smugglers survive through contacts, false papers, hidden compartments, favors, bribery, routes, pilots, and knowing when to run.",
+        "injection": "Write smuggling as a networked trade, not just fast flying. Contacts, cargo risk, customs, debts, and reputation should matter.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_spice_is_illicit_trade",
+      "title": "Spice Is Illicit Trade",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "topic:spice",
+        "topic:underworld",
+        "faction:hutts",
+        "topic:crime"
+      ],
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Hutts",
+          "Criminal underworld"
+        ],
+        "topics": [
+          "spice trade",
+          "contraband",
+          "addiction",
+          "smuggling"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "spice trade",
+            "contraband",
+            "addiction",
+            "smuggling",
+            "Hutts",
+            "Criminal underworld"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Spice is associated with illegal trade, crime, addiction, mining, smuggling, and cartel profit depending on source and context.",
+        "injection": "Use spice as underworld economy, not as generic harmless cargo. It can create debts, danger, exploitation, and Imperial or criminal pressure.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_debt_drives_underworld_pressure",
+      "title": "Debt Drives Underworld Pressure",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "objective",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:underworld",
+        "topic:debt",
+        "faction:hutts",
+        "character:han-solo"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Han Solo"
+        ],
+        "locations": [],
+        "factions": [
+          "Hutts",
+          "Criminal underworld"
+        ],
+        "topics": [
+          "debt",
+          "favors",
+          "underworld reputation"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "debt",
+            "favors",
+            "underworld reputation",
+            "Hutts",
+            "Criminal underworld"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Debts, favors, betrayal, and reputation are powerful underworld pressures that can force characters into jobs, flight, or dangerous alliances.",
+        "injection": "Use debt and favor networks as active constraints. A character cannot freely ignore major underworld obligations without consequences.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_jabba_style_power_is_local_networked",
+      "title": "Jabba-Style Power Is Local and Networked",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:jabba-the-hutt",
+        "faction:hutts",
+        "place:tatooine",
+        "topic:crime"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Jabba the Hutt"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [
+          "Hutts",
+          "Criminal underworld"
+        ],
+        "topics": [
+          "crime lord court",
+          "bounty hunters",
+          "debts"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jabba the Hutt"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "crime lord court",
+            "bounty hunters",
+            "debts",
+            "Hutts",
+            "Criminal underworld"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Jabba-style crime power rests on territory, fear, spectacle, enforcers, bounty hunters, money, slaves, informants, and political insulation.",
+        "injection": "Write major crime lords as networked local authorities. Their palaces, courts, hunters, informants, and debts shape scenes around them.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_cantinas_are_information_nodes",
+      "title": "Cantinas Are Information Nodes",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "location",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:underworld",
+        "place:tatooine",
+        "topic:rumor",
+        "topic:smuggling"
+      ],
+      "priority": 46,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Tatooine",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Criminal underworld"
+        ],
+        "topics": [
+          "cantina",
+          "rumors",
+          "pilots",
+          "informants"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Tatooine",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "cantina",
+            "rumors",
+            "pilots",
+            "informants",
+            "Criminal underworld"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Cantinas, shadowports, and spaceport bars are practical information nodes where pilots, smugglers, locals, fugitives, and informants cross paths.",
+        "injection": "Use cantina scenes for rumor, negotiation, danger, hiring, surveillance, and cultural mixture rather than as static background color only.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_slavery_exists_in_outer_rim",
+      "title": "Slavery Exists in Outer Rim and Hutt Contexts",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "topic:slavery",
+        "faction:hutts",
+        "place:outer-rim",
+        "place:tatooine"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Outer Rim",
+          "Tatooine"
+        ],
+        "factions": [
+          "Hutts",
+          "Criminal underworld"
+        ],
+        "topics": [
+          "slavery",
+          "debt bondage",
+          "coercion"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Outer Rim",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "slavery",
+            "debt bondage",
+            "coercion",
+            "Hutts",
+            "Criminal underworld"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Slavery persists in some Outer Rim and Hutt-influenced contexts despite broader galactic law and moral opposition.",
+        "injection": "Do not sanitize Hutt or harsh Outer Rim scenes by default. Slavery, coercion, and debt bondage may shape local stakes where source-appropriate.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_bounty_pucks_not_universal_legends_baseline",
+      "title": "Modern Bounty Tech Is Not Universal Legends Baseline",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "continuity:legends",
+        "topic:continuity",
+        "faction:bounty-hunters",
+        "topic:future-guard"
+      ],
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Bounty hunters"
+        ],
+        "topics": [
+          "bounty hunting",
+          "canon split",
+          "source boundary"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "bounty hunting",
+            "canon split",
+            "source boundary",
+            "Bounty hunters"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Some bounty-hunting UI conventions from later Disney canon are not automatic Legends baseline details.",
+        "injection": "For Legends decks, avoid importing Disney-canon bounty tech or guild procedures unless a loaded deck explicitly supports that version.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    }
+  ]
+}

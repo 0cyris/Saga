@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve natural-language story position into Star Wars Legends NJO Context anchors/windows.",
+  "preferredFields": [
+    "era",
+    "bookOrSeries",
+    "beforeAfter",
+    "majorEvent",
+    "warState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer story anchors such as Vector Prime, after Sernpidal, before Myrkr, after Coruscant falls, Ebaq 9, or Unifying Force. Do not invent ABY dates or Disney canon outcomes. Prefer story-position anchors and windows over raw BBY/ABY dates; never invent timeline anchors outside this deck registry.",
+  "localPatterns": [
+    {
+      "pattern": "during vector prime",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.njo.vector_prime_begins",
+        "anchorTo": "sw.njo.helska_destroyed",
+        "label": "Vector Prime / invasion begins"
+      }
+    },
+    {
+      "pattern": "after sernpidal",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.njo.sernpidal",
+        "anchorTo": "sw.njo.ithor_devastated",
+        "label": "After Sernpidal, before Ithor falls"
+      }
+    },
+    {
+      "pattern": "before chewbacca dies",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.njo.vector_prime_begins",
+        "anchorTo": "sw.njo.sernpidal",
+        "label": "Before the Sernpidal disaster"
+      }
+    },
+    {
+      "pattern": "after chewbacca dies",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.njo.sernpidal",
+        "anchorTo": "sw.njo.war_ends",
+        "label": "After Chewbacca dies during NJO"
+      }
+    },
+    {
+      "pattern": "during the yuuzhan vong war",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.njo.vector_prime_begins",
+        "anchorTo": "sw.njo.war_ends",
+        "label": "New Jedi Order / Yuuzhan Vong War"
+      }
+    },
+    {
+      "pattern": "before myrkr",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.njo.jedi_hunt_escalates",
+        "anchorTo": "sw.njo.myrkr_mission",
+        "label": "Jedi under siege before Myrkr"
+      }
+    },
+    {
+      "pattern": "after myrkr",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.njo.myrkr_mission",
+        "anchorTo": "sw.njo.coruscant_falls",
+        "label": "After Myrkr, before Coruscant falls"
+      }
+    },
+    {
+      "pattern": "after coruscant falls",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.njo.coruscant_falls",
+        "anchorTo": "sw.njo.galactic_alliance_forms",
+        "label": "After Coruscant falls, before Galactic Alliance consolidation"
+      }
+    },
+    {
+      "pattern": "during ebaq 9",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.njo.ebaQ9",
+        "label": "Battle of Ebaq 9"
+      }
+    },
+    {
+      "pattern": "during the unifying force",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.njo.zonama_sekot_found",
+        "anchorTo": "sw.njo.war_ends",
+        "label": "The Unifying Force endgame"
+      }
+    },
+    {
+      "pattern": "after the yuuzhan vong war",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.njo.war_ends",
+        "anchorTo": "sw.njo.postwar_threshold",
+        "label": "After the Yuuzhan Vong War"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

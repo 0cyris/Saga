@@ -1,0 +1,703 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "coruscant_late_capital_pressure",
+      "title": "Coruscant Late Capital Pressure",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "politics",
+          "location"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-location:coruscant",
+          "sw-faction:galactic-alliance",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "location:coruscant",
+        "faction:galactic-alliance",
+        "faction:jedi-order",
+        "topic:politics",
+        "topic:location"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "politics",
+            "location"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Coruscant remains the symbolic political and Jedi-pressure center during many late Legends crises.",
+        "injection": "Use Coruscant as a capital-pressure location where Jedi, GA law, media, and Sith infiltration can collide. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "corellia_secession_flashpoint",
+      "title": "Corellia Secession Flashpoint",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lotf_betrayal",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 40000,
+        "sortKeyTo": 45000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy of the Force / Caedus War",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo"
+        ],
+        "locations": [
+          "Corellia"
+        ],
+        "topics": [
+          "politics",
+          "war"
+        ],
+        "objects": [
+          "Centerpoint Station"
+        ],
+        "spells": [],
+        "factions": [
+          "Confederation"
+        ],
+        "entityIds": [
+          "sw-character:han-solo",
+          "sw-faction:corellia",
+          "sw-faction:confederation",
+          "sw-location:centerpoint-station"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:han-solo",
+        "location:corellia",
+        "faction:confederation",
+        "object:centerpoint-station",
+        "topic:politics",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Corellia"
+          ],
+          "topicsAny": [
+            "politics",
+            "war"
+          ],
+          "factionsAny": [
+            "Confederation"
+          ],
+          "objectsAny": [
+            "Centerpoint Station"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Corellia is a major flashpoint for secession, Centerpoint legacy, and Solo-family political tension during LOTF.",
+        "injection": "When Corellia is involved in LOTF, foreground local autonomy, old superweapon stakes, and Han’s personal tie. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy of the Force / Caedus War.",
+          "Respect story-position bounds from Legacy of the Force Begins / Betrayal to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "hapes_late_secret_court",
+      "title": "Hapes Secretive Court",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Tenel Ka Djo",
+          "Allana Solo"
+        ],
+        "locations": [
+          "Hapes"
+        ],
+        "topics": [
+          "politics",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Hapes Consortium"
+        ],
+        "entityIds": [
+          "sw-character:tenel-ka-djo",
+          "sw-character:allana-solo",
+          "sw-location:hapes",
+          "sw-faction:hapes-consortium"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "character:tenel-ka-djo",
+        "character:allana-solo",
+        "location:hapes",
+        "faction:hapes-consortium",
+        "topic:politics",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenel Ka Djo",
+            "Allana Solo"
+          ],
+          "locationsAny": [
+            "Hapes"
+          ],
+          "topicsAny": [
+            "politics",
+            "secret"
+          ],
+          "factionsAny": [
+            "Hapes Consortium"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Hapan court politics amplify secrecy, assassination risk, and lineage stakes around Tenel Ka and Allana.",
+        "injection": "Treat Hapes as dynastic and dangerous; do not make Allana’s role casually public. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "kesh_lost_tribe_origin",
+      "title": "Kesh Lost Tribe Origin",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.lost_tribe_emerges",
+        "validToAnchor": "sw.late.lost_tribe_emerges",
+        "sortKeyFrom": 48000,
+        "sortKeyTo": 48000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Lost Tribe of the Sith Emerges",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Vestara Khai"
+        ],
+        "locations": [
+          "Kesh"
+        ],
+        "topics": [
+          "sith",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Lost Tribe of the Sith"
+        ],
+        "entityIds": [
+          "sw-character:vestara-khai",
+          "sw-location:kesh",
+          "sw-faction:lost-tribe-of-the-sith"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:vestara-khai",
+        "location:kesh",
+        "faction:lost-tribe-of-the-sith",
+        "topic:sith",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Vestara Khai"
+          ],
+          "locationsAny": [
+            "Kesh"
+          ],
+          "topicsAny": [
+            "sith",
+            "secret"
+          ],
+          "factionsAny": [
+            "Lost Tribe of the Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Kesh is the isolated homeworld base of the Lost Tribe of the Sith before its re-entry into galactic affairs.",
+        "injection": "Before the Lost Tribe emerges, Kesh should not be common galactic knowledge; after emergence, it anchors Lost Tribe culture.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Lost Tribe of the Sith Emerges.",
+          "Respect story-position bounds from Lost Tribe of the Sith Emerges to Lost Tribe of the Sith Emerges."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "ossus_jedi_base_late",
+      "title": "Ossus Jedi Base Late Era",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 72,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Ossus"
+        ],
+        "topics": [
+          "jedi",
+          "location"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-location:ossus",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "character:luke-skywalker",
+        "location:ossus",
+        "faction:jedi-order",
+        "topic:jedi",
+        "topic:location"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Ossus"
+          ],
+          "topicsAny": [
+            "jedi",
+            "location"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Ossus functions as an important Jedi location in late Legends and future-facing Jedi continuity.",
+        "injection": "In late Legends, Ossus can anchor Jedi institutional scenes and future-facing continuity; do not substitute it for earlier Yavin IV Praxeum context unless the active timeline supports the move.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_shedu_maad_jedi_refuge_context",
+      "title": "Shedu Maad Jedi Refuge Context",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 70,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 70,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.caedus_falls",
+        "validToAnchor": "sw.late.post_caedus",
+        "sortKeyFrom": 45000,
+        "sortKeyTo": 46000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Caedus falls",
+        "phase": "Legacy of the Force to Post-Legacy Reckoning",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Shedu Maad"
+        ],
+        "topics": [
+          "jedi",
+          "location"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-location:shedu-maad",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force-to-post-legacy-reckoning",
+        "character:luke-skywalker",
+        "location:shedu-maad",
+        "faction:jedi-order",
+        "topic:jedi",
+        "topic:location"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Shedu Maad"
+          ],
+          "topicsAny": [
+            "jedi",
+            "location"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Shedu Maad can function as a Jedi refuge/base context after major galactic-political strain.",
+        "injection": "After the Caedus War, use Shedu Maad as a late-era Jedi refuge/base context only when the timeline supports it; do not backport it into earlier New Republic or NJO scenes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Caedus falls.",
+          "Respect story-position bounds from Caedus Falls / Invincible to Post-Caedus Reckoning."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

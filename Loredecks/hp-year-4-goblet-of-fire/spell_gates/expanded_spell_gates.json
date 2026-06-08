@@ -10,7 +10,7 @@
       "kind": "spell_gate",
       "gateType": "spell_gate",
       "category": "spell",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,7 +27,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y4.frank_bryce_murder",
         "validToAnchor": "hp.y4.world_cup_campsite",
-        "sortKeyFrom": 7913,
+        "sortKeyFrom": 8992,
         "sortKeyTo": 9009,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -57,9 +57,9 @@
         "revealPolicy": "private"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "topicsAny": [
             "defense",
@@ -71,12 +71,16 @@
       },
       "content": {
         "fact": "Before practical defensive training, Stupefy should not be casual early-year magic.",
-        "injection": "Do not make Stupefy routine for younger students without practical defensive training or a story-established reason.",
+        "injection": "Do not make Stupefy routine for younger students without practical defensive training or a story-established reason. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Treat Stunning as practical combat magic, not casual first-year curriculum."
+          "Treat Stunning as practical combat magic, not casual first-year curriculum.",
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not give ordinary first- or second-years reliable Stunning Spell use by default."
+          "Do not give ordinary first- or second-years reliable Stunning Spell use by default.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -110,7 +114,13 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:4"
+      ]
     }
   ]
 }

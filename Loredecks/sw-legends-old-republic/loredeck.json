@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "sw-legends-old-republic",
+  "type": "bundled",
+  "title": "Star Wars Legends: Old Republic",
+  "description": "Legends Old Republic deck covering ancient Sith/Jedi foundations, Tales of the Jedi context, Mandalorian Wars, KOTOR, KOTOR II, SWTOR-era conflicts, and late Old Republic spoiler guards.",
+  "fandom": "Star Wars",
+  "era": "Old Republic: ancient Sith through SWTOR and late pre-Ruusan transition",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "1.1.0-dev",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-08",
+  "databaseId": "saga.sw-legends-old-republic",
+  "deckFamilyId": "sw-legends",
+  "family": {
+    "id": "sw-legends",
+    "title": "Star Wars Legends",
+    "role": "era",
+    "recommendedCoreDeckId": "sw-legends-core"
+  },
+  "recommendedStack": [
+    "sw-legends-core"
+  ],
+  "library": {
+    "suggestedPath": [
+      "Star Wars",
+      "Legends"
+    ],
+    "familyOrder": 30
+  },
+  "tags": [
+    "fandom:star-wars",
+    "continuity:legends",
+    "structure:split-loredeck",
+    "quality:draft",
+    "scope:era",
+    "scope:old-republic"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "star-wars-legends",
+    "canonTier": "legends",
+    "adaptation": "mixed",
+    "medium": "comic-game-novel-reference",
+    "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+    "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "resolver": "resolver.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "characters/old_republic_character_states.json",
+    "events/ancient_sith_and_great_sith_war.json",
+    "events/mandalorian_wars_and_kotor.json",
+    "events/swtor_great_war_and_cold_war.json",
+    "factions/old_republic_faction_states.json",
+    "items/old_republic_items_and_technology.json",
+    "knowledge/old_republic_future_guards.json",
+    "locations/old_republic_locations.json",
+    "rules/old_republic_scene_constraints.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 1,
+    "sagaSchemaMax": 1
+  },
+  "stats": {
+    "entryCount": 106,
+    "categoryCounts": {
+      "character": 20,
+      "event": 14,
+      "faction": 16,
+      "item": 8,
+      "knowledge": 10,
+      "location": 14,
+      "relationship": 2,
+      "rule": 16,
+      "secret": 5,
+      "timeline": 1
+    },
+    "timelineAnchorCount": 22,
+    "timelineWindowCount": 11,
+    "tagCount": 353,
+    "entityCount": 73,
+    "timelinePhaseCount": 3
+  },
+  "updatedAt": 1780876800000,
+  "generatedBy": {
+    "curationPass": {
+      "name": "timeline-control-review",
+      "version": "1.1.0-dev",
+      "date": "2026-06-08",
+      "notes": "Removed low-value deck-operation Lorecards, tightened model-facing injections, added Context constraints and anti-lore, and normalized schema-supported lorePurpose values."
+    }
+  }
+}

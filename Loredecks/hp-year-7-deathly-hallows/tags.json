@@ -5,17 +5,137 @@
       "label": "Deathly Hallows",
       "description": "Harry Potter bundled Loredeck artifact tag."
     },
+    "artifact:philosophers-stone": {
+      "label": "Philosophers Stone",
+      "description": "Harry Potter bundled Loredeck artifact tag."
+    },
+    "book:deathly-hallows": {
+      "label": "Deathly Hallows",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
     "calendar-year:1997": {
       "label": "1997",
       "description": "Harry Potter bundled Loredeck calendar year tag."
+    },
+    "character:alastor-moody": {
+      "label": "Alastor Moody",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:albus-dumbledore": {
+      "label": "Albus Dumbledore",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:dolores-umbridge": {
+      "label": "Dolores Umbridge",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:draco-malfoy": {
+      "label": "Draco Malfoy",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:fred-weasley": {
+      "label": "Fred Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:george-weasley": {
+      "label": "George Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:ginny-weasley": {
+      "label": "Ginny Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:harry-potter": {
+      "label": "Harry Potter",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:hermione-granger": {
+      "label": "Hermione Granger",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:luna-lovegood": {
+      "label": "Luna Lovegood",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:neville-longbottom": {
+      "label": "Neville Longbottom",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:peter-pettigrew": {
+      "label": "Peter Pettigrew",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:remus-lupin": {
+      "label": "Remus Lupin",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:ron-weasley": {
+      "label": "Ron Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:rubeus-hagrid": {
+      "label": "Rubeus Hagrid",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:severus-snape": {
+      "label": "Severus Snape",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:voldemort": {
+      "label": "Voldemort",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "era:golden-trio": {
+      "label": "Golden Trio",
+      "description": "Harry Potter bundled Loredeck era tag."
     },
     "event:second-wizarding-war": {
       "label": "Second Wizarding War",
       "description": "Harry Potter bundled Loredeck event tag."
     },
+    "faction:death-eaters": {
+      "label": "Death Eaters",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:dumbledores-army": {
+      "label": "Dumbledores Army",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:ministry-of-magic": {
+      "label": "Ministry Of Magic",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:order-of-the-phoenix": {
+      "label": "Order Of The Phoenix",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "fandom:harry-potter": {
+      "label": "Harry Potter",
+      "description": "Harry Potter bundled Loredeck fandom tag."
+    },
+    "place:hogwarts": {
+      "label": "Hogwarts",
+      "description": "Harry Potter bundled Loredeck place tag."
+    },
+    "quality:relevance-curated": {
+      "label": "Relevance Curated",
+      "description": "Harry Potter bundled Loredeck quality tag."
+    },
     "school-year:7": {
       "label": "7",
       "description": "Harry Potter bundled Loredeck school year tag."
+    },
+    "topic:deathly-hallows": {
+      "label": "Deathly Hallows",
+      "description": "Harry Potter bundled Loredeck topic tag."
+    },
+    "topic:elder-wand": {
+      "label": "Elder Wand",
+      "description": "Harry Potter bundled Loredeck topic tag."
+    },
+    "topic:horcruxes": {
+      "label": "Horcruxes",
+      "description": "Harry Potter bundled Loredeck topic tag."
     }
   }
 }

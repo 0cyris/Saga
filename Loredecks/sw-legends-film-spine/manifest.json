@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "sw-legends-film-spine",
+  "type": "bundled",
+  "title": "Star Wars Legends: Film Spine",
+  "description": "Expanded Episode I-VI anchor deck for Legends-compatible story-position gates, especially before/after movie and major-event windows.",
+  "fandom": "Star Wars",
+  "era": "Film Spine: Episodes I-VI",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "1.1.0-dev",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-08",
+  "databaseId": "saga.sw-legends-film-spine",
+  "deckFamilyId": "sw-legends",
+  "family": {
+    "id": "sw-legends",
+    "title": "Star Wars Legends",
+    "role": "film-spine",
+    "recommendedCoreDeckId": "sw-legends-core"
+  },
+  "recommendedStack": [
+    "sw-legends-core"
+  ],
+  "library": {
+    "suggestedPath": [
+      "Star Wars",
+      "Legends"
+    ],
+    "familyOrder": 20
+  },
+  "tags": [
+    "fandom:star-wars",
+    "continuity:legends",
+    "structure:split-loredeck",
+    "quality:draft",
+    "scope:film-spine"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "star-wars-legends",
+    "canonTier": "legends",
+    "adaptation": "film",
+    "medium": "film",
+    "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine.",
+    "notes": "Development deck. Do not silently blend with Disney canon decks."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "episodes/episode_1_phantom_menace.json",
+    "episodes/episode_2_attack_of_the_clones.json",
+    "episodes/episode_3_revenge_of_the_sith.json",
+    "episodes/episode_4_a_new_hope.json",
+    "episodes/episode_5_empire_strikes_back.json",
+    "episodes/episode_6_return_of_the_jedi.json",
+    "knowledge/film_spine_crossfilm_gates.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 123,
+    "categoryCounts": {
+      "character": 18,
+      "event": 25,
+      "faction": 10,
+      "item": 5,
+      "knowledge": 12,
+      "location": 5,
+      "relationship": 10,
+      "rule": 9,
+      "secret": 26,
+      "timeline": 3
+    },
+    "timelineAnchorCount": 40,
+    "timelineWindowCount": 17,
+    "timelinePhaseCount": 5,
+    "tagCount": 112,
+    "entityCount": 57
+  },
+  "generatedBy": {
+    "tool": "ChatGPT",
+    "workflow": "Saga Loredeck Creator staged workflow",
+    "reviewStatus": "draft",
+    "expandedFrom": "v0.2.0-dev",
+    "curationPass": {
+      "name": "timeline-control-review",
+      "version": "1.1.0-dev",
+      "date": "2026-06-08",
+      "notes": "Removed low-value deck-operation Lorecards, tightened model-facing injections, added Context constraints and anti-lore, and normalized schema-supported lorePurpose values."
+    }
+  },
+  "updatedAt": 1780876800000
+}

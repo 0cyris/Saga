@@ -1,0 +1,1851 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "character:ackbar": {
+      "label": "Ackbar",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ackbar tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "ackbar"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:admiral-daala": {
+      "label": "Admiral Daala",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Admiral Daala tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "admiral daala"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:anakin-solo": {
+      "label": "Anakin Solo",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Anakin Solo tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "anakin solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ben-skywalker": {
+      "label": "Ben Skywalker",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ben Skywalker tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "ben skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:corran-horn": {
+      "label": "Corran Horn",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Corran Horn tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "corran horn"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-vader": {
+      "label": "Darth Vader",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Darth Vader tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "darth vader"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:exar-kun": {
+      "label": "Exar Kun",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Exar Kun tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "exar kun"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:grand-admiral-thrawn": {
+      "label": "Grand Admiral Thrawn",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Grand Admiral Thrawn tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "grand admiral thrawn"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:han-solo": {
+      "label": "Han Solo",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Han Solo tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "han solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jacen-solo": {
+      "label": "Jacen Solo",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jacen Solo tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "jacen solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jaina-solo": {
+      "label": "Jaina Solo",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jaina Solo tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "jaina solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:joruus-cbaoth": {
+      "label": "Joruus Cbaoth",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Joruus Cbaoth tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "joruus cbaoth"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kyp-durron": {
+      "label": "Kyp Durron",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Kyp Durron tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "kyp durron"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:lando-calrissian": {
+      "label": "Lando Calrissian",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Lando Calrissian tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "lando calrissian"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:leia-organa": {
+      "label": "Leia Organa",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Leia Organa tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "leia organa"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:luke-skywalker": {
+      "label": "Luke Skywalker",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Luke Skywalker tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "luke skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mara-jade": {
+      "label": "Mara Jade",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mara Jade tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "mara jade"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mon-mothma": {
+      "label": "Mon Mothma",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mon Mothma tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "mon mothma"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:palpatine": {
+      "label": "Palpatine",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Palpatine tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "palpatine"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:pellaeon": {
+      "label": "Pellaeon",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Pellaeon tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "pellaeon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:rukh": {
+      "label": "Rukh",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Rukh tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "rukh"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:streen": {
+      "label": "Streen",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Streen tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "streen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:talon-karrde": {
+      "label": "Talon Karrde",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Talon Karrde tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "talon karrde"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tionne": {
+      "label": "Tionne",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Tionne tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "tionne"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:warlord-zsinj": {
+      "label": "Warlord Zsinj",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Warlord Zsinj tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "warlord zsinj"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:wedge-antilles": {
+      "label": "Wedge Antilles",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Wedge Antilles tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "wedge antilles"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ysanne-isard": {
+      "label": "Ysanne Isard",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ysanne Isard tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "ysanne isard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yuuzhan-vong": {
+      "label": "Yuuzhan Vong",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Yuuzhan Vong tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "yuuzhan vong"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:legends": {
+      "label": "Legends",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Legends tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "legends"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:dark-empire": {
+      "label": "Dark Empire",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dark Empire tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "dark empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:early-new-republic": {
+      "label": "Early New Republic",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Early New Republic tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "early new republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:hand-of-thrawn": {
+      "label": "Hand of Thrawn",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hand of Thrawn tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "hand of thrawn"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:hand-of-thrawn-era": {
+      "label": "Hand Of Thrawn Era",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hand Of Thrawn Era tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "hand of thrawn era"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:jedi-academy": {
+      "label": "Jedi Academy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Academy tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "jedi academy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:jedi-academy-era": {
+      "label": "Jedi Academy Era",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Academy Era tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "jedi academy era"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:mid-new-republic": {
+      "label": "Mid New Republic",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mid New Republic tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "mid new republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:new-jedi-order-threshold": {
+      "label": "New Jedi Order Threshold",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "New Jedi Order Threshold tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "new jedi order threshold"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:new-republic": {
+      "label": "New Republic",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "New Republic tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "new republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:post-endor": {
+      "label": "Post-Endor",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Post-Endor tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "post endor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:pre-njo": {
+      "label": "Pre-New Jedi Order",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Pre-New Jedi Order tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "pre njo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:thrawn-campaign": {
+      "label": "Thrawn Campaign",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Thrawn Campaign tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "thrawn campaign"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:caamas-document": {
+      "label": "Caamas Document",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Caamas Document tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "caamas document"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:jedi-academy": {
+      "label": "Jedi Academy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Academy tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "jedi academy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:thrawn-campaign": {
+      "label": "Thrawn Campaign",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Thrawn Campaign tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "thrawn campaign"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:truce-at-bakura": {
+      "label": "Truce At Bakura",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Truce At Bakura tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "truce at bakura"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:x-wing-campaigns": {
+      "label": "X Wing Campaigns",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "X Wing Campaigns tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "x wing campaigns"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:bothans": {
+      "label": "Bothans",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Bothans tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "bothans"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:chiss": {
+      "label": "Chiss",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Chiss tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "chiss"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:corsec": {
+      "label": "Corsec",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Corsec tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "corsec"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:criminal-underworld": {
+      "label": "Criminal Underworld",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Criminal Underworld tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "criminal underworld"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-empire": {
+      "label": "Galactic Empire",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Galactic Empire tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "galactic empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:hapes-consortium": {
+      "label": "Hapes Consortium",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hapes Consortium tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "hapes consortium"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:imperial-court": {
+      "label": "Imperial Court",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Imperial Court tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "imperial court"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:imperial-intelligence": {
+      "label": "Imperial Intelligence",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Imperial Intelligence tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "imperial intelligence"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:imperial-remnant": {
+      "label": "Imperial Remnant",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Imperial Remnant tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "imperial remnant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:imperial-warlords": {
+      "label": "Imperial Warlords",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Imperial Warlords tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "imperial warlords"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jedi-order": {
+      "label": "Jedi Order",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Order tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "jedi order"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:new-republic": {
+      "label": "New Republic",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "New Republic tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "new republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:new-republic-intelligence": {
+      "label": "New Republic Intelligence",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "New Republic Intelligence tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "new republic intelligence"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:noghri": {
+      "label": "Noghri",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Noghri tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "noghri"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:rebel-alliance": {
+      "label": "Rebel Alliance",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Rebel Alliance tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "rebel alliance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:rogue-squadron": {
+      "label": "Rogue Squadron",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Rogue Squadron tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "rogue squadron"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:sith": {
+      "label": "Sith",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:smugglers": {
+      "label": "Smugglers",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Smugglers tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "smugglers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:ssi-ruuk": {
+      "label": "Ssi Ruuk",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ssi Ruuk tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "ssi ruuk"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:witches-of-dathomir": {
+      "label": "Witches Of Dathomir",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Witches Of Dathomir tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "witches of dathomir"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:wraith-squadron": {
+      "label": "Wraith Squadron",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Wraith Squadron tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "wraith squadron"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:yevetha": {
+      "label": "Yevetha",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Yevetha tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "yevetha"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:star-wars": {
+      "label": "Star Wars",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Star Wars tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "star wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:bacta": {
+      "label": "Bacta",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Bacta tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "bacta"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:centerpoint-station": {
+      "label": "Centerpoint Station",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Centerpoint Station tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "centerpoint station"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:dreadnaught": {
+      "label": "Dreadnaught",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dreadnaught tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "dreadnaught"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:eclipse": {
+      "label": "Eclipse",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Eclipse tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "eclipse"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:holocron": {
+      "label": "Holocron",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Holocron tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "holocron"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:iron-fist": {
+      "label": "Iron Fist",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Iron Fist tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "iron fist"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:katana-fleet": {
+      "label": "Katana Fleet",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Katana Fleet tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "katana fleet"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:lightsaber": {
+      "label": "Lightsaber",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Lightsaber tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "lightsaber"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:spaarti-cylinders": {
+      "label": "Spaarti Cylinders",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Spaarti Cylinders tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "spaarti cylinders"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:sun-crusher": {
+      "label": "Sun Crusher",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sun Crusher tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "sun crusher"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:super-star-destroyer": {
+      "label": "Super Star Destroyer",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Super Star Destroyer tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "super star destroyer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:superweapon": {
+      "label": "Superweapon",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Superweapon tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "superweapon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:world-devastator": {
+      "label": "World Devastator",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "World Devastator tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "world devastator"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:x-wing": {
+      "label": "X Wing",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "X Wing tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "x wing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:ysalamiri": {
+      "label": "Ysalamiri",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ysalamiri tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "ysalamiri"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:bakura": {
+      "label": "Bakura",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Bakura tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "bakura"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:bastion": {
+      "label": "Bastion",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Bastion tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "bastion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:bothawui": {
+      "label": "Bothawui",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Bothawui tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "bothawui"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:byss": {
+      "label": "Byss",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Byss tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "byss"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:caamas": {
+      "label": "Caamas",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Caamas tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "caamas"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:centerpoint-station": {
+      "label": "Centerpoint Station",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Centerpoint Station tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "centerpoint station"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:corellia": {
+      "label": "Corellia",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Corellia tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "corellia"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:coruscant": {
+      "label": "Coruscant",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Coruscant tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "coruscant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:dathomir": {
+      "label": "Dathomir",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dathomir tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "dathomir"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:hapes": {
+      "label": "Hapes",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hapes tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "hapes"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:honoghr": {
+      "label": "Honoghr",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Honoghr tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "honoghr"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:maw-installation": {
+      "label": "Maw Installation",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Maw Installation tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "maw installation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:mon-calamari": {
+      "label": "Mon Calamari",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mon Calamari tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "mon calamari"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:mount-tantiss": {
+      "label": "Mount Tantiss",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mount Tantiss tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "mount tantiss"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:nirauan": {
+      "label": "Nirauan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Nirauan tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "nirauan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:thyferra": {
+      "label": "Thyferra",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Thyferra tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "thyferra"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:wayland": {
+      "label": "Wayland",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Wayland tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "wayland"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:yavin-iv": {
+      "label": "Yavin Iv",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Yavin Iv tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "yavin iv"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft": {
+      "label": "Draft",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Draft tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "draft"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:era": {
+      "label": "Era Deck",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Era Deck tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "era"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:new-republic": {
+      "label": "New Republic Deck",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "New Republic Deck tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "new republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "structure:split-loredeck": {
+      "label": "Split Loredeck",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Split Loredeck tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "split loredeck"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:academy": {
+      "label": "Academy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Academy tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "academy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:children": {
+      "label": "Children",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Children tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "children"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone": {
+      "label": "Clone",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Clone tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "clone"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:command": {
+      "label": "Command",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Command tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "command"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:commando": {
+      "label": "Commando",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Commando tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "commando"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:context-gate": {
+      "label": "Context Gate",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Context Gate tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "context gate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:continuity": {
+      "label": "Continuity",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Continuity tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "continuity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-side": {
+      "label": "Dark Side",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dark Side tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "dark side"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:diplomacy": {
+      "label": "Diplomacy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Diplomacy tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "diplomacy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:espionage": {
+      "label": "Espionage",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Espionage tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "espionage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:family": {
+      "label": "Family",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Family tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "family"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fleet": {
+      "label": "Fleet",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Fleet tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "fleet"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force": {
+      "label": "The Force",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "The Force tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "force"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-guard": {
+      "label": "Future Guard",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Future Guard tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:government": {
+      "label": "Government",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Government tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "government"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:history": {
+      "label": "History",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "History tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "history"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:identity": {
+      "label": "Identity",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Identity tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "identity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperial-remnant": {
+      "label": "Imperial Remnant",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Imperial Remnant tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "imperial remnant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi": {
+      "label": "Jedi",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "jedi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:knowledge-gate": {
+      "label": "Knowledge Gate",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Knowledge Gate tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "knowledge gate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:marriage": {
+      "label": "Marriage",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Marriage tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "marriage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:military-logistics": {
+      "label": "Military Logistics",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Military Logistics tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "military logistics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:peace": {
+      "label": "Peace",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Peace tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "peace"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:pilot": {
+      "label": "Pilot",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Pilot tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "pilot"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:politics": {
+      "label": "Politics",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Politics tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:relationship": {
+      "label": "Relationship",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Relationship tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "relationship"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret": {
+      "label": "Secret",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Secret tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "secret"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:security": {
+      "label": "Security",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Security tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "security"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:smuggling": {
+      "label": "Smuggling",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Smuggling tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "smuggling"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:spoiler-guard": {
+      "label": "Spoiler Guard",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Spoiler Guard tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "spoiler guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:strategy": {
+      "label": "Strategy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Strategy tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "strategy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:superweapon": {
+      "label": "Superweapon",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Superweapon tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "superweapon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:training": {
+      "label": "Training",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Training tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "training"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:treaty": {
+      "label": "Treaty",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Treaty tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "treaty"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:underworld": {
+      "label": "Underworld",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Underworld tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "underworld"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:warlord": {
+      "label": "Warlord",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Warlord tag for Star Wars Legends New Republic deck.",
+      "aliases": [
+        "warlord"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

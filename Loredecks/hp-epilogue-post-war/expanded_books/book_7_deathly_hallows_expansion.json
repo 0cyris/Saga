@@ -10,7 +10,7 @@
       "kind": "institution_state",
       "gateType": "institution_state",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.postwar.kingsley_caretaker_minister",
         "validToAnchor": "hp.postwar.harry_joins_aurors",
         "sortKeyFrom": 10348,
-        "sortKeyTo": 10591,
+        "sortKeyTo": 10349,
         "precision": "postwar_window",
         "windowKind": "story_phase",
         "label": "Post-War Years: Immediate Rebuilding",
@@ -64,17 +64,28 @@
         ]
       },
       "tags": [
+        "book:deathly-hallows-epilogue",
         "calendar-year:1998",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
         "era:post-war",
+        "event:post-war-reconstruction",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
         "scope:post-war",
-        "event:post-war-reconstruction"
+        "topic:deathly-hallows"
       ],
       "visibility": {
         "revealPolicy": "public"
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
+        "frequency": "high",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -98,7 +109,15 @@
       },
       "content": {
         "fact": "After Voldemort's defeat, wizarding Britain enters an immediate reconstruction phase with Kingsley Shacklebolt stabilizing the Ministry and war survivors processing losses.",
-        "injection": "In the immediate postwar period, wizarding Britain is rebuilding under Kingsley Shacklebolt's stabilizing Ministry leadership while survivors are still processing battle losses."
+        "injection": "In the immediate postwar period, wizarding Britain is rebuilding under Kingsley Shacklebolt's stabilizing Ministry leadership while survivors are still processing battle losses. Enforce this as a high-priority Context gate for Post-War Years: Immediate Rebuilding; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Post-War Years: Immediate Rebuilding; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -133,7 +152,7 @@
       "kind": "institution_state",
       "gateType": "institution_state",
       "category": "location",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 75,
       "injectableByDefault": true,
@@ -141,7 +160,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 80,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -151,7 +170,7 @@
         "validFromAnchor": "hp.postwar.dementors_removed_from_azkaban",
         "validToAnchor": "hp.postwar.harry_head_auror_department",
         "sortKeyFrom": 10957,
-        "sortKeyTo": 13878,
+        "sortKeyTo": 13514,
         "precision": "postwar_window",
         "windowKind": "story_phase",
         "label": "Post-War Years: Early Ministry Reforms",
@@ -184,9 +203,16 @@
         ]
       },
       "tags": [
+        "book:deathly-hallows-epilogue",
+        "character:harry-potter",
+        "era:golden-trio",
         "era:post-war",
+        "event:post-war-reconstruction",
+        "faction:ministry-of-magic",
+        "fandom:harry-potter",
+        "place:azkaban",
         "scope:post-war",
-        "event:post-war-reconstruction"
+        "topic:deathly-hallows"
       ],
       "visibility": {
         "revealPolicy": "public"
@@ -214,7 +240,15 @@
       },
       "content": {
         "fact": "In the postwar reform period, the Ministry moves away from Dementor-run Azkaban and Harry's Auror career belongs to a rebuilt law-enforcement order rather than the old wartime Ministry.",
-        "injection": "In the postwar reform period, Azkaban is no longer treated as a Dementor-run institution and Harry's Auror career sits inside a rebuilt Ministry order."
+        "injection": "In the postwar reform period, Azkaban is no longer treated as a Dementor-run institution and Harry's Auror career sits inside a rebuilt Ministry order. Enforce this as a high-priority Context gate for Post-War Years: Early Ministry Reforms; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Post-War Years: Early Ministry Reforms; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -248,7 +282,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -256,7 +290,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 80,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -298,17 +332,27 @@
         ]
       },
       "tags": [
+        "book:deathly-hallows-epilogue",
         "calendar-year:2014",
+        "character:albus-dumbledore",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
         "era:post-war",
+        "event:quidditch-world-cup-2014",
+        "faction:dumbledores-army",
+        "fandom:harry-potter",
         "scope:post-war",
-        "event:quidditch-world-cup-2014"
+        "topic:deathly-hallows"
       ],
       "visibility": {
         "revealPolicy": "public"
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
+        "frequency": "high",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -332,7 +376,15 @@
       },
       "content": {
         "fact": "By the 2014 Quidditch World Cup, the Golden Trio and many former Dumbledore's Army members are adults in public postwar life rather than school-era combatants.",
-        "injection": "At the 2014 Quidditch World Cup, the Golden Trio and former Dumbledore's Army members should read as adults with public postwar lives, not as school-era combatants."
+        "injection": "At the 2014 Quidditch World Cup, the Golden Trio and former Dumbledore's Army members should read as adults with public postwar lives, not as school-era combatants. Enforce this as a high-priority Context gate for Post-War Years: 2014 Quidditch World Cup; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Post-War Years: 2014 Quidditch World Cup; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -367,7 +419,7 @@
       "kind": "future_guard",
       "gateType": "future_guard",
       "category": "timeline",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "temporal_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -375,7 +427,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
-      "priority": 80,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -385,7 +437,7 @@
         "validFromAnchor": "hp.postwar.kingsley_caretaker_minister",
         "validToAnchor": "hp.postwar.new_generation_kings_cross",
         "sortKeyFrom": 10348,
-        "sortKeyTo": 17409,
+        "sortKeyTo": 17410,
         "precision": "postwar_window",
         "windowKind": "story_phase",
         "label": "Post-War Years: Before Epilogue Platform",
@@ -420,9 +472,18 @@
         ]
       },
       "tags": [
+        "book:deathly-hallows-epilogue",
+        "character:draco-malfoy",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
         "era:post-war",
+        "event:kings-cross-epilogue",
+        "fandom:harry-potter",
         "scope:post-war",
-        "event:kings-cross-epilogue"
+        "topic:deathly-hallows"
       ],
       "visibility": {
         "revealPolicy": "do_not_reveal"
@@ -456,9 +517,15 @@
       },
       "content": {
         "fact": "Before the 2017 King's Cross epilogue, next-generation platform details should not be treated as current scene knowledge unless custom story lore establishes them early.",
-        "injection": "Before the 2017 King's Cross epilogue, next-generation platform details should not be treated as current scene knowledge unless custom story lore establishes them early.",
+        "injection": "Before the 2017 King's Cross epilogue, next-generation platform details should not be treated as current scene knowledge unless custom story lore establishes them early. Enforce this as a high-priority Context gate for Post-War Years: Before Epilogue Platform; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not inject 2017 platform details into earlier postwar scenes."
+          "Do not inject 2017 platform details into earlier postwar scenes.",
+          "Apply only when Saga Context matches Post-War Years: Before Epilogue Platform; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -493,7 +560,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -501,7 +568,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 95,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -549,10 +616,20 @@
         ]
       },
       "tags": [
+        "book:deathly-hallows-epilogue",
         "calendar-year:2017",
+        "character:draco-malfoy",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
         "era:post-war",
+        "event:kings-cross-epilogue",
+        "fandom:harry-potter",
+        "place:hogwarts",
         "scope:post-war",
-        "event:kings-cross-epilogue"
+        "topic:deathly-hallows"
       ],
       "visibility": {
         "revealPolicy": "public"
@@ -589,7 +666,15 @@
       },
       "content": {
         "fact": "By the 2017 King's Cross epilogue, Harry, Ginny, Ron, Hermione, and Draco are adults seeing the next generation onto the Hogwarts Express.",
-        "injection": "At the 2017 King's Cross epilogue, Harry, Ginny, Ron, Hermione, and Draco are adults seeing the next generation onto the Hogwarts Express."
+        "injection": "At the 2017 King's Cross epilogue, Harry, Ginny, Ron, Hermione, and Draco are adults seeing the next generation onto the Hogwarts Express. Enforce this as a high-priority Context gate for Post-War Years: King's Cross Epilogue; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Post-War Years: King's Cross Epilogue; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [

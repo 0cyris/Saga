@@ -1,0 +1,699 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "anchor_window",
+  "sortKeyScale": "pack_local",
+  "summary": "Core Legends timeline scaffold for broad Star Wars story-position resolution. Dates are secondary BBY/ABY metadata; resolver UX should prefer story anchors and windows.",
+  "axes": [
+    {
+      "id": "era",
+      "type": "phase",
+      "label": "Era"
+    },
+    {
+      "id": "anchor",
+      "type": "anchor",
+      "label": "Major Anchor"
+    },
+    {
+      "id": "source",
+      "type": "anchor",
+      "label": "Source Work"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "sw.legends.era.begin",
+      "label": "Ancient and Pre-Film Legends Backdrop",
+      "contextType": "anchor",
+      "sortKey": 0,
+      "aliases": [
+        "ancient legends",
+        "old republic background",
+        "pre-film legends"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "era",
+        "title": "Ancient and Pre-Film Legends Backdrop"
+      }
+    },
+    {
+      "id": "sw.legends.old_republic",
+      "label": "Old Republic and Ancient Sith Eras",
+      "contextType": "anchor",
+      "sortKey": 200,
+      "aliases": [
+        "old republic",
+        "kotor era",
+        "ancient sith",
+        "tales of the jedi"
+      ],
+      "tags": [
+        "era:old-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "era",
+        "title": "Old Republic and Ancient Sith Eras"
+      },
+      "dateRange": {
+        "from": "25000 BBY",
+        "to": "1000 BBY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.legends.rule_of_two",
+      "label": "Darth Bane and Rule of Two Backdrop",
+      "contextType": "anchor",
+      "sortKey": 500,
+      "aliases": [
+        "rule of two",
+        "darth bane",
+        "bane era"
+      ],
+      "tags": [
+        "faction:sith",
+        "topic:sith"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "era",
+        "title": "Darth Bane and Rule of Two"
+      },
+      "dateRange": {
+        "from": "1000 BBY",
+        "to": "1000 BBY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.film.episode_1_tpm",
+      "label": "Episode I: The Phantom Menace",
+      "contextType": "anchor",
+      "sortKey": 1000,
+      "aliases": [
+        "phantom menace",
+        "episode i",
+        "tpm",
+        "prequel start"
+      ],
+      "tags": [
+        "era:prequel"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode I: The Phantom Menace"
+      },
+      "dateRange": {
+        "from": "32 BBY",
+        "to": "32 BBY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.film.episode_2_aotc",
+      "label": "Episode II: Attack of the Clones",
+      "contextType": "anchor",
+      "sortKey": 2000,
+      "aliases": [
+        "attack of the clones",
+        "episode ii",
+        "aotc",
+        "clone wars begin"
+      ],
+      "tags": [
+        "era:prequel",
+        "event:clone-wars"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode II: Attack of the Clones"
+      },
+      "dateRange": {
+        "from": "22 BBY",
+        "to": "22 BBY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.film.episode_3_rots",
+      "label": "Episode III: Revenge of the Sith",
+      "contextType": "anchor",
+      "sortKey": 3000,
+      "aliases": [
+        "revenge of the sith",
+        "episode iii",
+        "rots",
+        "order 66",
+        "fall of the jedi"
+      ],
+      "tags": [
+        "era:prequel",
+        "event:order-66"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode III: Revenge of the Sith"
+      },
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "19 BBY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.legends.dark_times",
+      "label": "Dark Times and Early Empire",
+      "contextType": "anchor",
+      "sortKey": 4000,
+      "aliases": [
+        "dark times",
+        "early empire",
+        "jedi purge era",
+        "reign of the empire"
+      ],
+      "tags": [
+        "era:imperial",
+        "event:order-66"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "era",
+        "title": "Dark Times and Early Empire"
+      },
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "0 BBY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.film.episode_4_anh",
+      "label": "Episode IV: A New Hope",
+      "contextType": "anchor",
+      "sortKey": 5000,
+      "aliases": [
+        "a new hope",
+        "episode iv",
+        "anh",
+        "yavin",
+        "battle of yavin"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:yavin"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode IV: A New Hope"
+      },
+      "dateRange": {
+        "from": "0 BBY",
+        "to": "0 BBY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.film.episode_5_esb",
+      "label": "Episode V: The Empire Strikes Back",
+      "contextType": "anchor",
+      "sortKey": 6000,
+      "aliases": [
+        "empire",
+        "empire strikes back",
+        "episode v",
+        "esb",
+        "after empire",
+        "battle of hoth",
+        "cloud city"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:hoth",
+        "event:bespin"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode V: The Empire Strikes Back"
+      },
+      "dateRange": {
+        "from": "3 ABY",
+        "to": "3 ABY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.film.episode_6_rotj",
+      "label": "Episode VI: Return of the Jedi",
+      "contextType": "anchor",
+      "sortKey": 7000,
+      "aliases": [
+        "return",
+        "return of the jedi",
+        "episode vi",
+        "rotj",
+        "jedi",
+        "endor"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:endor"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode VI: Return of the Jedi"
+      },
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.legends.thrawn_trilogy",
+      "label": "Thrawn Trilogy Era",
+      "contextType": "anchor",
+      "sortKey": 8000,
+      "aliases": [
+        "thrawn trilogy",
+        "heir to the empire",
+        "thrawn campaign",
+        "new republic thrawn"
+      ],
+      "tags": [
+        "era:post-endor",
+        "character:thrawn"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel",
+        "title": "Thrawn Trilogy"
+      },
+      "dateRange": {
+        "from": "9 ABY",
+        "to": "9 ABY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.legends.dark_empire",
+      "label": "Dark Empire Era",
+      "contextType": "anchor",
+      "sortKey": 8300,
+      "aliases": [
+        "dark empire",
+        "reborn emperor",
+        "palpatine clones"
+      ],
+      "tags": [
+        "era:post-endor",
+        "character:palpatine",
+        "topic:cloning"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "comics",
+        "title": "Dark Empire"
+      },
+      "dateRange": {
+        "from": "10 ABY",
+        "to": "11 ABY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.legends.jedi_academy",
+      "label": "Jedi Academy Era",
+      "contextType": "anchor",
+      "sortKey": 8500,
+      "aliases": [
+        "jedi academy",
+        "luke academy",
+        "new jedi order begins",
+        "yavin academy"
+      ],
+      "tags": [
+        "era:post-endor",
+        "faction:new-jedi-order"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel",
+        "title": "Jedi Academy Trilogy and related Legends material"
+      },
+      "dateRange": {
+        "from": "11 ABY",
+        "to": "14 ABY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.legends.hand_of_thrawn",
+      "label": "Hand of Thrawn / Imperial Peace Era",
+      "contextType": "anchor",
+      "sortKey": 8800,
+      "aliases": [
+        "hand of thrawn",
+        "imperial peace",
+        "pellaeon gavrisom treaty"
+      ],
+      "tags": [
+        "era:post-endor",
+        "character:thrawn",
+        "faction:imperial-remnant"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel",
+        "title": "Hand of Thrawn duology"
+      },
+      "dateRange": {
+        "from": "19 ABY",
+        "to": "19 ABY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.legends.njo",
+      "label": "New Jedi Order Era",
+      "contextType": "anchor",
+      "sortKey": 9000,
+      "aliases": [
+        "new jedi order",
+        "njo",
+        "yuuzhan vong war",
+        "vong war"
+      ],
+      "tags": [
+        "era:njo",
+        "species:yuuzhan-vong"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel",
+        "title": "New Jedi Order"
+      },
+      "dateRange": {
+        "from": "25 ABY",
+        "to": "29 ABY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.legends.legacy",
+      "label": "Legacy Era",
+      "contextType": "anchor",
+      "sortKey": 9600,
+      "aliases": [
+        "legacy era",
+        "legacy comics",
+        "fel empire",
+        "one sith"
+      ],
+      "tags": [
+        "era:legacy"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "comics",
+        "title": "Legacy era"
+      },
+      "dateRange": {
+        "from": "40 ABY",
+        "to": "140 ABY",
+        "precision": "approximate"
+      }
+    },
+    {
+      "id": "sw.legends.era.end",
+      "label": "Far-Future Legends Backdrop",
+      "contextType": "anchor",
+      "sortKey": 10000,
+      "aliases": [
+        "far future legends",
+        "late legends",
+        "future legends"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "era",
+        "title": "Far-Future Legends Backdrop"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "sw.window.old_republic",
+      "label": "Old Republic and ancient Legends eras",
+      "contextType": "anchor_window",
+      "anchorFrom": "sw.legends.old_republic",
+      "anchorTo": "sw.film.episode_1_tpm",
+      "sortKeyFrom": 200,
+      "sortKeyTo": 1000,
+      "aliases": [
+        "old republic era",
+        "ancient sith era",
+        "before phantom menace"
+      ],
+      "tags": [
+        "era:old-republic"
+      ]
+    },
+    {
+      "id": "sw.window.prequel_era",
+      "label": "Prequel and Clone Wars broad window",
+      "contextType": "anchor_window",
+      "anchorFrom": "sw.film.episode_1_tpm",
+      "anchorTo": "sw.film.episode_3_rots",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "prequel era",
+        "fall of the republic",
+        "clone wars era"
+      ],
+      "tags": [
+        "era:prequel"
+      ]
+    },
+    {
+      "id": "sw.window.clone_wars",
+      "label": "Clone Wars",
+      "contextType": "anchor_window",
+      "anchorFrom": "sw.film.episode_2_aotc",
+      "anchorTo": "sw.film.episode_3_rots",
+      "sortKeyFrom": 2000,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "during clone wars",
+        "clone war",
+        "between attack of the clones and revenge"
+      ],
+      "tags": [
+        "event:clone-wars"
+      ]
+    },
+    {
+      "id": "sw.window.imperial_era",
+      "label": "Imperial rule before Endor",
+      "contextType": "anchor_window",
+      "anchorFrom": "sw.film.episode_3_rots",
+      "anchorTo": "sw.film.episode_6_rotj",
+      "sortKeyFrom": 3000,
+      "sortKeyTo": 7000,
+      "aliases": [
+        "imperial era",
+        "reign of the empire",
+        "before endor"
+      ],
+      "tags": [
+        "era:imperial"
+      ]
+    },
+    {
+      "id": "sw.window.rebellion_era",
+      "label": "Rebellion Era broad window",
+      "contextType": "anchor_window",
+      "anchorFrom": "sw.film.episode_4_anh",
+      "anchorTo": "sw.film.episode_6_rotj",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 7000,
+      "aliases": [
+        "rebellion era",
+        "original trilogy era",
+        "galactic civil war"
+      ],
+      "tags": [
+        "era:rebellion"
+      ]
+    },
+    {
+      "id": "sw.window.after_empire_before_return",
+      "label": "After Empire, before Return",
+      "contextType": "anchor_window",
+      "anchorFrom": "sw.film.episode_5_esb",
+      "anchorTo": "sw.film.episode_6_rotj",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 7000,
+      "aliases": [
+        "after empire before return",
+        "between empire and jedi",
+        "post esb",
+        "pre rotj"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:bespin"
+      ]
+    },
+    {
+      "id": "sw.window.post_endor_legends",
+      "label": "Post-Endor Legends",
+      "contextType": "anchor_window",
+      "anchorFrom": "sw.film.episode_6_rotj",
+      "anchorTo": "sw.legends.njo",
+      "sortKeyFrom": 7000,
+      "sortKeyTo": 9000,
+      "aliases": [
+        "post endor",
+        "new republic era",
+        "after return of the jedi"
+      ],
+      "tags": [
+        "era:post-endor"
+      ]
+    },
+    {
+      "id": "sw.window.thrawn_to_njo",
+      "label": "Thrawn through pre-NJO Legends",
+      "contextType": "anchor_window",
+      "anchorFrom": "sw.legends.thrawn_trilogy",
+      "anchorTo": "sw.legends.njo",
+      "sortKeyFrom": 8000,
+      "sortKeyTo": 9000,
+      "aliases": [
+        "thrawn to njo",
+        "new republic novels",
+        "pre vong war"
+      ],
+      "tags": [
+        "era:post-endor"
+      ]
+    },
+    {
+      "id": "sw.window.njo_and_later",
+      "label": "New Jedi Order and later Legends",
+      "contextType": "anchor_window",
+      "anchorFrom": "sw.legends.njo",
+      "anchorTo": "sw.legends.era.end",
+      "sortKeyFrom": 9000,
+      "sortKeyTo": 10000,
+      "aliases": [
+        "njo and later",
+        "vong war and later",
+        "late legends"
+      ],
+      "tags": [
+        "era:njo",
+        "era:legacy"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "sw.phase.old_republic",
+      "label": "Old Republic",
+      "sortKeyFrom": 200,
+      "sortKeyTo": 1000,
+      "aliases": [
+        "old republic"
+      ],
+      "tags": [
+        "era:old-republic"
+      ]
+    },
+    {
+      "id": "sw.phase.prequel",
+      "label": "Prequel Era",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "prequels",
+        "fall of the republic"
+      ],
+      "tags": [
+        "era:prequel"
+      ]
+    },
+    {
+      "id": "sw.phase.imperial",
+      "label": "Imperial Era",
+      "sortKeyFrom": 3000,
+      "sortKeyTo": 7000,
+      "aliases": [
+        "imperial era",
+        "reign of the empire"
+      ],
+      "tags": [
+        "era:imperial"
+      ]
+    },
+    {
+      "id": "sw.phase.rebellion",
+      "label": "Rebellion Era",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 7000,
+      "aliases": [
+        "original trilogy",
+        "galactic civil war"
+      ],
+      "tags": [
+        "era:rebellion"
+      ]
+    },
+    {
+      "id": "sw.phase.new_republic",
+      "label": "New Republic Legends",
+      "sortKeyFrom": 7000,
+      "sortKeyTo": 9000,
+      "aliases": [
+        "post endor",
+        "new republic"
+      ],
+      "tags": [
+        "era:post-endor"
+      ]
+    },
+    {
+      "id": "sw.phase.njo_later",
+      "label": "New Jedi Order and Later",
+      "sortKeyFrom": 9000,
+      "sortKeyTo": 10000,
+      "aliases": [
+        "new jedi order",
+        "late legends"
+      ],
+      "tags": [
+        "era:njo",
+        "era:legacy"
+      ]
+    }
+  ],
+  "arcs": []
+}

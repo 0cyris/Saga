@@ -40,7 +40,7 @@ export function createThemeEmblem(preset, colors, options = {}) {
 export function createThemeSwatchStrip(colors = {}) {
     const strip = document.createElement('div');
     strip.className = 'wandlight-theme-swatch-strip';
-    for (const key of ['background', 'surface', 'accent', 'borderStrong', 'button', 'text']) {
+    for (const key of ['background', 'surface', 'accent', 'danger', 'borderStrong', 'button', 'text']) {
         const swatch = document.createElement('span');
         swatch.style.background = normalizeHexColor(colors[key], '#000000');
         addTooltip(swatch, `${humanizeScopeKey(key)}: ${normalizeHexColor(colors[key], '#000000')}`);

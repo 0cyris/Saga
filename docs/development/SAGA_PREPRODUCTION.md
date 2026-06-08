@@ -1065,21 +1065,19 @@ Saga should support pure-data Loredecks only. No executable code should be allow
 
 Import sources:
 
-- Local JSON.
 - Local zip.
-- URL.
-- GitHub URL.
+- URL package import, deferred.
+- GitHub package import, deferred.
 
 Export targets:
 
-- Single JSON bundle.
-- Zip bundle.
+- Zip package.
 
 Update support:
 
-- Custom Loredecks imported from GitHub or URL can remember their source.
-- Users can check for updates.
-- Saga can compare version, manifest ID, and content hash.
+- Custom Loredecks imported from future GitHub or URL package sources can remember their source.
+- Users can check for package updates after the URL/GitHub package flow is implemented.
+- Saga can compare version, manifest ID, package hash, and deck content hash.
 - Updates should never overwrite user-edited local changes without explicit confirmation.
 - If a user edits an imported Custom Loredeck, Saga should mark it as locally modified.
 
@@ -1733,7 +1731,7 @@ Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga
 41. Done: run a targeted current-code visual smoke pass in the local harness across the runtime shelf, fullscreen Loredeck Library, Active Stack, Deck Health Center, Creator wizard, update preview, Settings/Theme Packs, and Injection preview. The harness produced no console errors. The live SillyTavern pass is blocked until the installed extension copy is synced, because ST is currently serving an older `data/default-user/extensions/Saga` build.
 42. Done: sync the current workspace into the active SillyTavern extension checkout, verify ST serves the current `lore-panel.js` and `settings.html`, and run a real live-ST screenshot pass. The saved screenshots cover initial shelf, Loredecks drawer, fullscreen Library, Deck Health Center, Creator, Theme Pack, and Injection; the pass produced no browser console errors.
 43. Done: resolve the live-ST smoke findings before deeper feature work. Theme Pack now stacks responsively inside the real ST drawer, Deck Health keeps unscanned reports coherent with `Not checked` categories and no stack-only priority issue leakage, the extension-menu handoff normalizes stale Wandlight copy at mount time, legacy API/model drawer cleanup catches punctuation variants, Custom delete uses a Saga-owned confirmation modal, and the live smoke helper now verifies delete-cancel without native dialogs. The final live-ST pass produced no findings, no browser console errors, and no native dialog events.
-44. Done: implement selected-Loredeck bulk import/export. The fullscreen Library now supports click, Ctrl/Cmd-click, and Shift-click selection; exposes selected counts, Select Visible, Clear, and Export Selected actions; exports one `.saga-loredeck.json` bundle per selected Loredeck without whole-library export/import; supports multi-file local JSON import through a safe bulk preview that installs checked decks as new Custom copies; and keeps single-file URL/GitHub/update flows on the existing previewed update/reinstall path that protects locally modified decks.
+44. Done: implement selected-Loredeck package import/export. The fullscreen Library now supports click, Ctrl/Cmd-click, and Shift-click selection; exposes selected counts, Select Visible, Clear, and Export Selected actions; exports selected Loredecks as one `.saga-loredeck.zip` package without whole-library export/import; supports local zip package import through a safe preview that installs checked decks as Custom copies; and defers URL/GitHub/update flows until the package-update path is designed.
 45. Done: expand Deck Health remediation from diagnosis into action. Editable Custom/Generated Loredecks can queue deterministic malformed tag ID repairs as Pending Review proposals, mark grouped issues ignored or resolved with persisted advisory state, send a grouped Health Center issue directly to the Lore Assistant for repair drafting, preserve health-impact stale marking through Pending Review acceptance, and route Bundled decks to Duplicate-as-Custom before repair.
 46. Done: redesign the Context editor into a fullscreen Context Workbench. The compact runtime card now launches the workbench; the workbench includes Context, Timeline, Aliases, and Validation tabs; spreadsheet-style anchor/window tables; selected-deck manual editing; timeline row inspection; local phrase resolver testing; and resolver explanations for matched, missing, and ignored terms. Clarified direction: this workbench is a stepping stone. Runtime Context selection should migrate to the Context tab, while Loredeck-side tools should become timeline registry authoring/validation tools.
 47. Done: improve local resolver data coverage without making runtime indexing heavier. The Workbench Phrase Resolver can load Lorecards and include Lorecard-derived Context candidates when `timeline.json` lacks a first-class anchor. Clarified direction: this should feed candidate generation for the Reasoner Provider, not become an exhaustive alias-matching system.

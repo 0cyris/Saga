@@ -10,7 +10,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.hagrid_returns",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8571,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -72,9 +72,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -103,15 +103,19 @@
       },
       "content": {
         "fact": "In Year 2, Harry is more at home at Hogwarts but still young, defensive when suspected, impulsive under pressure, and quicker to act than to plan.",
-        "injection": "Write Harry as his Year 2 self: more settled at Hogwarts, brave and reactive, but still a twelve-year-old with limited strategy and limited emotional distance.",
+        "injection": "Write Harry as his Year 2 self: more settled at Hogwarts, brave and reactive, but still a twelve-year-old with limited strategy and limited emotional distance. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He can be defensive about suspicion and exclusion without becoming cynical or hardened.",
           "He should rely on instinct, loyalty, and immediate problem-solving rather than long-term planning.",
           "Do not make him comfortable with fame, institutional scrutiny, or public accusation.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not give Year 2 Harry later knowledge of war politics, Horcruxes, or adult-level combat habits."
+          "Do not give Year 2 Harry later knowledge of war politics, Horcruxes, or adult-level combat habits.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -154,7 +158,15 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -163,7 +175,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -171,7 +183,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -180,8 +192,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.hagrid_returns",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8571,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -225,9 +237,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Hermione Granger",
@@ -256,15 +268,19 @@
       },
       "content": {
         "fact": "In Year 2, Hermione is more settled with friends, still intensely studious, rational, prepared, and willing to bend rules when she believes necessity justifies it.",
-        "injection": "Write Hermione as her Year 2 self: prepared, rational, academically formidable for her age, still procedural, and only selectively willing to break rules.",
+        "injection": "Write Hermione as her Year 2 self: prepared, rational, academically formidable for her age, still procedural, and only selectively willing to break rules. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "She should prefer research, evidence, and planning over improvisation.",
           "Her rule-breaking should feel reasoned and purposeful, not casual.",
           "Keep her emotional maturity appropriate for twelve.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not turn Year 2 Hermione into a flawless adult strategist or a casual rebel."
+          "Do not turn Year 2 Hermione into a flawless adult strategist or a casual rebel.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -307,7 +323,15 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -316,7 +340,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -324,7 +348,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -333,8 +357,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.hagrid_returns",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8571,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -380,9 +404,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Ron Weasley",
@@ -412,15 +436,19 @@
       },
       "content": {
         "fact": "In Year 2, Ron is more settled at Hogwarts, still anxious about inadequacy, reflexively funny, loyal under pressure, and braver than he claims.",
-        "injection": "Write Ron as his Year 2 self: loyal, comic, insecure, easily embarrassed, and capable of acting despite fear.",
+        "injection": "Write Ron as his Year 2 self: loyal, comic, insecure, easily embarrassed, and capable of acting despite fear. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "His fear should not erase his willingness to help when it matters.",
           "Keep his speech blunt, adolescent, and less analytical than Hermione’s.",
           "Do not make him socially or emotionally sophisticated.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Year 2 Ron as either useless comic relief or a hardened veteran."
+          "Do not write Year 2 Ron as either useless comic relief or a hardened veteran.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -464,7 +492,15 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -473,7 +509,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -481,7 +517,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -490,8 +526,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.hagrid_returns",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8571,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -537,9 +573,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Draco Malfoy",
@@ -569,15 +605,19 @@
       },
       "content": {
         "fact": "In Year 2, Draco is more entrenched in prejudice, arrogant in public, cruel when protected by status, and insecure beneath family-name performance.",
-        "injection": "Write Draco as his Year 2 self: arrogant, prejudiced, status-protected, performatively cruel, and still fundamentally adolescent.",
+        "injection": "Write Draco as his Year 2 self: arrogant, prejudiced, status-protected, performatively cruel, and still fundamentally adolescent. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should needle and posture more than plan deeply.",
           "His confidence should depend heavily on audience, allies, and family status.",
           "Do not make him a secret adult-level conspirator.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not import Year 6 fear, mission pressure, or moral collapse into Year 2 Draco."
+          "Do not import Year 6 fear, mission pressure, or moral collapse into Year 2 Draco.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -620,7 +660,15 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:draco-malfoy",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -629,7 +677,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -637,7 +685,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -646,8 +694,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.hagrid_returns",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8571,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -691,9 +739,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Neville Longbottom",
@@ -722,15 +770,19 @@
       },
       "content": {
         "fact": "In Year 2, Neville remains insecure and accident-prone, but his loyalty and desire to be brave are visible beneath anxiety.",
-        "injection": "Write Neville as his Year 2 self: nervous, sincere, easily rattled, and loyal, with bravery still tentative rather than practiced.",
+        "injection": "Write Neville as his Year 2 self: nervous, sincere, easily rattled, and loyal, with bravery still tentative rather than practiced. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should be vulnerable to embarrassment and intimidation.",
           "His competence should be uneven and situational.",
           "Do not make him socially commanding or magically formidable yet.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make Year 2 Neville the confident public symbol he becomes later."
+          "Do not make Year 2 Neville the confident public symbol he becomes later.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -773,7 +825,16 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -782,7 +843,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -790,7 +851,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -799,8 +860,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.hagrid_returns",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8571,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -846,9 +907,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Ginny Weasley",
@@ -878,15 +939,19 @@
       },
       "content": {
         "fact": "In Year 2, Ginny is a first-year who is shy, overwhelmed, observant, and much less outwardly confident than her later self.",
-        "injection": "Write Ginny as her Year 2 self: young, shy, overwhelmed, and quiet under pressure, not yet the openly forceful Ginny of later years.",
+        "injection": "Write Ginny as her Year 2 self: young, shy, overwhelmed, and quiet under pressure, not yet the openly forceful Ginny of later years. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Her confidence should be limited and situational.",
           "She should not dominate peer dynamics or act like an older student.",
           "Keep possession, diary, or recovery details in separate date-sensitive entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make Year 2 Ginny socially fearless or combatively self-possessed by default."
+          "Do not make Year 2 Ginny socially fearless or combatively self-possessed by default.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -930,7 +995,15 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:ginny-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -939,7 +1012,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -947,7 +1020,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -956,8 +1029,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.hagrid_returns",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8571,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -1001,9 +1074,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Luna Lovegood",
@@ -1032,15 +1105,19 @@
       },
       "content": {
         "fact": "In Year 2, Luna is a young Ravenclaw student with an unusual, dreamy manner, social vulnerability, and a sincere indifference to ordinary status games.",
-        "injection": "Write Luna in Year 2 as a younger, dreamy, socially isolated Ravenclaw: sincere, odd, and not yet central to major peer conflicts.",
+        "injection": "Write Luna in Year 2 as a younger, dreamy, socially isolated Ravenclaw: sincere, odd, and not yet central to major peer conflicts. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Her oddness should be gentle and sincere, not random nonsense.",
           "Keep her age and social reach limited.",
           "Do not import later close-war involvement into this early baseline.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write early Luna as a fully initiated member of later resistance circles."
+          "Do not write early Luna as a fully initiated member of later resistance circles.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1083,7 +1160,15 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:luna-lovegood",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1092,7 +1177,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -1100,7 +1185,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1109,8 +1194,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.hagrid_returns",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8571,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -1156,9 +1241,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Fred Weasley",
@@ -1188,15 +1273,19 @@
       },
       "content": {
         "fact": "In Year 2, Fred is a confident prankster with quick comic timing, appetite for risk, and a talent for turning school discipline into performance.",
-        "injection": "Write Fred in Year 2 as bold, funny, irreverent, and rule-testing, with comedy used as social control and defiance.",
+        "injection": "Write Fred in Year 2 as bold, funny, irreverent, and rule-testing, with comedy used as social control and defiance. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should often escalate jokes more aggressively than George.",
           "Keep the mischief school-aged rather than professionally polished.",
           "Do not make him careless about real danger when the stakes are clear.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not reduce Fred to interchangeable twin dialogue; give him slightly sharper forward momentum."
+          "Do not reduce Fred to interchangeable twin dialogue; give him slightly sharper forward momentum.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1240,7 +1329,15 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:fred-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1249,7 +1346,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -1257,7 +1354,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1266,8 +1363,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.hagrid_returns",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8571,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -1313,9 +1410,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "George Weasley",
@@ -1345,15 +1442,19 @@
       },
       "content": {
         "fact": "In Year 2, George is irreverent, funny, coordinated with Fred, and adept at making authority look ridiculous without losing social charm.",
-        "injection": "Write George in Year 2 as funny, irreverent, quick, and socially deft, with a slightly steadier rhythm than Fred.",
+        "injection": "Write George in Year 2 as funny, irreverent, quick, and socially deft, with a slightly steadier rhythm than Fred. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should complement rather than simply duplicate Fred.",
           "His humor can undercut tension without ignoring serious danger.",
           "Keep the mischief school-aged rather than professionally polished.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not reduce George to interchangeable twin dialogue with no individual cadence."
+          "Do not reduce George to interchangeable twin dialogue with no individual cadence.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1397,7 +1498,15 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:george-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1406,7 +1515,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -1414,7 +1523,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1423,8 +1532,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.hagrid_returns",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8571,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -1468,9 +1577,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Cedric Diggory",
@@ -1499,15 +1608,19 @@
       },
       "content": {
         "fact": "In Year 2, Cedric remains courteous, grounded, socially capable, and quietly competitive without the entitlement associated with more status-driven students.",
-        "injection": "Write Cedric in Year 2 as courteous, capable, grounded, and fair-minded, with confidence that does not require cruelty.",
+        "injection": "Write Cedric in Year 2 as courteous, capable, grounded, and fair-minded, with confidence that does not require cruelty. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should be socially competent and liked without feeling smug.",
           "His competitiveness should remain sportsmanlike.",
           "Do not make him a central war figure.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not let future death-state tragedy dominate ordinary Year 2 Cedric scenes."
+          "Do not let future death-state tragedy dominate ordinary Year 2 Cedric scenes.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1550,7 +1663,15 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:cedric-diggory",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     }
   ]
 }

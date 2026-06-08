@@ -4,7 +4,7 @@ import path from 'node:path';
 
 const ROOT = 'Loredecks';
 const ENTRY_SCHEMA_VERSION = 3;
-const EXPECTED_TOTAL_ENTRIES = 435;
+const EXPECTED_TOTAL_ENTRIES = 476;
 const LEGACY_DECK_ID = 'hp-golden-trio';
 const SPLIT_DECK_IDS = [
   'hp-core',

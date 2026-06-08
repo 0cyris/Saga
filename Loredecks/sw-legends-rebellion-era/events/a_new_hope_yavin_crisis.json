@@ -1,0 +1,2041 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_tantive_iv_capture_opens_secret_war",
+      "title": "Tantive IV Capture Opens the Visible Crisis",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:c-3po",
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:r2-d2",
+        "continuity:legends",
+        "era:rebellion",
+        "event:tantive-iv",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star-plans",
+        "place:tantive-iv",
+        "scope:rebellion-era",
+        "topic:espionage",
+        "topic:military-logistics"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.tantive_iv_captured",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Tantive IV Captured",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Darth Vader",
+          "C-3PO",
+          "R2-D2"
+        ],
+        "locations": [
+          "Tantive IV"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "espionage",
+          "military logistics"
+        ],
+        "objects": [
+          "Death Star plans"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Darth Vader",
+            "C-3PO",
+            "R2-D2"
+          ],
+          "locationsAny": [
+            "Tantive IV"
+          ],
+          "topicsAny": [
+            "espionage",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Death Star plans"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The capture of the Tantive IV exposes Leia to Imperial custody and turns the Death Star plans into an active chase objective.",
+        "injection": "At the ANH opening, Leia is captured, the plans are hidden with the droids, and the Empire is trying to recover them before the Rebels can analyze the station.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Tantive IV Captured.",
+          "Respect story-position bounds from Tantive IV Captured to Tantive IV Captured."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_leia_senator_and_rebel_agent",
+      "title": "Leia Is Both Senatorial Royalty and Rebel Agent",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:tarkin",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:alderaan",
+        "place:death-star",
+        "scope:rebellion-era",
+        "topic:espionage",
+        "topic:knowledge-gate",
+        "topic:politics"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.yavin_battle",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5150,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "A New Hope / Yavin Crisis",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Darth Vader",
+          "Tarkin"
+        ],
+        "locations": [
+          "Alderaan",
+          "Death Star"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "espionage",
+          "politics"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Darth Vader",
+            "Tarkin"
+          ],
+          "locationsAny": [
+            "Alderaan",
+            "Death Star"
+          ],
+          "topicsAny": [
+            "espionage",
+            "politics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Leia’s public identity as Alderaanian princess and senator masks her active role in the Rebel Alliance.",
+        "injection": "Before the Empire exposes her Rebellion links, treat Leia as moving between diplomatic cover and covert Rebel work; ordinary bystanders need not know her operational role.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: A New Hope / Yavin Crisis.",
+          "Respect story-position bounds from Tantive IV Captured to Battle of Yavin."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_droids_carry_plans_not_general_knowledge",
+      "title": "Droids Carry the Plans Secretly",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "character:c-3po",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "character:r2-d2",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star-plans",
+        "object:droids",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:droid",
+        "topic:knowledge-gate"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.plans_reach_tatooine",
+        "validToAnchor": "sw.rebellion.plans_reach_tatooine",
+        "sortKeyFrom": 5030,
+        "sortKeyTo": 5030,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Death Star Plans Reach Tatooine",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "R2-D2",
+          "C-3PO",
+          "Luke Skywalker",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "knowledge gate",
+          "droid"
+        ],
+        "objects": [
+          "Death Star plans",
+          "Droids"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "R2-D2",
+            "C-3PO",
+            "Luke Skywalker",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "knowledge gate",
+            "droid"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Death Star plans",
+            "Droids"
+          ]
+        }
+      },
+      "content": {
+        "fact": "R2-D2 carries the Death Star plans, but most characters who encounter him on Tatooine do not know that.",
+        "injection": "Do not have casual Tatooine characters know the droids contain the Death Star plans unless the scene establishes discovery or Rebel context.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Death Star Plans Reach Tatooine.",
+          "Respect story-position bounds from Death Star Plans Reach Tatooine to Death Star Plans Reach Tatooine."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_farmboy_before_obiwan_call",
+      "title": "Luke Starts Outside the Rebellion",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:beru-lars",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "character:owen-lars",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:jedi"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.plans_reach_tatooine",
+        "validToAnchor": "sw.rebellion.plans_reach_tatooine",
+        "sortKeyFrom": 5030,
+        "sortKeyTo": 5030,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Death Star Plans Reach Tatooine",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Owen Lars",
+          "Beru Lars",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Jedi Order"
+        ],
+        "topics": [
+          "jedi",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Owen Lars",
+            "Beru Lars",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "jedi",
+            "future guard"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Luke begins the crisis as a frustrated Tatooine farmboy, not as a trained Rebel officer or Jedi.",
+        "injection": "Before Obi-Wan draws him in, write Luke as Force-sensitive but untrained, local, and unaware of the full Rebel/Imperial stakes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Death Star Plans Reach Tatooine.",
+          "Respect story-position bounds from Death Star Plans Reach Tatooine to Death Star Plans Reach Tatooine."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_obiwan_ben_hidden_jedi_exile",
+      "title": "Obi-Wan Lives as Ben in Exile",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:jedi"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.plans_reach_tatooine",
+        "validToAnchor": "sw.rebellion.plans_reach_tatooine",
+        "sortKeyFrom": 5030,
+        "sortKeyTo": 5030,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Death Star Plans Reach Tatooine",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "jedi",
+          "identity secret"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "jedi",
+            "identity secret"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Obi-Wan Kenobi lives in hiding as Ben Kenobi and does not openly operate as a Jedi until Luke enters the crisis.",
+        "injection": "In Death Star Plans Reach Tatooine, on Tatooine before the ANH call to action, keep Obi-Wan as a hidden exile; local knowledge may frame him as old Ben rather than a public Jedi master.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Death Star Plans Reach Tatooine.",
+          "Respect story-position bounds from Death Star Plans Reach Tatooine to Death Star Plans Reach Tatooine."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_lars_deaths_cut_luke_tatooine_ties",
+      "title": "Lars Deaths Cut Luke’s Tatooine Anchor",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:beru-lars",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "character:owen-lars",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "place:tatooine",
+        "scope:rebellion-era"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.obiwan_joins_luke",
+        "validToAnchor": "sw.rebellion.obiwan_joins_luke",
+        "sortKeyFrom": 5070,
+        "sortKeyTo": 5070,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Obi-Wan Draws Luke Into the Rebellion",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Owen Lars",
+          "Beru Lars",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [
+          "Galactic Empire"
+        ],
+        "topics": [
+          "motivation",
+          "imperial brutality"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Owen Lars",
+            "Beru Lars",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "motivation",
+            "imperial brutality"
+          ],
+          "factionsAny": [
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "The deaths of Owen and Beru remove Luke’s ordinary home obligation and allow him to leave Tatooine with Obi-Wan.",
+        "injection": "After the Lars homestead is destroyed, Luke’s motivation can turn from escape fantasy to grief, anger, and commitment to stopping the Empire.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Obi-Wan Draws Luke Into the Rebellion.",
+          "Respect story-position bounds from Obi-Wan Draws Luke Into the Rebellion to Obi-Wan Draws Luke Into the Rebellion."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_mos_eisley_smuggling_contact",
+      "title": "Mos Eisley Is a Criminal Transit Point",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:greedo",
+        "character:han-solo",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:criminal-underworld",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "place:mos-eisley",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:smuggling",
+        "topic:underworld"
+      ],
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.obiwan_joins_luke",
+        "validToAnchor": "sw.rebellion.obiwan_joins_luke",
+        "sortKeyFrom": 5070,
+        "sortKeyTo": 5070,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Obi-Wan Draws Luke Into the Rebellion",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Chewbacca",
+          "Greedo",
+          "Luke Skywalker",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Mos Eisley",
+          "Tatooine"
+        ],
+        "factions": [
+          "Criminal Underworld",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "smuggling",
+          "underworld"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Chewbacca",
+            "Greedo",
+            "Luke Skywalker",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Mos Eisley",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "smuggling",
+            "underworld"
+          ],
+          "factionsAny": [
+            "Criminal Underworld",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Mos Eisley is a dangerous Outer Rim spaceport where smugglers, informants, and Imperial attention overlap.",
+        "injection": "In Mos Eisley scenes, use underworld risk, armed strangers, Imperial patrols, and transport bargaining rather than clean civilian travel.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Obi-Wan Draws Luke Into the Rebellion.",
+          "Respect story-position bounds from Obi-Wan Draws Luke Into the Rebellion to Obi-Wan Draws Luke Into the Rebellion."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_han_debt_to_jabba_active",
+      "title": "Han’s Debt to Jabba Is Active",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:greedo",
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:bounty-hunters",
+        "faction:criminal-underworld",
+        "faction:hutts",
+        "fandom:star-wars",
+        "place:mos-eisley",
+        "place:tatooine",
+        "relationship:debtor-creditor",
+        "scope:rebellion-era",
+        "topic:bounty-hunter",
+        "topic:criminal-debt",
+        "topic:smuggling"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.yavin_battle",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5150,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "A New Hope / Yavin Crisis",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Chewbacca",
+          "Jabba the Hutt",
+          "Greedo"
+        ],
+        "locations": [
+          "Tatooine",
+          "Mos Eisley"
+        ],
+        "factions": [
+          "Hutts",
+          "Bounty Hunters",
+          "Criminal Underworld"
+        ],
+        "topics": [
+          "criminal debt",
+          "smuggling",
+          "bounty hunter"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Chewbacca",
+            "Jabba the Hutt",
+            "Greedo"
+          ],
+          "locationsAny": [
+            "Tatooine",
+            "Mos Eisley"
+          ],
+          "topicsAny": [
+            "criminal debt",
+            "smuggling",
+            "bounty hunter"
+          ],
+          "factionsAny": [
+            "Hutts",
+            "Bounty Hunters",
+            "Criminal Underworld"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Han owes Jabba and is under pressure from bounty hunters before he commits fully to the Rebel cause.",
+        "injection": "Until Han’s later growth changes his priorities, keep Jabba’s debt and bounty pressure active when underworld or Tatooine context appears.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: A New Hope / Yavin Crisis.",
+          "Respect story-position bounds from Tantive IV Captured to Battle of Yavin."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_millennium_falcon_unreliable_but_exceptional",
+      "title": "Falcon Is Unreliable but Exceptional",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "item_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:criminal-underworld",
+        "fandom:star-wars",
+        "object:hyperdrive",
+        "object:millennium-falcon",
+        "place:mos-eisley",
+        "scope:rebellion-era",
+        "topic:hyperspace",
+        "topic:smuggling"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.yavin_battle",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5150,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "A New Hope / Yavin Crisis",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Chewbacca"
+        ],
+        "locations": [
+          "Mos Eisley"
+        ],
+        "factions": [
+          "Criminal Underworld"
+        ],
+        "topics": [
+          "smuggling",
+          "hyperspace"
+        ],
+        "objects": [
+          "Millennium Falcon",
+          "Hyperdrive"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Chewbacca"
+          ],
+          "locationsAny": [
+            "Mos Eisley"
+          ],
+          "topicsAny": [
+            "smuggling",
+            "hyperspace"
+          ],
+          "factionsAny": [
+            "Criminal Underworld"
+          ],
+          "objectsAny": [
+            "Millennium Falcon",
+            "Hyperdrive"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Millennium Falcon appears battered and suspect but is extremely fast, modified, and capable in dangerous escapes.",
+        "injection": "Use the Falcon as an unreliable-looking but high-performance smuggler ship; mechanical trouble and brilliance can coexist.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: A New Hope / Yavin Crisis.",
+          "Respect story-position bounds from Tantive IV Captured to Battle of Yavin."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_alderaan_destroyed_changes_leia_context",
+      "title": "Alderaan’s Destruction Changes Leia’s State",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:tarkin",
+        "continuity:legends",
+        "era:rebellion",
+        "event:alderaan-destruction",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star",
+        "place:alderaan",
+        "place:death-star",
+        "scope:rebellion-era",
+        "topic:morale",
+        "topic:propaganda"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.alderaan_destroyed",
+        "validToAnchor": "sw.rebellion.alderaan_destroyed",
+        "sortKeyFrom": 5120,
+        "sortKeyTo": 5120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Alderaan Destroyed",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Tarkin",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Alderaan",
+          "Death Star"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "propaganda",
+          "morale"
+        ],
+        "objects": [
+          "Death Star"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Tarkin",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Alderaan",
+            "Death Star"
+          ],
+          "topicsAny": [
+            "propaganda",
+            "morale"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Death Star"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Alderaan’s destruction makes Leia a survivor of planetary genocide while she remains a Rebel leader under captivity.",
+        "injection": "After Alderaan is destroyed, Leia can still be defiant, but scenes should remember that her homeworld and family have been annihilated.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Alderaan Destroyed.",
+          "Respect story-position bounds from Alderaan Destroyed to Alderaan Destroyed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_death_star_superweapon_terror",
+      "title": "Death Star Is Imperial Terror Doctrine",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "high",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:tarkin",
+        "continuity:legends",
+        "era:rebellion",
+        "event:death-star",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "object:death-star",
+        "place:alderaan",
+        "place:death-star",
+        "scope:rebellion-era",
+        "topic:military-logistics",
+        "topic:propaganda"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.yavin_battle",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5150,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "A New Hope / Yavin Crisis",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Tarkin",
+          "Darth Vader",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Death Star",
+          "Alderaan"
+        ],
+        "factions": [
+          "Galactic Empire"
+        ],
+        "topics": [
+          "propaganda",
+          "military logistics"
+        ],
+        "objects": [
+          "Death Star"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tarkin",
+            "Darth Vader",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Death Star",
+            "Alderaan"
+          ],
+          "topicsAny": [
+            "propaganda",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Death Star"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The first Death Star is not merely a large station; it is a doctrine of rule through planetary terror.",
+        "injection": "When the Death Star is active, Imperial command can rely on fear, hostage logic, and demonstration of overwhelming force.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: A New Hope / Yavin Crisis.",
+          "Respect story-position bounds from Tantive IV Captured to Battle of Yavin."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_obiwan_death_makes_guidance_spiritual",
+      "title": "Obi-Wan’s Death Changes Guidance Mode",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "ability:force-ghost",
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:death-star",
+        "scope:rebellion-era",
+        "topic:force"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.alderaan_destroyed",
+        "validToAnchor": "sw.rebellion.alderaan_destroyed",
+        "sortKeyFrom": 5120,
+        "sortKeyTo": 5120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Alderaan Destroyed",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Death Star"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "force",
+          "mentor-student"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Death Star"
+          ],
+          "topicsAny": [
+            "force",
+            "mentor-student"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Obi-Wan dies aboard the Death Star, he can guide Luke spiritually rather than physically accompany him.",
+        "injection": "After Obi-Wan’s death, do not write him as physically present unless using Force-spirit manifestation or alternate continuity.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Alderaan Destroyed.",
+          "Respect story-position bounds from Alderaan Destroyed to Alderaan Destroyed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_yavin_attack_uses_stolen_plans",
+      "title": "Yavin Attack Depends on Stolen Plans",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:biggs-darklighter",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:wedge-antilles",
+        "continuity:legends",
+        "era:rebellion",
+        "event:death-star",
+        "event:yavin",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star",
+        "object:death-star-plans",
+        "object:x-wing",
+        "object:y-wing",
+        "place:death-star",
+        "place:yavin",
+        "scope:rebellion-era",
+        "topic:military-logistics",
+        "topic:pilot"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.yavin_battle",
+        "validToAnchor": "sw.rebellion.yavin_battle",
+        "sortKeyFrom": 5150,
+        "sortKeyTo": 5150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Battle of Yavin",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Wedge Antilles",
+          "Biggs Darklighter"
+        ],
+        "locations": [
+          "Yavin IV",
+          "Death Star"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "military logistics",
+          "pilot"
+        ],
+        "objects": [
+          "Death Star plans",
+          "X-wing",
+          "Y-wing",
+          "Death Star"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Wedge Antilles",
+            "Biggs Darklighter"
+          ],
+          "locationsAny": [
+            "Yavin IV",
+            "Death Star"
+          ],
+          "topicsAny": [
+            "military logistics",
+            "pilot"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Death Star plans",
+            "X-wing",
+            "Y-wing",
+            "Death Star"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Battle of Yavin depends on analyzing the stolen plans and exploiting the thermal exhaust port weakness.",
+        "injection": "At Yavin, the Rebels should act from desperate technical intelligence rather than simple fleet strength.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle of Yavin.",
+          "Respect story-position bounds from Battle of Yavin to Battle of Yavin."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_yavin_hero_not_jedi_knight",
+      "title": "Luke Yavin Hero, Not Jedi Knight",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "ability:force",
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:rebel-fleet",
+        "place:yavin",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:jedi",
+        "topic:pilot"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.yavin_aftermath",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yavin Aftermath",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Han Solo"
+        ],
+        "locations": [
+          "Yavin IV",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Jedi Order"
+        ],
+        "topics": [
+          "force",
+          "pilot",
+          "jedi"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Yavin IV",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "force",
+            "pilot",
+            "jedi"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "After Yavin, Luke is a Rebel hero and Force-sensitive pilot, but not a trained Jedi Knight.",
+        "injection": "In post-Yavin/pre-Dagobah context, do not portray Luke as a complete Jedi; his hero status comes from piloting and Force instinct.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Yavin Aftermath.",
+          "Respect story-position bounds from Yavin Aftermath to Yavin Aftermath."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_han_rewarded_but_not_committed_yet",
+      "title": "Han Rewarded but Not Fully Committed Yet",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:hutts",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "scope:rebellion-era",
+        "topic:criminal-debt",
+        "topic:morale",
+        "topic:smuggling"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.yavin_aftermath",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yavin Aftermath",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Chewbacca",
+          "Leia Organa",
+          "Luke Skywalker",
+          "Jabba the Hutt"
+        ],
+        "locations": [],
+        "factions": [
+          "Rebel Alliance",
+          "Hutts"
+        ],
+        "topics": [
+          "smuggling",
+          "criminal debt",
+          "morale"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Chewbacca",
+            "Leia Organa",
+            "Luke Skywalker",
+            "Jabba the Hutt"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "smuggling",
+            "criminal debt",
+            "morale"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Hutts"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "After Yavin, Han has helped save the Rebellion but still carries smuggler instincts, debt pressure, and ambivalence about staying.",
+        "injection": "Post-Yavin Han can be loyal in action while still talking like someone who might leave if debt, money, or danger pushes him.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Yavin Aftermath.",
+          "Respect story-position bounds from Yavin Aftermath to Yavin Aftermath."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/a_new_hope_yavin_crisis.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

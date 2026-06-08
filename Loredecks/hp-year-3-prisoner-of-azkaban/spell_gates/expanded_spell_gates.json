@@ -10,7 +10,7 @@
       "kind": "spell_gate",
       "gateType": "spell_gate",
       "category": "spell",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.marge_arrives",
         "validToAnchor": "hp.y3.grim_omen_pressure",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8704,
+        "sortKeyFrom": 8612,
+        "sortKeyTo": 8708,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -61,9 +61,9 @@
         "revealPolicy": "private"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -79,12 +79,16 @@
       },
       "content": {
         "fact": "Before Lupin's Year 3 Boggart lesson or a story-established equivalent, Riddikulus should not be routine student knowledge.",
-        "injection": "Do not let first- or second-year students casually know or use Riddikulus unless our story has established early Boggart instruction.",
+        "injection": "Do not let first- or second-year students casually know or use Riddikulus unless our story has established early Boggart instruction. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Date-gate Boggart handling to Year 3 instruction unless our story establishes otherwise."
+          "Date-gate Boggart handling to Year 3 instruction unless our story establishes otherwise.",
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not spotlight Riddikulus in later years unless Boggarts or DADA lessons are actually relevant."
+          "Do not spotlight Riddikulus in later years unless Boggarts or DADA lessons are actually relevant.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -118,7 +122,17 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:3"
+      ]
     }
   ]
 }

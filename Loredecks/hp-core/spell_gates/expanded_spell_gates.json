@@ -10,7 +10,7 @@
       "kind": "spell_gate",
       "gateType": "spell_gate",
       "category": "spell",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 75,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -72,9 +72,15 @@
       },
       "content": {
         "fact": "Apparition lessons are for eligible older students around Year 6; legal Apparition requires coming of age.",
-        "injection": "Students should not casually Apparate before eligibility and training; Apparition is tightly age- and license-gated.",
+        "injection": "Students should not casually Apparate before eligibility and training; Apparition is tightly age- and license-gated. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Block underage casual Apparition unless our story explicitly changes the rule."
+          "Block underage casual Apparition unless our story explicitly changes the rule.",
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -99,7 +105,13 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     }
   ]
 }

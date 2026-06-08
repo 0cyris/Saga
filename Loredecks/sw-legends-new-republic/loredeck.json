@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "sw-legends-new-republic",
+  "type": "bundled",
+  "title": "Star Wars Legends: New Republic",
+  "description": "Post-Endor Legends deck covering the New Republic, Imperial Remnant, Thrawn campaign, Dark Empire, Jedi Academy, Hand of Thrawn, and pre-NJO spoiler guards.",
+  "fandom": "Star Wars",
+  "era": "New Republic: Post-Endor through Hand of Thrawn",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "1.1.0-dev",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-08",
+  "databaseId": "saga.sw-legends-new-republic",
+  "deckFamilyId": "sw-legends",
+  "family": {
+    "id": "sw-legends",
+    "title": "Star Wars Legends",
+    "role": "era",
+    "recommendedCoreDeckId": "sw-legends-core"
+  },
+  "recommendedStack": [
+    "sw-legends-core",
+    "sw-legends-film-spine"
+  ],
+  "library": {
+    "suggestedPath": [
+      "Star Wars",
+      "Legends"
+    ],
+    "familyOrder": 60
+  },
+  "tags": [
+    "fandom:star-wars",
+    "continuity:legends",
+    "structure:split-loredeck",
+    "quality:draft",
+    "scope:era",
+    "scope:new-republic"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "star-wars-legends",
+    "canonTier": "legends",
+    "adaptation": "mixed",
+    "medium": "novel-comic-game-film-reference",
+    "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+    "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "resolver": "resolver.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "characters/new_republic_character_states.json",
+    "characters/relationships_and_family_states.json",
+    "events/dark_empire.json",
+    "events/hand_of_thrawn_and_peace.json",
+    "events/immediate_post_endor.json",
+    "events/jedi_academy.json",
+    "events/mid_new_republic_crises.json",
+    "events/thrawn_campaign.json",
+    "events/xwing_and_warlord_campaigns.json",
+    "factions/new_republic_faction_states.json",
+    "items/new_republic_items_and_technology.json",
+    "knowledge/new_republic_future_guards.json",
+    "locations/new_republic_locations.json",
+    "rules/new_republic_scene_constraints.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 1,
+    "sagaSchemaMax": 1
+  },
+  "stats": {
+    "entryCount": 143,
+    "categoryCounts": {
+      "character": 31,
+      "event": 14,
+      "faction": 22,
+      "item": 18,
+      "knowledge": 12,
+      "location": 15,
+      "relationship": 9,
+      "rule": 16,
+      "secret": 5,
+      "timeline": 1
+    },
+    "timelineAnchorCount": 29,
+    "timelineWindowCount": 17,
+    "tagCount": 142,
+    "entityCount": 82,
+    "timelinePhaseCount": 7
+  },
+  "health": {
+    "status": "needs_review",
+    "summary": "Generated development deck. Lightweight structural validation passed; Saga Deck Health and human canon review still required."
+  },
+  "updatedAt": 1780876800000,
+  "generatedBy": {
+    "curationPass": {
+      "name": "timeline-control-review",
+      "version": "1.1.0-dev",
+      "date": "2026-06-08",
+      "notes": "Removed low-value deck-operation Lorecards, tightened model-facing injections, added Context constraints and anti-lore, and normalized schema-supported lorePurpose values."
+    }
+  }
+}

@@ -10,19 +10,23 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "high",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "school-year:2",
+        "book:chamber-of-secrets",
         "calendar-year:1992",
+        "character:harry-potter",
+        "era:golden-trio",
         "event:chamber-of-secrets",
-        "place:hogwarts"
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
       ],
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -31,8 +35,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.hagrid_returns",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8571,
         "precision": "date_window",
         "windowKind": "wide",
         "label": "1992-09-01 to 1993-08-31",
@@ -89,8 +93,16 @@
       },
       "content": {
         "fact": "From September 1992 through August 1993, the main school-year context aligns with Harry Potter's second year at Hogwarts.",
-        "injection": "From September 1992 through August 1993, the main school-year context aligns with Harry Potter's second year at Hogwarts.",
-        "publicVersion": "Harry Potter is a second-year student at Hogwarts."
+        "injection": "From September 1992 through August 1993, the main school-year context aligns with Harry Potter's second year at Hogwarts. Enforce this as a high-priority Context gate for 1992-09-01 to 1993-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "Harry Potter is a second-year student at Hogwarts.",
+        "constraints": [
+          "Apply only when Saga Context matches 1992-09-01 to 1993-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -98,7 +110,8 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     }
   ]
 }

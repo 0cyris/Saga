@@ -10,7 +10,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 86,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.hospital_aftermath",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8190,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8192,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 1",
@@ -77,8 +77,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Lord Voldemort",
@@ -111,15 +111,19 @@
       },
       "content": {
         "fact": "In Year 1, Voldemort is not a public-bodied warlord; he is a hidden, parasitic remnant operating through secrecy, fear, dependence, and obsession with restoration.",
-        "injection": "Write Voldemort in Year 1 as a hidden remnant: cold, commanding, contemptuous, dependent on concealment and intermediaries, and focused on survival and restoration rather than open rule.",
+        "injection": "Write Voldemort in Year 1 as a hidden remnant: cold, commanding, contemptuous, dependent on concealment and intermediaries, and focused on survival and restoration rather than open rule. Enforce this as a high-priority Context gate for Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not give him the mobility, public authority, or broad operational freedom of his restored body.",
           "Do not reveal his presence to ordinary characters before separate reveal lore permits it.",
           "Keep host identity, Stone plot details, and confrontation outcomes in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Year 1 Voldemort as openly leading Death Eaters in person."
+          "Do not write Year 1 Voldemort as openly leading Death Eaters in person.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -166,7 +170,17 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -175,7 +189,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 86,
       "injectableByDefault": true,
@@ -183,7 +197,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -192,8 +206,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.hospital_aftermath",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8190,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8192,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 1",
@@ -242,8 +256,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Quirinus Quirrell",
@@ -281,10 +295,14 @@
           "Ordinary students should not automatically perceive his hidden agenda.",
           "Keep his secret allegiance, possession state, and death outcome in separate dated entries.",
           "His classroom presence should be unimpressive rather than flamboyantly villainous.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write public-facing Quirrell as openly confident, sinister, or self-revealing from the start."
+          "Do not write public-facing Quirrell as openly confident, sinister, or self-revealing from the start.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -331,7 +349,17 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:quirinus-quirrell",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     }
   ]
 }

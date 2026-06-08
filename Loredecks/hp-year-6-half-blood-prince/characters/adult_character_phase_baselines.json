@@ -10,7 +10,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 86,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,7 +27,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.funeral",
-        "sortKeyFrom": 9740,
+        "sortKeyFrom": 9735,
         "sortKeyTo": 10042,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -79,8 +79,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Albus Dumbledore",
@@ -114,15 +114,19 @@
       },
       "content": {
         "fact": "In Year 6, Dumbledore is more urgent, selective, and physically diminished, but still measured, cryptic, and controlled in how he trains or directs others.",
-        "injection": "Write Dumbledore as his Year 6 self: older and more urgent, still composed and dryly humorous, selectively mentoring, physically diminished, and unusually careful about what he reveals.",
+        "injection": "Write Dumbledore as his Year 6 self: older and more urgent, still composed and dryly humorous, selectively mentoring, physically diminished, and unusually careful about what he reveals. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He may be more direct about preparation and danger, but should still ration information deliberately.",
           "Do not make him emotionally casual, fully transparent, or free of physical cost in this phase.",
           "Keep exact injury causes, Horcrux details, death arrangements, and event outcomes in separate dated or hidden lore entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Year 6 Dumbledore as either fully healthy early-canon Dumbledore or a helpless invalid."
+          "Do not write Year 6 Dumbledore as either fully healthy early-canon Dumbledore or a helpless invalid.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -170,7 +174,16 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -179,7 +192,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 86,
       "injectableByDefault": true,
@@ -187,7 +200,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -196,8 +209,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.horcrux_hunt_decision",
-        "sortKeyFrom": 9740,
-        "sortKeyTo": 10104,
+        "sortKeyFrom": 9735,
+        "sortKeyTo": 10042,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 6",
@@ -248,9 +261,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Severus Snape",
@@ -285,15 +298,19 @@
       },
       "content": {
         "fact": "In Year 6, Snape finally occupies the Defense post: still controlled and sardonic, but more overtly authoritative, dangerous, and comfortable with Dark Arts theory than in ordinary Potions lessons.",
-        "injection": "Write Snape as his Year 6 Defense-professor self: precise, severe, intellectually confident about defensive and dark magic, still emotionally opaque and hostile to casual familiarity.",
+        "injection": "Write Snape as his Year 6 Defense-professor self: precise, severe, intellectually confident about defensive and dark magic, still emotionally opaque and hostile to casual familiarity. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should not become gregarious because his subject changes; his authority sharpens rather than softens.",
           "Do not make him openly explain hidden loyalties, private bargains, or Half-Blood Prince identity unless separate dated lore permits it.",
           "Keep class-role behavior distinct from later Headmaster behavior under occupation.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Year 6 Snape as either a trusted mentor or a transparently villainous caricature without story support."
+          "Do not write Year 6 Snape as either a trusted mentor or a transparently villainous caricature without story support.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -341,7 +358,15 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     }
   ]
 }

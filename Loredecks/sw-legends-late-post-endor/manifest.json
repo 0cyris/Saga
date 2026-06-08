@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "sw-legends-late-post-endor",
+  "type": "bundled",
+  "title": "Star Wars Legends: Late Post-Endor",
+  "description": "Late post-Endor Legends deck covering Dark Nest, Legacy of the Force, Fate of the Jedi, Abeloth/Lost Tribe material, Caedus-era family rupture, and Crucible-era transition guards.",
+  "fandom": "Star Wars",
+  "era": "Late Post-Endor / Dark Nest to Crucible",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "1.1.0-dev",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-08",
+  "databaseId": "saga.sw-legends-late-post-endor",
+  "deckFamilyId": "sw-legends",
+  "family": {
+    "id": "sw-legends",
+    "title": "Star Wars Legends",
+    "role": "era",
+    "recommendedCoreDeckId": "sw-legends-core"
+  },
+  "recommendedStack": [
+    "sw-legends-core",
+    "sw-legends-film-spine",
+    "sw-legends-new-republic",
+    "sw-legends-new-jedi-order"
+  ],
+  "library": {
+    "suggestedPath": [
+      "Star Wars",
+      "Legends"
+    ],
+    "familyOrder": 80
+  },
+  "tags": [
+    "fandom:star-wars",
+    "continuity:legends",
+    "structure:split-loredeck",
+    "quality:draft",
+    "scope:era",
+    "scope:late-post-endor"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "star-wars-legends",
+    "canonTier": "legends",
+    "adaptation": "mixed",
+    "medium": "novel-comic-reference",
+    "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+    "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "resolver": "resolver.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "characters/late_character_states.json",
+    "characters/late_secondary_character_states.json",
+    "events/dark_nest_and_swarm_war.json",
+    "events/fate_of_the_jedi_and_crucible.json",
+    "events/legacy_of_the_force_caedus_war.json",
+    "factions/late_faction_states.json",
+    "items/late_items_and_force_techniques.json",
+    "knowledge/late_context_anchors.json",
+    "knowledge/late_future_guards.json",
+    "locations/late_locations.json",
+    "relationships/late_relationship_states.json",
+    "rules/late_scene_constraints.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 1,
+    "sagaSchemaMax": 1
+  },
+  "stats": {
+    "entryCount": 139,
+    "categoryCounts": {
+      "character": 27,
+      "event": 31,
+      "faction": 14,
+      "item": 2,
+      "knowledge": 20,
+      "location": 6,
+      "relationship": 12,
+      "rule": 16,
+      "secret": 1,
+      "timeline": 10
+    },
+    "timelineAnchorCount": 25,
+    "timelineWindowCount": 20,
+    "tagCount": 108,
+    "entityCount": 53,
+    "timelinePhaseCount": 9
+  },
+  "updatedAt": 1780876800000,
+  "generatedBy": {
+    "curationPass": {
+      "name": "timeline-control-review",
+      "version": "1.1.0-dev",
+      "date": "2026-06-08",
+      "notes": "Removed low-value deck-operation Lorecards, tightened model-facing injections, added Context constraints and anti-lore, and normalized schema-supported lorePurpose values."
+    }
+  }
+}

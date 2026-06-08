@@ -10,7 +10,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 35,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.y7.dumbledore_will_bequests",
         "validToAnchor": "hp.y7.bill_fleur_wedding",
         "sortKeyFrom": 10074,
-        "sortKeyTo": 10084,
+        "sortKeyTo": 10087,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -65,7 +65,15 @@
       },
       "content": {
         "fact": "The Ministry is under Voldemort-aligned control.",
-        "injection": "The Ministry is under Voldemort-aligned control."
+        "injection": "The Ministry is under Voldemort-aligned control. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -100,7 +108,16 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -109,7 +126,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 35,
       "injectableByDefault": true,
@@ -117,7 +134,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -126,8 +143,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
-        "sortKeyTo": 10358,
+        "sortKeyFrom": 10344,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -164,7 +181,15 @@
       },
       "content": {
         "fact": "Voldemort is defeated and many war losses are known.",
-        "injection": "Voldemort is defeated and many war losses are known."
+        "injection": "Voldemort is defeated and many war losses are known. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -192,7 +217,16 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     }
   ]
 }

@@ -10,19 +10,32 @@
       "kind": "place_fact",
       "gateType": "place_fact",
       "category": "location",
-      "relevance": "low",
+      "relevance": "high",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "place:hogwarts",
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
         "institution:school",
+        "place:azkaban",
+        "place:hogwarts",
         "place:hogwarts-castle",
-        "role:student"
+        "role:student",
+        "topic:deathly-hallows"
       ],
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -103,8 +116,16 @@
       },
       "content": {
         "fact": "Hogwarts is the central British wizarding school setting during the canon school years, with students sorted into houses and governed by school rules, staff, and magical protections.",
-        "injection": "Hogwarts is the central British wizarding school setting during the canon school years, with students sorted into houses and governed by school rules, staff, and magical protections.",
-        "publicVersion": "Hogwarts is Britain's major wizarding school."
+        "injection": "Hogwarts is the central British wizarding school setting during the canon school years, with students sorted into houses and governed by school rules, staff, and magical protections. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "Hogwarts is Britain's major wizarding school.",
+        "constraints": [
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -112,7 +133,8 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     },
     {
       "schemaVersion": 3,
@@ -121,19 +143,29 @@
       "kind": "place_fact",
       "gateType": "place_fact",
       "category": "location",
-      "relevance": "low",
+      "relevance": "high",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:prisoner-of-azkaban",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
         "place:hogsmeade",
+        "place:hogwarts",
         "place:village",
         "role:student",
-        "place:hogwarts"
+        "topic:deathly-hallows"
       ],
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -199,8 +231,16 @@
       },
       "content": {
         "fact": "Hogsmeade is the wizarding village near Hogwarts that students may visit under school rules when permitted.",
-        "injection": "Hogsmeade is the wizarding village near Hogwarts that students may visit under school rules when permitted.",
-        "publicVersion": "Hogsmeade is a nearby wizarding village associated with student visits."
+        "injection": "Hogsmeade is the wizarding village near Hogwarts that students may visit under school rules when permitted. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "Hogsmeade is a nearby wizarding village associated with student visits.",
+        "constraints": [
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -208,7 +248,8 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     },
     {
       "schemaVersion": 3,
@@ -217,19 +258,28 @@
       "kind": "place_fact",
       "gateType": "place_fact",
       "category": "location",
-      "relevance": "low",
+      "relevance": "high",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
+        "book:deathly-hallows",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "character:dolores-umbridge",
+        "character:ron-weasley",
+        "era:golden-trio",
         "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
         "institution:government",
         "institution:law",
-        "place:britain"
+        "place:britain",
+        "topic:deathly-hallows"
       ],
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -322,8 +372,16 @@
       },
       "content": {
         "fact": "The Ministry of Magic is the main British wizarding government authority and strongly affects public policy, law enforcement, and school politics during the later canon years.",
-        "injection": "The Ministry of Magic is the main British wizarding government authority and strongly affects public policy, law enforcement, and school politics during the later canon years.",
-        "publicVersion": "The Ministry governs British wizarding public life."
+        "injection": "The Ministry of Magic is the main British wizarding government authority and strongly affects public policy, law enforcement, and school politics during the later canon years. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "The Ministry governs British wizarding public life.",
+        "constraints": [
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -331,7 +389,8 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     }
   ]
 }

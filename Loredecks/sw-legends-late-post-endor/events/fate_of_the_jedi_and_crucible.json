@@ -1,0 +1,2024 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_luke_exile_political_context",
+      "title": "Luke Exile Political Context",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.fotj_outcast",
+        "validToAnchor": "sw.late.fotj_outcast",
+        "sortKeyFrom": 47000,
+        "sortKeyTo": 47000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Fate of the Jedi Begins / Outcast",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Ben Skywalker",
+          "Natasi Daala"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "government",
+          "jedi"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:ben-skywalker",
+          "sw-character:natasi-daala",
+          "sw-location:coruscant",
+          "sw-faction:galactic-alliance",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:luke-skywalker",
+        "character:ben-skywalker",
+        "character:natasi-daala",
+        "location:coruscant",
+        "faction:galactic-alliance",
+        "faction:jedi-order",
+        "topic:government",
+        "topic:jedi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Ben Skywalker",
+            "Natasi Daala"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "government",
+            "jedi"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "After the Caedus crisis, Luke accepts exile as part of a political arrangement over Jedi accountability.",
+        "injection": "At FOTJ opening, Luke is not simply wandering; his exile is tied to political fallout over Jacen and the Jedi.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Fate of the Jedi Begins / Outcast.",
+          "Respect story-position bounds from Fate of the Jedi Begins / Outcast to Fate of the Jedi Begins / Outcast."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_ben_luke_investigate_jacen_path",
+      "title": "Luke and Ben Investigate Jacen’s Path",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.luke_ben_exile",
+        "validToAnchor": "sw.late.luke_ben_exile",
+        "sortKeyFrom": 47200,
+        "sortKeyTo": 47200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke and Ben Exile Journey",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Ben Skywalker",
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "force",
+          "family",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:ben-skywalker",
+          "sw-character:jacen-solo",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:luke-skywalker",
+        "character:ben-skywalker",
+        "character:jacen-solo",
+        "faction:jedi-order",
+        "topic:force",
+        "topic:family",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Ben Skywalker",
+            "Jacen Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "force",
+            "family",
+            "knowledge gate"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Luke and Ben investigate Jacen’s earlier Force journey to understand what pushed him toward Caedus.",
+        "injection": "During Luke/Ben exile scenes, connect their travels to Jacen’s pre-Caedus path and unresolved Force mysteries.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke and Ben Exile Journey.",
+          "Respect story-position bounds from Luke and Ben Exile Journey to Luke and Ben Exile Journey."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_jedi_psychosis_active",
+      "title": "Jedi Psychosis Active",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.jedi_psychosis",
+        "validToAnchor": "sw.late.jedi_psychosis",
+        "sortKeyFrom": 47500,
+        "sortKeyTo": 47500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jedi Psychosis Crisis",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Ben Skywalker"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "force",
+          "medical",
+          "government"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:ben-skywalker",
+          "sw-location:coruscant",
+          "sw-faction:jedi-order",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:luke-skywalker",
+        "character:ben-skywalker",
+        "location:coruscant",
+        "faction:jedi-order",
+        "faction:galactic-alliance",
+        "topic:force",
+        "topic:medical",
+        "topic:government"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Ben Skywalker"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "force",
+            "medical",
+            "government"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Some young Jedi suffer dangerous breaks from reality tied to hidden Force disturbances and Abeloth’s influence.",
+        "injection": "During FOTJ psychosis arcs, do not treat affected Jedi as merely rebellious; use genuine altered perception and danger.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Psychosis Crisis.",
+          "Respect story-position bounds from Jedi Psychosis Crisis to Jedi Psychosis Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_daala_jedi_conflict",
+      "title": "Daala Conflicts With Jedi Order",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.jedi_psychosis",
+        "validToAnchor": "sw.late.jedi_psychosis",
+        "sortKeyFrom": 47500,
+        "sortKeyTo": 47500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jedi Psychosis Crisis",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Natasi Daala",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "politics",
+          "government"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:natasi-daala",
+          "sw-character:luke-skywalker",
+          "sw-location:coruscant",
+          "sw-faction:galactic-alliance",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:natasi-daala",
+        "character:luke-skywalker",
+        "location:coruscant",
+        "faction:galactic-alliance",
+        "faction:jedi-order",
+        "topic:politics",
+        "topic:government"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Natasi Daala",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "politics",
+            "government"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Chief of State Daala pressures, arrests, and politically constrains the Jedi Order during the Fate of the Jedi crisis.",
+        "injection": "In early FOTJ, write Daala-Jedi conflict as an institutional standoff, not simple personal dislike. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Psychosis Crisis.",
+          "Respect story-position bounds from Jedi Psychosis Crisis to Jedi Psychosis Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_lost_tribe_not_known_before_emergence",
+      "title": "Lost Tribe Hidden Before Emergence",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.lost_tribe_emerges",
+        "validToAnchor": "sw.late.lost_tribe_emerges",
+        "sortKeyFrom": 48000,
+        "sortKeyTo": 48000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Lost Tribe of the Sith Emerges",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Vestara Khai"
+        ],
+        "locations": [
+          "Kesh"
+        ],
+        "topics": [
+          "future guard",
+          "sith",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Lost Tribe of the Sith"
+        ],
+        "entityIds": [
+          "sw-character:vestara-khai",
+          "sw-location:kesh",
+          "sw-faction:lost-tribe-of-the-sith"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:vestara-khai",
+        "location:kesh",
+        "faction:lost-tribe-of-the-sith",
+        "topic:future-guard",
+        "topic:sith",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Vestara Khai"
+          ],
+          "locationsAny": [
+            "Kesh"
+          ],
+          "topicsAny": [
+            "future guard",
+            "sith",
+            "knowledge gate"
+          ],
+          "factionsAny": [
+            "Lost Tribe of the Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "The Lost Tribe of the Sith should not be known to the galaxy before its Fate of the Jedi emergence.",
+        "injection": "Before the Lost Tribe emerges, do not inject Kesh Sith knowledge into ordinary galactic scenes. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Lost Tribe of the Sith Emerges.",
+          "Respect story-position bounds from Lost Tribe of the Sith Emerges to Lost Tribe of the Sith Emerges."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_vestara_khai_bridge_character",
+      "title": "Vestara Khai Bridge Character",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.lost_tribe_emerges",
+        "validToAnchor": "sw.late.lost_tribe_emerges",
+        "sortKeyFrom": 48000,
+        "sortKeyTo": 48000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Lost Tribe of the Sith Emerges",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Vestara Khai",
+          "Ben Skywalker"
+        ],
+        "locations": [
+          "Kesh"
+        ],
+        "topics": [
+          "relationship",
+          "sith"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Lost Tribe of the Sith",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:vestara-khai",
+          "sw-character:ben-skywalker",
+          "sw-location:kesh",
+          "sw-faction:lost-tribe-of-the-sith",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:vestara-khai",
+        "character:ben-skywalker",
+        "location:kesh",
+        "faction:lost-tribe-of-the-sith",
+        "faction:jedi-order",
+        "topic:relationship",
+        "topic:sith"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Vestara Khai",
+            "Ben Skywalker"
+          ],
+          "locationsAny": [
+            "Kesh"
+          ],
+          "topicsAny": [
+            "relationship",
+            "sith"
+          ],
+          "factionsAny": [
+            "Lost Tribe of the Sith",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Vestara Khai functions as a bridge between the Lost Tribe, Sith culture, Ben Skywalker, and the wider galactic conflict.",
+        "injection": "When Vestara is present, use her as morally unstable cross-faction contact, not a generic Sith apprentice. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Lost Tribe of the Sith Emerges.",
+          "Respect story-position bounds from Lost Tribe of the Sith Emerges to Lost Tribe of the Sith Emerges."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_abeloth_reveal_gate",
+      "title": "Abeloth Reveal Gate",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.abeloth_revealed",
+        "validToAnchor": "sw.late.abeloth_revealed",
+        "sortKeyFrom": 49000,
+        "sortKeyTo": 49000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Abeloth Revealed",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Abeloth",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "force",
+          "secret",
+          "spoiler guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Lost Tribe of the Sith",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:abeloth",
+          "sw-character:luke-skywalker",
+          "sw-faction:lost-tribe-of-the-sith",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:abeloth",
+        "character:luke-skywalker",
+        "faction:lost-tribe-of-the-sith",
+        "faction:jedi-order",
+        "topic:force",
+        "topic:secret",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Abeloth",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "force",
+            "secret",
+            "spoiler guard"
+          ],
+          "factionsAny": [
+            "Lost Tribe of the Sith",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Abeloth is a major supernatural Force threat revealed during Fate of the Jedi, not a baseline Star Wars entity known in earlier eras.",
+        "injection": "Do not expose Abeloth knowledge before the FOTJ reveal window; after reveal, treat her as cosmic-scale, deceptive, and difficult to destroy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Abeloth Revealed.",
+          "Respect story-position bounds from Abeloth Revealed to Abeloth Revealed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_mind_walking_constraint",
+      "title": "Mind-Walking Constraint",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.abeloth_revealed",
+        "validToAnchor": "sw.late.abeloth_revealed",
+        "sortKeyFrom": 49000,
+        "sortKeyTo": 49000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Abeloth Revealed",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Ben Skywalker",
+          "Abeloth"
+        ],
+        "locations": [],
+        "topics": [
+          "force",
+          "rule constraint"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:ben-skywalker",
+          "sw-character:abeloth",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:luke-skywalker",
+        "character:ben-skywalker",
+        "character:abeloth",
+        "faction:jedi-order",
+        "topic:force",
+        "topic:rule-constraint"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Ben Skywalker",
+            "Abeloth"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "force",
+            "rule constraint"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "FOTJ uses mind-walking/beyond-shadows Force states as dangerous metaphysical investigation, not casual Jedi meditation.",
+        "injection": "When mind-walking appears, frame it as high-risk esoteric Force activity connected to Abeloth/Jacen mysteries.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Abeloth Revealed.",
+          "Respect story-position bounds from Abeloth Revealed to Abeloth Revealed."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_lost_tribe_coruscant_infiltration",
+      "title": "Lost Tribe Coruscant Infiltration",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.coruscant_sith_alliance",
+        "validToAnchor": "sw.late.coruscant_sith_alliance",
+        "sortKeyFrom": 50000,
+        "sortKeyTo": 50000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Coruscant Sith Infiltration",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Vestara Khai",
+          "Abeloth"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "sith",
+          "infiltration"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Lost Tribe of the Sith",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:vestara-khai",
+          "sw-character:abeloth",
+          "sw-location:coruscant",
+          "sw-faction:lost-tribe-of-the-sith",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:vestara-khai",
+        "character:abeloth",
+        "location:coruscant",
+        "faction:lost-tribe-of-the-sith",
+        "faction:galactic-alliance",
+        "topic:sith",
+        "topic:infiltration"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Vestara Khai",
+            "Abeloth"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "sith",
+            "infiltration"
+          ],
+          "factionsAny": [
+            "Lost Tribe of the Sith",
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "The Lost Tribe’s presence on Coruscant turns Sith politics into a direct capital threat during the Abeloth crisis.",
+        "injection": "In Coruscant Sith Infiltration, late FOTJ Coruscant scenes can include Sith infiltration, maneuvering, and public crisis pressure. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Coruscant Sith Infiltration.",
+          "Respect story-position bounds from Coruscant Sith Infiltration to Coruscant Sith Infiltration."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_abeloth_not_cleanly_conventional_enemy",
+      "title": "Abeloth Not Conventional Enemy",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.apocalypse_endgame",
+        "validToAnchor": "sw.late.apocalypse_endgame",
+        "sortKeyFrom": 51000,
+        "sortKeyTo": 51000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Apocalypse Endgame",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Abeloth",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "force",
+          "rule constraint"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Lost Tribe of the Sith"
+        ],
+        "entityIds": [
+          "sw-character:abeloth",
+          "sw-character:luke-skywalker",
+          "sw-faction:jedi-order",
+          "sw-faction:lost-tribe-of-the-sith"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:abeloth",
+        "character:luke-skywalker",
+        "faction:jedi-order",
+        "faction:lost-tribe-of-the-sith",
+        "topic:force",
+        "topic:rule-constraint"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Abeloth",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "force",
+            "rule constraint"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Lost Tribe of the Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Abeloth cannot be treated as a normal Sith Lord, warlord, or kill-once battlefield opponent.",
+        "injection": "During Abeloth context, make her threat metaphysical, deceptive, recurring, and hard to confirm as destroyed. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Apocalypse Endgame.",
+          "Respect story-position bounds from Apocalypse Endgame to Apocalypse Endgame."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_fotj_endgame_not_disney_sequel_state",
+      "title": "FOTJ Endgame Does Not Create Disney Sequel State",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.apocalypse_endgame",
+        "validToAnchor": "sw.late.apocalypse_endgame",
+        "sortKeyFrom": 51000,
+        "sortKeyTo": 51000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Apocalypse Endgame",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa Solo",
+          "Han Solo",
+          "Ben Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "continuity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:leia-organa-solo",
+          "sw-character:han-solo",
+          "sw-character:ben-skywalker",
+          "sw-faction:jedi-order",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:luke-skywalker",
+        "character:leia-organa-solo",
+        "character:han-solo",
+        "character:ben-skywalker",
+        "faction:jedi-order",
+        "faction:galactic-alliance",
+        "topic:future-guard",
+        "topic:continuity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa Solo",
+            "Han Solo",
+            "Ben Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "future guard",
+            "continuity"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "After Fate of the Jedi, Legends does not transition into the Disney sequel trilogy political/family state.",
+        "injection": "Post-FOTJ Legends scenes should not introduce Ben Solo, Rey, First Order, or Disney sequel outcomes unless an explicit crossover deck is active.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Apocalypse Endgame.",
+          "Respect story-position bounds from Apocalypse Endgame to Apocalypse Endgame."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_crucible_big_three_transition",
+      "title": "Crucible Big Three Transition",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.crucible",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 53000,
+        "sortKeyTo": 53000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Crucible / Big Three Transition",
+        "phase": "Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Han Solo",
+          "Leia Organa Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "postwar",
+          "family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:han-solo",
+          "sw-character:leia-organa-solo",
+          "sw-faction:jedi-order",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:crucible",
+        "character:luke-skywalker",
+        "character:han-solo",
+        "character:leia-organa-solo",
+        "faction:jedi-order",
+        "faction:galactic-alliance",
+        "topic:postwar",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Han Solo",
+            "Leia Organa Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "postwar",
+            "family"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Crucible operates as a late Legends transition for Luke, Han, and Leia after decades of galactic crises.",
+        "injection": "In Crucible-era scenes, the Big Three are veterans carrying accumulated scars, not reset OT-era adventurers. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Crucible / Big Three Transition.",
+          "Respect story-position bounds from Crucible / Big Three Transition to Crucible / Big Three Transition."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_far_future_legacy_guard",
+      "title": "Far-Future Legacy Comics Guard",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.legacy_comics_threshold",
+        "validToAnchor": "sw.late.legacy_comics_threshold",
+        "sortKeyFrom": 100000,
+        "sortKeyTo": 100000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Far-Future Legacy Threshold",
+        "phase": "Legacy Comics Future Guard",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "continuity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "One Sith"
+        ],
+        "entityIds": [
+          "sw-faction:one-sith"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-comics-future-guard",
+        "faction:one-sith",
+        "topic:future-guard",
+        "topic:continuity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "future guard",
+            "continuity"
+          ],
+          "factionsAny": [
+            "One Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "The Cade Skywalker / One Sith Legacy comics era is far future relative to this deck and should not leak into late-post-Endor scenes by default.",
+        "injection": "In Far-Future Legacy Threshold, unless the Legacy comics deck is active, block far-future Cade Skywalker and Darth Krayt era facts from late-post-Endor play.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Far-Future Legacy Threshold.",
+          "Respect story-position bounds from Far-Future Legacy Threshold to Far-Future Legacy Threshold."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_jedi_trial_political_theater",
+      "title": "Jedi Trial Political Theater",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.fotj_outcast",
+        "validToAnchor": "sw.late.apocalypse_endgame",
+        "sortKeyFrom": 47000,
+        "sortKeyTo": 51000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Fate of the Jedi / Abeloth crisis",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Natasi Daala"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "government",
+          "jedi"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:natasi-daala",
+          "sw-location:coruscant",
+          "sw-faction:galactic-alliance",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:natasi-daala",
+        "location:coruscant",
+        "faction:galactic-alliance",
+        "faction:jedi-order",
+        "topic:government",
+        "topic:jedi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Natasi Daala"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "government",
+            "jedi"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "FOTJ-era Jedi legal pressure often functions as political theater as well as law.",
+        "injection": "When Jedi are detained or tried in FOTJ, include public legitimacy pressure and anti-Jedi optics. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Fate of the Jedi / Abeloth crisis.",
+          "Respect story-position bounds from Fate of the Jedi Begins / Outcast to Apocalypse Endgame."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_abeloth_identity_deception",
+      "title": "Abeloth Identity Deception",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lost_tribe_emerges",
+        "validToAnchor": "sw.late.apocalypse_endgame",
+        "sortKeyFrom": 48000,
+        "sortKeyTo": 51000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Lost Tribe and Abeloth crisis",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Abeloth"
+        ],
+        "locations": [],
+        "topics": [
+          "force",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:abeloth"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:abeloth",
+        "topic:force",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Abeloth"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "force",
+            "secret"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Abeloth uses deception, possession-like presentation, and identity confusion rather than straightforward conquest alone.",
+        "injection": "When Abeloth operates, make deception, false faces, possession-like presentation, and identity confusion part of the threat; do not portray her as only a straightforward battlefield enemy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Lost Tribe and Abeloth crisis.",
+          "Respect story-position bounds from Lost Tribe of the Sith Emerges to Apocalypse Endgame."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_lost_tribe_jedi_alliance_unstable",
+      "title": "Lost Tribe-Jedi Alliance Unstable",
+      "kind": "relationship_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lost_tribe_emerges",
+        "validToAnchor": "sw.late.apocalypse_endgame",
+        "sortKeyFrom": 48000,
+        "sortKeyTo": 51000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Lost Tribe and Abeloth crisis",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Vestara Khai",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "sith",
+          "relationship"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Lost Tribe of the Sith",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:vestara-khai",
+          "sw-character:luke-skywalker",
+          "sw-faction:lost-tribe-of-the-sith",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:vestara-khai",
+        "character:luke-skywalker",
+        "faction:lost-tribe-of-the-sith",
+        "faction:jedi-order",
+        "topic:sith",
+        "topic:relationship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Vestara Khai",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "sith",
+            "relationship"
+          ],
+          "factionsAny": [
+            "Lost Tribe of the Sith",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Temporary Jedi/Lost Tribe cooperation against Abeloth remains unstable and dangerous.",
+        "injection": "If Jedi and Lost Tribe cooperate, keep betrayal risk and incompatible values active. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Lost Tribe and Abeloth crisis.",
+          "Respect story-position bounds from Lost Tribe of the Sith Emerges to Apocalypse Endgame."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_ben_vestara_not_final_resolution",
+      "title": "Ben-Vestara Not Final Resolution",
+      "kind": "future_guard",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lost_tribe_emerges",
+        "validToAnchor": "sw.late.apocalypse_endgame",
+        "sortKeyFrom": 48000,
+        "sortKeyTo": 51000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Lost Tribe and Abeloth crisis",
+        "phase": "Fate of the Jedi",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ben Skywalker",
+          "Vestara Khai"
+        ],
+        "locations": [],
+        "topics": [
+          "relationship",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Lost Tribe of the Sith"
+        ],
+        "entityIds": [
+          "sw-character:ben-skywalker",
+          "sw-character:vestara-khai",
+          "sw-faction:jedi-order",
+          "sw-faction:lost-tribe-of-the-sith"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:fate-of-the-jedi",
+        "character:ben-skywalker",
+        "character:vestara-khai",
+        "faction:jedi-order",
+        "faction:lost-tribe-of-the-sith",
+        "topic:relationship",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ben Skywalker",
+            "Vestara Khai"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "relationship",
+            "future guard"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Lost Tribe of the Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Ben and Vestara’s connection does not automatically resolve into stable partnership by default.",
+        "injection": "Avoid treating Ben/Vestara as clean endgame romance unless the user branch declares that outcome.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Lost Tribe and Abeloth crisis.",
+          "Respect story-position bounds from Lost Tribe of the Sith Emerges to Apocalypse Endgame."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "sw-legends-rebellion-era",
+  "type": "bundled",
+  "title": "Star Wars Legends: Rebellion Era",
+  "description": "Legends-compatible Galactic Civil War era deck focused on Original Trilogy story state, Rebel/Imperial pressure, ESB-to-ROTJ windows, Shadows-adjacent Legends support, and spoiler-safe future guards.",
+  "fandom": "Star Wars",
+  "era": "Rebellion Era: Original Trilogy",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "1.1.0-dev",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-08",
+  "databaseId": "saga.sw-legends-rebellion-era",
+  "deckFamilyId": "sw-legends",
+  "family": {
+    "id": "sw-legends",
+    "title": "Star Wars Legends",
+    "role": "era",
+    "recommendedCoreDeckId": "sw-legends-core"
+  },
+  "recommendedStack": [
+    "sw-legends-core"
+  ],
+  "library": {
+    "suggestedPath": [
+      "Star Wars",
+      "Legends"
+    ],
+    "familyOrder": 50
+  },
+  "tags": [
+    "fandom:star-wars",
+    "continuity:legends",
+    "structure:split-loredeck",
+    "quality:draft",
+    "scope:era"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "star-wars-legends",
+    "canonTier": "legends",
+    "adaptation": "mixed",
+    "medium": "film-novel-comic-game",
+    "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+    "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "resolver": "resolver.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "characters/rebellion_character_states.json",
+    "characters/rebellion_relationship_states.json",
+    "events/a_new_hope_yavin_crisis.json",
+    "events/after_empire_before_return_shadows.json",
+    "events/hoth_bespin_esb.json",
+    "events/return_of_the_jedi_endor.json",
+    "events/yavin_to_hoth_campaign.json",
+    "factions/rebellion_faction_states.json",
+    "items/rebellion_items_technology.json",
+    "knowledge/rebellion_future_guards.json",
+    "locations/rebellion_locations.json",
+    "rules/rebellion_scene_constraints.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 148,
+    "categoryCounts": {
+      "character": 46,
+      "event": 25,
+      "faction": 13,
+      "item": 16,
+      "knowledge": 16,
+      "location": 10,
+      "relationship": 10,
+      "rule": 4,
+      "secret": 8
+    },
+    "timelineAnchorCount": 30,
+    "timelineWindowCount": 15,
+    "tagCount": 145,
+    "entityCount": 47,
+    "timelinePhaseCount": 5
+  },
+  "generatedBy": {
+    "tool": "ChatGPT",
+    "workflow": "Saga Loredeck Creator staged workflow",
+    "reviewStatus": "draft",
+    "notes": "Expanded v0.4.0-dev Rebellion Era pass.",
+    "curationPass": {
+      "name": "timeline-control-review",
+      "version": "1.1.0-dev",
+      "date": "2026-06-08",
+      "notes": "Removed low-value deck-operation Lorecards, tightened model-facing injections, added Context constraints and anti-lore, and normalized schema-supported lorePurpose values."
+    }
+  },
+  "updatedAt": 1780876800000
+}

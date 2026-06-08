@@ -1,0 +1,426 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Episode I-VI story-position phrasing for the Star Wars Legends film spine.",
+  "preferredFields": [
+    "film",
+    "beforeAfter",
+    "majorEvent",
+    "era"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Use known Episode I-VI anchors and windows. Prefer before/after film or major-event windows over invented BBY/ABY dates. Reject Disney sequel and post-Endor EU guesses unless a matching active deck provides candidates. Prefer story-position anchors and windows over raw BBY/ABY dates; never invent timeline anchors outside this deck registry.",
+  "localPatterns": [
+    {
+      "pattern": "after empire before return",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.esb_han_frozen",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back, before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "between empire and jedi",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.esb_han_frozen",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back, before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "post esb pre rotj",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.esb_han_frozen",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back, before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "after bespin before jabba",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.esb_han_frozen",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back, before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "after empire, before return",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.esb_han_frozen",
+        "anchorTo": "sw.film.episode_6_rotj",
+        "label": "After The Empire Strikes Back, before Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "after a new hope before empire",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.anh_yavin_victory",
+        "anchorTo": "sw.film.episode_5_esb",
+        "label": "After A New Hope, before The Empire Strikes Back"
+      }
+    },
+    {
+      "pattern": "after yavin before hoth",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.anh_yavin_victory",
+        "anchorTo": "sw.film.episode_5_esb",
+        "label": "After A New Hope, before The Empire Strikes Back"
+      }
+    },
+    {
+      "pattern": "during clone wars",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.aotc_clone_wars_begin",
+        "anchorTo": "sw.film.episode_3_rots",
+        "label": "After Attack of the Clones, before Revenge of the Sith"
+      }
+    },
+    {
+      "pattern": "after revenge before a new hope",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.rots_vader_armored",
+        "anchorTo": "sw.film.episode_4_anh",
+        "label": "After Revenge of the Sith, before A New Hope"
+      }
+    },
+    {
+      "pattern": "after order 66 before a new hope",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.rots_order66",
+        "anchorTo": "sw.film.episode_4_anh",
+        "label": "After Order 66, before A New Hope"
+      }
+    },
+    {
+      "pattern": "post endor",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.film.rotj_emperor_defeated",
+        "anchorTo": "sw.legends.post_endor_begins",
+        "label": "After Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "episode i: the phantom menace",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_1_tpm",
+        "label": "Episode I: The Phantom Menace"
+      }
+    },
+    {
+      "pattern": "episode 1",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_1_tpm",
+        "label": "Episode I: The Phantom Menace"
+      }
+    },
+    {
+      "pattern": "episode i",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_1_tpm",
+        "label": "Episode I: The Phantom Menace"
+      }
+    },
+    {
+      "pattern": "episode i: the phantom menace",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_1_tpm",
+        "label": "Episode I: The Phantom Menace"
+      }
+    },
+    {
+      "pattern": "episode ii: attack of the clones",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_2_aotc",
+        "label": "Episode II: Attack of the Clones"
+      }
+    },
+    {
+      "pattern": "aotc",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_2_aotc",
+        "label": "Episode II: Attack of the Clones"
+      }
+    },
+    {
+      "pattern": "attack of the clones",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_2_aotc",
+        "label": "Episode II: Attack of the Clones"
+      }
+    },
+    {
+      "pattern": "episode 2",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_2_aotc",
+        "label": "Episode II: Attack of the Clones"
+      }
+    },
+    {
+      "pattern": "episode iii: revenge of the sith",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_3_rots",
+        "label": "Episode III: Revenge of the Sith"
+      }
+    },
+    {
+      "pattern": "episode 3",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_3_rots",
+        "label": "Episode III: Revenge of the Sith"
+      }
+    },
+    {
+      "pattern": "episode iii",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_3_rots",
+        "label": "Episode III: Revenge of the Sith"
+      }
+    },
+    {
+      "pattern": "episode iii: revenge of the sith",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_3_rots",
+        "label": "Episode III: Revenge of the Sith"
+      }
+    },
+    {
+      "pattern": "order 66",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.rots_order66",
+        "label": "Order 66"
+      }
+    },
+    {
+      "pattern": "order 66",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.rots_order66",
+        "label": "Order 66"
+      }
+    },
+    {
+      "pattern": "episode iv: a new hope",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_4_anh",
+        "label": "Episode IV: A New Hope"
+      }
+    },
+    {
+      "pattern": "a new hope",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_4_anh",
+        "label": "Episode IV: A New Hope"
+      }
+    },
+    {
+      "pattern": "anh",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_4_anh",
+        "label": "Episode IV: A New Hope"
+      }
+    },
+    {
+      "pattern": "episode 4",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_4_anh",
+        "label": "Episode IV: A New Hope"
+      }
+    },
+    {
+      "pattern": "battle of yavin victory",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.anh_yavin_victory",
+        "label": "Battle of Yavin Victory"
+      }
+    },
+    {
+      "pattern": "after yavin",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.anh_yavin_victory",
+        "label": "Battle of Yavin Victory"
+      }
+    },
+    {
+      "pattern": "battle of yavin",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.anh_yavin_victory",
+        "label": "Battle of Yavin Victory"
+      }
+    },
+    {
+      "pattern": "battle of yavin victory",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.anh_yavin_victory",
+        "label": "Battle of Yavin Victory"
+      }
+    },
+    {
+      "pattern": "episode v: the empire strikes back",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_5_esb",
+        "label": "Episode V: The Empire Strikes Back"
+      }
+    },
+    {
+      "pattern": "empire",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_5_esb",
+        "label": "Episode V: The Empire Strikes Back"
+      }
+    },
+    {
+      "pattern": "empire strikes back",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_5_esb",
+        "label": "Episode V: The Empire Strikes Back"
+      }
+    },
+    {
+      "pattern": "episode 5",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_5_esb",
+        "label": "Episode V: The Empire Strikes Back"
+      }
+    },
+    {
+      "pattern": "han frozen in carbonite",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.esb_han_frozen",
+        "label": "Han Frozen in Carbonite"
+      }
+    },
+    {
+      "pattern": "after bespin",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.esb_han_frozen",
+        "label": "Han Frozen in Carbonite"
+      }
+    },
+    {
+      "pattern": "after empire",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.esb_han_frozen",
+        "label": "Han Frozen in Carbonite"
+      }
+    },
+    {
+      "pattern": "han frozen",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.esb_han_frozen",
+        "label": "Han Frozen in Carbonite"
+      }
+    },
+    {
+      "pattern": "episode vi: return of the jedi",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_6_rotj",
+        "label": "Episode VI: Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "episode 6",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_6_rotj",
+        "label": "Episode VI: Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "episode vi",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_6_rotj",
+        "label": "Episode VI: Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "episode vi: return of the jedi",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.episode_6_rotj",
+        "label": "Episode VI: Return of the Jedi"
+      }
+    },
+    {
+      "pattern": "emperor defeated at endor",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.rotj_emperor_defeated",
+        "label": "Emperor Defeated at Endor"
+      }
+    },
+    {
+      "pattern": "after endor",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.rotj_emperor_defeated",
+        "label": "Emperor Defeated at Endor"
+      }
+    },
+    {
+      "pattern": "emperor defeated at endor",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.rotj_emperor_defeated",
+        "label": "Emperor Defeated at Endor"
+      }
+    },
+    {
+      "pattern": "endor",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.film.rotj_emperor_defeated",
+        "label": "Emperor Defeated at Endor"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

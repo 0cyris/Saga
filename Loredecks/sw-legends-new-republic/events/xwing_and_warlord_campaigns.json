@@ -1,0 +1,1351 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_rogue_squadron_symbolic_liberators",
+      "title": "Rogue Squadron as Symbolic Liberators",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.rogue_squadron_campaigns",
+        "validToAnchor": "sw.nr.rogue_squadron_campaigns",
+        "sortKeyFrom": 8600,
+        "sortKeyTo": 8600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Rogue Squadron New Republic Campaigns",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Wedge Antilles",
+          "Corran Horn"
+        ],
+        "locations": [],
+        "topics": [
+          "pilot",
+          "military logistics"
+        ],
+        "objects": [
+          "X-wing"
+        ],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Rogue Squadron"
+        ]
+      },
+      "tags": [
+        "character:corran-horn",
+        "character:wedge-antilles",
+        "continuity:legends",
+        "event:x-wing-campaigns",
+        "faction:new-republic",
+        "faction:rogue-squadron",
+        "fandom:star-wars",
+        "object:x-wing",
+        "scope:new-republic",
+        "topic:military-logistics",
+        "topic:pilot"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wedge Antilles",
+            "Corran Horn"
+          ],
+          "topicsAny": [
+            "pilot",
+            "military logistics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Rogue Squadron"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Rogue Squadron becomes a high-profile New Republic strike and liberation force during the campaigns to take Imperial-held worlds.",
+        "injection": "Use Rogue Squadron as both tactical pilots and political symbols of liberation in early New Republic military scenes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rogue Squadron New Republic Campaigns.",
+          "Respect story-position bounds from Rogue Squadron New Republic Campaigns to Rogue Squadron New Republic Campaigns."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_wedge_matures_to_commander",
+      "title": "Wedge Matures Into Commander",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.rogue_squadron_campaigns",
+        "validToAnchor": "sw.nr.isard_bacta_war",
+        "sortKeyFrom": 8600,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Rogue Squadron / Coruscant / Bacta War",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Wedge Antilles"
+        ],
+        "locations": [],
+        "topics": [
+          "pilot",
+          "command"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Rogue Squadron",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:wedge-antilles",
+        "continuity:legends",
+        "faction:new-republic",
+        "faction:rogue-squadron",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:command",
+        "topic:pilot"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wedge Antilles"
+          ],
+          "topicsAny": [
+            "pilot",
+            "command"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Rogue Squadron",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Wedge Antilles evolves from elite fighter pilot into a commander responsible for pilots, politics, and strategic outcomes.",
+        "injection": "In New Republic era scenes, Wedge can still fly brilliantly, but his leadership burden should matter. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rogue Squadron / Coruscant / Bacta War.",
+          "Respect story-position bounds from Rogue Squadron New Republic Campaigns to Isard and the Bacta War."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_corran_horn_hidden_force_potential",
+      "title": "Corran Horn Has Hidden Force Potential",
+      "kind": "knowledge_gate",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.rogue_squadron_campaigns",
+        "validToAnchor": "sw.nr.isard_bacta_war",
+        "sortKeyFrom": 8600,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Rogue Squadron / Coruscant / Bacta War",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Corran Horn",
+          "Wedge Antilles",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "force",
+          "pilot",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Rogue Squadron",
+          "CorSec",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:corran-horn",
+        "character:luke-skywalker",
+        "character:wedge-antilles",
+        "continuity:legends",
+        "faction:corsec",
+        "faction:jedi-order",
+        "faction:rogue-squadron",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:force",
+        "topic:knowledge-gate",
+        "topic:pilot"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Corran Horn",
+            "Wedge Antilles",
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "force",
+            "pilot",
+            "knowledge gate"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Rogue Squadron",
+            "CorSec",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Corran Horn is initially framed through CorSec and Rogue Squadron identity before his Jedi heritage and Force potential become active story material.",
+        "injection": "Before his Force path is relevant, write Corran primarily as a pilot/investigator; do not foreground him as a Jedi unless the context reaches that reveal.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rogue Squadron / Coruscant / Bacta War.",
+          "Respect story-position bounds from Rogue Squadron New Republic Campaigns to Isard and the Bacta War."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_coruscant_liberation_not_clean_reset",
+      "title": "Coruscant Liberation Is Not a Clean Reset",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.coruscant_liberated",
+        "validToAnchor": "sw.nr.coruscant_liberated",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Coruscant Liberated",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "government",
+          "espionage",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Galactic Empire"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-empire",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "place:coruscant",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:government",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "government",
+            "espionage",
+            "politics"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Taking Coruscant gives the New Republic the galactic capital, but the planet retains Imperial damage, intrigue, and legitimacy problems.",
+        "injection": "After Coruscant falls to the New Republic, use it as a contested seat of government rather than a magically stabilized capital.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Coruscant Liberated.",
+          "Respect story-position bounds from Coruscant Liberated to Coruscant Liberated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_isard_uses_biological_and_political_warfare",
+      "title": "Isard Uses Biological and Political Warfare",
+      "kind": "objective",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.isard_bacta_war",
+        "validToAnchor": "sw.nr.isard_bacta_war",
+        "sortKeyFrom": 9300,
+        "sortKeyTo": 9300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Isard and the Bacta War",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ysanne Isard",
+          "Wedge Antilles",
+          "Corran Horn"
+        ],
+        "locations": [
+          "Coruscant",
+          "Thyferra"
+        ],
+        "topics": [
+          "espionage",
+          "military logistics"
+        ],
+        "objects": [
+          "Bacta"
+        ],
+        "spells": [],
+        "factions": [
+          "Imperial Intelligence",
+          "New Republic",
+          "Rogue Squadron"
+        ]
+      },
+      "tags": [
+        "character:corran-horn",
+        "character:wedge-antilles",
+        "character:ysanne-isard",
+        "continuity:legends",
+        "faction:imperial-intelligence",
+        "faction:new-republic",
+        "faction:rogue-squadron",
+        "fandom:star-wars",
+        "object:bacta",
+        "place:coruscant",
+        "place:thyferra",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ysanne Isard",
+            "Wedge Antilles",
+            "Corran Horn"
+          ],
+          "topicsAny": [
+            "espionage",
+            "military logistics"
+          ],
+          "locationsAny": [
+            "Coruscant",
+            "Thyferra"
+          ],
+          "factionsAny": [
+            "Imperial Intelligence",
+            "New Republic",
+            "Rogue Squadron"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ysanne Isard weaponizes disease, intelligence control, and political instability to weaken New Republic legitimacy around Coruscant and bacta supply.",
+        "injection": "During the Isard/Bacta War context, treat disease, propaganda, intelligence manipulation, and medical logistics as central pressures.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Isard and the Bacta War.",
+          "Respect story-position bounds from Isard and the Bacta War to Isard and the Bacta War."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_bacta_supply_strategic_resource",
+      "title": "Bacta Is Strategic Infrastructure",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.rogue_squadron_campaigns",
+        "validToAnchor": "sw.nr.isard_bacta_war",
+        "sortKeyFrom": 8600,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Rogue Squadron / Coruscant / Bacta War",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Thyferra"
+        ],
+        "topics": [
+          "military logistics",
+          "government"
+        ],
+        "objects": [
+          "Bacta"
+        ],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "object:bacta",
+        "place:thyferra",
+        "scope:new-republic",
+        "topic:government",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "military logistics",
+            "government"
+          ],
+          "locationsAny": [
+            "Thyferra"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Bacta is not just a healing prop; control of bacta supply affects war casualties, diplomacy, and medical survival.",
+        "injection": "When bacta enters a New Republic scene, treat it as strategic logistics with political and military leverage.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rogue Squadron / Coruscant / Bacta War.",
+          "Respect story-position bounds from Rogue Squadron New Republic Campaigns to Isard and the Bacta War."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_wraith_squadron_irregular_methods",
+      "title": "Wraith Squadron Uses Irregular Methods",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.zsinj_campaign",
+        "validToAnchor": "sw.nr.zsinj_campaign",
+        "sortKeyFrom": 9700,
+        "sortKeyTo": 9700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Zsinj Campaign",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Wedge Antilles"
+        ],
+        "locations": [],
+        "topics": [
+          "commando",
+          "pilot",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Wraith Squadron",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:wedge-antilles",
+        "continuity:legends",
+        "faction:new-republic",
+        "faction:wraith-squadron",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:commando",
+        "topic:espionage",
+        "topic:pilot"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wedge Antilles"
+          ],
+          "topicsAny": [
+            "commando",
+            "pilot",
+            "espionage"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Wraith Squadron",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Wraith Squadron mixes pilots, commandos, misfits, and psychological operations rather than functioning as a normal elite fighter squadron.",
+        "injection": "If Wraith Squadron appears, emphasize infiltration, disguise, improvisation, and damaged but capable personnel.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Zsinj Campaign.",
+          "Respect story-position bounds from Zsinj Campaign to Zsinj Campaign."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_zsinj_is_warlord_not_remnant_head",
+      "title": "Zsinj Is a Warlord, Not the Whole Empire",
+      "kind": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.zsinj_campaign",
+        "validToAnchor": "sw.nr.zsinj_campaign",
+        "sortKeyFrom": 9700,
+        "sortKeyTo": 9700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Zsinj Campaign",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Warlord Zsinj"
+        ],
+        "locations": [],
+        "topics": [
+          "warlord",
+          "fleet"
+        ],
+        "objects": [
+          "Iron Fist"
+        ],
+        "spells": [],
+        "factions": [
+          "Imperial Warlords",
+          "New Republic",
+          "Wraith Squadron"
+        ]
+      },
+      "tags": [
+        "character:warlord-zsinj",
+        "continuity:legends",
+        "faction:imperial-warlords",
+        "faction:new-republic",
+        "faction:wraith-squadron",
+        "fandom:star-wars",
+        "object:iron-fist",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:warlord"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Warlord Zsinj"
+          ],
+          "topicsAny": [
+            "warlord",
+            "fleet"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Warlords",
+            "New Republic",
+            "Wraith Squadron"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Warlord Zsinj controls major forces but represents one Imperial splinter rather than all surviving Imperial authority.",
+        "injection": "During the Zsinj campaign, avoid treating his defeat as the defeat of every Imperial remnant. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Zsinj Campaign.",
+          "Respect story-position bounds from Zsinj Campaign to Zsinj Campaign."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_imperial_super_star_destroyers_are_political_symbols",
+      "title": "Super Star Destroyers Are Political Symbols",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.imperial_fragmentation",
+        "validToAnchor": "sw.nr.zsinj_campaign",
+        "sortKeyFrom": 8350,
+        "sortKeyTo": 9700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Imperial fragmentation and warlord campaigns",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "fleet",
+          "military logistics"
+        ],
+        "objects": [
+          "Super Star Destroyer",
+          "Iron Fist"
+        ],
+        "spells": [],
+        "factions": [
+          "Imperial Warlords",
+          "Imperial Remnant",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:imperial-warlords",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "object:iron-fist",
+        "object:super-star-destroyer",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "fleet",
+            "military logistics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Warlords",
+            "Imperial Remnant",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Surviving Super Star Destroyers and similar capital ships are political symbols of Imperial strength, not just military assets.",
+        "injection": "When a major Imperial dreadnought appears, show its morale, intimidation, and legitimacy impact as well as firepower.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial fragmentation and warlord campaigns.",
+          "Respect story-position bounds from Imperial Fragmentation to Zsinj Campaign."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_liberation_campaigns_leave_local_power_vacuums",
+      "title": "Liberation Creates Local Power Vacuums",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "politics",
+          "underworld",
+          "government"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Galactic Empire",
+          "Criminal Underworld"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:criminal-underworld",
+        "faction:galactic-empire",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:government",
+        "topic:politics",
+        "topic:underworld"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "politics",
+            "underworld",
+            "government"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Galactic Empire",
+            "Criminal Underworld"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Removing Imperial control often leaves local factions, provisional governments, spies, and criminals competing before New Republic institutions stabilize.",
+        "injection": "After a liberated world changes hands, do not assume order is immediate; include uncertainty, collaboration trials, and local opportunism.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_new_republic_intelligence_under_resourced",
+      "title": "New Republic Intelligence Is Still Building",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "espionage",
+          "government"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic Intelligence",
+          "New Republic",
+          "Imperial Intelligence"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:imperial-intelligence",
+        "faction:new-republic",
+        "faction:new-republic-intelligence",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:government"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "espionage",
+            "government"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic Intelligence",
+            "New Republic",
+            "Imperial Intelligence"
+          ]
+        }
+      },
+      "content": {
+        "fact": "New Republic intelligence inherits Rebel tradecraft but lacks the Empire’s centralized machinery and galactic reach.",
+        "injection": "Use intelligence gaps, informant networks, and hard-won field reports rather than omniscient New Republic awareness.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_smugglers_keep_transition_value",
+      "title": "Smugglers Remain Useful After Endor",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Talon Karrde"
+        ],
+        "locations": [],
+        "topics": [
+          "smuggling",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Criminal Underworld",
+          "Smugglers"
+        ]
+      },
+      "tags": [
+        "character:han-solo",
+        "character:talon-karrde",
+        "continuity:legends",
+        "faction:criminal-underworld",
+        "faction:new-republic",
+        "faction:smugglers",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:smuggling"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Talon Karrde"
+          ],
+          "topicsAny": [
+            "smuggling",
+            "espionage"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Criminal Underworld",
+            "Smugglers"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Smugglers, scouts, and independent captains remain useful because the New Republic cannot instantly replace informal routes and local contacts.",
+        "injection": "In New Republic logistics, let old smuggler networks matter for transport, intelligence, and awkward political favors.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/xwing_and_warlord_campaigns.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

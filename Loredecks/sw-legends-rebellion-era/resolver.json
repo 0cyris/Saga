@@ -1,0 +1,1085 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Rebellion Era natural phrasing, especially After Empire / Before Return.",
+  "preferredFields": [
+    "film",
+    "event",
+    "beforeAfter",
+    "characterState",
+    "legendsSourceWindow"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer named Rebellion Era event anchors and ESB-to-ROTJ windows. Do not infer Leia knows she is Luke sister before the Dagobah/Endor reveal chain. Do not import post-Endor Legends, Disney sequel, or New Republic state without another active deck. Prefer story-position anchors and windows over raw BBY/ABY dates; never invent timeline anchors outside this deck registry.",
+  "localPatterns": [
+    {
+      "pattern": "after empire before return",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.bespin_fallout",
+        "anchorTo": "sw.rebellion.rotj_opening",
+        "label": "After Empire, before Return"
+      }
+    },
+    {
+      "pattern": "after empire, before return",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.bespin_fallout",
+        "anchorTo": "sw.rebellion.rotj_opening",
+        "label": "After Empire, before Return"
+      }
+    },
+    {
+      "pattern": "post esb pre rotj",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.bespin_fallout",
+        "anchorTo": "sw.rebellion.rotj_opening",
+        "label": "After Empire, before Return"
+      }
+    },
+    {
+      "pattern": "between empire and return",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.bespin_fallout",
+        "anchorTo": "sw.rebellion.rotj_opening",
+        "label": "After Empire, before Return"
+      }
+    },
+    {
+      "pattern": "between empire and jedi",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.bespin_fallout",
+        "anchorTo": "sw.rebellion.rotj_opening",
+        "label": "After Empire, before Return"
+      }
+    },
+    {
+      "pattern": "after bespin before jabba",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.bespin_fallout",
+        "anchorTo": "sw.rebellion.rotj_opening",
+        "label": "After Empire, before Return"
+      }
+    },
+    {
+      "pattern": "after cloud city before return",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.bespin_fallout",
+        "anchorTo": "sw.rebellion.rotj_opening",
+        "label": "After Empire, before Return"
+      }
+    },
+    {
+      "pattern": "after yavin before hoth",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.yavin_aftermath",
+        "anchorTo": "sw.rebellion.hoth_evacuated",
+        "label": "After Yavin, before Hoth"
+      }
+    },
+    {
+      "pattern": "between a new hope and empire",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.yavin_aftermath",
+        "anchorTo": "sw.rebellion.hoth_evacuated",
+        "label": "After Yavin, before Hoth"
+      }
+    },
+    {
+      "pattern": "after a new hope before empire",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.yavin_aftermath",
+        "anchorTo": "sw.rebellion.hoth_evacuated",
+        "label": "After Yavin, before Hoth"
+      }
+    },
+    {
+      "pattern": "post yavin pre hoth",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.yavin_aftermath",
+        "anchorTo": "sw.rebellion.hoth_evacuated",
+        "label": "After Yavin, before Hoth"
+      }
+    },
+    {
+      "pattern": "hoth",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.probe_droid_finds_hoth",
+        "anchorTo": "sw.rebellion.hoth_evacuated",
+        "label": "Hoth Campaign"
+      }
+    },
+    {
+      "pattern": "battle of hoth",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.probe_droid_finds_hoth",
+        "anchorTo": "sw.rebellion.hoth_evacuated",
+        "label": "Hoth Campaign"
+      }
+    },
+    {
+      "pattern": "echo base evacuation",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.probe_droid_finds_hoth",
+        "anchorTo": "sw.rebellion.hoth_evacuated",
+        "label": "Hoth Campaign"
+      }
+    },
+    {
+      "pattern": "after hoth",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.probe_droid_finds_hoth",
+        "anchorTo": "sw.rebellion.hoth_evacuated",
+        "label": "Hoth Campaign"
+      }
+    },
+    {
+      "pattern": "shadows of the empire",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.bespin_fallout",
+        "anchorTo": "sw.rebellion.rotj_opening",
+        "label": "Shadows of the Empire / Black Sun Window"
+      }
+    },
+    {
+      "pattern": "black sun conflict",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.bespin_fallout",
+        "anchorTo": "sw.rebellion.rotj_opening",
+        "label": "Shadows of the Empire / Black Sun Window"
+      }
+    },
+    {
+      "pattern": "xizor era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.bespin_fallout",
+        "anchorTo": "sw.rebellion.rotj_opening",
+        "label": "Shadows of the Empire / Black Sun Window"
+      }
+    },
+    {
+      "pattern": "dash rendar era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.bespin_fallout",
+        "anchorTo": "sw.rebellion.rotj_opening",
+        "label": "Shadows of the Empire / Black Sun Window"
+      }
+    },
+    {
+      "pattern": "jabba palace",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.rotj_opening",
+        "anchorTo": "sw.rebellion.dagobah_revelations",
+        "label": "Jabba Rescue Sequence"
+      }
+    },
+    {
+      "pattern": "jabba rescue",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.rotj_opening",
+        "anchorTo": "sw.rebellion.dagobah_revelations",
+        "label": "Jabba Rescue Sequence"
+      }
+    },
+    {
+      "pattern": "rescue han",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.rotj_opening",
+        "anchorTo": "sw.rebellion.dagobah_revelations",
+        "label": "Jabba Rescue Sequence"
+      }
+    },
+    {
+      "pattern": "sarlacc",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.rotj_opening",
+        "anchorTo": "sw.rebellion.dagobah_revelations",
+        "label": "Jabba Rescue Sequence"
+      }
+    },
+    {
+      "pattern": "endor briefing",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.endor_briefing",
+        "label": "Endor Mission Briefing"
+      }
+    },
+    {
+      "pattern": "bothan spies",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.endor_briefing",
+        "label": "Endor Mission Briefing"
+      }
+    },
+    {
+      "pattern": "bothan intel",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.endor_briefing",
+        "label": "Endor Mission Briefing"
+      }
+    },
+    {
+      "pattern": "battle of endor",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.endor_briefing",
+        "anchorTo": "sw.rebellion.vader_redeemed",
+        "label": "Endor Operation"
+      }
+    },
+    {
+      "pattern": "endor operation",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.endor_briefing",
+        "anchorTo": "sw.rebellion.vader_redeemed",
+        "label": "Endor Operation"
+      }
+    },
+    {
+      "pattern": "death star ii battle",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.endor_briefing",
+        "anchorTo": "sw.rebellion.vader_redeemed",
+        "label": "Endor Operation"
+      }
+    },
+    {
+      "pattern": "before new republic",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.yavin_aftermath",
+        "anchorTo": "sw.rebellion.battle_of_endor",
+        "label": "Before the Battle of Endor outcome"
+      }
+    },
+    {
+      "pattern": "pre endor",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.yavin_aftermath",
+        "anchorTo": "sw.rebellion.battle_of_endor",
+        "label": "Before the Battle of Endor outcome"
+      }
+    },
+    {
+      "pattern": "before endor outcome",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.rebellion.yavin_aftermath",
+        "anchorTo": "sw.rebellion.battle_of_endor",
+        "label": "Before the Battle of Endor outcome"
+      }
+    },
+    {
+      "pattern": "tantive iv",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.tantive_iv_captured",
+        "label": "Tantive IV Captured"
+      }
+    },
+    {
+      "pattern": "tantive captured",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.tantive_iv_captured",
+        "label": "Tantive IV Captured"
+      }
+    },
+    {
+      "pattern": "opening of a new hope",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.tantive_iv_captured",
+        "label": "Tantive IV Captured"
+      }
+    },
+    {
+      "pattern": "leia captured",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.tantive_iv_captured",
+        "label": "Tantive IV Captured"
+      }
+    },
+    {
+      "pattern": "plans reach tatooine",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.plans_reach_tatooine",
+        "label": "Death Star Plans Reach Tatooine"
+      }
+    },
+    {
+      "pattern": "droids on tatooine",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.plans_reach_tatooine",
+        "label": "Death Star Plans Reach Tatooine"
+      }
+    },
+    {
+      "pattern": "r2 has the plans",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.plans_reach_tatooine",
+        "label": "Death Star Plans Reach Tatooine"
+      }
+    },
+    {
+      "pattern": "obi-wan joins luke",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.obiwan_joins_luke",
+        "label": "Obi-Wan Draws Luke Into the Rebellion"
+      }
+    },
+    {
+      "pattern": "luke leaves tatooine",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.obiwan_joins_luke",
+        "label": "Obi-Wan Draws Luke Into the Rebellion"
+      }
+    },
+    {
+      "pattern": "ben kenobi",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.obiwan_joins_luke",
+        "label": "Obi-Wan Draws Luke Into the Rebellion"
+      }
+    },
+    {
+      "pattern": "alderaan destroyed",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.alderaan_destroyed",
+        "label": "Alderaan Destroyed"
+      }
+    },
+    {
+      "pattern": "death star destroys alderaan",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.alderaan_destroyed",
+        "label": "Alderaan Destroyed"
+      }
+    },
+    {
+      "pattern": "battle of yavin",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.yavin_battle",
+        "label": "Battle of Yavin"
+      }
+    },
+    {
+      "pattern": "yavin",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.yavin_battle",
+        "label": "Battle of Yavin"
+      }
+    },
+    {
+      "pattern": "death star destroyed",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.yavin_battle",
+        "label": "Battle of Yavin"
+      }
+    },
+    {
+      "pattern": "a new hope ending",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.yavin_battle",
+        "label": "Battle of Yavin"
+      }
+    },
+    {
+      "pattern": "after yavin",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.yavin_aftermath",
+        "label": "Yavin Aftermath"
+      }
+    },
+    {
+      "pattern": "post yavin",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.yavin_aftermath",
+        "label": "Yavin Aftermath"
+      }
+    },
+    {
+      "pattern": "after a new hope",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.yavin_aftermath",
+        "label": "Yavin Aftermath"
+      }
+    },
+    {
+      "pattern": "post anh",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.yavin_aftermath",
+        "label": "Yavin Aftermath"
+      }
+    },
+    {
+      "pattern": "between yavin and hoth",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.rebel_base_search",
+        "label": "Rebel Base Search Intensifies"
+      }
+    },
+    {
+      "pattern": "rebel base search",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.rebel_base_search",
+        "label": "Rebel Base Search Intensifies"
+      }
+    },
+    {
+      "pattern": "empire hunts rebels",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.rebel_base_search",
+        "label": "Rebel Base Search Intensifies"
+      }
+    },
+    {
+      "pattern": "echo base established",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.hoth_established",
+        "label": "Echo Base Established on Hoth"
+      }
+    },
+    {
+      "pattern": "hoth base",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.hoth_established",
+        "label": "Echo Base Established on Hoth"
+      }
+    },
+    {
+      "pattern": "before hoth battle",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.hoth_established",
+        "label": "Echo Base Established on Hoth"
+      }
+    },
+    {
+      "pattern": "probe droid finds hoth",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.probe_droid_finds_hoth",
+        "label": "Imperial Probe Finds Hoth"
+      }
+    },
+    {
+      "pattern": "hoth discovered",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.probe_droid_finds_hoth",
+        "label": "Imperial Probe Finds Hoth"
+      }
+    },
+    {
+      "pattern": "imperials find echo base",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.probe_droid_finds_hoth",
+        "label": "Imperial Probe Finds Hoth"
+      }
+    },
+    {
+      "pattern": "hoth evacuated",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.hoth_evacuated",
+        "label": "Hoth Evacuated"
+      }
+    },
+    {
+      "pattern": "after hoth",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.hoth_evacuated",
+        "label": "Hoth Evacuated"
+      }
+    },
+    {
+      "pattern": "echo base lost",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.hoth_evacuated",
+        "label": "Hoth Evacuated"
+      }
+    },
+    {
+      "pattern": "empire strikes back opening",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.hoth_evacuated",
+        "label": "Hoth Evacuated"
+      }
+    },
+    {
+      "pattern": "dagobah training",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.dagobah_training",
+        "label": "Luke Trains on Dagobah"
+      }
+    },
+    {
+      "pattern": "luke trains with yoda",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.dagobah_training",
+        "label": "Luke Trains on Dagobah"
+      }
+    },
+    {
+      "pattern": "yoda training",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.dagobah_training",
+        "label": "Luke Trains on Dagobah"
+      }
+    },
+    {
+      "pattern": "asteroid chase",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.asteroid_pursuit",
+        "label": "Falcon Flees Through the Asteroids"
+      }
+    },
+    {
+      "pattern": "falcon asteroid field",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.asteroid_pursuit",
+        "label": "Falcon Flees Through the Asteroids"
+      }
+    },
+    {
+      "pattern": "imperial pursuit",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.asteroid_pursuit",
+        "label": "Falcon Flees Through the Asteroids"
+      }
+    },
+    {
+      "pattern": "cloud city trap",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.bespin_trap",
+        "label": "Cloud City Trap Springs"
+      }
+    },
+    {
+      "pattern": "bespin betrayal",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.bespin_trap",
+        "label": "Cloud City Trap Springs"
+      }
+    },
+    {
+      "pattern": "lando betrays them",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.bespin_trap",
+        "label": "Cloud City Trap Springs"
+      }
+    },
+    {
+      "pattern": "after bespin",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.bespin_fallout",
+        "label": "Bespin Fallout"
+      }
+    },
+    {
+      "pattern": "cloud city aftermath",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.bespin_fallout",
+        "label": "Bespin Fallout"
+      }
+    },
+    {
+      "pattern": "after empire",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.bespin_fallout",
+        "label": "Bespin Fallout"
+      }
+    },
+    {
+      "pattern": "post esb",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.bespin_fallout",
+        "label": "Bespin Fallout"
+      }
+    },
+    {
+      "pattern": "vader father reveal",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.vader_paternity_claim",
+        "label": "Vader Claims Luke as His Son"
+      }
+    },
+    {
+      "pattern": "i am your father aftermath",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.vader_paternity_claim",
+        "label": "Vader Claims Luke as His Son"
+      }
+    },
+    {
+      "pattern": "vader paternity claim",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.vader_paternity_claim",
+        "label": "Vader Claims Luke as His Son"
+      }
+    },
+    {
+      "pattern": "han at jabba",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.han_at_jabba",
+        "label": "Han Held by Jabba"
+      }
+    },
+    {
+      "pattern": "han in carbonite",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.han_at_jabba",
+        "label": "Han Held by Jabba"
+      }
+    },
+    {
+      "pattern": "jabba has han",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.han_at_jabba",
+        "label": "Han Held by Jabba"
+      }
+    },
+    {
+      "pattern": "rescue han setup",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.han_at_jabba",
+        "label": "Han Held by Jabba"
+      }
+    },
+    {
+      "pattern": "shadows of the empire",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.black_sun_conflict",
+        "label": "Black Sun Conflict"
+      }
+    },
+    {
+      "pattern": "black sun",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.black_sun_conflict",
+        "label": "Black Sun Conflict"
+      }
+    },
+    {
+      "pattern": "xizor",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.black_sun_conflict",
+        "label": "Black Sun Conflict"
+      }
+    },
+    {
+      "pattern": "prince xizor",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.black_sun_conflict",
+        "label": "Black Sun Conflict"
+      }
+    },
+    {
+      "pattern": "bothan spies",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.bothan_intel",
+        "label": "Bothan Intelligence Reaches the Alliance"
+      }
+    },
+    {
+      "pattern": "bothan intel",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.bothan_intel",
+        "label": "Bothan Intelligence Reaches the Alliance"
+      }
+    },
+    {
+      "pattern": "second death star briefing setup",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.bothan_intel",
+        "label": "Bothan Intelligence Reaches the Alliance"
+      }
+    },
+    {
+      "pattern": "return of the jedi opening",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.rotj_opening",
+        "label": "Return of the Jedi Opening"
+      }
+    },
+    {
+      "pattern": "rotj opening",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.rotj_opening",
+        "label": "Return of the Jedi Opening"
+      }
+    },
+    {
+      "pattern": "jabba palace begins",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.rotj_opening",
+        "label": "Return of the Jedi Opening"
+      }
+    },
+    {
+      "pattern": "jabba rescue",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.jabba_rescue",
+        "label": "Jabba Rescue and Sarlacc Battle"
+      }
+    },
+    {
+      "pattern": "sarlacc",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.jabba_rescue",
+        "label": "Jabba Rescue and Sarlacc Battle"
+      }
+    },
+    {
+      "pattern": "sail barge",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.jabba_rescue",
+        "label": "Jabba Rescue and Sarlacc Battle"
+      }
+    },
+    {
+      "pattern": "jabba palace",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.jabba_rescue",
+        "label": "Jabba Rescue and Sarlacc Battle"
+      }
+    },
+    {
+      "pattern": "yoda dies",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.yoda_death",
+        "label": "Yoda Dies on Dagobah"
+      }
+    },
+    {
+      "pattern": "dagobah revelation",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.yoda_death",
+        "label": "Yoda Dies on Dagobah"
+      }
+    },
+    {
+      "pattern": "return to dagobah",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.yoda_death",
+        "label": "Yoda Dies on Dagobah"
+      }
+    },
+    {
+      "pattern": "obi-wan reveals leia",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.dagobah_revelations",
+        "label": "Dagobah Revelations"
+      }
+    },
+    {
+      "pattern": "luke learns leia",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.dagobah_revelations",
+        "label": "Dagobah Revelations"
+      }
+    },
+    {
+      "pattern": "dagobah revelations",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.dagobah_revelations",
+        "label": "Dagobah Revelations"
+      }
+    },
+    {
+      "pattern": "endor briefing",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.endor_briefing",
+        "label": "Endor Mission Briefing"
+      }
+    },
+    {
+      "pattern": "bothan spies",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.endor_briefing",
+        "label": "Endor Mission Briefing"
+      }
+    },
+    {
+      "pattern": "second death star briefing",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.endor_briefing",
+        "label": "Endor Mission Briefing"
+      }
+    },
+    {
+      "pattern": "shield generator",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.endor_briefing",
+        "label": "Endor Mission Briefing"
+      }
+    },
+    {
+      "pattern": "ewok alliance",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.ewok_alliance",
+        "label": "Ewok Alliance Forms"
+      }
+    },
+    {
+      "pattern": "ewok village",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.ewok_alliance",
+        "label": "Ewok Alliance Forms"
+      }
+    },
+    {
+      "pattern": "endor ground team",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.ewok_alliance",
+        "label": "Ewok Alliance Forms"
+      }
+    },
+    {
+      "pattern": "throne room",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.throne_room_confrontation",
+        "label": "Luke Confronts Vader and Palpatine"
+      }
+    },
+    {
+      "pattern": "luke confronts vader",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.throne_room_confrontation",
+        "label": "Luke Confronts Vader and Palpatine"
+      }
+    },
+    {
+      "pattern": "luke before emperor",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.throne_room_confrontation",
+        "label": "Luke Confronts Vader and Palpatine"
+      }
+    },
+    {
+      "pattern": "battle of endor",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.battle_of_endor",
+        "label": "Battle of Endor"
+      }
+    },
+    {
+      "pattern": "endor",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.battle_of_endor",
+        "label": "Battle of Endor"
+      }
+    },
+    {
+      "pattern": "death star ii battle",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.battle_of_endor",
+        "label": "Battle of Endor"
+      }
+    },
+    {
+      "pattern": "death star ii destroyed",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.death_star_ii_destroyed",
+        "label": "Second Death Star Destroyed"
+      }
+    },
+    {
+      "pattern": "second death star destroyed",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.death_star_ii_destroyed",
+        "label": "Second Death Star Destroyed"
+      }
+    },
+    {
+      "pattern": "emperor defeated",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.emperor_falls",
+        "label": "Emperor Falls at Endor"
+      }
+    },
+    {
+      "pattern": "palpatine defeated",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.emperor_falls",
+        "label": "Emperor Falls at Endor"
+      }
+    },
+    {
+      "pattern": "emperor falls",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.emperor_falls",
+        "label": "Emperor Falls at Endor"
+      }
+    },
+    {
+      "pattern": "vader redeemed",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.vader_redeemed",
+        "label": "Vader Redeemed and Anakin Dies"
+      }
+    },
+    {
+      "pattern": "anakin dies",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.vader_redeemed",
+        "label": "Vader Redeemed and Anakin Dies"
+      }
+    },
+    {
+      "pattern": "vader dies",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.vader_redeemed",
+        "label": "Vader Redeemed and Anakin Dies"
+      }
+    },
+    {
+      "pattern": "after endor",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.post_endor_transition",
+        "label": "Post-Endor Transition Begins"
+      }
+    },
+    {
+      "pattern": "post endor",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.post_endor_transition",
+        "label": "Post-Endor Transition Begins"
+      }
+    },
+    {
+      "pattern": "new republic begins later",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.rebellion.post_endor_transition",
+        "label": "Post-Endor Transition Begins"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

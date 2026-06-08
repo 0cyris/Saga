@@ -1,0 +1,567 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_rebel_scenes_need_security_pressure",
+      "title": "Rebel Scenes Need Security Pressure",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:mon-mothma",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:outer-rim",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:espionage",
+        "topic:military-logistics"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Mon Mothma",
+          "Han Solo"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "espionage",
+          "military logistics"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Mon Mothma",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "espionage",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Rebel planning is shaped by secrecy, code discipline, evacuation risk, and betrayal/informant danger.",
+        "injection": "In Rebellion Era planning scenes, include security pressure unless the scene is safely inside a sealed trusted environment. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "rules/rebellion_scene_constraints.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_imperial_scenes_need_hierarchy_pressure",
+      "title": "Imperial Scenes Need Hierarchy Pressure",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-piett",
+        "character:darth-vader",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:imperial-navy",
+        "fandom:star-wars",
+        "object:executor",
+        "place:death-star-ii",
+        "place:executor",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:propaganda"
+      ],
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Admiral Piett",
+          "Palpatine"
+        ],
+        "locations": [
+          "Executor",
+          "Death Star II"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Imperial Navy"
+        ],
+        "topics": [
+          "command",
+          "propaganda"
+        ],
+        "objects": [
+          "Executor"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Admiral Piett",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Executor",
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "command",
+            "propaganda"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Imperial Navy"
+          ],
+          "objectsAny": [
+            "Executor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Imperial officers operate under rank, fear, ambition, and punishment from above.",
+        "injection": "In Imperial scenes, command hierarchy and fear of failure should shape speech and decisions. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "rules/rebellion_scene_constraints.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_underworld_scenes_need_debt_and_reputation",
+      "title": "Underworld Scenes Need Debt and Reputation",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:boba-fett",
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "character:lando-calrissian",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:bounty-hunters",
+        "faction:criminal-underworld",
+        "faction:hutts",
+        "fandom:star-wars",
+        "place:bespin",
+        "place:outer-rim",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:criminal-debt",
+        "topic:smuggling",
+        "topic:underworld"
+      ],
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Jabba the Hutt",
+          "Boba Fett",
+          "Lando Calrissian"
+        ],
+        "locations": [
+          "Tatooine",
+          "Bespin",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Hutts",
+          "Bounty Hunters",
+          "Criminal Underworld"
+        ],
+        "topics": [
+          "underworld",
+          "criminal debt",
+          "smuggling"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Jabba the Hutt",
+            "Boba Fett",
+            "Lando Calrissian"
+          ],
+          "locationsAny": [
+            "Tatooine",
+            "Bespin",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "underworld",
+            "criminal debt",
+            "smuggling"
+          ],
+          "factionsAny": [
+            "Hutts",
+            "Bounty Hunters",
+            "Criminal Underworld"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Criminal spaces operate through debt, reputation, intimidation, favors, and enforcement.",
+        "injection": "In Hutt, bounty, or smuggler scenes, treat promises and debts as dangerous social currency. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "rules/rebellion_scene_constraints.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_force_scenes_should_not_overexplain_to_public",
+      "title": "Force Scenes Should Not Become Public Exposition",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:rebel-alliance",
+        "faction:sith",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:endor",
+        "place:rebel-fleet",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:jedi",
+        "topic:sith"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Leia Organa",
+          "Han Solo"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Tatooine",
+          "Endor"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Sith",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "force",
+          "jedi",
+          "sith"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Leia Organa",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Tatooine",
+            "Endor"
+          ],
+          "topicsAny": [
+            "force",
+            "jedi",
+            "sith"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith",
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Most ordinary Rebellion Era characters do not understand Jedi/Sith truth in detail.",
+        "injection": "Keep Force knowledge uneven; do not let every soldier, smuggler, or officer explain Jedi doctrine with post-era certainty. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "rules/rebellion_scene_constraints.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

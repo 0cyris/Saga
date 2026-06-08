@@ -1,0 +1,1141 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "sw:4-lom": {
+      "type": "character",
+      "label": "4-LOM",
+      "aliases": [],
+      "canonicalNames": [
+        "4-LOM"
+      ],
+      "tags": [
+        "character:4-lom"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:admiral-ackbar": {
+      "type": "character",
+      "label": "Admiral Ackbar",
+      "aliases": [
+        "Ackbar"
+      ],
+      "canonicalNames": [
+        "Admiral Ackbar"
+      ],
+      "tags": [
+        "character:admiral-ackbar"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:admiral-ozzel": {
+      "type": "character",
+      "label": "Admiral Ozzel",
+      "aliases": [],
+      "canonicalNames": [
+        "Admiral Ozzel"
+      ],
+      "tags": [
+        "character:admiral-ozzel"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:admiral-piett": {
+      "type": "character",
+      "label": "Admiral Piett",
+      "aliases": [],
+      "canonicalNames": [
+        "Admiral Piett"
+      ],
+      "tags": [
+        "character:admiral-piett"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:anakin-skywalker": {
+      "type": "character",
+      "label": "Anakin Skywalker",
+      "aliases": [
+        "Anakin",
+        "Vader"
+      ],
+      "canonicalNames": [
+        "Anakin Skywalker"
+      ],
+      "tags": [
+        "character:anakin-skywalker"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:anakin-solo": {
+      "type": "character",
+      "label": "Anakin Solo",
+      "aliases": [],
+      "canonicalNames": [
+        "Anakin Solo"
+      ],
+      "tags": [
+        "character:anakin-solo"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:beru-lars": {
+      "type": "character",
+      "label": "Beru Lars",
+      "aliases": [],
+      "canonicalNames": [
+        "Beru Lars"
+      ],
+      "tags": [
+        "character:beru-lars"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:bib-fortuna": {
+      "type": "character",
+      "label": "Bib Fortuna",
+      "aliases": [],
+      "canonicalNames": [
+        "Bib Fortuna"
+      ],
+      "tags": [
+        "character:bib-fortuna"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:biggs-darklighter": {
+      "type": "character",
+      "label": "Biggs Darklighter",
+      "aliases": [],
+      "canonicalNames": [
+        "Biggs Darklighter"
+      ],
+      "tags": [
+        "character:biggs-darklighter"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:boba-fett": {
+      "type": "character",
+      "label": "Boba Fett",
+      "aliases": [
+        "Boba"
+      ],
+      "canonicalNames": [
+        "Boba Fett"
+      ],
+      "tags": [
+        "character:boba-fett"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:bossk": {
+      "type": "character",
+      "label": "Bossk",
+      "aliases": [],
+      "canonicalNames": [
+        "Bossk"
+      ],
+      "tags": [
+        "character:bossk"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:c-3po": {
+      "type": "character",
+      "label": "C-3PO",
+      "aliases": [
+        "Threepio",
+        "3PO"
+      ],
+      "canonicalNames": [
+        "C-3PO"
+      ],
+      "tags": [
+        "character:c-3po"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:chewbacca": {
+      "type": "character",
+      "label": "Chewbacca",
+      "aliases": [
+        "Chewie"
+      ],
+      "canonicalNames": [
+        "Chewbacca"
+      ],
+      "tags": [
+        "character:chewbacca"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:darth-sidious": {
+      "type": "character",
+      "label": "Darth Sidious",
+      "aliases": [
+        "Sidious",
+        "Palpatine"
+      ],
+      "canonicalNames": [
+        "Darth Sidious"
+      ],
+      "tags": [
+        "character:darth-sidious"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:darth-vader": {
+      "type": "character",
+      "label": "Darth Vader",
+      "aliases": [
+        "Vader",
+        "Lord Vader",
+        "Anakin Skywalker"
+      ],
+      "canonicalNames": [
+        "Darth Vader"
+      ],
+      "tags": [
+        "character:darth-vader"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:dash-rendar": {
+      "type": "character",
+      "label": "Dash Rendar",
+      "aliases": [
+        "Dash"
+      ],
+      "canonicalNames": [
+        "Dash Rendar"
+      ],
+      "tags": [
+        "character:dash-rendar"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:dengar": {
+      "type": "character",
+      "label": "Dengar",
+      "aliases": [],
+      "canonicalNames": [
+        "Dengar"
+      ],
+      "tags": [
+        "character:dengar"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:general-madine": {
+      "type": "character",
+      "label": "General Madine",
+      "aliases": [],
+      "canonicalNames": [
+        "General Madine"
+      ],
+      "tags": [
+        "character:general-madine"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:general-rieekan": {
+      "type": "character",
+      "label": "General Rieekan",
+      "aliases": [],
+      "canonicalNames": [
+        "General Rieekan"
+      ],
+      "tags": [
+        "character:general-rieekan"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:general-veers": {
+      "type": "character",
+      "label": "General Veers",
+      "aliases": [],
+      "canonicalNames": [
+        "General Veers"
+      ],
+      "tags": [
+        "character:general-veers"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:gold-leader": {
+      "type": "character",
+      "label": "Gold Leader",
+      "aliases": [],
+      "canonicalNames": [
+        "Gold Leader"
+      ],
+      "tags": [
+        "character:gold-leader"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:tarkin": {
+      "type": "character",
+      "label": "Tarkin",
+      "aliases": [],
+      "canonicalNames": [
+        "Tarkin"
+      ],
+      "tags": [
+        "character:tarkin"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:greedo": {
+      "type": "character",
+      "label": "Greedo",
+      "aliases": [],
+      "canonicalNames": [
+        "Greedo"
+      ],
+      "tags": [
+        "character:greedo"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:guri": {
+      "type": "character",
+      "label": "Guri",
+      "aliases": [],
+      "canonicalNames": [
+        "Guri"
+      ],
+      "tags": [
+        "character:guri"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:han-solo": {
+      "type": "character",
+      "label": "Han Solo",
+      "aliases": [
+        "Han",
+        "Captain Solo"
+      ],
+      "canonicalNames": [
+        "Han Solo"
+      ],
+      "tags": [
+        "character:han-solo"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:ig-88": {
+      "type": "character",
+      "label": "IG-88",
+      "aliases": [],
+      "canonicalNames": [
+        "IG-88"
+      ],
+      "tags": [
+        "character:ig-88"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:jabba-the-hutt": {
+      "type": "character",
+      "label": "Jabba the Hutt",
+      "aliases": [
+        "Jabba"
+      ],
+      "canonicalNames": [
+        "Jabba the Hutt"
+      ],
+      "tags": [
+        "character:jabba-the-hutt"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:jacen-solo": {
+      "type": "character",
+      "label": "Jacen Solo",
+      "aliases": [],
+      "canonicalNames": [
+        "Jacen Solo"
+      ],
+      "tags": [
+        "character:jacen-solo"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:jaina-solo": {
+      "type": "character",
+      "label": "Jaina Solo",
+      "aliases": [],
+      "canonicalNames": [
+        "Jaina Solo"
+      ],
+      "tags": [
+        "character:jaina-solo"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:kylo-ren": {
+      "type": "character",
+      "label": "Kylo Ren",
+      "aliases": [],
+      "canonicalNames": [
+        "Kylo Ren"
+      ],
+      "tags": [
+        "character:kylo-ren"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:lando-calrissian": {
+      "type": "character",
+      "label": "Lando Calrissian",
+      "aliases": [
+        "Lando"
+      ],
+      "canonicalNames": [
+        "Lando Calrissian"
+      ],
+      "tags": [
+        "character:lando-calrissian"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:leia-organa": {
+      "type": "character",
+      "label": "Leia Organa",
+      "aliases": [
+        "Leia",
+        "Princess Leia",
+        "Princess Organa"
+      ],
+      "canonicalNames": [
+        "Leia Organa"
+      ],
+      "tags": [
+        "character:leia-organa"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:luke-skywalker": {
+      "type": "character",
+      "label": "Luke Skywalker",
+      "aliases": [
+        "Luke",
+        "Commander Skywalker"
+      ],
+      "canonicalNames": [
+        "Luke Skywalker"
+      ],
+      "tags": [
+        "character:luke-skywalker"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:mara-jade": {
+      "type": "character",
+      "label": "Mara Jade",
+      "aliases": [
+        "Mara"
+      ],
+      "canonicalNames": [
+        "Mara Jade"
+      ],
+      "tags": [
+        "character:mara-jade"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:mon-mothma": {
+      "type": "character",
+      "label": "Mon Mothma",
+      "aliases": [
+        "Mothma"
+      ],
+      "canonicalNames": [
+        "Mon Mothma"
+      ],
+      "tags": [
+        "character:mon-mothma"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:nien-nunb": {
+      "type": "character",
+      "label": "Nien Nunb",
+      "aliases": [],
+      "canonicalNames": [
+        "Nien Nunb"
+      ],
+      "tags": [
+        "character:nien-nunb"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:obi-wan-kenobi": {
+      "type": "character",
+      "label": "Obi-Wan Kenobi",
+      "aliases": [
+        "Ben Kenobi",
+        "Obi-Wan"
+      ],
+      "canonicalNames": [
+        "Obi-Wan Kenobi"
+      ],
+      "tags": [
+        "character:obi-wan-kenobi"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:owen-lars": {
+      "type": "character",
+      "label": "Owen Lars",
+      "aliases": [],
+      "canonicalNames": [
+        "Owen Lars"
+      ],
+      "tags": [
+        "character:owen-lars"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:palpatine": {
+      "type": "character",
+      "label": "Palpatine",
+      "aliases": [
+        "Emperor Palpatine",
+        "Darth Sidious",
+        "the Emperor"
+      ],
+      "canonicalNames": [
+        "Palpatine"
+      ],
+      "tags": [
+        "character:palpatine"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:prince-xizor": {
+      "type": "character",
+      "label": "Prince Xizor",
+      "aliases": [
+        "Xizor"
+      ],
+      "canonicalNames": [
+        "Prince Xizor"
+      ],
+      "tags": [
+        "character:prince-xizor"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:r2-d2": {
+      "type": "character",
+      "label": "R2-D2",
+      "aliases": [
+        "Artoo",
+        "R2"
+      ],
+      "canonicalNames": [
+        "R2-D2"
+      ],
+      "tags": [
+        "character:r2-d2"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:rey": {
+      "type": "character",
+      "label": "Rey",
+      "aliases": [],
+      "canonicalNames": [
+        "Rey"
+      ],
+      "tags": [
+        "character:rey"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:thrawn": {
+      "type": "character",
+      "label": "Thrawn",
+      "aliases": [],
+      "canonicalNames": [
+        "Thrawn"
+      ],
+      "tags": [
+        "character:thrawn"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:wedge-antilles": {
+      "type": "character",
+      "label": "Wedge Antilles",
+      "aliases": [
+        "Wedge"
+      ],
+      "canonicalNames": [
+        "Wedge Antilles"
+      ],
+      "tags": [
+        "character:wedge-antilles"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:wicket": {
+      "type": "character",
+      "label": "Wicket",
+      "aliases": [],
+      "canonicalNames": [
+        "Wicket"
+      ],
+      "tags": [
+        "character:wicket"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:yoda": {
+      "type": "character",
+      "label": "Yoda",
+      "aliases": [
+        "Master Yoda"
+      ],
+      "canonicalNames": [
+        "Yoda"
+      ],
+      "tags": [
+        "character:yoda"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    },
+    "sw:zuckuss": {
+      "type": "character",
+      "label": "Zuckuss",
+      "aliases": [],
+      "canonicalNames": [
+        "Zuckuss"
+      ],
+      "tags": [
+        "character:zuckuss"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.78
+      }
+    }
+  }
+}

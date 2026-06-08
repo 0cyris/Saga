@@ -1,0 +1,1336 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_endor_victory_not_galactic_peace",
+      "title": "Endor Victory Is Not Galactic Peace",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.endor_aftermath",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 8000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endor Aftermath",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Luke Skywalker",
+          "Han Solo",
+          "Mon Mothma"
+        ],
+        "locations": [],
+        "topics": [
+          "politics",
+          "military logistics",
+          "imperial remnant"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire",
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:mon-mothma",
+        "continuity:legends",
+        "era:post-endor",
+        "faction:galactic-empire",
+        "faction:imperial-remnant",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:imperial-remnant",
+        "topic:military-logistics",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Luke Skywalker",
+            "Han Solo",
+            "Mon Mothma"
+          ],
+          "topicsAny": [
+            "politics",
+            "military logistics",
+            "imperial remnant"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire",
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Battle of Endor destroys the second Death Star and kills Palpatine and Vader, but it does not instantly end the Empire.",
+        "injection": "Post-Endor scenes should treat the Empire as decapitated and unstable, not gone; local Imperial forces, governors, fleets, and warlords can still dominate sectors.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Endor Aftermath.",
+          "Respect story-position bounds from Endor Aftermath to Endor Aftermath."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_rebellion_becomes_government_problem",
+      "title": "Rebellion Must Become a Government",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.alliance_to_new_republic",
+        "validToAnchor": "sw.nr.alliance_to_new_republic",
+        "sortKeyFrom": 8200,
+        "sortKeyTo": 8200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Alliance Begins New Republic Transition",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mon Mothma",
+          "Leia Organa",
+          "Ackbar"
+        ],
+        "locations": [],
+        "topics": [
+          "government",
+          "politics",
+          "diplomacy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Rebel Alliance"
+        ]
+      },
+      "tags": [
+        "character:ackbar",
+        "character:leia-organa",
+        "character:mon-mothma",
+        "continuity:legends",
+        "faction:new-republic",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:government",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mon Mothma",
+            "Leia Organa",
+            "Ackbar"
+          ],
+          "topicsAny": [
+            "government",
+            "politics",
+            "diplomacy"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Endor, the Rebel Alliance begins shifting from insurgency into the New Republic, creating political burdens it did not have as a mobile rebellion.",
+        "injection": "In early New Republic scenes, let Rebel leaders face governance, diplomacy, legitimacy, reconstruction, and bureaucracy instead of only hit-and-run operations.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Alliance Begins New Republic Transition.",
+          "Respect story-position bounds from Alliance Begins New Republic Transition to Alliance Begins New Republic Transition."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_bakura_crisis_immediate_after_endor",
+      "title": "Bakura Crisis Comes Immediately After Endor",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.truce_at_bakura",
+        "validToAnchor": "sw.nr.truce_at_bakura",
+        "sortKeyFrom": 8050,
+        "sortKeyTo": 8050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Truce at Bakura",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Han Solo"
+        ],
+        "locations": [
+          "Bakura"
+        ],
+        "topics": [
+          "diplomacy",
+          "military logistics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire",
+          "Ssi-ruuk"
+        ]
+      },
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "event:truce-at-bakura",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "faction:ssi-ruuk",
+        "fandom:star-wars",
+        "place:bakura",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Han Solo"
+          ],
+          "topicsAny": [
+            "diplomacy",
+            "military logistics"
+          ],
+          "locationsAny": [
+            "Bakura"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire",
+            "Ssi-ruuk"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Bakura incident occurs immediately after Endor and forces Rebels and Imperials into temporary cooperation against the Ssi-ruuk.",
+        "injection": "If the context is Truce at Bakura, treat the Alliance as exhausted from Endor and forced into a provisional truce rather than secure victory.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Truce at Bakura.",
+          "Respect story-position bounds from Truce at Bakura to Truce at Bakura."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_imperial_command_succession_fragile",
+      "title": "Imperial Succession Is Fragile",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.imperial_fragmentation",
+        "validToAnchor": "sw.nr.imperial_fragmentation",
+        "sortKeyFrom": 8350,
+        "sortKeyTo": 8350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Imperial Fragmentation",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "imperial remnant",
+          "warlord",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Empire",
+          "Imperial Remnant",
+          "Imperial Warlords"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-empire",
+        "faction:imperial-remnant",
+        "faction:imperial-warlords",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:imperial-remnant",
+        "topic:politics",
+        "topic:warlord"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "imperial remnant",
+            "warlord",
+            "politics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Empire",
+            "Imperial Remnant",
+            "Imperial Warlords"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Without Palpatine and Vader, Imperial authority fragments among moffs, admirals, Intelligence figures, and regional warlords.",
+        "injection": "Post-Endor Imperial scenes should use rivalry, chain-of-command disputes, local control, and legitimacy claims instead of one clean Imperial center.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial Fragmentation.",
+          "Respect story-position bounds from Imperial Fragmentation to Imperial Fragmentation."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_coruscant_still_symbolic_prize",
+      "title": "Coruscant Remains the Symbolic Prize",
+      "kind": "objective",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "government",
+          "politics",
+          "military logistics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Galactic Empire"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-empire",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "place:coruscant",
+        "scope:new-republic",
+        "topic:government",
+        "topic:military-logistics",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "government",
+            "politics",
+            "military logistics"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Coruscant remains the Imperial capital and symbolic center until the New Republic can seize and hold it.",
+        "injection": "Before Coruscant is liberated, do not treat the New Republic as fully installed at the galactic center; its government remains provisional and contested.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_mon_mothma_cautious_state_builder",
+      "title": "Mon Mothma Builds Legitimacy Cautiously",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mon Mothma"
+        ],
+        "locations": [],
+        "topics": [
+          "government",
+          "diplomacy",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:mon-mothma",
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:government",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mon Mothma"
+          ],
+          "topicsAny": [
+            "government",
+            "diplomacy",
+            "politics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Mon Mothma’s post-Endor role emphasizes legitimacy, coalition management, and restrained democratic government.",
+        "injection": "Write Mon Mothma as a cautious state-builder balancing military necessity against the New Republic’s claim to be better than the Empire.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_leia_diplomat_more_than_commando",
+      "title": "Leia Becomes a Central Diplomatic Figure",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Han Solo",
+          "Mon Mothma"
+        ],
+        "locations": [],
+        "topics": [
+          "diplomacy",
+          "government",
+          "family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:mon-mothma",
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:family",
+        "topic:government"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Han Solo",
+            "Mon Mothma"
+          ],
+          "topicsAny": [
+            "diplomacy",
+            "government",
+            "family"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Leia remains a capable field actor, but post-Endor Legends increasingly uses her as a diplomat, stateswoman, and New Republic leader.",
+        "injection": "In New Republic contexts, do not reduce Leia to battlefield action; let diplomatic pressure, legitimacy, and family obligations shape her scenes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_luke_last_jedi_but_building_future",
+      "title": "Luke Is the Last Jedi Building Toward More",
+      "kind": "objective",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "training",
+          "force"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:force",
+        "topic:jedi",
+        "topic:training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "jedi",
+            "training",
+            "force"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Early post-Endor Luke is the only active Jedi Knight with a mandate to rebuild, but he lacks a formal institution and living masters.",
+        "injection": "Before the Yavin Praxeum, treat Luke as a lone Jedi trying to rediscover, teach, and preserve knowledge without a complete Order around him.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_han_transitions_from_general_to_partner",
+      "title": "Han Adjusts from Rebel General to Domestic Commitments",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "marriage",
+          "smuggling"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:family",
+        "topic:marriage",
+        "topic:smuggling"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa"
+          ],
+          "topicsAny": [
+            "family",
+            "marriage",
+            "smuggling"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Post-Endor Han remains a restless smuggler-turned-hero who must adapt to political life, marriage, and family stakes.",
+        "injection": "In New Republic scenes, keep Han’s improvisational, anti-bureaucratic instincts but allow loyalty to Leia, children, and the New Republic to anchor him.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_new_republic_not_militarily_overwhelming",
+      "title": "New Republic Strength Is Uneven",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "fleet",
+          "politics",
+          "military logistics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Imperial Remnant",
+          "Imperial Warlords"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:imperial-warlords",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:military-logistics",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "fleet",
+            "politics",
+            "military logistics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Imperial Remnant",
+            "Imperial Warlords"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The New Republic gains legitimacy and territory unevenly; Imperial forces can still outgun or outmaneuver it in many sectors.",
+        "injection": "Do not write the early New Republic as a settled superstate; it is expanding, negotiating, and fighting over a still-fractured galaxy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_alien_worlds_weigh_republic_promises",
+      "title": "Alien Worlds Judge the New Republic by Imperial Trauma",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 76,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 70,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "government",
+          "diplomacy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Galactic Empire"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-empire",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:government"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "government",
+            "diplomacy"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Worlds harmed by Imperial speciesism and occupation may support the New Republic while still doubting whether it can protect them.",
+        "injection": "When writing liberated or formerly oppressed worlds, include cautious hope, local memory of Imperial abuse, and skepticism toward distant central authority.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_imperial_loyalists_not_all_sith",
+      "title": "Imperial Loyalists Are Not Automatically Sith Cultists",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "imperial remnant",
+          "dark-side"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "Imperial Warlords"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:imperial-warlords",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:dark-side",
+        "topic:imperial-remnant"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "imperial remnant",
+            "dark-side"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant",
+            "Imperial Warlords"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Most post-Endor Imperial loyalists are officers, bureaucrats, soldiers, or opportunists rather than open Sith devotees.",
+        "injection": "Unless using Dark Empire or specific dark-side factions, write Imperial holdouts as militarized loyalists and authoritarians, not casual Sith mystics. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/immediate_post_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

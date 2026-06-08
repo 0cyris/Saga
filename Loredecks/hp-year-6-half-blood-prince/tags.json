@@ -5,17 +5,117 @@
       "label": "Half Blood Prince Book",
       "description": "Harry Potter bundled Loredeck artifact tag."
     },
+    "artifact:vanishing-cabinet": {
+      "label": "Vanishing Cabinet",
+      "description": "Harry Potter bundled Loredeck artifact tag."
+    },
+    "book:half-blood-prince": {
+      "label": "Half Blood Prince",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
     "calendar-year:1996": {
       "label": "1996",
       "description": "Harry Potter bundled Loredeck calendar year tag."
+    },
+    "character:albus-dumbledore": {
+      "label": "Albus Dumbledore",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:draco-malfoy": {
+      "label": "Draco Malfoy",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:fred-weasley": {
+      "label": "Fred Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:george-weasley": {
+      "label": "George Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:ginny-weasley": {
+      "label": "Ginny Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:harry-potter": {
+      "label": "Harry Potter",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:hermione-granger": {
+      "label": "Hermione Granger",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:luna-lovegood": {
+      "label": "Luna Lovegood",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:neville-longbottom": {
+      "label": "Neville Longbottom",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:ron-weasley": {
+      "label": "Ron Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:rubeus-hagrid": {
+      "label": "Rubeus Hagrid",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:severus-snape": {
+      "label": "Severus Snape",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:sirius-black": {
+      "label": "Sirius Black",
+      "description": "Harry Potter bundled Loredeck character tag."
     },
     "character:voldemort": {
       "label": "Voldemort",
       "description": "Harry Potter bundled Loredeck character tag."
     },
+    "era:golden-trio": {
+      "label": "Golden Trio",
+      "description": "Harry Potter bundled Loredeck era tag."
+    },
+    "faction:death-eaters": {
+      "label": "Death Eaters",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:dumbledores-army": {
+      "label": "Dumbledores Army",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:ministry-of-magic": {
+      "label": "Ministry Of Magic",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:order-of-the-phoenix": {
+      "label": "Order Of The Phoenix",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "fandom:harry-potter": {
+      "label": "Harry Potter",
+      "description": "Harry Potter bundled Loredeck fandom tag."
+    },
+    "place:hogwarts": {
+      "label": "Hogwarts",
+      "description": "Harry Potter bundled Loredeck place tag."
+    },
+    "quality:relevance-curated": {
+      "label": "Relevance Curated",
+      "description": "Harry Potter bundled Loredeck quality tag."
+    },
     "school-year:6": {
       "label": "6",
       "description": "Harry Potter bundled Loredeck school year tag."
+    },
+    "spell:sectumsempra": {
+      "label": "Sectumsempra",
+      "description": "Harry Potter bundled Loredeck spell tag."
+    },
+    "topic:horcruxes": {
+      "label": "Horcruxes",
+      "description": "Harry Potter bundled Loredeck topic tag."
     }
   }
 }

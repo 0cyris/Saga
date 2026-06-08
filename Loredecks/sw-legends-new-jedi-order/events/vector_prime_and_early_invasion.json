@@ -1,0 +1,1169 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_invasion_begins_as_unknown_external_threat",
+      "title": "Invasion Begins as Unknown External Threat",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.vector_prime_begins",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 20000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vector Prime / Invasion Begins",
+        "phase": "Vector Prime",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yuuzhan Vong"
+        ],
+        "locations": [],
+        "topics": [
+          "war",
+          "continuity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:new-republic",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime",
+        "character:yuuzhan-vong",
+        "faction:new-republic",
+        "faction:jedi-order",
+        "topic:war",
+        "topic:continuity",
+        "event:yuuzhan-vong-invasion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuuzhan Vong"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "war",
+            "continuity"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "The Yuuzhan Vong War begins as a poorly understood extra-galactic threat rather than another Imperial campaign.",
+        "injection": "At NJO opening, frame the threat as alien, opaque, and outside familiar Imperial/Sith assumptions. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vector Prime / Invasion Begins.",
+          "Respect story-position bounds from Vector Prime / Invasion Begins to Vector Prime / Invasion Begins."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_praetorite_vong_advance_force",
+      "title": "Praetorite Vong Are an Advance Force",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.vector_prime_begins",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 20000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vector Prime / Invasion Begins",
+        "phase": "Vector Prime",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yuuzhan Vong"
+        ],
+        "locations": [],
+        "topics": [
+          "military logistics",
+          "infiltration"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ],
+        "entityIds": [
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:new-republic"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime",
+        "character:yuuzhan-vong",
+        "faction:new-republic",
+        "topic:military-logistics",
+        "topic:infiltration",
+        "event:yuuzhan-vong-invasion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuuzhan Vong"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "military logistics",
+            "infiltration"
+          ],
+          "factionsAny": [
+            "New Republic"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "The first Yuuzhan Vong forces are probing and destabilizing the galaxy ahead of the larger invasion.",
+        "injection": "When active in Vector Prime / Invasion Begins, early NJO scenes should use limited, confusing incursions before the full invasion scale is understood. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vector Prime / Invasion Begins.",
+          "Respect story-position bounds from Vector Prime / Invasion Begins to Vector Prime / Invasion Begins."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_sernpidal_moon_crisis",
+      "title": "Sernpidal Moon Crisis",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.sernpidal",
+        "validToAnchor": "sw.njo.sernpidal",
+        "sortKeyFrom": 20100,
+        "sortKeyTo": 20100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Sernpidal Disaster",
+        "phase": "Vector Prime",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Chewbacca",
+          "Anakin Solo",
+          "Han Solo"
+        ],
+        "locations": [
+          "Sernpidal"
+        ],
+        "topics": [
+          "war",
+          "family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ],
+        "entityIds": [
+          "sw-character:chewbacca",
+          "sw-character:anakin-solo",
+          "sw-character:han-solo",
+          "sw-location:sernpidal",
+          "sw-faction:new-republic"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime",
+        "character:chewbacca",
+        "character:anakin-solo",
+        "character:han-solo",
+        "location:sernpidal",
+        "faction:new-republic",
+        "topic:war",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Chewbacca",
+            "Anakin Solo",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Sernpidal"
+          ],
+          "topicsAny": [
+            "war",
+            "family"
+          ],
+          "factionsAny": [
+            "New Republic"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Sernpidal becomes a disaster zone when a moon is weaponized into a planetary catastrophe.",
+        "injection": "During Sernpidal context, treat the threat as catastrophic environmental collapse, not a normal ground battle.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Sernpidal Disaster.",
+          "Respect story-position bounds from Sernpidal Disaster to Sernpidal Disaster."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_chewbacca_death_changes_han_family_state",
+      "title": "Chewbacca Death Changes Han and Family State",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.sernpidal",
+        "validToAnchor": "sw.njo.sernpidal",
+        "sortKeyFrom": 20100,
+        "sortKeyTo": 20100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Sernpidal Disaster",
+        "phase": "Vector Prime",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Chewbacca",
+          "Han Solo",
+          "Anakin Solo",
+          "Leia Organa Solo"
+        ],
+        "locations": [
+          "Sernpidal"
+        ],
+        "topics": [
+          "family",
+          "trauma",
+          "spoiler guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:chewbacca",
+          "sw-character:han-solo",
+          "sw-character:anakin-solo",
+          "sw-character:leia-organa-solo",
+          "sw-location:sernpidal"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime",
+        "character:chewbacca",
+        "character:han-solo",
+        "character:anakin-solo",
+        "character:leia-organa-solo",
+        "location:sernpidal",
+        "topic:family",
+        "topic:trauma",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Chewbacca",
+            "Han Solo",
+            "Anakin Solo",
+            "Leia Organa Solo"
+          ],
+          "locationsAny": [
+            "Sernpidal"
+          ],
+          "topicsAny": [
+            "family",
+            "trauma",
+            "spoiler guard"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Chewbacca dies saving Anakin Solo at Sernpidal, leaving Han devastated and Anakin burdened by survivor guilt.",
+        "injection": "After Sernpidal, carry Han’s grief and Anakin’s guilt as active family-state constraints when relevant. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Sernpidal Disaster.",
+          "Respect story-position bounds from Sernpidal Disaster to Sernpidal Disaster."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_no_chewbacca_alive_after_sernpidal",
+      "title": "No Chewbacca Alive After Sernpidal",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.sernpidal",
+        "validToAnchor": "sw.njo.sernpidal",
+        "sortKeyFrom": 20100,
+        "sortKeyTo": 20100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Sernpidal Disaster",
+        "phase": "Vector Prime",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Chewbacca",
+          "Han Solo"
+        ],
+        "locations": [
+          "Sernpidal"
+        ],
+        "topics": [
+          "future guard",
+          "family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:chewbacca",
+          "sw-character:han-solo",
+          "sw-location:sernpidal"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime",
+        "character:chewbacca",
+        "character:han-solo",
+        "location:sernpidal",
+        "topic:future-guard",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Chewbacca",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Sernpidal"
+          ],
+          "topicsAny": [
+            "future guard",
+            "family"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "After the Sernpidal disaster, Chewbacca should not appear alive in standard Legends continuity.",
+        "injection": "Post-Sernpidal, do not casually include Chewbacca as alive unless the user has declared an alternate branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Sernpidal Disaster.",
+          "Respect story-position bounds from Sernpidal Disaster to Sernpidal Disaster."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_danni_quee_first_contact_importance",
+      "title": "Danni Quee First-Contact Importance",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.vector_prime_begins",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 20000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vector Prime / Invasion Begins",
+        "phase": "Vector Prime",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Danni Quee"
+        ],
+        "locations": [
+          "Helska IV"
+        ],
+        "topics": [
+          "science",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ],
+        "entityIds": [
+          "sw-character:danni-quee",
+          "sw-location:helska-iv",
+          "sw-faction:new-republic"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime",
+        "character:danni-quee",
+        "location:helska-iv",
+        "faction:new-republic",
+        "topic:science",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Danni Quee"
+          ],
+          "locationsAny": [
+            "Helska IV"
+          ],
+          "topicsAny": [
+            "science",
+            "knowledge gate"
+          ],
+          "factionsAny": [
+            "New Republic"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Danni Quee is an early scientific witness to the Yuuzhan Vong threat and helps establish that the invasion is not ordinary galactic politics.",
+        "injection": "Use Danni as a science/intelligence bridge for early Vong evidence rather than a generic civilian. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vector Prime / Invasion Begins.",
+          "Respect story-position bounds from Vector Prime / Invasion Begins to Vector Prime / Invasion Begins."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_miko_reglia_early_jedi_casualty",
+      "title": "Miko Reglia Shows Jedi Vulnerability",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.vector_prime_begins",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 20000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vector Prime / Invasion Begins",
+        "phase": "Vector Prime",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Miko Reglia",
+          "Yuuzhan Vong"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "force",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:miko-reglia",
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:jedi-order",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime",
+        "character:miko-reglia",
+        "character:yuuzhan-vong",
+        "faction:jedi-order",
+        "faction:yuuzhan-vong",
+        "topic:jedi",
+        "topic:force",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Miko Reglia",
+            "Yuuzhan Vong"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "jedi",
+            "force",
+            "war"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Miko Reglia’s fate helps demonstrate that Jedi cannot assume standard Force advantages against the Yuuzhan Vong.",
+        "injection": "In Vector Prime / Invasion Begins, early NJO Jedi should treat Yuuzhan Vong contact as dangerous and epistemically confusing, not as routine combat.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vector Prime / Invasion Begins.",
+          "Respect story-position bounds from Vector Prime / Invasion Begins to Vector Prime / Invasion Begins."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_helska_victory_not_war_end",
+      "title": "Helska Victory Does Not End War",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.helska_destroyed",
+        "validToAnchor": "sw.njo.helska_destroyed",
+        "sortKeyFrom": 20200,
+        "sortKeyTo": 20200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Helska IV Destroyed",
+        "phase": "Vector Prime",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yuuzhan Vong"
+        ],
+        "locations": [
+          "Helska IV"
+        ],
+        "topics": [
+          "war",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-faction:yuuzhan-vong",
+          "sw-location:helska-iv",
+          "sw-faction:new-republic",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime",
+        "character:yuuzhan-vong",
+        "location:helska-iv",
+        "faction:new-republic",
+        "faction:jedi-order",
+        "topic:war",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuuzhan Vong"
+          ],
+          "locationsAny": [
+            "Helska IV"
+          ],
+          "topicsAny": [
+            "war",
+            "future guard"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Destroying the early Helska threat does not end the invasion; it only reveals a much larger strategic danger.",
+        "injection": "After Helska, do not treat the Yuuzhan Vong as defeated; escalate uncertainty and wider-war pressure. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Helska IV Destroyed.",
+          "Respect story-position bounds from Helska IV Destroyed to Helska IV Destroyed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_new_republic_initial_denial",
+      "title": "New Republic Initially Underestimates Vong",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.ithor_devastated",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 21200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early Yuuzhan Vong invasion",
+        "phase": "Vector Prime to Early War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Borsk Feylya"
+        ],
+        "locations": [],
+        "topics": [
+          "government",
+          "politics",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ],
+        "entityIds": [
+          "sw-character:borsk-feylya",
+          "sw-faction:new-republic"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime-to-early-war",
+        "character:borsk-feylya",
+        "faction:new-republic",
+        "topic:government",
+        "topic:politics",
+        "topic:knowledge-gate",
+        "event:yuuzhan-vong-invasion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Borsk Feylya"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "government",
+            "politics",
+            "knowledge gate"
+          ],
+          "factionsAny": [
+            "New Republic"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "New Republic institutions are slow to grasp the Yuuzhan Vong invasion and often treat early reports through familiar political lenses.",
+        "injection": "In early NJO politics, use denial, committee friction, and misread threat models before full recognition. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early Yuuzhan Vong invasion.",
+          "Respect story-position bounds from Vector Prime / Invasion Begins to Ithor Devastated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_nom_anor_seeded_instability",
+      "title": "Nom Anor Seeds Instability",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.vector_prime_begins",
+        "validToAnchor": "sw.njo.ithor_devastated",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 21200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early Yuuzhan Vong invasion",
+        "phase": "Vector Prime to Early War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Nom Anor"
+        ],
+        "locations": [],
+        "topics": [
+          "infiltration",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Yuuzhan Vong",
+          "New Republic"
+        ],
+        "entityIds": [
+          "sw-character:nom-anor",
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:new-republic"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:vector-prime-to-early-war",
+        "character:nom-anor",
+        "faction:yuuzhan-vong",
+        "faction:new-republic",
+        "topic:infiltration",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nom Anor"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "infiltration",
+            "secret"
+          ],
+          "factionsAny": [
+            "Yuuzhan Vong",
+            "New Republic"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Nom Anor operates as a Yuuzhan Vong agent and manipulator before open invasion logic is widely understood.",
+        "injection": "Use Nom Anor for subversion, misinformation, and opportunistic manipulation rather than open honorable warfare.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early Yuuzhan Vong invasion.",
+          "Respect story-position bounds from Vector Prime / Invasion Begins to Ithor Devastated."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

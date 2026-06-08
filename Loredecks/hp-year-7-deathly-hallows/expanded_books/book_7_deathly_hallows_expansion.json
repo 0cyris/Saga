@@ -10,7 +10,7 @@
       "kind": "future_guard",
       "gateType": "future_guard",
       "category": "timeline",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "temporal_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -68,8 +68,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -93,9 +93,15 @@
       },
       "content": {
         "fact": "Before the Seven Potters flight resolves, Hedwig and Moody's deaths and the full outcome of the escape should not be known.",
-        "injection": "Before the Seven Potters flight resolves, Hedwig and Moody's deaths and the full outcome of the escape should not be known.",
+        "injection": "Before the Seven Potters flight resolves, Hedwig and Moody's deaths and the full outcome of the escape should not be known. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Keep Hedwig and Moody alive until the Seven Potters event resolves."
+          "Keep Hedwig and Moody alive until the Seven Potters event resolves.",
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -119,7 +125,18 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:alastor-moody",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -128,7 +145,7 @@
       "kind": "institution_state",
       "gateType": "institution_state",
       "category": "location",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -136,7 +153,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -146,7 +163,7 @@
         "validFromAnchor": "hp.y7.dumbledore_will_bequests",
         "validToAnchor": "hp.y7.rab_discovered",
         "sortKeyFrom": 10074,
-        "sortKeyTo": 10104,
+        "sortKeyTo": 10105,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -191,8 +208,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -217,7 +234,15 @@
       },
       "content": {
         "fact": "The Burrow wedding is interrupted by news of the Ministry's fall, forcing Harry, Ron, and Hermione into fugitive status.",
-        "injection": "The Burrow wedding is interrupted by news of the Ministry's fall, forcing Harry, Ron, and Hermione into fugitive status."
+        "injection": "The Burrow wedding is interrupted by news of the Ministry's fall, forcing Harry, Ron, and Hermione into fugitive status. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -241,7 +266,19 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "faction:ministry-of-magic",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -250,7 +287,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -258,7 +295,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -268,7 +305,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10346,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -312,8 +349,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -337,7 +374,15 @@
       },
       "content": {
         "fact": "During the camping phase, protective enchantments and constant movement keep the trio hidden while the locket worsens fear, anger, and mistrust.",
-        "injection": "During the camping phase, protective enchantments and constant movement keep the trio hidden while the locket worsens fear, anger, and mistrust."
+        "injection": "During the camping phase, protective enchantments and constant movement keep the trio hidden while the locket worsens fear, anger, and mistrust. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -361,7 +406,18 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:horcruxes"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -370,7 +426,7 @@
       "kind": "relationship_gate",
       "gateType": "relationship_gate",
       "category": "relationship",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "relationship_state",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -378,7 +434,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -387,8 +443,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.lovegood_betrayal_escape",
         "validToAnchor": "hp.y7.diadem_found",
-        "sortKeyFrom": 10196,
-        "sortKeyTo": 10285,
+        "sortKeyFrom": 10193,
+        "sortKeyTo": 10286,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -430,8 +486,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -455,7 +511,15 @@
       },
       "content": {
         "fact": "Ron leaves during the Horcrux hunt but later returns using the Deluminator, helps recover the sword, and destroys the locket.",
-        "injection": "Ron leaves during the Horcrux hunt but later returns using the Deluminator, helps recover the sword, and destroys the locket."
+        "injection": "Ron leaves during the Horcrux hunt but later returns using the Deluminator, helps recover the sword, and destroys the locket. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -479,7 +543,18 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:horcruxes"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -488,7 +563,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -506,7 +581,7 @@
         "validFromAnchor": "hp.y7.dumbledore_will_bequests",
         "validToAnchor": "hp.y7.room_of_requirement_reunion",
         "sortKeyFrom": 10074,
-        "sortKeyTo": 10258,
+        "sortKeyTo": 10260,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -548,8 +623,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -573,9 +648,15 @@
       },
       "content": {
         "fact": "Before the Xenophilius Lovegood visit, the trio does not have a coherent framework for the Deathly Hallows symbol or the three objects.",
-        "injection": "Before the Xenophilius Lovegood visit, the trio does not have a coherent framework for the Deathly Hallows symbol or the three objects.",
+        "injection": "Before the Xenophilius Lovegood visit, the trio does not have a coherent framework for the Deathly Hallows symbol or the three objects. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not explain the Hallows framework before the Lovegood visit."
+          "Do not explain the Hallows framework before the Lovegood visit.",
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -600,7 +681,18 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:luna-lovegood",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -609,7 +701,7 @@
       "kind": "future_guard",
       "gateType": "future_guard",
       "category": "timeline",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "temporal_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -627,7 +719,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.harry_surrenders",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10315,
+        "sortKeyTo": 10317,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -673,8 +765,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -702,9 +794,15 @@
       },
       "content": {
         "fact": "Before the Malfoy Manor escape, Dobby’s death, Hermione’s torture, and the wand-allegiance transfer from Draco to Harry should remain unrevealed.",
-        "injection": "Before the Malfoy Manor escape, Dobby’s death, Hermione’s torture, and the wand-allegiance transfer from Draco to Harry should remain unrevealed.",
+        "injection": "Before the Malfoy Manor escape, Dobby’s death, Hermione’s torture, and the wand-allegiance transfer from Draco to Harry should remain unrevealed. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Keep Dobby alive and wand-transfer logic hidden before the Malfoy Manor escape."
+          "Keep Dobby alive and wand-transfer logic hidden before the Malfoy Manor escape.",
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -728,7 +826,18 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -737,7 +846,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -754,8 +863,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10347,
-        "sortKeyTo": 10348,
+        "sortKeyFrom": 10344,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -826,7 +935,15 @@
       },
       "content": {
         "fact": "The Gringotts break-in obtains Hufflepuff's cup from Bellatrix's vault and ends with a dragon escape, exposing the Horcrux hunt to Voldemort.",
-        "injection": "The Gringotts break-in obtains Hufflepuff's cup from Bellatrix's vault and ends with a dragon escape, exposing the Horcrux hunt to Voldemort."
+        "injection": "The Gringotts break-in obtains Hufflepuff's cup from Bellatrix's vault and ends with a dragon escape, exposing the Horcrux hunt to Voldemort. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -850,7 +967,19 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:horcruxes"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -859,7 +988,7 @@
       "kind": "place_fact",
       "gateType": "place_fact",
       "category": "location",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "location_state",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -867,7 +996,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -876,8 +1005,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10347,
-        "sortKeyTo": 10348,
+        "sortKeyFrom": 10344,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -947,7 +1076,15 @@
       },
       "content": {
         "fact": "The return through Hogsmeade brings Harry to Aberforth and then into Hogwarts through DA-linked passageways for the final Horcrux search.",
-        "injection": "The return through Hogsmeade brings Harry to Aberforth and then into Hogwarts through DA-linked passageways for the final Horcrux search."
+        "injection": "The return through Hogsmeade brings Harry to Aberforth and then into Hogwarts through DA-linked passageways for the final Horcrux search. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -971,7 +1108,22 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:horcruxes"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -980,7 +1132,7 @@
       "kind": "institution_state",
       "gateType": "institution_state",
       "category": "location",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -988,7 +1140,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -998,7 +1150,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10348,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -1042,8 +1194,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Severus Snape",
@@ -1067,7 +1219,15 @@
       },
       "content": {
         "fact": "During Year 7, Hogwarts is controlled by Snape as headmaster and the Carrows as enforcers, while Neville, Ginny, Luna, and DA allies resist.",
-        "injection": "During Year 7, Hogwarts is controlled by Snape as headmaster and the Carrows as enforcers, while Neville, Ginny, Luna, and DA allies resist."
+        "injection": "During Year 7, Hogwarts is controlled by Snape as headmaster and the Carrows as enforcers, while Neville, Ginny, Luna, and DA allies resist. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1091,7 +1251,22 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:albus-dumbledore",
+        "character:ginny-weasley",
+        "character:luna-lovegood",
+        "character:neville-longbottom",
+        "character:severus-snape",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "faction:dumbledores-army",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1100,7 +1275,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1117,7 +1292,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
+        "sortKeyFrom": 10344,
         "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -1189,7 +1364,15 @@
       },
       "content": {
         "fact": "During the Battle of Hogwarts, the diadem Horcrux is located in the Room of Requirement and destroyed amid a deadly confrontation and cursed fire.",
-        "injection": "During the Battle of Hogwarts, the diadem Horcrux is located in the Room of Requirement and destroyed amid a deadly confrontation and cursed fire."
+        "injection": "During the Battle of Hogwarts, the diadem Horcrux is located in the Room of Requirement and destroyed amid a deadly confrontation and cursed fire. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1213,7 +1396,20 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:horcruxes"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1222,7 +1418,7 @@
       "kind": "future_guard",
       "gateType": "future_guard",
       "category": "timeline",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -1240,7 +1436,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10348,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -1280,8 +1476,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -1305,9 +1501,15 @@
       },
       "content": {
         "fact": "Before the Battle of Hogwarts reaches its relevant phase, major deaths and survival outcomes must remain hidden, including Fred, Lupin, Tonks, Snape, and Voldemort.",
-        "injection": "Before the Battle of Hogwarts reaches its relevant phase, major deaths and survival outcomes must remain hidden, including Fred, Lupin, Tonks, Snape, and Voldemort.",
+        "injection": "Before the Battle of Hogwarts reaches its relevant phase, major deaths and survival outcomes must remain hidden, including Fred, Lupin, Tonks, Snape, and Voldemort. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not reveal battle casualty outcomes before they occur in-scene."
+          "Do not reveal battle casualty outcomes before they occur in-scene.",
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -1331,7 +1533,20 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:fred-weasley",
+        "character:harry-potter",
+        "character:remus-lupin",
+        "character:severus-snape",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1340,7 +1555,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -1358,7 +1573,7 @@
         "validFromAnchor": "hp.y7.malfoy_manor_burbage_meeting",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10043,
-        "sortKeyTo": 10348,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -1400,8 +1615,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Severus Snape",
@@ -1425,9 +1640,15 @@
       },
       "content": {
         "fact": "Snape's memories reveal his long-term loyalty, his connection to Lily, and Dumbledore-related choices only after Harry receives and views them.",
-        "injection": "Snape's memories reveal his long-term loyalty, his connection to Lily, and Dumbledore-related choices only after Harry receives and views them.",
+        "injection": "Snape's memories reveal his long-term loyalty, his connection to Lily, and Dumbledore-related choices only after Harry receives and views them. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Keep Snape's loyalty hidden until memories are viewed."
+          "Keep Snape's loyalty hidden until memories are viewed.",
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -1452,7 +1673,18 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1461,7 +1693,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1478,7 +1710,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
+        "sortKeyFrom": 10344,
         "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -1544,7 +1776,15 @@
       },
       "content": {
         "fact": "The Elder Wand’s allegiance follows defeat/disarmament logic, ending with Harry’s claim through Draco unless our story establishes a different chain.",
-        "injection": "The Elder Wand’s allegiance follows defeat/disarmament logic, ending with Harry’s claim through Draco unless our story establishes a different chain."
+        "injection": "The Elder Wand’s allegiance follows defeat/disarmament logic, ending with Harry’s claim through Draco unless our story establishes a different chain. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1568,7 +1808,20 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:albus-dumbledore",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:elder-wand"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1577,7 +1830,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1594,7 +1847,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
+        "sortKeyFrom": 10344,
         "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -1656,7 +1909,15 @@
       },
       "content": {
         "fact": "Harry goes to the forest expecting death and experiences a liminal King's Cross-like encounter tied to the Horcrux fragment in him.",
-        "injection": "Harry goes to the forest expecting death and experiences a liminal King's Cross-like encounter tied to the Horcrux fragment in him."
+        "injection": "Harry goes to the forest expecting death and experiences a liminal King's Cross-like encounter tied to the Horcrux fragment in him. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1680,7 +1941,18 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:horcruxes"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1689,7 +1961,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1706,8 +1978,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
-        "sortKeyTo": 10393,
+        "sortKeyFrom": 10344,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Deathly Hallows: Year 7",
@@ -1748,8 +2020,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -1772,7 +2044,15 @@
       },
       "content": {
         "fact": "After the final duel, Voldemort is dead, Harry survives, the remaining Horcrux threat is ended, and the immediate postwar state begins at Hogwarts.",
-        "injection": "After the final duel, Voldemort is dead, Harry survives, the remaining Horcrux threat is ended, and the immediate postwar state begins at Hogwarts."
+        "injection": "After the final duel, Voldemort is dead, Harry survives, the remaining Horcrux threat is ended, and the immediate postwar state begins at Hogwarts. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1801,7 +2081,21 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:elder-wand",
+        "topic:horcruxes"
+      ]
     }
   ]
 }

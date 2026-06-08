@@ -1,0 +1,995 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_new_republic_legitimacy_over_firepower",
+      "title": "New Republic Legitimacy Matters More Than Firepower",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "government",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:government",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "government",
+            "politics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The New Republic’s claim to rule depends on legitimacy, representation, and contrast with Imperial authoritarianism.",
+        "injection": "In political scenes, make legitimacy and optics matter; the New Republic cannot simply act like the Empire with nicer symbols. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "factions/new_republic_faction_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_imperial_remnant_shrinks_but_persists",
+      "title": "Imperial Remnant Shrinks but Persists",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "imperial remnant",
+          "fleet"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:imperial-remnant"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "imperial remnant",
+            "fleet"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Imperial Remnant loses territory over time but remains militarily, culturally, and politically durable.",
+        "injection": "Do not erase the Remnant after one defeat; its form changes from campaigns and warlords toward a smaller state. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "factions/new_republic_faction_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_imperial_warlords_compete_with_remnant",
+      "title": "Imperial Warlords Compete With Remnant Authority",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.imperial_fragmentation",
+        "validToAnchor": "sw.nr.zsinj_campaign",
+        "sortKeyFrom": 8350,
+        "sortKeyTo": 9700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Imperial fragmentation and warlord campaigns",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "warlord",
+          "imperial remnant"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Warlords"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:imperial-warlords",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:imperial-remnant",
+        "topic:warlord"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "warlord",
+            "imperial remnant"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Warlords"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Post-Endor warlords can cooperate with or undermine broader Imperial recovery depending on personal ambition.",
+        "injection": "Use fragmented Imperial politics before the peace settlement; warlords need not obey central Remnant strategy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial fragmentation and warlord campaigns.",
+          "Respect story-position bounds from Imperial Fragmentation to Zsinj Campaign."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "factions/new_republic_faction_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_jedi_order_recreated_without_republic_control",
+      "title": "Jedi Order Recreated Outside Direct Republic Control",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.jedi_academy_founded",
+        "validToAnchor": "sw.nr.praxeum_stabilizes",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Academy founding era",
+        "phase": "Jedi Academy Era to Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "government"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:government",
+        "topic:jedi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "jedi",
+            "government"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke’s Jedi movement cooperates with the New Republic but is not simply a government department.",
+        "injection": "During the Jedi Academy founding era, Luke’s Jedi movement can cooperate with the New Republic but is not a government department; preserve tension between Jedi judgment, politics, and accountability.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Academy founding era.",
+          "Respect story-position bounds from Luke Founds the Jedi Academy to Jedi Praxeum Stabilizes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "factions/new_republic_faction_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_smuggler_alliance_not_formal_state",
+      "title": "Smuggler Networks Are Not Formal State Assets",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "smuggling",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Smugglers"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:smugglers",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:smuggling"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "smuggling",
+            "espionage"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Smugglers"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Smuggler networks sometimes aid the New Republic but retain independent incentives and grudges.",
+        "injection": "Do not treat smugglers as clean New Republic employees unless a specific arrangement exists.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "factions/new_republic_faction_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_hapes_is_powerful_isolationist_bloc",
+      "title": "Hapes Is a Powerful Isolationist Bloc",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.han_leia_married",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Han and Leia Married",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "diplomacy",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Hapes Consortium"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:hapes-consortium",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "diplomacy",
+            "politics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Hapes Consortium"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Hapes Consortium is wealthy, politically distinct, and dangerous to treat as a normal New Republic member world.",
+        "injection": "In Hapan scenes, emphasize court politics, isolation, wealth, gendered power norms, and strategic marriage pressure.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Han and Leia Married.",
+          "Respect story-position bounds from Han and Leia Married to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "factions/new_republic_faction_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_dathomir_witches_are_local_force_tradition",
+      "title": "Dathomir Witches Are a Local Force Tradition",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.han_leia_married",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Han and Leia Married",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "force",
+          "diplomacy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Witches of Dathomir"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:witches-of-dathomir",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:force"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "force",
+            "diplomacy"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Witches of Dathomir"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dathomir’s Force traditions are local, clan-based, and distinct from Luke’s Jedi restoration.",
+        "injection": "Do not flatten Dathomiri Force users into standard Jedi or Sith unless the specific group warrants it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Han and Leia Married.",
+          "Respect story-position bounds from Han and Leia Married to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "factions/new_republic_faction_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_bothans_are_spies_and_politicians_not_monolith",
+      "title": "Bothans Are Political Actors, Not a Monolith",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "espionage",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Bothans"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:bothans",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "espionage",
+            "politics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Bothans"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Bothan society includes espionage reputation and intense political interests, but individual Bothans are not interchangeable schemers.",
+        "injection": "Use Bothan politics and spycraft without making every Bothan a caricature or identical conspirator. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "factions/new_republic_faction_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_chiss_are_not_publicly_understood",
+      "title": "Chiss Remain Poorly Understood Publicly",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "knowledge gate",
+          "imperial remnant"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Chiss"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:chiss",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:imperial-remnant",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "knowledge gate",
+            "imperial remnant"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Chiss"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Chiss and Unknown Regions are poorly understood by most New Republic citizens during this era.",
+        "injection": "When Chiss material appears before direct contact context, keep public knowledge limited and often filtered through Thrawn.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "factions/new_republic_faction_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_noghri_shift_away_from_imperial_service",
+      "title": "Noghri Shift Away From Imperial Service",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.noghri_truth",
+        "validToAnchor": "sw.nr.noghri_truth",
+        "sortKeyFrom": 11800,
+        "sortKeyTo": 11800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Noghri Truth Revealed",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "family",
+          "diplomacy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Noghri"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:noghri",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "family",
+            "diplomacy"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Noghri"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Leia exposes Imperial deception, Noghri loyalty can shift from Vader’s heirs under Imperial manipulation toward Leia’s family.",
+        "injection": "Post-reveal Noghri scenes should carry obligation, shame, loyalty, and cultural seriousness. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Noghri Truth Revealed.",
+          "Respect story-position bounds from Noghri Truth Revealed to Noghri Truth Revealed."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "factions/new_republic_faction_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

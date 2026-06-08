@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve casual late-Republic / Clone Wars / Republic-to-Empire phrases into Star Wars Legends Rise of Empire Context anchors and windows.",
+  "preferredFields": [
+    "era",
+    "film",
+    "series",
+    "beforeAfter",
+    "majorEvent",
+    "anchor",
+    "window"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer named film/war/event windows over invented BBY dates. Return only known anchor/window IDs from this deck. Prefer story-position anchors and windows over raw BBY/ABY dates; never invent timeline anchors outside this deck registry.",
+  "localPatterns": [
+    {
+      "pattern": "during clone wars",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.clone_wars_begin",
+        "anchorTo": "sw.roe.order_66",
+        "label": "During the Clone Wars"
+      }
+    },
+    {
+      "pattern": "clone wars era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.clone_wars_begin",
+        "anchorTo": "sw.roe.order_66",
+        "label": "During the Clone Wars"
+      }
+    },
+    {
+      "pattern": "after geonosis",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.geonosis_first_battle",
+        "anchorTo": "sw.roe.order_66",
+        "label": "After Geonosis, before Order 66"
+      }
+    },
+    {
+      "pattern": "before order 66",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.republic_decay",
+        "anchorTo": "sw.roe.order_66",
+        "label": "Before Order 66"
+      }
+    },
+    {
+      "pattern": "during order 66",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.order_66",
+        "anchorTo": "sw.roe.children_hidden",
+        "label": "During Order 66 and the Fall of the Jedi"
+      }
+    },
+    {
+      "pattern": "after order 66",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.order_66",
+        "anchorTo": "sw.roe.dark_times_begin",
+        "label": "After Order 66, early Jedi Purge"
+      }
+    },
+    {
+      "pattern": "after revenge of the sith",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.empire_declared",
+        "anchorTo": "sw.roe.dark_times_begin",
+        "label": "After Revenge of the Sith / Early Empire"
+      }
+    },
+    {
+      "pattern": "during revenge of the sith",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.coruscant_invasion",
+        "anchorTo": "sw.roe.children_hidden",
+        "label": "During Revenge of the Sith transition"
+      }
+    },
+    {
+      "pattern": "between phantom menace and attack of the clones",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.palpatine_chancellor",
+        "anchorTo": "sw.roe.geonosis_first_battle",
+        "label": "Between The Phantom Menace and Attack of the Clones"
+      }
+    },
+    {
+      "pattern": "during separatist crisis",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.separatist_crisis",
+        "anchorTo": "sw.roe.geonosis_first_battle",
+        "label": "During the Separatist Crisis"
+      }
+    },
+    {
+      "pattern": "outer rim sieges",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.outer_rim_sieges",
+        "anchorTo": "sw.roe.coruscant_invasion",
+        "label": "During the Outer Rim Sieges"
+      }
+    },
+    {
+      "pattern": "early empire",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.roe.empire_declared",
+        "anchorTo": "sw.roe.dark_times_begin",
+        "label": "Early Empire and Jedi Purge"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

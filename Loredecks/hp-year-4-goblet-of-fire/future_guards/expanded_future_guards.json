@@ -10,7 +10,7 @@
       "kind": "future_guard",
       "gateType": "future_guard",
       "category": "timeline",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "temporal_gate",
       "specificityScore": 85,
       "injectableByDefault": true,
@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9304,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -68,8 +68,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Cedric Diggory"
@@ -82,9 +82,15 @@
       },
       "content": {
         "fact": "Cedric Diggory is alive before the Third Task.",
-        "injection": "Do not imply Cedric is dead or that characters know he will die.",
+        "injection": "Do not imply Cedric is dead or that characters know he will die. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Protect Cedric’s death as a future event."
+          "Protect Cedric’s death as a future event.",
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -109,7 +115,14 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:cedric-diggory",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:4"
+      ]
     }
   ]
 }

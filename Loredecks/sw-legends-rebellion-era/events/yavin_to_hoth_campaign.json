@@ -1,0 +1,1587 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_empire_survives_death_star_loss",
+      "title": "Empire Survives the First Death Star Loss",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star",
+        "place:core-worlds",
+        "place:outer-rim",
+        "scope:rebellion-era",
+        "topic:military-logistics",
+        "topic:propaganda"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Palpatine"
+        ],
+        "locations": [
+          "Core Worlds",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "propaganda",
+          "military logistics"
+        ],
+        "objects": [
+          "Death Star"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Core Worlds",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "propaganda",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Death Star"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The destruction of the first Death Star is a major Rebel victory but does not collapse the Empire.",
+        "injection": "After Yavin, keep the Empire militarily dominant and politically intact; the Rebel victory inspires resistance but does not end Imperial rule. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_rebels_must_abandon_yavin",
+      "title": "Rebels Cannot Safely Remain on Yavin",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:mon-mothma",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:rebel-fleet",
+        "place:yavin",
+        "scope:rebellion-era",
+        "topic:military-logistics"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Mon Mothma",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Yavin IV",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "military logistics",
+          "rebel cell"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Mon Mothma",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Yavin IV",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "military logistics",
+            "rebel cell"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Yavin base becomes unsafe after the Death Star battle because Imperial retaliation is expected.",
+        "injection": "After Yavin, Rebel scenes should account for evacuation, dispersal, and the search for safer hidden bases. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_alliance_mobile_cell_structure",
+      "title": "Alliance Operates as Mobile Cells and Fleets",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-ackbar",
+        "character:leia-organa",
+        "character:mon-mothma",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:outer-rim",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:military-logistics"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mon Mothma",
+          "Leia Organa",
+          "Admiral Ackbar"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "rebel cell",
+          "military logistics",
+          "command"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mon Mothma",
+            "Leia Organa",
+            "Admiral Ackbar"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "rebel cell",
+            "military logistics",
+            "command"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Rebellion relies on hidden bases, mobile fleets, and distributed cells rather than a stable capital.",
+        "injection": "During the Galactic Civil War, avoid giving the Rebels open territorial security unless a local cell or temporary base is established. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_vader_hunts_luke_after_yavin",
+      "title": "Vader Becomes Interested in the Yavin Pilot",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "faction:sith",
+        "fandom:star-wars",
+        "object:death-star",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:force"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Sith",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "force",
+          "identity secret"
+        ],
+        "objects": [
+          "Death Star"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "force",
+            "identity secret"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Sith",
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Death Star"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Yavin, Vader investigates the Force-sensitive pilot who destroyed the Death Star.",
+        "injection": "Post-Yavin scenes involving Vader may treat Luke as an object of growing personal and strategic interest, but not yet as fully known son status to all parties. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_rebel_pilot_training",
+      "title": "Luke Develops as Rebel Pilot",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:luke-skywalker",
+        "character:wedge-antilles",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:x-wing",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:force",
+        "topic:pilot"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Wedge Antilles"
+        ],
+        "locations": [
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "pilot",
+          "force",
+          "command"
+        ],
+        "objects": [
+          "X-wing"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Wedge Antilles"
+          ],
+          "locationsAny": [
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "pilot",
+            "force",
+            "command"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "X-wing"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke’s immediate post-Yavin development is as Rebel pilot and commander, not as a formal Jedi student.",
+        "injection": "Between Yavin and Hoth, emphasize Luke’s piloting, Rebel missions, and limited Force intuition rather than polished Jedi discipline. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_leia_field_commander_role",
+      "title": "Leia Functions as Rebel Leader in the Field",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:leia-organa",
+        "character:mon-mothma",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:hoth",
+        "place:rebel-fleet",
+        "place:yavin",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:morale",
+        "topic:politics"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Mon Mothma"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Yavin IV",
+          "Hoth"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "command",
+          "politics",
+          "morale"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Mon Mothma"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Yavin IV",
+            "Hoth"
+          ],
+          "topicsAny": [
+            "command",
+            "politics",
+            "morale"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Leia is not merely symbolic royalty; she acts as a field leader, organizer, and military-political decision maker.",
+        "injection": "In Rebellion Era scenes, Leia can command, negotiate, brief, and make hard operational calls while also carrying Alderaan trauma. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_rebel_shortages_shape_operations",
+      "title": "Rebel Shortages Shape Operations",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:bacta",
+        "object:x-wing",
+        "object:y-wing",
+        "place:outer-rim",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:military-logistics",
+        "topic:morale"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Han Solo",
+          "Chewbacca"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "military logistics",
+          "morale"
+        ],
+        "objects": [
+          "X-wing",
+          "Y-wing",
+          "Bacta"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Han Solo",
+            "Chewbacca"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "military logistics",
+            "morale"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "X-wing",
+            "Y-wing",
+            "Bacta"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Alliance often lacks ships, fuel, safe ports, parts, medical resources, and political protection.",
+        "injection": "Use scarcity as a normal Rebel constraint; missions should often hinge on logistics, secrecy, and repair, not abundance. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_imperial_reprisals_common",
+      "title": "Imperial Reprisals Pressure Rebel Supporters",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:core-worlds",
+        "place:outer-rim",
+        "scope:rebellion-era",
+        "topic:propaganda"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Outer Rim",
+          "Core Worlds"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "propaganda",
+          "rebel cell"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Outer Rim",
+            "Core Worlds"
+          ],
+          "topicsAny": [
+            "propaganda",
+            "rebel cell"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Imperial forces punish suspected Rebel aid, forcing civilians to weigh survival against resistance.",
+        "injection": "When local worlds aid Rebels, include fear of surveillance, reprisal, informants, and collective punishment. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_bounty_networks_pressure_smugglers",
+      "title": "Bounty Networks Pressure Smugglers",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:boba-fett",
+        "character:chewbacca",
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:bounty-hunters",
+        "faction:criminal-underworld",
+        "faction:hutts",
+        "fandom:star-wars",
+        "place:outer-rim",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:bounty-hunter",
+        "topic:criminal-debt",
+        "topic:smuggling"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Chewbacca",
+          "Boba Fett",
+          "Jabba the Hutt"
+        ],
+        "locations": [
+          "Tatooine",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Bounty Hunters",
+          "Hutts",
+          "Criminal Underworld"
+        ],
+        "topics": [
+          "bounty hunter",
+          "smuggling",
+          "criminal debt"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Chewbacca",
+            "Boba Fett",
+            "Jabba the Hutt"
+          ],
+          "locationsAny": [
+            "Tatooine",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "bounty hunter",
+            "smuggling",
+            "criminal debt"
+          ],
+          "factionsAny": [
+            "Bounty Hunters",
+            "Hutts",
+            "Criminal Underworld"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Smugglers and fugitives can be pressured through bounty hunters, debts, and Imperial notices.",
+        "injection": "During the Rebellion Era, underworld travel is not neutral; debts and bounties can expose Rebel-linked characters. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_hoth_chosen_for_remoteness",
+      "title": "Hoth Chosen for Remoteness",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:general-rieekan",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:hoth",
+        "scope:rebellion-era",
+        "topic:military-logistics"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "General Rieekan",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Hoth"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "military logistics",
+          "rebel cell"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "General Rieekan",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Hoth"
+          ],
+          "topicsAny": [
+            "military logistics",
+            "rebel cell"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Echo Base is hidden on Hoth because the world is remote, hostile, and unlikely as a major settlement.",
+        "injection": "Before the Empire finds Hoth, write Echo Base as a fragile hidden outpost where environment and secrecy matter as much as defense. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_echo_base_environmental_hazard",
+      "title": "Echo Base Has Severe Environmental Hazards",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:bacta",
+        "place:hoth",
+        "scope:rebellion-era",
+        "topic:military-logistics"
+      ],
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Han Solo",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Hoth"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "military logistics"
+        ],
+        "objects": [
+          "Bacta"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Han Solo",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Hoth"
+          ],
+          "topicsAny": [
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Bacta"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hoth’s cold, fauna, and isolation are operational threats even before the Empire attacks.",
+        "injection": "At Echo Base, include cold exposure, patrol risk, shelter dependence, and limited emergency margins. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_han_leia_romance_unresolved_pre_hoth",
+      "title": "Han and Leia Romance Is Tense and Unresolved",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:hoth",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:morale"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Hoth",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "romance",
+          "morale"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Hoth",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "romance",
+            "morale"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Before and during Hoth, Han and Leia have obvious tension but no settled romantic partnership.",
+        "injection": "Write pre-Bespin Han/Leia as argumentative, mutually drawn, and unresolved; do not jump to stable couple dynamics too early. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/yavin_to_hoth_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

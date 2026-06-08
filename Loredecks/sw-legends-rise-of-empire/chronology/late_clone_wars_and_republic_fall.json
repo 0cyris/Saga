@@ -1,0 +1,2139 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_outer_rim_sieges_stretch_jedi_thin",
+      "title": "Outer Rim Sieges Stretch Jedi Thin",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.outer_rim_sieges",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 4300,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Outer Rim Sieges",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "outer rim sieges",
+          "jedi dispersed"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Clone Army",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:clone-army",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:jedi-dispersed",
+        "topic:outer-rim-sieges"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "outer rim sieges",
+            "jedi dispersed"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Clone Army",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Outer Rim Sieges scatter Jedi and clone forces across distant campaigns, leaving Coruscant politically vulnerable.",
+        "injection": "During the Outer Rim Sieges, many Jedi are away from the capital and worn down by extended campaigns. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Outer Rim Sieges.",
+          "Respect story-position bounds from Outer Rim Sieges to Order 66."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Outer Rim Sieges",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_coruscant_invasion_is_late_war_shock",
+      "title": "Coruscant Invasion Is Late-War Shock",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.coruscant_invasion",
+        "validToAnchor": "sw.roe.dooku_death",
+        "sortKeyFrom": 4550,
+        "sortKeyTo": 4625,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Battle of Coruscant",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "battle of coruscant",
+          "capital attack"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Confederacy of Independent Systems",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "location:coruscant",
+        "scope:rise-of-empire",
+        "topic:battle-of-coruscant",
+        "topic:capital-attack"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "battle of coruscant",
+            "capital attack"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "Confederacy of Independent Systems",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Separatist strike on Coruscant is a late-war shock that brings the war directly to the Republic capital.",
+        "injection": "During the Battle of Coruscant, portray the capital as under direct strategic threat, not merely watching a distant war.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle of Coruscant.",
+          "Respect story-position bounds from Battle of Coruscant to Dooku Dies Aboard Invisible Hand."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Battle of Coruscant",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_palpatine_abduction_sets_anakin_trial",
+      "title": "Palpatine Abduction Sets Anakin Trial",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.coruscant_invasion",
+        "validToAnchor": "sw.roe.dooku_death",
+        "sortKeyFrom": 4550,
+        "sortKeyTo": 4625,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Battle of Coruscant",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Palpatine",
+          "Count Dooku"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "invisible hand",
+          "palpatine manipulation"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:anakin-skywalker",
+        "character:count-dooku",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:galactic-republic",
+        "faction:sith",
+        "fandom:star-wars",
+        "location:coruscant",
+        "scope:rise-of-empire",
+        "topic:invisible-hand",
+        "topic:palpatine-manipulation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Palpatine",
+            "Count Dooku"
+          ],
+          "topicsAny": [
+            "invisible hand",
+            "palpatine manipulation"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Palpatine’s abduction aboard the Invisible Hand positions Anakin for a moral and political test engineered by Sidious.",
+        "injection": "In the Coruscant rescue, frame Anakin’s choices as being manipulated by Palpatine, not as a random battlefield dilemma.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle of Coruscant.",
+          "Respect story-position bounds from Battle of Coruscant to Dooku Dies Aboard Invisible Hand."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Battle of Coruscant",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_dooku_death_removes_public_separatist_face",
+      "title": "Dooku Death Removes Public Separatist Face",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.dooku_death",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 4625,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Dooku Death Before Empire",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Count Dooku",
+          "Anakin Skywalker",
+          "Darth Sidious"
+        ],
+        "locations": [],
+        "topics": [
+          "dooku death",
+          "separatist leadership"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Confederacy of Independent Systems",
+          "Sith"
+        ]
+      },
+      "tags": [
+        "character:anakin-skywalker",
+        "character:count-dooku",
+        "character:darth-sidious",
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:dooku-death",
+        "topic:separatist-leadership"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Count Dooku",
+            "Anakin Skywalker",
+            "Darth Sidious"
+          ],
+          "topicsAny": [
+            "dooku death",
+            "separatist leadership"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Confederacy of Independent Systems",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dooku’s death removes the elegant public face of the Separatist movement and clears Sidious’s apprentice line for Anakin.",
+        "injection": "After Dooku dies, do not keep him available as active Separatist leadership; Grievous and the Council carry the visible war.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Dooku Death Before Empire.",
+          "Respect story-position bounds from Dooku Dies Aboard Invisible Hand to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "After Dooku Death Before Empire",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_grievous_becomes_last_visible_separatist_commander",
+      "title": "Grievous Last Visible Separatist Commander",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.dooku_death",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 4625,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Dooku Death Before Empire",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "General Grievous",
+          "Count Dooku"
+        ],
+        "locations": [],
+        "topics": [
+          "separatist command",
+          "grievous"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Confederacy of Independent Systems"
+        ]
+      },
+      "tags": [
+        "character:count-dooku",
+        "character:general-grievous",
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:grievous",
+        "topic:separatist-command"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "General Grievous",
+            "Count Dooku"
+          ],
+          "topicsAny": [
+            "separatist command",
+            "grievous"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Confederacy of Independent Systems"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Dooku dies, Grievous becomes the most visible remaining Separatist military commander.",
+        "injection": "After Dooku’s death, treat Grievous as the main public Separatist military threat until Utapau. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Dooku Death Before Empire.",
+          "Respect story-position bounds from Dooku Dies Aboard Invisible Hand to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "After Dooku Death Before Empire",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_anakin_council_seat_without_master_rank_wounds_him",
+      "title": "Anakin Council Seat Without Master Rank Wounds Him",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.jedi_council_spy_order",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 4725,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "ROTS Council Crisis",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Mace Windu",
+          "Yoda"
+        ],
+        "locations": [],
+        "topics": [
+          "council seat",
+          "master rank",
+          "resentment"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:anakin-skywalker",
+        "character:mace-windu",
+        "character:yoda",
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:council-seat",
+        "topic:master-rank",
+        "topic:resentment"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Mace Windu",
+            "Yoda"
+          ],
+          "topicsAny": [
+            "council seat",
+            "master rank",
+            "resentment"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin’s Council seat without Master rank deepens his resentment and sense that the Jedi do not trust him.",
+        "injection": "In late ROTS context, use the Council decision as a personal wound feeding Anakin’s instability. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: ROTS Council Crisis.",
+          "Respect story-position bounds from Jedi Ask Anakin to Monitor Palpatine to Order 66."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "ROTS Council Crisis",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_jedi_monitor_palpatine_crosses_anakin_loyalty",
+      "title": "Jedi Monitoring Palpatine Crosses Anakin Loyalty",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.jedi_council_spy_order",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 4725,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "ROTS Council Crisis",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Palpatine",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [],
+        "topics": [
+          "monitor palpatine",
+          "divided loyalty"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Senate"
+        ]
+      },
+      "tags": [
+        "character:anakin-skywalker",
+        "character:obi-wan-kenobi",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:galactic-senate",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:divided-loyalty",
+        "topic:monitor-palpatine"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Palpatine",
+            "Obi-Wan Kenobi"
+          ],
+          "topicsAny": [
+            "monitor palpatine",
+            "divided loyalty"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Senate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Jedi request that Anakin monitor Palpatine, forcing him between institutional duty and personal loyalty.",
+        "injection": "When this gate is active, show Anakin caught between Jedi suspicion and Palpatine’s grooming. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: ROTS Council Crisis.",
+          "Respect story-position bounds from Jedi Ask Anakin to Monitor Palpatine to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "ROTS Council Crisis",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_anakin_padme_marriage_secret_until_reveal",
+      "title": "Anakin Padme Marriage Secret",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Secret Marriage Before Order 66",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Padme Amidala"
+        ],
+        "locations": [],
+        "topics": [
+          "secret marriage",
+          "attachment"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Senate"
+        ]
+      },
+      "tags": [
+        "character:anakin-skywalker",
+        "character:padme-amidala",
+        "continuity:legends",
+        "faction:galactic-senate",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:attachment",
+        "topic:secret-marriage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Padme Amidala"
+          ],
+          "topicsAny": [
+            "secret marriage",
+            "attachment"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Senate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin and Padme are secretly married after Geonosis; public exposure would threaten Anakin’s Jedi standing.",
+        "injection": "Before Order 66, keep Anakin and Padme’s marriage secret from most characters and institutionally dangerous. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Secret Marriage Before Order 66.",
+          "Respect story-position bounds from First Battle of Geonosis to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Secret Marriage Before Order 66",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_anakin_fear_for_padme_drives_fall",
+      "title": "Anakin Fear For Padme Drives Fall",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.jedi_council_spy_order",
+        "validToAnchor": "sw.roe.mustafar_duel",
+        "sortKeyFrom": 4725,
+        "sortKeyTo": 5000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Anakin Fall Window",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Padme Amidala",
+          "Palpatine"
+        ],
+        "locations": [],
+        "topics": [
+          "fear of loss",
+          "forbidden power",
+          "attachment"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:anakin-skywalker",
+        "character:padme-amidala",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:attachment",
+        "topic:fear-of-loss",
+        "topic:forbidden-power"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Padme Amidala",
+            "Palpatine"
+          ],
+          "topicsAny": [
+            "fear of loss",
+            "forbidden power",
+            "attachment"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Sith",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin’s fear of losing Padme makes Palpatine’s promise of forbidden power emotionally decisive.",
+        "injection": "During Anakin’s fall, emphasize fear, possessive attachment, and desperation over simple ambition.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Anakin Fall Window.",
+          "Respect story-position bounds from Jedi Ask Anakin to Monitor Palpatine to Mustafar Duel and Vader's Ruin."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Anakin Fall Window",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_palpatine_reveal_to_anakin_precedes_order_66",
+      "title": "Palpatine Reveal To Anakin Precedes Order 66",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.jedi_council_spy_order",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 4725,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Order 66 Reveal Window",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Anakin Skywalker",
+          "Mace Windu"
+        ],
+        "locations": [],
+        "topics": [
+          "sidious reveal",
+          "palpatine identity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:anakin-skywalker",
+        "character:mace-windu",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:palpatine-identity",
+        "topic:sidious-reveal"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Anakin Skywalker",
+            "Mace Windu"
+          ],
+          "topicsAny": [
+            "sidious reveal",
+            "palpatine identity"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Sith",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Palpatine reveals himself as Sith to Anakin before Order 66, but this is not public knowledge.",
+        "injection": "After the reveal and before Order 66, only a narrow circle knows Palpatine is Sith; do not make the galaxy aware.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Before Order 66 Reveal Window.",
+          "Respect story-position bounds from Jedi Ask Anakin to Monitor Palpatine to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Before Order 66 Reveal Window",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_mace_confrontation_is_not_public_coup",
+      "title": "Mace Confrontation Not Public Coup",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.jedi_council_spy_order",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 4725,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Palpatine Arrest Attempt",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mace Windu",
+          "Palpatine",
+          "Anakin Skywalker"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "palpatine arrest",
+          "jedi coup narrative"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Senate"
+        ]
+      },
+      "tags": [
+        "character:anakin-skywalker",
+        "character:mace-windu",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:galactic-senate",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:coruscant",
+        "scope:rise-of-empire",
+        "topic:jedi-coup-narrative",
+        "topic:palpatine-arrest"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mace Windu",
+            "Palpatine",
+            "Anakin Skywalker"
+          ],
+          "topicsAny": [
+            "palpatine arrest",
+            "jedi coup narrative"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Senate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Jedi confrontation with Palpatine is quickly reframed by Sidious as a Jedi coup, but ordinary citizens do not witness the full Sith context.",
+        "injection": "After the confrontation, public scenes should reflect Palpatine’s coup narrative, not perfect knowledge of what happened in his office.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Palpatine Arrest Attempt.",
+          "Respect story-position bounds from Jedi Ask Anakin to Monitor Palpatine to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Palpatine Arrest Attempt",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_order_66_turns_clone_loyalty_against_jedi",
+      "title": "Order 66 Turns Clone Loyalty Against Jedi",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.order_66",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 4850,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Order 66",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Clone Troopers",
+          "Jedi Generals",
+          "Palpatine"
+        ],
+        "locations": [],
+        "topics": [
+          "order 66",
+          "clone betrayal"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Clone Army",
+          "Jedi Order",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:clone-troopers",
+        "character:jedi-generals",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:clone-army",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:clone-betrayal",
+        "topic:order-66"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Clone Troopers",
+            "Jedi Generals",
+            "Palpatine"
+          ],
+          "topicsAny": [
+            "order 66",
+            "clone betrayal"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Clone Army",
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Order 66 converts the clone army from Jedi-led Republic force into the immediate instrument of Jedi extermination.",
+        "injection": "During Order 66, clone units should abruptly treat Jedi as lawful targets under Supreme Chancellor command. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Order 66.",
+          "Respect story-position bounds from Order 66 to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Order 66",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_jedi_temple_falls_fast",
+      "title": "Jedi Temple Falls Fast",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.order_66",
+        "validToAnchor": "sw.roe.children_hidden",
+        "sortKeyFrom": 4850,
+        "sortKeyTo": 5050,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Order 66",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Clone Troopers"
+        ],
+        "locations": [
+          "Jedi Temple",
+          "Coruscant"
+        ],
+        "topics": [
+          "operation knightfall",
+          "temple massacre"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Clone Army",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:anakin-skywalker",
+        "character:clone-troopers",
+        "continuity:legends",
+        "faction:clone-army",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:coruscant",
+        "location:jedi-temple",
+        "scope:rise-of-empire",
+        "topic:operation-knightfall",
+        "topic:temple-massacre"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Clone Troopers"
+          ],
+          "topicsAny": [
+            "operation knightfall",
+            "temple massacre"
+          ],
+          "locationsAny": [
+            "Jedi Temple",
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Clone Army",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Jedi Temple falls rapidly during Operation Knightfall, turning the Order’s central sanctuary into a massacre site and Imperial prize.",
+        "injection": "After Order 66 begins, do not treat the Jedi Temple as a safe headquarters or intact command center. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Order 66.",
+          "Respect story-position bounds from Order 66 to Skywalker Children Hidden."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Order 66",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_separatist_council_killed_on_mustafar",
+      "title": "Separatist Council Killed On Mustafar",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.order_66",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 4850,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Mustafar Separatist Shutdown",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Nute Gunray"
+        ],
+        "locations": [
+          "Mustafar"
+        ],
+        "topics": [
+          "separatist council",
+          "mustafar massacre"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Confederacy of Independent Systems",
+          "Sith"
+        ]
+      },
+      "tags": [
+        "character:darth-vader",
+        "character:nute-gunray",
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "faction:sith",
+        "fandom:star-wars",
+        "location:mustafar",
+        "scope:rise-of-empire",
+        "topic:mustafar-massacre",
+        "topic:separatist-council"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Nute Gunray"
+          ],
+          "topicsAny": [
+            "separatist council",
+            "mustafar massacre"
+          ],
+          "locationsAny": [
+            "Mustafar"
+          ],
+          "factionsAny": [
+            "Confederacy of Independent Systems",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Separatist Council is killed on Mustafar, eliminating the political leadership Sidious no longer needs.",
+        "injection": "After Mustafar, do not keep the Separatist Council operating as a coherent galactic government. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mustafar Separatist Shutdown.",
+          "Respect story-position bounds from Order 66 to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Mustafar Separatist Shutdown",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_empire_declared_as_security_solution",
+      "title": "Empire Declared As Security Solution",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.empire_declared",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 4925,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Empire Declaration",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "empire declaration",
+          "security state"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Empire",
+          "Galactic Senate"
+        ]
+      },
+      "tags": [
+        "character:palpatine",
+        "continuity:legends",
+        "faction:galactic-empire",
+        "faction:galactic-senate",
+        "fandom:star-wars",
+        "location:coruscant",
+        "scope:rise-of-empire",
+        "topic:empire-declaration",
+        "topic:security-state"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine"
+          ],
+          "topicsAny": [
+            "empire declaration",
+            "security state"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Galactic Senate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Galactic Empire is publicly declared as the answer to war, corruption, and alleged Jedi treason.",
+        "injection": "When the Empire is declared, portray its public justification as security, stability, and victory after emergency.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Empire Declaration.",
+          "Respect story-position bounds from Galactic Empire Declared to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Empire Declaration",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_vader_suit_after_mustafar",
+      "title": "Vader Suit After Mustafar",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.mustafar_duel",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Mustafar",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Anakin Skywalker",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Mustafar"
+        ],
+        "topics": [
+          "vader suit",
+          "mustafar injuries"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith",
+          "Galactic Empire"
+        ]
+      },
+      "tags": [
+        "character:anakin-skywalker",
+        "character:darth-vader",
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "faction:galactic-empire",
+        "faction:sith",
+        "fandom:star-wars",
+        "location:mustafar",
+        "scope:rise-of-empire",
+        "topic:mustafar-injuries",
+        "topic:vader-suit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Anakin Skywalker",
+            "Obi-Wan Kenobi"
+          ],
+          "topicsAny": [
+            "vader suit",
+            "mustafar injuries"
+          ],
+          "locationsAny": [
+            "Mustafar"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Mustafar, Anakin survives as Darth Vader in life-support armor, permanently changing his body, voice, and public presence.",
+        "injection": "After Mustafar, write Vader as armored, physically altered, and trapped in pain; do not write him as pre-suit Anakin.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Mustafar.",
+          "Respect story-position bounds from Mustafar Duel and Vader's Ruin to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "After Mustafar",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_obi_wan_and_yoda_go_into_exile",
+      "title": "Obi-Wan And Yoda Go Into Exile",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.children_hidden",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 5050,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Skywalker Children Hidden",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Yoda"
+        ],
+        "locations": [
+          "Tatooine",
+          "Dagobah"
+        ],
+        "topics": [
+          "jedi exile",
+          "survivors"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:obi-wan-kenobi",
+        "character:yoda",
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:dagobah",
+        "location:tatooine",
+        "scope:rise-of-empire",
+        "topic:jedi-exile",
+        "topic:survivors"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Yoda"
+          ],
+          "topicsAny": [
+            "jedi exile",
+            "survivors"
+          ],
+          "locationsAny": [
+            "Tatooine",
+            "Dagobah"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the fall of the Jedi, Obi-Wan and Yoda survive in exile rather than leading open Jedi resistance.",
+        "injection": "After ROTS, keep Obi-Wan and Yoda hidden unless the scene deliberately centers their exile or secret guardianship.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Skywalker Children Hidden.",
+          "Respect story-position bounds from Skywalker Children Hidden to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "After Skywalker Children Hidden",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_luke_and_leia_hidden_separately",
+      "title": "Luke And Leia Hidden Separately",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.children_hidden",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 5050,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Skywalker Children Hidden",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Darth Vader",
+          "Padme Amidala"
+        ],
+        "locations": [
+          "Tatooine",
+          "Alderaan"
+        ],
+        "topics": [
+          "skywalker twins",
+          "hidden children"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Organa Family",
+          "Lars Family"
+        ]
+      },
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:padme-amidala",
+        "continuity:legends",
+        "faction:lars-family",
+        "faction:organa-family",
+        "fandom:star-wars",
+        "location:alderaan",
+        "location:tatooine",
+        "scope:rise-of-empire",
+        "topic:hidden-children",
+        "topic:skywalker-twins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Darth Vader",
+            "Padme Amidala"
+          ],
+          "topicsAny": [
+            "skywalker twins",
+            "hidden children"
+          ],
+          "locationsAny": [
+            "Tatooine",
+            "Alderaan"
+          ],
+          "factionsAny": [
+            "Organa Family",
+            "Lars Family"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke and Leia are hidden separately after birth to protect them from Vader and the Emperor.",
+        "injection": "After their birth, do not make their sibling identity or parentage broadly known; their separation is a central secrecy gate.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Skywalker Children Hidden.",
+          "Respect story-position bounds from Skywalker Children Hidden to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Skywalker Children Hidden",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_padme_death_public_context_uncertain",
+      "title": "Padme Death Leaves Political Vacuum",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.mustafar_duel",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Mustafar",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Padme Amidala",
+          "Leia Organa",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Naboo"
+        ],
+        "topics": [
+          "padme death",
+          "senate opposition"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Senate"
+        ]
+      },
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:padme-amidala",
+        "continuity:legends",
+        "faction:galactic-senate",
+        "fandom:star-wars",
+        "location:naboo",
+        "scope:rise-of-empire",
+        "topic:padme-death",
+        "topic:senate-opposition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Padme Amidala",
+            "Leia Organa",
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "padme death",
+            "senate opposition"
+          ],
+          "locationsAny": [
+            "Naboo"
+          ],
+          "factionsAny": [
+            "Galactic Senate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Padme’s death removes a major anti-authoritarian Senate voice and leaves her children hidden from public lineage.",
+        "injection": "After Padme dies, do not keep her active in Senate resistance unless the story has explicitly diverged.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Mustafar.",
+          "Respect story-position bounds from Mustafar Duel and Vader's Ruin to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "After Mustafar",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_clone_wars_end_is_not_clean_peace",
+      "title": "Clone Wars End Is Not Clean Peace",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.empire_declared",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 4925,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early Empire",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "clone wars end",
+          "authoritarian victory"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Empire",
+          "Confederacy of Independent Systems",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "faction:galactic-empire",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:authoritarian-victory",
+        "topic:clone-wars-end"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "clone wars end",
+            "authoritarian victory"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Empire",
+            "Confederacy of Independent Systems",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Clone Wars end through Sith consolidation, Separatist decapitation, and Jedi extermination, not through a negotiated peace.",
+        "injection": "After the Empire forms, treat the war’s end as authoritarian victory and cover-up rather than reconciliation. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early Empire.",
+          "Respect story-position bounds from Galactic Empire Declared to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Early Empire",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

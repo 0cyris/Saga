@@ -10,19 +10,23 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "normal",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "school-year:4",
+        "book:goblet-of-fire",
         "calendar-year:1994",
+        "character:harry-potter",
+        "era:golden-trio",
         "event:triwizard-tournament",
-        "place:hogwarts"
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
       ],
-      "priority": 75,
+      "priority": 85,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -32,7 +36,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9373,
+        "sortKeyTo": 9306,
         "precision": "date_window",
         "windowKind": "wide",
         "label": "1994-09-01 to 1995-08-31",
@@ -93,8 +97,14 @@
       },
       "content": {
         "fact": "From September 1994 through August 1995, the main school-year context aligns with Harry Potter's fourth year and the Triwizard Tournament period.",
-        "injection": "From September 1994 through August 1995, the main school-year context aligns with Harry Potter's fourth year and the Triwizard Tournament period.",
-        "publicVersion": "Harry Potter is a fourth-year student during the Triwizard Tournament year."
+        "injection": "From September 1994 through August 1995, the main school-year context aligns with Harry Potter's fourth year and the Triwizard Tournament period. Keep this bounded to 1994-09-01 to 1995-08-31; do not apply the state before or after its Context window without an explicit story override.",
+        "publicVersion": "Harry Potter is a fourth-year student during the Triwizard Tournament year.",
+        "constraints": [
+          "Apply only when Saga Context matches 1994-09-01 to 1995-08-31; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -102,7 +112,8 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     }
   ]
 }

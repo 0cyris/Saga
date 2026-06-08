@@ -1,0 +1,1928 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_geonosis_starts_open_galactic_war",
+      "title": "Geonosis Starts Open Galactic War",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.clone_wars_begin",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 2700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "First Battle of Geonosis",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Geonosis"
+        ],
+        "topics": [
+          "first battle of geonosis",
+          "clone wars begin"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Republic",
+          "Confederacy of Independent Systems",
+          "Jedi Order",
+          "Clone Army"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:clone-army",
+        "faction:confederacy-of-independent-systems",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:geonosis",
+        "scope:rise-of-empire",
+        "topic:clone-wars-begin",
+        "topic:first-battle-of-geonosis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "first battle of geonosis",
+            "clone wars begin"
+          ],
+          "locationsAny": [
+            "Geonosis"
+          ],
+          "factionsAny": [
+            "Galactic Republic",
+            "Confederacy of Independent Systems",
+            "Jedi Order",
+            "Clone Army"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The First Battle of Geonosis turns the Separatist crisis into open galaxy-wide war.",
+        "injection": "After Geonosis, treat the Republic and CIS as active belligerents rather than political blocs merely threatening secession.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: First Battle of Geonosis.",
+          "Respect story-position bounds from First Battle of Geonosis to Clone Wars Begin."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "First Battle of Geonosis",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_jedi_become_generals_after_geonosis",
+      "title": "Jedi Become Generals After Geonosis",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jedi Generals"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi generals",
+          "militarized jedi"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Clone Army",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:jedi-generals",
+        "continuity:legends",
+        "faction:clone-army",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:jedi-generals",
+        "topic:militarized-jedi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jedi Generals"
+          ],
+          "topicsAny": [
+            "jedi generals",
+            "militarized jedi"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Clone Army",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Geonosis, Jedi are pushed into command roles as generals over clone armies despite their peacekeeper tradition.",
+        "injection": "During the Clone Wars, write Jedi as uncomfortable soldier-generals whose moral role has been distorted by wartime necessity.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars.",
+          "Respect story-position bounds from First Battle of Geonosis to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_clone_troopers_are_professional_soldiers",
+      "title": "Clone Troopers Are Professional Soldiers",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Before Order 66",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Clone Troopers"
+        ],
+        "locations": [],
+        "topics": [
+          "clone identity",
+          "accelerated aging"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Clone Army",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:clone-troopers",
+        "continuity:legends",
+        "faction:clone-army",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:accelerated-aging",
+        "topic:clone-identity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Clone Troopers"
+          ],
+          "topicsAny": [
+            "clone identity",
+            "accelerated aging"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Clone Army",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Clone troopers are disciplined professional soldiers with individual personalities, unit loyalty, and accelerated-life burdens.",
+        "injection": "Do not write clone troopers as simple droids; give them military professionalism and individual bonds when scene-relevant.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Before Order 66.",
+          "Respect story-position bounds from First Battle of Geonosis to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Before Order 66",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_droid_armies_define_separatist_warfare",
+      "title": "Droid Armies Define Separatist Warfare",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Through Separatist Shutdown",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "droid armies",
+          "separatist warfare"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Confederacy of Independent Systems",
+          "Trade Federation",
+          "Techno Union"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "faction:techno-union",
+        "faction:trade-federation",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:droid-armies",
+        "topic:separatist-warfare"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "droid armies",
+            "separatist warfare"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Confederacy of Independent Systems",
+            "Trade Federation",
+            "Techno Union"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The CIS relies on huge droid armies, corporate logistics, and brutal commanders to offset Republic clone quality.",
+        "injection": "In Clone Wars battles, make Separatist strength logistical and numerical, not based on individually skilled battle droids.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Through Separatist Shutdown.",
+          "Respect story-position bounds from First Battle of Geonosis to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Through Separatist Shutdown",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_dooku_publicly_leads_separatists_secretly_serves_sidious",
+      "title": "Dooku Leads Separatists And Serves Sidious",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.dooku_death",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 4625,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Until Dooku Death",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Count Dooku",
+          "Darth Tyranus",
+          "Darth Sidious"
+        ],
+        "locations": [],
+        "topics": [
+          "sith apprentice",
+          "separatist leadership"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Confederacy of Independent Systems",
+          "Sith"
+        ]
+      },
+      "tags": [
+        "character:count-dooku",
+        "character:darth-sidious",
+        "character:darth-tyranus",
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:separatist-leadership",
+        "topic:sith-apprentice"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Count Dooku",
+            "Darth Tyranus",
+            "Darth Sidious"
+          ],
+          "topicsAny": [
+            "sith apprentice",
+            "separatist leadership"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Confederacy of Independent Systems",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During the Clone Wars, Dooku publicly leads the Separatists while secretly serving Darth Sidious as Darth Tyranus.",
+        "injection": "During the Clone Wars, write Dooku as both political face of the CIS and Sith apprentice; most characters know only the public role.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Until Dooku Death.",
+          "Respect story-position bounds from First Battle of Geonosis to Dooku Dies Aboard Invisible Hand."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Until Dooku Death",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_sifo_dyas_clone_origin_remains_obscure",
+      "title": "Sifo-Dyas Clone Origin Remains Obscure",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.kamino_discovery",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2450,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Before Order 66",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Sifo-Dyas",
+          "Count Dooku"
+        ],
+        "locations": [
+          "Kamino"
+        ],
+        "topics": [
+          "clone origin",
+          "sifo-dyas"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Kaminoans"
+        ]
+      },
+      "tags": [
+        "character:count-dooku",
+        "character:sifo-dyas",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:kaminoans",
+        "fandom:star-wars",
+        "location:kamino",
+        "scope:rise-of-empire",
+        "topic:clone-origin",
+        "topic:sifo-dyas"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sifo-Dyas",
+            "Count Dooku"
+          ],
+          "topicsAny": [
+            "clone origin",
+            "sifo-dyas"
+          ],
+          "locationsAny": [
+            "Kamino"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Kaminoans"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The clone army’s Sifo-Dyas origin remains suspicious and unresolved enough to disturb careful Jedi investigation.",
+        "injection": "When clone origins are discussed, preserve the uncertainty and manipulation around Sifo-Dyas, Tyranus, and Kamino.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Before Order 66.",
+          "Respect story-position bounds from Kamino Clone Army Discovered to Order 66."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Before Order 66",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_republic_commando_units_are_specialized",
+      "title": "Clone Commando Units Are Specialized",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Through Imperial Transition",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Clone Commandos"
+        ],
+        "locations": [],
+        "topics": [
+          "special operations",
+          "clone commandos"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Clone Army",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:clone-commandos",
+        "continuity:legends",
+        "faction:clone-army",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:clone-commandos",
+        "topic:special-operations"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Clone Commandos"
+          ],
+          "topicsAny": [
+            "special operations",
+            "clone commandos"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Clone Army",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Clone commando units operate as elite small teams with specialized infiltration, sabotage, and rescue capabilities.",
+        "injection": "Use clone commandos for special operations; do not treat every clone unit as having commando-grade autonomy or equipment.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Through Imperial Transition.",
+          "Respect story-position bounds from First Battle of Geonosis to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Through Imperial Transition",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_arc_troopers_are_rare_elite_assets",
+      "title": "ARC Troopers Are Rare Elite Assets",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.clone_wars_begin",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Through Imperial Transition",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "ARC Troopers"
+        ],
+        "locations": [],
+        "topics": [
+          "arc troopers",
+          "elite clone units"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Clone Army",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:arc-troopers",
+        "continuity:legends",
+        "faction:clone-army",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:arc-troopers",
+        "topic:elite-clone-units"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "ARC Troopers"
+          ],
+          "topicsAny": [
+            "arc troopers",
+            "elite clone units"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Clone Army",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "ARC troopers are rare elite assets with more independence than standard clone infantry.",
+        "injection": "Use ARC troopers sparingly as elite specialists, not as the normal baseline for all clone behavior. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Through Imperial Transition.",
+          "Respect story-position bounds from Clone Wars Begin to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Through Imperial Transition",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_ventress_is_dooku_agent_not_formal_sith",
+      "title": "Ventress Is Dooku Agent Not Formal Sith",
+      "kind": "knowledge_gate",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.ventress_hunts_jedi",
+        "validToAnchor": "sw.roe.outer_rim_sieges",
+        "sortKeyFrom": 3550,
+        "sortKeyTo": 4300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ventress Clone Wars Activity",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Asajj Ventress",
+          "Count Dooku"
+        ],
+        "locations": [],
+        "topics": [
+          "dark acolyte",
+          "rule of two"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Separatists",
+          "Sith"
+        ]
+      },
+      "tags": [
+        "character:asajj-ventress",
+        "character:count-dooku",
+        "continuity:legends",
+        "faction:separatists",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:dark-acolyte",
+        "topic:rule-of-two"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Asajj Ventress",
+            "Count Dooku"
+          ],
+          "topicsAny": [
+            "dark acolyte",
+            "rule of two"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Separatists",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Asajj Ventress serves Dooku as a dark-side assassin and commander, but she is not formally a Sith Lord under Rule-of-Two logic.",
+        "injection": "Write Ventress as dangerous and dark-side trained, but do not make her a full Sith peer of Sidious or Dooku. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Ventress Clone Wars Activity.",
+          "Respect story-position bounds from Ventress Hunts Jedi to Outer Rim Sieges."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Ventress Clone Wars Activity",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_durge_is_legendary_bounty_threat",
+      "title": "Durge Is Legendary Bounty Threat",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.muunilinst_campaign",
+        "validToAnchor": "sw.roe.outer_rim_sieges",
+        "sortKeyFrom": 3050,
+        "sortKeyTo": 4300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Bounty Hunter Threats",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Durge"
+        ],
+        "locations": [],
+        "topics": [
+          "bounty hunter",
+          "gen-dai",
+          "mandalorian hatred"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Separatists",
+          "Bounty Hunters"
+        ]
+      },
+      "tags": [
+        "character:durge",
+        "continuity:legends",
+        "faction:bounty-hunters",
+        "faction:separatists",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:bounty-hunter",
+        "topic:gen-dai",
+        "topic:mandalorian-hatred"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Durge"
+          ],
+          "topicsAny": [
+            "bounty hunter",
+            "gen-dai",
+            "mandalorian hatred"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Separatists",
+            "Bounty Hunters"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Durge is a near-mythic bounty hunter threat whose durability and hatred of Mandalorians make him unusual even in the Clone Wars.",
+        "injection": "When Durge appears, frame him as an exceptional monstrous mercenary, not a standard Separatist officer. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Bounty Hunter Threats.",
+          "Respect story-position bounds from Muunilinst Campaign and Durge Crisis to Outer Rim Sieges."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Bounty Hunter Threats",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_grievous_revealed_as_jedi_killer",
+      "title": "Grievous Revealed As Jedi Killer",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.hypori_grievous_reveal",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 3400,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Hypori Before Empire",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "General Grievous"
+        ],
+        "locations": [
+          "Hypori"
+        ],
+        "topics": [
+          "jedi killer",
+          "cyborg commander"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Confederacy of Independent Systems"
+        ]
+      },
+      "tags": [
+        "character:general-grievous",
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "fandom:star-wars",
+        "location:hypori",
+        "scope:rise-of-empire",
+        "topic:cyborg-commander",
+        "topic:jedi-killer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "General Grievous"
+          ],
+          "topicsAny": [
+            "jedi killer",
+            "cyborg commander"
+          ],
+          "locationsAny": [
+            "Hypori"
+          ],
+          "factionsAny": [
+            "Confederacy of Independent Systems"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Hypori, General Grievous becomes known as a terrifying Jedi-killer and Separatist military figure.",
+        "injection": "After Grievous is revealed, Jedi should treat him as a serious lightsaber threat and strategic commander. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Hypori Before Empire.",
+          "Respect story-position bounds from Hypori and Grievous Revealed to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "After Hypori Before Empire",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_grievous_not_force_sensitive",
+      "title": "Grievous Is Not Force Sensitive",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.hypori_grievous_reveal",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 3400,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Grievous Reveal",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "General Grievous"
+        ],
+        "locations": [],
+        "topics": [
+          "cybernetics",
+          "force sensitivity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Confederacy of Independent Systems"
+        ]
+      },
+      "tags": [
+        "character:general-grievous",
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:cybernetics",
+        "topic:force-sensitivity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "General Grievous"
+          ],
+          "topicsAny": [
+            "cybernetics",
+            "force sensitivity"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Confederacy of Independent Systems"
+          ]
+        }
+      },
+      "content": {
+        "fact": "General Grievous is dangerous through cybernetics, training, intimidation, and trophies, not through Force sensitivity.",
+        "injection": "Do not give Grievous Force powers; his threat comes from mechanical speed, training, tactics, and fear. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Grievous Reveal.",
+          "Respect story-position bounds from Hypori and Grievous Revealed to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not portray Grievous as a Sith or Force-user.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "After Grievous Reveal",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_jabiim_marks_war_disillusionment",
+      "title": "Jabiim Marks War Disillusionment",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.jabiim_campaign",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 3200,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Jabiim Before Order 66",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Jabiim"
+        ],
+        "topics": [
+          "war disillusionment",
+          "clone wars cost"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Republic",
+          "Separatists"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-republic",
+        "faction:separatists",
+        "fandom:star-wars",
+        "location:jabiim",
+        "scope:rise-of-empire",
+        "topic:clone-wars-cost",
+        "topic:war-disillusionment"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "war disillusionment",
+            "clone wars cost"
+          ],
+          "locationsAny": [
+            "Jabiim"
+          ],
+          "factionsAny": [
+            "Galactic Republic",
+            "Separatists"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Jabiim symbolizes the Clone Wars’ mud, betrayal, local grievances, and the emotional cost of Republic intervention.",
+        "injection": "After Jabiim, allow clone/Jedi war scenes to carry exhaustion, anger, and doubts about Republic righteousness.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Jabiim Before Order 66.",
+          "Respect story-position bounds from Jabiim Campaign to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "After Jabiim Before Order 66",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_mandalorians_are_not_single_unified_clone_wars_faction",
+      "title": "Mandalorians Not Single Unified Clone Wars Faction",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.clone_wars_begin",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Mandalorian Context",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "mandalorian factions",
+          "clone wars mandalorians"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Mandalorians",
+          "Death Watch"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:death-watch",
+        "faction:mandalorians",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:clone-wars-mandalorians",
+        "topic:mandalorian-factions"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "mandalorian factions",
+            "clone wars mandalorians"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Mandalorians",
+            "Death Watch"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Mandalorian politics in the Clone Wars era are factional and historically loaded; do not treat all Mandalorians as one unified army.",
+        "injection": "When Mandalorians appear, distinguish clans, True Mandalorian history, Death Watch-style movements, and local agendas as needed.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Mandalorian Context.",
+          "Respect story-position bounds from Clone Wars Begin to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Mandalorian Context",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_clone_wars_are_engineered_by_sith",
+      "title": "Clone Wars Engineered By Sith",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.clone_wars_begin",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Before Order 66",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Sidious",
+          "Count Dooku"
+        ],
+        "locations": [],
+        "topics": [
+          "sith grand plan",
+          "engineered war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith",
+          "Galactic Republic",
+          "Confederacy of Independent Systems"
+        ]
+      },
+      "tags": [
+        "character:count-dooku",
+        "character:darth-sidious",
+        "continuity:legends",
+        "faction:confederacy-of-independent-systems",
+        "faction:galactic-republic",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:engineered-war",
+        "topic:sith-grand-plan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Sidious",
+            "Count Dooku"
+          ],
+          "topicsAny": [
+            "sith grand plan",
+            "engineered war"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Sith",
+            "Galactic Republic",
+            "Confederacy of Independent Systems"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Clone Wars are engineered by the Sith to exhaust the Republic, discredit Jedi, militarize government, and justify Empire.",
+        "injection": "In Clone Wars Before Order 66, behind the scenes, keep the war’s structure Sith-engineered; in public scenes, most characters see real battlefield stakes, not the full scheme.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Before Order 66.",
+          "Respect story-position bounds from Clone Wars Begin to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Before Order 66",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_battlefield_victories_do_not_stop_sith_plan",
+      "title": "Battlefield Victories Do Not Stop Sith Plan",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.clone_wars_begin",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Before Order 66",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "sith grand plan",
+          "battlefield victory limits"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Republic",
+          "Sith"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-republic",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:battlefield-victory-limits",
+        "topic:sith-grand-plan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "sith grand plan",
+            "battlefield victory limits"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Republic",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Republic battlefield victories can matter locally but do not by themselves stop Sidious’s strategic goal of corrupting the entire system.",
+        "injection": "Do not let isolated Clone Wars victories imply the Republic is safe from the underlying Sith political trap. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Before Order 66.",
+          "Respect story-position bounds from Clone Wars Begin to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Before Order 66",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_wartime_jedi_suffer_attachment_and_fatigue",
+      "title": "Wartime Jedi Suffer Attachment And Fatigue",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.clone_wars_begin",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Before Order 66",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jedi Generals",
+          "Clone Troopers"
+        ],
+        "locations": [],
+        "topics": [
+          "war fatigue",
+          "jedi trauma"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Clone Army"
+        ]
+      },
+      "tags": [
+        "character:clone-troopers",
+        "character:jedi-generals",
+        "continuity:legends",
+        "faction:clone-army",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:jedi-trauma",
+        "topic:war-fatigue"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jedi Generals",
+            "Clone Troopers"
+          ],
+          "topicsAny": [
+            "war fatigue",
+            "jedi trauma"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Clone Army"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Clone Wars Jedi face battlefield trauma, attachment to troops, command burdens, and moral compromises.",
+        "injection": "During the war, write Jedi as strained by command and casualties rather than serenely detached from the conflict.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Before Order 66.",
+          "Respect story-position bounds from Clone Wars Begin to Order 66."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Before Order 66",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_clone_names_signal_individuality",
+      "title": "Clone Names Signal Individuality",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.clone_wars_begin",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Before Order 66",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Clone Troopers"
+        ],
+        "locations": [],
+        "topics": [
+          "clone names",
+          "clone individuality"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Clone Army"
+        ]
+      },
+      "tags": [
+        "character:clone-troopers",
+        "continuity:legends",
+        "faction:clone-army",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:clone-individuality",
+        "topic:clone-names"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Clone Troopers"
+          ],
+          "topicsAny": [
+            "clone names",
+            "clone individuality"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Clone Army"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Clone trooper nicknames and unit identities signal individuality inside a system built to treat them as products.",
+        "injection": "When clones have names, treat those names as expressions of identity and unit culture, not random cosmetic labels.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Before Order 66.",
+          "Respect story-position bounds from Clone Wars Begin to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Before Order 66",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_republic_public_sees_jedi_as_war_leaders",
+      "title": "Public Sees Jedi As War Leaders",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Wars Before Order 66",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jedi Generals"
+        ],
+        "locations": [],
+        "topics": [
+          "public perception",
+          "jedi generals"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:jedi-generals",
+        "continuity:legends",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:jedi-generals",
+        "topic:public-perception"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jedi Generals"
+          ],
+          "topicsAny": [
+            "public perception",
+            "jedi generals"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During the Clone Wars, the public increasingly sees Jedi as war leaders tied to Republic military outcomes.",
+        "injection": "During the war, public trust in Jedi should be vulnerable to propaganda and battlefield frustration. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Before Order 66.",
+          "Respect story-position bounds from First Battle of Geonosis to Order 66."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Before Order 66",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

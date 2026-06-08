@@ -127,7 +127,7 @@ function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, hea
     actions.appendChild(markTourTarget(createButton('Open Loredeck Library', 'Open the fullscreen Loredeck Library and active stack manager.', () => {
         openLoredeckLibraryWindow();
     }, 'wandlight-primary-button'), 'loredecks.library.open'));
-    actions.appendChild(createButton('Import Deck', 'Install a Saga Loredeck JSON bundle into the Library.', () => {
+    actions.appendChild(createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
         installLoredeckBundleFromFile();
     }));
     actions.appendChild(createButton('Create Deck', 'Open the staged Loredeck Creator wizard.', () => {

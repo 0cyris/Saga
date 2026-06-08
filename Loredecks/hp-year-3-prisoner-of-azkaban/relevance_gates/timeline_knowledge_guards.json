@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "y3_guard_sirius_believed_traitor_until_shack",
+      "title": "Sirius believed traitor until Shrieking Shack",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.shrieking_shack_reveal",
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8876,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Shrieking Shack reveal",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Sirius Black",
+          "Peter Pettigrew",
+          "Remus Lupin"
+        ],
+        "topics": [
+          "Sirius innocence",
+          "Potter betrayal",
+          "public belief"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:peter-pettigrew",
+        "character:remus-lupin",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "quality:relevance-curated",
+        "school-year:3"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Sirius Black",
+            "Peter Pettigrew",
+            "Remus Lupin"
+          ],
+          "topicsAny": [
+            "Sirius innocence",
+            "Potter betrayal",
+            "public belief"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Shrieking Shack reveal, Harry and the wider wizarding public believe Sirius Black betrayed the Potters and murdered Peter Pettigrew.",
+        "injection": "Before the Shrieking Shack reveal, write Sirius as a feared fugitive in Harry’s understanding; do not reveal his innocence, godfather role, or Pettigrew truth to the protagonists early.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Shrieking Shack reveal; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-3-prisoner-of-azkaban",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-3-prisoner-of-azkaban"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y3_guard_scabbers_pettigrew_hidden_until_exposed",
+      "title": "Scabbers/Pettigrew identity hidden",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.sirius_news_context",
+        "validToAnchor": "hp.y3.pettigrew_exposed",
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8882,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Pettigrew exposed",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ron Weasley",
+          "Peter Pettigrew",
+          "Sirius Black",
+          "Remus Lupin"
+        ],
+        "topics": [
+          "Scabbers",
+          "Animagus secret",
+          "Pettigrew alive"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:peter-pettigrew",
+        "character:remus-lupin",
+        "character:ron-weasley",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "quality:relevance-curated",
+        "school-year:3"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ron Weasley",
+            "Peter Pettigrew",
+            "Sirius Black",
+            "Remus Lupin"
+          ],
+          "topicsAny": [
+            "Scabbers",
+            "Animagus secret",
+            "Pettigrew alive"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Shrieking Shack endgame, Scabbers is not known to be Peter Pettigrew and Pettigrew is presumed dead.",
+        "injection": "Before Pettigrew is exposed, block casual knowledge that Scabbers is an Animagus or that Peter is alive; the rat should function as Ron’s pet and a source of unexplained clues.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Pettigrew exposed; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-3-prisoner-of-azkaban",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-3-prisoner-of-azkaban"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y3_guard_hermione_time_turner_secret",
+      "title": "Hermione Time-Turner remains secret until reveal",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 110,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.diagon_alley_free_summer",
+        "validToAnchor": "hp.y3.time_turner_revealed",
+        "sortKeyFrom": 8648,
+        "sortKeyTo": 8912,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Time-Turner reveal",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Hermione Granger",
+          "Harry Potter",
+          "Ron Weasley"
+        ],
+        "topics": [
+          "Time-Turner",
+          "Hermione schedule",
+          "hidden mechanism"
+        ],
+        "objects": [
+          "Time-Turner"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "quality:relevance-curated",
+        "school-year:3",
+        "topic:time-turner"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hermione Granger",
+            "Harry Potter",
+            "Ron Weasley"
+          ],
+          "topicsAny": [
+            "Time-Turner",
+            "Hermione schedule",
+            "hidden mechanism"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hermione’s overloaded timetable is enabled by a hidden Time-Turner, but Harry and Ron do not know that explanation until the rescue sequence.",
+        "injection": "Before the Time-Turner reveal, show Hermione’s stress and impossible schedule as clues, not open knowledge; do not have Harry or Ron plan time travel early.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Time-Turner reveal; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-3-prisoner-of-azkaban",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-3-prisoner-of-azkaban"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y3_guard_lupin_werewolf_hidden_until_transformation",
+      "title": "Lupin werewolf identity hidden until late",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 105,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.lupin_intervenes",
+        "validToAnchor": "hp.y3.lupin_werewolf_transformation",
+        "sortKeyFrom": 8684,
+        "sortKeyTo": 8894,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Lupin transforms",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Remus Lupin",
+          "Harry Potter",
+          "Hermione Granger",
+          "Severus Snape"
+        ],
+        "topics": [
+          "werewolf secret",
+          "Lupin condition",
+          "Wolfsbane clue"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:remus-lupin",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "quality:relevance-curated",
+        "school-year:3"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Remus Lupin",
+            "Harry Potter",
+            "Hermione Granger",
+            "Severus Snape"
+          ],
+          "topicsAny": [
+            "werewolf secret",
+            "Lupin condition",
+            "Wolfsbane clue"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the full-moon endgame, Lupin’s werewolf condition is not openly known to Harry’s cohort, though clues exist.",
+        "injection": "Before Lupin transforms, do not have students casually know his lycanthropy; use absences, Snape’s hints, and Wolfsbane-adjacent clues without making the secret public.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Lupin transforms; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-3-prisoner-of-azkaban",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-3-prisoner-of-azkaban"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y3_guard_patronus_progression_not_mastered_early",
+      "title": "Patronus mastery is progressive",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "spell",
+      "relevance": "high",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 100,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y3.patronus_lessons_begin",
+        "validToAnchor": "hp.y3.harry_casts_full_patronus",
+        "sortKeyFrom": 8810,
+        "sortKeyTo": 8906,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Patronus training before full Patronus",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Remus Lupin"
+        ],
+        "topics": [
+          "Patronus training",
+          "Dementors",
+          "stag Patronus"
+        ],
+        "schoolYears": [
+          "3"
+        ],
+        "books": [
+          "Prisoner of Azkaban"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:remus-lupin",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "quality:relevance-curated",
+        "school-year:3",
+        "spell:patronus"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Remus Lupin"
+          ],
+          "topicsAny": [
+            "Patronus training",
+            "Dementors",
+            "stag Patronus"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Harry trains the Patronus across Year 3 and does not reliably produce the full stag Patronus until the lake rescue sequence.",
+        "injection": "During Patronus training, let Harry improve but do not give him effortless full Patronus mastery before the lake event unless accepted story lore changed his training.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Patronus training before full Patronus; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Prisoner of Azkaban",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-3-prisoner-of-azkaban",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-3-prisoner-of-azkaban"
+        }
+      }
+    }
+  ]
+}

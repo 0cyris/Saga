@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 5",
@@ -74,7 +74,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -103,15 +103,17 @@
       },
       "content": {
         "fact": "In Year 5, Harry is traumatized, volatile, protective, suspicious of official reassurance, and increasingly determined to act rather than be managed by adults.",
-        "injection": "Write Harry as his Year 5 self: angry, isolated, protective, agency-seeking, and volatile under pressure, while still capable of loyalty and humor when the scene supports it.",
+        "injection": "Write Harry as his Year 5 self: angry, isolated, protective, agency-seeking, and volatile under pressure, while still capable of loyalty and humor when the scene supports it. Use this only as a phase baseline for Year 5; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "His anger should be available but not permanently maxed without scene reinforcement.",
           "He is beginning to teach and lead, but he is still an adolescent acting under stress.",
           "Do not make him fully emotionally processed, politically polished, or calmly obedient to institutions.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not flatten Year 5 Harry into constant rage; modulate him by immediate context."
+          "Do not flatten Year 5 Harry into constant rage; modulate him by immediate context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -154,7 +156,16 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -181,7 +192,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 5",
@@ -227,7 +238,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Hermione Granger",
@@ -256,15 +267,17 @@
       },
       "content": {
         "fact": "In Year 5, Hermione is disciplined, politically alert for her age, strategic within school constraints, and more willing to build systems when authority fails.",
-        "injection": "Write Hermione as her Year 5 self: disciplined, strategic, morally serious, increasingly political, and impatient with denial or incompetence.",
+        "injection": "Write Hermione as her Year 5 self: disciplined, strategic, morally serious, increasingly political, and impatient with denial or incompetence. Use this only as a phase baseline for Year 5; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "Her planning should be strong but still bounded by teenage information and school resources.",
           "She should be more comfortable with organized rule-breaking when she considers authority illegitimate.",
           "Do not make her omniscient or free of emotional bias.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 5 Hermione as passively rule-bound when the scene clearly involves unjust authority."
+          "Do not write Year 5 Hermione as passively rule-bound when the scene clearly involves unjust authority.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -307,7 +320,16 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -334,7 +356,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 5",
@@ -382,7 +404,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Ron Weasley",
@@ -412,15 +434,17 @@
       },
       "content": {
         "fact": "In Year 5, Ron is somewhat more confident but still self-doubting, bluntly funny, protective, and volatile when humiliation or status anxiety is triggered.",
-        "injection": "Write Ron as his Year 5 self: loyal, blunt, funny, somewhat more confident, but still vulnerable to insecurity, embarrassment, and defensive anger.",
+        "injection": "Write Ron as his Year 5 self: loyal, blunt, funny, somewhat more confident, but still vulnerable to insecurity, embarrassment, and defensive anger. Use this only as a phase baseline for Year 5; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should show growth without becoming polished.",
           "His competence can emerge unevenly, especially under social pressure.",
           "Do not make him either a passive sidekick or a fully mature partner.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not let later Year 7 deprivation and despair bleed into ordinary Year 5 school scenes."
+          "Do not let later Year 7 deprivation and despair bleed into ordinary Year 5 school scenes.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -464,7 +488,16 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -491,7 +524,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 5",
@@ -539,7 +572,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Draco Malfoy",
@@ -569,15 +602,17 @@
       },
       "content": {
         "fact": "In Year 5, Draco is emboldened by authoritarian school politics, more openly spiteful, and eager to use sanctioned power against rivals.",
-        "injection": "Write Draco as his Year 5 self: spiteful, authoritarian, socially predatory, and pleased when institutions validate his cruelty.",
+        "injection": "Write Draco as his Year 5 self: spiteful, authoritarian, socially predatory, and pleased when institutions validate his cruelty. Use this only as a phase baseline for Year 5; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should sound more confident when backed by authority.",
           "His arrogance should still mask immaturity and dependence on protection.",
           "Keep specific squad memberships or decrees modular if they are date-triggered elsewhere.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not make Year 5 Draco introspective about the full cost of the war unless the story has changed him."
+          "Do not make Year 5 Draco introspective about the full cost of the war unless the story has changed him.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -620,7 +655,16 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:draco-malfoy",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -647,7 +691,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 5",
@@ -693,7 +737,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Neville Longbottom",
@@ -722,15 +766,17 @@
       },
       "content": {
         "fact": "In Year 5, Neville grows quickly under pressure: still awkward, but more determined, braver, and increasingly capable when given structure and purpose.",
-        "injection": "Write Neville as his Year 5 self: still awkward and self-doubting, but visibly growing in courage, discipline, and defensive competence.",
+        "injection": "Write Neville as his Year 5 self: still awkward and self-doubting, but visibly growing in courage, discipline, and defensive competence. Use this only as a phase baseline for Year 5; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "His confidence should be emerging, not effortless.",
           "He may surprise others by persisting after failure.",
           "Keep specific training memberships or family revelations modular if date-sensitive.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 5 Neville as already the uncontested student-resistance leader."
+          "Do not write Year 5 Neville as already the uncontested student-resistance leader.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -773,7 +819,16 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:neville-longbottom",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -800,7 +855,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 5",
@@ -848,7 +903,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Ginny Weasley",
@@ -878,15 +933,17 @@
       },
       "content": {
         "fact": "In Year 5, Ginny is self-possessed, sharp, athletic, more socially confident, and comfortable pushing back when underestimated.",
-        "injection": "Write Ginny as her Year 5 self: confident, sharp, practical, athletic, and willing to challenge patronizing treatment.",
+        "injection": "Write Ginny as her Year 5 self: confident, sharp, practical, athletic, and willing to challenge patronizing treatment. Use this only as a phase baseline for Year 5; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "She should sound more direct and less hesitant than early Ginny.",
           "Her confidence should not require constant explanation from others.",
           "Keep specific resistance-group membership or operations Context-gated elsewhere.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 5 Ginny as passive background sibling by default."
+          "Do not write Year 5 Ginny as passive background sibling by default.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -930,7 +987,17 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:ginny-weasley",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -957,7 +1024,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 5",
@@ -1003,7 +1070,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Luna Lovegood",
@@ -1032,15 +1099,17 @@
       },
       "content": {
         "fact": "In Year 5, Luna is openly eccentric, calmly honest, perceptive about grief and isolation, and less embarrassed by social rejection than others expect.",
-        "injection": "Write Luna as her Year 5 self: candid, dreamy, resilient, perceptive, and unashamed, with emotional insight that remains grounded in her own experience.",
+        "injection": "Write Luna as her Year 5 self: candid, dreamy, resilient, perceptive, and unashamed, with emotional insight that remains grounded in her own experience. Use this only as a phase baseline for Year 5; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "Her bluntness should often be gentle rather than cruel.",
           "She can comfort others through odd but sincere perspective.",
           "Keep specific group memberships, battles, or discoveries Context-gated elsewhere.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not make Year 5 Luna merely comic relief or an omniscient seer."
+          "Do not make Year 5 Luna merely comic relief or an omniscient seer.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1083,7 +1152,16 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:luna-lovegood",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1110,7 +1188,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 5",
@@ -1158,7 +1236,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Fred Weasley",
@@ -1188,15 +1266,17 @@
       },
       "content": {
         "fact": "In Year 5, Fred is openly anti-authoritarian, theatrically defiant, entrepreneurial, and more willing to turn rebellion into public performance.",
-        "injection": "Write Fred in Year 5 as defiant, funny, entrepreneurial, and openly contemptuous of petty authority.",
+        "injection": "Write Fred in Year 5 as defiant, funny, entrepreneurial, and openly contemptuous of petty authority. Use this only as a phase baseline for Year 5; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should be bolder and more confrontational than in earlier school years.",
           "Keep specific exit, shop, or product milestones in separate dated entries.",
           "His humor should become a form of resistance when authority is abusive.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not bake any specific departure-from-Hogwarts event into the whole-year baseline."
+          "Do not bake any specific departure-from-Hogwarts event into the whole-year baseline.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1240,7 +1320,16 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:fred-weasley",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1267,7 +1356,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 5",
@@ -1315,7 +1404,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "George Weasley",
@@ -1345,15 +1434,17 @@
       },
       "content": {
         "fact": "In Year 5, George is anti-authoritarian, funny, entrepreneurial, and increasingly willing to make rebellion public, though often with a cooler edge than Fred.",
-        "injection": "Write George in Year 5 as witty, defiant, entrepreneurial, and openly contemptuous of petty authority.",
+        "injection": "Write George in Year 5 as witty, defiant, entrepreneurial, and openly contemptuous of petty authority. Use this only as a phase baseline for Year 5; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should be bolder than in earlier years while retaining a dry comic cadence.",
           "Keep specific exit, shop, or product milestones in separate dated entries.",
           "His humor can become resistance when authority is abusive.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not bake any specific departure-from-Hogwarts event into the whole-year baseline."
+          "Do not bake any specific departure-from-Hogwarts event into the whole-year baseline.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1397,7 +1488,16 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:george-weasley",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     }
   ]
 }

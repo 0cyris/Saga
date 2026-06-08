@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve natural-language New Republic era phrases into Star Wars Legends story-position Context.",
+  "preferredFields": [
+    "anchor",
+    "anchor_window",
+    "era",
+    "majorEvent",
+    "beforeAfter"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Legends story anchors such as post-Endor, Thrawn campaign, Dark Empire, Jedi Academy, Hand of Thrawn, or pre-NJO. Do not invent Disney canon sequel anchors. Prefer story-position anchors and windows over raw BBY/ABY dates; never invent timeline anchors outside this deck registry.",
+  "localPatterns": [
+    {
+      "pattern": "after endor",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.nr.endor_aftermath",
+        "anchorTo": "sw.nr.njo_threshold",
+        "label": "Post-Endor New Republic before the New Jedi Order"
+      }
+    },
+    {
+      "pattern": "post endor",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.nr.endor_aftermath",
+        "anchorTo": "sw.nr.njo_threshold",
+        "label": "Post-Endor New Republic before the New Jedi Order"
+      }
+    },
+    {
+      "pattern": "thrawn trilogy",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.nr.thrawn_returns",
+        "anchorTo": "sw.nr.thrawn_defeated",
+        "label": "Thrawn Campaign"
+      }
+    },
+    {
+      "pattern": "heir to the empire",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.nr.heir_to_empire",
+        "label": "Heir to the Empire Crisis"
+      }
+    },
+    {
+      "pattern": "dark empire",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.nr.dark_empire_begins",
+        "anchorTo": "sw.nr.palpatine_clone_defeated",
+        "label": "Dark Empire crisis"
+      }
+    },
+    {
+      "pattern": "jedi academy",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.nr.jedi_academy_founded",
+        "anchorTo": "sw.nr.praxeum_stabilizes",
+        "label": "Jedi Academy founding era"
+      }
+    },
+    {
+      "pattern": "hand of thrawn",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.nr.caamas_document_crisis",
+        "anchorTo": "sw.nr.imperial_peace",
+        "label": "Hand of Thrawn / Imperial peace"
+      }
+    },
+    {
+      "pattern": "before njo",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.nr.endor_aftermath",
+        "anchorTo": "sw.nr.njo_threshold",
+        "label": "Post-Endor New Republic before the New Jedi Order"
+      }
+    },
+    {
+      "pattern": "pre njo",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.nr.endor_aftermath",
+        "anchorTo": "sw.nr.njo_threshold",
+        "label": "Post-Endor New Republic before the New Jedi Order"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

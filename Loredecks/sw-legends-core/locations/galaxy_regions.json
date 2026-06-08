@@ -1,0 +1,1030 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_core_worlds_are_power_centers",
+      "title": "Core Worlds Are Power Centers",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "place:core-worlds",
+        "topic:politics",
+        "topic:trade",
+        "faction:galactic-republic",
+        "faction:galactic-empire"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Core Worlds",
+          "Coruscant"
+        ],
+        "factions": [
+          "Galactic Republic",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Core Worlds",
+          "wealth",
+          "institutions",
+          "surveillance"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Core Worlds",
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "Core Worlds",
+            "wealth",
+            "institutions",
+            "surveillance",
+            "Galactic Republic",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Core Worlds are political, economic, and cultural power centers with denser institutions, wealth, traffic, and surveillance.",
+        "injection": "Core World scenes should feel more institutional and monitored than frontier scenes: bureaucracy, status, security, commerce, and political consequence matter.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_coruscant_capital_by_era",
+      "title": "Coruscant Is Capital by Era",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "place:coruscant",
+        "faction:galactic-republic",
+        "faction:galactic-empire",
+        "faction:new-republic"
+      ],
+      "priority": 64,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant"
+        ],
+        "factions": [
+          "Galactic Republic",
+          "Galactic Empire",
+          "New Republic"
+        ],
+        "topics": [
+          "capital world",
+          "Senate",
+          "Imperial Center"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "capital world",
+            "Senate",
+            "Imperial Center",
+            "Galactic Republic",
+            "Galactic Empire",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Coruscant is the galactic capital for the Republic and Empire, with its political role changing under later Legends governments.",
+        "injection": "Use Coruscant as a central political symbol, but check era context before assuming who controls it or what government it represents.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_outer_rim_is_loose_control",
+      "title": "Outer Rim Has Loose Control",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "place:outer-rim",
+        "faction:hutts",
+        "topic:crime",
+        "topic:frontier"
+      ],
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Outer Rim",
+          "Tatooine",
+          "Hutt Space"
+        ],
+        "factions": [
+          "Hutts",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "frontier",
+          "weak enforcement",
+          "smuggling"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Outer Rim",
+            "Tatooine",
+            "Hutt Space"
+          ],
+          "topicsAny": [
+            "frontier",
+            "weak enforcement",
+            "smuggling",
+            "Hutts",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Outer Rim is more prone to weak central control, local strongmen, smugglers, frontier economies, Hutt influence, and delayed enforcement.",
+        "injection": "Outer Rim scenes can plausibly involve poor infrastructure, local law, criminal leverage, and limited Republic or Imperial reach.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_hutt_space_is_not_normal_empire_space",
+      "title": "Hutt Space Is Not Normal Imperial Space",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "place:hutt-space",
+        "faction:hutts",
+        "topic:crime",
+        "place:tatooine"
+      ],
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Hutt Space",
+          "Tatooine",
+          "Nal Hutta"
+        ],
+        "factions": [
+          "Hutts",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Hutt clans",
+          "cartels",
+          "autonomy"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Hutt Space",
+            "Tatooine",
+            "Nal Hutta"
+          ],
+          "topicsAny": [
+            "Hutt clans",
+            "cartels",
+            "autonomy",
+            "Hutts",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hutt Space and Hutt-controlled worlds often operate under criminal-political autonomy, tribute, cartel influence, and negotiated external pressure.",
+        "injection": "Do not write Hutt territory as simply another Imperial province. Hutts, debts, slaves, smugglers, and private enforcement shape local power.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_unknown_regions_are_opaque",
+      "title": "Unknown Regions Are Opaque",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "place:unknown-regions",
+        "faction:chiss-ascendancy",
+        "character:thrawn",
+        "topic:hyperspace"
+      ],
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Unknown Regions"
+        ],
+        "factions": [
+          "Chiss Ascendancy"
+        ],
+        "topics": [
+          "navigation hazards",
+          "secrecy",
+          "remote powers"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Unknown Regions"
+          ],
+          "topicsAny": [
+            "navigation hazards",
+            "secrecy",
+            "remote powers",
+            "Chiss Ascendancy"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Unknown Regions are difficult, poorly charted, and politically opaque to most of the familiar galaxy.",
+        "injection": "Do not make Unknown Regions routes, powers, or societies common knowledge unless the active scene has Chiss, Imperial, explorer, or specialist context.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_tatooine_is_backwater",
+      "title": "Tatooine Is a Backwater",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "place:tatooine",
+        "faction:hutts",
+        "species:jawa",
+        "species:tusken-raider",
+        "place:outer-rim"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [
+          "Hutts"
+        ],
+        "topics": [
+          "desert world",
+          "moisture farming",
+          "Jawa traders",
+          "Tusken Raiders"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "desert world",
+            "moisture farming",
+            "Jawa traders",
+            "Tusken Raiders",
+            "Hutts"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Tatooine is an Outer Rim desert world shaped by poverty, moisture farming, local crime, Jawas, Tusken Raiders, and Hutt influence.",
+        "injection": "Write Tatooine as remote and harsh, not as a central galactic hub. Local survival, crime, heat, dust, and marginal economies matter.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_dagobah_obscure_exile_world",
+      "title": "Dagobah Is Obscure and Isolated",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "place:dagobah",
+        "character:yoda",
+        "topic:secret",
+        "topic:jedi"
+      ],
+      "priority": 76,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Imperial rule before Endor",
+        "approximate": false,
+        "phase": "Imperial Era"
+      },
+      "scope": {
+        "characters": [
+          "Yoda"
+        ],
+        "locations": [
+          "Dagobah"
+        ],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Yoda exile",
+          "hidden location",
+          "Jedi survivors"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yoda"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "Yoda exile",
+            "hidden location",
+            "Jedi survivors",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dagobah is an obscure swamp world, not a famous Jedi destination during the Imperial era.",
+        "injection": "During the Imperial era, ordinary characters should not know Yoda is on Dagobah or treat the planet as public Jedi territory.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial rule before Endor.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Episode VI: Return of the Jedi."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_alderaan_destroyed_after_yavin",
+      "title": "Alderaan Destroyed After Yavin",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "place:alderaan",
+        "character:leia-organa",
+        "event:yavin",
+        "object:death-star",
+        "topic:future-guard"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After the Battle of Yavin",
+        "approximate": false,
+        "phase": "Yavin and later"
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa"
+        ],
+        "locations": [
+          "Alderaan"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Alderaan destruction",
+          "refugees",
+          "Death Star"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Alderaan"
+          ],
+          "topicsAny": [
+            "Alderaan destruction",
+            "refugees",
+            "Death Star",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the first Death Star fires on Alderaan, the planet is destroyed and survives only through refugees, memory, politics, and diaspora.",
+        "injection": "After A New Hope, do not use Alderaan as an intact destination unless the story explicitly diverges. Use survivors, grief, refugees, and political symbolism instead. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After the Battle of Yavin.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_shipyards_are_strategic_places",
+      "title": "Shipyards Are Strategic Places",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "place:kuat",
+        "place:corellia",
+        "topic:starships",
+        "topic:military"
+      ],
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Kuat",
+          "Corellia"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "New Republic"
+        ],
+        "topics": [
+          "shipyards",
+          "fleet construction",
+          "industry"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Kuat",
+            "Corellia"
+          ],
+          "topicsAny": [
+            "shipyards",
+            "fleet construction",
+            "industry",
+            "Galactic Empire",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Major shipyards and industrial worlds such as Kuat or Corellia are strategic assets because fleets decide galactic power.",
+        "injection": "Treat shipyards as high-value military, political, and intelligence targets rather than generic background factories.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_planetary_control_varies_locally",
+      "title": "Planetary Control Varies Locally",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "location",
+      "relevance": "low",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:politics",
+        "topic:location-state",
+        "topic:war"
+      ],
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "local control",
+          "occupation",
+          "spaceports",
+          "terrain"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "local control",
+            "occupation",
+            "spaceports",
+            "terrain"
+          ]
+        }
+      },
+      "content": {
+        "fact": "A planet’s official allegiance does not guarantee total local control; cities, ports, wilderness, rebels, criminals, and occupiers can coexist uneasily.",
+        "injection": "Avoid monolithic planets. Local power can vary by city, spaceport, clan, garrison, terrain, and current conflict.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    }
+  ]
+}

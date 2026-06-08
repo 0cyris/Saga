@@ -10,7 +10,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.marge_arrives",
         "validToAnchor": "hp.y3.sirius_escapes",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8921,
+        "sortKeyFrom": 8612,
+        "sortKeyTo": 8924,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -67,9 +67,9 @@
         "revealPolicy": "private"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -87,7 +87,13 @@
         "fact": "Before the Shrieking Shack truth is established, Harry should not know Sirius was innocent or that Peter betrayed his parents.",
         "injection": "Before the Shrieking Shack truth is established, characters generally believe Sirius Black betrayed the Potters; Harry does not know Peter Pettigrew is the traitor.",
         "constraints": [
-          "Block early revelation of Sirius innocence and Peter’s betrayal."
+          "Block early revelation of Sirius innocence and Peter’s betrayal.",
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -112,7 +118,19 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:peter-pettigrew",
+        "character:ron-weasley",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:3"
+      ]
     }
   ]
 }

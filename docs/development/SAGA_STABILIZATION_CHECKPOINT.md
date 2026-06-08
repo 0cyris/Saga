@@ -78,7 +78,7 @@ Passed:
 ## Known Non-Blockers
 
 - `scripts\audit-canon-preview.mjs --json` reports 417 entries and 296 entries missing `ui.preview` metadata. This is existing lore-quality cleanup work, not a Context blocker.
-- Update-preview live validation still needs a seeded imported/custom deck with an update URL or an explicit fixture path. Bundled decks are not expected to expose `Check Updates`.
+- URL/GitHub package import and update checks are deferred; the current Library workflow should expose local `.saga-loredeck.zip` import/export only.
 - The current Saga foundation is still uncommitted in the working tree.
 
 ## Completed Production Slice
@@ -119,7 +119,7 @@ Context-aware Loredeck retrieval:
 - Done: apply the first low-risk Loredecks feedback fixes: collapsible Loredeck sections with reset defaults, stricter tag ID normalization, HP reference-deck tag cleanup, Lorecard-aligned metadata chips and titles, fullscreen Creator launcher, Saga-styled granularity labels/blurbs, stack arrow controls, individual-deck install focus, and Saga banner/minimized branding assets.
 - Done: start the Deck Health redesign with a fullscreen Deck Health Center for readiness, severity cards, grouped priority issues, health categories, deck inventory, files, coverage, and advanced diagnostics.
 - Done: resolve the live-ST smoke findings around Theme Pack responsiveness, Deck Health unscanned/readiness copy, extension-menu branding cache, and automation-safe delete confirmation.
-- Done: implement selected-Loredeck bulk import/export in the fullscreen Library, including click/Ctrl/Shift selection, selected-count actions, one JSON bundle per selected deck, and safe multi-file local import as new Custom copies.
+- Done: implement selected-Loredeck package import/export in the fullscreen Library, including click/Ctrl/Shift selection, selected-count actions, one `.saga-loredeck.zip` package for selected decks, zip package preview, and Custom-copy installation.
 - Done: expand Deck Health remediation. Grouped Health Center issues can persist ignored/resolved advisory state, queue deterministic malformed-tag fixes through Pending Review, hand a single group to the Lore Assistant for repair drafts, and route Bundled decks to Duplicate as Custom before repairs.
 - Done: migrate runtime Context controls from the Loredeck tab into the Context tab, including loaded-Loredeck Context review, current-context resolving, Reasoner fallback launch, quick anchors, manual locks, reset actions, and fullscreen Context Browser access.
 - Done: upgrade Reasoner-backed Context resolution so automatic fallback follows the existing message-count and character-count cadence, chooses from bounded anchor/window candidates, and stores structured, confirmable Context patches for user review.

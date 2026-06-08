@@ -1,0 +1,1609 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "sw-character:abeloth": {
+      "type": "character",
+      "label": "Abeloth",
+      "aliases": [
+        "The Mother"
+      ],
+      "canonicalNames": [
+        "Abeloth",
+        "The Mother"
+      ],
+      "tags": [
+        "character:abeloth",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:alema-rar": {
+      "type": "character",
+      "label": "Alema Rar",
+      "aliases": [
+        "Alema"
+      ],
+      "canonicalNames": [
+        "Alema Rar",
+        "Alema"
+      ],
+      "tags": [
+        "character:alema-rar",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:allana-solo": {
+      "type": "character",
+      "label": "Allana Solo",
+      "aliases": [
+        "Allana",
+        "Amelia"
+      ],
+      "canonicalNames": [
+        "Allana Solo",
+        "Allana",
+        "Amelia"
+      ],
+      "tags": [
+        "character:allana-solo",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:anakin-solo": {
+      "type": "character",
+      "label": "Anakin Solo",
+      "aliases": [
+        "Anakin Solo"
+      ],
+      "canonicalNames": [
+        "Anakin Solo",
+        "Anakin Solo"
+      ],
+      "tags": [
+        "character:anakin-solo",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:ben-skywalker": {
+      "type": "character",
+      "label": "Ben Skywalker",
+      "aliases": [
+        "Ben"
+      ],
+      "canonicalNames": [
+        "Ben Skywalker",
+        "Ben"
+      ],
+      "tags": [
+        "character:ben-skywalker",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:boba-fett": {
+      "type": "character",
+      "label": "Boba Fett",
+      "aliases": [
+        "Boba"
+      ],
+      "canonicalNames": [
+        "Boba Fett",
+        "Boba"
+      ],
+      "tags": [
+        "character:boba-fett",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:cal-omas": {
+      "type": "character",
+      "label": "Cal Omas",
+      "aliases": [
+        "Cal Omas"
+      ],
+      "canonicalNames": [
+        "Cal Omas",
+        "Cal Omas"
+      ],
+      "tags": [
+        "character:cal-omas",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:chewbacca": {
+      "type": "character",
+      "label": "Chewbacca",
+      "aliases": [],
+      "canonicalNames": [
+        "Chewbacca"
+      ],
+      "tags": [
+        "character:chewbacca",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:corran-horn": {
+      "type": "character",
+      "label": "Corran Horn",
+      "aliases": [
+        "Corran"
+      ],
+      "canonicalNames": [
+        "Corran Horn",
+        "Corran"
+      ],
+      "tags": [
+        "character:corran-horn",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:darth-caedus": {
+      "type": "character",
+      "label": "Darth Caedus",
+      "aliases": [
+        "Jacen Solo",
+        "Caedus"
+      ],
+      "canonicalNames": [
+        "Darth Caedus",
+        "Jacen Solo",
+        "Caedus"
+      ],
+      "tags": [
+        "character:darth-caedus",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:han-solo": {
+      "type": "character",
+      "label": "Han Solo",
+      "aliases": [
+        "Han"
+      ],
+      "canonicalNames": [
+        "Han Solo",
+        "Han"
+      ],
+      "tags": [
+        "character:han-solo",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:jacen-solo": {
+      "type": "character",
+      "label": "Jacen Solo",
+      "aliases": [
+        "Jacen",
+        "Darth Caedus",
+        "Caedus"
+      ],
+      "canonicalNames": [
+        "Jacen Solo",
+        "Jacen",
+        "Darth Caedus"
+      ],
+      "tags": [
+        "character:jacen-solo",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:jagged-fel": {
+      "type": "character",
+      "label": "Jagged Fel",
+      "aliases": [
+        "Jag Fel",
+        "Jagged"
+      ],
+      "canonicalNames": [
+        "Jagged Fel",
+        "Jag Fel",
+        "Jagged"
+      ],
+      "tags": [
+        "character:jagged-fel",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:jaina-solo": {
+      "type": "character",
+      "label": "Jaina Solo",
+      "aliases": [
+        "Jaina"
+      ],
+      "canonicalNames": [
+        "Jaina Solo",
+        "Jaina"
+      ],
+      "tags": [
+        "character:jaina-solo",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:kyp-durron": {
+      "type": "character",
+      "label": "Kyp Durron",
+      "aliases": [
+        "Kyp"
+      ],
+      "canonicalNames": [
+        "Kyp Durron",
+        "Kyp"
+      ],
+      "tags": [
+        "character:kyp-durron",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:leia-organa-solo": {
+      "type": "character",
+      "label": "Leia Organa Solo",
+      "aliases": [
+        "Leia",
+        "Leia Organa",
+        "Princess Leia"
+      ],
+      "canonicalNames": [
+        "Leia Organa Solo",
+        "Leia",
+        "Leia Organa"
+      ],
+      "tags": [
+        "character:leia-organa-solo",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:lowbacca": {
+      "type": "character",
+      "label": "Lowbacca",
+      "aliases": [
+        "Lowie"
+      ],
+      "canonicalNames": [
+        "Lowbacca",
+        "Lowie"
+      ],
+      "tags": [
+        "character:lowbacca",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:luke-skywalker": {
+      "type": "character",
+      "label": "Luke Skywalker",
+      "aliases": [
+        "Luke",
+        "Master Skywalker"
+      ],
+      "canonicalNames": [
+        "Luke Skywalker",
+        "Luke",
+        "Master Skywalker"
+      ],
+      "tags": [
+        "character:luke-skywalker",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:lumiya": {
+      "type": "character",
+      "label": "Lumiya",
+      "aliases": [
+        "Shira Brie",
+        "Dark Lady Lumiya"
+      ],
+      "canonicalNames": [
+        "Lumiya",
+        "Shira Brie",
+        "Dark Lady Lumiya"
+      ],
+      "tags": [
+        "character:lumiya",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:mara-jade-skywalker": {
+      "type": "character",
+      "label": "Mara Jade Skywalker",
+      "aliases": [
+        "Mara Jade",
+        "Mara",
+        "Mara Skywalker"
+      ],
+      "canonicalNames": [
+        "Mara Jade Skywalker",
+        "Mara Jade",
+        "Mara"
+      ],
+      "tags": [
+        "character:mara-jade-skywalker",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:mirta-gev": {
+      "type": "character",
+      "label": "Mirta Gev",
+      "aliases": [
+        "Mirta"
+      ],
+      "canonicalNames": [
+        "Mirta Gev",
+        "Mirta"
+      ],
+      "tags": [
+        "character:mirta-gev",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:natasi-daala": {
+      "type": "character",
+      "label": "Natasi Daala",
+      "aliases": [
+        "Daala",
+        "Chief of State Daala"
+      ],
+      "canonicalNames": [
+        "Natasi Daala",
+        "Daala",
+        "Chief of State Daala"
+      ],
+      "tags": [
+        "character:natasi-daala",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:niathal": {
+      "type": "character",
+      "label": "Niathal",
+      "aliases": [
+        "Cha Niathal",
+        "Admiral Niathal"
+      ],
+      "canonicalNames": [
+        "Niathal",
+        "Cha Niathal",
+        "Admiral Niathal"
+      ],
+      "tags": [
+        "character:niathal",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:raynar-thul": {
+      "type": "character",
+      "label": "Raynar Thul",
+      "aliases": [
+        "Raynar",
+        "UnuThul"
+      ],
+      "canonicalNames": [
+        "Raynar Thul",
+        "Raynar",
+        "UnuThul"
+      ],
+      "tags": [
+        "character:raynar-thul",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:saba-sebatyne": {
+      "type": "character",
+      "label": "Saba Sebatyne",
+      "aliases": [
+        "Saba"
+      ],
+      "canonicalNames": [
+        "Saba Sebatyne",
+        "Saba"
+      ],
+      "tags": [
+        "character:saba-sebatyne",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:tahiri-veila": {
+      "type": "character",
+      "label": "Tahiri Veila",
+      "aliases": [
+        "Tahiri"
+      ],
+      "canonicalNames": [
+        "Tahiri Veila",
+        "Tahiri"
+      ],
+      "tags": [
+        "character:tahiri-veila",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:tenel-ka-djo": {
+      "type": "character",
+      "label": "Tenel Ka Djo",
+      "aliases": [
+        "Tenel Ka",
+        "Queen Mother Tenel Ka"
+      ],
+      "canonicalNames": [
+        "Tenel Ka Djo",
+        "Tenel Ka",
+        "Queen Mother Tenel Ka"
+      ],
+      "tags": [
+        "character:tenel-ka-djo",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:tesar-sebatyne": {
+      "type": "character",
+      "label": "Tesar Sebatyne",
+      "aliases": [
+        "Tesar"
+      ],
+      "canonicalNames": [
+        "Tesar Sebatyne",
+        "Tesar"
+      ],
+      "tags": [
+        "character:tesar-sebatyne",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:vergere": {
+      "type": "character",
+      "label": "Vergere",
+      "aliases": [
+        "Vergere"
+      ],
+      "canonicalNames": [
+        "Vergere",
+        "Vergere"
+      ],
+      "tags": [
+        "character:vergere",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:vestara-khai": {
+      "type": "character",
+      "label": "Vestara Khai",
+      "aliases": [
+        "Vestara",
+        "Ves"
+      ],
+      "canonicalNames": [
+        "Vestara Khai",
+        "Vestara",
+        "Ves"
+      ],
+      "tags": [
+        "character:vestara-khai",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-character:zekk": {
+      "type": "character",
+      "label": "Zekk",
+      "aliases": [
+        "Zekk"
+      ],
+      "canonicalNames": [
+        "Zekk",
+        "Zekk"
+      ],
+      "tags": [
+        "character:zekk",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:confederation": {
+      "type": "faction",
+      "label": "Confederation",
+      "aliases": [
+        "Corellian Confederation"
+      ],
+      "canonicalNames": [
+        "Confederation",
+        "Corellian Confederation"
+      ],
+      "tags": [
+        "faction:confederation",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:corellia": {
+      "type": "faction",
+      "label": "Corellia",
+      "aliases": [
+        "Corellia"
+      ],
+      "canonicalNames": [
+        "Corellia",
+        "Corellia"
+      ],
+      "tags": [
+        "faction:corellia",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:dark-nest": {
+      "type": "faction",
+      "label": "Dark Nest",
+      "aliases": [
+        "Gorog"
+      ],
+      "canonicalNames": [
+        "Dark Nest",
+        "Gorog"
+      ],
+      "tags": [
+        "faction:dark-nest",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:galactic-alliance": {
+      "type": "faction",
+      "label": "Galactic Alliance",
+      "aliases": [
+        "GA"
+      ],
+      "canonicalNames": [
+        "Galactic Alliance",
+        "GA"
+      ],
+      "tags": [
+        "faction:galactic-alliance",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:galactic-alliance-guard": {
+      "type": "faction",
+      "label": "Galactic Alliance Guard",
+      "aliases": [
+        "GAG"
+      ],
+      "canonicalNames": [
+        "Galactic Alliance Guard",
+        "GAG"
+      ],
+      "tags": [
+        "faction:galactic-alliance-guard",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:hapes-consortium": {
+      "type": "faction",
+      "label": "Hapes Consortium",
+      "aliases": [
+        "Hapes"
+      ],
+      "canonicalNames": [
+        "Hapes Consortium",
+        "Hapes"
+      ],
+      "tags": [
+        "faction:hapes-consortium",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:imperial-remnant": {
+      "type": "faction",
+      "label": "Imperial Remnant",
+      "aliases": [],
+      "canonicalNames": [
+        "Imperial Remnant"
+      ],
+      "tags": [
+        "faction:imperial-remnant",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:jedi-order": {
+      "type": "faction",
+      "label": "Jedi Order",
+      "aliases": [
+        "New Jedi Order",
+        "Jedi"
+      ],
+      "canonicalNames": [
+        "Jedi Order",
+        "New Jedi Order",
+        "Jedi"
+      ],
+      "tags": [
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:killik-hives": {
+      "type": "faction",
+      "label": "Killik Hives",
+      "aliases": [
+        "Killiks",
+        "Colony"
+      ],
+      "canonicalNames": [
+        "Killik Hives",
+        "Killiks",
+        "Colony"
+      ],
+      "tags": [
+        "faction:killik-hives",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:lost-tribe-of-the-sith": {
+      "type": "faction",
+      "label": "Lost Tribe of the Sith",
+      "aliases": [
+        "Lost Tribe",
+        "Kesh Sith"
+      ],
+      "canonicalNames": [
+        "Lost Tribe of the Sith",
+        "Lost Tribe",
+        "Kesh Sith"
+      ],
+      "tags": [
+        "faction:lost-tribe-of-the-sith",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:mandalorians": {
+      "type": "faction",
+      "label": "Mandalorians",
+      "aliases": [],
+      "canonicalNames": [
+        "Mandalorians"
+      ],
+      "tags": [
+        "faction:mandalorians",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-faction:one-sith": {
+      "type": "faction",
+      "label": "One Sith",
+      "aliases": [
+        "Krayt Sith"
+      ],
+      "canonicalNames": [
+        "One Sith",
+        "Krayt Sith"
+      ],
+      "tags": [
+        "faction:one-sith",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-location:centerpoint-station": {
+      "type": "location",
+      "label": "Centerpoint Station",
+      "aliases": [
+        "Centerpoint"
+      ],
+      "canonicalNames": [
+        "Centerpoint Station",
+        "Centerpoint"
+      ],
+      "tags": [
+        "location:centerpoint-station",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-location:coruscant": {
+      "type": "location",
+      "label": "Coruscant",
+      "aliases": [
+        "Galactic capital"
+      ],
+      "canonicalNames": [
+        "Coruscant",
+        "Galactic capital"
+      ],
+      "tags": [
+        "location:coruscant",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-location:hapes": {
+      "type": "location",
+      "label": "Hapes",
+      "aliases": [],
+      "canonicalNames": [
+        "Hapes"
+      ],
+      "tags": [
+        "location:hapes",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-location:kesh": {
+      "type": "location",
+      "label": "Kesh",
+      "aliases": [
+        "Kesh"
+      ],
+      "canonicalNames": [
+        "Kesh",
+        "Kesh"
+      ],
+      "tags": [
+        "location:kesh",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-location:kessel": {
+      "type": "location",
+      "label": "Kessel",
+      "aliases": [
+        "Kessel"
+      ],
+      "canonicalNames": [
+        "Kessel",
+        "Kessel"
+      ],
+      "tags": [
+        "location:kessel",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-location:maw": {
+      "type": "location",
+      "label": "Maw",
+      "aliases": [
+        "The Maw"
+      ],
+      "canonicalNames": [
+        "Maw",
+        "The Maw"
+      ],
+      "tags": [
+        "location:maw",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-location:ossus": {
+      "type": "location",
+      "label": "Ossus",
+      "aliases": [
+        "Ossus"
+      ],
+      "canonicalNames": [
+        "Ossus",
+        "Ossus"
+      ],
+      "tags": [
+        "location:ossus",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-location:shedu-maad": {
+      "type": "location",
+      "label": "Shedu Maad",
+      "aliases": [],
+      "canonicalNames": [
+        "Shedu Maad"
+      ],
+      "tags": [
+        "location:shedu-maad",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-object:flow-walking": {
+      "type": "item",
+      "label": "Flow Walking",
+      "aliases": [],
+      "canonicalNames": [
+        "Flow Walking"
+      ],
+      "tags": [
+        "item:flow-walking",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw-object:mind-walking": {
+      "type": "item",
+      "label": "Mind Walking",
+      "aliases": [],
+      "canonicalNames": [
+        "Mind Walking"
+      ],
+      "tags": [
+        "item:mind-walking",
+        "fandom:star-wars",
+        "continuity:legends"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    }
+  }
+}

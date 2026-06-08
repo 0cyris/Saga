@@ -10,19 +10,24 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "school-year:6",
-        "calendar-year:1996",
         "artifact:half-blood-prince-book",
-        "character:voldemort"
+        "book:half-blood-prince",
+        "calendar-year:1996",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
       ],
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -31,8 +36,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.horcrux_hunt_decision",
-        "sortKeyFrom": 9740,
-        "sortKeyTo": 10104,
+        "sortKeyFrom": 9735,
+        "sortKeyTo": 10042,
         "precision": "date_window",
         "windowKind": "wide",
         "label": "1996-09-01 to 1997-08-31",
@@ -93,8 +98,16 @@
       },
       "content": {
         "fact": "From September 1996 through August 1997, the main school-year context aligns with Harry Potter's sixth year, when Voldemort's return is publicly acknowledged and the Second Wizarding War escalates.",
-        "injection": "From September 1996 through August 1997, the main school-year context aligns with Harry Potter's sixth year, when Voldemort's return is publicly acknowledged and the Second Wizarding War escalates.",
-        "publicVersion": "Harry Potter is a sixth-year student during the Half-Blood Prince period."
+        "injection": "From September 1996 through August 1997, the main school-year context aligns with Harry Potter's sixth year, when Voldemort's return is publicly acknowledged and the Second Wizarding War escalates. Enforce this as a high-priority Context gate for 1996-09-01 to 1997-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "Harry Potter is a sixth-year student during the Half-Blood Prince period.",
+        "constraints": [
+          "Apply only when Saga Context matches 1996-09-01 to 1997-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -102,7 +115,8 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     }
   ]
 }

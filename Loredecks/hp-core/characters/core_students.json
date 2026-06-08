@@ -10,19 +10,34 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
         "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
         "house:gryffindor",
+        "place:azkaban",
+        "place:hogwarts",
+        "role:protagonist",
         "role:student",
-        "role:protagonist"
+        "topic:deathly-hallows"
       ],
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -104,8 +119,16 @@
       },
       "content": {
         "fact": "Harry Potter is a Gryffindor student at Hogwarts during the 1991-1998 canon school years, with unusual public attention because of his history with Voldemort.",
-        "injection": "Harry Potter is a Gryffindor student at Hogwarts during the 1991-1998 canon school years, with unusual public attention because of his history with Voldemort.",
-        "publicVersion": "Harry Potter is a famous Hogwarts student."
+        "injection": "Harry Potter is a Gryffindor student at Hogwarts during the 1991-1998 canon school years, with unusual public attention because of his history with Voldemort. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "Harry Potter is a famous Hogwarts student.",
+        "constraints": [
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -113,7 +136,8 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     },
     {
       "schemaVersion": 3,
@@ -122,19 +146,35 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "category:knowledge",
+        "character:harry-potter",
         "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
         "house:gryffindor",
+        "place:azkaban",
+        "place:hogwarts",
         "role:student",
-        "category:knowledge"
+        "topic:deathly-hallows"
       ],
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -218,8 +258,16 @@
       },
       "content": {
         "fact": "Hermione Granger is a highly studious Gryffindor student in Harry's year and is closely associated with Harry and Ron.",
-        "injection": "Hermione Granger is a highly studious Gryffindor student in Harry's year and is closely associated with Harry and Ron.",
-        "publicVersion": "Hermione is known as an academically exceptional Gryffindor student."
+        "injection": "Hermione Granger is a highly studious Gryffindor student in Harry's year and is closely associated with Harry and Ron. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "Hermione is known as an academically exceptional Gryffindor student.",
+        "constraints": [
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -227,7 +275,8 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     },
     {
       "schemaVersion": 3,
@@ -236,19 +285,34 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
         "character:ron-weasley",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
         "family:weasley",
+        "fandom:harry-potter",
         "house:gryffindor",
-        "role:student"
+        "place:azkaban",
+        "place:hogwarts",
+        "role:student",
+        "topic:deathly-hallows"
       ],
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -331,8 +395,16 @@
       },
       "content": {
         "fact": "Ron Weasley is a Gryffindor student in Harry's year and part of Harry's closest friend group.",
-        "injection": "Ron Weasley is a Gryffindor student in Harry's year and part of Harry's closest friend group.",
-        "publicVersion": "Ron is a Gryffindor student from the Weasley family."
+        "injection": "Ron Weasley is a Gryffindor student in Harry's year and part of Harry's closest friend group. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "Ron is a Gryffindor student from the Weasley family.",
+        "constraints": [
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -340,7 +412,8 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     },
     {
       "schemaVersion": 3,
@@ -349,19 +422,34 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
         "character:draco-malfoy",
+        "character:harry-potter",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
         "family:malfoy",
+        "fandom:harry-potter",
         "house:slytherin",
-        "relationship:rival"
+        "place:azkaban",
+        "place:hogwarts",
+        "relationship:rival",
+        "topic:deathly-hallows"
       ],
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -445,8 +533,16 @@
       },
       "content": {
         "fact": "Draco Malfoy is a Slytherin student in Harry's year and a frequent rival or antagonist in school interactions.",
-        "injection": "Draco Malfoy is a Slytherin student in Harry's year and a frequent rival or antagonist in school interactions.",
-        "publicVersion": "Draco is a Slytherin student from the Malfoy family."
+        "injection": "Draco Malfoy is a Slytherin student in Harry's year and a frequent rival or antagonist in school interactions. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "Draco is a Slytherin student from the Malfoy family.",
+        "constraints": [
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -454,7 +550,8 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     }
   ]
 }

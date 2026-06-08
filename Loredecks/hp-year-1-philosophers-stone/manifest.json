@@ -9,7 +9,7 @@
   "era": "Year 1: Philosopher's Stone",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "defaultLocale": "en",
   "generatedAt": "2026-06-05",
   "assets": {
@@ -38,11 +38,12 @@
     "familyOrder": 20
   },
   "tags": [
-    "fandom:harry-potter",
     "era:golden-trio",
-    "structure:split-loredeck",
+    "fandom:harry-potter",
     "quality:human-vetted",
-    "school-year:1"
+    "quality:relevance-curated",
+    "school-year:1",
+    "structure:split-loredeck"
   ],
   "source": {
     "kind": "bundled",
@@ -72,29 +73,30 @@
     "characters/adult_character_phase_baselines.json",
     "characters/present_character_baselines.json",
     "chronology/major_events.json",
-    "chronology/school_years.json",
     "events/school_year_windows.json",
     "expanded_books/book_1_philosophers_stone_expansion.json",
     "knowledge_gates/added_contextual_gates.json",
     "lexicon_calendars/year_1_ps_calendar_anchors.json",
-    "skills/school_year_skill_bands.json"
+    "skills/school_year_skill_bands.json",
+    "relevance_gates/timeline_knowledge_guards.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 45,
+    "entryCount": 49,
     "categoryCounts": {
       "character": 15,
       "event": 18,
-      "item": 5,
-      "knowledge": 3,
-      "relationship": 2,
-      "timeline": 2
+      "item": 6,
+      "knowledge": 5,
+      "relationship": 3,
+      "secret": 1,
+      "timeline": 1
     },
     "timelineAnchorCount": 55,
     "timelineWindowCount": 9
   },
-  "updatedAt": 1780617600000
+  "updatedAt": 1780876800000
 }

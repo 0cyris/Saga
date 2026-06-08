@@ -1,0 +1,1808 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-08",
+  "sourcePackId": "sw-legends-film-spine",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_separatist_crisis_active",
+      "title": "Separatist Crisis Defines the Pre-War Republic",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:prequel",
+        "faction:galactic-republic",
+        "faction:separatists",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.aotc_separatist_crisis",
+        "validToAnchor": "sw.film.aotc_separatist_crisis",
+        "sortKeyFrom": 2050,
+        "sortKeyTo": 2050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Separatist Crisis Intensifies",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant"
+        ],
+        "factions": [
+          "Galactic Republic",
+          "Separatists"
+        ],
+        "topics": [
+          "Separatist crisis",
+          "Military Creation Act"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "Separatist crisis",
+            "Military Creation Act",
+            "Galactic Republic",
+            "Separatists"
+          ]
+        }
+      },
+      "content": {
+        "fact": "By Attack of the Clones, the Republic faces a Separatist crisis but has not yet openly begun the Clone Wars.",
+        "injection": "During early Episode II, frame the Republic as politically strained by secession, assassination fears, and military debate, not yet as a wartime Empire.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Separatist Crisis Intensifies.",
+          "Respect story-position bounds from Separatist Crisis Intensifies to Separatist Crisis Intensifies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_padme_targeted_senator",
+      "title": "Padme Targeted as Senator",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:padme-amidala",
+        "continuity:legends",
+        "era:prequel",
+        "fandom:star-wars",
+        "location:coruscant",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.aotc_separatist_crisis",
+        "validToAnchor": "sw.film.aotc_separatist_crisis",
+        "sortKeyFrom": 2050,
+        "sortKeyTo": 2050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Separatist Crisis Intensifies",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Padme Amidala"
+        ],
+        "locations": [
+          "Coruscant",
+          "Naboo"
+        ],
+        "factions": [],
+        "topics": [
+          "senator",
+          "assassination attempts"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Padme Amidala"
+          ],
+          "locationsAny": [
+            "Coruscant",
+            "Naboo"
+          ],
+          "topicsAny": [
+            "senator",
+            "assassination attempts"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Padme is a senator and assassination target during the Separatist crisis, not Naboo’s reigning queen.",
+        "injection": "In Episode II context, write Padme as Senator Amidala with political agency and personal danger, not as the current Queen of Naboo.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Separatist Crisis Intensifies.",
+          "Respect story-position bounds from Separatist Crisis Intensifies to Separatist Crisis Intensifies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_obiwan_investigates_kamino",
+      "title": "Obi-Wan Investigates Kamino",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:kamino",
+        "object:clone-army",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.aotc_kamino_army_discovered",
+        "validToAnchor": "sw.film.aotc_kamino_army_discovered",
+        "sortKeyFrom": 2120,
+        "sortKeyTo": 2120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Clone Army Discovered on Kamino",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Jango Fett"
+        ],
+        "locations": [
+          "Kamino"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "clone army",
+          "assassination investigation"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Jango Fett"
+          ],
+          "locationsAny": [
+            "Kamino"
+          ],
+          "topicsAny": [
+            "clone army",
+            "assassination investigation",
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Obi-Wan traces the assassination plot to Kamino and discovers the Republic’s clone army.",
+        "injection": "In Clone Army Discovered on Kamino, once Obi-Wan reaches Kamino, the clone army becomes discoverable to Jedi leadership but is not yet broadly understood by the galaxy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Army Discovered on Kamino.",
+          "Respect story-position bounds from Clone Army Discovered on Kamino to Clone Army Discovered on Kamino."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_clone_army_secret_origin_unclear",
+      "title": "Clone Army Origin Remains Suspicious",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "continuity:legends",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "object:clone-army",
+        "scope:film-spine",
+        "topic:knowledge-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.aotc_kamino_army_discovered",
+        "validToAnchor": "sw.film.aotc_kamino_army_discovered",
+        "sortKeyFrom": 2120,
+        "sortKeyTo": 2120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Clone Army Discovered on Kamino",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Kamino"
+        ],
+        "factions": [
+          "Galactic Republic",
+          "Jedi Order"
+        ],
+        "topics": [
+          "clone army origin",
+          "Sifo-Dyas",
+          "Kamino"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Kamino"
+          ],
+          "topicsAny": [
+            "clone army origin",
+            "Sifo-Dyas",
+            "Kamino",
+            "Galactic Republic",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The clone army’s origin is suspicious and politically convenient, even though the Republic accepts it in crisis.",
+        "injection": "Do not portray the clone army as a cleanly explained Republic project; its origin should feel opaque, alarming, and too useful.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Army Discovered on Kamino.",
+          "Respect story-position bounds from Clone Army Discovered on Kamino to Clone Army Discovered on Kamino."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_jango_template_boba_child",
+      "title": "Jango Is Clone Template and Boba’s Father",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:boba-fett",
+        "character:jango-fett",
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:clone-army",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.aotc_kamino_army_discovered",
+        "validToAnchor": "sw.film.aotc_kamino_army_discovered",
+        "sortKeyFrom": 2120,
+        "sortKeyTo": 2120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Clone Army Discovered on Kamino",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jango Fett",
+          "Boba Fett"
+        ],
+        "locations": [
+          "Kamino",
+          "Geonosis"
+        ],
+        "factions": [],
+        "topics": [
+          "clone template",
+          "Boba origin"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jango Fett",
+            "Boba Fett"
+          ],
+          "locationsAny": [
+            "Kamino",
+            "Geonosis"
+          ],
+          "topicsAny": [
+            "clone template",
+            "Boba origin"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Jango Fett is the genetic template for the clone army and raises Boba Fett as his unaltered son.",
+        "injection": "In Episode II context, connect Jango to the clone army and Boba’s origin; after Geonosis, Boba’s hostility toward Jedi has a personal basis.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Army Discovered on Kamino.",
+          "Respect story-position bounds from Clone Army Discovered on Kamino to Clone Army Discovered on Kamino."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_anakin_padme_protection_assignment",
+      "title": "Anakin Assigned to Protect Padme",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:padme-amidala",
+        "continuity:legends",
+        "fandom:star-wars",
+        "relationship:secret-marriage",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_2_aotc",
+        "validToAnchor": "sw.film.aotc_anakin_padme_married",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2240,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode II: Attack of the Clones",
+        "phase": "Prequel Era to Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Padme Amidala"
+        ],
+        "locations": [
+          "Naboo",
+          "Tatooine"
+        ],
+        "factions": [],
+        "topics": [
+          "forbidden attachment",
+          "protection assignment"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Padme Amidala"
+          ],
+          "locationsAny": [
+            "Naboo",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "forbidden attachment",
+            "protection assignment"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin’s protection assignment places him in close contact with Padme and accelerates their forbidden attachment.",
+        "injection": "During Episode II, Anakin and Padme’s relationship is intimate and risky, but not yet publicly acknowledged or legitimate under Jedi rules.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode II: Attack of the Clones.",
+          "Respect story-position bounds from Episode II: Attack of the Clones to Anakin and Padme Secretly Marry."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_anakin_attachment_conflict_visible",
+      "title": "Anakin’s Attachment Conflict Is Visible",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:jedi-training",
+        "character:anakin-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:knowledge-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_2_aotc",
+        "validToAnchor": "sw.film.aotc_anakin_padme_married",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2240,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode II: Attack of the Clones",
+        "phase": "Prequel Era to Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Padawan status",
+          "attachment",
+          "anger"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Padawan status",
+            "attachment",
+            "anger",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin shows intense attachment, impatience, and resentment while still functioning as Obi-Wan’s Padawan.",
+        "injection": "Write Episode II Anakin as powerful and emotionally volatile, but still a Padawan under Obi-Wan’s authority.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode II: Attack of the Clones.",
+          "Respect story-position bounds from Episode II: Attack of the Clones to Anakin and Padme Secretly Marry."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_tusken_massacre_private_secret",
+      "title": "Tusken Massacre Is Private Dark Turn",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:anakin-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:tatooine",
+        "scope:film-spine",
+        "topic:spoiler-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_2_aotc",
+        "validToAnchor": "sw.film.aotc_anakin_padme_married",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2240,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode II: Attack of the Clones",
+        "phase": "Prequel Era to Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Padme Amidala",
+          "Shmi Skywalker"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [],
+        "topics": [
+          "Tusken massacre",
+          "Shmi death",
+          "dark-side anger"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Padme Amidala",
+            "Shmi Skywalker"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "Tusken massacre",
+            "Shmi death",
+            "dark-side anger"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin massacres Tusken Raiders after Shmi’s death, but this is not public Jedi knowledge by default.",
+        "injection": "Treat the Tusken massacre as a private dark-side rupture known only to characters the scene establishes, especially Anakin and Padme.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode II: Attack of the Clones.",
+          "Respect story-position bounds from Episode II: Attack of the Clones to Anakin and Padme Secretly Marry."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_dooku_public_separatist_leader_hidden_sith",
+      "title": "Dooku Public Leader, Hidden Sith",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:count-dooku",
+        "continuity:legends",
+        "faction:separatists",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:identity-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_2_aotc",
+        "validToAnchor": "sw.film.aotc_anakin_padme_married",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2240,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode II: Attack of the Clones",
+        "phase": "Prequel Era to Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Count Dooku",
+          "Palpatine",
+          "Darth Sidious"
+        ],
+        "locations": [],
+        "factions": [
+          "Separatists",
+          "Sith"
+        ],
+        "topics": [
+          "Darth Tyranus",
+          "Sith conspiracy"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Count Dooku",
+            "Palpatine",
+            "Darth Sidious"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Darth Tyranus",
+            "Sith conspiracy",
+            "Separatists",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Count Dooku is publicly the Separatist leader while privately Darth Tyranus, a Sith Lord.",
+        "injection": "During Episode II, ordinary characters may know Dooku as Separatist leader but should not automatically know his Sith role or Sidious connection.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode II: Attack of the Clones.",
+          "Respect story-position bounds from Episode II: Attack of the Clones to Anakin and Padme Secretly Marry."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_geonosis_jedi_losses",
+      "title": "Geonosis Causes Major Jedi Losses",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:clone-wars-begin",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:geonosis",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.aotc_geonosis_arena",
+        "validToAnchor": "sw.film.aotc_geonosis_arena",
+        "sortKeyFrom": 2180,
+        "sortKeyTo": 2180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Geonosis Arena Crisis",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mace Windu",
+          "Obi-Wan Kenobi",
+          "Anakin Skywalker",
+          "Padme Amidala"
+        ],
+        "locations": [
+          "Geonosis"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Separatists",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "arena battle",
+          "Jedi casualties"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mace Windu",
+            "Obi-Wan Kenobi",
+            "Anakin Skywalker",
+            "Padme Amidala"
+          ],
+          "locationsAny": [
+            "Geonosis"
+          ],
+          "topicsAny": [
+            "arena battle",
+            "Jedi casualties",
+            "Jedi Order",
+            "Separatists",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Geonosis crisis exposes Separatist military strength and causes major Jedi casualties before the clones intervene.",
+        "injection": "At Geonosis, portray the Jedi as brave but outmatched by the scale of industrial warfare until clone forces arrive.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Geonosis Arena Crisis.",
+          "Respect story-position bounds from Geonosis Arena Crisis to Geonosis Arena Crisis."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_clone_wars_begin_at_geonosis",
+      "title": "Clone Wars Begin at Geonosis",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:clone-wars",
+        "event:clone-wars-begin",
+        "faction:galactic-republic",
+        "faction:separatists",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.aotc_clone_wars_begin",
+        "validToAnchor": "sw.film.aotc_clone_wars_begin",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 2200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Clone Wars Begin",
+        "phase": "Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Geonosis"
+        ],
+        "factions": [
+          "Galactic Republic",
+          "Separatists",
+          "Jedi Order"
+        ],
+        "topics": [
+          "Clone Wars begin"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Geonosis"
+          ],
+          "topicsAny": [
+            "Clone Wars begin",
+            "Galactic Republic",
+            "Separatists",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Battle of Geonosis turns the Separatist crisis into the Clone Wars.",
+        "injection": "After Geonosis, the Republic is at war and Jedi leadership shifts toward military command roles. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Begin.",
+          "Respect story-position bounds from Clone Wars Begin to Clone Wars Begin."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_jedi_become_generals_after_geonosis",
+      "title": "Jedi Become Wartime Commanders",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:clone-wars",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "object:clone-army",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.aotc_clone_wars_begin",
+        "validToAnchor": "sw.film.episode_3_rots",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Attack of the Clones, before Revenge of the Sith",
+        "phase": "Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "Jedi generals",
+          "clone command",
+          "wartime role"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi generals",
+            "clone command",
+            "wartime role",
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Geonosis, Jedi increasingly operate as generals and commanders in the Republic war effort.",
+        "injection": "In post-AOTC Clone Wars context, Jedi can command clone forces, but this role is a wartime change, not their normal prewar function.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Attack of the Clones, before Revenge of the Sith.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_anakin_loses_arm",
+      "title": "Anakin Loses His Arm to Dooku",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:count-dooku",
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:cybernetics",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.aotc_clone_wars_begin",
+        "validToAnchor": "sw.film.aotc_clone_wars_begin",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 2200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Clone Wars Begin",
+        "phase": "Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Count Dooku"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "cybernetic arm",
+          "duel injury"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Count Dooku"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "cybernetic arm",
+            "duel injury"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin loses an arm in the duel with Dooku and receives a mechanical replacement.",
+        "injection": "After Attack of the Clones, Anakin has a cybernetic arm; before that injury, do not describe him with the later prosthetic.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars Begin.",
+          "Respect story-position bounds from Clone Wars Begin to Clone Wars Begin."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_aotc_secret_marriage_after_geonosis",
+      "title": "Anakin and Padme Secretly Marry",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:padme-amidala",
+        "continuity:legends",
+        "fandom:star-wars",
+        "relationship:secret-marriage",
+        "scope:film-spine",
+        "topic:secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.aotc_anakin_padme_married",
+        "validToAnchor": "sw.film.aotc_anakin_padme_married",
+        "sortKeyFrom": 2240,
+        "sortKeyTo": 2240,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Anakin and Padme Secretly Marry",
+        "phase": "Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Padme Amidala"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "secret marriage",
+          "Jedi attachment"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Padme Amidala"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "secret marriage",
+            "Jedi attachment"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Geonosis, Anakin and Padme secretly marry despite Jedi rules against attachment.",
+        "injection": "After Episode II, Anakin and Padme are secretly married; keep the marriage hidden from ordinary Jedi, Republic, and public characters unless the story reveals it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Anakin and Padme Secretly Marry.",
+          "Respect story-position bounds from Anakin and Padme Secretly Marry to Anakin and Padme Secretly Marry."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_pre_rots_palpatine_not_exposed",
+      "title": "Palpatine Not Exposed Before Revenge of the Sith",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-sidious",
+        "character:palpatine",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:future-guard",
+        "topic:identity-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.aotc_clone_wars_begin",
+        "validToAnchor": "sw.film.episode_3_rots",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Attack of the Clones, before Revenge of the Sith",
+        "phase": "Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Darth Sidious",
+          "Yoda",
+          "Mace Windu"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "Sith identity",
+          "future reveal"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Darth Sidious",
+            "Yoda",
+            "Mace Windu"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Sith identity",
+            "future reveal",
+            "Jedi Order",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Revenge of the Sith, Palpatine’s identity as Sidious is not public and not known to the Jedi Order.",
+        "injection": "In Clone Wars pre-ROTS context, do not have Jedi characters casually know Palpatine is Darth Sidious unless the story introduces that divergence.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Attack of the Clones, before Revenge of the Sith.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_pre_rots_anakin_not_vader_yet",
+      "title": "Anakin Not Darth Vader Before His Fall",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:darth-vader",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:future-guard",
+        "topic:identity-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.aotc_clone_wars_begin",
+        "validToAnchor": "sw.film.episode_3_rots",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Attack of the Clones, before Revenge of the Sith",
+        "phase": "Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "future Vader identity"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "future Vader identity",
+            "Jedi Order",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before his fall in Revenge of the Sith, Anakin is not publicly or functionally Darth Vader.",
+        "injection": "Do not call pre-fall Anakin Darth Vader in-character unless using prophecy, private Sith planning, or explicit future knowledge.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Attack of the Clones, before Revenge of the Sith.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    }
+  ]
+}

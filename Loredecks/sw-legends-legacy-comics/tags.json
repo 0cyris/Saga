@@ -1,0 +1,3424 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "arc:broken": {
+      "label": "Broken",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Broken.",
+      "aliases": [
+        "broken"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "category:character": {
+      "label": "Character",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Character.",
+      "aliases": [
+        "character"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "category:event": {
+      "label": "Event",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Event.",
+      "aliases": [
+        "event"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "category:faction": {
+      "label": "Faction",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Faction.",
+      "aliases": [
+        "faction"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "category:item": {
+      "label": "Item",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Item.",
+      "aliases": [
+        "item"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "category:knowledge": {
+      "label": "Knowledge",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Knowledge.",
+      "aliases": [
+        "knowledge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "category:location": {
+      "label": "Location",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Location.",
+      "aliases": [
+        "location"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "category:relationship": {
+      "label": "Relationship",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Relationship.",
+      "aliases": [
+        "relationship"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "category:rule": {
+      "label": "Rule",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Rule.",
+      "aliases": [
+        "rule"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "category:secret": {
+      "label": "Secret",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Secret.",
+      "aliases": [
+        "secret"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "category:timeline": {
+      "label": "Timeline",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Timeline.",
+      "aliases": [
+        "timeline"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ag-37": {
+      "label": "Ag 37",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ag 37.",
+      "aliases": [
+        "ag 37"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:anakin-skywalker": {
+      "label": "Anakin Skywalker",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Anakin Skywalker.",
+      "aliases": [
+        "anakin skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ania-solo": {
+      "label": "Ania Solo",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ania Solo.",
+      "aliases": [
+        "ania solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:antares-draco": {
+      "label": "Antares Draco",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Antares Draco.",
+      "aliases": [
+        "antares draco"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:asharad-hett": {
+      "label": "Asharad Hett",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Asharad Hett.",
+      "aliases": [
+        "asharad hett"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:azlyn-rae": {
+      "label": "Azlyn Rae",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Azlyn Rae.",
+      "aliases": [
+        "azlyn rae"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ben-skywalker": {
+      "label": "Ben Skywalker",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ben Skywalker.",
+      "aliases": [
+        "ben skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:cade-skywalker": {
+      "label": "Cade Skywalker",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Cade Skywalker.",
+      "aliases": [
+        "cade skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:celeste-morne": {
+      "label": "Celeste Morne",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Celeste Morne.",
+      "aliases": [
+        "celeste morne"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-azard": {
+      "label": "Darth Azard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Darth Azard.",
+      "aliases": [
+        "darth azard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-caedus": {
+      "label": "Darth Caedus",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Darth Caedus.",
+      "aliases": [
+        "darth caedus"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-havok": {
+      "label": "Darth Havok",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Darth Havok.",
+      "aliases": [
+        "darth havok"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-krayt": {
+      "label": "Darth Krayt",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Darth Krayt.",
+      "aliases": [
+        "darth krayt"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-maladi": {
+      "label": "Darth Maladi",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Darth Maladi.",
+      "aliases": [
+        "darth maladi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-nihl": {
+      "label": "Darth Nihl",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Darth Nihl.",
+      "aliases": [
+        "darth nihl"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-stryfe": {
+      "label": "Darth Stryfe",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Darth Stryfe.",
+      "aliases": [
+        "darth stryfe"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-talon": {
+      "label": "Darth Talon",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Darth Talon.",
+      "aliases": [
+        "darth talon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-wyyrlok": {
+      "label": "Darth Wyyrlok",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Darth Wyyrlok.",
+      "aliases": [
+        "darth wyyrlok"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:deliah-blue": {
+      "label": "Deliah Blue",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Deliah Blue.",
+      "aliases": [
+        "deliah blue"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ganner-krieg": {
+      "label": "Ganner Krieg",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ganner Krieg.",
+      "aliases": [
+        "ganner krieg"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gar-stazi": {
+      "label": "Gar Stazi",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Gar Stazi.",
+      "aliases": [
+        "gar stazi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:han-solo": {
+      "label": "Han Solo",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Han Solo.",
+      "aliases": [
+        "han solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jacen-solo": {
+      "label": "Jacen Solo",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Jacen Solo.",
+      "aliases": [
+        "jacen solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jao-assam": {
+      "label": "Jao Assam",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Jao Assam.",
+      "aliases": [
+        "jao assam"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jariah-syn": {
+      "label": "Jariah Syn",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Jariah Syn.",
+      "aliases": [
+        "jariah syn"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kee": {
+      "label": "Kee",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Kee.",
+      "aliases": [
+        "kee"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kkruhk": {
+      "label": "Kkruhk",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Kkruhk.",
+      "aliases": [
+        "kkruhk"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kol-skywalker": {
+      "label": "Kol Skywalker",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Kol Skywalker.",
+      "aliases": [
+        "kol skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kylo-ren": {
+      "label": "Kylo Ren",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Kylo Ren.",
+      "aliases": [
+        "kylo ren"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:leia-organa-solo": {
+      "label": "Leia Organa Solo",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Leia Organa Solo.",
+      "aliases": [
+        "leia organa solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:luke-skywalker": {
+      "label": "Luke Skywalker",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Luke Skywalker.",
+      "aliases": [
+        "luke skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:marasiah-fel": {
+      "label": "Marasiah Fel",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Marasiah Fel.",
+      "aliases": [
+        "marasiah fel"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:marasiiah-fel": {
+      "label": "Marasiiah Fel",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Marasiiah Fel.",
+      "aliases": [
+        "marasiiah fel"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:morrigan-corde": {
+      "label": "Morrigan Corde",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Morrigan Corde.",
+      "aliases": [
+        "morrigan corde"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nyna-calixte": {
+      "label": "Nyna Calixte",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Nyna Calixte.",
+      "aliases": [
+        "nyna calixte"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:palpatine": {
+      "label": "Palpatine",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Palpatine.",
+      "aliases": [
+        "palpatine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:revan": {
+      "label": "Revan",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Revan.",
+      "aliases": [
+        "revan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:rey": {
+      "label": "Rey",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Rey.",
+      "aliases": [
+        "rey"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:roan-fel": {
+      "label": "Roan Fel",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Roan Fel.",
+      "aliases": [
+        "roan fel"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:sauk": {
+      "label": "Sauk",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sauk.",
+      "aliases": [
+        "sauk"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shado-vao": {
+      "label": "Shado Vao",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Shado Vao.",
+      "aliases": [
+        "shado vao"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:sia-fel": {
+      "label": "Sia Fel",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sia Fel.",
+      "aliases": [
+        "sia fel"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:wolf-sazen": {
+      "label": "Wolf Sazen",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Wolf Sazen.",
+      "aliases": [
+        "wolf sazen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yage": {
+      "label": "Yage",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Yage.",
+      "aliases": [
+        "yage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yalta-val": {
+      "label": "Yalta Val",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Yalta Val.",
+      "aliases": [
+        "yalta val"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:legends": {
+      "label": "Legends",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Legends.",
+      "aliases": [
+        "legends"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:pre-legacy": {
+      "label": "Pre Legacy",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Pre Legacy.",
+      "aliases": [
+        "pre legacy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:legacy-war": {
+      "label": "Legacy War",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Legacy War.",
+      "aliases": [
+        "legacy war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:sith-imperial-war": {
+      "label": "Sith Imperial War",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Imperial War.",
+      "aliases": [
+        "sith imperial war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:fel-empire": {
+      "label": "Fel Empire",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Fel Empire.",
+      "aliases": [
+        "fel empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:fel-loyalists": {
+      "label": "Fel Loyalists",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Fel Loyalists.",
+      "aliases": [
+        "fel loyalists"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:first-order": {
+      "label": "First Order",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: First Order.",
+      "aliases": [
+        "first order"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-alliance": {
+      "label": "Galactic Alliance",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Galactic Alliance.",
+      "aliases": [
+        "galactic alliance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-alliance-remnant": {
+      "label": "Galactic Alliance Remnant",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Galactic Alliance Remnant.",
+      "aliases": [
+        "galactic alliance remnant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:imperial-knights": {
+      "label": "Imperial Knights",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Imperial Knights.",
+      "aliases": [
+        "imperial knights"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jedi-order": {
+      "label": "Jedi Order",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Jedi Order.",
+      "aliases": [
+        "jedi order"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:new-republic": {
+      "label": "New Republic",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: New Republic.",
+      "aliases": [
+        "new republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:old-republic": {
+      "label": "Old Republic",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Old Republic.",
+      "aliases": [
+        "old republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:one-sith": {
+      "label": "One Sith",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: One Sith.",
+      "aliases": [
+        "one sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:rebel-alliance": {
+      "label": "Rebel Alliance",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Rebel Alliance.",
+      "aliases": [
+        "rebel alliance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:resistance": {
+      "label": "Resistance",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Resistance.",
+      "aliases": [
+        "resistance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:sith-empire": {
+      "label": "Sith Empire",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Empire.",
+      "aliases": [
+        "sith empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:underworld": {
+      "label": "Underworld",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Underworld.",
+      "aliases": [
+        "underworld"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:yuuzhan-vong": {
+      "label": "Yuuzhan Vong",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Yuuzhan Vong.",
+      "aliases": [
+        "yuuzhan vong"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:star-wars": {
+      "label": "Star Wars",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Star Wars.",
+      "aliases": [
+        "star wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:ag-37": {
+      "label": "Ag 37",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ag 37.",
+      "aliases": [
+        "ag 37"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:alliance-fleet": {
+      "label": "Alliance Fleet",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Alliance Fleet.",
+      "aliases": [
+        "alliance fleet"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:bacta": {
+      "label": "Bacta",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Bacta.",
+      "aliases": [
+        "bacta"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:cybernetics": {
+      "label": "Cybernetics",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Cybernetics.",
+      "aliases": [
+        "cybernetics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:death-sticks": {
+      "label": "Death Sticks",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Death Sticks.",
+      "aliases": [
+        "death sticks"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:imperial-armor": {
+      "label": "Imperial Armor",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Imperial Armor.",
+      "aliases": [
+        "imperial armor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:lightsaber": {
+      "label": "Lightsaber",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Lightsaber.",
+      "aliases": [
+        "lightsaber"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:muur-talisman": {
+      "label": "Muur Talisman",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Muur Talisman.",
+      "aliases": [
+        "muur talisman"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:bastion": {
+      "label": "Bastion",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Bastion.",
+      "aliases": [
+        "bastion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:coruscant": {
+      "label": "Coruscant",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Coruscant.",
+      "aliases": [
+        "coruscant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:dac": {
+      "label": "Dac",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Dac.",
+      "aliases": [
+        "dac"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:had-abbadon": {
+      "label": "Had Abbadon",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Had Abbadon.",
+      "aliases": [
+        "had abbadon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:korriban": {
+      "label": "Korriban",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Korriban.",
+      "aliases": [
+        "korriban"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:ossus": {
+      "label": "Ossus",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ossus.",
+      "aliases": [
+        "ossus"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:tatooine": {
+      "label": "Tatooine",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Tatooine.",
+      "aliases": [
+        "tatooine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:vendaxa": {
+      "label": "Vendaxa",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Vendaxa.",
+      "aliases": [
+        "vendaxa"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft": {
+      "label": "Draft",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Draft.",
+      "aliases": [
+        "draft"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:legacy-comics": {
+      "label": "Legacy Comics",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Legacy Comics.",
+      "aliases": [
+        "legacy comics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:legacy-volume-2": {
+      "label": "Legacy Volume 2",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Legacy Volume 2.",
+      "aliases": [
+        "legacy volume 2"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "structure:split-loredeck": {
+      "label": "Split Loredeck",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Split Loredeck.",
+      "aliases": [
+        "split loredeck"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ability": {
+      "label": "Ability",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ability.",
+      "aliases": [
+        "ability"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ability-guard": {
+      "label": "Ability Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ability Guard.",
+      "aliases": [
+        "ability guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:addiction": {
+      "label": "Addiction",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Addiction.",
+      "aliases": [
+        "addiction"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:admiral": {
+      "label": "Admiral",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Admiral.",
+      "aliases": [
+        "admiral"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:aftermath": {
+      "label": "Aftermath",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Aftermath.",
+      "aliases": [
+        "aftermath"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:alias-guard": {
+      "label": "Alias Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Alias Guard.",
+      "aliases": [
+        "alias guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:alliance": {
+      "label": "Alliance",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Alliance.",
+      "aliases": [
+        "alliance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ancient-artifact": {
+      "label": "Ancient Artifact",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ancient Artifact.",
+      "aliases": [
+        "ancient artifact"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ancient-sith": {
+      "label": "Ancient Sith",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ancient Sith.",
+      "aliases": [
+        "ancient sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:arc-broken": {
+      "label": "Arc Broken",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Arc Broken.",
+      "aliases": [
+        "arc broken"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:artifact": {
+      "label": "Artifact",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Artifact.",
+      "aliases": [
+        "artifact"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:avoidance": {
+      "label": "Avoidance",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Avoidance.",
+      "aliases": [
+        "avoidance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:backstory": {
+      "label": "Backstory",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Backstory.",
+      "aliases": [
+        "backstory"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:betrayal": {
+      "label": "Betrayal",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Betrayal.",
+      "aliases": [
+        "betrayal"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bounty-hunting": {
+      "label": "Bounty Hunting",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Bounty Hunting.",
+      "aliases": [
+        "bounty hunting"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:caedus-guard": {
+      "label": "Caedus Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Caedus Guard.",
+      "aliases": [
+        "caedus guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:capital": {
+      "label": "Capital",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Capital.",
+      "aliases": [
+        "capital"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:capture": {
+      "label": "Capture",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Capture.",
+      "aliases": [
+        "capture"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:cast": {
+      "label": "Cast",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Cast.",
+      "aliases": [
+        "cast"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:character-arc": {
+      "label": "Character Arc",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Character Arc.",
+      "aliases": [
+        "character arc"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:characterization": {
+      "label": "Characterization",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Characterization.",
+      "aliases": [
+        "characterization"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-wars-relic": {
+      "label": "Clone Wars Relic",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Clone Wars Relic.",
+      "aliases": [
+        "clone wars relic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:coalition": {
+      "label": "Coalition",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Coalition.",
+      "aliases": [
+        "coalition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:companions": {
+      "label": "Companions",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Companions.",
+      "aliases": [
+        "companions"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:conflict": {
+      "label": "Conflict",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Conflict.",
+      "aliases": [
+        "conflict"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:confrontation": {
+      "label": "Confrontation",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Confrontation.",
+      "aliases": [
+        "confrontation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:context": {
+      "label": "Context",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Context.",
+      "aliases": [
+        "context"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:context-anchor": {
+      "label": "Context Anchor",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Context Anchor.",
+      "aliases": [
+        "context anchor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:continuity-guard": {
+      "label": "Continuity Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Continuity Guard.",
+      "aliases": [
+        "continuity guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:crew": {
+      "label": "Crew",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Crew.",
+      "aliases": [
+        "crew"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-side": {
+      "label": "Dark Side",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Dark Side.",
+      "aliases": [
+        "dark side"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-side-temptation": {
+      "label": "Dark Side Temptation",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Dark Side Temptation.",
+      "aliases": [
+        "dark side temptation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:death": {
+      "label": "Death",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Death.",
+      "aliases": [
+        "death"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:deception": {
+      "label": "Deception",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Deception.",
+      "aliases": [
+        "deception"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:deck-health": {
+      "label": "Deck Health",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Deck Health.",
+      "aliases": [
+        "deck health"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:disney-canon": {
+      "label": "Disney Canon",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Disney Canon.",
+      "aliases": [
+        "disney canon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:droid": {
+      "label": "Droid",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Droid.",
+      "aliases": [
+        "droid"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:duty": {
+      "label": "Duty",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Duty.",
+      "aliases": [
+        "duty"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dynasty": {
+      "label": "Dynasty",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Dynasty.",
+      "aliases": [
+        "dynasty"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:emperor": {
+      "label": "Emperor",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Emperor.",
+      "aliases": [
+        "emperor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:empire": {
+      "label": "Empire",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Empire.",
+      "aliases": [
+        "empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:empire-legitimacy": {
+      "label": "Empire Legitimacy",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Empire Legitimacy.",
+      "aliases": [
+        "empire legitimacy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:empress": {
+      "label": "Empress",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Empress.",
+      "aliases": [
+        "empress"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:enemy": {
+      "label": "Enemy",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Enemy.",
+      "aliases": [
+        "enemy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:enforcer": {
+      "label": "Enforcer",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Enforcer.",
+      "aliases": [
+        "enforcer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:escape": {
+      "label": "Escape",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Escape.",
+      "aliases": [
+        "escape"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:faction": {
+      "label": "Faction",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Faction.",
+      "aliases": [
+        "faction"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:faction-guard": {
+      "label": "Faction Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Faction Guard.",
+      "aliases": [
+        "faction guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:faction-overlap": {
+      "label": "Faction Overlap",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Faction Overlap.",
+      "aliases": [
+        "faction overlap"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:family": {
+      "label": "Family",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Family.",
+      "aliases": [
+        "family"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:final-battle": {
+      "label": "Final Battle",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Final Battle.",
+      "aliases": [
+        "final battle"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:final-defeat": {
+      "label": "Final Defeat",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Final Defeat.",
+      "aliases": [
+        "final defeat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fleet": {
+      "label": "Fleet",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Fleet.",
+      "aliases": [
+        "fleet"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fleet-politics": {
+      "label": "Fleet Politics",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Fleet Politics.",
+      "aliases": [
+        "fleet politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:focus-guard": {
+      "label": "Focus Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Focus Guard.",
+      "aliases": [
+        "focus guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-healing": {
+      "label": "Force Healing",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Force Healing.",
+      "aliases": [
+        "force healing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-orders": {
+      "label": "Force Orders",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Force Orders.",
+      "aliases": [
+        "force orders"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-tradition": {
+      "label": "Force Tradition",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Force Tradition.",
+      "aliases": [
+        "force tradition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-visions": {
+      "label": "Force Visions",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Force Visions.",
+      "aliases": [
+        "force visions"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:found-family": {
+      "label": "Found Family",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Found Family.",
+      "aliases": [
+        "found family"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-guard": {
+      "label": "Future Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Future Guard.",
+      "aliases": [
+        "future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:galactic-recovery": {
+      "label": "Galactic Recovery",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Galactic Recovery.",
+      "aliases": [
+        "galactic recovery"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:government": {
+      "label": "Government",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Government.",
+      "aliases": [
+        "government"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:government-collapse": {
+      "label": "Government Collapse",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Government Collapse.",
+      "aliases": [
+        "government collapse"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:government-guard": {
+      "label": "Government Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Government Guard.",
+      "aliases": [
+        "government guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:heir": {
+      "label": "Heir",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Heir.",
+      "aliases": [
+        "heir"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hunt": {
+      "label": "Hunt",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Hunt.",
+      "aliases": [
+        "hunt"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:identity": {
+      "label": "Identity",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Identity.",
+      "aliases": [
+        "identity"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:identity-gate": {
+      "label": "Identity Gate",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Identity Gate.",
+      "aliases": [
+        "identity gate"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:identity-guard": {
+      "label": "Identity Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Identity Guard.",
+      "aliases": [
+        "identity guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:identity-reveal": {
+      "label": "Identity Reveal",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Identity Reveal.",
+      "aliases": [
+        "identity reveal"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ideology": {
+      "label": "Ideology",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ideology.",
+      "aliases": [
+        "ideology"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:illness": {
+      "label": "Illness",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Illness.",
+      "aliases": [
+        "illness"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperial-base": {
+      "label": "Imperial Base",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Imperial Base.",
+      "aliases": [
+        "imperial base"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperial-knight": {
+      "label": "Imperial Knight",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Imperial Knight.",
+      "aliases": [
+        "imperial knight"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperial-officer": {
+      "label": "Imperial Officer",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Imperial Officer.",
+      "aliases": [
+        "imperial officer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:injury": {
+      "label": "Injury",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Injury.",
+      "aliases": [
+        "injury"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:interrogation": {
+      "label": "Interrogation",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Interrogation.",
+      "aliases": [
+        "interrogation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi": {
+      "label": "Jedi",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Jedi.",
+      "aliases": [
+        "jedi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-guard": {
+      "label": "Jedi Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Jedi Guard.",
+      "aliases": [
+        "jedi guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-hunt": {
+      "label": "Jedi Hunt",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Jedi Hunt.",
+      "aliases": [
+        "jedi hunt"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-leadership": {
+      "label": "Jedi Leadership",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Jedi Leadership.",
+      "aliases": [
+        "jedi leadership"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-purge": {
+      "label": "Jedi Purge",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Jedi Purge.",
+      "aliases": [
+        "jedi purge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-survivors": {
+      "label": "Jedi Survivors",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Jedi Survivors.",
+      "aliases": [
+        "jedi survivors"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:legacy-volume-2": {
+      "label": "Legacy Volume 2",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Legacy Volume 2.",
+      "aliases": [
+        "legacy volume 2"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:legitimacy": {
+      "label": "Legitimacy",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Legitimacy.",
+      "aliases": [
+        "legitimacy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:light-side": {
+      "label": "Light Side",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Light Side.",
+      "aliases": [
+        "light side"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:limitation": {
+      "label": "Limitation",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Limitation.",
+      "aliases": [
+        "limitation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:lineage": {
+      "label": "Lineage",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Lineage.",
+      "aliases": [
+        "lineage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:local-survival": {
+      "label": "Local Survival",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Local Survival.",
+      "aliases": [
+        "local survival"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:low-status": {
+      "label": "Low Status",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Low Status.",
+      "aliases": [
+        "low status"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:loyalty": {
+      "label": "Loyalty",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Loyalty.",
+      "aliases": [
+        "loyalty"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mechanic": {
+      "label": "Mechanic",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Mechanic.",
+      "aliases": [
+        "mechanic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:medicine": {
+      "label": "Medicine",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Medicine.",
+      "aliases": [
+        "medicine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mentor": {
+      "label": "Mentor",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Mentor.",
+      "aliases": [
+        "mentor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mission-hook": {
+      "label": "Mission Hook",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Mission Hook.",
+      "aliases": [
+        "mission hook"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mistrust": {
+      "label": "Mistrust",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Mistrust.",
+      "aliases": [
+        "mistrust"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:name-guard": {
+      "label": "Name Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Name Guard.",
+      "aliases": [
+        "name guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:njo-guard": {
+      "label": "Njo Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Njo Guard.",
+      "aliases": [
+        "njo guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:occupation": {
+      "label": "Occupation",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Occupation.",
+      "aliases": [
+        "occupation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:old-republic-guard": {
+      "label": "Old Republic Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Old Republic Guard.",
+      "aliases": [
+        "old republic guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ossus-project": {
+      "label": "Ossus Project",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Ossus Project.",
+      "aliases": [
+        "ossus project"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:past-attachment": {
+      "label": "Past Attachment",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Past Attachment.",
+      "aliases": [
+        "past attachment"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:politics": {
+      "label": "Politics",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Politics.",
+      "aliases": [
+        "politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:postwar": {
+      "label": "Postwar",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Postwar.",
+      "aliases": [
+        "postwar"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:protection": {
+      "label": "Protection",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Protection.",
+      "aliases": [
+        "protection"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-blame": {
+      "label": "Public Blame",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Public Blame.",
+      "aliases": [
+        "public blame"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rakghouls": {
+      "label": "Rakghouls",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Rakghouls.",
+      "aliases": [
+        "rakghouls"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:regency": {
+      "label": "Regency",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Regency.",
+      "aliases": [
+        "regency"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:relationship": {
+      "label": "Relationship",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Relationship.",
+      "aliases": [
+        "relationship"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:relationship-guard": {
+      "label": "Relationship Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Relationship Guard.",
+      "aliases": [
+        "relationship guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rescue": {
+      "label": "Rescue",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Rescue.",
+      "aliases": [
+        "rescue"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:resistance": {
+      "label": "Resistance",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Resistance.",
+      "aliases": [
+        "resistance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:retrieval-guard": {
+      "label": "Retrieval Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Retrieval Guard.",
+      "aliases": [
+        "retrieval guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:return": {
+      "label": "Return",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Return.",
+      "aliases": [
+        "return"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:review": {
+      "label": "Review",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Review.",
+      "aliases": [
+        "review"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:romance": {
+      "label": "Romance",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Romance.",
+      "aliases": [
+        "romance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rule-of-two": {
+      "label": "Rule Of Two",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Rule Of Two.",
+      "aliases": [
+        "rule of two"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sabotage": {
+      "label": "Sabotage",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sabotage.",
+      "aliases": [
+        "sabotage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:saga-usage": {
+      "label": "Saga Usage",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Saga Usage.",
+      "aliases": [
+        "saga usage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:scene-constraint": {
+      "label": "Scene Constraint",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Scene Constraint.",
+      "aliases": [
+        "scene constraint"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:scene-scale": {
+      "label": "Scene Scale",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Scene Scale.",
+      "aliases": [
+        "scene scale"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret": {
+      "label": "Secret",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Secret.",
+      "aliases": [
+        "secret"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secrets": {
+      "label": "Secrets",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Secrets.",
+      "aliases": [
+        "secrets"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith": {
+      "label": "Sith",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith.",
+      "aliases": [
+        "sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-aesthetic": {
+      "label": "Sith Aesthetic",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Aesthetic.",
+      "aliases": [
+        "sith aesthetic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-commander": {
+      "label": "Sith Commander",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Commander.",
+      "aliases": [
+        "sith commander"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-doctrine": {
+      "label": "Sith Doctrine",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Doctrine.",
+      "aliases": [
+        "sith doctrine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-emperor": {
+      "label": "Sith Emperor",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Emperor.",
+      "aliases": [
+        "sith emperor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-enforcer": {
+      "label": "Sith Enforcer",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Enforcer.",
+      "aliases": [
+        "sith enforcer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-hand": {
+      "label": "Sith Hand",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Hand.",
+      "aliases": [
+        "sith hand"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-history": {
+      "label": "Sith History",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith History.",
+      "aliases": [
+        "sith history"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-knowledge": {
+      "label": "Sith Knowledge",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Knowledge.",
+      "aliases": [
+        "sith knowledge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-politics": {
+      "label": "Sith Politics",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Politics.",
+      "aliases": [
+        "sith politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-remnants": {
+      "label": "Sith Remnants",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Remnants.",
+      "aliases": [
+        "sith remnants"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-science": {
+      "label": "Sith Science",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith Science.",
+      "aliases": [
+        "sith science"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-world": {
+      "label": "Sith World",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Sith World.",
+      "aliases": [
+        "sith world"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:skywalker-lineage": {
+      "label": "Skywalker Lineage",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Skywalker Lineage.",
+      "aliases": [
+        "skywalker lineage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:smuggling": {
+      "label": "Smuggling",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Smuggling.",
+      "aliases": [
+        "smuggling"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:solo-lineage": {
+      "label": "Solo Lineage",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Solo Lineage.",
+      "aliases": [
+        "solo lineage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:spoiler-guard": {
+      "label": "Spoiler Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Spoiler Guard.",
+      "aliases": [
+        "spoiler guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:stacking": {
+      "label": "Stacking",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Stacking.",
+      "aliases": [
+        "stacking"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:stakes": {
+      "label": "Stakes",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Stakes.",
+      "aliases": [
+        "stakes"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:state-power": {
+      "label": "State Power",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: State Power.",
+      "aliases": [
+        "state power"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:status-guard": {
+      "label": "Status Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Status Guard.",
+      "aliases": [
+        "status guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:strategy": {
+      "label": "Strategy",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Strategy.",
+      "aliases": [
+        "strategy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:surveillance": {
+      "label": "Surveillance",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Surveillance.",
+      "aliases": [
+        "surveillance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:survivor": {
+      "label": "Survivor",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Survivor.",
+      "aliases": [
+        "survivor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:survivors": {
+      "label": "Survivors",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Survivors.",
+      "aliases": [
+        "survivors"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:technology": {
+      "label": "Technology",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Technology.",
+      "aliases": [
+        "technology"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:temptation": {
+      "label": "Temptation",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Temptation.",
+      "aliases": [
+        "temptation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:timeline": {
+      "label": "Timeline",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Timeline.",
+      "aliases": [
+        "timeline"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:timeline-guard": {
+      "label": "Timeline Guard",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Timeline Guard.",
+      "aliases": [
+        "timeline guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:title-ambiguity": {
+      "label": "Title Ambiguity",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Title Ambiguity.",
+      "aliases": [
+        "title ambiguity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tone": {
+      "label": "Tone",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Tone.",
+      "aliases": [
+        "tone"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trap": {
+      "label": "Trap",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Trap.",
+      "aliases": [
+        "trap"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trauma": {
+      "label": "Trauma",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Trauma.",
+      "aliases": [
+        "trauma"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trauma-site": {
+      "label": "Trauma Site",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Trauma Site.",
+      "aliases": [
+        "trauma site"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trust": {
+      "label": "Trust",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Trust.",
+      "aliases": [
+        "trust"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:underworld": {
+      "label": "Underworld",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Underworld.",
+      "aliases": [
+        "underworld"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:vector": {
+      "label": "Vector",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Vector.",
+      "aliases": [
+        "vector"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:visual-identity": {
+      "label": "Visual Identity",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Visual Identity.",
+      "aliases": [
+        "visual identity"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:voice": {
+      "label": "Voice",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Voice.",
+      "aliases": [
+        "voice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war": {
+      "label": "War",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: War.",
+      "aliases": [
+        "war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war-context": {
+      "label": "War Context",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: War Context.",
+      "aliases": [
+        "war context"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:wildlife": {
+      "label": "Wildlife",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Wildlife.",
+      "aliases": [
+        "wildlife"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:yuuzhan-vongforming": {
+      "label": "Yuuzhan Vongforming",
+      "color": "#3b2f63",
+      "textColor": "#f8f0ff",
+      "description": "Star Wars Legends Legacy comics tag: Yuuzhan Vongforming.",
+      "aliases": [
+        "yuuzhan vongforming"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

@@ -1,0 +1,1608 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_new_republic_before_endor",
+      "title": "No New Republic Before Endor",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:mon-mothma",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:endor",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:politics",
+        "topic:spoiler-guard"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.battle_of_endor",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 7600,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Before the Battle of Endor outcome",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Mon Mothma",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "future guard",
+          "politics"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Mon Mothma",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Endor"
+          ],
+          "topicsAny": [
+            "future guard",
+            "politics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Before Endor, the Rebel Alliance has not yet become the New Republic.",
+        "injection": "Before the Battle of Endor outcome, do not refer to the New Republic as an active government unless the story is explicitly post-Endor or diverged. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Before the Battle of Endor outcome.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_jedi_academy_before_post_endor",
+      "title": "No Jedi Academy Before Post-Endor",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "place:dagobah",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:jedi",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Yoda",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Dagobah",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "future guard",
+          "jedi"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Yoda",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Dagobah",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "future guard",
+            "jedi"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Luke has not founded a Jedi Academy during the OT Rebellion Era.",
+        "injection": "Do not inject Jedi Academy students, Praxeum logistics, or Luke-as-founder assumptions before the appropriate post-Endor Legends deck. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_leia_jedi_training_before_reveal",
+      "title": "No Leia Jedi Training Before Reveal",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:endor",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.battle_of_endor",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 7600,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Before the Battle of Endor outcome",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Luke Skywalker",
+          "Yoda"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Endor"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "future guard",
+          "force",
+          "family secret"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Luke Skywalker",
+            "Yoda"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Endor"
+          ],
+          "topicsAny": [
+            "future guard",
+            "force",
+            "family secret"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Leia is not trained as a Jedi before the family reveal and later post-Endor development.",
+        "injection": "Before and during ROTJ, Leia may be Force-sensitive but should not act like a trained Jedi unless the story branches. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Before the Battle of Endor outcome.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_vader_redemption_before_throne_choice",
+      "title": "No Vader Redemption Before Throne Choice",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:death-star-ii",
+        "place:executor",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.battle_of_endor",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 7600,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Before the Battle of Endor outcome",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Luke Skywalker",
+          "Palpatine"
+        ],
+        "locations": [
+          "Death Star II",
+          "Executor"
+        ],
+        "factions": [
+          "Sith",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "future guard",
+          "family secret"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Luke Skywalker",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Death Star II",
+            "Executor"
+          ],
+          "topicsAny": [
+            "future guard",
+            "family secret"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Vader’s redemption occurs only when he chooses Luke over Palpatine in the throne room.",
+        "injection": "Before the ROTJ throne-room climax, do not write Vader as already redeemed or openly Anakin-aligned. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Before the Battle of Endor outcome.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_palpatine_clone_plot_in_ot_context",
+      "title": "No Palpatine Clone Plot in OT Context",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:death-star-ii",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:sith",
+        "topic:spoiler-guard"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Luke Skywalker",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Death Star II"
+        ],
+        "factions": [
+          "Sith",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "future guard",
+          "sith"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Luke Skywalker",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "future guard",
+            "sith"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Palpatine clone and Dark Empire material belongs to later Legends context, not ordinary OT-era knowledge.",
+        "injection": "Do not leak Palpatine clone survival, Byss, or Dark Empire plot logic into Rebellion Era scenes unless a later deck or custom branch enables it. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_thrawn_campaign_before_post_endor",
+      "title": "No Thrawn Campaign Before Post-Endor",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:thrawn",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:core-worlds",
+        "place:outer-rim",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:military-logistics",
+        "topic:spoiler-guard"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Thrawn",
+          "Leia Organa",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Outer Rim",
+          "Core Worlds"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "future guard",
+          "military logistics"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Thrawn",
+            "Leia Organa",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Outer Rim",
+            "Core Worlds"
+          ],
+          "topicsAny": [
+            "future guard",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Grand Admiral Thrawn’s major post-Endor campaign is not active during the OT Rebellion Era.",
+        "injection": "Do not make Thrawn campaign events current before post-Endor Legends context is selected. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_mara_luke_relationship_before_later_legends",
+      "title": "No Mara-Luke Relationship During OT",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "place:coruscant",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Shadows of the Empire / ESB-to-ROTJ window",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade",
+          "Luke Skywalker",
+          "Palpatine"
+        ],
+        "locations": [
+          "Coruscant",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Jedi Order"
+        ],
+        "topics": [
+          "future guard",
+          "romance"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade",
+            "Luke Skywalker",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Coruscant",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "future guard",
+            "romance"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Mara Jade and Luke do not have their later Legends relationship during the OT Rebellion Era.",
+        "injection": "If Mara appears in late OT Legends material, do not import later romance, marriage, or Jedi partnership unless a later deck/context enables it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Shadows of the Empire / ESB-to-ROTJ window.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_solo_children_before_later_legends",
+      "title": "No Solo Children During OT",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:endor",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "future guard",
+          "family secret"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Endor"
+          ],
+          "topicsAny": [
+            "future guard",
+            "family secret"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Han and Leia’s children belong to later Legends eras and do not exist during the OT Rebellion Era.",
+        "injection": "Do not mention Jacen, Jaina, Anakin Solo, or Solo-family parenting in OT-era scenes unless using time travel or explicit future knowledge. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_yuuzhan_vong_before_njo",
+      "title": "No Yuuzhan Vong Before NJO Context",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:outer-rim",
+        "place:unknown-regions",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Han Solo"
+        ],
+        "locations": [
+          "Outer Rim",
+          "Unknown Regions"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "future guard"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Outer Rim",
+            "Unknown Regions"
+          ],
+          "topicsAny": [
+            "future guard"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Yuuzhan Vong invasion is far-future Legends material relative to the OT and should not surface in Rebellion Era scenes.",
+        "injection": "Do not inject Yuuzhan Vong, NJO war state, or Vong biotechnology into OT-era stories unless a later deck or crossover explicitly introduces them. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_sequel_trilogy_state_in_legends",
+      "title": "No Disney Sequel-Trilogy State in Legends Deck",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:endor",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Han Solo",
+          "Palpatine"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "future guard"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Han Solo",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Endor"
+          ],
+          "topicsAny": [
+            "future guard"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "This Legends deck should not import First Order, Resistance, Rey, Kylo Ren, or Disney sequel-trilogy outcomes by default.",
+        "injection": "When this Legends Rebellion deck is active, do not blend in Disney sequel-era states unless the user stacks a Disney-canon or crossover deck intentionally. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_public_skywalker_family_truth_pre_reveal",
+      "title": "No Public Skywalker Family Truth Before Reveal",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:rebel-alliance",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:dagobah",
+        "place:endor",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 94,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.battle_of_endor",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 7600,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Before the Battle of Endor outcome",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Darth Vader",
+          "Obi-Wan Kenobi",
+          "Yoda"
+        ],
+        "locations": [
+          "Dagobah",
+          "Endor"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Sith",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "future guard",
+          "family secret"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Darth Vader",
+            "Obi-Wan Kenobi",
+            "Yoda"
+          ],
+          "locationsAny": [
+            "Dagobah",
+            "Endor"
+          ],
+          "topicsAny": [
+            "future guard",
+            "family secret"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith",
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Luke-Leia-Vader family truth is not public before its ROTJ reveal chain.",
+        "injection": "Before the correct reveal anchors, prevent casual public knowledge that Luke and Leia are twins or Vader is their father. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Before the Battle of Endor outcome.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_no_immediate_galactic_peace_after_endor",
+      "title": "No Immediate Galactic Peace After Endor",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:mon-mothma",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:core-worlds",
+        "place:endor",
+        "place:outer-rim",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:politics",
+        "topic:spoiler-guard"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.vader_redeemed",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 7670,
+        "sortKeyTo": 7670,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vader Redeemed and Anakin Dies",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mon Mothma",
+          "Leia Organa",
+          "Luke Skywalker",
+          "Han Solo"
+        ],
+        "locations": [
+          "Endor",
+          "Core Worlds",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "future guard",
+          "politics"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mon Mothma",
+            "Leia Organa",
+            "Luke Skywalker",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Endor",
+            "Core Worlds",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "future guard",
+            "politics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Even after Endor, Legends continuity does not become instantly peaceful or politically settled.",
+        "injection": "After Endor, treat victory as a transition, not an instant resolution of Imperial power, civil war, or galactic trauma.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vader Redeemed and Anakin Dies.",
+          "Respect story-position bounds from Vader Redeemed and Anakin Dies to Vader Redeemed and Anakin Dies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "knowledge/rebellion_future_guards.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

@@ -1456,30 +1456,6 @@ async function main() {
         await clickButtonText(client, 'Done', { root: '.wandlight-loredeck-library-overlay', enabledOnly: false });
         await wait(800);
 
-        const updateProbe = await evaluate(client, script(() => {
-            const buttons = [...document.querySelectorAll('button')].filter(button => {
-                const clean = (button.innerText || button.textContent || '').trim();
-                return clean === 'Check Updates';
-            });
-            const detailText = document.querySelector('.wandlight-loredeck-library-details')?.innerText || '';
-            return {
-                hasButton: buttons.length > 0,
-                hasEnabledButton: buttons.some(button => !button.disabled),
-                expectsUpdateControl: /update URL registered/i.test(detailText),
-                detailText: detailText.slice(0, 500),
-            };
-        }));
-        const updateClicked = updateProbe.hasEnabledButton ? await clickButtonText(client, 'Check Updates') : false;
-        if (updateClicked) {
-            await waitFor(client, 'document.body.innerText.includes("Loredeck Update Preview")', 'update preview', 15000);
-            await wait(1000);
-            screenshots.push(await screenshot(client, 'live-st-06-update-preview'));
-            await clickButtonText(client, 'Cancel', { enabledOnly: false });
-            await wait(500);
-        } else if (updateProbe.expectsUpdateControl) {
-            findings.push('Selected Loredeck records an update URL, but Check Updates was not enabled in the Loredeck Library details panel.');
-        }
-
         await clickSelector(client, '.wandlight-runtime-rail-tab[data-tab-id="settings"]');
         await waitFor(client, 'document.querySelector(".wandlight-runtime-drawer")?.innerText.includes("Settings")', 'Settings drawer');
         if (!(await scrollTextIntoView(client, 'Theme Pack'))) await setDrawerScroll(client, 9999);

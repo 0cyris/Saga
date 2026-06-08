@@ -1,0 +1,983 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_sith_rule_of_two",
+      "title": "Sith Rule of Two Baseline",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "low",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "faction:sith",
+        "topic:sith",
+        "character:darth-vader",
+        "character:palpatine"
+      ],
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Emperor Palpatine"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith"
+        ],
+        "topics": [
+          "Rule of Two",
+          "dark side apprenticeship",
+          "Sith secrecy"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Emperor Palpatine"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Rule of Two",
+            "dark side apprenticeship",
+            "Sith secrecy",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In the main film-era Legends baseline, Sith power is organized around a master/apprentice dynamic rather than a large public Sith order.",
+        "injection": "Use a Sith master/apprentice baseline for film-era Legends scenes unless a specific era deck introduces ancient Sith empires, splinter cults, or other exceptions.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_sith_secrecy_before_empire",
+      "title": "Sith Secrecy Before Empire",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "faction:sith",
+        "topic:sith",
+        "character:palpatine",
+        "topic:secret",
+        "era:prequel"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.film.episode_3_rots",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Prequel and Clone Wars broad window",
+        "approximate": false,
+        "phase": "Prequel Era"
+      },
+      "scope": {
+        "characters": [
+          "Emperor Palpatine"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "Darth Sidious",
+          "Sith secrecy",
+          "political manipulation"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Emperor Palpatine"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Darth Sidious",
+            "Sith secrecy",
+            "political manipulation",
+            "Sith",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Palpatine openly rules the Empire, the Sith operate through secrecy, manipulation, aliases, and intermediaries.",
+        "injection": "In prequel-era scenes, keep Sith identity and strategy hidden from most characters unless the active Context is after the relevant reveal.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Prequel and Clone Wars broad window.",
+          "Respect story-position bounds from Episode I: The Phantom Menace to Episode III: Revenge of the Sith."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_palpatine_public_emperor_not_public_sith",
+      "title": "Palpatine Is Public Emperor, Not Public Sith",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:palpatine",
+        "faction:galactic-empire",
+        "faction:sith",
+        "topic:secret"
+      ],
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Imperial rule before Endor",
+        "approximate": false,
+        "phase": "Imperial Era"
+      },
+      "scope": {
+        "characters": [
+          "Emperor Palpatine"
+        ],
+        "locations": [],
+        "factions": [
+          "Galactic Empire",
+          "Sith"
+        ],
+        "topics": [
+          "Darth Sidious",
+          "Imperial propaganda",
+          "public knowledge"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Emperor Palpatine"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Darth Sidious",
+            "Imperial propaganda",
+            "public knowledge",
+            "Galactic Empire",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Under the Empire, Palpatine is publicly Emperor; his Sith identity and deeper dark-side nature are not ordinary public knowledge.",
+        "injection": "Imperial citizens and officers may fear Palpatine as ruler, but should not casually discuss him as Darth Sidious unless they have special access or the story established it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial rule before Endor.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Episode VI: Return of the Jedi."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_dark_side_trades_power_for_corruption",
+      "title": "Dark Side Trades Power for Corruption",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "topic:dark-side",
+        "topic:force",
+        "topic:sith"
+      ],
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Sith"
+        ],
+        "topics": [
+          "dark side",
+          "temptation",
+          "corruption",
+          "anger"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "dark side",
+            "temptation",
+            "corruption",
+            "anger",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The dark side offers power through fear, anger, hatred, domination, and attachment to control, but it corrodes judgment and relationships.",
+        "injection": "When a character leans on the dark side, show power with moral, emotional, relational, or perceptual cost rather than free escalation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_vader_is_palpatines_enforcer",
+      "title": "Vader Is Palpatine’s Enforcer",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:darth-vader",
+        "character:palpatine",
+        "faction:galactic-empire",
+        "faction:sith"
+      ],
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Imperial rule before Endor",
+        "approximate": false,
+        "phase": "Imperial Era"
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Emperor Palpatine"
+        ],
+        "locations": [],
+        "factions": [
+          "Galactic Empire",
+          "Sith"
+        ],
+        "topics": [
+          "Imperial command",
+          "Sith hierarchy",
+          "Vader authority"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Emperor Palpatine"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Imperial command",
+            "Sith hierarchy",
+            "Vader authority",
+            "Galactic Empire",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During the Imperial era, Darth Vader is the Emperor’s feared enforcer and apprentice, powerful but politically subordinate to Palpatine.",
+        "injection": "Write Vader as terrifying and authoritative, but not as the sovereign of the Empire while Palpatine rules. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial rule before Endor.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Episode VI: Return of the Jedi."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_imperial_darksiders_not_all_sith",
+      "title": "Imperial Darksiders Are Not All Sith",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "faction:galactic-empire",
+        "faction:sith",
+        "topic:dark-side",
+        "topic:force"
+      ],
+      "priority": 64,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Imperial rule before Endor",
+        "approximate": false,
+        "phase": "Imperial Era"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Empire",
+          "Sith"
+        ],
+        "topics": [
+          "dark side agents",
+          "Inquisitors",
+          "Imperial Force users"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "dark side agents",
+            "Inquisitors",
+            "Imperial Force users",
+            "Galactic Empire",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Legends includes Imperial dark-side agents, adepts, prophets, inquisitors, and Force-trained servants who are not necessarily Sith Lords.",
+        "injection": "Do not label every Imperial Force-user as Sith. Use Sith only for the Sith lineage or where a loaded source establishes Sith status.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial rule before Endor.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Episode VI: Return of the Jedi."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_dark_side_cults_need_source",
+      "title": "Dark-Side Cults Need Source Boundary",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "topic:dark-side",
+        "topic:sith",
+        "topic:future-guard",
+        "continuity:legends"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Sith"
+        ],
+        "topics": [
+          "dark side cults",
+          "ancient Sith",
+          "source boundary"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "dark side cults",
+            "ancient Sith",
+            "source boundary",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dark-side cults, Sith offshoots, ancient orders, and local traditions exist in Legends, but they are source- and era-specific exceptions.",
+        "injection": "Only introduce dark-side sects, cult titles, or ancient Sith institutions when the loaded deck or story Context supports them.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_sith_artifacts_are_dangerous",
+      "title": "Sith Artifacts Are Dangerous",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "faction:sith",
+        "topic:sith",
+        "object:holocron",
+        "object:artifact",
+        "topic:dark-side"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Sith"
+        ],
+        "topics": [
+          "Sith artifacts",
+          "holocrons",
+          "tombs",
+          "corruption"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Sith artifacts",
+            "holocrons",
+            "tombs",
+            "corruption",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sith artifacts, tombs, holocrons, and relics tend to carry danger, corruption, manipulation, or hidden costs.",
+        "injection": "Treat Sith relics as hazardous and agenda-bearing. Do not use them as neutral loot unless the story deliberately reframes them.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_apprenticeship_has_betrayal_pressure",
+      "title": "Sith Apprenticeship Has Betrayal Pressure",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "faction:sith",
+        "relationship:mentor-student",
+        "topic:sith"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Sith"
+        ],
+        "topics": [
+          "Sith apprenticeship",
+          "betrayal",
+          "ambition"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Sith apprenticeship",
+            "betrayal",
+            "ambition",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sith master/apprentice bonds often contain ambition, fear, secrecy, testing, and eventual betrayal rather than stable trust.",
+        "injection": "Write Sith mentorship as transactional and dangerous. Ambition, replacement, testing, and betrayal pressure should color the relationship.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_redemption_not_default",
+      "title": "Dark-Side Redemption Is Not Default",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "topic:dark-side",
+        "topic:redemption",
+        "topic:force"
+      ],
+      "priority": 54,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "redemption",
+          "dark side",
+          "moral consequence"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "redemption",
+            "dark side",
+            "moral consequence"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Redemption from the dark side is possible in Star Wars, but it is not automatic, easy, or consequence-free.",
+        "injection": "Do not soften dark-side corruption into a simple mood change. Redemption should require choice, cost, confrontation, and story support.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    }
+  ]
+}

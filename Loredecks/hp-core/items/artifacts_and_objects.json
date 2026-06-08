@@ -10,7 +10,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 60,
       "injectableByDefault": false,
@@ -20,11 +20,25 @@
       "revealPolicy": "private",
       "tags": [
         "artifact:marauders-map",
-        "place:hogwarts",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:prisoner-of-azkaban",
+        "category:artifact",
+        "character:fred-weasley",
+        "character:george-weasley",
+        "character:harry-potter",
+        "character:remus-lupin",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
         "knowledge:secret",
-        "category:artifact"
+        "place:azkaban",
+        "place:hogwarts",
+        "topic:deathly-hallows"
       ],
-      "priority": 10,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -126,8 +140,16 @@
       },
       "content": {
         "fact": "The Marauder's Map is a magical map of Hogwarts that can reveal people moving through the castle, but its possession and use are not public knowledge.",
-        "injection": "The Marauder's Map is a magical map of Hogwarts that can reveal people moving through the castle, but its possession and use are not public knowledge.",
-        "publicVersion": "There is no ordinary public explanation for such a map."
+        "injection": "The Marauder's Map is a magical map of Hogwarts that can reveal people moving through the castle, but its possession and use are not public knowledge. Enforce this as a high-priority Context gate for 1993-12-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "There is no ordinary public explanation for such a map.",
+        "constraints": [
+          "Apply only when Saga Context matches 1993-12-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -144,7 +166,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 60,
       "injectableByDefault": false,
@@ -154,11 +176,27 @@
       "revealPolicy": "private",
       "tags": [
         "artifact:invisibility-cloak",
-        "character:harry-potter",
+        "artifact:philosophers-stone",
+        "book:chamber-of-secrets",
+        "book:deathly-hallows",
+        "book:goblet-of-fire",
+        "book:half-blood-prince",
+        "book:order-of-the-phoenix",
+        "book:philosophers-stone",
+        "book:prisoner-of-azkaban",
         "category:artifact",
-        "tactic:stealth"
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "tactic:stealth",
+        "topic:deathly-hallows"
       ],
-      "priority": 10,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -244,8 +282,16 @@
       },
       "content": {
         "fact": "Harry possesses an invisibility cloak during the Hogwarts years; its use is private and tactically important when stealth matters.",
-        "injection": "Harry possesses an invisibility cloak during the Hogwarts years; its use is private and tactically important when stealth matters.",
-        "publicVersion": "Most people do not know Harry has access to an invisibility cloak."
+        "injection": "Harry possesses an invisibility cloak during the Hogwarts years; its use is private and tactically important when stealth matters. Enforce this as a high-priority Context gate for 1991-12-25 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "Most people do not know Harry has access to an invisibility cloak.",
+        "constraints": [
+          "Apply only when Saga Context matches 1991-12-25 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -262,7 +308,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 100,
       "injectableByDefault": true,
@@ -271,12 +317,20 @@
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
       "tags": [
-        "magic:horcrux",
+        "book:deathly-hallows",
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
         "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
         "knowledge:secret",
-        "magic:dark-magic"
+        "magic:dark-magic",
+        "magic:horcrux",
+        "topic:deathly-hallows",
+        "topic:horcruxes"
       ],
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -357,13 +411,17 @@
       },
       "content": {
         "fact": "Horcrux knowledge is obscure, dangerous, and highly restricted; most characters should not name or explain Horcruxes without an established discovery path.",
-        "injection": "Do not let characters casually name or explain Horcruxes unless our story has established how they learned that restricted knowledge.",
+        "injection": "Do not let characters casually name or explain Horcruxes unless our story has established how they learned that restricted knowledge. Enforce this as a high-priority Context gate for 1996-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Harry's Year 6 access to Horcrux knowledge should come through Dumbledore's lessons and the Slughorn memory path.",
-          "Hermione and Ron should not discuss Horcruxes before the story establishes how Harry shared or they discovered that knowledge."
+          "Hermione and Ron should not discuss Horcruxes before the story establishes how Harry shared or they discovered that knowledge.",
+          "Apply only when Saga Context matches 1996-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not treat Horcruxes as common wizarding vocabulary."
+          "Do not treat Horcruxes as common wizarding vocabulary.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "publicVersion": "Most witches and wizards do not discuss or understand Horcruxes."
       },

@@ -1,0 +1,1264 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_dark_empire_palpatine_return_is_not_general_post_endor",
+      "title": "Palpatine Clone Return Is Dark Empire Specific",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Luke Skywalker",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "clone",
+          "dark-side"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "era:dark-empire",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:clone",
+        "topic:dark-side",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Luke Skywalker",
+            "Leia Organa"
+          ],
+          "topicsAny": [
+            "future guard",
+            "clone",
+            "dark-side"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Palpatine’s clone return belongs to the Dark Empire crisis and should not leak into ordinary early New Republic scenes.",
+        "injection": "Before Dark Empire context, do not treat Palpatine as openly returned; the galaxy should operate as if the Emperor died at Endor unless the deck context reaches the clone crisis.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/dark_empire.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_palpatine_returns_through_clone_bodies",
+      "title": "Palpatine Returns Through Clone Bodies",
+      "kind": "event_anchor",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.dark_empire_begins",
+        "validToAnchor": "sw.nr.dark_empire_begins",
+        "sortKeyFrom": 12500,
+        "sortKeyTo": 12500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dark Empire Crisis Begins",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Luke Skywalker",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Byss"
+        ],
+        "topics": [
+          "clone",
+          "dark-side",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "Sith"
+        ]
+      },
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:byss",
+        "scope:new-republic",
+        "topic:clone",
+        "topic:dark-side",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Luke Skywalker",
+            "Leia Organa"
+          ],
+          "topicsAny": [
+            "clone",
+            "dark-side",
+            "secret"
+          ],
+          "locationsAny": [
+            "Byss"
+          ],
+          "factionsAny": [
+            "Imperial Remnant",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In Dark Empire, Palpatine returns through cloned bodies and dark-side essence transfer rather than surviving Endor physically intact.",
+        "injection": "During Dark Empire, treat Palpatine’s return as a clone-body dark-side continuity crisis, not ordinary political succession.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Empire Crisis Begins.",
+          "Respect story-position bounds from Dark Empire Crisis Begins to Dark Empire Crisis Begins."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/dark_empire.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_byss_hidden_dark_side_capital",
+      "title": "Byss Is a Hidden Dark-Side Imperial Center",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.byss_and_eclipse",
+        "validToAnchor": "sw.nr.byss_and_eclipse",
+        "sortKeyFrom": 12700,
+        "sortKeyTo": 12700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Byss and Eclipse Revealed",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine"
+        ],
+        "locations": [
+          "Byss"
+        ],
+        "topics": [
+          "dark-side",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "Sith"
+        ]
+      },
+      "tags": [
+        "character:palpatine",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:byss",
+        "scope:new-republic",
+        "topic:dark-side",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine"
+          ],
+          "topicsAny": [
+            "dark-side",
+            "secret"
+          ],
+          "locationsAny": [
+            "Byss"
+          ],
+          "factionsAny": [
+            "Imperial Remnant",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Byss functions as a hidden Imperial and dark-side center during Dark Empire, concealed from ordinary galactic awareness.",
+        "injection": "Before Byss is exposed, do not let ordinary New Republic agents casually know its role; during Dark Empire, use it as a secret throne-world and clone nexus.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Byss and Eclipse Revealed.",
+          "Respect story-position bounds from Byss and Eclipse Revealed to Byss and Eclipse Revealed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/dark_empire.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_luke_dark_empire_infiltration_ambiguous",
+      "title": "Luke’s Dark Empire Role Is Dangerous and Ambiguous",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.dark_empire_begins",
+        "validToAnchor": "sw.nr.palpatine_clone_defeated",
+        "sortKeyFrom": 12500,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Empire crisis",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Palpatine",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "topics": [
+          "dark-side",
+          "jedi"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Sith",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:new-republic",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:dark-side",
+        "topic:jedi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Palpatine",
+            "Leia Organa"
+          ],
+          "topicsAny": [
+            "dark-side",
+            "jedi"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke’s apparent submission to the reborn Emperor is tied to a dangerous attempt to understand and defeat the dark side from within.",
+        "injection": "In Dark Empire context, write Luke’s actions as morally dangerous and contested; do not make him casually evil or unaffected.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Empire crisis.",
+          "Respect story-position bounds from Dark Empire Crisis Begins to Palpatine Clone Threat Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/dark_empire.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_leia_force_resistance_dark_empire",
+      "title": "Leia Actively Resists Palpatine’s Darkness",
+      "kind": "ability_gate",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.dark_empire_begins",
+        "validToAnchor": "sw.nr.palpatine_clone_defeated",
+        "sortKeyFrom": 12500,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Empire crisis",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Luke Skywalker",
+          "Palpatine"
+        ],
+        "locations": [],
+        "topics": [
+          "force",
+          "family",
+          "dark-side"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:dark-side",
+        "topic:family",
+        "topic:force"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Luke Skywalker",
+            "Palpatine"
+          ],
+          "topicsAny": [
+            "force",
+            "family",
+            "dark-side"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Leia’s Force sensitivity and moral clarity matter directly in resisting Palpatine during Dark Empire.",
+        "injection": "During Dark Empire, Leia is not merely a political hostage; her Force strength and bond with Luke are central to resisting Palpatine.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Empire crisis.",
+          "Respect story-position bounds from Dark Empire Crisis Begins to Palpatine Clone Threat Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/dark_empire.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_anakin_solo_birth_dark_empire_state",
+      "title": "Anakin Solo Birth Changes Post-Dark Empire Family State",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.palpatine_clone_defeated",
+        "validToAnchor": "sw.nr.palpatine_clone_defeated",
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Palpatine Clone Threat Defeated",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Solo",
+          "Han Solo",
+          "Leia Organa",
+          "Jacen Solo",
+          "Jaina Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "children"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:anakin-solo",
+        "character:han-solo",
+        "character:jacen-solo",
+        "character:jaina-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:children",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Solo",
+            "Han Solo",
+            "Leia Organa",
+            "Jacen Solo",
+            "Jaina Solo"
+          ],
+          "topicsAny": [
+            "family",
+            "children"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Anakin Solo is born during the Dark Empire period, adding another protected child to Han and Leia’s family state.",
+        "injection": "After Anakin Solo is born, include the third Solo child in family stakes and protection logic when relevant. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Palpatine Clone Threat Defeated.",
+          "Respect story-position bounds from Palpatine Clone Threat Defeated to Palpatine Clone Threat Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/dark_empire.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_world_devastators_ecological_superweapon_pressure",
+      "title": "World Devastators Are Industrial Terror Weapons",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.world_devastators",
+        "validToAnchor": "sw.nr.world_devastators",
+        "sortKeyFrom": 12600,
+        "sortKeyTo": 12600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "World Devastators Attack",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Mon Calamari"
+        ],
+        "topics": [
+          "superweapon",
+          "fleet",
+          "military logistics"
+        ],
+        "objects": [
+          "World Devastator"
+        ],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "object:world-devastator",
+        "place:mon-calamari",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:military-logistics",
+        "topic:superweapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "superweapon",
+            "fleet",
+            "military logistics"
+          ],
+          "locationsAny": [
+            "Mon Calamari"
+          ],
+          "factionsAny": [
+            "Imperial Remnant",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "World Devastators consume and repurpose matter at planetary scale, making them industrial and ecological terror weapons.",
+        "injection": "When World Devastators appear, treat them as catastrophic military-industrial threats rather than normal capital ships.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: World Devastators Attack.",
+          "Respect story-position bounds from World Devastators Attack to World Devastators Attack."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/dark_empire.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_eclipse_as_dark_empire_symbol",
+      "title": "Eclipse Is a Symbol of Reborn Imperial Terror",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.byss_and_eclipse",
+        "validToAnchor": "sw.nr.byss_and_eclipse",
+        "sortKeyFrom": 12700,
+        "sortKeyTo": 12700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Byss and Eclipse Revealed",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine"
+        ],
+        "locations": [],
+        "topics": [
+          "superweapon",
+          "fleet",
+          "dark-side"
+        ],
+        "objects": [
+          "Eclipse"
+        ],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "character:palpatine",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "fandom:star-wars",
+        "object:eclipse",
+        "scope:new-republic",
+        "topic:dark-side",
+        "topic:fleet",
+        "topic:superweapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine"
+          ],
+          "topicsAny": [
+            "superweapon",
+            "fleet",
+            "dark-side"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Eclipse-class dreadnought symbolizes the reborn Emperor’s attempt to restore terror through overwhelming superweapon aesthetics.",
+        "injection": "In Dark Empire scenes, let the Eclipse carry psychological and political terror beyond its raw firepower. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Byss and Eclipse Revealed.",
+          "Respect story-position bounds from Byss and Eclipse Revealed to Byss and Eclipse Revealed."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/dark_empire.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_dark_empire_not_known_by_default_after_thrawn",
+      "title": "Dark Empire Knowledge Is Not Default After Thrawn",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.thrawn_defeated",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Thrawn Defeated",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Luke Skywalker",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "clone",
+          "dark-side"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:clone",
+        "topic:dark-side",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Luke Skywalker",
+            "Leia Organa"
+          ],
+          "topicsAny": [
+            "future guard",
+            "clone",
+            "dark-side"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "After the Thrawn campaign, characters do not automatically know Palpatine is about to return in clone bodies.",
+        "injection": "In post-Thrawn/pre-Dark Empire windows, block casual foreknowledge of Palpatine’s clones, Byss, Eclipse, and World Devastators.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Defeated.",
+          "Respect story-position bounds from Thrawn Defeated to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/dark_empire.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_palpatine_final_defeat_restores_but_scars_new_republic",
+      "title": "Palpatine’s Defeat Restores Victory but Leaves Scars",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.palpatine_clone_defeated",
+        "validToAnchor": "sw.nr.palpatine_clone_defeated",
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Palpatine Clone Threat Defeated",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Han Solo",
+          "Palpatine"
+        ],
+        "locations": [],
+        "topics": [
+          "dark-side",
+          "family",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:dark-side",
+        "topic:family",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Han Solo",
+            "Palpatine"
+          ],
+          "topicsAny": [
+            "dark-side",
+            "family",
+            "politics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The defeat of the reborn Emperor ends the Dark Empire crisis but leaves political, spiritual, and family scars.",
+        "injection": "After Dark Empire, do not treat the episode as consequence-free; Luke, Leia, the children, and New Republic legitimacy can carry trauma and distrust.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Palpatine Clone Threat Defeated.",
+          "Respect story-position bounds from Palpatine Clone Threat Defeated to Palpatine Clone Threat Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/dark_empire.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_dark_empire_continuity_sensitive",
+      "title": "Dark Empire Should Stay Context Sensitive",
+      "kind": "temporal_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Luke Skywalker",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "spoiler guard",
+          "dark-side"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "Sith"
+        ]
+      },
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:dark-side",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Luke Skywalker",
+            "Leia Organa"
+          ],
+          "topicsAny": [
+            "future guard",
+            "spoiler guard",
+            "dark-side"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dark Empire material is major spoiler-heavy Legends content and should not contaminate ordinary New Republic or Thrawn-era scenes.",
+        "injection": "Inject Dark Empire lore only when the active context is at or after the clone Emperor crisis or when the user explicitly invokes it. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/dark_empire.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

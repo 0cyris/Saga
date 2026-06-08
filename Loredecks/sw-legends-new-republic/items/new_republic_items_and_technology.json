@@ -1,0 +1,972 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_spaarti_cloning_requires_context",
+      "title": "Spaarti Cloning Requires Thrawn/Dark Empire Context",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "clone",
+          "secret"
+        ],
+        "objects": [
+          "Spaarti cylinders"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:spaarti-cylinders",
+        "scope:new-republic",
+        "topic:clone",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "clone",
+            "secret"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Spaarti cloning technology is highly context-sensitive and should not appear as generic public cloning.",
+        "injection": "Use Spaarti cloning for Thrawn/Mount Tantiss or other explicit Legends contexts, not casual medical cloning.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "items/new_republic_items_and_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_ysalamiri_are_force_countermeasure",
+      "title": "Ysalamiri Are a Force Countermeasure",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "force",
+          "military logistics"
+        ],
+        "objects": [
+          "Ysalamiri"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:ysalamiri",
+        "scope:new-republic",
+        "topic:force",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "force",
+            "military logistics"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Ysalamiri suppress Force use locally and change the tactical balance against Jedi.",
+        "injection": "When ysalamiri are present, suppress easy Jedi solutions and Force detection in their bubble. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "items/new_republic_items_and_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_katana_fleet_old_dreadnaught_resource",
+      "title": "Katana Fleet Is Old but Valuable Fleet Resource",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.katana_fleet_race",
+        "validToAnchor": "sw.nr.katana_fleet_race",
+        "sortKeyFrom": 11500,
+        "sortKeyTo": 11500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Katana Fleet Race",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "fleet",
+          "military logistics"
+        ],
+        "objects": [
+          "Katana Fleet"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:katana-fleet",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "fleet",
+            "military logistics"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Katana Fleet consists of lost Dreadnaughts whose value is strategic numbers, not modern superiority.",
+        "injection": "Treat the Katana Fleet as a massive force multiplier with aging ships and political urgency. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Katana Fleet Race.",
+          "Respect story-position bounds from Katana Fleet Race to Katana Fleet Race."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "items/new_republic_items_and_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_sun_crusher_should_not_leak_before_academy",
+      "title": "Sun Crusher Should Not Leak Before Academy Era",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early New Republic",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "superweapon"
+        ],
+        "objects": [
+          "Sun Crusher"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:sun-crusher",
+        "scope:new-republic",
+        "topic:future-guard",
+        "topic:superweapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "future guard",
+            "superweapon"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Sun Crusher is Jedi Academy-era superweapon material and should not leak into Thrawn or early post-Endor scenes.",
+        "injection": "Before the Jedi Academy era, block casual knowledge or use of the Sun Crusher unless the story explicitly imports it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Early New Republic.",
+          "Respect story-position bounds from Endor Aftermath to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "items/new_republic_items_and_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_world_devastators_dark_empire_only",
+      "title": "World Devastators Are Dark Empire Context",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.dark_empire_begins",
+        "validToAnchor": "sw.nr.palpatine_clone_defeated",
+        "sortKeyFrom": 12500,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Empire crisis",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "superweapon",
+          "future guard"
+        ],
+        "objects": [
+          "World Devastator"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:world-devastator",
+        "scope:new-republic",
+        "topic:future-guard",
+        "topic:superweapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "superweapon",
+            "future guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "World Devastators belong to Dark Empire and should not be generic Imperial hardware.",
+        "injection": "In Dark Empire crisis, only inject World Devastator lore in Dark Empire or later contexts that explicitly reference them.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Empire crisis.",
+          "Respect story-position bounds from Dark Empire Crisis Begins to Palpatine Clone Threat Defeated."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "items/new_republic_items_and_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_eclipse_not_normal_star_destroyer",
+      "title": "Eclipse Is Not a Normal Star Destroyer",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.dark_empire_begins",
+        "validToAnchor": "sw.nr.palpatine_clone_defeated",
+        "sortKeyFrom": 12500,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Empire crisis",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "superweapon",
+          "fleet"
+        ],
+        "objects": [
+          "Eclipse"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:eclipse",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:superweapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "superweapon",
+            "fleet"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Eclipse is a unique terror-dreadnought associated with the reborn Emperor, not a standard Remnant ship.",
+        "injection": "Do not casually assign Eclipse-class assets to ordinary Imperial warlords without Dark Empire context. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Empire crisis.",
+          "Respect story-position bounds from Dark Empire Crisis Begins to Palpatine Clone Threat Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "items/new_republic_items_and_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_bacta_supply_remains_strategic",
+      "title": "Bacta Supply Remains Strategic",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "military logistics"
+        ],
+        "objects": [
+          "Bacta"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:bacta",
+        "scope:new-republic",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "military logistics"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Bacta remains a strategic healing resource during New Republic military and political crises.",
+        "injection": "When medical recovery matters, bacta access can create leverage, shortages, and political stakes. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "items/new_republic_items_and_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_lightsabers_rare_not_common_new_republic",
+      "title": "Lightsabers Remain Rare in New Republic Era",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "force"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "scope:new-republic",
+        "topic:force",
+        "topic:jedi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "jedi",
+            "force"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Before Luke’s restored Jedi Order matures, lightsabers remain rare and symbolically loaded.",
+        "injection": "Do not treat every Force-sensitive character as having a polished lightsaber unless training and construction context supports it. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "items/new_republic_items_and_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_holocrons_recovered_lore_not_public_manuals",
+      "title": "Holocrons Are Recovered Lore, Not Public Manuals",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.jedi_academy_founded",
+        "validToAnchor": "sw.nr.praxeum_stabilizes",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Academy founding era",
+        "phase": "Jedi Academy Era to Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "training"
+        ],
+        "objects": [
+          "Holocron"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:holocron",
+        "scope:new-republic",
+        "topic:jedi",
+        "topic:training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "jedi",
+            "training"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Holocrons and Jedi records are scarce, dangerous, and context-dependent sources of recovered knowledge.",
+        "injection": "Use holocrons as rare lore objects with interpretation risk, not easy public databases. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Academy founding era.",
+          "Respect story-position bounds from Luke Founds the Jedi Academy to Jedi Praxeum Stabilizes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "items/new_republic_items_and_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_superweapons_overuse_requires_context",
+      "title": "Superweapon Saturation Needs Context Control",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.endor_aftermath",
+        "validToAnchor": "sw.nr.njo_threshold",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 20000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Post-Endor New Republic before the New Jedi Order",
+        "phase": "Early New Republic to New Jedi Order Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "superweapon",
+          "context gate"
+        ],
+        "objects": [
+          "Superweapon"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:superweapon",
+        "scope:new-republic",
+        "topic:context-gate",
+        "topic:superweapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "superweapon",
+            "context gate"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The New Republic era contains multiple Legends superweapon crises, but they should not all be active in the same ordinary scene.",
+        "injection": "Use only the superweapon relevant to the current Context; avoid stacking Death Star, Sun Crusher, World Devastator, Darksaber, and Eclipse threats without explicit premise. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic before the New Jedi Order.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "items/new_republic_items_and_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

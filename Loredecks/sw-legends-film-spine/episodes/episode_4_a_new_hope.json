@@ -1,0 +1,2072 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-08",
+  "sourcePackId": "sw-legends-film-spine",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_leia_rebel_princess",
+      "title": "Leia Is Rebel Agent and Alderaanian Princess",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:leia-organa",
+        "continuity:legends",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "location:alderaan",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.episode_4_anh",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Episode IV: A New Hope",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa"
+        ],
+        "locations": [
+          "Alderaan"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Rebel agent",
+          "princess",
+          "senator"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Alderaan"
+          ],
+          "topicsAny": [
+            "Rebel agent",
+            "princess",
+            "senator",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "At the start of A New Hope, Leia is both an Alderaanian princess/senator and a covert Rebel agent.",
+        "injection": "In ANH context, write Leia as politically trained, brave, and actively Rebel-connected, not merely a civilian hostage.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode IV: A New Hope.",
+          "Respect story-position bounds from Episode IV: A New Hope to Episode IV: A New Hope."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_death_star_plans_drive_plot",
+      "title": "Death Star Plans Drive the Crisis",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "high",
+      "lorePurpose": "item_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:yavin",
+        "fandom:star-wars",
+        "object:death-star",
+        "object:plans",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.anh_tantive_iv_captured",
+        "validToAnchor": "sw.film.anh_tantive_iv_captured",
+        "sortKeyFrom": 5020,
+        "sortKeyTo": 5020,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Tantive IV Captured",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "R2-D2",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "stolen plans",
+          "strategic intelligence"
+        ],
+        "objects": [
+          "Death Star plans"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "R2-D2",
+            "Darth Vader"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "stolen plans",
+            "strategic intelligence",
+            "Death Star plans",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The stolen Death Star plans are the central strategic object in A New Hope.",
+        "injection": "During ANH, keep the Death Star plans as urgent strategic intelligence; they matter because they may expose a weakness.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Tantive IV Captured.",
+          "Respect story-position bounds from Tantive IV Captured to Tantive IV Captured."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_tantive_captured_leia_detained",
+      "title": "Tantive IV Captured and Leia Detained",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:r2-d2",
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:plans",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.anh_tantive_iv_captured",
+        "validToAnchor": "sw.film.anh_tantive_iv_captured",
+        "sortKeyFrom": 5020,
+        "sortKeyTo": 5020,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Tantive IV Captured",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "R2-D2",
+          "C-3PO",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "Tantive IV capture"
+        ],
+        "objects": [
+          "Death Star plans",
+          "droids"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "R2-D2",
+            "C-3PO",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "Tantive IV capture",
+            "Death Star plans",
+            "droids",
+            "Galactic Empire",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Vader captures the Tantive IV, and Leia is detained by the Empire while the plans escape with R2-D2.",
+        "injection": "After the Tantive IV capture, Leia is an Imperial prisoner until rescued; the droids carry the plot-critical plans to Tatooine.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Tantive IV Captured.",
+          "Respect story-position bounds from Tantive IV Captured to Tantive IV Captured."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_luke_farmboy_pre_jedi",
+      "title": "Luke Starts as Tatooine Farmboy",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:force",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:tatooine",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.episode_4_anh",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Episode IV: A New Hope",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [],
+        "topics": [
+          "farmboy",
+          "Force potential",
+          "pilot dreams"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "farmboy",
+            "Force potential",
+            "pilot dreams"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke starts A New Hope as a restless Tatooine farmboy with no formal Jedi training.",
+        "injection": "In Episode IV: A New Hope, early ANH Luke should not be written as a practiced Jedi; he has longing, piloting talent, and hidden potential, but not trained Force control.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode IV: A New Hope.",
+          "Respect story-position bounds from Episode IV: A New Hope to Episode IV: A New Hope."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_luke_vader_father_truth_hidden",
+      "title": "Luke Does Not Know Vader Is His Father",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:family-secret",
+        "topic:spoiler-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.anh_yavin_victory",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode IV: A New Hope",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "paternity secret"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "paternity secret"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During A New Hope, Luke does not know Darth Vader is his father.",
+        "injection": "In ANH context, block any casual mention to Luke that Vader is his father unless the story deliberately diverges.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode IV: A New Hope.",
+          "Respect story-position bounds from Episode IV: A New Hope to Battle of Yavin Victory."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_leia_luke_sibling_truth_hidden",
+      "title": "Luke and Leia Sibling Truth Hidden in ANH",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:family-secret",
+        "topic:spoiler-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.anh_yavin_victory",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode IV: A New Hope",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "sibling secret"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "sibling secret"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During A New Hope, neither Luke nor Leia knows they are siblings.",
+        "injection": "Do not write Luke and Leia as aware siblings in ANH or pre-ROTJ contexts unless an alternate branch reveals it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode IV: A New Hope.",
+          "Respect story-position bounds from Episode IV: A New Hope to Battle of Yavin Victory."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_obiwan_tatooine_hermit_revealed",
+      "title": "Obi-Wan Emerges from Exile",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:tatooine",
+        "relationship:mentor-student",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.anh_yavin_victory",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode IV: A New Hope",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "exile",
+          "mentor"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "exile",
+            "mentor",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In A New Hope, Obi-Wan moves from hidden Tatooine exile into active mentorship of Luke.",
+        "injection": "In Episode IV: A New Hope, once Luke meets Obi-Wan, he can receive Jedi history and initial guidance, but the old Jedi Order is still gone.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode IV: A New Hope.",
+          "Respect story-position bounds from Episode IV: A New Hope to Battle of Yavin Victory."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_obiwan_vader_anakin_partial_truth",
+      "title": "Obi-Wan Gives Luke a Partial Truth",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:family-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.anh_yavin_victory",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode IV: A New Hope",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Luke Skywalker",
+          "Darth Vader",
+          "Anakin Skywalker"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "partial truth",
+          "father story"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Luke Skywalker",
+            "Darth Vader",
+            "Anakin Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "partial truth",
+            "father story"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Obi-Wan frames Anakin as killed by Vader, concealing the full identity truth from Luke.",
+        "injection": "When Obi-Wan explains Luke’s father in ANH-era context, use the partial truth/withheld truth structure rather than full paternity disclosure.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode IV: A New Hope.",
+          "Respect story-position bounds from Episode IV: A New Hope to Battle of Yavin Victory."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_lightsaber_inheritance",
+      "title": "Luke Receives Anakin’s Lightsaber",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "high",
+      "lorePurpose": "item_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.anh_yavin_victory",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode IV: A New Hope",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Obi-Wan Kenobi",
+          "Anakin Skywalker"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "Jedi inheritance"
+        ],
+        "objects": [
+          "lightsaber"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Obi-Wan Kenobi",
+            "Anakin Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi inheritance",
+            "lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Obi-Wan gives Luke Anakin’s lightsaber during A New Hope.",
+        "injection": "After Luke receives the lightsaber, he possesses a symbolic Jedi inheritance but remains barely trained. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode IV: A New Hope.",
+          "Respect story-position bounds from Episode IV: A New Hope to Battle of Yavin Victory."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_han_chewie_smugglers_before_rebel_commitment",
+      "title": "Han and Chewie Start as Smugglers",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:millennium-falcon",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.anh_yavin_victory",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode IV: A New Hope",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Chewbacca",
+          "Jabba the Hutt"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [
+          "Hutt Clan",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "smuggling",
+          "debt",
+          "mercenary aid"
+        ],
+        "objects": [
+          "Millennium Falcon"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Chewbacca",
+            "Jabba the Hutt"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "smuggling",
+            "debt",
+            "mercenary aid",
+            "Millennium Falcon",
+            "Hutt Clan",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Han and Chewbacca enter A New Hope as smugglers motivated by payment and survival, not as committed Rebel officers.",
+        "injection": "In Episode IV: A New Hope, early ANH Han should be pragmatic and debt-conscious; his Rebel commitment develops through events. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode IV: A New Hope.",
+          "Respect story-position bounds from Episode IV: A New Hope to Battle of Yavin Victory."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_jabba_debt_active",
+      "title": "Jabba Debt Pressures Han",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "continuity:legends",
+        "fandom:star-wars",
+        "relationship:bounty",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.anh_yavin_victory",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode IV: A New Hope",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Jabba the Hutt",
+          "Chewbacca"
+        ],
+        "locations": [],
+        "factions": [
+          "Hutt Clan"
+        ],
+        "topics": [
+          "debt",
+          "bounty",
+          "underworld"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Jabba the Hutt",
+            "Chewbacca"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "debt",
+            "bounty",
+            "underworld",
+            "Hutt Clan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Han’s debt to Jabba is active background pressure during A New Hope.",
+        "injection": "When Han is involved before Jabba is resolved, remember his choices are pressured by debt, bounty risk, and underworld reputation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode IV: A New Hope.",
+          "Respect story-position bounds from Episode IV: A New Hope to Battle of Yavin Victory."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_alderaan_destroyed",
+      "title": "Alderaan Destroyed by the Death Star",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "location",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:leia-organa",
+        "continuity:legends",
+        "event:alderaan-destruction",
+        "fandom:star-wars",
+        "location:alderaan",
+        "object:death-star",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.anh_alderaan_destroyed",
+        "validToAnchor": "sw.film.anh_alderaan_destroyed",
+        "sortKeyFrom": 5140,
+        "sortKeyTo": 5140,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Alderaan Destroyed",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Grand Moff Tarkin"
+        ],
+        "locations": [
+          "Alderaan",
+          "Death Star"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "planetary destruction",
+          "Imperial terror"
+        ],
+        "objects": [
+          "Death Star"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Grand Moff Tarkin"
+          ],
+          "locationsAny": [
+            "Alderaan",
+            "Death Star"
+          ],
+          "topicsAny": [
+            "planetary destruction",
+            "Imperial terror",
+            "Death Star",
+            "Galactic Empire",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Death Star destroys Alderaan, annihilating Leia’s homeworld and demonstrating Imperial terror doctrine.",
+        "injection": "After Alderaan is destroyed, treat Leia as personally bereaved and the Empire as having openly used planet-killing terror.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Alderaan Destroyed.",
+          "Respect story-position bounds from Alderaan Destroyed to Alderaan Destroyed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_death_star_operational_until_yavin",
+      "title": "Death Star Operational Until Yavin",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "high",
+      "lorePurpose": "item_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:yavin",
+        "fandom:star-wars",
+        "object:death-star",
+        "scope:film-spine",
+        "topic:context-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.anh_yavin_victory",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode IV: A New Hope",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Death Star",
+          "Yavin"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "battle station",
+          "Yavin vulnerability"
+        ],
+        "objects": [
+          "Death Star"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Death Star",
+            "Yavin"
+          ],
+          "topicsAny": [
+            "battle station",
+            "Yavin vulnerability",
+            "Death Star",
+            "Galactic Empire",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The first Death Star is operational through the Battle of Yavin and destroyed afterward.",
+        "injection": "Before Yavin victory, the first Death Star remains an active existential threat; after Yavin, it should not remain operational.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode IV: A New Hope.",
+          "Respect story-position bounds from Episode IV: A New Hope to Battle of Yavin Victory."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_obiwan_dies_becomes_spiritual_guide",
+      "title": "Obi-Wan Dies and Becomes Spiritual Guide",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:force-ghost",
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:death-star",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.anh_obiwan_death",
+        "validToAnchor": "sw.film.anh_obiwan_death",
+        "sortKeyFrom": 5120,
+        "sortKeyTo": 5120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Obi-Wan Kenobi Dies on the Death Star",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Death Star"
+        ],
+        "factions": [],
+        "topics": [
+          "Force guidance",
+          "mentor death"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Death Star"
+          ],
+          "topicsAny": [
+            "Force guidance",
+            "mentor death"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Obi-Wan dies aboard the Death Star and continues as a spiritual guide rather than a living companion.",
+        "injection": "After Obi-Wan’s death, use him through voice, vision, Force presence, or memory, not as a living field mentor unless the story branches.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Obi-Wan Kenobi Dies on the Death Star.",
+          "Respect story-position bounds from Obi-Wan Kenobi Dies on the Death Star to Obi-Wan Kenobi Dies on the Death Star."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_luke_first_force_trust_at_yavin",
+      "title": "Luke Trusts the Force at Yavin",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:force",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "event:yavin",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.anh_yavin_victory",
+        "validToAnchor": "sw.film.anh_yavin_victory",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Battle of Yavin Victory",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Yavin"
+        ],
+        "factions": [],
+        "topics": [
+          "Force instinct",
+          "trench run"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Yavin"
+          ],
+          "topicsAny": [
+            "Force instinct",
+            "trench run"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke’s Yavin success is his first major act of trusting the Force under pressure, not mature Jedi mastery.",
+        "injection": "After Yavin, Luke has proof of Force potential and instinctive trust, but he is still not a trained Jedi Knight.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle of Yavin Victory.",
+          "Respect story-position bounds from Battle of Yavin Victory to Battle of Yavin Victory."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      },
+      "ability": {
+        "system": "force",
+        "name": "Force-guided targeting",
+        "stage": "instinctive beginner",
+        "ownerEntityIds": [
+          "sw:luke-skywalker"
+        ],
+        "constraints": [
+          "This is not full Jedi mastery."
+        ],
+        "antiLore": [
+          "Do not portray post-Yavin Luke as already a complete Jedi Knight."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_anh_first_death_star_destroyed",
+      "title": "First Death Star Destroyed at Yavin",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:yavin",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.anh_yavin_victory",
+        "validToAnchor": "sw.film.anh_yavin_victory",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Battle of Yavin Victory",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Han Solo",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Yavin",
+          "Death Star"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Yavin victory"
+        ],
+        "objects": [
+          "Death Star"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Han Solo",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Yavin",
+            "Death Star"
+          ],
+          "topicsAny": [
+            "Yavin victory",
+            "Death Star",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The first Death Star is destroyed at the Battle of Yavin.",
+        "injection": "After A New Hope, the first Death Star is gone; Imperial retaliation and Rebel fame should matter more than the station itself.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle of Yavin Victory.",
+          "Respect story-position bounds from Battle of Yavin Victory to Battle of Yavin Victory."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_anh_rebellion_not_victorious_yet",
+      "title": "Yavin Victory Does Not Defeat the Empire",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "faction",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:yavin",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.anh_yavin_victory",
+        "validToAnchor": "sw.film.episode_5_esb",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After A New Hope, before The Empire Strikes Back",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "post-Yavin pressure",
+          "Imperial retaliation"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "post-Yavin pressure",
+            "Imperial retaliation",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Destroying the first Death Star does not defeat the Empire or make the Rebellion safe.",
+        "injection": "After Yavin but before Endor, keep the Empire dominant and the Rebel Alliance mobile, vulnerable, and hunted. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After A New Hope, before The Empire Strikes Back.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_anh_luke_not_jedi_knight_yet",
+      "title": "Luke Not Jedi Knight After Yavin",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:jedi-training",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.anh_yavin_victory",
+        "validToAnchor": "sw.film.episode_5_esb",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After A New Hope, before The Empire Strikes Back",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "factions": [
+          "Rebel Alliance",
+          "Jedi Order"
+        ],
+        "topics": [
+          "Jedi training gate"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi training gate",
+            "Rebel Alliance",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After A New Hope, Luke is a Rebel hero and Force-sensitive trainee, not a Jedi Knight.",
+        "injection": "Do not promote post-ANH Luke to Jedi Knight competence before Dagobah/ROTJ development unless the story deliberately diverges.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After A New Hope, before The Empire Strikes Back.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    }
+  ]
+}

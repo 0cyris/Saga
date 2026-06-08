@@ -1,6 +1,14 @@
 {
   "schemaVersion": 1,
   "tags": {
+    "book:deathly-hallows-epilogue": {
+      "label": "Deathly Hallows Epilogue",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
+    "book:post-war-and-epilogue": {
+      "label": "Post War And Epilogue",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
     "calendar-year:1998": {
       "label": "1998",
       "description": "Harry Potter bundled Loredeck calendar year tag."
@@ -13,25 +21,93 @@
       "label": "2017",
       "description": "Harry Potter bundled Loredeck calendar year tag."
     },
-    "era:post-war": {
-      "label": "Post-War",
+    "character:albus-dumbledore": {
+      "label": "Albus Dumbledore",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:draco-malfoy": {
+      "label": "Draco Malfoy",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:ginny-weasley": {
+      "label": "Ginny Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:harry-potter": {
+      "label": "Harry Potter",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:hermione-granger": {
+      "label": "Hermione Granger",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:ron-weasley": {
+      "label": "Ron Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:sirius-black": {
+      "label": "Sirius Black",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:voldemort": {
+      "label": "Voldemort",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "era:golden-trio": {
+      "label": "Golden Trio",
       "description": "Harry Potter bundled Loredeck era tag."
     },
+    "era:post-war": {
+      "label": "Post War",
+      "description": "Harry Potter bundled Loredeck era tag."
+    },
+    "event:kings-cross-epilogue": {
+      "label": "Kings Cross Epilogue",
+      "description": "Harry Potter bundled Loredeck event tag."
+    },
     "event:post-war-reconstruction": {
-      "label": "Post-War Reconstruction",
+      "label": "Post War Reconstruction",
       "description": "Harry Potter bundled Loredeck event tag."
     },
     "event:quidditch-world-cup-2014": {
-      "label": "2014 Quidditch World Cup",
+      "label": "Quidditch World Cup 2014",
       "description": "Harry Potter bundled Loredeck event tag."
     },
-    "event:kings-cross-epilogue": {
-      "label": "King's Cross Epilogue",
-      "description": "Harry Potter bundled Loredeck event tag."
+    "faction:dumbledores-army": {
+      "label": "Dumbledores Army",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:ministry-of-magic": {
+      "label": "Ministry Of Magic",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:order-of-the-phoenix": {
+      "label": "Order Of The Phoenix",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "fandom:harry-potter": {
+      "label": "Harry Potter",
+      "description": "Harry Potter bundled Loredeck fandom tag."
+    },
+    "place:azkaban": {
+      "label": "Azkaban",
+      "description": "Harry Potter bundled Loredeck place tag."
+    },
+    "place:hogwarts": {
+      "label": "Hogwarts",
+      "description": "Harry Potter bundled Loredeck place tag."
+    },
+    "quality:relevance-curated": {
+      "label": "Relevance Curated",
+      "description": "Harry Potter bundled Loredeck quality tag."
     },
     "scope:post-war": {
-      "label": "Post-War Scope",
+      "label": "Post War",
       "description": "Harry Potter bundled Loredeck scope tag."
+    },
+    "topic:deathly-hallows": {
+      "label": "Deathly Hallows",
+      "description": "Harry Potter bundled Loredeck topic tag."
     }
   }
 }

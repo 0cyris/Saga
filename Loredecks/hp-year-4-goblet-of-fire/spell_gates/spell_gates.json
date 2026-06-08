@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y4.frank_bryce_murder",
         "validToAnchor": "hp.y4.harry_selected_fourth_champion",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 9093,
+        "sortKeyFrom": 8992,
+        "sortKeyTo": 9094,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -86,7 +86,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -102,12 +102,14 @@
       },
       "content": {
         "fact": "The Summoning Charm is relevant in Year 4 onward and should not be treated as a first-year default skill.",
-        "injection": "The Summoning Charm is relevant in Year 4 onward and should not be treated as a first-year default skill.",
+        "injection": "The Summoning Charm is relevant in Year 4 onward and should not be treated as a first-year default skill. Use this only as a phase baseline for Goblet of Fire: Year 4; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
-          "Treat Accio knowledge as Context- and character-gated."
+          "Treat Accio knowledge as Context- and character-gated.",
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not make Accio common student knowledge too early."
+          "Do not make Accio common student knowledge too early.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ]
       },
       "effects": {
@@ -140,7 +142,15 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:4"
+      ]
     }
   ]
 }

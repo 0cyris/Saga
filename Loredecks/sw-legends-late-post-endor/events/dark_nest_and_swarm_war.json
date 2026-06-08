@@ -1,0 +1,1522 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_dark_nest_postwar_galaxy_is_not_stable",
+      "title": "Postwar Galaxy Not Fully Stable",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.post_njo_recovery",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 33000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Post-NJO Recovery",
+        "phase": "Post-NJO Recovery",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa Solo",
+          "Han Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "postwar",
+          "government",
+          "trauma"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:leia-organa-solo",
+          "sw-character:han-solo",
+          "sw-faction:galactic-alliance",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery",
+        "character:luke-skywalker",
+        "character:leia-organa-solo",
+        "character:han-solo",
+        "faction:galactic-alliance",
+        "faction:jedi-order",
+        "topic:postwar",
+        "topic:government",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa Solo",
+            "Han Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "postwar",
+            "government",
+            "trauma"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "After the Yuuzhan Vong War, the Galactic Alliance and Jedi Order are recovering but not politically or psychologically settled.",
+        "injection": "In post-NJO scenes, avoid treating the galaxy as cleanly healed; institutions, families, and Jedi still carry war damage.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-NJO Recovery.",
+          "Respect story-position bounds from Post-NJO Recovery to Post-NJO Recovery."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_dark_nest_joiner_pull_draws_young_jedi",
+      "title": "Joiner Pull Draws Young Jedi",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.joiner_pull",
+        "validToAnchor": "sw.late.joiner_pull",
+        "sortKeyFrom": 35200,
+        "sortKeyTo": 35200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Joiner Pull Draws Jedi",
+        "phase": "Dark Nest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jaina Solo",
+          "Zekk",
+          "Lowbacca",
+          "Tesar Sebatyne"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "joiners",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Killik Hives"
+        ],
+        "entityIds": [
+          "sw-character:jaina-solo",
+          "sw-character:zekk",
+          "sw-character:lowbacca",
+          "sw-character:tesar-sebatyne",
+          "sw-faction:jedi-order",
+          "sw-faction:killik-hives"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:dark-nest",
+        "character:jaina-solo",
+        "character:zekk",
+        "character:lowbacca",
+        "character:tesar-sebatyne",
+        "faction:jedi-order",
+        "faction:killik-hives",
+        "topic:jedi",
+        "topic:joiners",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jaina Solo",
+            "Zekk",
+            "Lowbacca",
+            "Tesar Sebatyne"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "jedi",
+            "joiners",
+            "knowledge gate"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Killik Hives"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "The Killik/Joiner crisis pulls several younger Jedi into a collective-minded insectoid culture and strains Jedi autonomy.",
+        "injection": "During early Dark Nest, portray Joiner influence as social, psychic, and loyalty-altering rather than simple mind control.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Joiner Pull Draws Jedi.",
+          "Respect story-position bounds from Joiner Pull Draws Jedi to Joiner Pull Draws Jedi."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_raynar_unuthul_identity_gate",
+      "title": "Raynar Thul Returns as UnuThul",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.joiner_pull",
+        "validToAnchor": "sw.late.joiner_pull",
+        "sortKeyFrom": 35200,
+        "sortKeyTo": 35200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Joiner Pull Draws Jedi",
+        "phase": "Dark Nest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Raynar Thul"
+        ],
+        "locations": [],
+        "topics": [
+          "identity",
+          "joiners",
+          "spoiler guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Killik Hives"
+        ],
+        "entityIds": [
+          "sw-character:raynar-thul",
+          "sw-faction:killik-hives"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:dark-nest",
+        "character:raynar-thul",
+        "faction:killik-hives",
+        "topic:identity",
+        "topic:joiners",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Raynar Thul"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "identity",
+            "joiners",
+            "spoiler guard"
+          ],
+          "factionsAny": [
+            "Killik Hives"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Raynar Thul re-emerges as UnuThul, bonded to the Killiks after long absence and trauma.",
+        "injection": "After Raynar returns, use UnuThul as a hybrid identity bound to Killik politics, not as unchanged prewar Raynar.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Joiner Pull Draws Jedi.",
+          "Respect story-position bounds from Joiner Pull Draws Jedi to Joiner Pull Draws Jedi."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_gorog_dark_nest_hidden_threat",
+      "title": "Gorog Is the Hidden Dark Nest",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.gorog_revealed",
+        "validToAnchor": "sw.late.gorog_revealed",
+        "sortKeyFrom": 35600,
+        "sortKeyTo": 35600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gorog / Dark Nest Revealed",
+        "phase": "Dark Nest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Raynar Thul",
+          "Alema Rar"
+        ],
+        "locations": [],
+        "topics": [
+          "secret",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Dark Nest",
+          "Killik Hives"
+        ],
+        "entityIds": [
+          "sw-character:raynar-thul",
+          "sw-character:alema-rar",
+          "sw-faction:dark-nest",
+          "sw-faction:killik-hives"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:dark-nest",
+        "character:raynar-thul",
+        "character:alema-rar",
+        "faction:dark-nest",
+        "faction:killik-hives",
+        "topic:secret",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Raynar Thul",
+            "Alema Rar"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "secret",
+            "knowledge gate"
+          ],
+          "factionsAny": [
+            "Dark Nest",
+            "Killik Hives"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Gorog functions as the secretive Dark Nest within Killik society, driving covert violence and manipulation.",
+        "injection": "Before Gorog is revealed, do not let ordinary characters casually name the Dark Nest; after reveal, treat it as the hidden hostile faction inside the Colony.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Gorog / Dark Nest Revealed.",
+          "Respect story-position bounds from Gorog / Dark Nest Revealed to Gorog / Dark Nest Revealed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_alema_rar_dark_nest_predator",
+      "title": "Alema Rar Becomes a Dark Nest Predator",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.gorog_revealed",
+        "validToAnchor": "sw.late.gorog_revealed",
+        "sortKeyFrom": 35600,
+        "sortKeyTo": 35600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gorog / Dark Nest Revealed",
+        "phase": "Dark Nest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Alema Rar"
+        ],
+        "locations": [],
+        "topics": [
+          "trauma",
+          "dark side"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Dark Nest"
+        ],
+        "entityIds": [
+          "sw-character:alema-rar",
+          "sw-faction:dark-nest"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:dark-nest",
+        "character:alema-rar",
+        "faction:dark-nest",
+        "topic:trauma",
+        "topic:dark-side"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Alema Rar"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "trauma",
+            "dark side"
+          ],
+          "factionsAny": [
+            "Dark Nest"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Alema Rar becomes unstable, predatory, and tied to Dark Nest manipulation after earlier trauma.",
+        "injection": "In Dark Nest-era scenes, Alema should behave as damaged and dangerous, not as a reliable Jedi ally. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Gorog / Dark Nest Revealed.",
+          "Respect story-position bounds from Gorog / Dark Nest Revealed to Gorog / Dark Nest Revealed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_swarm_war_galactic_scale",
+      "title": "Swarm War Becomes Galactic Crisis",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.swarm_war",
+        "validToAnchor": "sw.late.swarm_war",
+        "sortKeyFrom": 36000,
+        "sortKeyTo": 36000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Swarm War",
+        "phase": "Dark Nest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Jaina Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "war",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Jedi Order",
+          "Killik Hives"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:jaina-solo",
+          "sw-faction:galactic-alliance",
+          "sw-faction:jedi-order",
+          "sw-faction:killik-hives"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:dark-nest",
+        "character:luke-skywalker",
+        "character:jaina-solo",
+        "faction:galactic-alliance",
+        "faction:jedi-order",
+        "faction:killik-hives",
+        "topic:war",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Jaina Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "war",
+            "politics"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Jedi Order",
+            "Killik Hives"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "The Killik crisis escalates into the Swarm War, drawing in the Chiss, Galactic Alliance, Jedi, and border politics.",
+        "injection": "During Swarm War context, use multi-faction escalation rather than a local hive dispute. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Swarm War.",
+          "Respect story-position bounds from Swarm War to Swarm War."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_luke_asserts_grand_master_authority",
+      "title": "Luke Consolidates Grand Master Authority",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 85,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.swarm_war",
+        "validToAnchor": "sw.late.swarm_war",
+        "sortKeyFrom": 36000,
+        "sortKeyTo": 36000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Swarm War",
+        "phase": "Dark Nest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "government"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:dark-nest",
+        "character:luke-skywalker",
+        "faction:jedi-order",
+        "topic:jedi",
+        "topic:government"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "jedi",
+            "government"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "The Dark Nest crisis pushes Luke to assert firmer Grand Master authority over a fragmented Jedi Order.",
+        "injection": "After Dark Nest, portray Luke as more willing to centralize Jedi authority when the Order fragments dangerously.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Swarm War.",
+          "Respect story-position bounds from Swarm War to Swarm War."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_dark_nest_no_caedus_yet",
+      "title": "No Darth Caedus During Dark Nest",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.dark_nest_begins",
+        "validToAnchor": "sw.late.swarm_war",
+        "sortKeyFrom": 35000,
+        "sortKeyTo": 36000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Nest crisis",
+        "phase": "Dark Nest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "spoiler guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:jacen-solo",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:dark-nest",
+        "character:jacen-solo",
+        "faction:jedi-order",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "future guard",
+            "spoiler guard"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "During Dark Nest, Jacen Solo has changed after his post-NJO travels but has not publicly become Darth Caedus.",
+        "injection": "In Dark Nest scenes, do not call Jacen Darth Caedus or make his Sith identity public. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Nest crisis.",
+          "Respect story-position bounds from Dark Nest Crisis Begins to Swarm War."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_allana_hidden_after_dark_nest",
+      "title": "Allana Hidden After Dark Nest",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_dark_nest",
+        "validToAnchor": "sw.late.lotf_betrayal",
+        "sortKeyFrom": 37000,
+        "sortKeyTo": 40000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Dark Nest, before Legacy of the Force",
+        "phase": "Post-Dark Nest to Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Allana Solo",
+          "Jacen Solo",
+          "Tenel Ka Djo"
+        ],
+        "locations": [
+          "Hapes"
+        ],
+        "topics": [
+          "family",
+          "secret",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Hapes Consortium"
+        ],
+        "entityIds": [
+          "sw-character:allana-solo",
+          "sw-character:jacen-solo",
+          "sw-character:tenel-ka-djo",
+          "sw-location:hapes",
+          "sw-faction:hapes-consortium"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-dark-nest-to-legacy-of-the-force",
+        "character:allana-solo",
+        "character:jacen-solo",
+        "character:tenel-ka-djo",
+        "location:hapes",
+        "faction:hapes-consortium",
+        "topic:family",
+        "topic:secret",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Allana Solo",
+            "Jacen Solo",
+            "Tenel Ka Djo"
+          ],
+          "locationsAny": [
+            "Hapes"
+          ],
+          "topicsAny": [
+            "family",
+            "secret",
+            "knowledge gate"
+          ],
+          "factionsAny": [
+            "Hapes Consortium"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Allana exists as the secret daughter of Jacen Solo and Tenel Ka, but her parentage is highly guarded.",
+        "injection": "After Allana’s birth, protect her identity and parentage unless the current scene involves the small circle that knows.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Dark Nest, before Legacy of the Force.",
+          "Respect story-position bounds from Post-Dark Nest Threshold to Legacy of the Force Begins / Betrayal."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_tenel_ka_hapes_pressure",
+      "title": "Tenel Ka Balances Hapes and Jedi Ties",
+      "kind": "event_anchor",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_dark_nest",
+        "validToAnchor": "sw.late.lotf_betrayal",
+        "sortKeyFrom": 37000,
+        "sortKeyTo": 40000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Dark Nest, before Legacy of the Force",
+        "phase": "Post-Dark Nest to Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Tenel Ka Djo",
+          "Allana Solo",
+          "Jacen Solo"
+        ],
+        "locations": [
+          "Hapes"
+        ],
+        "topics": [
+          "politics",
+          "family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Hapes Consortium"
+        ],
+        "entityIds": [
+          "sw-character:tenel-ka-djo",
+          "sw-character:allana-solo",
+          "sw-character:jacen-solo",
+          "sw-location:hapes",
+          "sw-faction:hapes-consortium"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-dark-nest-to-legacy-of-the-force",
+        "character:tenel-ka-djo",
+        "character:allana-solo",
+        "character:jacen-solo",
+        "location:hapes",
+        "faction:hapes-consortium",
+        "topic:politics",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenel Ka Djo",
+            "Allana Solo",
+            "Jacen Solo"
+          ],
+          "locationsAny": [
+            "Hapes"
+          ],
+          "topicsAny": [
+            "politics",
+            "family"
+          ],
+          "factionsAny": [
+            "Hapes Consortium"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Tenel Ka’s Hapan throne, Jedi past, Jacen relationship, and Allana secrecy create political vulnerabilities.",
+        "injection": "Use Tenel Ka as a queen managing dynastic danger, not merely as Jacen’s former love interest. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Dark Nest, before Legacy of the Force.",
+          "Respect story-position bounds from Post-Dark Nest Threshold to Legacy of the Force Begins / Betrayal."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_joiner_identity_not_full_species_change",
+      "title": "Joiner Identity Not Species Change",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.dark_nest_begins",
+        "validToAnchor": "sw.late.swarm_war",
+        "sortKeyFrom": 35000,
+        "sortKeyTo": 36000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Nest crisis",
+        "phase": "Dark Nest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jaina Solo",
+          "Zekk"
+        ],
+        "locations": [],
+        "topics": [
+          "joiners",
+          "identity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Killik Hives"
+        ],
+        "entityIds": [
+          "sw-character:jaina-solo",
+          "sw-character:zekk",
+          "sw-faction:killik-hives"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:dark-nest",
+        "character:jaina-solo",
+        "character:zekk",
+        "faction:killik-hives",
+        "topic:joiners",
+        "topic:identity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jaina Solo",
+            "Zekk"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "joiners",
+            "identity"
+          ],
+          "factionsAny": [
+            "Killik Hives"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Joiners remain original beings but are socially and mentally bound to Killik collective identity.",
+        "injection": "Write Joiners as altered by collective loyalty and perception, not physically transformed into Killik insects.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Nest crisis.",
+          "Respect story-position bounds from Dark Nest Crisis Begins to Swarm War."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_chiss_killik_border_pressure",
+      "title": "Chiss-Killik Border Pressure",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.dark_nest_begins",
+        "validToAnchor": "sw.late.swarm_war",
+        "sortKeyFrom": 35000,
+        "sortKeyTo": 36000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Nest crisis",
+        "phase": "Dark Nest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jagged Fel"
+        ],
+        "locations": [],
+        "topics": [
+          "chiss",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Killik Hives"
+        ],
+        "entityIds": [
+          "sw-character:jagged-fel",
+          "sw-faction:killik-hives"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:dark-nest",
+        "character:jagged-fel",
+        "faction:killik-hives",
+        "topic:chiss",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jagged Fel"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "chiss",
+            "war"
+          ],
+          "factionsAny": [
+            "Killik Hives"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Dark Nest/Swarm War tension includes Chiss border security and fear of Killik expansion.",
+        "injection": "When Chiss are present in Dark Nest, use defensive border logic rather than random hostility. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Nest crisis.",
+          "Respect story-position bounds from Dark Nest Crisis Begins to Swarm War."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_jaina_zekk_joiner_bond",
+      "title": "Jaina-Zekk Joiner Bond",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.dark_nest_begins",
+        "validToAnchor": "sw.late.swarm_war",
+        "sortKeyFrom": 35000,
+        "sortKeyTo": 36000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Nest crisis",
+        "phase": "Dark Nest",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jaina Solo",
+          "Zekk"
+        ],
+        "locations": [],
+        "topics": [
+          "joiners",
+          "relationship"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Killik Hives",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:jaina-solo",
+          "sw-character:zekk",
+          "sw-faction:killik-hives",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:dark-nest",
+        "character:jaina-solo",
+        "character:zekk",
+        "faction:killik-hives",
+        "faction:jedi-order",
+        "topic:joiners",
+        "topic:relationship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jaina Solo",
+            "Zekk"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "joiners",
+            "relationship"
+          ],
+          "factionsAny": [
+            "Killik Hives",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Jaina and Zekk’s Joiner connection can blur emotional and tactical boundaries during Dark Nest.",
+        "injection": "During Dark Nest, use Jaina/Zekk Joiner linkage as a distinct relationship-state pressure. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Nest crisis.",
+          "Respect story-position bounds from Dark Nest Crisis Begins to Swarm War."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

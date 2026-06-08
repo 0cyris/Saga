@@ -1,0 +1,1265 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_lightsabers_mark_jedi_and_sith_visibility",
+      "title": "Lightsabers Mark Jedi And Sith Visibility",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Lightsabers Mark Jedi And Sith Visibility",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "lightsabers",
+          "symbolic weapon"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:lightsaber",
+        "scope:rise-of-empire",
+        "topic:lightsabers",
+        "topic:symbolic-weapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "lightsabers",
+            "symbolic weapon"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Lightsabers remain highly visible symbols of Jedi and Sith identity, making them dangerous after the purge.",
+        "injection": "After Order 66, openly carrying a lightsaber should attract fear, suspicion, or Imperial attention. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Lightsabers Mark Jedi And Sith Visibility.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Lightsabers Mark Jedi And Sith Visibility",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_clone_armor_shifts_toward_stormtrooper_lineage",
+      "title": "Clone Armor Shifts Toward Stormtrooper Lineage",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.clone_wars_begin",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Clone Armor Shifts Toward Stormtrooper Lineage",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "clone armor",
+          "stormtrooper lineage"
+        ],
+        "objects": [
+          "Clone Armor"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:clone-armor",
+        "scope:rise-of-empire",
+        "topic:clone-armor",
+        "topic:stormtrooper-lineage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "clone armor",
+            "stormtrooper lineage"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Clone armor and doctrine form the visual and military bridge toward Imperial stormtrooper identity.",
+        "injection": "In Clone Armor Shifts Toward Stormtrooper Lineage, as the Republic becomes Empire, let clone armor, command, and symbolism harden toward Imperial aesthetics. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Armor Shifts Toward Stormtrooper Lineage.",
+          "Respect story-position bounds from Clone Wars Begin to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Armor Shifts Toward Stormtrooper Lineage",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_venator_symbolizes_republic_war_machine",
+      "title": "Venator Symbolizes Republic War Machine",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Venator Symbolizes Republic War Machine",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "venator",
+          "republic navy"
+        ],
+        "objects": [
+          "Venator-class Star Destroyer"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:venator-class-star-destroyer",
+        "scope:rise-of-empire",
+        "topic:republic-navy",
+        "topic:venator"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "venator",
+            "republic navy"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Venator-class Star Destroyers symbolize the Republic’s wartime navy and foreshadow Imperial capital-ship doctrine.",
+        "injection": "Use Venators as Republic-era warships that visually and institutionally prefigure Imperial Star Destroyers. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Venator Symbolizes Republic War Machine.",
+          "Respect story-position bounds from First Battle of Geonosis to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Venator Symbolizes Republic War Machine",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_laat_gunships_are_clone_wars_workhorses",
+      "title": "LAAT Gunships Are Clone Wars Workhorses",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "LAAT Gunships Are Clone Wars Workhorses",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "laat gunship",
+          "troop transport"
+        ],
+        "objects": [
+          "LAAT Gunship"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:laat-gunship",
+        "scope:rise-of-empire",
+        "topic:laat-gunship",
+        "topic:troop-transport"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "laat gunship",
+            "troop transport"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "LAAT gunships are common Republic deployment craft for clone infantry and Jedi-led operations.",
+        "injection": "During Clone Wars ground assaults, LAATs are plausible troop-delivery and extraction assets. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: LAAT Gunships Are Clone Wars Workhorses.",
+          "Respect story-position bounds from First Battle of Geonosis to Order 66."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "LAAT Gunships Are Clone Wars Workhorses",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_battle_droids_depend_on_mass_and_control",
+      "title": "Battle Droids Depend On Mass And Control",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.naboo_blockade",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Battle Droids Depend On Mass And Control",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "battle droids",
+          "droid control"
+        ],
+        "objects": [
+          "Battle Droid"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:battle-droid",
+        "scope:rise-of-empire",
+        "topic:battle-droids",
+        "topic:droid-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "battle droids",
+            "droid control"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Separatist battle droids are effective through numbers, logistics, specialist variants, and command structures rather than individual initiative.",
+        "injection": "Write B1s as expendable and limited; use specialist droids or commanders for sharper tactical threats. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle Droids Depend On Mass And Control.",
+          "Respect story-position bounds from Naboo Blockade to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Battle Droids Depend On Mass And Control",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_super_battle_droids_raise_droid_threat",
+      "title": "Super Battle Droids Raise Droid Threat",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Super Battle Droids Raise Droid Threat",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "super battle droids",
+          "droid infantry"
+        ],
+        "objects": [
+          "Super Battle Droid"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:super-battle-droid",
+        "scope:rise-of-empire",
+        "topic:droid-infantry",
+        "topic:super-battle-droids"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "super battle droids",
+            "droid infantry"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Super battle droids and heavier models raise CIS infantry threat beyond fragile B1 units.",
+        "injection": "When heavier droids appear, increase battlefield pressure; do not make every droid a flimsy comic obstacle. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Super Battle Droids Raise Droid Threat.",
+          "Respect story-position bounds from First Battle of Geonosis to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Super Battle Droids Raise Droid Threat",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_droidekas_force_tactical_response",
+      "title": "Droidekas Force Tactical Response",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.naboo_blockade",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Droidekas Force Tactical Response",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "droideka",
+          "shielded droid"
+        ],
+        "objects": [
+          "Droideka"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:droideka",
+        "scope:rise-of-empire",
+        "topic:droideka",
+        "topic:shielded-droid"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "droideka",
+            "shielded droid"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Droidekas are shielded rolling combat platforms that force Jedi and soldiers to respond tactically.",
+        "injection": "Use droidekas as shielded threats that require cover, timing, Force use, or coordinated fire. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Droidekas Force Tactical Response.",
+          "Respect story-position bounds from Naboo Blockade to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Droidekas Force Tactical Response",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_holonet_becomes_wartime_propaganda_channel",
+      "title": "HoloNet Becomes Wartime Propaganda Channel",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.separatist_crisis",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "HoloNet Becomes Wartime Propaganda Channel",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "holonet",
+          "propaganda"
+        ],
+        "objects": [
+          "HoloNet"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:holonet",
+        "scope:rise-of-empire",
+        "topic:holonet",
+        "topic:propaganda"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "holonet",
+            "propaganda"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The HoloNet carries news, propaganda, emergency messaging, and public wartime narratives.",
+        "injection": "Use the HoloNet to spread official narratives, military panic, and later anti-Jedi propaganda. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: HoloNet Becomes Wartime Propaganda Channel.",
+          "Respect story-position bounds from Separatist Crisis to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "HoloNet Becomes Wartime Propaganda Channel",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_bacta_and_field_medicine_cannot_erase_war_cost",
+      "title": "Bacta Cannot Erase War Cost",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.clone_wars_begin",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Bacta Cannot Erase War Cost",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "bacta",
+          "field medicine"
+        ],
+        "objects": [
+          "Bacta"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:bacta",
+        "scope:rise-of-empire",
+        "topic:bacta",
+        "topic:field-medicine"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "bacta",
+            "field medicine"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Bacta and advanced medicine help survival but do not erase trauma, maiming, loss, or clone attrition.",
+        "injection": "Do not let medical technology remove the emotional and bodily cost of Clone Wars battles. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Bacta Cannot Erase War Cost.",
+          "Respect story-position bounds from Clone Wars Begin to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Bacta Cannot Erase War Cost",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_cybernetics_bridge_grievous_and_vader",
+      "title": "Cybernetics Bridge Grievous And Vader",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.hypori_grievous_reveal",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 3400,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Cybernetics Bridge Grievous And Vader",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "cybernetics",
+          "life support"
+        ],
+        "objects": [
+          "Cybernetics"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:cybernetics",
+        "scope:rise-of-empire",
+        "topic:cybernetics",
+        "topic:life-support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "cybernetics",
+            "life support"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Cybernetics can preserve life and create terror, but Grievous and Vader use radically different contexts and symbolism.",
+        "injection": "Do not equate Grievous and Vader as the same kind of cyborg; one is a non-Force military monster, the other a Sith life-support prisoner.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Cybernetics Bridge Grievous And Vader.",
+          "Respect story-position bounds from Hypori and Grievous Revealed to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Cybernetics Bridge Grievous And Vader",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_order_66_not_public_ordinary_command",
+      "title": "Order 66 Is Not Ordinary Public Command",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.clone_wars_begin",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Order 66 Is Not Ordinary Public Command",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "order 66 protocol",
+          "clone command"
+        ],
+        "objects": [
+          "Order 66 Protocol"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:order-66-protocol",
+        "scope:rise-of-empire",
+        "topic:clone-command",
+        "topic:order-66-protocol"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "order 66 protocol",
+            "clone command"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Order 66 is an emergency execution protocol hidden inside the clone command structure, not a public law civilians debate beforehand.",
+        "injection": "Before activation, do not have civilians or ordinary senators casually discuss Order 66 as a known anti-Jedi policy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Order 66 Is Not Ordinary Public Command.",
+          "Respect story-position bounds from Clone Wars Begin to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Order 66 Is Not Ordinary Public Command",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_jedi_archives_vulnerable_after_temple_fall",
+      "title": "Jedi Archives Vulnerable After Temple Fall",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.order_66",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 4850,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Archives Vulnerable After Temple Fall",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "jedi archives",
+          "imperial seizure"
+        ],
+        "objects": [
+          "Jedi Archives"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:jedi-archives",
+        "scope:rise-of-empire",
+        "topic:imperial-seizure",
+        "topic:jedi-archives"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "jedi archives",
+            "imperial seizure"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "After the Temple falls, Jedi archives and records become vulnerable to Imperial seizure, destruction, or exploitation.",
+        "injection": "After Order 66, do not treat Jedi archives as freely accessible to surviving Jedi without danger. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Archives Vulnerable After Temple Fall.",
+          "Respect story-position bounds from Order 66 to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Jedi Archives Vulnerable After Temple Fall",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_sith_artifacts_remain_hidden_not_common_tools",
+      "title": "Sith Artifacts Remain Hidden Not Common Tools",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sith Artifacts Remain Hidden Not Common Tools",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "sith artifacts",
+          "holocrons"
+        ],
+        "objects": [
+          "Sith Holocron"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:sith-holocron",
+        "scope:rise-of-empire",
+        "topic:holocrons",
+        "topic:sith-artifacts"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "sith artifacts",
+            "holocrons"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Sith artifacts and holocrons may influence key dark-side plots but are not common tools for average soldiers or senators.",
+        "injection": "Use Sith artifacts sparingly and behind secrecy; avoid handing them to ordinary Clone Wars combatants. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Sith Artifacts Remain Hidden Not Common Tools.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Sith Artifacts Remain Hidden Not Common Tools",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_invisible_hand_is_rots_event_ship",
+      "title": "Invisible Hand Is ROTS Event Ship",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.coruscant_invasion",
+        "validToAnchor": "sw.roe.dooku_death",
+        "sortKeyFrom": 4550,
+        "sortKeyTo": 4625,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Invisible Hand Is ROTS Event Ship",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "invisible hand",
+          "dooku death"
+        ],
+        "objects": [
+          "Invisible Hand"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:invisible-hand",
+        "scope:rise-of-empire",
+        "topic:dooku-death",
+        "topic:invisible-hand"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "invisible hand",
+            "dooku death"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Invisible Hand is tied to the Coruscant rescue, Dooku’s death, and the immediate ROTS transition.",
+        "injection": "Use the Invisible Hand for the Palpatine rescue sequence, not as a generic Separatist flagship across the whole war.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Invisible Hand Is ROTS Event Ship.",
+          "Respect story-position bounds from Battle of Coruscant to Dooku Dies Aboard Invisible Hand."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Invisible Hand Is ROTS Event Ship",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

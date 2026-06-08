@@ -1,0 +1,1721 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_exar_kun_is_fallen_jedi_sith_figure",
+      "title": "Exar Kun Is Fallen Jedi Sith Figure",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_sith_war_begins",
+        "validToAnchor": "sw.or.exar_kun_defeat",
+        "sortKeyFrom": 4000,
+        "sortKeyTo": 4200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Great Sith War",
+        "phase": "Great Sith War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Exar Kun"
+        ],
+        "locations": [
+          "Yavin IV"
+        ],
+        "topics": [
+          "fallen jedi",
+          "sith lord",
+          "great sith war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:exar-kun",
+        "continuity:legends",
+        "era:great-sith-war",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "location:yavin-iv",
+        "scope:old-republic",
+        "topic:fallen-jedi",
+        "topic:great-sith-war",
+        "topic:sith-lord"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Exar Kun"
+          ],
+          "topicsAny": [
+            "fallen jedi",
+            "sith lord",
+            "great sith war"
+          ],
+          "locationsAny": [
+            "Yavin IV"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Exar Kun is a fallen Jedi whose Sith path becomes the central dark-side threat of the Great Sith War.",
+        "injection": "When Exar Kun is active, write him as charismatic, artifact-driven, and catastrophically corrupting rather than as a Rule-of-Two Sith.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Great Sith War.",
+          "Respect story-position bounds from Great Sith War Begins to Exar Kun Defeated on Yavin IV."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Great Sith War",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_ulic_qel_droma_is_tragic_fallen_hero",
+      "title": "Ulic Qel-Droma Is Tragic Fallen Hero",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_sith_war_begins",
+        "validToAnchor": "sw.or.exar_kun_defeat",
+        "sortKeyFrom": 4000,
+        "sortKeyTo": 4200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Great Sith War",
+        "phase": "Great Sith War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ulic Qel-Droma",
+          "Nomi Sunrider"
+        ],
+        "locations": [
+          "Onderon"
+        ],
+        "topics": [
+          "fallen hero",
+          "redemption",
+          "tragic bond"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:nomi-sunrider",
+        "character:ulic-qel-droma",
+        "continuity:legends",
+        "era:great-sith-war",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "location:onderon",
+        "scope:old-republic",
+        "topic:fallen-hero",
+        "topic:redemption",
+        "topic:tragic-bond"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ulic Qel-Droma",
+            "Nomi Sunrider"
+          ],
+          "topicsAny": [
+            "fallen hero",
+            "redemption",
+            "tragic bond"
+          ],
+          "locationsAny": [
+            "Onderon"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ulic Qel-Droma’s arc is tragedy, corruption, and aftermath rather than simple villainy.",
+        "injection": "Write Ulic as a fallen hero whose choices wound friends, lovers, and the Jedi, not as a flat Sith brute. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Great Sith War.",
+          "Respect story-position bounds from Great Sith War Begins to Exar Kun Defeated on Yavin IV."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Great Sith War",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_nomi_sunrider_is_moral_counterweight",
+      "title": "Nomi Sunrider Is Moral Counterweight",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_sith_war_begins",
+        "validToAnchor": "sw.or.exar_kun_defeat",
+        "sortKeyFrom": 4000,
+        "sortKeyTo": 4200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Great Sith War",
+        "phase": "Great Sith War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Nomi Sunrider",
+          "Ulic Qel-Droma"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi restraint",
+          "loss",
+          "leadership"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:nomi-sunrider",
+        "character:ulic-qel-droma",
+        "continuity:legends",
+        "era:great-sith-war",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:jedi-restraint",
+        "topic:leadership",
+        "topic:loss"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nomi Sunrider",
+            "Ulic Qel-Droma"
+          ],
+          "topicsAny": [
+            "jedi restraint",
+            "loss",
+            "leadership"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Nomi Sunrider gives Great Sith War scenes a moral and emotional Jedi center.",
+        "injection": "Use Nomi to ground Great Sith War material in grief, restraint, duty, and the consequences of loving someone who falls.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Great Sith War.",
+          "Respect story-position bounds from Great Sith War Begins to Exar Kun Defeated on Yavin IV."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Great Sith War",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_revan_is_context_dependent_figure",
+      "title": "Revan Is Context-Dependent Figure",
+      "kind": "knowledge_gate",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.revan_crusaders_intervene",
+        "validToAnchor": "sw.or.revanite_crisis",
+        "sortKeyFrom": 5100,
+        "sortKeyTo": 7600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Mandalorian Wars",
+        "phase": "Mandalorian Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Revan"
+        ],
+        "locations": [],
+        "topics": [
+          "revan",
+          "identity",
+          "era-dependent"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Sith Empire",
+          "Galactic Republic",
+          "Revanites"
+        ]
+      },
+      "tags": [
+        "character:revan",
+        "continuity:legends",
+        "era:mandalorian-wars",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "faction:revanites",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:era-dependent",
+        "topic:identity",
+        "topic:revan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Revan"
+          ],
+          "topicsAny": [
+            "revan",
+            "identity",
+            "era-dependent"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith Empire",
+            "Galactic Republic",
+            "Revanites"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Revan’s state changes sharply across eras: Jedi crusader, Sith conqueror, amnesiac protagonist, vanished seeker, and later symbol.",
+        "injection": "In Mandalorian Wars, always write Revan according to the active Context; do not blend all Revan states into one scene unless the story explicitly spans them.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mandalorian Wars.",
+          "Respect story-position bounds from Revanite Jedi Intervene to Revanite Crisis."
+        ],
+        "antiLore": [
+          "Do not reveal later Revan states before the chosen era reaches them.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Mandalorian Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_malak_is_wartime_apprentice_turned_sith_ruler",
+      "title": "Malak Is Apprentice Turned Sith Ruler",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.jedi_civil_war_begins",
+        "validToAnchor": "sw.or.star_forge_destroyed",
+        "sortKeyFrom": 5300,
+        "sortKeyTo": 5600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Malak",
+          "Revan"
+        ],
+        "locations": [],
+        "topics": [
+          "sith apprentice",
+          "star forge",
+          "betrayal"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "character:darth-malak",
+        "character:revan",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:betrayal",
+        "topic:sith-apprentice",
+        "topic:star-forge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Malak",
+            "Revan"
+          ],
+          "topicsAny": [
+            "sith apprentice",
+            "star forge",
+            "betrayal"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Darth Malak is Revan’s former ally/apprentice who becomes the visible Sith ruler during the Star Forge crisis.",
+        "injection": "During KOTOR, write Malak as a brutal inheritor of Revan’s war machine who lacks Revan’s strategic depth but controls the immediate Sith threat.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Jedi Civil War Begins to Star Forge Destroyed."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_bastila_shan_is_not_generic_jedi",
+      "title": "Bastila Shan Is Not Generic Jedi",
+      "kind": "ability_gate",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.star_forge_destroyed",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Bastila Shan"
+        ],
+        "locations": [],
+        "topics": [
+          "battle meditation",
+          "jedi padawan",
+          "strategic asset"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:bastila-shan",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:battle-meditation",
+        "topic:jedi-padawan",
+        "topic:strategic-asset"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bastila Shan"
+          ],
+          "topicsAny": [
+            "battle meditation",
+            "jedi padawan",
+            "strategic asset"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Bastila Shan’s Battle Meditation and youth make her a strategic and emotional pressure point, not just another Jedi companion.",
+        "injection": "When Bastila appears, emphasize her discipline, pride, vulnerability to pressure, and strategic importance to Republic fleet morale.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Star Forge Destroyed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_carth_onasi_carries_republic_betrayal_wounds",
+      "title": "Carth Onasi Carries Republic Betrayal Wounds",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.star_forge_destroyed",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Carth Onasi",
+          "Saul Karath"
+        ],
+        "locations": [],
+        "topics": [
+          "trust issues",
+          "republic officer",
+          "betrayal"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:carth-onasi",
+        "character:saul-karath",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:betrayal",
+        "topic:republic-officer",
+        "topic:trust-issues"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Carth Onasi",
+            "Saul Karath"
+          ],
+          "topicsAny": [
+            "trust issues",
+            "republic officer",
+            "betrayal"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Carth Onasi’s behavior is shaped by military trauma and betrayal by Saul Karath.",
+        "injection": "Write Carth as loyal to the Republic but guarded, suspicious, and personally wounded by betrayal.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Star Forge Destroyed."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_mission_and_zaalbar_ground_kotor_party",
+      "title": "Mission and Zaalbar Ground KOTOR Party",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.star_forge_destroyed",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mission Vao",
+          "Zaalbar"
+        ],
+        "locations": [
+          "Taris",
+          "Kashyyyk"
+        ],
+        "topics": [
+          "companions",
+          "friendship",
+          "street survival"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:mission-vao",
+        "character:zaalbar",
+        "continuity:legends",
+        "era:kotor-era",
+        "fandom:star-wars",
+        "location:kashyyyk",
+        "location:taris",
+        "scope:old-republic",
+        "topic:companions",
+        "topic:friendship",
+        "topic:street-survival"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mission Vao",
+            "Zaalbar"
+          ],
+          "topicsAny": [
+            "companions",
+            "friendship",
+            "street survival"
+          ],
+          "locationsAny": [
+            "Taris",
+            "Kashyyyk"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Mission Vao and Zaalbar bring street-level loyalty, youth, and non-Jedi stakes into the KOTOR party.",
+        "injection": "When Mission and Zaalbar are relevant, use them to ground galactic events in personal loyalty, survival, and found-family dynamics.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Star Forge Destroyed."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_jolee_bindo_complicates_jedi_orthodoxy",
+      "title": "Jolee Bindo Complicates Jedi Orthodoxy",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.star_forge_destroyed",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jolee Bindo"
+        ],
+        "locations": [
+          "Kashyyyk"
+        ],
+        "topics": [
+          "grey jedi",
+          "jedi skepticism",
+          "old hermit"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:jolee-bindo",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:kashyyyk",
+        "scope:old-republic",
+        "topic:grey-jedi",
+        "topic:jedi-skepticism",
+        "topic:old-hermit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jolee Bindo"
+          ],
+          "topicsAny": [
+            "grey jedi",
+            "jedi skepticism",
+            "old hermit"
+          ],
+          "locationsAny": [
+            "Kashyyyk"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Jolee Bindo complicates simple Jedi orthodoxy through age, regret, humor, and skepticism.",
+        "injection": "Write Jolee as a wry older Force-user who questions dogma without becoming a Sith apologist.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Star Forge Destroyed."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_hk47_is_assassin_droid_comedy_and_threat",
+      "title": "HK-47 Is Assassin Droid Comedy and Threat",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.eternal_empire_crisis",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 7800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "HK-47",
+          "Revan"
+        ],
+        "locations": [],
+        "topics": [
+          "assassin droid",
+          "meatbag",
+          "dark humor"
+        ],
+        "objects": [
+          "HK-47"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:hk-47",
+        "character:revan",
+        "continuity:legends",
+        "era:kotor-era",
+        "fandom:star-wars",
+        "item:hk-47",
+        "scope:old-republic",
+        "topic:assassin-droid",
+        "topic:dark-humor",
+        "topic:meatbag"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "HK-47",
+            "Revan"
+          ],
+          "topicsAny": [
+            "assassin droid",
+            "meatbag",
+            "dark humor"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "HK-47 is both comedic and lethal: his droid speech, assassination logic, and loyalty should not make him harmless.",
+        "injection": "When HK-47 appears, balance dry murderous humor with real combat competence and old programming ties.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Eternal Empire Crisis."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_meetra_suriken_is_not_revan_clone",
+      "title": "Meetra Surik Is Not Revan Clone",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.dark_wars_begin",
+        "validToAnchor": "sw.or.malachor_finale",
+        "sortKeyFrom": 5750,
+        "sortKeyTo": 5900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Wars",
+        "phase": "Dark Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Meetra Surik",
+          "Revan",
+          "Kreia"
+        ],
+        "locations": [
+          "Malachor V"
+        ],
+        "topics": [
+          "exile",
+          "leadership",
+          "force wound"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:kreia",
+        "character:meetra-surik",
+        "character:revan",
+        "continuity:legends",
+        "era:dark-wars",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:malachor-v",
+        "scope:old-republic",
+        "topic:exile",
+        "topic:force-wound",
+        "topic:leadership"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Meetra Surik",
+            "Revan",
+            "Kreia"
+          ],
+          "topicsAny": [
+            "exile",
+            "leadership",
+            "force wound"
+          ],
+          "locationsAny": [
+            "Malachor V"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Meetra Surik’s story is about exile, aftermath, and Force wounds, not repeating Revan’s conqueror/redeemer arc.",
+        "injection": "Write Meetra as a distinct protagonist shaped by obedience, command responsibility, survival, and painful reconstruction.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Wars.",
+          "Respect story-position bounds from Dark Wars Begin to Malachor V Finale."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dark Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_kreia_conceals_motives_as_teacher",
+      "title": "Kreia Conceals Motives as Teacher",
+      "kind": "secret",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.dark_wars_begin",
+        "validToAnchor": "sw.or.malachor_finale",
+        "sortKeyFrom": 5750,
+        "sortKeyTo": 5900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Wars",
+        "phase": "Dark Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Kreia",
+          "Meetra Surik"
+        ],
+        "locations": [],
+        "topics": [
+          "teacher",
+          "manipulation",
+          "hidden identity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:kreia",
+        "character:meetra-surik",
+        "continuity:legends",
+        "era:dark-wars",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:hidden-identity",
+        "topic:manipulation",
+        "topic:teacher"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kreia",
+            "Meetra Surik"
+          ],
+          "topicsAny": [
+            "teacher",
+            "manipulation",
+            "hidden identity"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Kreia’s teacher role is inseparable from concealment, tests, and manipulation.",
+        "injection": "Before the story reveals her full agenda, keep Kreia’s motives ambiguous and do not flatten her into a simple mentor or simple Sith villain.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Wars.",
+          "Respect story-position bounds from Dark Wars Begin to Malachor V Finale."
+        ],
+        "antiLore": [
+          "Do not reveal Kreia’s full identity/agenda too early.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dark Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_nihilus_sion_are_different_kinds_of_sith_horror",
+      "title": "Nihilus and Sion Are Different Sith Horrors",
+      "kind": "rule_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.dark_wars_begin",
+        "validToAnchor": "sw.or.malachor_finale",
+        "sortKeyFrom": 5750,
+        "sortKeyTo": 5900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Wars",
+        "phase": "Dark Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Nihilus",
+          "Darth Sion"
+        ],
+        "locations": [],
+        "topics": [
+          "sith horror",
+          "force wound",
+          "pain"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Triumvirate"
+        ]
+      },
+      "tags": [
+        "character:darth-nihilus",
+        "character:darth-sion",
+        "continuity:legends",
+        "era:dark-wars",
+        "faction:sith-triumvirate",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:force-wound",
+        "topic:pain",
+        "topic:sith-horror"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Nihilus",
+            "Darth Sion"
+          ],
+          "topicsAny": [
+            "sith horror",
+            "force wound",
+            "pain"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Sith Triumvirate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Nihilus and Sion represent different Sith horrors: consuming hunger and pain-bound refusal to die.",
+        "injection": "When using the Triumvirate, distinguish Nihilus’s world-devouring hunger from Sion’s rage, decay, and impossible endurance.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Wars.",
+          "Respect story-position bounds from Dark Wars Begin to Malachor V Finale."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dark Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_vitiate_has_many_names_and_masks",
+      "title": "Vitiate Has Many Names and Masks",
+      "kind": "secret",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_galactic_war",
+        "validToAnchor": "sw.or.eternal_empire_crisis",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "SWTOR Era",
+        "phase": "SWTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Vitiate",
+          "Valkorion"
+        ],
+        "locations": [
+          "Dromund Kaas",
+          "Zakuul"
+        ],
+        "topics": [
+          "immortality",
+          "identity masks",
+          "emperor"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire",
+          "Eternal Empire"
+        ]
+      },
+      "tags": [
+        "character:valkorion",
+        "character:vitiate",
+        "continuity:legends",
+        "era:swtor-era",
+        "faction:eternal-empire",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:dromund-kaas",
+        "location:zakuul",
+        "scope:old-republic",
+        "topic:emperor",
+        "topic:identity-masks",
+        "topic:immortality"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Vitiate",
+            "Valkorion"
+          ],
+          "topicsAny": [
+            "immortality",
+            "identity masks",
+            "emperor"
+          ],
+          "locationsAny": [
+            "Dromund Kaas",
+            "Zakuul"
+          ],
+          "factionsAny": [
+            "Sith Empire",
+            "Eternal Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Vitiate’s identities and masks change across SWTOR-era material and should be gated by Context.",
+        "injection": "Do not collapse Vitiate, Sith Emperor, and Valkorion into public common knowledge unless the active Context has exposed those connections.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: SWTOR Era.",
+          "Respect story-position bounds from Great Galactic War Begins to Eternal Empire Crisis."
+        ],
+        "antiLore": [
+          "Avoid early Valkorion spoilers in Great Galactic War or cold-war scenes.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "SWTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_satele_and_malgus_form_public_icons",
+      "title": "Satele and Malgus Form Public Icons",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_galactic_war",
+        "validToAnchor": "sw.or.swtor_class_era",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "SWTOR Era",
+        "phase": "SWTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Satele Shan",
+          "Darth Malgus"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "jedi sith opposition",
+          "war icons",
+          "public memory"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "character:darth-malgus",
+        "character:satele-shan",
+        "continuity:legends",
+        "era:swtor-era",
+        "faction:jedi-order",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:coruscant",
+        "scope:old-republic",
+        "topic:jedi-sith-opposition",
+        "topic:public-memory",
+        "topic:war-icons"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satele Shan",
+            "Darth Malgus"
+          ],
+          "topicsAny": [
+            "jedi sith opposition",
+            "war icons",
+            "public memory"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Satele Shan and Darth Malgus become recognizable symbolic opposites of the SWTOR-era Jedi/Sith conflict.",
+        "injection": "Use Satele and Malgus as era-defining public figures when the story needs readable Jedi/Sith opposition. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: SWTOR Era.",
+          "Respect story-position bounds from Great Galactic War Begins to SWTOR Class-Story Era."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "SWTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_mandalore_title_changes_by_old_republic_context",
+      "title": "Mandalore Title Changes by Context",
+      "kind": "knowledge_gate",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.mandalorian_wars_begin",
+        "validToAnchor": "sw.or.swtor_class_era",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Mandalorian Wars",
+        "phase": "Mandalorian Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mandalore the Ultimate",
+          "Mandalore the Preserver"
+        ],
+        "locations": [
+          "Mandalore"
+        ],
+        "topics": [
+          "mandalore title",
+          "clan leadership",
+          "era-dependent"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Mandalorians"
+        ]
+      },
+      "tags": [
+        "character:mandalore-the-preserver",
+        "character:mandalore-the-ultimate",
+        "continuity:legends",
+        "era:mandalorian-wars",
+        "faction:mandalorians",
+        "fandom:star-wars",
+        "location:mandalore",
+        "scope:old-republic",
+        "topic:clan-leadership",
+        "topic:era-dependent",
+        "topic:mandalore-title"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mandalore the Ultimate",
+            "Mandalore the Preserver"
+          ],
+          "topicsAny": [
+            "mandalore title",
+            "clan leadership",
+            "era-dependent"
+          ],
+          "locationsAny": [
+            "Mandalore"
+          ],
+          "factionsAny": [
+            "Mandalorians"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The title Mandalore changes holders and meaning across Old Republic eras.",
+        "injection": "When writing Mandalorian leadership, check active Context before naming Mandalore; the title is not one static person across the whole deck.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mandalorian Wars.",
+          "Respect story-position bounds from Mandalorian Wars Begin to SWTOR Class-Story Era."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Mandalorian Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

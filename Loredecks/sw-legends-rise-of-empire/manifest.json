@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "sw-legends-rise-of-empire",
+  "type": "bundled",
+  "title": "Star Wars Legends: Rise of Empire",
+  "description": "Legends late-Republic and Clone Wars deck covering the Naboo crisis, Separatist crisis, Clone Wars multimedia-era state, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation.",
+  "fandom": "Star Wars",
+  "era": "Rise of Empire: late Republic, Clone Wars, Order 66, and early Empire",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "1.1.0-dev",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-08",
+  "databaseId": "saga.sw-legends-rise-of-empire",
+  "deckFamilyId": "sw-legends",
+  "family": {
+    "id": "sw-legends",
+    "title": "Star Wars Legends",
+    "role": "era",
+    "recommendedCoreDeckId": "sw-legends-core"
+  },
+  "recommendedStack": [
+    "sw-legends-core",
+    "sw-legends-film-spine"
+  ],
+  "library": {
+    "suggestedPath": [
+      "Star Wars",
+      "Legends"
+    ],
+    "familyOrder": 40
+  },
+  "tags": [
+    "fandom:star-wars",
+    "continuity:legends",
+    "structure:split-loredeck",
+    "quality:draft",
+    "scope:era",
+    "scope:rise-of-empire"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "star-wars-legends",
+    "canonTier": "legends",
+    "adaptation": "mixed",
+    "medium": "film-novel-comic-animation-game-reference",
+    "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+    "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "characters/rise_of_empire_character_states.json",
+    "chronology/geonosis_and_early_clone_wars.json",
+    "chronology/late_clone_wars_and_republic_fall.json",
+    "chronology/republic_decay_and_naboo.json",
+    "factions/republic_separatists_empire.json",
+    "future_guards/future_era_leakage_guards.json",
+    "items/war_technology_and_artifacts.json",
+    "knowledge/secrets_identity_and_purge_gates.json",
+    "locations/rise_of_empire_locations.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 1,
+    "sagaSchemaMax": 1
+  },
+  "stats": {
+    "entryCount": 155,
+    "categoryCounts": {
+      "character": 36,
+      "event": 8,
+      "faction": 30,
+      "item": 14,
+      "knowledge": 17,
+      "location": 15,
+      "relationship": 2,
+      "rule": 4,
+      "secret": 28,
+      "timeline": 1
+    },
+    "tagCount": 388,
+    "entityCount": 100,
+    "timelineAnchorCount": 25,
+    "timelineWindowCount": 15,
+    "timelinePhaseCount": 1
+  },
+  "updatedAt": 1780876800000,
+  "generatedBy": {
+    "curationPass": {
+      "name": "timeline-control-review",
+      "version": "1.1.0-dev",
+      "date": "2026-06-08",
+      "notes": "Removed low-value deck-operation Lorecards, tightened model-facing injections, added Context constraints and anti-lore, and normalized schema-supported lorePurpose values."
+    }
+  }
+}

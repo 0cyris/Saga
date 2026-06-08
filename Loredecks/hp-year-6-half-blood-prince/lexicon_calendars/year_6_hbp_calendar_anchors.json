@@ -10,7 +10,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -27,8 +27,8 @@
         "scope": "anchor",
         "validFromAnchor": "hp.y6.privet_summer_after_sirius",
         "validToAnchor": "hp.y6.privet_summer_after_sirius",
-        "sortKeyFrom": 9689,
-        "sortKeyTo": 9689,
+        "sortKeyFrom": 9692,
+        "sortKeyTo": 9692,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -95,8 +95,16 @@
       },
       "content": {
         "fact": "Dumbledore collects Harry from Privet Drive, confronts the Dursleys socially, and brings Harry along while persuading Slughorn to return to Hogwarts.",
-        "injection": "Dumbledore collects Harry from Privet Drive, confronts the Dursleys socially, and brings Harry along while persuading Slughorn to return to Hogwarts.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Dumbledore collects Harry from Privet Drive, confronts the Dursleys socially, and brings Harry along while persuading Slughorn to return to Hogwarts. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -127,7 +135,17 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -136,7 +154,7 @@
       "kind": "skill_band",
       "gateType": "skill_band",
       "category": "event",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -144,7 +162,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -153,7 +171,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.privet_summer_after_sirius",
         "validToAnchor": "hp.y6.burrow_summer",
-        "sortKeyFrom": 9690,
+        "sortKeyFrom": 9692,
         "sortKeyTo": 9710,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -192,8 +210,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -215,8 +233,16 @@
       },
       "content": {
         "fact": "Harry’s OWL results arrive at the Burrow, shaping which NEWT-level courses he can take in sixth year.",
-        "injection": "Harry’s OWL results arrive at the Burrow, shaping which NEWT-level courses he can take in sixth year.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry’s OWL results arrive at the Burrow, shaping which NEWT-level courses he can take in sixth year. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -247,7 +273,16 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -256,7 +291,7 @@
       "kind": "knowledge_guard",
       "gateType": "knowledge_guard",
       "category": "knowledge",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -264,7 +299,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -273,8 +308,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.burrow_summer",
         "validToAnchor": "hp.y6.sixth_year_course_access_set",
-        "sortKeyFrom": 9711,
-        "sortKeyTo": 9718,
+        "sortKeyFrom": 9710,
+        "sortKeyTo": 9723,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -343,8 +378,16 @@
       },
       "content": {
         "fact": "During the Diagon Alley trip, Harry’s observations of Draco and Narcissa deepen his suspicion that Draco is involved with Death Eaters.",
-        "injection": "During the Diagon Alley trip, Harry’s observations of Draco and Narcissa deepen his suspicion that Draco is involved with Death Eaters.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "During the Diagon Alley trip, Harry’s observations of Draco and Narcissa deepen his suspicion that Draco is involved with Death Eaters. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -375,7 +418,18 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -384,7 +438,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -392,7 +446,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -401,8 +455,8 @@
         "scope": "anchor",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.hogwarts_express_slug_club",
-        "sortKeyFrom": 9740,
-        "sortKeyTo": 9740,
+        "sortKeyFrom": 9735,
+        "sortKeyTo": 9742,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -469,8 +523,16 @@
       },
       "content": {
         "fact": "Slughorn’s first train gathering establishes the Slug Club social channel, while Harry’s spying on Draco results in him being stunned and hidden.",
-        "injection": "Slughorn’s first train gathering establishes the Slug Club social channel, while Harry’s spying on Draco results in him being stunned and hidden.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Slughorn’s first train gathering establishes the Slug Club social channel, while Harry’s spying on Draco results in him being stunned and hidden. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -501,7 +563,17 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -510,7 +582,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -518,7 +590,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -527,8 +599,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.draco_stomps_harry",
-        "sortKeyFrom": 9741,
-        "sortKeyTo": 9745,
+        "sortKeyFrom": 9735,
+        "sortKeyTo": 9748,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -596,8 +668,16 @@
       },
       "content": {
         "fact": "Harry receives the annotated Potions book, uses its instructions to excel, and wins Felix Felicis from Slughorn.",
-        "injection": "Harry receives the annotated Potions book, uses its instructions to excel, and wins Felix Felicis from Slughorn.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry receives the annotated Potions book, uses its instructions to excel, and wins Felix Felicis from Slughorn. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -628,7 +708,16 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -637,7 +726,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -645,7 +734,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -654,8 +743,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.hogwarts_express_slug_club",
         "validToAnchor": "hp.y6.tonks_rescues_harry",
-        "sortKeyFrom": 9746,
-        "sortKeyTo": 9752,
+        "sortKeyFrom": 9742,
+        "sortKeyTo": 9754,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -722,8 +811,16 @@
       },
       "content": {
         "fact": "Dumbledore’s first private lesson shows Harry the Gaunt family background and begins the structured investigation of Voldemort’s past.",
-        "injection": "Dumbledore’s first private lesson shows Harry the Gaunt family background and begins the structured investigation of Voldemort’s past.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Dumbledore’s first private lesson shows Harry the Gaunt family background and begins the structured investigation of Voldemort’s past. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -754,7 +851,17 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -763,7 +870,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -771,7 +878,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -780,7 +887,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_stomps_harry",
         "validToAnchor": "hp.y6.term_arrival_security_context",
-        "sortKeyFrom": 9753,
+        "sortKeyFrom": 9748,
         "sortKeyTo": 9760,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -848,8 +955,16 @@
       },
       "content": {
         "fact": "Harry selects a new Gryffindor Quidditch team, Hermione helps Ron secure Keeper, and the first Slug Club dinner reinforces Slughorn’s favoritism network.",
-        "injection": "Harry selects a new Gryffindor Quidditch team, Hermione helps Ron secure Keeper, and the first Slug Club dinner reinforces Slughorn’s favoritism network.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry selects a new Gryffindor Quidditch team, Hermione helps Ron secure Keeper, and the first Slug Club dinner reinforces Slughorn’s favoritism network. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -880,7 +995,18 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -889,7 +1015,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -897,7 +1023,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -906,8 +1032,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.half_blood_prince_book",
         "validToAnchor": "hp.y6.nonverbal_magic_pressure",
-        "sortKeyFrom": 9781,
-        "sortKeyTo": 9788,
+        "sortKeyFrom": 9779,
+        "sortKeyTo": 9792,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -976,8 +1102,16 @@
       },
       "content": {
         "fact": "Katie Bell is Imperiused and cursed through a necklace during a Hogsmeade trip, supporting Harry’s suspicion that Draco is attempting murder.",
-        "injection": "Katie Bell is Imperiused and cursed through a necklace during a Hogsmeade trip, supporting Harry’s suspicion that Draco is attempting murder.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Katie Bell is Imperiused and cursed through a necklace during a Hogsmeade trip, supporting Harry’s suspicion that Draco is attempting murder. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1008,7 +1142,16 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1017,7 +1160,7 @@
       "kind": "relationship_gate",
       "gateType": "relationship_gate",
       "category": "relationship",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "relationship_state",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1025,7 +1168,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1034,7 +1177,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.first_memory_lesson_gaunts",
         "validToAnchor": "hp.y6.ron_lavender_start",
-        "sortKeyFrom": 9803,
+        "sortKeyFrom": 9798,
         "sortKeyTo": 9848,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -1074,8 +1217,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Ron Weasley",
@@ -1098,8 +1241,16 @@
       },
       "content": {
         "fact": "After Gryffindor wins a Quidditch match, Ron kisses Lavender, escalating tension with Hermione and altering the trio’s social dynamic.",
-        "injection": "After Gryffindor wins a Quidditch match, Ron kisses Lavender, escalating tension with Hermione and altering the trio’s social dynamic.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "After Gryffindor wins a Quidditch match, Ron kisses Lavender, escalating tension with Hermione and altering the trio’s social dynamic. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1130,7 +1281,16 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1139,7 +1299,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1147,7 +1307,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1157,7 +1317,7 @@
         "validFromAnchor": "hp.y6.snape_draco_overheard",
         "validToAnchor": "hp.y6.post_christmas_return",
         "sortKeyFrom": 9850,
-        "sortKeyTo": 9857,
+        "sortKeyTo": 9868,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -1222,8 +1382,16 @@
       },
       "content": {
         "fact": "At Slughorn’s Christmas party, Harry brings Luna; afterward he overhears Snape pressing Draco about his secret task.",
-        "injection": "At Slughorn’s Christmas party, Harry brings Luna; afterward he overhears Snape pressing Draco about his secret task.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "At Slughorn’s Christmas party, Harry brings Luna; afterward he overhears Snape pressing Draco about his secret task. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1254,7 +1422,18 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:luna-lovegood",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1263,7 +1442,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1271,20 +1450,20 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 115,
       "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
       "context": {
         "scope": "window",
-        "validFromAnchor": "hp.y6.hermione_jealousy_spike",
-        "validToAnchor": "hp.y6.apparition_lessons_announced",
-        "sortKeyFrom": 9867,
-        "sortKeyTo": 9874,
-        "precision": "school_year_window",
-        "windowKind": "school_year",
-        "label": "Half-Blood Prince: Year 6",
+        "validFromAnchor": "hp.y6.horcrux_memory_task_assigned",
+        "validToAnchor": "hp.y6.true_slughorn_memory_obtained",
+        "sortKeyFrom": 9871,
+        "sortKeyTo": 9971,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Altered Horcrux memory task before true memory",
         "approximate": false
       },
       "scope": {
@@ -1345,9 +1524,19 @@
         }
       },
       "content": {
-        "fact": "Dumbledore shows Harry Slughorn’s altered memory about Horcruxes and assigns him to obtain the true version.",
-        "injection": "Dumbledore shows Harry Slughorn’s altered memory about Horcruxes and assigns him to obtain the true version.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "fact": "Dumbledore shows Harry the altered Slughorn memory and assigns him to obtain the true memory; this gives Harry a dangerous clue, not full trio knowledge.",
+        "injection": "In this window, Harry is pursuing Slughorn’s true memory. Hermione and Ron may know Harry has a task only if told, but they should not fluently explain Horcruxes or Voldemort’s split-soul plan before the true memory.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Use this card to suppress premature Hermione Horcrux expertise.",
+          "Apply only when Saga Context matches Altered Horcrux memory task before true memory; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let the altered memory function as complete Horcrux exposition.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1378,7 +1567,20 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6",
+        "topic:horcruxes"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1387,7 +1589,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1395,7 +1597,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1405,7 +1607,7 @@
         "validFromAnchor": "hp.y6.harry_bezoar_save",
         "validToAnchor": "hp.y6.draco_myrtle_clue",
         "sortKeyFrom": 9921,
-        "sortKeyTo": 9928,
+        "sortKeyTo": 9935,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -1476,8 +1678,16 @@
       },
       "content": {
         "fact": "Ron accidentally takes love potion and is then poisoned by mead at Slughorn’s; Harry saves him with a bezoar.",
-        "injection": "Ron accidentally takes love potion and is then poisoned by mead at Slughorn’s; Harry saves him with a bezoar.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Ron accidentally takes love potion and is then poisoned by mead at Slughorn’s; Harry saves him with a bezoar. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1508,7 +1718,16 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1517,7 +1736,7 @@
       "kind": "knowledge_guard",
       "gateType": "knowledge_guard",
       "category": "knowledge",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1525,7 +1744,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1534,8 +1753,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_myrtle_clue",
         "validToAnchor": "hp.y6.felix_felicis_used",
-        "sortKeyFrom": 9936,
-        "sortKeyTo": 9943,
+        "sortKeyFrom": 9935,
+        "sortKeyTo": 9971,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -1604,8 +1823,16 @@
       },
       "content": {
         "fact": "Harry realizes Draco is using the Room of Requirement and learns Myrtle has been speaking with a distressed boy, reinforcing his suspicion.",
-        "injection": "Harry realizes Draco is using the Room of Requirement and learns Myrtle has been speaking with a distressed boy, reinforcing his suspicion.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry realizes Draco is using the Room of Requirement and learns Myrtle has been speaking with a distressed boy, reinforcing his suspicion. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1636,7 +1863,18 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1645,7 +1883,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1653,7 +1891,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1733,8 +1971,16 @@
       },
       "content": {
         "fact": "Harry uses Felix Felicis, attends Aragog’s burial, and succeeds in obtaining Slughorn’s true Horcrux memory.",
-        "injection": "Harry uses Felix Felicis, attends Aragog’s burial, and succeeds in obtaining Slughorn’s true Horcrux memory.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry uses Felix Felicis, attends Aragog’s burial, and succeeds in obtaining Slughorn’s true Horcrux memory. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1765,7 +2011,18 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6",
+        "topic:horcruxes"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1774,7 +2031,7 @@
       "kind": "spell_gate",
       "gateType": "spell_gate",
       "category": "spell",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 60,
       "injectableByDefault": false,
@@ -1782,7 +2039,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 10,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1791,8 +2048,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.detention_and_prince_book_hidden",
         "validToAnchor": "hp.y6.sectumsempra_attack",
-        "sortKeyFrom": 9987,
-        "sortKeyTo": 9990,
+        "sortKeyFrom": 9979,
+        "sortKeyTo": 9996,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -1860,8 +2117,16 @@
       },
       "content": {
         "fact": "Harry uses Sectumsempra on Draco in the bathroom, badly injuring him and receiving detention from Snape for the rest of the year.",
-        "injection": "Harry uses Sectumsempra on Draco in the bathroom, badly injuring him and receiving detention from Snape for the rest of the year.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry uses Sectumsempra on Draco in the bathroom, badly injuring him and receiving detention from Snape for the rest of the year. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1892,7 +2157,18 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6",
+        "spell:sectumsempra"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1901,7 +2177,7 @@
       "kind": "relationship_gate",
       "gateType": "relationship_gate",
       "category": "relationship",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "relationship_state",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1909,7 +2185,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1918,8 +2194,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.detention_and_prince_book_hidden",
         "validToAnchor": "hp.y6.funeral",
-        "sortKeyFrom": 9991,
-        "sortKeyTo": 10036,
+        "sortKeyFrom": 9979,
+        "sortKeyTo": 10042,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -1957,8 +2233,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -1980,8 +2256,16 @@
       },
       "content": {
         "fact": "Gryffindor wins the Quidditch Cup while Harry is in detention, and Harry kisses Ginny during the celebration.",
-        "injection": "Gryffindor wins the Quidditch Cup while Harry is in detention, and Harry kisses Ginny during the celebration.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Gryffindor wins the Quidditch Cup while Harry is in detention, and Harry kisses Ginny during the celebration. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -2012,7 +2296,16 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -2021,7 +2314,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -2029,20 +2322,20 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 100,
+      "priority": 115,
       "status": "active",
       "protected": true,
       "locked": true,
       "userEditable": true,
       "context": {
         "scope": "window",
-        "validFromAnchor": "hp.y6.horcrux_hunt_decision",
-        "validToAnchor": "hp.y6.horcrux_hunt_decision",
-        "sortKeyFrom": 10042,
-        "sortKeyTo": 10049,
-        "precision": "school_year_window",
-        "windowKind": "school_year",
-        "label": "Half-Blood Prince: Year 6",
+        "validFromAnchor": "hp.y6.dumbledore_cave_mission",
+        "validToAnchor": "hp.y6.fight_and_flight_aftermath",
+        "sortKeyFrom": 10018,
+        "sortKeyTo": 10023,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Cave and Astronomy Tower crisis",
         "approximate": false
       },
       "scope": {
@@ -2113,9 +2406,19 @@
         }
       },
       "content": {
-        "fact": "Dumbledore takes Harry to retrieve a supposed Horcrux from the cave; they return to find Hogwarts under attack, culminating in Dumbledore’s death.",
-        "injection": "Dumbledore takes Harry to retrieve a supposed Horcrux from the cave; they return to find Hogwarts under attack, culminating in Dumbledore’s death.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "fact": "The cave mission and Tower crisis produce the fake locket clue, Dumbledore’s death, and Snape’s flight, without resolving the Horcrux hunt.",
+        "injection": "During the cave/Tower crisis, keep the sequence urgent and unresolved: Dumbledore is weakened then killed, Snape flees and reveals the Prince identity, and the locket clue points forward rather than ending the hunt. Enforce this as a high-priority Context gate for Cave and Astronomy Tower crisis; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "After this window, use funeral/hunt-decision cards for the trio’s next step.",
+          "Apply only when Saga Context matches Cave and Astronomy Tower crisis; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not treat R.A.B., Kreacher, or Umbridge’s locket as known yet unless Year 7 Context is active.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -2146,7 +2449,21 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "character:severus-snape",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:6",
+        "topic:horcruxes"
+      ]
     }
   ]
 }

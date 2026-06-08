@@ -81,7 +81,6 @@ function normalizeLoredeckLibraryPack(raw) { return dep('normalizeLoredeckLibrar
 function getLoredeckDefinition(packId) { return dep('getLoredeckDefinition', () => null)(packId); }
 function getLoredeckTypeLabel(packId) { return dep('getLoredeckTypeLabel', () => 'Custom')(packId); }
 function getLoredeckSourceSummary(pack) { return dep('getLoredeckSourceSummary', () => '')(pack); }
-function getLoredeckUpdateUrl(pack) { return dep('getLoredeckUpdateUrl', () => '')(pack); }
 function getLoredeckTagRegistryCount(pack) { return dep('getLoredeckTagRegistryCount', () => 0)(pack); }
 function getLoredeckTimelineRegistryCount(pack) { return dep('getLoredeckTimelineRegistryCount', () => 0)(pack); }
 function isVirtualLoredeckPack(pack) { return dep('isVirtualLoredeckPack', () => false)(pack); }
@@ -92,7 +91,6 @@ function persistLoredeckLibraryRecordMutation(pack, mutator, message, options) {
 function validateLoredeckForEditor(pack, button, options) { return dep('validateLoredeckForEditor', async () => ({ health: null, error: 'Validation is unavailable.' }))(pack, button, options); }
 function canValidateLoredeckInEditor(pack) { return dep('canValidateLoredeckInEditor', () => false)(pack); }
 function repairLoredeckSafeHealthIssues(pack, button) { return dep('repairLoredeckSafeHealthIssues', async () => {})(pack, button); }
-function checkLoredeckForUpdates(pack, button) { return dep('checkLoredeckForUpdates', async () => {})(pack, button); }
 function loadLoredeckManifestPreview(pack, button) { return dep('loadLoredeckManifestPreview', async () => {})(pack, button); }
 function createLoredeckManifestPreview(pack) { return dep('createLoredeckManifestPreview', () => document.createDocumentFragment())(pack); }
 function createLoredeckEntryOverrideCard(pack) { return dep('createLoredeckEntryOverrideCard', () => document.createDocumentFragment())(pack); }
@@ -361,13 +359,13 @@ export function renderLoredeckLibraryOverlay(options = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions wandlight-loredeck-library-header-actions';
-    actions.appendChild(createButton('Import Deck', 'Install a Saga Loredeck JSON bundle into the Library.', () => {
+    actions.appendChild(createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
         installLoredeckBundleFromFile();
     }));
     const exportSelected = createButton(
         selectedPacks.length > 1 ? `Export Selected (${selectedPacks.length})` : 'Export Selected',
         selectedPacks.length
-            ? 'Export each selected Loredeck as its own .saga-loredeck.json file.'
+            ? 'Export selected Loredecks as one .saga-loredeck.zip package.'
             : 'Select one or more Loredecks before exporting.',
         async (btn) => {
             await exportSelectedLoredeckBundles(selectedPacks, btn);
@@ -1691,7 +1689,7 @@ function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex =
     clear.disabled = !selectedIds.length;
     toolbar.appendChild(clear);
 
-    const exportButton = createButton('Export Selected', 'Export each selected Loredeck as its own JSON bundle.', async (btn) => {
+    const exportButton = createButton('Export Selected', 'Export selected Loredecks as one .saga-loredeck.zip package.', async (btn) => {
         const library = getLoredeckLibrary(getState());
         const packs = getLoredeckLibraryBulkSelectedIds(library).map(id => library.find(pack => pack.packId === id)).filter(Boolean);
         await exportSelectedLoredeckBundles(packs, btn);
@@ -3586,13 +3584,7 @@ function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo =
             : 'Open the Library metadata editor for this Loredeck.',
         () => openLoredeckMetadataEditor(pack.packId)
     ));
-    const updateButton = createButton('Check Updates', 'Fetch this Loredeck source/update URL and review any installable update bundle.', async (btn) => {
-        await checkLoredeckForUpdates(pack, btn);
-        renderLoredeckLibraryOverlay();
-    });
-    updateButton.disabled = !getLoredeckUpdateUrl(pack);
-    actions.appendChild(updateButton);
-    const exportButton = createButton('Export', 'Validate and export this editable Loredeck draft.', async (btn) => {
+    const exportButton = createButton('Export', 'Validate and export this editable Loredeck as a .saga-loredeck.zip package.', async (btn) => {
         await exportValidatedLoredeckDraft(pack, btn);
         renderLoredeckLibraryOverlay();
     });
@@ -3795,12 +3787,6 @@ function createLoredeckMetadataEditorCard(pack) {
         syncButton.disabled = !pack.manifest;
         actions.appendChild(syncButton);
 
-        const updateButton = createButton('Check Updates', 'Fetch this Loredeck source/update URL and review any installable update bundle.', async (btn) => {
-            await checkLoredeckForUpdates(pack, btn);
-        });
-        updateButton.disabled = !getLoredeckUpdateUrl(pack);
-        actions.appendChild(updateButton);
-
         const repairButton = createButton('Repair Safe Issues', 'Apply safe Deck Health repairs to Custom metadata and existing overrides.', async (btn) => {
             await repairLoredeckSafeHealthIssues(pack, btn);
             openLoredeckMetadataEditor(pack.packId);
@@ -3809,7 +3795,7 @@ function createLoredeckMetadataEditorCard(pack) {
         repairButton.disabled = !editorCanValidate;
         actions.appendChild(repairButton);
 
-        const exportButton = createButton('Export Validated Draft', 'Validate this Custom Loredeck record, then export it with Deck Health metadata.', async (btn) => {
+        const exportButton = createButton('Export Package', 'Validate this Custom Loredeck record, then export it as a .saga-loredeck.zip package.', async (btn) => {
             await exportValidatedLoredeckDraft(pack, btn);
         });
         exportButton.disabled = !editorCanValidate;

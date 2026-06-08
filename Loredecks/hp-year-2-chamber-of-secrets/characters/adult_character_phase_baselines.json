@@ -10,7 +10,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 86,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.diary_destroyed",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8552,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8553,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -77,8 +77,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Tom Riddle",
@@ -114,15 +114,19 @@
       },
       "content": {
         "fact": "In Year 2, diary Tom Riddle presents as a charming, controlled, seemingly sympathetic schoolboy memory while concealing predatory manipulation and Voldemort’s younger selfhood.",
-        "injection": "Write diary Tom Riddle as polished, plausible, patient, and predatory beneath schoolboy charm; he should manipulate through attention, sympathy, and selective truth rather than open monstrous display until revealed.",
+        "injection": "Write diary Tom Riddle as polished, plausible, patient, and predatory beneath schoolboy charm; he should manipulate through attention, sympathy, and selective truth rather than open monstrous display until revealed. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make the diary persona openly Voldemort-like to characters before reveal conditions allow it.",
           "Keep possession mechanics, Chamber events, and individual victims in separate dated entries.",
           "His voice should be controlled, intelligent, and flattering when useful.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write diary Riddle as cackling, crude, or publicly obvious from first contact."
+          "Do not write diary Riddle as cackling, crude, or publicly obvious from first contact.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -170,7 +174,16 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:diary",
+        "book:chamber-of-secrets",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -179,7 +192,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 86,
       "injectableByDefault": true,
@@ -187,7 +200,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -196,8 +209,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.diary_destroyed",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8552,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8553,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 2",
@@ -246,8 +259,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Gilderoy Lockhart",
@@ -280,15 +293,19 @@
       },
       "content": {
         "fact": "In Year 2, Lockhart is vain, performative, publicity-driven, and charmingly useless at practical Defense instruction despite his public celebrity.",
-        "injection": "Write Lockhart in Year 2 as flamboyant, self-promoting, shallowly charming, fame-obsessed, and evasive when real competence is required.",
+        "injection": "Write Lockhart in Year 2 as flamboyant, self-promoting, shallowly charming, fame-obsessed, and evasive when real competence is required. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "His confidence should be theatrical rather than grounded in reliable skill.",
           "Do not make him secretly competent, humble, or tactically useful unless the story has explicitly changed him.",
           "Keep memory-charm history, crisis outcomes, and post-Year-2 status in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Lockhart as a genuinely effective DADA mentor."
+          "Do not write Lockhart as a genuinely effective DADA mentor.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Adult/phase present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -335,7 +352,14 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     }
   ]
 }

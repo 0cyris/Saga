@@ -10,7 +10,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.moody_killed",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10063,
-        "sortKeyTo": 10469,
+        "sortKeyFrom": 10060,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "wide",
         "label": "Deathly Hallows",
@@ -72,9 +72,15 @@
       },
       "content": {
         "fact": "Charity Burbage is dead after the Malfoy Manor meeting near the start of Year 7.",
-        "injection": "Charity Burbage is dead after the Malfoy Manor meeting near the start of Year 7.",
+        "injection": "Charity Burbage is dead after the Malfoy Manor meeting near the start of Year 7. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Charity Burbage as alive after 1997-07-21 unless accepted story lore has established a different outcome."
+          "Do not treat Charity Burbage as alive after 1997-07-21 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -102,7 +108,13 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -111,7 +123,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -119,7 +131,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -129,7 +141,7 @@
         "validFromAnchor": "hp.y7.burrow_after_seven_potters",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10069,
-        "sortKeyTo": 10469,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "wide",
         "label": "Deathly Hallows",
@@ -171,9 +183,15 @@
       },
       "content": {
         "fact": "Hedwig is dead after the Seven Potters flight unless our story has established a different outcome.",
-        "injection": "Hedwig is dead after the Seven Potters flight unless our story has established a different outcome.",
+        "injection": "Hedwig is dead after the Seven Potters flight unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Hedwig as alive after 1997-07-27 unless accepted story lore has established a different outcome."
+          "Do not treat Hedwig as alive after 1997-07-27 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -201,7 +219,13 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -210,7 +234,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -218,7 +242,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -228,7 +252,7 @@
         "validFromAnchor": "hp.y7.burrow_after_seven_potters",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10069,
-        "sortKeyTo": 10469,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "wide",
         "label": "Deathly Hallows",
@@ -272,9 +296,15 @@
       },
       "content": {
         "fact": "Alastor “Mad-Eye” Moody is dead after the Seven Potters flight unless our story has established a different outcome.",
-        "injection": "Alastor “Mad-Eye” Moody is dead after the Seven Potters flight unless our story has established a different outcome.",
+        "injection": "Alastor “Mad-Eye” Moody is dead after the Seven Potters flight unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Alastor Moody as alive after 1997-07-27 unless accepted story lore has established a different outcome."
+          "Do not treat Alastor Moody as alive after 1997-07-27 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -302,7 +332,14 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:alastor-moody",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -311,7 +348,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -319,7 +356,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -328,8 +365,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.kings_cross_vision",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10324,
-        "sortKeyTo": 10469,
+        "sortKeyFrom": 10322,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "bounded",
         "label": "Deathly Hallows",
@@ -357,8 +394,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Peter Pettigrew",
@@ -373,9 +410,15 @@
       },
       "content": {
         "fact": "Peter Pettigrew is dead after the Malfoy Manor escape unless our story has established a different outcome.",
-        "injection": "Peter Pettigrew is dead after the Malfoy Manor escape unless our story has established a different outcome.",
+        "injection": "Peter Pettigrew is dead after the Malfoy Manor escape unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Peter Pettigrew as alive after 1998-04-08 unless accepted story lore has established a different outcome."
+          "Do not treat Peter Pettigrew as alive after 1998-04-08 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -403,7 +446,14 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:peter-pettigrew",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -412,7 +462,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -420,7 +470,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -429,8 +479,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.kings_cross_vision",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10324,
-        "sortKeyTo": 10469,
+        "sortKeyFrom": 10322,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "bounded",
         "label": "Deathly Hallows",
@@ -457,8 +507,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Dobby"
@@ -472,9 +522,15 @@
       },
       "content": {
         "fact": "Dobby is dead after the Malfoy Manor escape unless our story has established a different outcome.",
-        "injection": "Dobby is dead after the Malfoy Manor escape unless our story has established a different outcome.",
+        "injection": "Dobby is dead after the Malfoy Manor escape unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Dobby as alive after 1998-04-08 unless accepted story lore has established a different outcome."
+          "Do not treat Dobby as alive after 1998-04-08 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -502,7 +558,13 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -511,7 +573,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -519,7 +581,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -528,8 +590,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
-        "sortKeyTo": 10469,
+        "sortKeyFrom": 10344,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "bounded",
         "label": "Deathly Hallows",
@@ -557,8 +619,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Fred Weasley",
@@ -573,9 +635,15 @@
       },
       "content": {
         "fact": "Fred Weasley is dead after the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Fred Weasley is dead after the Battle of Hogwarts unless our story has established a different outcome.",
+        "injection": "Fred Weasley is dead after the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Fred Weasley as alive after 1998-05-02 unless accepted story lore has established a different outcome."
+          "Do not treat Fred Weasley as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -603,7 +671,15 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:fred-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -612,7 +688,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -620,7 +696,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -629,8 +705,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
-        "sortKeyTo": 10469,
+        "sortKeyFrom": 10344,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "bounded",
         "label": "Deathly Hallows",
@@ -658,8 +734,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Remus Lupin",
@@ -674,9 +750,15 @@
       },
       "content": {
         "fact": "Remus Lupin is dead after the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Remus Lupin is dead after the Battle of Hogwarts unless our story has established a different outcome.",
+        "injection": "Remus Lupin is dead after the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Remus Lupin as alive after 1998-05-02 unless accepted story lore has established a different outcome."
+          "Do not treat Remus Lupin as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -704,7 +786,15 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:remus-lupin",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -713,7 +803,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -721,7 +811,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -730,8 +820,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
-        "sortKeyTo": 10469,
+        "sortKeyFrom": 10344,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "bounded",
         "label": "Deathly Hallows",
@@ -759,8 +849,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Nymphadora Tonks",
@@ -775,9 +865,15 @@
       },
       "content": {
         "fact": "Nymphadora Tonks is dead after the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Nymphadora Tonks is dead after the Battle of Hogwarts unless our story has established a different outcome.",
+        "injection": "Nymphadora Tonks is dead after the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Nymphadora Tonks as alive after 1998-05-02 unless accepted story lore has established a different outcome."
+          "Do not treat Nymphadora Tonks as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -805,7 +901,14 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -814,7 +917,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -822,7 +925,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -831,8 +934,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
-        "sortKeyTo": 10469,
+        "sortKeyFrom": 10344,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "bounded",
         "label": "Deathly Hallows",
@@ -860,8 +963,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Severus Snape",
@@ -876,9 +979,15 @@
       },
       "content": {
         "fact": "Severus Snape is dead after the Battle of Hogwarts and his final memories unless our story has established a different outcome.",
-        "injection": "Severus Snape is dead after the Battle of Hogwarts and his final memories unless our story has established a different outcome.",
+        "injection": "Severus Snape is dead after the Battle of Hogwarts and his final memories unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Severus Snape as alive after 1998-05-02 unless accepted story lore has established a different outcome."
+          "Do not treat Severus Snape as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -906,7 +1015,15 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -915,7 +1032,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -923,7 +1040,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -932,8 +1049,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
-        "sortKeyTo": 10469,
+        "sortKeyFrom": 10344,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "bounded",
         "label": "Deathly Hallows",
@@ -961,8 +1078,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Bellatrix Lestrange",
@@ -977,9 +1094,15 @@
       },
       "content": {
         "fact": "Bellatrix Lestrange is dead after the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Bellatrix Lestrange is dead after the Battle of Hogwarts unless our story has established a different outcome.",
+        "injection": "Bellatrix Lestrange is dead after the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Bellatrix Lestrange as alive after 1998-05-02 unless accepted story lore has established a different outcome."
+          "Do not treat Bellatrix Lestrange as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -1007,7 +1130,14 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1016,7 +1146,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -1024,7 +1154,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1033,8 +1163,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
-        "sortKeyTo": 10469,
+        "sortKeyFrom": 10344,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "bounded",
         "label": "Deathly Hallows",
@@ -1062,8 +1192,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Lord Voldemort",
@@ -1078,9 +1208,15 @@
       },
       "content": {
         "fact": "Lord Voldemort is dead after the final duel at the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Lord Voldemort is dead after the final duel at the Battle of Hogwarts unless our story has established a different outcome.",
+        "injection": "Lord Voldemort is dead after the final duel at the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Lord Voldemort as alive after 1998-05-02 unless accepted story lore has established a different outcome."
+          "Do not treat Lord Voldemort as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -1108,7 +1244,15 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1117,7 +1261,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -1125,7 +1269,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "private",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1134,8 +1278,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y7.elder_wand_resolution",
         "validToAnchor": "hp.y7.battle_aftermath",
-        "sortKeyFrom": 10348,
-        "sortKeyTo": 10469,
+        "sortKeyFrom": 10344,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "bounded",
         "label": "Deathly Hallows",
@@ -1163,8 +1307,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Colin Creevey",
@@ -1179,9 +1323,15 @@
       },
       "content": {
         "fact": "Colin Creevey is dead after the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Colin Creevey is dead after the Battle of Hogwarts unless our story has established a different outcome.",
+        "injection": "Colin Creevey is dead after the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not treat Colin Creevey as alive after 1998-05-02 unless accepted story lore has established a different outcome."
+          "Do not treat Colin Creevey as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -1209,7 +1359,14 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "topic:deathly-hallows"
+      ]
     }
   ]
 }

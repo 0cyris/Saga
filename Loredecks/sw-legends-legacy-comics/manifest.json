@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "sw-legends-legacy-comics",
+  "type": "bundled",
+  "title": "Star Wars Legends: Legacy Comics",
+  "description": "Far-future Legends deck covering Star Wars: Legacy volume 1 and volume 2: Cade Skywalker, Darth Krayt's One Sith, Fel Imperial schism, Galactic Alliance Remnant, Jedi survivors, Imperial Knights, and Ania Solo-era fallout.",
+  "fandom": "Star Wars",
+  "era": "Legacy Comics / Far-Future Legends",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "1.1.0-dev",
+  "defaultLocale": "en",
+  "generatedAt": "2026-06-08",
+  "databaseId": "saga.sw-legends-legacy-comics",
+  "deckFamilyId": "sw-legends",
+  "family": {
+    "id": "sw-legends",
+    "title": "Star Wars Legends",
+    "role": "era",
+    "recommendedCoreDeckId": "sw-legends-core"
+  },
+  "recommendedStack": [
+    "sw-legends-core",
+    "sw-legends-film-spine",
+    "sw-legends-new-republic",
+    "sw-legends-new-jedi-order",
+    "sw-legends-late-post-endor"
+  ],
+  "library": {
+    "suggestedPath": [
+      "Star Wars",
+      "Legends"
+    ],
+    "familyOrder": 90
+  },
+  "tags": [
+    "fandom:star-wars",
+    "continuity:legends",
+    "structure:split-loredeck",
+    "quality:draft",
+    "scope:era",
+    "scope:legacy-comics"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "continuity": {
+    "continuityId": "star-wars-legends",
+    "canonTier": "legends",
+    "adaptation": "comics",
+    "medium": "comic-reference",
+    "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+    "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "registries": {
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "resolver": "resolver.json"
+  },
+  "resolver": "resolver.json",
+  "files": [
+    "characters/legacy_character_states.json",
+    "characters/legacy_secondary_character_states.json",
+    "chronology/legacy_volume_1_chronology.json",
+    "chronology/legacy_volume_2_ania_solo.json",
+    "factions/legacy_faction_states.json",
+    "future_guards/legacy_future_and_crosscanon_guards.json",
+    "items/legacy_artifacts_technology.json",
+    "knowledge/legacy_context_anchors.json",
+    "knowledge/legacy_identity_and_secret_gates.json",
+    "locations/legacy_locations.json",
+    "relationships/legacy_relationship_states.json",
+    "rules/legacy_scene_constraints.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 1,
+    "sagaSchemaMax": 1
+  },
+  "stats": {
+    "entryCount": 144,
+    "categoryCounts": {
+      "character": 30,
+      "event": 32,
+      "faction": 12,
+      "item": 6,
+      "knowledge": 29,
+      "location": 8,
+      "relationship": 10,
+      "rule": 9,
+      "secret": 2,
+      "timeline": 6
+    },
+    "timelineAnchorCount": 29,
+    "timelineWindowCount": 16,
+    "tagCount": 263,
+    "entityCount": 75,
+    "timelinePhaseCount": 2
+  },
+  "updatedAt": 1780876800000,
+  "generatedBy": {
+    "curationPass": {
+      "name": "timeline-control-review",
+      "version": "1.1.0-dev",
+      "date": "2026-06-08",
+      "notes": "Removed low-value deck-operation Lorecards, tightened model-facing injections, added Context constraints and anti-lore, and normalized schema-supported lorePurpose values."
+    }
+  }
+}

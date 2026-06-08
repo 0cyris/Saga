@@ -1,0 +1,583 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "y2_guard_dobby_warning_source_hidden",
+      "title": "Dobby warning source remains hidden",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 105,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.dobby_warning",
+        "validToAnchor": "hp.y2.dobby_freed",
+        "sortKeyFrom": 8253,
+        "sortKeyTo": 8565,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Dobby is freed",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Dobby",
+          "Lucius Malfoy"
+        ],
+        "topics": [
+          "Dobby warning",
+          "Lucius diary plot",
+          "hidden source"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:diary",
+        "book:chamber-of-secrets",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:2"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Dobby",
+            "Lucius Malfoy"
+          ],
+          "topicsAny": [
+            "Dobby warning",
+            "Lucius diary plot",
+            "hidden source"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dobby warns Harry but the Lucius-diary plot and Dobby’s full motive are not known to Harry for most of Year 2.",
+        "injection": "Treat Dobby’s warning as alarming but incomplete; do not expose Lucius Malfoy’s diary plant, Dobby’s full reasoning, or the final liberation outcome before those anchors.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Dobby is freed; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Chamber of Secrets",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-2-chamber-of-secrets",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-2-chamber-of-secrets"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y2_guard_harry_suspected_after_parseltongue",
+      "title": "Harry suspicion begins after Parseltongue exposure",
+      "kind": "status_gate",
+      "gateType": "status_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 100,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.parseltongue_exposed",
+        "validToAnchor": "hp.y2.ginny_rescued",
+        "sortKeyFrom": 8421,
+        "sortKeyTo": 8559,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Parseltongue exposure before Chamber resolution",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Draco Malfoy"
+        ],
+        "topics": [
+          "Parseltongue",
+          "Heir of Slytherin suspicion",
+          "school rumor"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:2"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Draco Malfoy"
+          ],
+          "topicsAny": [
+            "Parseltongue",
+            "Heir of Slytherin suspicion",
+            "school rumor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the Dueling Club reveals Harry can speak Parseltongue, many students suspect or fear him as a possible Heir of Slytherin.",
+        "injection": "After Parseltongue exposure, let school suspicion attach to Harry; before that anchor, do not make the school broadly treat him as the Heir. Enforce this as a high-priority Context gate for After Parseltongue exposure before Chamber resolution; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches After Parseltongue exposure before Chamber resolution; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Chamber of Secrets",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-2-chamber-of-secrets",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-2-chamber-of-secrets"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y2_guard_basilisk_deduction_not_before_hermione",
+      "title": "Basilisk deduction not available early",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 110,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.blood_message_first",
+        "validToAnchor": "hp.y2.basilisk_pipes_deduction",
+        "sortKeyFrom": 8373,
+        "sortKeyTo": 8517,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before basilisk-pipes deduction",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "Chamber monster",
+          "basilisk",
+          "pipes deduction"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "creature:basilisk",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:2"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "Chamber monster",
+            "basilisk",
+            "pipes deduction"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Hermione’s late deduction, the monster’s identity and movement through pipes are not known to the protagonists.",
+        "injection": "Before the basilisk-pipes deduction, keep the Chamber monster uncertain; Harry may hear a voice, but the trio should not confidently know basilisk mechanics or pipe travel.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before basilisk-pipes deduction; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Chamber of Secrets",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-2-chamber-of-secrets",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-2-chamber-of-secrets"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y2_guard_ginny_diary_possession_hidden",
+      "title": "Ginny diary possession hidden until Chamber",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.lucius_malfoy_diary_plant",
+        "validToAnchor": "hp.y2.ginny_taken",
+        "sortKeyFrom": 8313,
+        "sortKeyTo": 8523,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Ginny is taken into the Chamber",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ginny Weasley",
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "diary possession",
+          "Tom Riddle memory",
+          "Ginny secret"
+        ],
+        "objects": [
+          "Tom Riddle diary"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:diary",
+        "book:chamber-of-secrets",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:2"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ginny Weasley",
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "diary possession",
+            "Tom Riddle memory",
+            "Ginny secret",
+            "Tom Riddle diary"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ginny’s connection to the diary and attacks is hidden until the endgame reveals Tom Riddle’s possession scheme.",
+        "injection": "Before Ginny is taken and the Chamber opens, do not let Harry, Ron, Hermione, or most staff know Ginny is the diary’s victim or that Tom Riddle is using her.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Ginny is taken into the Chamber; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Chamber of Secrets",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-2-chamber-of-secrets",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-2-chamber-of-secrets"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y2_guard_tom_riddle_identity_until_diary_destroyed",
+      "title": "Tom Riddle identity revealed only in Chamber climax",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 110,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y2.tom_riddle_memory",
+        "validToAnchor": "hp.y2.diary_destroyed",
+        "sortKeyFrom": 8469,
+        "sortKeyTo": 8553,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before diary destruction",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Lord Voldemort",
+          "Ginny Weasley"
+        ],
+        "topics": [
+          "Tom Riddle identity",
+          "diary memory",
+          "Voldemort younger self"
+        ],
+        "objects": [
+          "Tom Riddle diary"
+        ],
+        "schoolYears": [
+          "2"
+        ],
+        "books": [
+          "Chamber of Secrets"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:diary",
+        "book:chamber-of-secrets",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:2"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Lord Voldemort",
+            "Ginny Weasley"
+          ],
+          "topicsAny": [
+            "Tom Riddle identity",
+            "diary memory",
+            "Voldemort younger self",
+            "Tom Riddle diary"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The diary presents Tom Riddle as a memory and false helper before Harry learns he is Voldemort’s younger self.",
+        "injection": "Before the Chamber climax, keep Tom Riddle’s diary identity deceptive; do not let characters casually know that the diary memory is Voldemort unless the active Context has reached the reveal.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before diary destruction; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Chamber of Secrets",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-2-chamber-of-secrets",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-2-chamber-of-secrets"
+        }
+      }
+    }
+  ]
+}

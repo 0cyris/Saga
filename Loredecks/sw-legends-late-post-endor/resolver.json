@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve late-post-Endor Star Wars Legends phrasing to Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible Context windows.",
+  "preferredFields": [
+    "era",
+    "series",
+    "beforeAfter",
+    "majorEvent",
+    "characterState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known late-post-Endor anchors/windows. Do not invent BBY/ABY dates or merge Disney sequel continuity. Prefer story-position anchors and windows over raw BBY/ABY dates; never invent timeline anchors outside this deck registry.",
+  "localPatterns": [
+    {
+      "pattern": "after njo",
+      "result": {
+        "contextType": "anchor",
+        "label": "After the Yuuzhan Vong War",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for After the Yuuzhan Vong War.",
+        "anchorId": "sw.late.post_njo_recovery",
+        "contextSortKey": 33000
+      }
+    },
+    {
+      "pattern": "post njo",
+      "result": {
+        "contextType": "anchor",
+        "label": "After the Yuuzhan Vong War",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for After the Yuuzhan Vong War.",
+        "anchorId": "sw.late.post_njo_recovery",
+        "contextSortKey": 33000
+      }
+    },
+    {
+      "pattern": "during dark nest",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "Dark Nest crisis",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Dark Nest crisis.",
+        "anchorFrom": "sw.late.dark_nest_begins",
+        "anchorTo": "sw.late.swarm_war",
+        "contextSortKeyFrom": 35000,
+        "contextSortKeyTo": 36000
+      }
+    },
+    {
+      "pattern": "dark nest era",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "Dark Nest crisis",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Dark Nest crisis.",
+        "anchorFrom": "sw.late.dark_nest_begins",
+        "anchorTo": "sw.late.swarm_war",
+        "contextSortKeyFrom": 35000,
+        "contextSortKeyTo": 36000
+      }
+    },
+    {
+      "pattern": "during swarm war",
+      "result": {
+        "contextType": "anchor",
+        "label": "Swarm War",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Swarm War.",
+        "anchorId": "sw.late.swarm_war",
+        "contextSortKey": 36000
+      }
+    },
+    {
+      "pattern": "after dark nest",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "After Dark Nest, before Legacy of the Force",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for After Dark Nest, before Legacy of the Force.",
+        "anchorFrom": "sw.late.post_dark_nest",
+        "anchorTo": "sw.late.lotf_betrayal",
+        "contextSortKeyFrom": 37000,
+        "contextSortKeyTo": 40000
+      }
+    },
+    {
+      "pattern": "during legacy of the force",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "Legacy of the Force / Caedus War",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Legacy of the Force / Caedus War.",
+        "anchorFrom": "sw.late.lotf_betrayal",
+        "anchorTo": "sw.late.caedus_falls",
+        "contextSortKeyFrom": 40000,
+        "contextSortKeyTo": 45000
+      }
+    },
+    {
+      "pattern": "lotf",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "Legacy of the Force / Caedus War",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Legacy of the Force / Caedus War.",
+        "anchorFrom": "sw.late.lotf_betrayal",
+        "anchorTo": "sw.late.caedus_falls",
+        "contextSortKeyFrom": 40000,
+        "contextSortKeyTo": 45000
+      }
+    },
+    {
+      "pattern": "before caedus",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "Jacen falling before public Caedus endpoint",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Jacen falling before public Caedus endpoint.",
+        "anchorFrom": "sw.late.lumiya_influence",
+        "anchorTo": "sw.late.caedus_declared",
+        "contextSortKeyFrom": 41000,
+        "contextSortKeyTo": 43000
+      }
+    },
+    {
+      "pattern": "after mara dies",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "After Mara Jade is killed, before Caedus falls",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for After Mara Jade is killed, before Caedus falls.",
+        "anchorFrom": "sw.late.mara_jade_killed",
+        "anchorTo": "sw.late.caedus_falls",
+        "contextSortKeyFrom": 42000,
+        "contextSortKeyTo": 45000
+      }
+    },
+    {
+      "pattern": "after sacrifice",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "After Mara Jade is killed, before Caedus falls",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for After Mara Jade is killed, before Caedus falls.",
+        "anchorFrom": "sw.late.mara_jade_killed",
+        "anchorTo": "sw.late.caedus_falls",
+        "contextSortKeyFrom": 42000,
+        "contextSortKeyTo": 45000
+      }
+    },
+    {
+      "pattern": "after caedus",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "After Caedus falls",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for After Caedus falls.",
+        "anchorFrom": "sw.late.caedus_falls",
+        "anchorTo": "sw.late.post_caedus",
+        "contextSortKeyFrom": 45000,
+        "contextSortKeyTo": 46000
+      }
+    },
+    {
+      "pattern": "after invincible",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "After Caedus falls",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for After Caedus falls.",
+        "anchorFrom": "sw.late.caedus_falls",
+        "anchorTo": "sw.late.post_caedus",
+        "contextSortKeyFrom": 45000,
+        "contextSortKeyTo": 46000
+      }
+    },
+    {
+      "pattern": "during fate of the jedi",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "Fate of the Jedi / Abeloth crisis",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Fate of the Jedi / Abeloth crisis.",
+        "anchorFrom": "sw.late.fotj_outcast",
+        "anchorTo": "sw.late.apocalypse_endgame",
+        "contextSortKeyFrom": 47000,
+        "contextSortKeyTo": 51000
+      }
+    },
+    {
+      "pattern": "fotj",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "Fate of the Jedi / Abeloth crisis",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Fate of the Jedi / Abeloth crisis.",
+        "anchorFrom": "sw.late.fotj_outcast",
+        "anchorTo": "sw.late.apocalypse_endgame",
+        "contextSortKeyFrom": 47000,
+        "contextSortKeyTo": 51000
+      }
+    },
+    {
+      "pattern": "luke exile",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "Luke and Ben exile journey",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Luke and Ben exile journey.",
+        "anchorFrom": "sw.late.luke_ben_exile",
+        "anchorTo": "sw.late.abeloth_revealed",
+        "contextSortKeyFrom": 47200,
+        "contextSortKeyTo": 49000
+      }
+    },
+    {
+      "pattern": "lost tribe era",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "Lost Tribe and Abeloth crisis",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Lost Tribe and Abeloth crisis.",
+        "anchorFrom": "sw.late.lost_tribe_emerges",
+        "anchorTo": "sw.late.apocalypse_endgame",
+        "contextSortKeyFrom": 48000,
+        "contextSortKeyTo": 51000
+      }
+    },
+    {
+      "pattern": "abeloth crisis",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "Lost Tribe and Abeloth crisis",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Lost Tribe and Abeloth crisis.",
+        "anchorFrom": "sw.late.lost_tribe_emerges",
+        "anchorTo": "sw.late.apocalypse_endgame",
+        "contextSortKeyFrom": 48000,
+        "contextSortKeyTo": 51000
+      }
+    },
+    {
+      "pattern": "after fate of the jedi",
+      "result": {
+        "contextType": "anchor_window",
+        "label": "After Fate of the Jedi through Crucible",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for After Fate of the Jedi through Crucible.",
+        "anchorFrom": "sw.late.post_fotj",
+        "anchorTo": "sw.late.crucible",
+        "contextSortKeyFrom": 52000,
+        "contextSortKeyTo": 53000
+      }
+    },
+    {
+      "pattern": "during crucible",
+      "result": {
+        "contextType": "anchor",
+        "label": "Crucible / Big Three Transition",
+        "confidence": 0.82,
+        "summary": "Local resolver mapping for Crucible / Big Three Transition.",
+        "anchorId": "sw.late.crucible",
+        "contextSortKey": 53000
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

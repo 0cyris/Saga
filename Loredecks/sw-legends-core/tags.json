@@ -1,0 +1,1877 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "ability:force-healing": {
+      "label": "Force Healing",
+      "description": "Force Healing. Ability or power-system tag.",
+      "color": "#4c1d95",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "force healing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "ability:force-lightning": {
+      "label": "Force Lightning",
+      "description": "Force Lightning. Ability or power-system tag.",
+      "color": "#4c1d95",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "force lightning"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "ability:mind-trick": {
+      "label": "Mind Trick",
+      "description": "Mind Trick. Ability or power-system tag.",
+      "color": "#4c1d95",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "mind trick"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "ability:telekinesis": {
+      "label": "Telekinesis",
+      "description": "Telekinesis. Ability or power-system tag.",
+      "color": "#4c1d95",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "telekinesis"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:boba-fett": {
+      "label": "Boba Fett",
+      "description": "Boba Fett. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "boba fett"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:c-3po": {
+      "label": "C 3Po",
+      "description": "C 3Po. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "c 3po"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:chewbacca": {
+      "label": "Chewbacca",
+      "description": "Chewbacca. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "chewbacca"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-vader": {
+      "label": "Darth Vader",
+      "description": "Darth Vader. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "darth vader"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:han-solo": {
+      "label": "Han Solo",
+      "description": "Han Solo. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "han solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jabba-the-hutt": {
+      "label": "Jabba The Hutt",
+      "description": "Jabba The Hutt. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "jabba the hutt"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:leia-organa": {
+      "label": "Leia Organa",
+      "description": "Leia Organa. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "leia organa"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:luke-skywalker": {
+      "label": "Luke Skywalker",
+      "description": "Luke Skywalker. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "luke skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mara-jade": {
+      "label": "Mara Jade",
+      "description": "Mara Jade. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "mara jade"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:obi-wan-kenobi": {
+      "label": "Obi Wan Kenobi",
+      "description": "Obi Wan Kenobi. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "obi wan kenobi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:palpatine": {
+      "label": "Palpatine",
+      "description": "Palpatine. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "palpatine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:r2-d2": {
+      "label": "R2 D2",
+      "description": "R2 D2. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "r2 d2"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:thrawn": {
+      "label": "Thrawn",
+      "description": "Thrawn. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "thrawn"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yoda": {
+      "label": "Yoda",
+      "description": "Yoda. Character/entity tag.",
+      "color": "#7c2d12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "yoda"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:legends": {
+      "label": "Legends",
+      "description": "Pre-2014 Expanded Universe / Legends continuity boundary.",
+      "color": "#3f3f46",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "legends"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:imperial": {
+      "label": "Imperial",
+      "description": "Imperial. Timeline era tag.",
+      "color": "#581c87",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "imperial"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:legacy": {
+      "label": "Legacy",
+      "description": "Legacy. Timeline era tag.",
+      "color": "#581c87",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "legacy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:njo": {
+      "label": "Njo",
+      "description": "Njo. Timeline era tag.",
+      "color": "#581c87",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "njo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:old-republic": {
+      "label": "Old Republic",
+      "description": "Old Republic. Timeline era tag.",
+      "color": "#581c87",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "old republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:post-endor": {
+      "label": "Post Endor",
+      "description": "Post Endor. Timeline era tag.",
+      "color": "#581c87",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "post endor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:prequel": {
+      "label": "Prequel",
+      "description": "Prequel. Timeline era tag.",
+      "color": "#581c87",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "prequel"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:rebellion": {
+      "label": "Rebellion",
+      "description": "Rebellion. Timeline era tag.",
+      "color": "#581c87",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "rebellion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:bespin": {
+      "label": "Bespin",
+      "description": "Bespin. Event or conflict tag.",
+      "color": "#7f1d1d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "bespin"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:clone-wars": {
+      "label": "Clone Wars",
+      "description": "Clone Wars. Event or conflict tag.",
+      "color": "#7f1d1d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "clone wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:endor": {
+      "label": "Endor",
+      "description": "Endor. Event or conflict tag.",
+      "color": "#7f1d1d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "endor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:hoth": {
+      "label": "Hoth",
+      "description": "Hoth. Event or conflict tag.",
+      "color": "#7f1d1d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "hoth"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:jabbas-palace": {
+      "label": "Jabbas Palace",
+      "description": "Jabbas Palace. Event or conflict tag.",
+      "color": "#7f1d1d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "jabbas palace"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:order-66": {
+      "label": "Order 66",
+      "description": "Order 66. Event or conflict tag.",
+      "color": "#7f1d1d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "order 66"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:yavin": {
+      "label": "Yavin",
+      "description": "Yavin. Event or conflict tag.",
+      "color": "#7f1d1d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "yavin"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:bounty-hunters": {
+      "label": "Bounty Hunters",
+      "description": "Bounty Hunters. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "bounty hunters"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:chiss-ascendancy": {
+      "label": "Chiss Ascendancy",
+      "description": "Chiss Ascendancy. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "chiss ascendancy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-empire": {
+      "label": "Galactic Empire",
+      "description": "Galactic Empire. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "galactic empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-republic": {
+      "label": "Galactic Republic",
+      "description": "Galactic Republic. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "galactic republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:hutts": {
+      "label": "Hutts",
+      "description": "Hutts. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "hutts"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:imperial-remnant": {
+      "label": "Imperial Remnant",
+      "description": "Imperial Remnant. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "imperial remnant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jedi-order": {
+      "label": "Jedi Order",
+      "description": "Jedi Order. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "jedi order"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:mandalorians": {
+      "label": "Mandalorians",
+      "description": "Mandalorians. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "mandalorians"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:new-jedi-order": {
+      "label": "New Jedi Order",
+      "description": "New Jedi Order. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "new jedi order"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:new-republic": {
+      "label": "New Republic",
+      "description": "New Republic. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "new republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:rebel-alliance": {
+      "label": "Rebel Alliance",
+      "description": "Rebel Alliance. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "rebel alliance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:separatists": {
+      "label": "Separatists",
+      "description": "Separatists. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "separatists"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:sith": {
+      "label": "Sith",
+      "description": "Sith. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "sith"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:underworld": {
+      "label": "Underworld",
+      "description": "Underworld. Faction or organization tag.",
+      "color": "#1e3a8a",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "underworld"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:star-wars": {
+      "label": "Star Wars",
+      "description": "Star Wars fandom scope.",
+      "color": "#111827",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "star wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:armor": {
+      "label": "Armor",
+      "description": "Armor. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "armor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:artifact": {
+      "label": "Artifact",
+      "description": "Artifact. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "artifact"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:bacta": {
+      "label": "Bacta",
+      "description": "Bacta. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "bacta"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:blaster": {
+      "label": "Blaster",
+      "description": "Blaster. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "blaster"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:carbonite": {
+      "label": "Carbonite",
+      "description": "Carbonite. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "carbonite"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:death-star": {
+      "label": "Death Star",
+      "description": "Death Star. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "death star"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:holocron": {
+      "label": "Holocron",
+      "description": "Holocron. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "holocron"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:ion-cannon": {
+      "label": "Ion Cannon",
+      "description": "Ion Cannon. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "ion cannon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:lightsaber": {
+      "label": "Lightsaber",
+      "description": "Lightsaber. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "lightsaber"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:millennium-falcon": {
+      "label": "Millennium Falcon",
+      "description": "Millennium Falcon. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "millennium falcon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:restraining-bolt": {
+      "label": "Restraining Bolt",
+      "description": "Restraining Bolt. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "restraining bolt"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:star-destroyer": {
+      "label": "Star Destroyer",
+      "description": "Star Destroyer. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "star destroyer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:starfighter": {
+      "label": "Starfighter",
+      "description": "Starfighter. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "starfighter"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:starship": {
+      "label": "Starship",
+      "description": "Starship. Object, vehicle, weapon, or technology tag.",
+      "color": "#713f12",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "starship"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:alderaan": {
+      "label": "Alderaan",
+      "description": "Alderaan. Location/region tag.",
+      "color": "#14532d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "alderaan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:core-worlds": {
+      "label": "Core Worlds",
+      "description": "Core Worlds. Location/region tag.",
+      "color": "#14532d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "core worlds"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:corellia": {
+      "label": "Corellia",
+      "description": "Corellia. Location/region tag.",
+      "color": "#14532d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "corellia"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:coruscant": {
+      "label": "Coruscant",
+      "description": "Coruscant. Location/region tag.",
+      "color": "#14532d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "coruscant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:dagobah": {
+      "label": "Dagobah",
+      "description": "Dagobah. Location/region tag.",
+      "color": "#14532d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "dagobah"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:hutt-space": {
+      "label": "Hutt Space",
+      "description": "Hutt Space. Location/region tag.",
+      "color": "#14532d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "hutt space"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:kashyyyk": {
+      "label": "Kashyyyk",
+      "description": "Kashyyyk. Location/region tag.",
+      "color": "#14532d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "kashyyyk"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:kuat": {
+      "label": "Kuat",
+      "description": "Kuat. Location/region tag.",
+      "color": "#14532d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "kuat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:outer-rim": {
+      "label": "Outer Rim",
+      "description": "Outer Rim. Location/region tag.",
+      "color": "#14532d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "outer rim"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:tatooine": {
+      "label": "Tatooine",
+      "description": "Tatooine. Location/region tag.",
+      "color": "#14532d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "tatooine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "place:unknown-regions": {
+      "label": "Unknown Regions",
+      "description": "Unknown Regions. Location/region tag.",
+      "color": "#14532d",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "unknown regions"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft": {
+      "label": "Draft",
+      "description": "Generated development content pending human review.",
+      "color": "#525252",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "draft"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:family-secret": {
+      "label": "Family Secret",
+      "description": "Family Secret. Relationship-state tag.",
+      "color": "#831843",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "family secret"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:mentor-student": {
+      "label": "Mentor Student",
+      "description": "Mentor Student. Relationship-state tag.",
+      "color": "#831843",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "mentor student"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:core": {
+      "label": "Core",
+      "description": "Reusable core lore.",
+      "color": "#1f2937",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "core"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "species:bothan": {
+      "label": "Bothan",
+      "description": "Bothan. Species/culture tag.",
+      "color": "#155e75",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "bothan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "species:chiss": {
+      "label": "Chiss",
+      "description": "Chiss. Species/culture tag.",
+      "color": "#155e75",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "chiss"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "species:clone": {
+      "label": "Clone",
+      "description": "Clone. Species/culture tag.",
+      "color": "#155e75",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "clone"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "species:human": {
+      "label": "Human",
+      "description": "Human. Species/culture tag.",
+      "color": "#155e75",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "human"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "species:hutt": {
+      "label": "Hutt",
+      "description": "Hutt. Species/culture tag.",
+      "color": "#155e75",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "hutt"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "species:jawa": {
+      "label": "Jawa",
+      "description": "Jawa. Species/culture tag.",
+      "color": "#155e75",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "jawa"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "species:tusken-raider": {
+      "label": "Tusken Raider",
+      "description": "Tusken Raider. Species/culture tag.",
+      "color": "#155e75",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "tusken raider"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "species:twi-lek": {
+      "label": "Twi Lek",
+      "description": "Twi Lek. Species/culture tag.",
+      "color": "#155e75",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "twi lek"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "species:wookiee": {
+      "label": "Wookiee",
+      "description": "Wookiee. Species/culture tag.",
+      "color": "#155e75",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "wookiee"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "species:yuuzhan-vong": {
+      "label": "Yuuzhan Vong",
+      "description": "Yuuzhan Vong. Species/culture tag.",
+      "color": "#155e75",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "yuuzhan vong"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "structure:split-loredeck": {
+      "label": "Split Loredeck",
+      "description": "Part of a multi-deck Saga loredeck family.",
+      "color": "#374151",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "split loredeck"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:cloning": {
+      "label": "Cloning",
+      "description": "Cloning. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "cloning"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:context": {
+      "label": "Context",
+      "description": "Context. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "context"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:continuity": {
+      "label": "Continuity",
+      "description": "Continuity. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "continuity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:crime": {
+      "label": "Crime",
+      "description": "Crime. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "crime"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:cybernetics": {
+      "label": "Cybernetics",
+      "description": "Cybernetics. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "cybernetics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-side": {
+      "label": "Dark Side",
+      "description": "Dark Side. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "dark side"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:debt": {
+      "label": "Debt",
+      "description": "Debt. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "debt"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:diplomacy": {
+      "label": "Diplomacy",
+      "description": "Diplomacy. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "diplomacy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:droid": {
+      "label": "Droid",
+      "description": "Droid. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "droid"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:economy": {
+      "label": "Economy",
+      "description": "Economy. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "economy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fanon": {
+      "label": "Fanon",
+      "description": "Fanon. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "fanon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force": {
+      "label": "Force",
+      "description": "Force. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "force"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:frontier": {
+      "label": "Frontier",
+      "description": "Frontier. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "frontier"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-guard": {
+      "label": "Future Guard",
+      "description": "Future Guard. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:holonet": {
+      "label": "Holonet",
+      "description": "Holonet. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "holonet"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hyperspace": {
+      "label": "Hyperspace",
+      "description": "Hyperspace. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "hyperspace"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperial-rule": {
+      "label": "Imperial Rule",
+      "description": "Imperial Rule. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "imperial rule"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:injury": {
+      "label": "Injury",
+      "description": "Injury. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "injury"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:intelligence": {
+      "label": "Intelligence",
+      "description": "Intelligence. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "intelligence"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:interdiction": {
+      "label": "Interdiction",
+      "description": "Interdiction. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "interdiction"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi": {
+      "label": "Jedi",
+      "description": "Jedi. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "jedi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:knowledge": {
+      "label": "Knowledge",
+      "description": "Knowledge. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "knowledge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:language": {
+      "label": "Language",
+      "description": "Language. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "language"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:law": {
+      "label": "Law",
+      "description": "Law. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "law"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:lightsaber": {
+      "label": "Lightsaber",
+      "description": "Lightsaber. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "lightsaber"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:location-state": {
+      "label": "Location State",
+      "description": "Location State. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "location state"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:logistics": {
+      "label": "Logistics",
+      "description": "Logistics. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "logistics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mechanics": {
+      "label": "Mechanics",
+      "description": "Mechanics. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "mechanics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:medicine": {
+      "label": "Medicine",
+      "description": "Medicine. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "medicine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:memory": {
+      "label": "Memory",
+      "description": "Memory. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "memory"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:military": {
+      "label": "Military",
+      "description": "Military. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "military"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:moffs": {
+      "label": "Moffs",
+      "description": "Moffs. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "moffs"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:politics": {
+      "label": "Politics",
+      "description": "Politics. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:prophecy": {
+      "label": "Prophecy",
+      "description": "Prophecy. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "prophecy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:redemption": {
+      "label": "Redemption",
+      "description": "Redemption. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "redemption"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rumor": {
+      "label": "Rumor",
+      "description": "Rumor. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "rumor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secrecy": {
+      "label": "Secrecy",
+      "description": "Secrecy. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "secrecy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret": {
+      "label": "Secret",
+      "description": "Secret. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "secret"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:senate": {
+      "label": "Senate",
+      "description": "Senate. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "senate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sensors": {
+      "label": "Sensors",
+      "description": "Sensors. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "sensors"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith": {
+      "label": "Sith",
+      "description": "Sith. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "sith"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:slavery": {
+      "label": "Slavery",
+      "description": "Slavery. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "slavery"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:slicing": {
+      "label": "Slicing",
+      "description": "Slicing. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "slicing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:smuggling": {
+      "label": "Smuggling",
+      "description": "Smuggling. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "smuggling"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:society": {
+      "label": "Society",
+      "description": "Society. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "society"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:space-combat": {
+      "label": "Space Combat",
+      "description": "Space Combat. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "space combat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:species": {
+      "label": "Species",
+      "description": "Species. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "species"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:spice": {
+      "label": "Spice",
+      "description": "Spice. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "spice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:starships": {
+      "label": "Starships",
+      "description": "Starships. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "starships"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:stormtroopers": {
+      "label": "Stormtroopers",
+      "description": "Stormtroopers. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "stormtroopers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:technology": {
+      "label": "Technology",
+      "description": "Technology. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "technology"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:time-travel": {
+      "label": "Time Travel",
+      "description": "Time Travel. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "time travel"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:timeline": {
+      "label": "Timeline",
+      "description": "Timeline. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "timeline"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trade": {
+      "label": "Trade",
+      "description": "Trade. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "trade"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:underworld": {
+      "label": "Underworld",
+      "description": "Underworld. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "underworld"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war": {
+      "label": "War",
+      "description": "War. Recurring topic/retrieval tag.",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "aliases": [
+        "war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

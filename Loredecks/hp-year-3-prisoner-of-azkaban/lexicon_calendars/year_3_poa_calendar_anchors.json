@@ -69,7 +69,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -95,8 +95,14 @@
       },
       "content": {
         "fact": "After Harry accidentally inflates Aunt Marge, he leaves Privet Drive and reaches the Leaky Cauldron by Knight Bus.",
-        "injection": "After Harry accidentally inflates Aunt Marge, he leaves Privet Drive and reaches the Leaky Cauldron by Knight Bus.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "After Harry accidentally inflates Aunt Marge, he leaves Privet Drive and reaches the Leaky Cauldron by Knight Bus. Keep this bounded to Prisoner of Azkaban: Year 3; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -127,7 +133,16 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -136,7 +151,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "normal",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -144,7 +159,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 85,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -153,7 +168,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.marge_inflated",
         "validToAnchor": "hp.y3.sirius_news_context",
-        "sortKeyFrom": 8619,
+        "sortKeyFrom": 8618,
         "sortKeyTo": 8642,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -213,8 +228,14 @@
       },
       "content": {
         "fact": "Fudge allows Harry to stay at the Leaky Cauldron, giving him an unusually free late-summer period in Diagon Alley before third year.",
-        "injection": "Fudge allows Harry to stay at the Leaky Cauldron, giving him an unusually free late-summer period in Diagon Alley before third year.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Fudge allows Harry to stay at the Leaky Cauldron, giving him an unusually free late-summer period in Diagon Alley before third year. Keep this bounded to Prisoner of Azkaban: Year 3; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -245,7 +266,16 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -271,8 +301,8 @@
         "scope": "anchor",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.diagon_alley_free_summer",
-        "sortKeyFrom": 8643,
-        "sortKeyTo": 8643,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8648,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -315,7 +345,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -339,8 +369,14 @@
       },
       "content": {
         "fact": "Before term starts, Hermione buys Crookshanks and Harry notices the Firebolt on display, setting up later conflicts over Scabbers and the broom.",
-        "injection": "Before term starts, Hermione buys Crookshanks and Harry notices the Firebolt on display, setting up later conflicts over Scabbers and the broom.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Before term starts, Hermione buys Crookshanks and Harry notices the Firebolt on display, setting up later conflicts over Scabbers and the broom. Keep this bounded to Prisoner of Azkaban: Year 3; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -371,7 +407,18 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:peter-pettigrew",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -380,7 +427,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -388,7 +435,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -397,8 +444,8 @@
         "scope": "anchor",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.diagon_alley_free_summer",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 8644,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8648,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -461,8 +508,16 @@
       },
       "content": {
         "fact": "Dementors search the Hogwarts Express for Sirius Black, causing Harry to collapse until Lupin drives them away.",
-        "injection": "Dementors search the Hogwarts Express for Sirius Black, causing Harry to collapse until Lupin drives them away.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Dementors search the Hogwarts Express for Sirius Black, causing Harry to collapse until Lupin drives them away. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -493,7 +548,20 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:remus-lupin",
+        "character:ron-weasley",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -502,7 +570,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "normal",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -510,7 +578,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 85,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -519,8 +587,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.ice_cream_diagon_routine",
-        "sortKeyFrom": 8645,
-        "sortKeyTo": 8652,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8654,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -559,7 +627,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -583,8 +651,14 @@
       },
       "content": {
         "fact": "Hagrid’s first Care of Magical Creatures class introduces hippogriffs, and Draco’s mishandling of Buckbeak results in injury and later legal consequences.",
-        "injection": "Hagrid’s first Care of Magical Creatures class introduces hippogriffs, and Draco’s mishandling of Buckbeak results in injury and later legal consequences.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Hagrid’s first Care of Magical Creatures class introduces hippogriffs, and Draco’s mishandling of Buckbeak results in injury and later legal consequences. Keep this bounded to Prisoner of Azkaban: Year 3; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -615,7 +689,18 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -624,7 +709,7 @@
       "kind": "skill_band",
       "gateType": "skill_band",
       "category": "event",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -632,7 +717,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -641,7 +726,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.diagon_alley_free_summer",
         "validToAnchor": "hp.y3.crookshanks_bought",
-        "sortKeyFrom": 8653,
+        "sortKeyFrom": 8648,
         "sortKeyTo": 8660,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -705,8 +790,16 @@
       },
       "content": {
         "fact": "Lupin’s early Defence Against the Dark Arts Boggart lesson establishes him as a practically effective teacher and reveals several students’ fears.",
-        "injection": "Lupin’s early Defence Against the Dark Arts Boggart lesson establishes him as a practically effective teacher and reveals several students’ fears.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Lupin’s early Defence Against the Dark Arts Boggart lesson establishes him as a practically effective teacher and reveals several students’ fears. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -737,7 +830,18 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:neville-longbottom",
+        "character:remus-lupin",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -746,7 +850,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -754,7 +858,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -763,8 +867,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.care_magical_creatures_first_lesson",
         "validToAnchor": "hp.y3.buckbeak_injures_draco",
-        "sortKeyFrom": 8704,
-        "sortKeyTo": 8709,
+        "sortKeyFrom": 8702,
+        "sortKeyTo": 8714,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -829,8 +933,16 @@
       },
       "content": {
         "fact": "After Harry’s first restricted Hogsmeade day, Sirius Black attacks the Fat Lady and the students sleep in the Great Hall during the castle search.",
-        "injection": "After Harry’s first restricted Hogsmeade day, Sirius Black attacks the Fat Lady and the students sleep in the Great Hall during the castle search.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "After Harry’s first restricted Hogsmeade day, Sirius Black attacks the Fat Lady and the students sleep in the Great Hall during the castle search. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -861,7 +973,17 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -887,8 +1009,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.grim_omen_pressure",
         "validToAnchor": "hp.y3.boggart_lesson",
-        "sortKeyFrom": 8710,
-        "sortKeyTo": 8717,
+        "sortKeyFrom": 8708,
+        "sortKeyTo": 8720,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -931,7 +1053,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -957,8 +1079,14 @@
       },
       "content": {
         "fact": "Dementors enter the Quidditch match, Harry falls from his broom, Hufflepuff wins, and the Nimbus 2000 is destroyed by the Whomping Willow.",
-        "injection": "Dementors enter the Quidditch match, Harry falls from his broom, Hufflepuff wins, and the Nimbus 2000 is destroyed by the Whomping Willow.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Dementors enter the Quidditch match, Harry falls from his broom, Hufflepuff wins, and the Nimbus 2000 is destroyed by the Whomping Willow. Keep this bounded to Prisoner of Azkaban: Year 3; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -989,7 +1117,17 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:cedric-diggory",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -998,7 +1136,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1006,7 +1144,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1015,8 +1153,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sleeping_in_great_hall",
         "validToAnchor": "hp.y3.harry_loses_match",
-        "sortKeyFrom": 8752,
-        "sortKeyTo": 8758,
+        "sortKeyFrom": 8750,
+        "sortKeyTo": 8762,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -1087,8 +1225,16 @@
       },
       "content": {
         "fact": "Fred and George give Harry the Marauder’s Map, allowing him to enter Hogsmeade secretly and hear the public version of Sirius’s betrayal.",
-        "injection": "Fred and George give Harry the Marauder’s Map, allowing him to enter Hogsmeade secretly and hear the public version of Sirius’s betrayal.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Fred and George give Harry the Marauder’s Map, allowing him to enter Hogsmeade secretly and hear the public version of Sirius’s betrayal. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1119,7 +1265,22 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:marauders-map",
+        "book:prisoner-of-azkaban",
+        "character:fred-weasley",
+        "character:george-weasley",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1145,8 +1306,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.dementor_quidditch_collapse",
         "validToAnchor": "hp.y3.marauders_map_given",
-        "sortKeyFrom": 8759,
-        "sortKeyTo": 8766,
+        "sortKeyFrom": 8756,
+        "sortKeyTo": 8768,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -1188,7 +1349,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -1212,8 +1373,14 @@
       },
       "content": {
         "fact": "Harry receives a Firebolt at Christmas, but Hermione reports it and McGonagall confiscates it for safety checks.",
-        "injection": "Harry receives a Firebolt at Christmas, but Hermione reports it and McGonagall confiscates it for safety checks.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry receives a Firebolt at Christmas, but Hermione reports it and McGonagall confiscates it for safety checks. Keep this bounded to Prisoner of Azkaban: Year 3; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1244,7 +1411,18 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1270,8 +1448,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.marauders_map_given",
         "validToAnchor": "hp.y3.hermione_crookshanks_ron_fight",
-        "sortKeyFrom": 8771,
-        "sortKeyTo": 8800,
+        "sortKeyFrom": 8768,
+        "sortKeyTo": 8804,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -1334,8 +1512,14 @@
       },
       "content": {
         "fact": "Lupin starts private anti-Dementor lessons with Harry, initiating Harry’s path toward a corporeal Patronus.",
-        "injection": "Lupin starts private anti-Dementor lessons with Harry, initiating Harry’s path toward a corporeal Patronus.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Lupin starts private anti-Dementor lessons with Harry, initiating Harry’s path toward a corporeal Patronus. Use this only as a phase baseline for Prisoner of Azkaban: Year 3; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1366,7 +1550,19 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:remus-lupin",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3",
+        "spell:patronus"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1375,7 +1571,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1383,7 +1579,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1392,8 +1588,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.firebolt_confiscated",
         "validToAnchor": "hp.y3.patronus_lessons_begin",
-        "sortKeyFrom": 8801,
-        "sortKeyTo": 8807,
+        "sortKeyFrom": 8798,
+        "sortKeyTo": 8810,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -1454,8 +1650,16 @@
       },
       "content": {
         "fact": "Sirius Black breaches Gryffindor Tower and slashes Ron’s bed curtains while trying to reach Scabbers.",
-        "injection": "Sirius Black breaches Gryffindor Tower and slashes Ron’s bed curtains while trying to reach Scabbers.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Sirius Black breaches Gryffindor Tower and slashes Ron’s bed curtains while trying to reach Scabbers. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1486,7 +1690,17 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:peter-pettigrew",
+        "character:ron-weasley",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1512,8 +1726,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.hermione_crookshanks_ron_fight",
         "validToAnchor": "hp.y3.dementor_memory_training",
-        "sortKeyFrom": 8808,
-        "sortKeyTo": 8815,
+        "sortKeyFrom": 8804,
+        "sortKeyTo": 8816,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -1553,7 +1767,7 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "high",
+        "frequency": "normal",
         "contextBoost": "high",
         "triggers": {
           "charactersAny": [
@@ -1578,8 +1792,14 @@
       },
       "content": {
         "fact": "After the legal hearing, Hagrid tells the trio that Buckbeak has been sentenced to execution.",
-        "injection": "After the legal hearing, Hagrid tells the trio that Buckbeak has been sentenced to execution.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "After the legal hearing, Hagrid tells the trio that Buckbeak has been sentenced to execution. Keep this bounded to Prisoner of Azkaban: Year 3; do not apply the state before or after its Context window without an explicit story override.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1610,7 +1830,19 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1619,7 +1851,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1636,8 +1868,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.buckbeak_saved",
         "validToAnchor": "hp.y3.lupin_resigns",
-        "sortKeyFrom": 8922,
-        "sortKeyTo": 8929,
+        "sortKeyFrom": 8918,
+        "sortKeyTo": 8930,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -1708,8 +1940,16 @@
       },
       "content": {
         "fact": "The Shrieking Shack confrontation reveals that Peter Pettigrew betrayed the Potters, Sirius was framed, Lupin is a werewolf, and Scabbers is Pettigrew.",
-        "injection": "The Shrieking Shack confrontation reveals that Peter Pettigrew betrayed the Potters, Sirius was framed, Lupin is a werewolf, and Scabbers is Pettigrew.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "The Shrieking Shack confrontation reveals that Peter Pettigrew betrayed the Potters, Sirius was framed, Lupin is a werewolf, and Scabbers is Pettigrew. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1740,7 +1980,22 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:marauders-map",
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:peter-pettigrew",
+        "character:remus-lupin",
+        "character:ron-weasley",
+        "character:severus-snape",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1749,7 +2004,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1766,8 +2021,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.buckbeak_saved",
         "validToAnchor": "hp.y3.lupin_resigns",
-        "sortKeyFrom": 8922,
-        "sortKeyTo": 8929,
+        "sortKeyFrom": 8918,
+        "sortKeyTo": 8930,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Prisoner of Azkaban: Year 3",
@@ -1835,8 +2090,16 @@
       },
       "content": {
         "fact": "Hermione and Harry use the Time-Turner to rescue Buckbeak and help Sirius escape, while keeping the timeline self-consistent.",
-        "injection": "Hermione and Harry use the Time-Turner to rescue Buckbeak and help Sirius escape, while keeping the timeline self-consistent.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Hermione and Harry use the Time-Turner to rescue Buckbeak and help Sirius escape, while keeping the timeline self-consistent. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1867,7 +2130,19 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3",
+        "topic:time-turner"
+      ]
     }
   ]
 }

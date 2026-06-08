@@ -1,0 +1,773 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_droids_are_tools_and_persons_by_context",
+      "title": "Droids Are Tools With Personal Continuity",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "low",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:droid",
+        "character:r2-d2",
+        "character:c-3po"
+      ],
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "R2-D2",
+          "C-3PO"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "droid memory",
+          "ownership",
+          "personality",
+          "restraining bolts",
+          "maintenance"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "R2-D2",
+            "C-3PO"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "droid memory",
+            "ownership",
+            "personality",
+            "restraining bolts",
+            "maintenance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Droids are widely treated as property or tools, but long-running droids may have distinctive personalities, memories, loyalties, and social bonds.",
+        "injection": "Treat droids as socially ambiguous: often owned, bought, wiped, restrained, or assigned tasks, but individual droids like R2-D2 and C-3PO carry personal continuity.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_memory_wipes_shape_droid_identity",
+      "title": "Memory Wipes Shape Droid Identity",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "item_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:droid",
+        "topic:memory",
+        "topic:knowledge",
+        "character:c-3po",
+        "character:r2-d2"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "R2-D2",
+          "C-3PO"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "memory wipe",
+          "droid identity",
+          "hidden knowledge"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "R2-D2",
+            "C-3PO"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "memory wipe",
+            "droid identity",
+            "hidden knowledge"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Memory wipes can reset or blunt droid personality, loyalty, and accumulated experience, but wipes are not always complete or recent.",
+        "injection": "Use memory wipes as a major continuity variable for droids. A droid with intact memory can carry knowledge and habits others do not expect.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_restraining_bolts_limit_droids",
+      "title": "Restraining Bolts Limit Droids",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:droid",
+        "object:restraining-bolt",
+        "topic:technology"
+      ],
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "restraining bolt",
+          "droid autonomy",
+          "control"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "restraining bolt",
+            "droid autonomy",
+            "control"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Restraining bolts and control devices can limit a droid’s autonomy or force obedience within their technical range and condition.",
+        "injection": "When a restraining bolt is attached and functioning, do not let the droid ignore commands without cause, malfunction, removal, or workaround.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_astromechs_are_technical_specialists",
+      "title": "Astromechs Are Technical Specialists",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:droid",
+        "character:r2-d2",
+        "topic:technology",
+        "topic:hyperspace"
+      ],
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "R2-D2"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "astromech",
+          "repairs",
+          "navigation",
+          "slicing"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "R2-D2"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "astromech",
+            "repairs",
+            "navigation",
+            "slicing"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Astromech droids specialize in repair, diagnostics, starfighter support, slicing assistance, navigation, and mechanical problem-solving.",
+        "injection": "Use astromechs for technical pressure points: doors, starships, damaged systems, hyperspace calculations, data sockets, and emergency repairs.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_protocol_droids_translate_and_mediate",
+      "title": "Protocol Droids Translate and Mediate",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:droid",
+        "character:c-3po",
+        "topic:language",
+        "topic:diplomacy"
+      ],
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "C-3PO"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "protocol droid",
+          "translation",
+          "etiquette",
+          "diplomacy"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "C-3PO"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "protocol droid",
+            "translation",
+            "etiquette",
+            "diplomacy"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Protocol droids specialize in languages, etiquette, translation, customs, diplomacy, and social mediation.",
+        "injection": "Use protocol droids for linguistic and etiquette context rather than technical heroics unless the specific droid has established experience.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_droid_slicing_not_magic",
+      "title": "Droid Slicing Is Not Magic",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:droid",
+        "topic:slicing",
+        "topic:technology"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "slicing",
+          "computer security",
+          "access ports",
+          "countermeasures"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "slicing",
+            "computer security",
+            "access ports",
+            "countermeasures"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Droid or computer slicing depends on access, ports, credentials, system age, security, time, and countermeasures.",
+        "injection": "Do not make every terminal instantly hackable. Require access, tools, time, risk, or specialist competence for slicing.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_battle_droids_are_era_specific",
+      "title": "Battle Droids Are Era-Specific",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:droid",
+        "faction:separatists",
+        "event:clone-wars",
+        "topic:future-guard"
+      ],
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_2_aotc",
+        "validToAnchor": "sw.film.episode_3_rots",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Clone Wars before Revenge of the Sith",
+        "approximate": false,
+        "phase": "Clone Wars"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Confederacy of Independent Systems"
+        ],
+        "topics": [
+          "battle droids",
+          "Clone Wars",
+          "Separatist droid army"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "battle droids",
+            "Clone Wars",
+            "Separatist droid army",
+            "Confederacy of Independent Systems"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Mass battle droid armies are especially tied to the Clone Wars and Separatist context, not a default feature of every later scene.",
+        "injection": "Do not insert Separatist-style battle droid armies into Rebellion or New Republic scenes unless the story introduces surplus, local reuse, or source-specific remnants.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars before Revenge of the Sith.",
+          "Respect story-position bounds from Episode II: Attack of the Clones to Episode III: Revenge of the Sith."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_droid_prejudice_common",
+      "title": "Droid Prejudice Is Common",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "rule",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:droid",
+        "topic:society",
+        "topic:law"
+      ],
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "droid rights",
+          "property",
+          "prejudice",
+          "service roles"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "droid rights",
+            "property",
+            "prejudice",
+            "service roles"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Many organic societies treat droids as disposable property, servants, or suspicious machinery even when individual droids show personality.",
+        "injection": "In ordinary social scenes, let droids face ownership assumptions, service roles, restrictions, and casual prejudice unless the local culture says otherwise.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    }
+  ]
+}

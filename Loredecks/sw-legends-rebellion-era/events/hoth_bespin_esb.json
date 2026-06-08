@@ -1,0 +1,2772 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_probe_droid_compromises_hoth",
+      "title": "Probe Droid Compromises Echo Base",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:general-rieekan",
+        "character:han-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:probe-droid",
+        "place:hoth",
+        "scope:rebellion-era",
+        "topic:military-logistics"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.probe_droid_finds_hoth",
+        "validToAnchor": "sw.rebellion.probe_droid_finds_hoth",
+        "sortKeyFrom": 5940,
+        "sortKeyTo": 5940,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Imperial Probe Finds Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Han Solo",
+          "General Rieekan"
+        ],
+        "locations": [
+          "Hoth"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "military logistics"
+        ],
+        "objects": [
+          "Probe droid"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Han Solo",
+            "General Rieekan"
+          ],
+          "locationsAny": [
+            "Hoth"
+          ],
+          "topicsAny": [
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Probe droid"
+          ]
+        }
+      },
+      "content": {
+        "fact": "An Imperial probe droid finds Hoth, turning Echo Base from hidden refuge into immediate evacuation crisis.",
+        "injection": "In Imperial Probe Finds Hoth, once the probe droid is identified, Rebel scenes should shift toward evacuation urgency and defensive delay. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial Probe Finds Hoth.",
+          "Respect story-position bounds from Imperial Probe Finds Hoth to Imperial Probe Finds Hoth."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_ion_cannon_enables_escape",
+      "title": "Ion Cannon Enables Rebel Evacuation",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "item_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:general-rieekan",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:imperial-navy",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:ion-cannon",
+        "object:star-destroyer",
+        "place:hoth",
+        "scope:rebellion-era",
+        "topic:military-logistics"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.probe_droid_finds_hoth",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5940,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Battle of Hoth and Evacuation",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "General Rieekan"
+        ],
+        "locations": [
+          "Hoth"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Imperial Navy"
+        ],
+        "topics": [
+          "military logistics"
+        ],
+        "objects": [
+          "Ion cannon",
+          "Star Destroyer"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "General Rieekan"
+          ],
+          "locationsAny": [
+            "Hoth"
+          ],
+          "topicsAny": [
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Imperial Navy"
+          ],
+          "objectsAny": [
+            "Ion cannon",
+            "Star Destroyer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Echo Base relies on the ion cannon to disable Imperial vessels long enough for transports to escape.",
+        "injection": "During the Hoth evacuation, the ion cannon is a critical defensive tool; without timing and coordination, transports are vulnerable.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle of Hoth and Evacuation.",
+          "Respect story-position bounds from Imperial Probe Finds Hoth to Hoth Evacuated."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_hoth_ground_battle_is_delay_action",
+      "title": "Hoth Ground Battle Is a Delay Action",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:general-veers",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:imperial-army",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:at-at",
+        "object:shield-generator",
+        "object:snowspeeder",
+        "place:hoth",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:military-logistics"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.probe_droid_finds_hoth",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5940,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Battle of Hoth and Evacuation",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "General Veers",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Hoth"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Imperial Army"
+        ],
+        "topics": [
+          "military logistics",
+          "command"
+        ],
+        "objects": [
+          "AT-AT",
+          "Snowspeeder",
+          "Shield generator"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "General Veers",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Hoth"
+          ],
+          "topicsAny": [
+            "military logistics",
+            "command"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Imperial Army"
+          ],
+          "objectsAny": [
+            "AT-AT",
+            "Snowspeeder",
+            "Shield generator"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Rebel ground defense at Hoth is meant to delay Imperial walkers, not win a conventional battle.",
+        "injection": "At Hoth, Rebel troops and snowspeeders should buy evacuation time rather than expect to defeat the Imperial assault outright.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle of Hoth and Evacuation.",
+          "Respect story-position bounds from Imperial Probe Finds Hoth to Hoth Evacuated."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_vader_prioritizes_luke_over_base",
+      "title": "Vader Prioritizes Luke Over Ordinary Victory",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-piett",
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:sith",
+        "fandom:star-wars",
+        "object:executor",
+        "place:executor",
+        "place:hoth",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:force"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.hoth_evacuated",
+        "validToAnchor": "sw.rebellion.han_at_jabba",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Empire Strikes Back fallout path",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Luke Skywalker",
+          "Admiral Piett"
+        ],
+        "locations": [
+          "Hoth",
+          "Executor"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Sith"
+        ],
+        "topics": [
+          "force",
+          "identity secret",
+          "command"
+        ],
+        "objects": [
+          "Executor"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Luke Skywalker",
+            "Admiral Piett"
+          ],
+          "locationsAny": [
+            "Hoth",
+            "Executor"
+          ],
+          "topicsAny": [
+            "force",
+            "identity secret",
+            "command"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Sith"
+          ],
+          "objectsAny": [
+            "Executor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Vader’s pursuit of the Rebels is increasingly shaped by his desire to find Luke.",
+        "injection": "In ESB-era Imperial scenes, Vader’s strategic behavior can become distorted by Luke as an objective, not just Rebel suppression.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: The Empire Strikes Back fallout path.",
+          "Respect story-position bounds from Hoth Evacuated to Han Held by Jabba."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_ozzel_death_sets_vader_command_tone",
+      "title": "Ozzel’s Death Sets Vader’s Command Tone",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-ozzel",
+        "character:admiral-piett",
+        "character:darth-vader",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:imperial-navy",
+        "fandom:star-wars",
+        "object:executor",
+        "place:executor",
+        "place:hoth",
+        "scope:rebellion-era",
+        "topic:command"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.hoth_evacuated",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hoth Evacuated",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Admiral Ozzel",
+          "Admiral Piett"
+        ],
+        "locations": [
+          "Executor",
+          "Hoth"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Imperial Navy"
+        ],
+        "topics": [
+          "command"
+        ],
+        "objects": [
+          "Executor"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Admiral Ozzel",
+            "Admiral Piett"
+          ],
+          "locationsAny": [
+            "Executor",
+            "Hoth"
+          ],
+          "topicsAny": [
+            "command"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Imperial Navy"
+          ],
+          "objectsAny": [
+            "Executor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Vader executes Admiral Ozzel for failure, reinforcing fear-driven Imperial command culture.",
+        "injection": "After Ozzel fails Vader, Imperial officers around Vader should treat mistakes as potentially fatal. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Hoth Evacuated.",
+          "Respect story-position bounds from Hoth Evacuated to Hoth Evacuated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_piett_promoted_under_vader_pressure",
+      "title": "Piett Promoted Under Vader Pressure",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-piett",
+        "character:darth-vader",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:imperial-navy",
+        "fandom:star-wars",
+        "object:executor",
+        "place:executor",
+        "scope:rebellion-era",
+        "topic:command"
+      ],
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.hoth_evacuated",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hoth Evacuated",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Admiral Piett",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Executor"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Imperial Navy"
+        ],
+        "topics": [
+          "command"
+        ],
+        "objects": [
+          "Executor"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Admiral Piett",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Executor"
+          ],
+          "topicsAny": [
+            "command"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Imperial Navy"
+          ],
+          "objectsAny": [
+            "Executor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Piett rises under Vader’s command after Ozzel’s death, but his authority remains subject to Vader’s lethal expectations.",
+        "injection": "During and after Hoth, Piett can command the fleet but must operate under Vader’s direct pressure. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Hoth Evacuated.",
+          "Respect story-position bounds from Hoth Evacuated to Hoth Evacuated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_leaves_for_dagobah",
+      "title": "Luke Leaves the Fleet for Dagobah",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:x-wing",
+        "place:dagobah",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:jedi"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.dagobah_training",
+        "validToAnchor": "sw.rebellion.dagobah_training",
+        "sortKeyFrom": 6100,
+        "sortKeyTo": 6100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke Trains on Dagobah",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Yoda",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Dagobah",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Jedi Order"
+        ],
+        "topics": [
+          "jedi",
+          "force",
+          "mentor-student"
+        ],
+        "objects": [
+          "X-wing"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Yoda",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Dagobah",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "jedi",
+            "force",
+            "mentor-student"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": [
+            "X-wing"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Hoth, Luke separates from the main Rebel evacuation path to seek Yoda on Dagobah.",
+        "injection": "Post-Hoth scenes should not assume Luke is with Leia and Han unless the story reunites them; he is pursuing Jedi training on Dagobah.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke Trains on Dagobah.",
+          "Respect story-position bounds from Luke Trains on Dagobah to Luke Trains on Dagobah."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_yoda_training_is_incomplete",
+      "title": "Yoda Training Is Intense but Incomplete",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:dagobah",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:jedi"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.dagobah_training",
+        "validToAnchor": "sw.rebellion.dagobah_training",
+        "sortKeyFrom": 6100,
+        "sortKeyTo": 6100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke Trains on Dagobah",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Yoda",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Dagobah"
+        ],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "jedi",
+          "force",
+          "mentor-student"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Yoda",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "jedi",
+            "force",
+            "mentor-student"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke receives crucial training from Yoda but abandons it before completion to rescue his friends.",
+        "injection": "During ESB and after Bespin, treat Luke’s Jedi training as partial, emotionally tested, and unfinished. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke Trains on Dagobah.",
+          "Respect story-position bounds from Luke Trains on Dagobah to Luke Trains on Dagobah."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_cave_vision_tests_luke",
+      "title": "Dagobah Cave Vision Tests Luke’s Fear",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:dagobah",
+        "scope:rebellion-era",
+        "topic:duel",
+        "topic:force",
+        "topic:knowledge-gate"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.dagobah_training",
+        "validToAnchor": "sw.rebellion.dagobah_training",
+        "sortKeyFrom": 6100,
+        "sortKeyTo": 6100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke Trains on Dagobah",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Yoda"
+        ],
+        "locations": [
+          "Dagobah"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "force",
+          "duel",
+          "family secret"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Yoda"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "force",
+            "duel",
+            "family secret"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Dagobah cave confronts Luke with fear, aggression, and a symbolic Vader connection before he understands the truth.",
+        "injection": "Use the cave vision as a warning about Luke’s inner risk, not as public confirmation of the Skywalker family secret.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke Trains on Dagobah.",
+          "Respect story-position bounds from Luke Trains on Dagobah to Luke Trains on Dagobah."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_falcon_hyperdrive_failure_drives_plot",
+      "title": "Falcon Hyperdrive Failure Drives the Chase",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "high",
+      "lorePurpose": "item_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:c-3po",
+        "character:chewbacca",
+        "character:han-solo",
+        "character:leia-organa",
+        "character:r2-d2",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:hyperdrive",
+        "object:millennium-falcon",
+        "place:bespin",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:hyperspace",
+        "topic:smuggling"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.asteroid_pursuit",
+        "validToAnchor": "sw.rebellion.asteroid_pursuit",
+        "sortKeyFrom": 6140,
+        "sortKeyTo": 6140,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Falcon Flees Through the Asteroids",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Chewbacca",
+          "C-3PO",
+          "R2-D2"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Bespin"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "hyperspace",
+          "smuggling"
+        ],
+        "objects": [
+          "Millennium Falcon",
+          "Hyperdrive"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Chewbacca",
+            "C-3PO",
+            "R2-D2"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Bespin"
+          ],
+          "topicsAny": [
+            "hyperspace",
+            "smuggling"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Millennium Falcon",
+            "Hyperdrive"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Falcon’s hyperdrive problems force Han, Leia, Chewie, and the droids into improvised flight rather than clean escape.",
+        "injection": "During the ESB chase, use hyperdrive failure as a real constraint that shapes the route to Bespin. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Falcon Flees Through the Asteroids.",
+          "Respect story-position bounds from Falcon Flees Through the Asteroids to Falcon Flees Through the Asteroids."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_asteroid_chase_shows_improvisation",
+      "title": "Asteroid Chase Shows Han’s Improvisation",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:darth-vader",
+        "character:han-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:millennium-falcon",
+        "object:tie-fighter",
+        "place:outer-rim",
+        "scope:rebellion-era",
+        "topic:pilot",
+        "topic:smuggling"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.asteroid_pursuit",
+        "validToAnchor": "sw.rebellion.asteroid_pursuit",
+        "sortKeyFrom": 6140,
+        "sortKeyTo": 6140,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Falcon Flees Through the Asteroids",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Chewbacca",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Outer Rim"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "smuggling",
+          "pilot"
+        ],
+        "objects": [
+          "Millennium Falcon",
+          "TIE fighter"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Chewbacca",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "smuggling",
+            "pilot"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Millennium Falcon",
+            "TIE fighter"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The asteroid field escape shows Han’s risky improvisation and the Empire’s willingness to pursue through dangerous terrain.",
+        "injection": "In ESB chase context, write Han as daring and technically clever, not as calmly operating under ideal conditions.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Falcon Flees Through the Asteroids.",
+          "Respect story-position bounds from Falcon Flees Through the Asteroids to Falcon Flees Through the Asteroids."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_bespin_is_supposed_safe_haven",
+      "title": "Bespin Is Sought as a Safe Haven",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "character:lando-calrissian",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:cloud-city",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:millennium-falcon",
+        "place:bespin",
+        "place:cloud-city",
+        "scope:rebellion-era",
+        "topic:smuggling",
+        "topic:underworld"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.bespin_trap",
+        "validToAnchor": "sw.rebellion.bespin_trap",
+        "sortKeyFrom": 6180,
+        "sortKeyTo": 6180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Cloud City Trap Springs",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Lando Calrissian",
+          "Leia Organa",
+          "Chewbacca"
+        ],
+        "locations": [
+          "Bespin",
+          "Cloud City"
+        ],
+        "factions": [
+          "Cloud City",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "smuggling",
+          "underworld"
+        ],
+        "objects": [
+          "Millennium Falcon"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Lando Calrissian",
+            "Leia Organa",
+            "Chewbacca"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Cloud City"
+          ],
+          "topicsAny": [
+            "smuggling",
+            "underworld"
+          ],
+          "factionsAny": [
+            "Cloud City",
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Millennium Falcon"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Han takes the Falcon to Cloud City because Lando is an old contact and Bespin seems outside immediate Imperial control.",
+        "injection": "Before the trap is revealed, Bespin can be presented as a risky refuge with personal history rather than an obvious Imperial base.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Cloud City Trap Springs.",
+          "Respect story-position bounds from Cloud City Trap Springs to Cloud City Trap Springs."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_lando_betrayal_under_imperial_coercion",
+      "title": "Lando Betrays Under Imperial Coercion",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:han-solo",
+        "character:lando-calrissian",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:cloud-city",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "place:bespin",
+        "place:cloud-city",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:smuggling"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.bespin_trap",
+        "validToAnchor": "sw.rebellion.bespin_trap",
+        "sortKeyFrom": 6180,
+        "sortKeyTo": 6180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Cloud City Trap Springs",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lando Calrissian",
+          "Han Solo",
+          "Leia Organa",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Bespin",
+          "Cloud City"
+        ],
+        "factions": [
+          "Cloud City",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "command",
+          "smuggling"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Lando Calrissian",
+            "Han Solo",
+            "Leia Organa",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Cloud City"
+          ],
+          "topicsAny": [
+            "command",
+            "smuggling"
+          ],
+          "factionsAny": [
+            "Cloud City",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Lando’s betrayal at Cloud City is coerced by Imperial pressure and his responsibility to protect the city.",
+        "injection": "Write Lando’s Bespin betrayal as compromised leadership under threat, not simple malice. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Cloud City Trap Springs.",
+          "Respect story-position bounds from Cloud City Trap Springs to Cloud City Trap Springs."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_carbon_freeze_tested_on_han",
+      "title": "Carbon Freeze Tested on Han",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "item_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:boba-fett",
+        "character:chewbacca",
+        "character:darth-vader",
+        "character:han-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:bounty-hunters",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "object:carbonite",
+        "place:bespin",
+        "place:cloud-city",
+        "scope:rebellion-era",
+        "topic:bounty-hunter",
+        "topic:rescue"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.bespin_trap",
+        "validToAnchor": "sw.rebellion.bespin_trap",
+        "sortKeyFrom": 6180,
+        "sortKeyTo": 6180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Cloud City Trap Springs",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Darth Vader",
+          "Boba Fett",
+          "Leia Organa",
+          "Chewbacca"
+        ],
+        "locations": [
+          "Bespin",
+          "Cloud City"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Bounty Hunters"
+        ],
+        "topics": [
+          "bounty hunter",
+          "rescue"
+        ],
+        "objects": [
+          "Carbonite"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Darth Vader",
+            "Boba Fett",
+            "Leia Organa",
+            "Chewbacca"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Cloud City"
+          ],
+          "topicsAny": [
+            "bounty hunter",
+            "rescue"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Bounty Hunters"
+          ],
+          "objectsAny": [
+            "Carbonite"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Vader uses Han as the test subject for carbon-freezing before attempting the process on Luke.",
+        "injection": "At Bespin, Han’s freezing is a dangerous test and a bargaining tool, not a normal prisoner-transfer method. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Cloud City Trap Springs.",
+          "Respect story-position bounds from Cloud City Trap Springs to Cloud City Trap Springs."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_boba_claims_han_for_jabba",
+      "title": "Boba Claims Han for Jabba",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:boba-fett",
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:bounty-hunters",
+        "faction:criminal-underworld",
+        "faction:hutts",
+        "fandom:star-wars",
+        "object:carbonite",
+        "object:slave-i",
+        "place:bespin",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:bounty-hunter",
+        "topic:criminal-debt"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.han_at_jabba",
+        "validToAnchor": "sw.rebellion.han_at_jabba",
+        "sortKeyFrom": 6300,
+        "sortKeyTo": 6300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Han Held by Jabba",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Boba Fett",
+          "Jabba the Hutt"
+        ],
+        "locations": [
+          "Bespin",
+          "Tatooine"
+        ],
+        "factions": [
+          "Bounty Hunters",
+          "Hutts",
+          "Criminal Underworld"
+        ],
+        "topics": [
+          "bounty hunter",
+          "criminal debt"
+        ],
+        "objects": [
+          "Carbonite",
+          "Slave I"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Boba Fett",
+            "Jabba the Hutt"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "bounty hunter",
+            "criminal debt"
+          ],
+          "factionsAny": [
+            "Bounty Hunters",
+            "Hutts",
+            "Criminal Underworld"
+          ],
+          "objectsAny": [
+            "Carbonite",
+            "Slave I"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Han is frozen, Boba Fett takes him as a bounty destined for Jabba.",
+        "injection": "After Bespin, Han’s immediate plot state is carbonite captivity in Boba’s custody on the way to Jabba. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Han Held by Jabba.",
+          "Respect story-position bounds from Han Held by Jabba to Han Held by Jabba."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_arrives_too_early_to_bespin",
+      "title": "Luke Arrives Too Early to Bespin",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:bespin",
+        "place:dagobah",
+        "scope:rebellion-era",
+        "topic:duel",
+        "topic:force",
+        "topic:jedi"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.bespin_trap",
+        "validToAnchor": "sw.rebellion.bespin_trap",
+        "sortKeyFrom": 6180,
+        "sortKeyTo": 6180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Cloud City Trap Springs",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Yoda",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Bespin",
+          "Dagobah"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "jedi",
+          "duel",
+          "force"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Yoda",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "jedi",
+            "duel",
+            "force"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke leaves Dagobah early and reaches Bespin before his training can prepare him for Vader.",
+        "injection": "At Bespin, Luke should be brave and Force-sensitive but outmatched by Vader’s experience and manipulation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Cloud City Trap Springs.",
+          "Respect story-position bounds from Cloud City Trap Springs to Cloud City Trap Springs."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_vader_paternity_claim_private_to_luke",
+      "title": "Vader’s Paternity Claim Is Private to Luke",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:rebel-alliance",
+        "faction:sith",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:bespin",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:knowledge-gate"
+      ],
+      "priority": 94,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.vader_paternity_claim",
+        "validToAnchor": "sw.rebellion.vader_paternity_claim",
+        "sortKeyFrom": 6250,
+        "sortKeyTo": 6250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vader Claims Luke as His Son",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Leia Organa",
+          "Han Solo"
+        ],
+        "locations": [
+          "Bespin",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Sith",
+          "Jedi Order",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "family secret",
+          "identity secret",
+          "force"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Leia Organa",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "family secret",
+            "identity secret",
+            "force"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Jedi Order",
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Vader tells Luke that he is his father, but this is not yet public knowledge and Luke does not fully know how to process it.",
+        "injection": "After Bespin and before wider reveal, treat Vader’s claim as Luke’s private crisis; other characters should not automatically know it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vader Claims Luke as His Son.",
+          "Respect story-position bounds from Vader Claims Luke as His Son to Vader Claims Luke as His Son."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_loses_hand_at_bespin",
+      "title": "Luke Loses His Hand at Bespin",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "faction:sith",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "object:prosthetic",
+        "place:bespin",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:duel"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.bespin_fallout",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 6200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bespin Fallout",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Bespin",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Sith"
+        ],
+        "topics": [
+          "duel"
+        ],
+        "objects": [
+          "Lightsaber",
+          "Prosthetic"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "duel"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Sith"
+          ],
+          "objectsAny": [
+            "Lightsaber",
+            "Prosthetic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke loses his hand in the duel with Vader and receives a prosthetic after rescue.",
+        "injection": "After Bespin, Luke has a prosthetic hand and a visible reminder of Vader’s superiority and claim. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Bespin Fallout.",
+          "Respect story-position bounds from Bespin Fallout to Bespin Fallout."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_leia_rescues_luke_from_bespin",
+      "title": "Leia Senses and Rescues Luke",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:lando-calrissian",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:millennium-falcon",
+        "place:bespin",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:knowledge-gate",
+        "topic:rescue"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.bespin_fallout",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 6200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bespin Fallout",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Luke Skywalker",
+          "Lando Calrissian",
+          "Chewbacca"
+        ],
+        "locations": [
+          "Bespin",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Jedi Order"
+        ],
+        "topics": [
+          "force",
+          "family secret",
+          "rescue"
+        ],
+        "objects": [
+          "Millennium Falcon"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Luke Skywalker",
+            "Lando Calrissian",
+            "Chewbacca"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "force",
+            "family secret",
+            "rescue"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": [
+            "Millennium Falcon"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Leia responds to Luke’s call after the Bespin duel, allowing the Falcon to rescue him.",
+        "injection": "After Bespin, Leia’s Force sensitivity can be hinted through response and intuition, but she does not yet understand herself as Luke’s sister or future Jedi.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Bespin Fallout.",
+          "Respect story-position bounds from Bespin Fallout to Bespin Fallout."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_lando_commits_to_rescuing_han",
+      "title": "Lando Commits to Rescue Han",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "character:lando-calrissian",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:cloud-city",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:millennium-falcon",
+        "place:rebel-fleet",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:rescue",
+        "topic:smuggling"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.bespin_fallout",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 6200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bespin Fallout",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lando Calrissian",
+          "Chewbacca",
+          "Han Solo",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Tatooine"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Cloud City"
+        ],
+        "topics": [
+          "rescue",
+          "smuggling"
+        ],
+        "objects": [
+          "Millennium Falcon"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Lando Calrissian",
+            "Chewbacca",
+            "Han Solo",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "rescue",
+            "smuggling"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Cloud City"
+          ],
+          "objectsAny": [
+            "Millennium Falcon"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Cloud City, Lando works with Chewbacca and the Rebels to locate and rescue Han.",
+        "injection": "Post-Bespin Lando should be in redemption-and-rescue mode, not simply returning to ordinary Cloud City neutrality.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Bespin Fallout.",
+          "Respect story-position bounds from Bespin Fallout to Bespin Fallout."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/hoth_bespin_esb.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

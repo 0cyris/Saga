@@ -1,0 +1,985 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sith_name_reveal_timing",
+      "title": "Sith Name Reveal Timing",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lumiya_influence",
+        "validToAnchor": "sw.late.caedus_declared",
+        "sortKeyFrom": 41000,
+        "sortKeyTo": 43000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jacen falling before public Caedus endpoint",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo",
+          "Darth Caedus"
+        ],
+        "locations": [],
+        "topics": [
+          "spoiler guard",
+          "sith"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:jacen-solo",
+          "sw-character:darth-caedus"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:jacen-solo",
+        "character:darth-caedus",
+        "topic:spoiler-guard",
+        "topic:sith"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo",
+            "Darth Caedus"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "spoiler guard",
+            "sith"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Jacen’s Darth Caedus name should be gated to the appropriate LOTF period.",
+        "injection": "Before Caedus identity context, refer to him as Jacen unless secret Sith framing is explicitly in-scene.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jacen falling before public Caedus endpoint.",
+          "Respect story-position bounds from Lumiya Guides Jacen to Darth Caedus Emerges."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mara_alive_guard_before_sacrifice",
+      "title": "Mara Alive Guard Before Sacrifice",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.lumiya_influence",
+        "validToAnchor": "sw.late.lumiya_influence",
+        "sortKeyFrom": 41000,
+        "sortKeyTo": 41000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Lumiya Guides Jacen",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade Skywalker",
+          "Luke Skywalker",
+          "Ben Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:mara-jade-skywalker",
+          "sw-character:luke-skywalker",
+          "sw-character:ben-skywalker",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:mara-jade-skywalker",
+        "character:luke-skywalker",
+        "character:ben-skywalker",
+        "faction:jedi-order",
+        "topic:future-guard",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade Skywalker",
+            "Luke Skywalker",
+            "Ben Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "future guard",
+            "family"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Mara should remain alive before the Sacrifice-era death anchor in standard Legends continuity.",
+        "injection": "Before Mara’s death gate, do not prematurely write Luke as widowed or Ben as already grieving her murder. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Lumiya Guides Jacen.",
+          "Respect story-position bounds from Lumiya Guides Jacen to Lumiya Guides Jacen."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "caedus_dead_after_invincible",
+      "title": "Caedus Dead After Invincible",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.caedus_falls",
+        "validToAnchor": "sw.late.post_caedus",
+        "sortKeyFrom": 45000,
+        "sortKeyTo": 46000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Caedus falls",
+        "phase": "Legacy of the Force to Post-Legacy Reckoning",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Caedus",
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:darth-caedus",
+          "sw-character:jacen-solo"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force-to-post-legacy-reckoning",
+        "character:darth-caedus",
+        "character:jacen-solo",
+        "topic:future-guard",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Caedus",
+            "Jacen Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "future guard",
+            "family"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "After Invincible, Darth Caedus/Jacen is dead in standard Legends continuity.",
+        "injection": "Post-Caedus, use legacy and memory of Jacen rather than active scenes with him unless using flashback/alternate branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Caedus falls.",
+          "Respect story-position bounds from Caedus Falls / Invincible to Post-Caedus Reckoning."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "abeloth_future_guard_before_fotj",
+      "title": "Abeloth Guard Before FOTJ",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lotf_betrayal",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 40000,
+        "sortKeyTo": 45000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy of the Force / Caedus War",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Abeloth"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "force"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:abeloth"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:abeloth",
+        "topic:future-guard",
+        "topic:force"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Abeloth"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "future guard",
+            "force"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Abeloth should not leak into Dark Nest or Legacy of the Force contexts unless the story intentionally foreshadows her.",
+        "injection": "Before FOTJ, block Abeloth as an active named threat from normal late-post-Endor scenes. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy of the Force / Caedus War.",
+          "Respect story-position bounds from Legacy of the Force Begins / Betrayal to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "disney_canon_children_guard",
+      "title": "Disney Canon Children Guard",
+      "kind": "branch_fact",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 96,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa Solo",
+          "Han Solo",
+          "Ben Skywalker",
+          "Allana Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "continuity",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:leia-organa-solo",
+          "sw-character:han-solo",
+          "sw-character:ben-skywalker",
+          "sw-character:allana-solo"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "character:luke-skywalker",
+        "character:leia-organa-solo",
+        "character:han-solo",
+        "character:ben-skywalker",
+        "character:allana-solo",
+        "topic:continuity",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa Solo",
+            "Han Solo",
+            "Ben Skywalker",
+            "Allana Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "continuity",
+            "future guard"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Ben Solo/Kylo Ren, Rey, and Disney sequel-family outcomes are not part of this Legends branch.",
+        "injection": "In Star Wars Legends late-post-Endor decks, do not replace Ben Skywalker/Allana/Jaina/Jacen outcomes with Disney sequel-family state. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "legacy_comics_not_same_as_lotf",
+      "title": "Legacy Comics Not Same As Legacy of the Force",
+      "kind": "branch_fact",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Caedus"
+        ],
+        "locations": [],
+        "topics": [
+          "continuity",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "One Sith"
+        ],
+        "entityIds": [
+          "sw-character:darth-caedus",
+          "sw-faction:one-sith"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "character:darth-caedus",
+        "faction:one-sith",
+        "topic:continuity",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Darth Caedus"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "continuity",
+            "future guard"
+          ],
+          "factionsAny": [
+            "One Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Legacy of the Force and the far-future Legacy comics are separate scopes despite similar names.",
+        "injection": "Do not confuse LOTF Caedus-era context with Cade Skywalker/Darth Krayt far-future Legacy comics context. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_no_anakin_solo_alive_after_njo",
+      "title": "No Anakin Solo Alive After NJO",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Solo",
+          "Tahiri Veila",
+          "Han Solo",
+          "Leia Organa Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:anakin-solo",
+          "sw-character:tahiri-veila",
+          "sw-character:han-solo",
+          "sw-character:leia-organa-solo"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "character:anakin-solo",
+        "character:tahiri-veila",
+        "character:han-solo",
+        "character:leia-organa-solo",
+        "topic:future-guard",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Solo",
+            "Tahiri Veila",
+            "Han Solo",
+            "Leia Organa Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "future guard",
+            "family"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Anakin Solo remains dead after the NJO Myrkr mission in standard Legends continuity.",
+        "injection": "In late-post-Endor scenes, do not restore Anakin Solo as alive unless the story is explicitly alternate-branch. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_chewbacca_absence_still_matters",
+      "title": "Chewbacca Absence Still Matters",
+      "kind": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Chewbacca",
+          "Han Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:chewbacca",
+          "sw-character:han-solo"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "character:chewbacca",
+        "character:han-solo",
+        "topic:future-guard",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Chewbacca",
+            "Han Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "future guard",
+            "family"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Chewbacca remains absent after Sernpidal, and that loss still informs late Solo-family emotional history.",
+        "injection": "Do not include Chewbacca casually alive in late Legends unless the story branch changed Sernpidal.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_no_yuuzhan_vong_primary_enemy",
+      "title": "Yuuzhan Vong Not Primary Late Enemy",
+      "kind": "branch_fact",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.post_njo_recovery",
+        "validToAnchor": "sw.late.crucible",
+        "sortKeyFrom": 33000,
+        "sortKeyTo": 53000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Late post-Endor Legends",
+        "phase": "Post-NJO Recovery to Crucible",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "continuity",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": []
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:post-njo-recovery-to-crucible",
+        "topic:continuity",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "continuity",
+            "war"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "By Dark Nest/LOTF/FOTJ, Yuuzhan Vong trauma persists but they are not the primary active enemy by default.",
+        "injection": "In late-post-Endor contexts, treat Yuuzhan Vong trauma as historical pressure, not the default hidden mastermind; only make them the active enemy if the user selects a Vong-focused branch or crossover.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late post-Endor Legends.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

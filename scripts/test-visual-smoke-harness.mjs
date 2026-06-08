@@ -3,7 +3,6 @@ import path from 'node:path';
 
 const root = process.cwd();
 const harnessPath = path.join(root, 'tests', 'visual-smoke.html');
-const fixturePath = path.join(root, 'tests', 'fixtures', 'arlong-park-update.saga-loredeck.json');
 const loredeckIndexPath = path.join(root, 'Loredecks', 'index.json');
 const panelPath = path.join(root, 'lore-panel.js');
 const libraryPanelPath = path.join(root, 'loredeck-library-panel.js');
@@ -44,7 +43,6 @@ function assert(condition, message) {
 }
 
 const harness = read(harnessPath);
-const fixture = JSON.parse(read(fixturePath));
 const loredeckIndex = JSON.parse(read(loredeckIndexPath));
 const panel = read(panelPath);
 const runtimePanelSource = [
@@ -90,8 +88,7 @@ assert(harness.includes("smokeParams.get('review') === 'context-proposals'"), 'H
 assert(harness.includes('window.__sagaContextSmoke'), 'Harness must expose Context smoke metadata.');
 assert(harness.includes("selectedLoredeckId: customPack.packId"), 'Harness must select the seeded Custom Loredeck.');
 assert(harness.includes('pendingChanges'), 'Harness must seed Pending Review content.');
-assert(harness.includes('source: {'), 'Harness must seed source/update metadata.');
-assert(harness.includes('./fixtures/arlong-park-update.saga-loredeck.json'), 'Harness must point at the local update fixture.');
+assert(harness.includes("kind: 'custom'"), 'Harness must seed a Custom Loredeck source.');
 assert(harness.includes('contextResolutionProposals'), 'Harness must seed reviewable Context proposals for Context visual smoke.');
 assert(harness.includes('contextResolutionAudit'), 'Harness must seed resolver audit state for Context visual smoke.');
 assert(harness.includes('contextAutomationAudit'), 'Harness must seed automation audit state for Context visual smoke.');
@@ -315,31 +312,13 @@ assert(runtimePanelSource.includes('generated_finalized'), 'Finalized Custom Lor
 assert(runtimePanelSource.includes('Generated Loredeck is not export-ready'), 'Selected export must enforce Generated Loredeck readiness.');
 assert(runtimePanelSource.includes('refreshLoredeckHealthAfterAcceptedPendingChanges'), 'Pending Review acceptance must rerun Deck Health after health-impact changes.');
 assert(runtimePanelSource.includes('and refreshed Deck Health'), 'Pending Review health rerun must report refreshed Deck Health to the user.');
-assert(runtimePanelSource.includes('getLoredeckBundleContentHash'), 'Loredeck bundle export/import must use a canonical content hash.');
-assert(runtimePanelSource.includes('Hash mismatch'), 'Loredeck install preview must surface declared content-hash mismatches.');
-assert(runtimePanelSource.includes('Embedded Lorecards'), 'Loredeck install preview must show embedded Lorecard counts.');
-assert(runtimePanelSource.includes('Pending Dropped'), 'Loredeck install preview must show pending proposals dropped during import.');
-
-assert(fixture.bundleType === 'saga_loredeck_json', 'Fixture must be a Saga Loredeck bundle.');
-assert(fixture.pack?.packId === 'smoke-arlong-park', 'Fixture pack ID must match the harness deck.');
-assert(fixture.manifest?.id === fixture.pack.packId, 'Fixture manifest ID must match the pack ID.');
-assert(fixture.pack?.version === '1.0.1', 'Fixture should simulate a newer published version.');
-assert(Array.isArray(fixture.entries) && fixture.entries.length >= 2, 'Fixture must include embedded Lorecards.');
-for (const entry of fixture.entries) {
-    assert(entry.schemaVersion === 3, `Fixture entry ${entry.id || '(missing id)'} must use schema v3.`);
-    assert(entry.id && entry.title, 'Fixture entries need IDs and titles.');
-    assert(entry.content?.fact && entry.content?.injection, `Fixture entry ${entry.id} needs high-value content fields.`);
-    assert(entry.context && typeof entry.context === 'object', `Fixture entry ${entry.id} needs Context metadata.`);
-    assert(entry.retrieval && typeof entry.retrieval === 'object', `Fixture entry ${entry.id} needs retrieval metadata.`);
-}
-assert(fixture.timelineRegistry?.anchors?.length, 'Fixture must include timeline anchors.');
-assert(fixture.tagRegistry?.tags?.length, 'Fixture must include tag definitions.');
+assert(runtimePanelSource.includes('hashLoredeckBundleJson'), 'Loredeck package import must use a canonical content hash.');
+assert(runtimePanelSource.includes('Import Loredeck Package'), 'Loredeck package import must use the zip package preview dialog.');
+assert(runtimePanelSource.includes('installed Loredeck') && runtimePanelSource.includes('same content hash'), 'Loredeck package import must warn about exact duplicate package content.');
+assert(runtimePanelSource.includes('possible duplicate Loredeck'), 'Loredeck package import must warn about possible duplicate Loredecks.');
+assert(runtimePanelSource.includes('embeddedEntryCount'), 'Loredeck package import must track embedded Lorecard counts.');
 
 for (const token of [
-    'Check Updates',
-    'Loredeck Update Preview',
-    'Update This Deck',
-    'Install As New Copy',
     'Pending Review',
     'Loredeck Creator',
     'getActiveLoredeckCreatorJob',
@@ -432,7 +411,7 @@ for (const token of [
     'Open Loredeck Library',
     'Loredeck Library',
     'Import Deck',
-    'Install Selected As New Copies',
+    'Install Selected',
     'Add to Stack >',
     'Clear Stack',
     'Deck Health Center',

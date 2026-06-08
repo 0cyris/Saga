@@ -9,7 +9,7 @@
   "era": "Golden Trio Core",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "defaultLocale": "en",
   "generatedAt": "2026-06-05",
   "assets": {
@@ -35,11 +35,12 @@
     "familyOrder": 10
   },
   "tags": [
-    "fandom:harry-potter",
     "era:golden-trio",
-    "structure:split-loredeck",
+    "fandom:harry-potter",
     "quality:human-vetted",
-    "scope:core"
+    "quality:relevance-curated",
+    "scope:core",
+    "structure:split-loredeck"
   ],
   "source": {
     "kind": "bundled",
@@ -81,26 +82,28 @@
     "knowledge/secret_knowledge.json",
     "places/hogwarts_and_britain.json",
     "spell_gates/expanded_spell_gates.json",
-    "spell_gates/spell_gates.json"
+    "spell_gates/spell_gates.json",
+    "knowledge_gates/relevance_timing_guards.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 74,
+    "entryCount": 79,
     "categoryCounts": {
       "character": 47,
       "faction": 1,
       "item": 4,
-      "knowledge": 9,
+      "knowledge": 13,
       "location": 4,
       "rule": 1,
+      "secret": 1,
       "spell": 6,
       "timeline": 2
     },
     "timelineAnchorCount": 22,
     "timelineWindowCount": 6
   },
-  "updatedAt": 1780617600000
+  "updatedAt": 1780876800000
 }

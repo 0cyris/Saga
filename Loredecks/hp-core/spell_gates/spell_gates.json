@@ -10,7 +10,7 @@
       "kind": "spell_gate",
       "gateType": "spell_gate",
       "category": "spell",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 100,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -97,12 +97,16 @@
       },
       "content": {
         "fact": "The Patronus Charm is advanced defensive magic; Harry learns it unusually early, while most students do not cast it before Dumbledore’s Army training.",
-        "injection": "The Patronus Charm is advanced defensive magic; Harry learns it unusually early, while most students do not cast it before Dumbledore’s Army training.",
+        "injection": "The Patronus Charm is advanced defensive magic; Harry learns it unusually early, while most students do not cast it before Dumbledore’s Army training. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Treat Expecto Patronum knowledge as Context- and character-gated."
+          "Treat Expecto Patronum knowledge as Context- and character-gated.",
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make Expecto Patronum common student knowledge too early."
+          "Do not make Expecto Patronum common student knowledge too early.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -126,7 +130,20 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3",
+        "spell:patronus"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -135,7 +152,7 @@
       "kind": "spell_gate",
       "gateType": "spell_gate",
       "category": "spell",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 100,
       "injectableByDefault": true,
@@ -253,12 +270,16 @@
       },
       "content": {
         "fact": "Sectumsempra is obscure and dangerous; Harry should not know it, and most students should not recognize it.",
-        "injection": "Sectumsempra is obscure and dangerous; Harry should not know it, and most students should not recognize it.",
+        "injection": "Sectumsempra is obscure and dangerous; Harry should not know it, and most students should not recognize it. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Treat Sectumsempra knowledge as Context- and character-gated."
+          "Treat Sectumsempra knowledge as Context- and character-gated.",
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make Sectumsempra common student knowledge too early."
+          "Do not make Sectumsempra common student knowledge too early.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -294,7 +315,18 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6",
+        "spell:sectumsempra"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -381,12 +413,14 @@
       },
       "content": {
         "fact": "Fourth-years are taught about the Unforgivable Curses, but ordinary students should not casually cast them.",
-        "injection": "Fourth-years are taught about the Unforgivable Curses, but ordinary students should not casually cast them.",
+        "injection": "Fourth-years are taught about the Unforgivable Curses, but ordinary students should not casually cast them. Use this only as a phase baseline for Goblet of Fire: Year 4; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
-          "Treat Unforgivable Curses knowledge as Context- and character-gated."
+          "Treat Unforgivable Curses knowledge as Context- and character-gated.",
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not make Unforgivable Curses common student knowledge too early."
+          "Do not make Unforgivable Curses common student knowledge too early.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ]
       },
       "effects": {
@@ -410,7 +444,13 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -419,7 +459,7 @@
       "kind": "spell_gate",
       "gateType": "spell_gate",
       "category": "spell",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 100,
       "injectableByDefault": true,
@@ -427,7 +467,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -501,12 +541,16 @@
       },
       "content": {
         "fact": "Nonverbal magic is a Year 6-level skill and should not be routine for younger students.",
-        "injection": "Nonverbal magic is a Year 6-level skill and should not be routine for younger students.",
+        "injection": "Nonverbal magic is a Year 6-level skill and should not be routine for younger students. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Treat nonverbal magic knowledge as Context- and character-gated."
+          "Treat nonverbal magic knowledge as Context- and character-gated.",
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make nonverbal magic common student knowledge too early."
+          "Do not make nonverbal magic common student knowledge too early.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -530,7 +574,13 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     }
   ]
 }

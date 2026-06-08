@@ -1,0 +1,2163 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-08",
+  "sourcePackId": "sw-legends-film-spine",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_hoth_base_rebel_hidden_vulnerable",
+      "title": "Hoth Base Is Hidden but Vulnerable",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "lorePurpose": "location_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:hoth",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "location:hoth",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.episode_5_esb",
+        "validToAnchor": "sw.film.episode_5_esb",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Episode V: The Empire Strikes Back",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Hoth"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Echo Base",
+          "hidden base"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Hoth"
+          ],
+          "topicsAny": [
+            "Echo Base",
+            "hidden base",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "At the opening of Empire, Echo Base is a hidden Rebel base on Hoth but remains vulnerable to Imperial discovery.",
+        "injection": "During early ESB, use Hoth as a temporary, exposed Rebel refuge rather than a stable capital or safe headquarters.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode V: The Empire Strikes Back.",
+          "Respect story-position bounds from Episode V: The Empire Strikes Back to Episode V: The Empire Strikes Back."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_imperial_probe_finds_hoth",
+      "title": "Imperial Probe Leads to Hoth Assault",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:hoth",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "location:hoth",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.esb_hoth_evacuated",
+        "validToAnchor": "sw.film.esb_hoth_evacuated",
+        "sortKeyFrom": 6060,
+        "sortKeyTo": 6060,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Rebels Evacuate Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Hoth"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "probe droid",
+          "evacuation"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Hoth"
+          ],
+          "topicsAny": [
+            "probe droid",
+            "evacuation",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Empire locates Echo Base through probe intelligence, forcing a Rebel evacuation.",
+        "injection": "After the probe confirms Hoth, the Rebels must evacuate under attack; do not keep Echo Base as a long-term active refuge.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rebels Evacuate Hoth.",
+          "Respect story-position bounds from Rebels Evacuate Hoth to Rebels Evacuate Hoth."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_rebels_scattered_after_hoth",
+      "title": "Rebels Scattered After Hoth",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:rebellion",
+        "event:hoth",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.esb_hoth_evacuated",
+        "validToAnchor": "sw.film.esb_hoth_evacuated",
+        "sortKeyFrom": 6060,
+        "sortKeyTo": 6060,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Rebels Evacuate Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Hoth"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Rebel evacuation",
+          "fleet rendezvous"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Hoth"
+          ],
+          "topicsAny": [
+            "Rebel evacuation",
+            "fleet rendezvous",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Hoth, Rebel forces are scattered and pressured rather than operating from a secure base.",
+        "injection": "Post-Hoth scenes should reflect Rebel dispersal, survival logistics, rendezvous plans, and Imperial pursuit. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rebels Evacuate Hoth.",
+          "Respect story-position bounds from Rebels Evacuate Hoth to Rebels Evacuate Hoth."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_luke_dagobah_training_begins",
+      "title": "Luke Begins Training with Yoda",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:jedi-training",
+        "character:luke-skywalker",
+        "character:yoda",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:dagobah",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.esb_dagobah_training",
+        "validToAnchor": "sw.film.esb_dagobah_training",
+        "sortKeyFrom": 6120,
+        "sortKeyTo": 6120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke Trains on Dagobah",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Yoda",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Dagobah"
+        ],
+        "factions": [],
+        "topics": [
+          "Jedi training",
+          "Force discipline"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Yoda",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "Jedi training",
+            "Force discipline"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke trains with Yoda on Dagobah, but his training is brief, incomplete, and emotionally disrupted.",
+        "injection": "During and after Dagobah training, Luke improves but remains unfinished; do not write him as a calm, fully trained Jedi Master.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke Trains on Dagobah.",
+          "Respect story-position bounds from Luke Trains on Dagobah to Luke Trains on Dagobah."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      },
+      "ability": {
+        "system": "force",
+        "name": "Jedi training",
+        "stage": "incomplete apprentice",
+        "ownerEntityIds": [
+          "sw:luke-skywalker"
+        ],
+        "constraints": [
+          "Training is interrupted before completion."
+        ],
+        "antiLore": [
+          "Do not portray ESB Luke as fully trained."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_yoda_hidden_master_not_public",
+      "title": "Yoda Hidden on Dagobah",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:yoda",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:dagobah",
+        "scope:film-spine",
+        "topic:knowledge-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_5_esb",
+        "validToAnchor": "sw.film.esb_han_frozen",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode V: The Empire Strikes Back",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yoda",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Dagobah"
+        ],
+        "factions": [],
+        "topics": [
+          "Jedi exile",
+          "hidden master"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yoda",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "Jedi exile",
+            "hidden master"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Yoda is hidden on Dagobah and unknown to the galaxy at large.",
+        "injection": "Do not have ordinary Rebels, Imperials, or civilians know Yoda’s location unless the story establishes exceptional knowledge.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode V: The Empire Strikes Back.",
+          "Respect story-position bounds from Episode V: The Empire Strikes Back to Han Frozen in Carbonite."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_force_vision_cave_warning",
+      "title": "Dagobah Cave Shows Internal Threat",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "ability:precognition",
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:dagobah",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.esb_dagobah_training",
+        "validToAnchor": "sw.film.esb_dagobah_training",
+        "sortKeyFrom": 6120,
+        "sortKeyTo": 6120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke Trains on Dagobah",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Yoda"
+        ],
+        "locations": [
+          "Dagobah"
+        ],
+        "factions": [],
+        "topics": [
+          "cave vision",
+          "fear",
+          "dark-side risk"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Yoda"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "cave vision",
+            "fear",
+            "dark-side risk"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke’s Dagobah cave vision warns that his danger is internal as much as external.",
+        "injection": "Use the Dagobah cave as psychological/Force symbolism about fear, anger, and Vader-like potential, not as simple tactical prophecy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke Trains on Dagobah.",
+          "Respect story-position bounds from Luke Trains on Dagobah to Luke Trains on Dagobah."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_luke_leaves_training_early",
+      "title": "Luke Leaves Dagobah Early",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:jedi-training",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:dagobah",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.esb_dagobah_training",
+        "validToAnchor": "sw.film.esb_dagobah_training",
+        "sortKeyFrom": 6120,
+        "sortKeyTo": 6120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke Trains on Dagobah",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Yoda",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Dagobah",
+          "Bespin"
+        ],
+        "factions": [],
+        "topics": [
+          "interrupted training",
+          "friends in danger"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Yoda",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Dagobah",
+            "Bespin"
+          ],
+          "topicsAny": [
+            "interrupted training",
+            "friends in danger"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke leaves Dagobah before completing his training because he senses his friends in danger.",
+        "injection": "After Luke leaves Dagobah, keep his Jedi training incomplete and his emotional attachment central to his choices.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke Trains on Dagobah.",
+          "Respect story-position bounds from Luke Trains on Dagobah to Luke Trains on Dagobah."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_han_leia_romance_develops_under_pressure",
+      "title": "Han and Leia Romance Develops Under Pressure",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "fandom:star-wars",
+        "relationship:romance",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_5_esb",
+        "validToAnchor": "sw.film.esb_han_frozen",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode V: The Empire Strikes Back",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "romance",
+          "Imperial pursuit"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "romance",
+            "Imperial pursuit"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Han and Leia’s romance becomes explicit under Imperial pursuit and Bespin captivity.",
+        "injection": "During ESB and after, Han and Leia may carry romantic tension/commitment, but this is developed under danger and unresolved captivity.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode V: The Empire Strikes Back.",
+          "Respect story-position bounds from Episode V: The Empire Strikes Back to Han Frozen in Carbonite."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_falcon_hyperdrive_failure",
+      "title": "Falcon Hyperdrive Trouble Shapes Escape",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:millennium-falcon",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_5_esb",
+        "validToAnchor": "sw.film.esb_han_frozen",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode V: The Empire Strikes Back",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Chewbacca",
+          "Leia Organa",
+          "C-3PO"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "hyperdrive failure",
+          "pursuit"
+        ],
+        "objects": [
+          "Millennium Falcon"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Chewbacca",
+            "Leia Organa",
+            "C-3PO"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "hyperdrive failure",
+            "pursuit",
+            "Millennium Falcon"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Millennium Falcon’s hyperdrive problems shape the ESB chase and force reliance on risky refuges.",
+        "injection": "During the ESB chase, keep the Falcon’s mechanical limits relevant; they are not simply outrunning the Empire without constraint.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode V: The Empire Strikes Back.",
+          "Respect story-position bounds from Episode V: The Empire Strikes Back to Han Frozen in Carbonite."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_bespin_lando_compromised",
+      "title": "Lando Compromised by Imperial Pressure",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:lando-calrissian",
+        "continuity:legends",
+        "event:bespin",
+        "fandom:star-wars",
+        "location:bespin",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.esb_bespin_betrayal",
+        "validToAnchor": "sw.film.esb_bespin_betrayal",
+        "sortKeyFrom": 6220,
+        "sortKeyTo": 6220,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bespin Betrayal",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lando Calrissian",
+          "Han Solo",
+          "Leia Organa",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Bespin"
+        ],
+        "factions": [
+          "Galactic Empire"
+        ],
+        "topics": [
+          "coerced betrayal",
+          "Cloud City"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Lando Calrissian",
+            "Han Solo",
+            "Leia Organa",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Bespin"
+          ],
+          "topicsAny": [
+            "coerced betrayal",
+            "Cloud City",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Lando betrays Han’s group under Imperial coercion but later attempts to repair the betrayal.",
+        "injection": "At Bespin, write Lando as compromised by Imperial pressure rather than casually malicious; after the betrayal, his loyalty can shift toward rescue and Rebellion.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Bespin Betrayal.",
+          "Respect story-position bounds from Bespin Betrayal to Bespin Betrayal."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_cloud_city_under_imperial_control",
+      "title": "Cloud City Falls Under Imperial Control",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:bespin",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "location:bespin",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.esb_bespin_betrayal",
+        "validToAnchor": "sw.film.esb_bespin_betrayal",
+        "sortKeyFrom": 6220,
+        "sortKeyTo": 6220,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bespin Betrayal",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Bespin"
+        ],
+        "factions": [
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Cloud City occupation",
+          "Imperial pressure"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Bespin"
+          ],
+          "topicsAny": [
+            "Cloud City occupation",
+            "Imperial pressure",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During the Bespin crisis, Cloud City falls under direct Imperial pressure and cannot remain politically neutral.",
+        "injection": "After Vader’s arrival at Bespin, Cloud City is unsafe for Rebel-linked characters and subject to Imperial coercion.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Bespin Betrayal.",
+          "Respect story-position bounds from Bespin Betrayal to Bespin Betrayal."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_vader_sets_trap_for_luke",
+      "title": "Vader Uses Friends as Trap for Luke",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "event:bespin",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.esb_bespin_betrayal",
+        "validToAnchor": "sw.film.esb_bespin_betrayal",
+        "sortKeyFrom": 6220,
+        "sortKeyTo": 6220,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bespin Betrayal",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Luke Skywalker",
+          "Han Solo",
+          "Leia Organa",
+          "Chewbacca"
+        ],
+        "locations": [
+          "Bespin"
+        ],
+        "factions": [],
+        "topics": [
+          "trap",
+          "leverage"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Luke Skywalker",
+            "Han Solo",
+            "Leia Organa",
+            "Chewbacca"
+          ],
+          "locationsAny": [
+            "Bespin"
+          ],
+          "topicsAny": [
+            "trap",
+            "leverage"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Vader uses Luke’s friends at Bespin to lure Luke into confrontation.",
+        "injection": "In ESB Bespin context, frame Han, Leia, Chewie, and the droids as leverage in Vader’s trap for Luke. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Bespin Betrayal.",
+          "Respect story-position bounds from Bespin Betrayal to Bespin Betrayal."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_han_frozen_for_jabba",
+      "title": "Han Frozen and Sent Toward Jabba",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:boba-fett",
+        "character:han-solo",
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:carbonite",
+        "relationship:bounty",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.esb_han_frozen",
+        "validToAnchor": "sw.film.esb_han_frozen",
+        "sortKeyFrom": 6300,
+        "sortKeyTo": 6300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Han Frozen in Carbonite",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Boba Fett",
+          "Jabba the Hutt",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Bespin"
+        ],
+        "factions": [
+          "Hutt Clan"
+        ],
+        "topics": [
+          "Han captive",
+          "bounty"
+        ],
+        "objects": [
+          "carbonite"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Boba Fett",
+            "Jabba the Hutt",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Bespin"
+          ],
+          "topicsAny": [
+            "Han captive",
+            "bounty",
+            "carbonite",
+            "Hutt Clan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Han is frozen in carbonite at Bespin and taken by Boba Fett toward Jabba.",
+        "injection": "After Bespin and before the Jabba rescue, Han is unavailable as an active free agent and is a captive bounty object.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Han Frozen in Carbonite.",
+          "Respect story-position bounds from Han Frozen in Carbonite to Han Frozen in Carbonite."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_luke_loses_hand",
+      "title": "Luke Loses His Hand on Bespin",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "event:bespin",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.esb_vader_reveals_paternity",
+        "validToAnchor": "sw.film.esb_vader_reveals_paternity",
+        "sortKeyFrom": 6280,
+        "sortKeyTo": 6280,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vader Reveals Luke Paternity",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Bespin"
+        ],
+        "factions": [],
+        "topics": [
+          "duel injury",
+          "prosthetic hand"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Bespin"
+          ],
+          "topicsAny": [
+            "duel injury",
+            "prosthetic hand"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke loses his hand in the duel with Vader and receives a prosthetic afterward.",
+        "injection": "After the Bespin duel, Luke has a cybernetic hand; before this injury, do not describe him with that prosthetic.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vader Reveals Luke Paternity.",
+          "Respect story-position bounds from Vader Reveals Luke Paternity to Vader Reveals Luke Paternity."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_esb_vader_reveals_luke_paternity",
+      "title": "Vader Reveals He Is Luke’s Father",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "event:bespin",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:family-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.esb_vader_reveals_paternity",
+        "validToAnchor": "sw.film.esb_vader_reveals_paternity",
+        "sortKeyFrom": 6280,
+        "sortKeyTo": 6280,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vader Reveals Luke Paternity",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "paternity reveal",
+          "Bespin duel"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "paternity reveal",
+            "Bespin duel"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Vader reveals to Luke that he is Luke’s father.",
+        "injection": "After the Bespin duel, Luke knows Vader claims to be his father; before Bespin, this knowledge should remain blocked.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vader Reveals Luke Paternity.",
+          "Respect story-position bounds from Vader Reveals Luke Paternity to Vader Reveals Luke Paternity."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_esb_luke_knows_vader_claim",
+      "title": "After Empire, Luke Knows Vader’s Claim",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:knowledge-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.esb_han_frozen",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 6300,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After The Empire Strikes Back, before Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Obi-Wan Kenobi",
+          "Yoda"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "paternity knowledge",
+          "withheld truth"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Obi-Wan Kenobi",
+            "Yoda"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "paternity knowledge",
+            "withheld truth"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Empire, Luke is aware of Vader’s paternity claim but has not yet fully processed Obi-Wan and Yoda’s withheld truth.",
+        "injection": "In the after-ESB/before-ROTJ window, Luke may be troubled by Vader’s claim; do not reset him to ANH ignorance.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After The Empire Strikes Back, before Return of the Jedi.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_esb_leia_sibling_secret_still_hidden",
+      "title": "After Empire, Leia Sibling Secret Still Hidden",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:family-secret",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.esb_han_frozen",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 6300,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After The Empire Strikes Back, before Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "sibling secret",
+          "future reveal"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "sibling secret",
+            "future reveal"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Empire and before Return, Leia does not yet know she is Luke’s sister.",
+        "injection": "In after-ESB/before-ROTJ scenes, keep Leia’s sibling identity hidden from Leia, Luke, and ordinary characters unless the story reveals it early.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After The Empire Strikes Back, before Return of the Jedi.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_esb_rebels_need_rescue_han",
+      "title": "After Empire, Han Rescue Is Active Objective",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:carbonite",
+        "relationship:bounty",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.esb_han_frozen",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 6300,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After The Empire Strikes Back, before Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Luke Skywalker",
+          "Lando Calrissian",
+          "Chewbacca",
+          "Jabba the Hutt"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [],
+        "topics": [
+          "rescue Han",
+          "Jabba captivity"
+        ],
+        "objects": [
+          "carbonite"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Luke Skywalker",
+            "Lando Calrissian",
+            "Chewbacca",
+            "Jabba the Hutt"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "rescue Han",
+            "Jabba captivity",
+            "carbonite"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Empire, rescuing Han from Jabba becomes an active unresolved objective for Han’s friends.",
+        "injection": "In after-ESB/before-ROTJ context, treat Han as frozen captive and make his rescue a credible active objective.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After The Empire Strikes Back, before Return of the Jedi.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_esb_vader_redemption_not_known",
+      "title": "Vader Redemption Not Established After Empire",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "future",
+      "revealPolicy": "guard",
+      "tags": [
+        "character:darth-vader",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.esb_han_frozen",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 6300,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After The Empire Strikes Back, before Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "redemption uncertainty",
+          "future guard"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "guard"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "redemption uncertainty",
+            "future guard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Empire and before Return, Vader’s redemption is not established fact.",
+        "injection": "Do not assume Vader will redeem himself in after-ESB/pre-ROTJ scenes; characters may fear, hope, deny, or doubt it depending on viewpoint.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After The Empire Strikes Back, before Return of the Jedi.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    }
+  ]
+}

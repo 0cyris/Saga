@@ -1,0 +1,579 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "y4_guard_fake_moody_hidden_until_reveal",
+      "title": "Fake Moody hidden until reveal",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.real_moody_kidnapped",
+        "validToAnchor": "hp.y4.fake_moody_revealed",
+        "sortKeyFrom": 9043,
+        "sortKeyTo": 9283,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before fake Moody reveal",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Alastor Moody",
+          "Barty Crouch Jr.",
+          "Harry Potter"
+        ],
+        "topics": [
+          "fake Moody",
+          "Polyjuice deception",
+          "Crouch Jr secret"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:alastor-moody",
+        "character:barty-crouch-jr",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:4"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Alastor Moody",
+            "Barty Crouch Jr.",
+            "Harry Potter"
+          ],
+          "topicsAny": [
+            "fake Moody",
+            "Polyjuice deception",
+            "Crouch Jr secret"
+          ]
+        }
+      },
+      "content": {
+        "fact": "For most of Year 4, Barty Crouch Jr. successfully impersonates Moody and manipulates events while the real Moody is imprisoned.",
+        "injection": "Before the fake Moody reveal, write Moody as apparently Moody to Harry and school observers; do not expose Barty Crouch Jr., the Polyjuice deception, or the real Moody’s captivity early.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before fake Moody reveal; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-4-goblet-of-fire",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-4-goblet-of-fire"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y4_guard_harry_fourth_champion_after_selection",
+      "title": "Harry becomes fourth champion only after Goblet selection",
+      "kind": "status_gate",
+      "gateType": "status_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 105,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.harry_selected_fourth_champion",
+        "validToAnchor": "hp.y4.train_home_after_cedric",
+        "sortKeyFrom": 9094,
+        "sortKeyTo": 9306,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Harry selected as fourth champion",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Albus Dumbledore"
+        ],
+        "topics": [
+          "Triwizard champion",
+          "Goblet selection",
+          "magical contract"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:4"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Albus Dumbledore"
+          ],
+          "topicsAny": [
+            "Triwizard champion",
+            "Goblet selection",
+            "magical contract"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Harry is not a Triwizard champion until his name comes out of the Goblet; afterward he is magically bound to compete despite suspicion and hostility.",
+        "injection": "Before the Goblet selection, do not treat Harry as a champion; after selection, enforce the contract pressure, school hostility, and forced participation.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches After Harry selected as fourth champion; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-4-goblet-of-fire",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-4-goblet-of-fire"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y4_guard_ron_harry_rift_window",
+      "title": "Ron/Harry rift timing",
+      "kind": "relationship_gate",
+      "gateType": "relationship_gate",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 100,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.ron_harry_fallout_begins",
+        "validToAnchor": "hp.y4.ron_harry_reconcile",
+        "sortKeyFrom": 9111,
+        "sortKeyTo": 9151,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ron and Harry rift before first task reconciliation",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "friendship rift",
+          "first task",
+          "Triwizard fallout"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:4"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "friendship rift",
+            "first task",
+            "Triwizard fallout"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Harry is selected, Ron doubts him and the friendship strains until the first task demonstrates the danger and they reconcile.",
+        "injection": "During this window, write Ron and Harry as tense or estranged; before it they are not yet in this specific fight, and after reconciliation do not keep the same rift active without new cause.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Ron and Harry rift before first task reconciliation; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-4-goblet-of-fire",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-4-goblet-of-fire"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y4_guard_voldemort_not_reborn_before_graveyard",
+      "title": "Voldemort not reborn before graveyard",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.frank_bryce_murder",
+        "validToAnchor": "hp.y4.voldemort_reborn",
+        "sortKeyFrom": 8992,
+        "sortKeyTo": 9271,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Voldemort rebirth",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lord Voldemort",
+          "Harry Potter",
+          "Barty Crouch Jr."
+        ],
+        "topics": [
+          "Voldemort rebirth",
+          "graveyard ritual",
+          "future guard"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:barty-crouch-jr",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:4"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Lord Voldemort",
+            "Harry Potter",
+            "Barty Crouch Jr."
+          ],
+          "topicsAny": [
+            "Voldemort rebirth",
+            "graveyard ritual",
+            "future guard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the graveyard ritual, Voldemort is not publicly restored to a full body and most characters do not know he is near return.",
+        "injection": "Before Voldemort’s rebirth anchor, do not write him as an openly embodied war leader; keep his return hidden, weak, and routed through servants, dreams, and ritual setup.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Voldemort rebirth; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-4-goblet-of-fire",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-4-goblet-of-fire"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y4_guard_ministry_denial_after_graveyard",
+      "title": "Ministry denial begins after graveyard",
+      "kind": "status_gate",
+      "gateType": "status_gate",
+      "category": "faction",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 105,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y4.ministry_denial_begins",
+        "validToAnchor": "hp.y4.train_home_after_cedric",
+        "sortKeyFrom": 9294,
+        "sortKeyTo": 9306,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Ministry denial begins",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Albus Dumbledore",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Ministry denial",
+          "Voldemort return",
+          "Cedric aftermath"
+        ],
+        "factions": [
+          "Ministry of Magic",
+          "Order of the Phoenix"
+        ],
+        "schoolYears": [
+          "4"
+        ],
+        "books": [
+          "Goblet of Fire"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:4"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Albus Dumbledore",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Ministry denial",
+            "Voldemort return",
+            "Cedric aftermath"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the graveyard and Crouch Jr. confession, Fudge refuses to accept Voldemort’s return, beginning the denial climate that dominates Year 5.",
+        "injection": "After the denial anchor, write official Ministry response as evasive and hostile to Dumbledore/Harry’s claims; before it, do not import Year 5 denial politics wholesale.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches After Ministry denial begins; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Goblet of Fire",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-4-goblet-of-fire",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-4-goblet-of-fire"
+        }
+      }
+    }
+  ]
+}

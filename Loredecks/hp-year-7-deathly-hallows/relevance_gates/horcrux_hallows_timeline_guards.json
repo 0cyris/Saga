@@ -1,0 +1,952 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "y7_guard_trio_horcrux_quest_from_start",
+      "title": "Trio knows Horcrux quest from start of Year 7",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.privet_departure_preparation",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10051,
+        "sortKeyTo": 10349,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Year 7 Horcrux quest active",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "Horcrux hunt",
+          "not normal school year",
+          "Year 7 mission"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "quality:relevance-curated",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:horcruxes"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "Horcrux hunt",
+            "not normal school year",
+            "Year 7 mission"
+          ]
+        }
+      },
+      "content": {
+        "fact": "At the start of Year 7, Harry, Ron, and Hermione are not attending a normal Hogwarts year; they are preparing for and conducting the Horcrux hunt.",
+        "injection": "In canon Year 7 Context, write the trio as Horcrux-hunt participants rather than ordinary students. They may know the mission, but their information is still incomplete and should update at each anchor.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Year 7 Horcrux quest active; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y7_guard_hallows_not_known_before_lovegood",
+      "title": "Hallows not active before Lovegood explanation",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.privet_departure_preparation",
+        "validToAnchor": "hp.y7.deathly_hallows_explained",
+        "sortKeyFrom": 10051,
+        "sortKeyTo": 10189,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Deathly Hallows explanation",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Xenophilius Lovegood"
+        ],
+        "topics": [
+          "Deathly Hallows",
+          "Lovegood explanation",
+          "Elder Wand"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:elder-wand"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Xenophilius Lovegood"
+          ],
+          "topicsAny": [
+            "Deathly Hallows",
+            "Lovegood explanation",
+            "Elder Wand"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Xenophilius explains the symbol and tale, the Deathly Hallows are not an active interpretive framework for the trio.",
+        "injection": "Before the Lovegood explanation, do not have Harry, Ron, or Hermione reason fluently about the Elder Wand, Resurrection Stone, or Hallows quest; they may have objects/clues without understanding the system.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Deathly Hallows explanation; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y7_guard_ministry_falls_after_wedding",
+      "title": "Ministry falls after wedding ambush",
+      "kind": "status_gate",
+      "gateType": "status_gate",
+      "category": "faction",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 110,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.ministry_falls",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10091,
+        "sortKeyTo": 10349,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Ministry falls",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Ministry fall",
+          "fugitive status",
+          "Death Eater control"
+        ],
+        "factions": [
+          "Ministry of Magic",
+          "Death Eaters"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "faction:ministry-of-magic",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "quality:relevance-curated",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Ministry fall",
+            "fugitive status",
+            "Death Eater control"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the Ministry falls, Death Eater control reshapes public authority, Hogwarts, travel risk, and the trio’s fugitive status.",
+        "injection": "After the Ministry-fall anchor, write official wizarding Britain as compromised by Death Eater control; before it, keep the Ministry unstable but not yet fallen.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches After Ministry falls; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y7_guard_ron_absent_window",
+      "title": "Ron absent during camping split",
+      "kind": "relationship_gate",
+      "gateType": "relationship_gate",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 110,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.ron_leaves",
+        "validToAnchor": "hp.y7.ron_returns",
+        "sortKeyFrom": 10149,
+        "sortKeyTo": 10176,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ron absent from Horcrux hunt",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ron Weasley",
+          "Harry Potter",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "Ron leaves",
+          "camping phase",
+          "locket strain"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ron Weasley",
+            "Harry Potter",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "Ron leaves",
+            "camping phase",
+            "locket strain"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the locket-strain argument, Ron leaves Harry and Hermione and is absent from the hunt until the silver doe/Forest of Dean return.",
+        "injection": "During Ron’s absence window, do not include Ron in camp planning, dialogue, or discovery scenes unless the scene is about his absence, offscreen struggle, or AU change; after return, reintegrate him with guilt and repair.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Ron absent from Horcrux hunt; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y7_guard_locket_destroyed_after_forest",
+      "title": "Locket destroyed only after Forest of Dean",
+      "kind": "item_gate",
+      "gateType": "item_gate",
+      "category": "item",
+      "relevance": "high",
+      "lorePurpose": "item_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 110,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.umbridge_locket_taken",
+        "validToAnchor": "hp.y7.locket_destroyed",
+        "sortKeyFrom": 10127,
+        "sortKeyTo": 10180,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before locket destruction",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "locket Horcrux",
+          "Forest of Dean",
+          "Horcrux influence"
+        ],
+        "objects": [
+          "Slytherin locket"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:horcruxes"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "locket Horcrux",
+            "Forest of Dean",
+            "Horcrux influence",
+            "Slytherin locket"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the Ministry infiltration, the trio possesses the locket Horcrux, but it remains active and corruptive until Ron destroys it with Gryffindor’s sword.",
+        "injection": "Before the locket-destroyed anchor, keep the locket as an active burden and Horcrux influence; do not treat it as destroyed or psychologically neutral early.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before locket destruction; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y7_guard_harry_horcrux_truth_hidden_until_memories",
+      "title": "Harry-as-Horcrux truth hidden until Snape memories",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 125,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.privet_departure_preparation",
+        "validToAnchor": "hp.y7.harry_horcrux_truth",
+        "sortKeyFrom": 10051,
+        "sortKeyTo": 10309,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Harry learns he must die",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Severus Snape",
+          "Albus Dumbledore",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Harry Horcrux truth",
+          "Snape memories",
+          "self-sacrifice"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:severus-snape",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:horcruxes"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Severus Snape",
+            "Albus Dumbledore",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Harry Horcrux truth",
+            "Snape memories",
+            "self-sacrifice"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Snape’s memories, Harry, Ron, and Hermione do not know that Harry himself carries a piece of Voldemort’s soul and must walk to death.",
+        "injection": "Before the Harry-Horcrux truth anchor, aggressively block characters from saying Harry is a Horcrux or planning around his self-sacrifice unless accepted story lore exposed it early.",
+        "constraints": [
+          "This is a major endgame spoiler gate and should outrank broad Horcrux cards.",
+          "After the truth anchor, Harry may understand the sacrifice but Ron and Hermione still do not automatically know unless he tells them.",
+          "Apply only when Saga Context matches Before Harry learns he must die; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let Hermione deduce Harry-as-Horcrux early without an explicit story branch.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y7_guard_snape_loyalty_revealed_by_memories",
+      "title": "Snape loyalty revealed through memories",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 120,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.snape_memories",
+        "validToAnchor": "hp.y7.battle_aftermath",
+        "sortKeyFrom": 10304,
+        "sortKeyTo": 10349,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Snape memories",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Severus Snape",
+          "Albus Dumbledore"
+        ],
+        "topics": [
+          "Snape memories",
+          "Lily Potter",
+          "Snape loyalty"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Severus Snape",
+            "Albus Dumbledore"
+          ],
+          "topicsAny": [
+            "Snape memories",
+            "Lily Potter",
+            "Snape loyalty"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After receiving Snape’s memories, Harry learns Snape’s loyalty to Dumbledore, love for Lily, and role in the larger plan.",
+        "injection": "After the Snape memories anchor, allow Harry to know Snape’s true role; before that anchor, keep Snape’s motives opaque and apparently hostile through the active card guard.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches After Snape memories; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y7_guard_voldemort_defeated_only_after_final_duel",
+      "title": "Voldemort defeated only after final duel",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y7.privet_departure_preparation",
+        "validToAnchor": "hp.y7.voldemort_defeated",
+        "sortKeyFrom": 10051,
+        "sortKeyTo": 10340,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Voldemort defeat",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lord Voldemort",
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "Voldemort defeat",
+          "final duel",
+          "postwar gate"
+        ],
+        "schoolYears": [
+          "7"
+        ],
+        "books": [
+          "Deathly Hallows"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:7",
+        "topic:deathly-hallows",
+        "topic:horcruxes"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Lord Voldemort",
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "Voldemort defeat",
+            "final duel",
+            "postwar gate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the final duel, Voldemort remains alive and dangerous; the remaining Horcrux problem is not resolved.",
+        "injection": "Before Voldemort’s defeat anchor, do not write him as dead, politically gone, or postwar history. After the anchor, switch to aftermath and avoid keeping active-war Voldemort in standard canon.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Voldemort defeat; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Deathly Hallows",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-7-deathly-hallows",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-7-deathly-hallows"
+        }
+      }
+    }
+  ]
+}

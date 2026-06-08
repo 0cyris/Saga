@@ -1,0 +1,1110 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "sw:alderaan": {
+      "type": "location",
+      "label": "Alderaan",
+      "aliases": [],
+      "canonicalNames": [
+        "Alderaan"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:bespin": {
+      "type": "location",
+      "label": "Bespin",
+      "aliases": [],
+      "canonicalNames": [
+        "Bespin"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:boba-fett": {
+      "type": "character",
+      "label": "Boba Fett",
+      "aliases": [],
+      "canonicalNames": [
+        "Boba Fett"
+      ],
+      "tags": [
+        "character:boba-fett",
+        "faction:bounty-hunters"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:bothan-spynet": {
+      "type": "faction",
+      "label": "Bothan Spynet",
+      "aliases": [],
+      "canonicalNames": [
+        "Bothan Spynet"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:bounty-hunters": {
+      "type": "faction",
+      "label": "Bounty hunters",
+      "aliases": [],
+      "canonicalNames": [
+        "Bounty hunters"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:c-3po": {
+      "type": "character",
+      "label": "C-3PO",
+      "aliases": [
+        "Threepio"
+      ],
+      "canonicalNames": [
+        "C-3PO"
+      ],
+      "tags": [
+        "character:c-3po",
+        "topic:droid"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:chewbacca": {
+      "type": "character",
+      "label": "Chewbacca",
+      "aliases": [
+        "Chewie"
+      ],
+      "canonicalNames": [
+        "Chewbacca"
+      ],
+      "tags": [
+        "character:chewbacca",
+        "species:wookiee"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:chiss-ascendancy": {
+      "type": "faction",
+      "label": "Chiss Ascendancy",
+      "aliases": [],
+      "canonicalNames": [
+        "Chiss Ascendancy"
+      ],
+      "tags": [
+        "faction:chiss-ascendancy",
+        "species:chiss"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:confederacy-of-independent-systems": {
+      "type": "faction",
+      "label": "Confederacy of Independent Systems",
+      "aliases": [],
+      "canonicalNames": [
+        "Confederacy of Independent Systems"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:core-worlds": {
+      "type": "location",
+      "label": "Core Worlds",
+      "aliases": [],
+      "canonicalNames": [
+        "Core Worlds"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:corellia": {
+      "type": "location",
+      "label": "Corellia",
+      "aliases": [],
+      "canonicalNames": [
+        "Corellia"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:coruscant": {
+      "type": "location",
+      "label": "Coruscant",
+      "aliases": [],
+      "canonicalNames": [
+        "Coruscant"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:criminal-underworld": {
+      "type": "faction",
+      "label": "Criminal underworld",
+      "aliases": [],
+      "canonicalNames": [
+        "Criminal underworld"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:dagobah": {
+      "type": "location",
+      "label": "Dagobah",
+      "aliases": [],
+      "canonicalNames": [
+        "Dagobah"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:darth-vader": {
+      "type": "character",
+      "label": "Darth Vader",
+      "aliases": [
+        "Vader",
+        "Lord Vader",
+        "Anakin Skywalker"
+      ],
+      "canonicalNames": [
+        "Darth Vader"
+      ],
+      "tags": [
+        "character:darth-vader",
+        "faction:galactic-empire",
+        "faction:sith"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      }
+    },
+    "sw:emperor-palpatine": {
+      "type": "character",
+      "label": "Emperor Palpatine",
+      "aliases": [
+        "Palpatine",
+        "Darth Sidious",
+        "the Emperor"
+      ],
+      "canonicalNames": [
+        "Emperor Palpatine"
+      ],
+      "tags": [
+        "character:palpatine",
+        "faction:galactic-empire",
+        "faction:sith"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:galactic-empire": {
+      "type": "faction",
+      "label": "Galactic Empire",
+      "aliases": [
+        "Empire",
+        "Imperials",
+        "Imperial military"
+      ],
+      "canonicalNames": [
+        "Galactic Empire"
+      ],
+      "tags": [
+        "faction:galactic-empire"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      }
+    },
+    "sw:galactic-republic": {
+      "type": "faction",
+      "label": "Galactic Republic",
+      "aliases": [
+        "Republic"
+      ],
+      "canonicalNames": [
+        "Galactic Republic"
+      ],
+      "tags": [
+        "faction:galactic-republic"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:galactic-senate": {
+      "type": "faction",
+      "label": "Galactic Senate",
+      "aliases": [],
+      "canonicalNames": [
+        "Galactic Senate"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:grand-army-of-the-republic": {
+      "type": "faction",
+      "label": "Grand Army of the Republic",
+      "aliases": [],
+      "canonicalNames": [
+        "Grand Army of the Republic"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:han-solo": {
+      "type": "character",
+      "label": "Han Solo",
+      "aliases": [
+        "Han",
+        "Captain Solo"
+      ],
+      "canonicalNames": [
+        "Han Solo"
+      ],
+      "tags": [
+        "character:han-solo",
+        "faction:rebel-alliance"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      }
+    },
+    "sw:hoth": {
+      "type": "location",
+      "label": "Hoth",
+      "aliases": [],
+      "canonicalNames": [
+        "Hoth"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:hutt-space": {
+      "type": "location",
+      "label": "Hutt Space",
+      "aliases": [],
+      "canonicalNames": [
+        "Hutt Space"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:hutts": {
+      "type": "faction",
+      "label": "Hutts",
+      "aliases": [
+        "Hutt clans"
+      ],
+      "canonicalNames": [
+        "Hutts"
+      ],
+      "tags": [
+        "faction:hutts",
+        "species:hutt"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:imperial-remnant": {
+      "type": "faction",
+      "label": "Imperial Remnant",
+      "aliases": [],
+      "canonicalNames": [
+        "Imperial Remnant"
+      ],
+      "tags": [
+        "faction:imperial-remnant"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:jabba-the-hutt": {
+      "type": "character",
+      "label": "Jabba the Hutt",
+      "aliases": [
+        "Jabba"
+      ],
+      "canonicalNames": [
+        "Jabba the Hutt"
+      ],
+      "tags": [
+        "character:jabba-the-hutt",
+        "faction:hutts",
+        "species:hutt"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:jedi-order": {
+      "type": "faction",
+      "label": "Jedi Order",
+      "aliases": [
+        "Jedi"
+      ],
+      "canonicalNames": [
+        "Jedi Order"
+      ],
+      "tags": [
+        "faction:jedi-order",
+        "topic:jedi"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:kashyyyk": {
+      "type": "location",
+      "label": "Kashyyyk",
+      "aliases": [],
+      "canonicalNames": [
+        "Kashyyyk"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:kuat": {
+      "type": "location",
+      "label": "Kuat",
+      "aliases": [],
+      "canonicalNames": [
+        "Kuat"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:leia-organa": {
+      "type": "character",
+      "label": "Leia Organa",
+      "aliases": [
+        "Princess Leia",
+        "Leia",
+        "Leia Organa Solo"
+      ],
+      "canonicalNames": [
+        "Leia Organa"
+      ],
+      "tags": [
+        "character:leia-organa",
+        "faction:rebel-alliance"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      }
+    },
+    "sw:luke-skywalker": {
+      "type": "character",
+      "label": "Luke Skywalker",
+      "aliases": [
+        "Luke",
+        "Commander Skywalker",
+        "Jedi Knight"
+      ],
+      "canonicalNames": [
+        "Luke Skywalker"
+      ],
+      "tags": [
+        "character:luke-skywalker",
+        "faction:rebel-alliance",
+        "topic:jedi"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      }
+    },
+    "sw:mandalorians": {
+      "type": "faction",
+      "label": "Mandalorians",
+      "aliases": [],
+      "canonicalNames": [
+        "Mandalorians"
+      ],
+      "tags": [
+        "faction:mandalorians"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:mara-jade": {
+      "type": "character",
+      "label": "Mara Jade",
+      "aliases": [],
+      "canonicalNames": [
+        "Mara Jade"
+      ],
+      "tags": [
+        "character:mara-jade",
+        "era:post-endor"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:nal-hutta": {
+      "type": "location",
+      "label": "Nal Hutta",
+      "aliases": [],
+      "canonicalNames": [
+        "Nal Hutta"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:new-jedi-order": {
+      "type": "faction",
+      "label": "New Jedi Order",
+      "aliases": [],
+      "canonicalNames": [
+        "New Jedi Order"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:new-republic": {
+      "type": "faction",
+      "label": "New Republic",
+      "aliases": [],
+      "canonicalNames": [
+        "New Republic"
+      ],
+      "tags": [
+        "faction:new-republic"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:obi-wan-kenobi": {
+      "type": "character",
+      "label": "Obi-Wan Kenobi",
+      "aliases": [
+        "Ben Kenobi",
+        "Obi-Wan"
+      ],
+      "canonicalNames": [
+        "Obi-Wan Kenobi"
+      ],
+      "tags": [
+        "character:obi-wan-kenobi",
+        "faction:jedi-order"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:outer-rim": {
+      "type": "location",
+      "label": "Outer Rim",
+      "aliases": [],
+      "canonicalNames": [
+        "Outer Rim"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:palpatine": {
+      "type": "character",
+      "label": "Emperor Palpatine",
+      "aliases": [
+        "Palpatine",
+        "Darth Sidious",
+        "the Emperor"
+      ],
+      "canonicalNames": [
+        "Emperor Palpatine"
+      ],
+      "tags": [
+        "character:palpatine",
+        "faction:galactic-empire",
+        "faction:sith"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      }
+    },
+    "sw:r2-d2": {
+      "type": "character",
+      "label": "R2-D2",
+      "aliases": [
+        "Artoo"
+      ],
+      "canonicalNames": [
+        "R2-D2"
+      ],
+      "tags": [
+        "character:r2-d2",
+        "topic:droid"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:rebel-alliance": {
+      "type": "faction",
+      "label": "Rebel Alliance",
+      "aliases": [
+        "Alliance to Restore the Republic",
+        "the Rebellion"
+      ],
+      "canonicalNames": [
+        "Rebel Alliance"
+      ],
+      "tags": [
+        "faction:rebel-alliance"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      }
+    },
+    "sw:rebel-fleet": {
+      "type": "location",
+      "label": "Rebel fleet",
+      "aliases": [],
+      "canonicalNames": [
+        "Rebel fleet"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:sith": {
+      "type": "faction",
+      "label": "Sith",
+      "aliases": [
+        "Sith Order",
+        "Sith Lords"
+      ],
+      "canonicalNames": [
+        "Sith"
+      ],
+      "tags": [
+        "faction:sith",
+        "topic:sith"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:tatooine": {
+      "type": "location",
+      "label": "Tatooine",
+      "aliases": [],
+      "canonicalNames": [
+        "Tatooine"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:thrawn": {
+      "type": "character",
+      "label": "Thrawn",
+      "aliases": [
+        "Grand Admiral Thrawn",
+        "Mitth’raw’nuruodo"
+      ],
+      "canonicalNames": [
+        "Thrawn"
+      ],
+      "tags": [
+        "character:thrawn",
+        "faction:galactic-empire",
+        "species:chiss"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:unknown-regions": {
+      "type": "location",
+      "label": "Unknown Regions",
+      "aliases": [],
+      "canonicalNames": [
+        "Unknown Regions"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:yavin": {
+      "type": "location",
+      "label": "Yavin",
+      "aliases": [],
+      "canonicalNames": [
+        "Yavin"
+      ],
+      "tags": [],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    },
+    "sw:yoda": {
+      "type": "character",
+      "label": "Yoda",
+      "aliases": [
+        "Master Yoda"
+      ],
+      "canonicalNames": [
+        "Yoda"
+      ],
+      "tags": [
+        "character:yoda",
+        "faction:jedi-order"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.75
+      }
+    },
+    "sw:yuuzhan-vong": {
+      "type": "faction",
+      "label": "Yuuzhan Vong",
+      "aliases": [],
+      "canonicalNames": [
+        "Yuuzhan Vong"
+      ],
+      "tags": [
+        "species:yuuzhan-vong",
+        "era:njo"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "confidence": 0.7
+      },
+      "extensions": {}
+    }
+  }
+}

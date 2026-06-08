@@ -1,0 +1,1204 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_ania_solo_low_status_opening",
+      "title": "Ania Solo Starts as Low-Status Survivor",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.ania_solo_opening",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy Volume 2 / Ania Solo era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ania Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "solo lineage",
+          "low status"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "category:event",
+        "character:ania-solo",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:low-status",
+        "topic:solo-lineage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ania Solo"
+          ],
+          "topicsAny": [
+            "solo lineage",
+            "low status"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Ania Solo is a far-future Solo descendant operating at ground level, far removed from galactic power centers.",
+        "injection": "In Legacy II opening scenes, write Ania as a scrappy local survivor, not as a senator, Jedi, or dynastic princess.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Volume 2 / Ania Solo era.",
+          "Respect story-position bounds from Ania Solo Era Opens to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Volume 2 / Ania Solo era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_sith_hunt_after_krayt",
+      "title": "Sith Hunt After Krayt",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.ania_solo_opening",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy Volume 2 / Ania Solo era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ania Solo",
+          "Jao Assam"
+        ],
+        "locations": [],
+        "topics": [
+          "sith remnants",
+          "hunt"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "One Sith",
+          "Imperial Knights"
+        ]
+      },
+      "tags": [
+        "category:event",
+        "character:ania-solo",
+        "character:jao-assam",
+        "continuity:legends",
+        "faction:imperial-knights",
+        "faction:one-sith",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:hunt",
+        "topic:sith-remnants"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ania Solo",
+            "Jao Assam"
+          ],
+          "topicsAny": [
+            "sith remnants",
+            "hunt"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "One Sith",
+            "Imperial Knights"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Krayt’s defeat, surviving Sith remain dangerous, fragmented, and targeted by intra-Sith violence and Imperial/Jedi pursuit.",
+        "injection": "In Legacy II, do not treat the One Sith as simply gone; use hunted remnants and violent succession fallout. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Volume 2 / Ania Solo era.",
+          "Respect story-position bounds from Ania Solo Era Opens to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Volume 2 / Ania Solo era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_jao_assam_imperial_knight_entry",
+      "title": "Jao Assam Imperial Knight Entry",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.ania_solo_opening",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy Volume 2 / Ania Solo era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jao Assam",
+          "Ania Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "imperial knight",
+          "duty"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Knights"
+        ]
+      },
+      "tags": [
+        "category:event",
+        "character:ania-solo",
+        "character:jao-assam",
+        "continuity:legends",
+        "faction:imperial-knights",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:duty",
+        "topic:imperial-knight"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jao Assam",
+            "Ania Solo"
+          ],
+          "topicsAny": [
+            "imperial knight",
+            "duty"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Knights"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Jao Assam is an Imperial Knight whose duty pulls him into Ania Solo’s orbit and Sith-remnant conflict.",
+        "injection": "When Jao appears, frame him through Imperial Knight discipline and duty, not Jedi informality. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Volume 2 / Ania Solo era.",
+          "Respect story-position bounds from Ania Solo Era Opens to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Volume 2 / Ania Solo era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_ag37_clone_wars_relic",
+      "title": "AG-37 Is a Clone Wars-Era Droid Relic",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.ania_solo_opening",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy Volume 2 / Ania Solo era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "AG-37",
+          "Ania Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "droid",
+          "clone wars relic"
+        ],
+        "objects": [
+          "AG-37"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "category:event",
+        "character:ag-37",
+        "character:ania-solo",
+        "continuity:legends",
+        "fandom:star-wars",
+        "item:ag-37",
+        "scope:legacy-comics",
+        "topic:clone-wars-relic",
+        "topic:droid"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "AG-37",
+            "Ania Solo"
+          ],
+          "topicsAny": [
+            "droid",
+            "clone wars relic"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "AG-37 is an old combat droid whose long memory and battlefield competence distinguish him from disposable modern hardware.",
+        "injection": "Use AG-37 as a veteran relic with old-war perspective, not as a fresh mass-produced droid. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Volume 2 / Ania Solo era.",
+          "Respect story-position bounds from Ania Solo Era Opens to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Volume 2 / Ania Solo era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_sauk_local_companion_role",
+      "title": "Sauk Ground-Level Companion Role",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.ania_solo_opening",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy Volume 2 / Ania Solo era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Sauk",
+          "Ania Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "companions",
+          "local survival"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "category:event",
+        "character:ania-solo",
+        "character:sauk",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:companions",
+        "topic:local-survival"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sauk",
+            "Ania Solo"
+          ],
+          "topicsAny": [
+            "companions",
+            "local survival"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Sauk functions as a grounded companion in Ania’s crew, keeping Legacy II close to local survival stakes.",
+        "injection": "Use Sauk to anchor Ania’s story in local danger and personal loyalty rather than galactic dynastic abstraction.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Volume 2 / Ania Solo era.",
+          "Respect story-position bounds from Ania Solo Era Opens to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Volume 2 / Ania Solo era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_yalta_val_status_gate",
+      "title": "Yalta Val Mission Status Gate",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.ania_solo_opening",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy Volume 2 / Ania Solo era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yalta Val",
+          "Ania Solo",
+          "Jao Assam"
+        ],
+        "locations": [],
+        "topics": [
+          "mission hook",
+          "injury"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Knights"
+        ]
+      },
+      "tags": [
+        "category:knowledge",
+        "character:ania-solo",
+        "character:jao-assam",
+        "character:yalta-val",
+        "continuity:legends",
+        "faction:imperial-knights",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:injury",
+        "topic:mission-hook"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yalta Val",
+            "Ania Solo",
+            "Jao Assam"
+          ],
+          "topicsAny": [
+            "mission hook",
+            "injury"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Knights"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Yalta Val’s mission and condition become an early driver of Ania Solo’s entanglement with Imperial Knights and Sith remnants.",
+        "injection": "When Yalta Val is relevant, use him as a wounded/mission-linked Imperial Knight hook rather than a random traveler.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Volume 2 / Ania Solo era.",
+          "Respect story-position bounds from Ania Solo Era Opens to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Volume 2 / Ania Solo era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_ania_lineage_not_instant_authority",
+      "title": "Ania Lineage Gives No Instant Authority",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.ania_solo_opening",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy Volume 2 / Ania Solo era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ania Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "solo lineage",
+          "status guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "category:event",
+        "character:ania-solo",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:solo-lineage",
+        "topic:status-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ania Solo"
+          ],
+          "topicsAny": [
+            "solo lineage",
+            "status guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Ania Solo’s surname has lineage weight but does not give her automatic command, political office, or Jedi status.",
+        "injection": "Do not let Ania’s Solo bloodline automatically make her a leader or Force-trained figure unless the story establishes it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Volume 2 / Ania Solo era.",
+          "Respect story-position bounds from Ania Solo Era Opens to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Volume 2 / Ania Solo era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_jao_dark_side_enslavement_gate",
+      "title": "Jao Dark-Side Enslavement Gate",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.jao_dark_side_enslaved",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7800,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jao dark-side enslavement",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jao Assam",
+          "Ania Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "dark side",
+          "rescue"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Knights"
+        ]
+      },
+      "tags": [
+        "category:knowledge",
+        "character:ania-solo",
+        "character:jao-assam",
+        "continuity:legends",
+        "faction:imperial-knights",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:dark-side",
+        "topic:rescue"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jao Assam",
+            "Ania Solo"
+          ],
+          "topicsAny": [
+            "dark side",
+            "rescue"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Knights"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Jao Assam is eventually enslaved by the dark side, turning his rescue into a personal and ideological crisis.",
+        "injection": "After Jao’s dark-side enslavement begins, write him as compromised and in danger; before that point, do not foreshadow with public certainty.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jao dark-side enslavement.",
+          "Respect story-position bounds from Jao Assam Enslaved by the Dark Side to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Jao dark-side enslavement",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_ania_fights_with_empress",
+      "title": "Ania Fights Beside Empress and Imperial Knights",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.legacy2_empress_alliance",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy II late alliance",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ania Solo",
+          "Marasiah Fel",
+          "Jao Assam"
+        ],
+        "locations": [],
+        "topics": [
+          "alliance",
+          "rescue"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Knights",
+          "Fel Empire",
+          "One Sith"
+        ]
+      },
+      "tags": [
+        "category:event",
+        "character:ania-solo",
+        "character:jao-assam",
+        "character:marasiah-fel",
+        "continuity:legends",
+        "faction:fel-empire",
+        "faction:imperial-knights",
+        "faction:one-sith",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:alliance",
+        "topic:rescue"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ania Solo",
+            "Marasiah Fel",
+            "Jao Assam"
+          ],
+          "topicsAny": [
+            "alliance",
+            "rescue"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Knights",
+            "Fel Empire",
+            "One Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ania and her allies eventually fight alongside the Empress and Imperial Knights against Sith forces.",
+        "injection": "In late Legacy II, allow Ania’s ground-level crew to intersect with Imperial high politics and Sith war stakes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy II late alliance.",
+          "Respect story-position bounds from Ania and Imperial Knights Fight Beside the Empress to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy II late alliance",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_no_cade_center_stage",
+      "title": "Cade Not Center Stage in Legacy II",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.ania_solo_opening",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy Volume 2 / Ania Solo era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ania Solo",
+          "Cade Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "focus guard",
+          "cast"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "category:event",
+        "character:ania-solo",
+        "character:cade-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:cast",
+        "topic:focus-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ania Solo",
+            "Cade Skywalker"
+          ],
+          "topicsAny": [
+            "focus guard",
+            "cast"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Legacy II shifts the primary point of view to Ania Solo; Cade Skywalker should not dominate every Legacy II scene by default.",
+        "injection": "In Ania Solo-era Context, do not over-inject Cade unless directly relevant; Legacy II has its own cast and stakes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Volume 2 / Ania Solo era.",
+          "Respect story-position bounds from Ania Solo Era Opens to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Volume 2 / Ania Solo era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_sith_remnants_not_krayt_regime",
+      "title": "Legacy II Sith Are Remnant Fallout",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.ania_solo_opening",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy Volume 2 / Ania Solo era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Krayt",
+          "Ania Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "sith remnants"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "One Sith"
+        ]
+      },
+      "tags": [
+        "category:event",
+        "character:ania-solo",
+        "character:darth-krayt",
+        "continuity:legends",
+        "faction:one-sith",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:future-guard",
+        "topic:sith-remnants"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Krayt",
+            "Ania Solo"
+          ],
+          "topicsAny": [
+            "future guard",
+            "sith remnants"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "One Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Legacy II Sith conflict grows out of remnant and succession fallout, not a stable Krayt-led regime.",
+        "injection": "In Legacy II, do not portray Darth Krayt as still openly ruling; use post-Krayt Sith fragmentation unless branch changes it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Volume 2 / Ania Solo era.",
+          "Respect story-position bounds from Ania Solo Era Opens to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Volume 2 / Ania Solo era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legacy2_far_future_no_sequel_trilogy_state",
+      "title": "Legacy II Blocks Disney Sequel State",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 96,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legacy.ania_solo_opening",
+        "validToAnchor": "sw.legacy.legacy2_resolution",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 8300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy Volume 2 / Ania Solo era",
+        "phase": "Legacy Comics",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ania Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "continuity guard",
+          "disney canon"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Fel Empire",
+          "Imperial Knights"
+        ]
+      },
+      "tags": [
+        "category:knowledge",
+        "character:ania-solo",
+        "continuity:legends",
+        "faction:fel-empire",
+        "faction:imperial-knights",
+        "fandom:star-wars",
+        "scope:legacy-comics",
+        "topic:continuity-guard",
+        "topic:disney-canon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ania Solo"
+          ],
+          "topicsAny": [
+            "continuity guard",
+            "disney canon"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Fel Empire",
+            "Imperial Knights"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Legacy II belongs to Legends far-future continuity and should not inherit Disney sequel-trilogy politics, First Order history, or Rey-era Jedi state.",
+        "injection": "When Legacy II is active, block Disney sequel-era assumptions unless an explicit crossover deck overrides them.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy Volume 2 / Ania Solo era.",
+          "Respect story-position bounds from Ania Solo Era Opens to Legacy II Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "comics",
+        "medium": "comic-reference",
+        "sourceBoundary": "Legends far-future Legacy comics era covering Star Wars: Legacy volume 1 with Cade Skywalker, Darth Krayt's One Sith, the Fel Empire, Galactic Alliance Remnant, Jedi survivors, and Legacy volume 2 with Ania Solo and late Sith/Imperial Knight fallout. Excludes Disney canon sequel-era material and earlier post-Endor novel arcs except as historical background or future guards.",
+        "notes": "Development deck. Use as a far-future Legends branch. Do not stack as a direct sequel-state for Disney canon or for unresolved custom post-Endor branches unless the story explicitly chooses the Legacy comics trajectory."
+      },
+      "sourceInfo": {
+        "work": "Star Wars: Legacy",
+        "sourceType": "comic",
+        "title": "Legacy Volume 2 / Ania Solo era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

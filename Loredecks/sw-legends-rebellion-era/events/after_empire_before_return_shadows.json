@@ -1,0 +1,1639 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_post_esb_group_reorganizes_around_han_rescue",
+      "title": "Post-ESB Group Reorganizes Around Han Rescue",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "character:lando-calrissian",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:hutts",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:carbonite",
+        "object:millennium-falcon",
+        "place:rebel-fleet",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:criminal-debt",
+        "topic:rescue"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Empire, before Return",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Chewbacca",
+          "Lando Calrissian",
+          "Han Solo"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Tatooine"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Hutts"
+        ],
+        "topics": [
+          "rescue",
+          "criminal debt"
+        ],
+        "objects": [
+          "Carbonite",
+          "Millennium Falcon"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Chewbacca",
+            "Lando Calrissian",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "rescue",
+            "criminal debt"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Hutts"
+          ],
+          "objectsAny": [
+            "Carbonite",
+            "Millennium Falcon"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Bespin, the surviving group’s immediate personal objective is finding and rescuing Han from Jabba.",
+        "injection": "In the After Empire / Before Return window, make Han’s rescue a central active objective for Leia, Luke, Chewie, Lando, and the droids.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Empire, before Return.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_builds_green_lightsaber_before_jabba",
+      "title": "Luke Builds Green Lightsaber Before Jabba",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "item",
+      "relevance": "high",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:rebel-fleet",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:jedi"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Empire, before Return",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Tatooine",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "jedi",
+          "force"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Tatooine",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "jedi",
+            "force"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Jabba rescue, Luke constructs a new green lightsaber, marking growth beyond his Bespin defeat.",
+        "injection": "In ROTJ-opening context, Luke can wield his new green lightsaber; before that preparation window, do not assume he already has it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Empire, before Return.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_more_controlled_after_bespin",
+      "title": "Luke More Controlled After Bespin",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:rebel-fleet",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:duel",
+        "topic:force",
+        "topic:jedi"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Empire, before Return",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Yoda"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Tatooine"
+        ],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "jedi",
+          "force",
+          "duel"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Yoda"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "jedi",
+            "force",
+            "duel"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Bespin and before Jabba, Luke is calmer, more deliberate, and more dangerous than he was at Hoth.",
+        "injection": "In the ESB-to-ROTJ window, write Luke as still not fully informed, but visibly more composed and Jedi-like. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Empire, before Return.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_leia_not_yet_self_known_jedi",
+      "title": "Leia Not Yet Self-Known as Jedi",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "place:dagobah",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Empire, before Return",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Luke Skywalker",
+          "Yoda",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Dagobah"
+        ],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "family secret",
+          "future guard",
+          "force"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Luke Skywalker",
+            "Yoda",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "family secret",
+            "future guard",
+            "force"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Before the Dagobah revelations, Leia is Force-sensitive but does not understand herself as Luke’s sister or a Jedi heir.",
+        "injection": "Do not portray Leia as knowingly trained in the Force before Luke learns and shares the family truth. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Empire, before Return.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_vader_knows_luke_but_not_leia",
+      "title": "Vader Knows Luke, Not Leia",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:executor",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:knowledge-gate"
+      ],
+      "priority": 94,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Empire, before Return",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Luke Skywalker",
+          "Leia Organa",
+          "Palpatine"
+        ],
+        "locations": [
+          "Executor",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ],
+        "topics": [
+          "family secret",
+          "identity secret",
+          "force"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Luke Skywalker",
+            "Leia Organa",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Executor",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "family secret",
+            "identity secret",
+            "force"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "After Bespin, Vader knows Luke is his son but does not treat Leia as his daughter by default.",
+        "injection": "In the ESB-to-ROTJ window, Vader’s known family focus is Luke; do not give him casual knowledge of Leia’s identity unless the scene establishes a divergence.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Empire, before Return.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_palpatine_wants_luke_as_asset",
+      "title": "Palpatine Wants Luke as a Dark-Side Asset",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:death-star-ii",
+        "place:executor",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:sith"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Empire, before Return",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Darth Vader",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Death Star II",
+          "Executor"
+        ],
+        "factions": [
+          "Sith",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "sith",
+          "force"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Darth Vader",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Death Star II",
+            "Executor"
+          ],
+          "topicsAny": [
+            "sith",
+            "force"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "By the late Rebellion Era, Palpatine wants Luke turned or destroyed as a threat and potential asset.",
+        "injection": "In late ESB-to-ROTJ context, Palpatine’s interest in Luke should be strategic and Sith-oriented, not sentimental.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Empire, before Return.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_black_sun_complicates_imperial_underworld",
+      "title": "Black Sun Complicates the Underworld",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:prince-xizor",
+        "continuity:legends",
+        "era:rebellion",
+        "event:black-sun-conflict",
+        "event:shadows-of-the-empire",
+        "faction:black-sun",
+        "faction:criminal-underworld",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "place:coruscant",
+        "place:outer-rim",
+        "scope:rebellion-era",
+        "topic:espionage",
+        "topic:underworld"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Shadows of the Empire / ESB-to-ROTJ window",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Prince Xizor",
+          "Darth Vader",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Coruscant",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Black Sun",
+          "Galactic Empire",
+          "Criminal Underworld"
+        ],
+        "topics": [
+          "underworld",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Prince Xizor",
+            "Darth Vader",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Coruscant",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "underworld",
+            "espionage"
+          ],
+          "factionsAny": [
+            "Black Sun",
+            "Galactic Empire",
+            "Criminal Underworld"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "In Legends ESB-to-ROTJ material, Black Sun is a major criminal organization that can intersect with Imperial and Rebel interests.",
+        "injection": "If Shadows-style material is active, use Black Sun as a powerful underworld actor, not a minor gang. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Shadows of the Empire / ESB-to-ROTJ window.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_xizor_vader_rivalry_legends_specific",
+      "title": "Xizor-Vader Rivalry Is Legends-Specific",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:palpatine",
+        "character:prince-xizor",
+        "continuity:legends",
+        "era:rebellion",
+        "event:shadows-of-the-empire",
+        "faction:black-sun",
+        "faction:galactic-empire",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:coruscant",
+        "relationship:rivalry",
+        "scope:rebellion-era",
+        "topic:underworld"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Shadows of the Empire / ESB-to-ROTJ window",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Prince Xizor",
+          "Darth Vader",
+          "Palpatine"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "factions": [
+          "Black Sun",
+          "Galactic Empire",
+          "Sith"
+        ],
+        "topics": [
+          "underworld",
+          "rivalry"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Prince Xizor",
+            "Darth Vader",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "underworld",
+            "rivalry"
+          ],
+          "factionsAny": [
+            "Black Sun",
+            "Galactic Empire",
+            "Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Prince Xizor’s rivalry with Vader belongs to Legends Shadows-era continuity, not the baseline film-only spine.",
+        "injection": "In Shadows of the Empire / ESB-to-ROTJ window, only use Xizor as Vader’s rival when the Legends/Shadows deck context is active; do not leak him into Disney canon or film-only scenes by default.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Shadows of the Empire / ESB-to-ROTJ window.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_mara_jade_hidden_emperors_hand",
+      "title": "Mara Jade Is Hidden Emperor’s Hand",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:coruscant",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:espionage",
+        "topic:force",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Shadows of the Empire / ESB-to-ROTJ window",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade",
+          "Palpatine",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Coruscant",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Sith"
+        ],
+        "topics": [
+          "identity secret",
+          "force",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade",
+            "Palpatine",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Coruscant",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "identity secret",
+            "force",
+            "espionage"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Mara Jade’s role as Emperor’s Hand is secretive and should not be public Rebel knowledge during the Rebellion Era.",
+        "injection": "If Mara appears in late-Rebellion Legends context, keep her Imperial Force-trained role covert unless the scene is from Sith/Imperial inside knowledge.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Shadows of the Empire / ESB-to-ROTJ window.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_dash_rendar_optional_legends_actor",
+      "title": "Dash Rendar Is Optional Shadows-Era Actor",
+      "kind": "branch_fact",
+      "gateType": "branch_fact",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:dash-rendar",
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "event:shadows-of-the-empire",
+        "faction:criminal-underworld",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:outer-rim",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:smuggling",
+        "topic:underworld"
+      ],
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Shadows of the Empire / ESB-to-ROTJ window",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Dash Rendar",
+          "Luke Skywalker",
+          "Leia Organa",
+          "Han Solo"
+        ],
+        "locations": [
+          "Outer Rim",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Criminal Underworld",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "smuggling",
+          "underworld"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dash Rendar",
+            "Luke Skywalker",
+            "Leia Organa",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Outer Rim",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "smuggling",
+            "underworld"
+          ],
+          "factionsAny": [
+            "Criminal Underworld",
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Dash Rendar can operate as a Legends smuggler ally/rival in the ESB-to-ROTJ window, but he is not required for film-spine continuity.",
+        "injection": "Use Dash Rendar only when Legends Shadows material is active or the story introduces him; do not make him mandatory to every Rebellion Era scene.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Shadows of the Empire / ESB-to-ROTJ window.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_guri_black_sun_agent",
+      "title": "Guri Serves as Xizor’s Dangerous Agent",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:guri",
+        "character:prince-xizor",
+        "continuity:legends",
+        "era:rebellion",
+        "event:shadows-of-the-empire",
+        "faction:black-sun",
+        "faction:criminal-underworld",
+        "fandom:star-wars",
+        "place:coruscant",
+        "place:outer-rim",
+        "scope:rebellion-era",
+        "topic:espionage",
+        "topic:underworld"
+      ],
+      "priority": 76,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Shadows of the Empire / ESB-to-ROTJ window",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Guri",
+          "Prince Xizor"
+        ],
+        "locations": [
+          "Coruscant",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Black Sun",
+          "Criminal Underworld"
+        ],
+        "topics": [
+          "underworld",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Guri",
+            "Prince Xizor"
+          ],
+          "locationsAny": [
+            "Coruscant",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "underworld",
+            "espionage"
+          ],
+          "factionsAny": [
+            "Black Sun",
+            "Criminal Underworld"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Guri functions as a lethal Black Sun agent in Legends Shadows-era material.",
+        "injection": "If Guri appears, treat her as a dangerous underworld operative tied to Xizor, not as an ordinary civilian contact.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Shadows of the Empire / ESB-to-ROTJ window.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_bothan_intel_precedes_endor_briefing",
+      "title": "Bothan Intel Precedes Endor Briefing",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-ackbar",
+        "character:leia-organa",
+        "character:mon-mothma",
+        "continuity:legends",
+        "era:rebellion",
+        "event:bothan-intel",
+        "event:death-star-ii",
+        "faction:bothans",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star-ii",
+        "object:shield-generator",
+        "place:endor",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:espionage",
+        "topic:knowledge-gate",
+        "topic:military-logistics"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.bothan_intel",
+        "validToAnchor": "sw.rebellion.bothan_intel",
+        "sortKeyFrom": 6850,
+        "sortKeyTo": 6850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bothan Intelligence Reaches the Alliance",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mon Mothma",
+          "Admiral Ackbar",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Bothans",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "espionage",
+          "military logistics"
+        ],
+        "objects": [
+          "Death Star II",
+          "Shield generator"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mon Mothma",
+            "Admiral Ackbar",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Endor"
+          ],
+          "topicsAny": [
+            "espionage",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Bothans",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Death Star II",
+            "Shield generator"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Alliance receives crucial intelligence about the second Death Star through Bothan sacrifice before the Endor briefing.",
+        "injection": "Before the Endor briefing, characters may know only partial Death Star II rumors; after Bothan intel arrives, the Alliance can plan the shield-generator attack.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Bothan Intelligence Reaches the Alliance.",
+          "Respect story-position bounds from Bothan Intelligence Reaches the Alliance to Bothan Intelligence Reaches the Alliance."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/after_empire_before_return_shadows.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

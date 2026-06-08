@@ -9,7 +9,7 @@
   "era": "Post-War Years & Epilogue",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "defaultLocale": "en",
   "generatedAt": "2026-06-05",
   "assets": {
@@ -38,12 +38,13 @@
     "familyOrder": 90
   },
   "tags": [
-    "fandom:harry-potter",
     "era:golden-trio",
-    "structure:split-loredeck",
+    "era:post-war",
+    "fandom:harry-potter",
     "quality:human-vetted",
+    "quality:relevance-curated",
     "scope:post-war",
-    "era:post-war"
+    "structure:split-loredeck"
   ],
   "source": {
     "kind": "bundled",
@@ -70,21 +71,23 @@
     "tags": "tags.json"
   },
   "files": [
-    "expanded_books/book_7_deathly_hallows_expansion.json"
+    "expanded_books/book_7_deathly_hallows_expansion.json",
+    "relevance_gates/postwar_timeline_guards.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 5,
+    "entryCount": 7,
     "categoryCounts": {
       "event": 3,
+      "knowledge": 1,
       "location": 1,
-      "timeline": 1
+      "timeline": 2
     },
     "timelineAnchorCount": 29,
     "timelineWindowCount": 7
   },
-  "updatedAt": 1780617600000
+  "updatedAt": 1780876800000
 }

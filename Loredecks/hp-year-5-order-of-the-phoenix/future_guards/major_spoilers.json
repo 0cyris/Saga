@@ -10,7 +10,7 @@
       "kind": "temporal_gate",
       "gateType": "temporal_gate",
       "category": "timeline",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "temporal_gate",
       "specificityScore": 75,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.privet_drive_isolation",
         "validToAnchor": "hp.y5.prophecy_explained",
-        "sortKeyFrom": 8922,
-        "sortKeyTo": 9664,
+        "sortKeyFrom": 9344,
+        "sortKeyTo": 9665,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -53,9 +53,9 @@
         "revealPolicy": "do_not_reveal"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Sirius Black",
@@ -68,9 +68,15 @@
       },
       "content": {
         "fact": "Before the Department of Mysteries battle, Sirius Black is alive and should not be treated as dead or memorialized unless our story has established a different outcome.",
-        "injection": "Before the Department of Mysteries battle, Sirius Black is alive and should not be treated as dead or memorialized unless our story has established a different outcome.",
+        "injection": "Before the Department of Mysteries battle, Sirius Black is alive and should not be treated as dead or memorialized unless our story has established a different outcome. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Use Sirius death-state lore after the Department of Mysteries battle."
+          "Use Sirius death-state lore after the Department of Mysteries battle.",
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -94,7 +100,16 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "character:sirius-black",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -103,7 +118,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 85,
       "injectableByDefault": true,
@@ -120,8 +135,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y5.privet_drive_isolation",
         "validToAnchor": "hp.y5.grief_and_train_home",
-        "sortKeyFrom": 9305,
-        "sortKeyTo": 9677,
+        "sortKeyFrom": 9344,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -164,9 +179,9 @@
         "revealPolicy": "do_not_reveal"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -184,7 +199,13 @@
         "fact": "After the graveyard and before public acknowledgment, the Ministry and general public deny or resist the claim that Voldemort has returned, while Harry and close allies know the truth.",
         "injection": "During Year 5 before public acknowledgment, the Ministry and general public deny or resist the claim that Voldemort has returned, even while Harry and close allies know the truth.",
         "constraints": [
-          "Separate private truth from public denial during Year 5."
+          "Separate private truth from public denial during Year 5.",
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -208,7 +229,18 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "school-year:5"
+      ]
     }
   ]
 }

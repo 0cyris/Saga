@@ -1,0 +1,722 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_no_ot_rebel_victory_yet",
+      "title": "No OT Rebel Victory Yet",
+      "kind": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "No OT Rebel Victory Yet",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Rebel Alliance"
+        ],
+        "locations": [],
+        "topics": [
+          "ot future guard",
+          "rebellion era guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:rebel-alliance",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:ot-future-guard",
+        "topic:rebellion-era-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Rebel Alliance"
+          ],
+          "topicsAny": [
+            "ot future guard",
+            "rebellion era guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Rebel victory at Yavin, Hoth evacuation, and Endor victory have not occurred in the Rise of Empire era.",
+        "injection": "In Rise of Empire contexts, block OT victory-state assumptions: the Empire has not yet been defeated, the Rebellion has not yet won, and New Republic institutions are out of context.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: No OT Rebel Victory Yet.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "No OT Rebel Victory Yet",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_no_han_luke_leia_trio_yet",
+      "title": "No Han Luke Leia Trio Yet",
+      "kind": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "No Han Luke Leia Trio Yet",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "ot trio future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:ot-trio-future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "ot trio future guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The classic Han-Luke-Leia trio is not active during the Rise of Empire era.",
+        "injection": "In Rise of Empire scenes, block OT trio dynamics: Han, Luke, and Leia are not yet an adventuring unit, and prequel/early-Imperial scenes should not assume their later friendships.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: No Han Luke Leia Trio Yet.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "No Han Luke Leia Trio Yet",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_no_vader_redemption_yet",
+      "title": "No Vader Redemption Yet",
+      "kind": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "No Vader Redemption Yet",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader"
+        ],
+        "locations": [],
+        "topics": [
+          "vader redemption future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:darth-vader",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:vader-redemption-future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader"
+          ],
+          "topicsAny": [
+            "vader redemption future guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Vader’s redemption at Endor is future canon and should not affect early Imperial Vader behavior.",
+        "injection": "During early Empire scenes, write Vader as Imperial enforcer, not as a redeemed or openly conflicted father figure.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: No Vader Redemption Yet.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "No Vader Redemption Yet",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_no_mara_jade_luke_relationship_yet",
+      "title": "No Mara Jade Luke Relationship Yet",
+      "kind": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "No Mara Jade Luke Relationship Yet",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "mara jade future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:mara-jade-future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade",
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "mara jade future guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Mara Jade and Luke’s later relationship belongs to post-Endor Legends, not Rise of Empire.",
+        "injection": "Do not inject Mara/Luke relationship dynamics into prequel or early Empire scenes. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: No Mara Jade Luke Relationship Yet.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "No Mara Jade Luke Relationship Yet",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_no_dark_empire_clone_palpatine_yet",
+      "title": "No Dark Empire Clone Palpatine Yet",
+      "kind": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "No Dark Empire Clone Palpatine Yet",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine"
+        ],
+        "locations": [],
+        "topics": [
+          "dark empire future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:palpatine",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:dark-empire-future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine"
+          ],
+          "topicsAny": [
+            "dark empire future guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Dark Empire clone Palpatine material is far future relative to this deck.",
+        "injection": "In Rise of Empire scenes, do not reveal or foreshadow Dark Empire clone-Palpatine/Byss material unless a later deck or explicit time-travel/crossover premise enables it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: No Dark Empire Clone Palpatine Yet.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "No Dark Empire Clone Palpatine Yet",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_no_bane_old_republic_backfill_unless_relevant",
+      "title": "Bane Backfill Only When Relevant",
+      "kind": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Bane Backfill Only When Relevant",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Bane"
+        ],
+        "locations": [],
+        "topics": [
+          "bane backfill guard",
+          "rule of two"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:darth-bane",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:bane-backfill-guard",
+        "topic:rule-of-two"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Bane"
+          ],
+          "topicsAny": [
+            "bane backfill guard",
+            "rule of two"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Darth Bane and Rule-of-Two history may explain Sith structure but should not dominate Clone Wars scenes unless specifically relevant.",
+        "injection": "Use Bane/Rule-of-Two background only as concise context for Sith secrecy, not as active era content. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Bane Backfill Only When Relevant.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Bane Backfill Only When Relevant",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_no_high_republic_default",
+      "title": "No High Republic Default",
+      "kind": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "No High Republic Default",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "high republic guard",
+          "disney canon guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:disney-canon-guard",
+        "topic:high-republic-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "high republic guard",
+            "disney canon guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "High Republic material is not part of the Legends Rise of Empire branch by default.",
+        "injection": "Do not import Disney High Republic assumptions into Legends late-Republic scenes unless the stack explicitly includes them.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: No High Republic Default.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "No High Republic Default",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_no_fel_krayt_future_politics",
+      "title": "No Fel-Krayt Future Politics",
+      "kind": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "No Fel-Krayt Future Politics",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Krayt"
+        ],
+        "locations": [],
+        "topics": [
+          "legacy comics guard",
+          "one sith future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:darth-krayt",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:rise-of-empire",
+        "topic:legacy-comics-guard",
+        "topic:one-sith-future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Krayt"
+          ],
+          "topicsAny": [
+            "legacy comics guard",
+            "one sith future guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Fel Empire and One Sith politics belong to far-future Legacy comics, not the Republic-to-Empire transition.",
+        "injection": "Block Fel/Krayt geopolitical assumptions from prequel and early Empire scenes. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: No Fel-Krayt Future Politics.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "No Fel-Krayt Future Politics",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

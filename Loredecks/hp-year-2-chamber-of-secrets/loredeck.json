@@ -9,7 +9,7 @@
   "era": "Year 2: Chamber of Secrets",
   "contentKind": "fandom",
   "author": "Saga",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "defaultLocale": "en",
   "generatedAt": "2026-06-05",
   "assets": {
@@ -38,11 +38,12 @@
     "familyOrder": 30
   },
   "tags": [
-    "fandom:harry-potter",
     "era:golden-trio",
-    "structure:split-loredeck",
+    "fandom:harry-potter",
     "quality:human-vetted",
-    "school-year:2"
+    "quality:relevance-curated",
+    "school-year:2",
+    "structure:split-loredeck"
   ],
   "source": {
     "kind": "bundled",
@@ -72,30 +73,30 @@
     "characters/adult_character_phase_baselines.json",
     "characters/present_character_baselines.json",
     "chronology/major_events.json",
-    "chronology/school_years.json",
     "events/school_year_windows.json",
     "expanded_books/book_2_chamber_of_secrets_expansion.json",
     "lexicon_calendars/year_2_cos_calendar_anchors.json",
     "skills/school_year_skill_bands.json",
-    "spell_gates/spell_gates.json"
+    "spell_gates/spell_gates.json",
+    "relevance_gates/timeline_knowledge_guards.json"
   ],
   "compatibility": {
     "sagaSchemaMin": 3,
     "sagaSchemaMax": 3
   },
   "stats": {
-    "entryCount": 43,
+    "entryCount": 47,
     "categoryCounts": {
       "character": 17,
       "event": 13,
       "item": 1,
-      "knowledge": 8,
+      "knowledge": 10,
       "location": 2,
-      "spell": 1,
-      "timeline": 1
+      "secret": 3,
+      "spell": 1
     },
     "timelineAnchorCount": 55,
     "timelineWindowCount": 9
   },
-  "updatedAt": 1780617600000
+  "updatedAt": 1780876800000
 }

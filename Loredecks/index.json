@@ -21,27 +21,29 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": "Saga",
       "fandom": "Harry Potter",
       "era": "Golden Trio Core",
       "tags": [
-        "fandom:harry-potter",
         "era:golden-trio",
-        "structure:split-loredeck",
+        "fandom:harry-potter",
         "quality:human-vetted",
-        "scope:core"
+        "quality:relevance-curated",
+        "scope:core",
+        "structure:split-loredeck"
       ],
-      "updatedAt": 1780617600000,
+      "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 74,
+        "entryCount": 79,
         "categoryCounts": {
           "character": 47,
           "faction": 1,
           "item": 4,
-          "knowledge": 9,
+          "knowledge": 13,
           "location": 4,
           "rule": 1,
+          "secret": 1,
           "spell": 6,
           "timeline": 2
         },
@@ -69,27 +71,29 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": "Saga",
       "fandom": "Harry Potter",
       "era": "Year 1: Philosopher's Stone",
       "tags": [
-        "fandom:harry-potter",
         "era:golden-trio",
-        "structure:split-loredeck",
+        "fandom:harry-potter",
         "quality:human-vetted",
-        "school-year:1"
+        "quality:relevance-curated",
+        "school-year:1",
+        "structure:split-loredeck"
       ],
-      "updatedAt": 1780617600000,
+      "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 45,
+        "entryCount": 49,
         "categoryCounts": {
           "character": 15,
           "event": 18,
-          "item": 5,
-          "knowledge": 3,
-          "relationship": 2,
-          "timeline": 2
+          "item": 6,
+          "knowledge": 5,
+          "relationship": 3,
+          "secret": 1,
+          "timeline": 1
         },
         "timelineAnchorCount": 55,
         "timelineWindowCount": 9
@@ -115,28 +119,29 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": "Saga",
       "fandom": "Harry Potter",
       "era": "Year 2: Chamber of Secrets",
       "tags": [
-        "fandom:harry-potter",
         "era:golden-trio",
-        "structure:split-loredeck",
+        "fandom:harry-potter",
         "quality:human-vetted",
-        "school-year:2"
+        "quality:relevance-curated",
+        "school-year:2",
+        "structure:split-loredeck"
       ],
-      "updatedAt": 1780617600000,
+      "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 43,
+        "entryCount": 47,
         "categoryCounts": {
           "character": 17,
           "event": 13,
           "item": 1,
-          "knowledge": 8,
+          "knowledge": 10,
           "location": 2,
-          "spell": 1,
-          "timeline": 1
+          "secret": 3,
+          "spell": 1
         },
         "timelineAnchorCount": 55,
         "timelineWindowCount": 9
@@ -162,29 +167,30 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": "Saga",
       "fandom": "Harry Potter",
       "era": "Year 3: Prisoner of Azkaban",
       "tags": [
-        "fandom:harry-potter",
         "era:golden-trio",
-        "structure:split-loredeck",
+        "fandom:harry-potter",
         "quality:human-vetted",
-        "school-year:3"
+        "quality:relevance-curated",
+        "school-year:3",
+        "structure:split-loredeck"
       ],
-      "updatedAt": 1780617600000,
+      "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 46,
+        "entryCount": 50,
         "categoryCounts": {
           "character": 14,
           "event": 13,
           "item": 5,
-          "knowledge": 6,
+          "knowledge": 7,
           "location": 3,
           "relationship": 1,
-          "spell": 3,
-          "timeline": 1
+          "secret": 3,
+          "spell": 4
         },
         "timelineAnchorCount": 55,
         "timelineWindowCount": 9
@@ -210,29 +216,31 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": "Saga",
       "fandom": "Harry Potter",
       "era": "Year 4: Goblet of Fire",
       "tags": [
-        "fandom:harry-potter",
         "era:golden-trio",
-        "structure:split-loredeck",
+        "fandom:harry-potter",
         "quality:human-vetted",
-        "school-year:4"
+        "quality:relevance-curated",
+        "school-year:4",
+        "structure:split-loredeck"
       ],
-      "updatedAt": 1780617600000,
+      "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 53,
+        "entryCount": 57,
         "categoryCounts": {
           "character": 17,
-          "event": 18,
-          "faction": 1,
+          "event": 19,
+          "faction": 2,
           "knowledge": 7,
           "location": 2,
-          "relationship": 1,
+          "relationship": 2,
+          "secret": 2,
           "spell": 4,
-          "timeline": 3
+          "timeline": 2
         },
         "timelineAnchorCount": 56,
         "timelineWindowCount": 9
@@ -258,28 +266,31 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": "Saga",
       "fandom": "Harry Potter",
       "era": "Year 5: Order of the Phoenix",
       "tags": [
-        "fandom:harry-potter",
         "era:golden-trio",
-        "structure:split-loredeck",
+        "fandom:harry-potter",
         "quality:human-vetted",
-        "school-year:5"
+        "quality:relevance-curated",
+        "school-year:5",
+        "structure:split-loredeck"
       ],
-      "updatedAt": 1780617600000,
+      "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 53,
+        "entryCount": 58,
         "categoryCounts": {
-          "character": 20,
+          "character": 21,
           "event": 11,
-          "faction": 7,
-          "knowledge": 6,
+          "faction": 8,
+          "knowledge": 7,
           "location": 4,
-          "spell": 2,
-          "timeline": 3
+          "rule": 1,
+          "secret": 1,
+          "spell": 3,
+          "timeline": 2
         },
         "timelineAnchorCount": 55,
         "timelineWindowCount": 10
@@ -305,30 +316,32 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": "Saga",
       "fandom": "Harry Potter",
       "era": "Year 6: Half-Blood Prince",
       "tags": [
-        "fandom:harry-potter",
         "era:golden-trio",
-        "structure:split-loredeck",
+        "fandom:harry-potter",
         "quality:human-vetted",
-        "school-year:6"
+        "quality:relevance-curated",
+        "school-year:6",
+        "structure:split-loredeck"
       ],
-      "updatedAt": 1780617600000,
+      "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 53,
+        "entryCount": 59,
         "categoryCounts": {
-          "character": 18,
-          "event": 14,
+          "character": 19,
+          "event": 13,
           "faction": 2,
           "item": 3,
-          "knowledge": 8,
+          "knowledge": 13,
           "location": 1,
           "relationship": 2,
+          "secret": 2,
           "spell": 2,
-          "timeline": 3
+          "timeline": 2
         },
         "timelineAnchorCount": 57,
         "timelineWindowCount": 15
@@ -354,28 +367,31 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": "Saga",
       "fandom": "Harry Potter",
       "era": "Year 7: Deathly Hallows",
       "tags": [
-        "fandom:harry-potter",
         "era:golden-trio",
-        "structure:split-loredeck",
+        "fandom:harry-potter",
         "quality:human-vetted",
-        "school-year:7"
+        "quality:relevance-curated",
+        "school-year:7",
+        "structure:split-loredeck"
       ],
-      "updatedAt": 1780617600000,
+      "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 63,
+        "entryCount": 70,
         "categoryCounts": {
-          "character": 29,
+          "character": 30,
           "event": 16,
-          "item": 4,
-          "knowledge": 5,
+          "faction": 1,
+          "item": 5,
+          "knowledge": 7,
           "location": 3,
-          "relationship": 2,
-          "timeline": 4
+          "relationship": 3,
+          "secret": 2,
+          "timeline": 3
         },
         "timelineAnchorCount": 70,
         "timelineWindowCount": 18
@@ -401,25 +417,27 @@
         }
       },
       "entrySchemaVersion": 3,
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": "Saga",
       "fandom": "Harry Potter",
       "era": "Post-War Years & Epilogue",
       "tags": [
-        "fandom:harry-potter",
         "era:golden-trio",
-        "structure:split-loredeck",
+        "era:post-war",
+        "fandom:harry-potter",
         "quality:human-vetted",
+        "quality:relevance-curated",
         "scope:post-war",
-        "era:post-war"
+        "structure:split-loredeck"
       ],
-      "updatedAt": 1780617600000,
+      "updatedAt": 1780876800000,
       "stats": {
-        "entryCount": 5,
+        "entryCount": 7,
         "categoryCounts": {
           "event": 3,
+          "knowledge": 1,
           "location": 1,
-          "timeline": 1
+          "timeline": 2
         },
         "timelineAnchorCount": 29,
         "timelineWindowCount": 7
@@ -1297,6 +1315,431 @@
         },
         "timelineAnchorCount": 11,
         "timelineWindowCount": 4
+      }
+    },
+    {
+      "packId": "sw-legends-core",
+      "manifest": "sw-legends-core/loredeck.json",
+      "type": "bundled",
+      "title": "Star Wars Legends: Core",
+      "description": "Reusable Star Wars Legends foundation lore: continuity boundaries, Force rules, major factions, galaxy structure, technology, species/culture constraints, and spoiler-safe baseline guards for Saga Loredeck stacks.",
+      "library": {
+        "suggestedPath": [
+          "Star Wars",
+          "Legends"
+        ],
+        "familyOrder": 10
+      },
+      "entrySchemaVersion": 3,
+      "version": "1.1.0-dev",
+      "author": "Saga",
+      "fandom": "Star Wars",
+      "era": "Legends Core",
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "structure:split-loredeck",
+        "quality:draft",
+        "scope:core",
+        "density:core-expanded"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 108,
+        "categoryCounts": {
+          "character": 5,
+          "faction": 28,
+          "item": 13,
+          "knowledge": 13,
+          "location": 11,
+          "relationship": 2,
+          "rule": 32,
+          "secret": 4
+        },
+        "timelineAnchorCount": 17,
+        "timelineWindowCount": 15,
+        "tagCount": 144,
+        "entityCount": 49,
+        "timelinePhaseCount": 6
+      }
+    },
+    {
+      "packId": "sw-legends-film-spine",
+      "manifest": "sw-legends-film-spine/loredeck.json",
+      "type": "bundled",
+      "title": "Star Wars Legends: Film Spine",
+      "description": "Expanded Episode I-VI anchor deck for Legends-compatible story-position gates, especially before/after movie and major-event windows.",
+      "library": {
+        "suggestedPath": [
+          "Star Wars",
+          "Legends"
+        ],
+        "familyOrder": 20
+      },
+      "entrySchemaVersion": 3,
+      "version": "1.1.0-dev",
+      "author": "Saga",
+      "fandom": "Star Wars",
+      "era": "Film Spine: Episodes I-VI",
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "structure:split-loredeck",
+        "quality:draft",
+        "scope:film-spine"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 123,
+        "categoryCounts": {
+          "character": 18,
+          "event": 25,
+          "faction": 10,
+          "item": 5,
+          "knowledge": 12,
+          "location": 5,
+          "relationship": 10,
+          "rule": 9,
+          "secret": 26,
+          "timeline": 3
+        },
+        "timelineAnchorCount": 40,
+        "timelineWindowCount": 17,
+        "timelinePhaseCount": 5,
+        "tagCount": 112,
+        "entityCount": 57
+      }
+    },
+    {
+      "packId": "sw-legends-old-republic",
+      "manifest": "sw-legends-old-republic/loredeck.json",
+      "type": "bundled",
+      "title": "Star Wars Legends: Old Republic",
+      "description": "Legends Old Republic deck covering ancient Sith/Jedi foundations, Tales of the Jedi context, Mandalorian Wars, KOTOR, KOTOR II, SWTOR-era conflicts, and late Old Republic spoiler guards.",
+      "library": {
+        "suggestedPath": [
+          "Star Wars",
+          "Legends"
+        ],
+        "familyOrder": 30
+      },
+      "entrySchemaVersion": 3,
+      "version": "1.1.0-dev",
+      "author": "Saga",
+      "fandom": "Star Wars",
+      "era": "Old Republic: ancient Sith through SWTOR and late pre-Ruusan transition",
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "structure:split-loredeck",
+        "quality:draft",
+        "scope:era",
+        "scope:old-republic"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 106,
+        "categoryCounts": {
+          "character": 20,
+          "event": 14,
+          "faction": 16,
+          "item": 8,
+          "knowledge": 10,
+          "location": 14,
+          "relationship": 2,
+          "rule": 16,
+          "secret": 5,
+          "timeline": 1
+        },
+        "timelineAnchorCount": 22,
+        "timelineWindowCount": 11,
+        "tagCount": 353,
+        "entityCount": 73,
+        "timelinePhaseCount": 3
+      }
+    },
+    {
+      "packId": "sw-legends-rise-of-empire",
+      "manifest": "sw-legends-rise-of-empire/loredeck.json",
+      "type": "bundled",
+      "title": "Star Wars Legends: Rise of Empire",
+      "description": "Legends late-Republic and Clone Wars deck covering the Naboo crisis, Separatist crisis, Clone Wars multimedia-era state, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation.",
+      "library": {
+        "suggestedPath": [
+          "Star Wars",
+          "Legends"
+        ],
+        "familyOrder": 40
+      },
+      "entrySchemaVersion": 3,
+      "version": "1.1.0-dev",
+      "author": "Saga",
+      "fandom": "Star Wars",
+      "era": "Rise of Empire: late Republic, Clone Wars, Order 66, and early Empire",
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "structure:split-loredeck",
+        "quality:draft",
+        "scope:era",
+        "scope:rise-of-empire"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 155,
+        "categoryCounts": {
+          "character": 36,
+          "event": 8,
+          "faction": 30,
+          "item": 14,
+          "knowledge": 17,
+          "location": 15,
+          "relationship": 2,
+          "rule": 4,
+          "secret": 28,
+          "timeline": 1
+        },
+        "tagCount": 388,
+        "entityCount": 100,
+        "timelineAnchorCount": 25,
+        "timelineWindowCount": 15,
+        "timelinePhaseCount": 1
+      }
+    },
+    {
+      "packId": "sw-legends-rebellion-era",
+      "manifest": "sw-legends-rebellion-era/loredeck.json",
+      "type": "bundled",
+      "title": "Star Wars Legends: Rebellion Era",
+      "description": "Legends-compatible Galactic Civil War era deck focused on Original Trilogy story state, Rebel/Imperial pressure, ESB-to-ROTJ windows, Shadows-adjacent Legends support, and spoiler-safe future guards.",
+      "library": {
+        "suggestedPath": [
+          "Star Wars",
+          "Legends"
+        ],
+        "familyOrder": 50
+      },
+      "entrySchemaVersion": 3,
+      "version": "1.1.0-dev",
+      "author": "Saga",
+      "fandom": "Star Wars",
+      "era": "Rebellion Era: Original Trilogy",
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "structure:split-loredeck",
+        "quality:draft",
+        "scope:era"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 148,
+        "categoryCounts": {
+          "character": 46,
+          "event": 25,
+          "faction": 13,
+          "item": 16,
+          "knowledge": 16,
+          "location": 10,
+          "relationship": 10,
+          "rule": 4,
+          "secret": 8
+        },
+        "timelineAnchorCount": 30,
+        "timelineWindowCount": 15,
+        "tagCount": 145,
+        "entityCount": 47,
+        "timelinePhaseCount": 5
+      }
+    },
+    {
+      "packId": "sw-legends-new-republic",
+      "manifest": "sw-legends-new-republic/loredeck.json",
+      "type": "bundled",
+      "title": "Star Wars Legends: New Republic",
+      "description": "Post-Endor Legends deck covering the New Republic, Imperial Remnant, Thrawn campaign, Dark Empire, Jedi Academy, Hand of Thrawn, and pre-NJO spoiler guards.",
+      "library": {
+        "suggestedPath": [
+          "Star Wars",
+          "Legends"
+        ],
+        "familyOrder": 60
+      },
+      "entrySchemaVersion": 3,
+      "version": "1.1.0-dev",
+      "author": "Saga",
+      "fandom": "Star Wars",
+      "era": "New Republic: Post-Endor through Hand of Thrawn",
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "structure:split-loredeck",
+        "quality:draft",
+        "scope:era",
+        "scope:new-republic"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 143,
+        "categoryCounts": {
+          "character": 31,
+          "event": 14,
+          "faction": 22,
+          "item": 18,
+          "knowledge": 12,
+          "location": 15,
+          "relationship": 9,
+          "rule": 16,
+          "secret": 5,
+          "timeline": 1
+        },
+        "timelineAnchorCount": 29,
+        "timelineWindowCount": 17,
+        "tagCount": 142,
+        "entityCount": 82,
+        "timelinePhaseCount": 7
+      }
+    },
+    {
+      "packId": "sw-legends-new-jedi-order",
+      "manifest": "sw-legends-new-jedi-order/loredeck.json",
+      "type": "bundled",
+      "title": "Star Wars Legends: New Jedi Order",
+      "description": "Legends New Jedi Order deck covering the Yuuzhan Vong War from Vector Prime through The Unifying Force, including Jedi crisis, Vong biotechnology, Coruscant fall, Galactic Alliance transition, and spoiler guards.",
+      "library": {
+        "suggestedPath": [
+          "Star Wars",
+          "Legends"
+        ],
+        "familyOrder": 70
+      },
+      "entrySchemaVersion": 3,
+      "version": "1.1.0-dev",
+      "author": "Saga",
+      "fandom": "Star Wars",
+      "era": "New Jedi Order / Yuuzhan Vong War",
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "structure:split-loredeck",
+        "quality:draft",
+        "scope:era",
+        "scope:njo"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 141,
+        "categoryCounts": {
+          "character": 20,
+          "event": 21,
+          "faction": 14,
+          "item": 16,
+          "knowledge": 39,
+          "location": 10,
+          "relationship": 8,
+          "rule": 13
+        },
+        "timelineAnchorCount": 22,
+        "timelineWindowCount": 18,
+        "tagCount": 108,
+        "entityCount": 61,
+        "timelinePhaseCount": 8
+      }
+    },
+    {
+      "packId": "sw-legends-late-post-endor",
+      "manifest": "sw-legends-late-post-endor/loredeck.json",
+      "type": "bundled",
+      "title": "Star Wars Legends: Late Post-Endor",
+      "description": "Late post-Endor Legends deck covering Dark Nest, Legacy of the Force, Fate of the Jedi, Abeloth/Lost Tribe material, Caedus-era family rupture, and Crucible-era transition guards.",
+      "library": {
+        "suggestedPath": [
+          "Star Wars",
+          "Legends"
+        ],
+        "familyOrder": 80
+      },
+      "entrySchemaVersion": 3,
+      "version": "1.1.0-dev",
+      "author": "Saga",
+      "fandom": "Star Wars",
+      "era": "Late Post-Endor / Dark Nest to Crucible",
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "structure:split-loredeck",
+        "quality:draft",
+        "scope:era",
+        "scope:late-post-endor"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 139,
+        "categoryCounts": {
+          "character": 27,
+          "event": 31,
+          "faction": 14,
+          "item": 2,
+          "knowledge": 20,
+          "location": 6,
+          "relationship": 12,
+          "rule": 16,
+          "secret": 1,
+          "timeline": 10
+        },
+        "timelineAnchorCount": 25,
+        "timelineWindowCount": 20,
+        "tagCount": 108,
+        "entityCount": 53,
+        "timelinePhaseCount": 9
+      }
+    },
+    {
+      "packId": "sw-legends-legacy-comics",
+      "manifest": "sw-legends-legacy-comics/loredeck.json",
+      "type": "bundled",
+      "title": "Star Wars Legends: Legacy Comics",
+      "description": "Far-future Legends deck covering Star Wars: Legacy volume 1 and volume 2: Cade Skywalker, Darth Krayt's One Sith, Fel Imperial schism, Galactic Alliance Remnant, Jedi survivors, Imperial Knights, and Ania Solo-era fallout.",
+      "library": {
+        "suggestedPath": [
+          "Star Wars",
+          "Legends"
+        ],
+        "familyOrder": 90
+      },
+      "entrySchemaVersion": 3,
+      "version": "1.1.0-dev",
+      "author": "Saga",
+      "fandom": "Star Wars",
+      "era": "Legacy Comics / Far-Future Legends",
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "structure:split-loredeck",
+        "quality:draft",
+        "scope:era",
+        "scope:legacy-comics"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 144,
+        "categoryCounts": {
+          "character": 30,
+          "event": 32,
+          "faction": 12,
+          "item": 6,
+          "knowledge": 29,
+          "location": 8,
+          "relationship": 10,
+          "rule": 9,
+          "secret": 2,
+          "timeline": 6
+        },
+        "timelineAnchorCount": 29,
+        "timelineWindowCount": 16,
+        "tagCount": 263,
+        "entityCount": 75,
+        "timelinePhaseCount": 2
       }
     }
   ]

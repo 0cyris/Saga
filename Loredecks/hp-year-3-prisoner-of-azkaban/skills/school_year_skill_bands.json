@@ -10,7 +10,7 @@
       "kind": "skill_band",
       "gateType": "skill_band",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 3",
@@ -50,9 +50,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "topicsAny": [
             "school skill",
@@ -62,12 +62,16 @@
       },
       "content": {
         "fact": "Third-years are still early students; advanced defensive magic remains unusual, and Harry's Patronus work should not generalize to ordinary classmates.",
-        "injection": "Do not generalize Harry's unusual Year 3 Patronus training to ordinary third-years; advanced defensive magic still needs specific training.",
+        "injection": "Do not generalize Harry's unusual Year 3 Patronus training to ordinary third-years; advanced defensive magic still needs specific training. Enforce this as a high-priority Context gate for Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Third-year electives add breadth, but not broad advanced combat competence."
+          "Third-year electives add breadth, but not broad advanced combat competence.",
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make ordinary third-years casually capable of Patronus-level defensive magic."
+          "Do not make ordinary third-years casually capable of Patronus-level defensive magic.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -90,7 +94,16 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:3",
+        "spell:patronus"
+      ]
     }
   ]
 }

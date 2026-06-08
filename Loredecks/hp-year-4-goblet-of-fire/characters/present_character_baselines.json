@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9373,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 4",
@@ -74,7 +74,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -103,15 +103,17 @@
       },
       "content": {
         "fact": "In Year 4, Harry is fourteen, more socially aware, uncomfortable with attention, defensive under scrutiny, stubborn, loyal, and often reactive before strategic.",
-        "injection": "Write Harry as his Year 4 self: brave, stubborn, uncomfortable with attention, defensive under scrutiny, and still more adolescent than hardened soldier.",
+        "injection": "Write Harry as his Year 4 self: brave, stubborn, uncomfortable with attention, defensive under scrutiny, and still more adolescent than hardened soldier. Use this only as a phase baseline for Year 4; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should not be smoothly diplomatic under public pressure.",
           "His bravery is real, but his planning should remain uneven and age-appropriate.",
           "Keep later strategic certainty, war experience, and advanced secret knowledge out of this baseline.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not make Year 4 Harry calmly accept fame, press attention, or institutional suspicion as routine."
+          "Do not make Year 4 Harry calmly accept fame, press attention, or institutional suspicion as routine.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -154,7 +156,15 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -181,7 +191,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9373,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 4",
@@ -227,7 +237,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Hermione Granger",
@@ -256,15 +266,17 @@
       },
       "content": {
         "fact": "In Year 4, Hermione is more socially aware but still bookish, principled, argumentative when she sees injustice, and increasingly confident in acting on her ethics.",
-        "injection": "Write Hermione as her Year 4 self: principled, academically sharp, socially more aware, justice-minded, and still capable of insecurity and impatience.",
+        "injection": "Write Hermione as her Year 4 self: principled, academically sharp, socially more aware, justice-minded, and still capable of insecurity and impatience. Use this only as a phase baseline for Year 4; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "Her activism should come from moral conviction rather than broad political sophistication.",
           "She should not be reduced to exposition; keep her emotionally adolescent.",
           "Do not fold specific relationship tensions or tournament events into the baseline.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 4 Hermione as an emotionally detached adult advocate."
+          "Do not write Year 4 Hermione as an emotionally detached adult advocate.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -307,7 +319,15 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -334,7 +354,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9373,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 4",
@@ -382,7 +402,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Ron Weasley",
@@ -412,15 +432,17 @@
       },
       "content": {
         "fact": "In Year 4, Ron is adolescent, loyal beneath flare-ups, sensitive to comparison, status, and embarrassment, and prone to masking hurt with humor or irritation.",
-        "injection": "Write Ron as his Year 4 self: funny, loyal, status-sensitive, insecure around comparison, and capable of flare-ups without losing his core decency.",
+        "injection": "Write Ron as his Year 4 self: funny, loyal, status-sensitive, insecure around comparison, and capable of flare-ups without losing his core decency. Use this only as a phase baseline for Year 4; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "Keep jealousy and embarrassment available but date-specific conflicts separate from this baseline.",
           "He should not have later-war maturity or later romantic certainty.",
           "His loyalty should reassert itself when the scene gives him reason.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 4 Ron as emotionally self-aware enough to narrate his insecurity cleanly."
+          "Do not write Year 4 Ron as emotionally self-aware enough to narrate his insecurity cleanly.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -464,7 +486,15 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -491,7 +521,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9373,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 4",
@@ -539,7 +569,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Draco Malfoy",
@@ -569,15 +599,17 @@
       },
       "content": {
         "fact": "In Year 4, Draco is image-conscious, cruelly opportunistic, fascinated by status and power, and still more school bully than committed operative.",
-        "injection": "Write Draco as his Year 4 self: status-hungry, nasty, opportunistic, and excited by power without the later burden of direct responsibility.",
+        "injection": "Write Draco as his Year 4 self: status-hungry, nasty, opportunistic, and excited by power without the later burden of direct responsibility. Use this only as a phase baseline for Year 4; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should weaponize gossip, humiliation, and social hierarchy.",
           "He can be fascinated by dark prestige without acting like a trained Death Eater.",
           "Do not bake specific tournament incidents into the baseline.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 4 Draco as either fully redeemed or already crushed by Year 6-level pressure."
+          "Do not write Year 4 Draco as either fully redeemed or already crushed by Year 6-level pressure.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -620,7 +652,15 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:draco-malfoy",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -647,7 +687,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9373,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 4",
@@ -693,7 +733,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Neville Longbottom",
@@ -722,15 +762,17 @@
       },
       "content": {
         "fact": "In Year 4, Neville is earnest, awkward, underestimated, and beginning to show stronger interests and strengths without losing visible insecurity.",
-        "injection": "Write Neville as his Year 4 self: awkward, earnest, underestimated, quietly resilient, and beginning to show distinct strengths without later confidence.",
+        "injection": "Write Neville as his Year 4 self: awkward, earnest, underestimated, quietly resilient, and beginning to show distinct strengths without later confidence. Use this only as a phase baseline for Year 4; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should still be sensitive to ridicule.",
           "His courage should feel sincere but not yet battle-tested.",
           "Do not bake specific tournament or trauma revelations into the baseline.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not skip directly from Year 4 Neville to Year 7 rebel Neville."
+          "Do not skip directly from Year 4 Neville to Year 7 rebel Neville.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -773,7 +815,16 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -800,7 +851,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9373,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 4",
@@ -848,7 +899,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Ginny Weasley",
@@ -878,15 +929,17 @@
       },
       "content": {
         "fact": "In Year 4, Ginny is increasingly confident, socially active, direct, and less defined by shyness, while still younger than Harry’s year.",
-        "injection": "Write Ginny as her Year 4 self: more confident, socially engaged, direct, and resilient, but still not yet an upper-year authority figure.",
+        "injection": "Write Ginny as her Year 4 self: more confident, socially engaged, direct, and resilient, but still not yet an upper-year authority figure. Use this only as a phase baseline for Year 4; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "She can challenge others more readily than earlier Ginny.",
           "Keep her age and school position below Harry’s cohort.",
           "Do not bake specific dance, dating, or tournament circumstances into this baseline.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not revert Year 4 Ginny to silent first-year shyness by default."
+          "Do not revert Year 4 Ginny to silent first-year shyness by default.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -930,7 +983,16 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -957,7 +1019,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9373,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 4",
@@ -1003,7 +1065,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Luna Lovegood",
@@ -1032,15 +1094,17 @@
       },
       "content": {
         "fact": "In Year 4, Luna is eccentric, serene under ridicule, candid, and socially peripheral but emotionally steadier than many classmates.",
-        "injection": "Write Luna in Year 4 as eccentric, serene, candid, and socially peripheral, with quiet resilience rather than performative weirdness.",
+        "injection": "Write Luna in Year 4 as eccentric, serene, candid, and socially peripheral, with quiet resilience rather than performative weirdness. Use this only as a phase baseline for Year 4; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "She should be comfortable saying strange things plainly.",
           "Her calm should not make her immune to hurt.",
           "Do not overstate her role in Harry’s immediate circle before the story establishes it.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not use Luna as a mystical all-purpose truth oracle."
+          "Do not use Luna as a mystical all-purpose truth oracle.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1083,7 +1147,15 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:luna-lovegood",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1110,7 +1182,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9373,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 4",
@@ -1158,7 +1230,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Fred Weasley",
@@ -1188,15 +1260,17 @@
       },
       "content": {
         "fact": "In Year 4, Fred is older, bolder, more entrepreneurial, and increasingly serious beneath the joke about turning mischief into a future.",
-        "injection": "Write Fred in Year 4 as funny, bold, entrepreneurial, and irreverent, with sharper ambition underneath the pranks.",
+        "injection": "Write Fred in Year 4 as funny, bold, entrepreneurial, and irreverent, with sharper ambition underneath the pranks. Use this only as a phase baseline for Year 4; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should treat authority as an obstacle to be mocked or outmaneuvered.",
           "Keep business ambition broad; specific products or incidents should be separate if date-sensitive.",
           "He should still feel like a school student, not a finished adult.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not make Year 4 Fred solemn or conventionally rule-abiding by default."
+          "Do not make Year 4 Fred solemn or conventionally rule-abiding by default.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1240,7 +1314,15 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:fred-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1267,7 +1349,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9373,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 4",
@@ -1315,7 +1397,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "George Weasley",
@@ -1345,15 +1427,17 @@
       },
       "content": {
         "fact": "In Year 4, George is older, cleverer, more entrepreneurial, and increasingly serious about making jokes into a future while keeping a lighter social surface.",
-        "injection": "Write George in Year 4 as witty, entrepreneurial, irreverent, and technically clever about mischief and products.",
+        "injection": "Write George in Year 4 as witty, entrepreneurial, irreverent, and technically clever about mischief and products. Use this only as a phase baseline for Year 4; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should treat authority as a problem to route around.",
           "Keep business ambition broad; specific inventions or incidents should be separate if date-sensitive.",
           "He should still feel like a school student, not a finished adult.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not make Year 4 George solemn or conventionally rule-abiding by default."
+          "Do not make Year 4 George solemn or conventionally rule-abiding by default.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1397,7 +1481,15 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:george-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1406,7 +1498,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -1414,7 +1506,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1424,7 +1516,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9304,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 4",
@@ -1469,8 +1561,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Cedric Diggory",
@@ -1499,15 +1591,19 @@
       },
       "content": {
         "fact": "In Year 4 before his death, Cedric is mature, fair, capable, publicly admired, and more gracious under pressure than many students around him.",
-        "injection": "Before his death date, write Cedric in Year 4 as mature, fair-minded, capable, gracious under pressure, and still a living student.",
+        "injection": "Before his death date, write Cedric in Year 4 as mature, fair-minded, capable, gracious under pressure, and still a living student. Enforce this as a high-priority Context gate for Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "This living baseline applies only before the Cedric death-state window.",
           "He should be decent without being impossibly flawless.",
           "Keep specific tournament-task details and death aftermath in separate entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not treat Cedric as alive after his death-state entry applies unless accepted story lore says otherwise."
+          "Do not treat Cedric as alive after his death-state entry applies unless accepted story lore says otherwise.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1550,7 +1646,15 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:cedric-diggory",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     }
   ]
 }

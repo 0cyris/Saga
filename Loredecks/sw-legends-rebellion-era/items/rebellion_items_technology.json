@@ -1,0 +1,1506 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_lightsaber_symbolism_late_ot",
+      "title": "Lightsaber Signals Jedi/Sith Context",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:bespin",
+        "place:death-star-ii",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:jedi",
+        "topic:sith"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Tatooine",
+          "Bespin",
+          "Death Star II"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "jedi",
+          "sith",
+          "force"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Tatooine",
+            "Bespin",
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "jedi",
+            "sith",
+            "force"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In the Rebellion Era, lightsabers are rare enough to mark Jedi/Sith history and myth rather than ordinary military equipment.",
+        "injection": "When a lightsaber appears in OT-era scenes, treat it as significant and unusual outside Vader, Obi-Wan, Luke, and hidden Force traditions. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "items/rebellion_items_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_carbonite_is_dangerous_improvised_prison",
+      "title": "Carbonite Is Dangerous Improvised Prison",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "item_state",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:boba-fett",
+        "character:darth-vader",
+        "character:han-solo",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:bounty-hunters",
+        "faction:galactic-empire",
+        "faction:hutts",
+        "fandom:star-wars",
+        "object:carbonite",
+        "place:bespin",
+        "place:jabbas-palace",
+        "scope:rebellion-era",
+        "topic:bounty-hunter",
+        "topic:rescue"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.bespin_trap",
+        "validToAnchor": "sw.rebellion.bespin_trap",
+        "sortKeyFrom": 6180,
+        "sortKeyTo": 6180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Cloud City Trap Springs",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Darth Vader",
+          "Boba Fett"
+        ],
+        "locations": [
+          "Bespin",
+          "Jabba Palace"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Bounty Hunters",
+          "Hutts"
+        ],
+        "topics": [
+          "bounty hunter",
+          "rescue"
+        ],
+        "objects": [
+          "Carbonite"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Darth Vader",
+            "Boba Fett"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Jabba Palace"
+          ],
+          "topicsAny": [
+            "bounty hunter",
+            "rescue"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Bounty Hunters",
+            "Hutts"
+          ],
+          "objectsAny": [
+            "Carbonite"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Carbonite freezing can preserve Han but is risky when applied to living prisoners.",
+        "injection": "Use carbonite captivity as dangerous and traumatic, not a normal comfortable stasis method. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Cloud City Trap Springs.",
+          "Respect story-position bounds from Cloud City Trap Springs to Cloud City Trap Springs."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "items/rebellion_items_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_xwings_are_rebel_precision_fighters",
+      "title": "X-wings Are Rebel Precision Fighters",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "item_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:luke-skywalker",
+        "character:wedge-antilles",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:x-wing",
+        "place:endor",
+        "place:rebel-fleet",
+        "place:yavin",
+        "scope:rebellion-era",
+        "topic:military-logistics",
+        "topic:pilot"
+      ],
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Wedge Antilles"
+        ],
+        "locations": [
+          "Yavin IV",
+          "Rebel fleet",
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "pilot",
+          "military logistics"
+        ],
+        "objects": [
+          "X-wing"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Wedge Antilles"
+          ],
+          "locationsAny": [
+            "Yavin IV",
+            "Rebel fleet",
+            "Endor"
+          ],
+          "topicsAny": [
+            "pilot",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "X-wing"
+          ]
+        }
+      },
+      "content": {
+        "fact": "X-wings are versatile Rebel starfighters used for precision attacks and starfighter combat.",
+        "injection": "In Rebel pilot scenes, X-wings should support skilled small-unit tactics against larger Imperial assets. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "items/rebellion_items_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_ywings_bomber_role",
+      "title": "Y-wings Carry Bomber Weight",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-ackbar",
+        "character:gold-leader",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:y-wing",
+        "place:rebel-fleet",
+        "place:yavin",
+        "scope:rebellion-era",
+        "topic:military-logistics",
+        "topic:pilot"
+      ],
+      "priority": 74,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Gold Leader",
+          "Admiral Ackbar"
+        ],
+        "locations": [
+          "Yavin IV",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "pilot",
+          "military logistics"
+        ],
+        "objects": [
+          "Y-wing"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gold Leader",
+            "Admiral Ackbar"
+          ],
+          "locationsAny": [
+            "Yavin IV",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "pilot",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Y-wing"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Y-wings are older but useful Rebel bombers and attack craft in major operations.",
+        "injection": "Use Y-wings as heavier strike craft when bombing, torpedo, or assault roles matter. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "items/rebellion_items_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_tie_fighters_lack_rebel_comforts",
+      "title": "TIE Fighters Trade Pilot Survival for Numbers",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:wedge-antilles",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:tie-fighter",
+        "place:death-star-ii",
+        "place:outer-rim",
+        "scope:rebellion-era",
+        "topic:military-logistics",
+        "topic:pilot"
+      ],
+      "priority": 76,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Wedge Antilles"
+        ],
+        "locations": [
+          "Outer Rim",
+          "Death Star II"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "pilot",
+          "military logistics"
+        ],
+        "objects": [
+          "TIE fighter"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Wedge Antilles"
+          ],
+          "locationsAny": [
+            "Outer Rim",
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "pilot",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "TIE fighter"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Standard TIE fighters are fast Imperial craft but lack the same survivability assumptions as Rebel fighters.",
+        "injection": "In dogfights, TIE swarms can be dangerous while individual pilots are more exposed than shielded Rebel craft. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "items/rebellion_items_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_star_destroyers_project_control",
+      "title": "Star Destroyers Project Imperial Control",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-piett",
+        "character:darth-vader",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:imperial-navy",
+        "fandom:star-wars",
+        "object:star-destroyer",
+        "place:executor",
+        "place:hoth",
+        "place:outer-rim",
+        "scope:rebellion-era",
+        "topic:military-logistics",
+        "topic:propaganda"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Admiral Piett"
+        ],
+        "locations": [
+          "Outer Rim",
+          "Hoth",
+          "Executor"
+        ],
+        "factions": [
+          "Imperial Navy",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "propaganda",
+          "military logistics"
+        ],
+        "objects": [
+          "Star Destroyer"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Admiral Piett"
+          ],
+          "locationsAny": [
+            "Outer Rim",
+            "Hoth",
+            "Executor"
+          ],
+          "topicsAny": [
+            "propaganda",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Imperial Navy",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Star Destroyer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Star Destroyers function as military platforms, intimidation symbols, and mobile occupation pressure.",
+        "injection": "When a Star Destroyer arrives, local characters should feel surveillance, blockade, troops, and overwhelming Imperial force. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "items/rebellion_items_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_executor_is_vader_flagship",
+      "title": "Executor Is Vader’s Flagship",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "item_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-ozzel",
+        "character:admiral-piett",
+        "character:darth-vader",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:imperial-navy",
+        "fandom:star-wars",
+        "object:executor",
+        "object:super-star-destroyer",
+        "place:executor",
+        "scope:rebellion-era",
+        "topic:command"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.hoth_evacuated",
+        "validToAnchor": "sw.rebellion.han_at_jabba",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Empire Strikes Back fallout path",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Admiral Piett",
+          "Admiral Ozzel"
+        ],
+        "locations": [
+          "Executor"
+        ],
+        "factions": [
+          "Imperial Navy",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "command"
+        ],
+        "objects": [
+          "Executor",
+          "Super Star Destroyer"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Admiral Piett",
+            "Admiral Ozzel"
+          ],
+          "locationsAny": [
+            "Executor"
+          ],
+          "topicsAny": [
+            "command"
+          ],
+          "factionsAny": [
+            "Imperial Navy",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Executor",
+            "Super Star Destroyer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Executor is Vader’s massive flagship during the late Rebellion Era.",
+        "injection": "In ESB/ROTJ Imperial fleet scenes, Vader’s presence can center on the Executor and its command hierarchy. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: The Empire Strikes Back fallout path.",
+          "Respect story-position bounds from Hoth Evacuated to Han Held by Jabba."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "items/rebellion_items_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_hyperdrive_failures_create_story_pressure",
+      "title": "Hyperdrive Failure Creates Story Pressure",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "character:leia-organa",
+        "character:r2-d2",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:hyperdrive",
+        "object:millennium-falcon",
+        "place:bespin",
+        "place:outer-rim",
+        "scope:rebellion-era",
+        "topic:hyperspace",
+        "topic:smuggling"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Chewbacca",
+          "Leia Organa",
+          "R2-D2"
+        ],
+        "locations": [
+          "Outer Rim",
+          "Bespin"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "hyperspace",
+          "smuggling"
+        ],
+        "objects": [
+          "Hyperdrive",
+          "Millennium Falcon"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Chewbacca",
+            "Leia Organa",
+            "R2-D2"
+          ],
+          "locationsAny": [
+            "Outer Rim",
+            "Bespin"
+          ],
+          "topicsAny": [
+            "hyperspace",
+            "smuggling"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Hyperdrive",
+            "Millennium Falcon"
+          ]
+        }
+      },
+      "content": {
+        "fact": "A failed or sabotaged hyperdrive can force characters into detours, local risks, or emergency repairs.",
+        "injection": "Use hyperdrive failure as a legitimate constraint in chase and escape scenes, especially around the Falcon post-Hoth. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "items/rebellion_items_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_comms_not_instant_safe_everywhere",
+      "title": "Comms Are Not Instant Safe Everywhere",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "item_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:mon-mothma",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:holonet",
+        "place:outer-rim",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:espionage",
+        "topic:military-logistics"
+      ],
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Mon Mothma",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "espionage",
+          "military logistics"
+        ],
+        "objects": [
+          "HoloNet"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Mon Mothma",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "espionage",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "HoloNet"
+          ]
+        }
+      },
+      "content": {
+        "fact": "HoloNet, transmissions, beacons, and comms can be intercepted, jammed, delayed, or unsafe under Imperial pressure.",
+        "injection": "Do not let Rebels coordinate freely across the galaxy without accounting for security, range, codes, or interception risk. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "items/rebellion_items_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_bacta_medical_recovery_not_magic_reset",
+      "title": "Bacta Helps but Does Not Erase Consequences",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:han-solo",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:bacta",
+        "object:prosthetic",
+        "place:hoth",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:military-logistics"
+      ],
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Han Solo"
+        ],
+        "locations": [
+          "Hoth",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "military logistics"
+        ],
+        "objects": [
+          "Bacta",
+          "Prosthetic"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Hoth",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Bacta",
+            "Prosthetic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Bacta can accelerate recovery from injuries, but trauma, lost limbs, blindness, or exhaustion can still matter.",
+        "injection": "Use bacta as advanced medicine without instantly erasing major injury consequences or emotional aftermath. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "items/rebellion_items_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_restraining_bolts_and_memory_control_droids",
+      "title": "Droid Control Tools Shape Droid Agency",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "item",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:c-3po",
+        "character:r2-d2",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:hutts",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:droids",
+        "place:endor",
+        "place:rebel-fleet",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:droid"
+      ],
+      "priority": 76,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "R2-D2",
+          "C-3PO"
+        ],
+        "locations": [
+          "Tatooine",
+          "Rebel fleet",
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Hutts",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "droid"
+        ],
+        "objects": [
+          "Droids"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "R2-D2",
+            "C-3PO"
+          ],
+          "locationsAny": [
+            "Tatooine",
+            "Rebel fleet",
+            "Endor"
+          ],
+          "topicsAny": [
+            "droid"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Hutts",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Droids"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Restraining bolts, memory wipes, ownership, and access permissions can limit droid agency.",
+        "injection": "In Rebellion Era droid scenes, account for owner control and restrictions unless the story frees or bypasses them. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "items/rebellion_items_technology.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

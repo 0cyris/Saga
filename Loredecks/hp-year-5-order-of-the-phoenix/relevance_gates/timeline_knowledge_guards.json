@@ -1,0 +1,705 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "y5_guard_ministry_denial_until_seen",
+      "title": "Ministry denies Voldemort until public sighting",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.privet_drive_isolation",
+        "validToAnchor": "hp.y5.voldemort_publicly_seen",
+        "sortKeyFrom": 9344,
+        "sortKeyTo": 9659,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Voldemort is publicly seen",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Albus Dumbledore",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Ministry denial",
+          "public truth",
+          "Voldemort return"
+        ],
+        "factions": [
+          "Ministry of Magic",
+          "Order of the Phoenix"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:5"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Albus Dumbledore",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Ministry denial",
+            "public truth",
+            "Voldemort return"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Throughout most of Year 5, the Ministry denies Voldemort’s return and treats Harry/Dumbledore as politically inconvenient or unstable.",
+        "injection": "Before Voldemort is publicly seen at the Ministry, keep official institutions in denial or suppression mode; do not write the Ministry as openly mobilized against Voldemort yet.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Voldemort is publicly seen; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-5-order-of-the-phoenix",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-5-order-of-the-phoenix"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y5_guard_umbridge_no_practical_defense",
+      "title": "Umbridge blocks practical Defense",
+      "kind": "behavior_gate",
+      "gateType": "behavior_gate",
+      "category": "rule",
+      "relevance": "high",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 105,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.umbridge_first_class",
+        "validToAnchor": "hp.y5.da_caught",
+        "sortKeyFrom": 9429,
+        "sortKeyTo": 9556,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Umbridge classroom control before DA exposure",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Dolores Umbridge",
+          "Harry Potter",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "Defense class",
+          "Umbridge policy",
+          "Dumbledore’s Army need"
+        ],
+        "factions": [
+          "Dumbledore's Army",
+          "Ministry of Magic"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:albus-dumbledore",
+        "character:dolores-umbridge",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:5"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dolores Umbridge",
+            "Harry Potter",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "Defense class",
+            "Umbridge policy",
+            "Dumbledore’s Army need"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Umbridge’s Defense class suppresses practical defensive magic, creating the need for Dumbledore’s Army.",
+        "injection": "During Umbridge’s control, do not give students normal practical Defense instruction from her; the DA exists because formal class is politically constrained and practically useless.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Umbridge classroom control before DA exposure; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-5-order-of-the-phoenix",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-5-order-of-the-phoenix"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y5_guard_da_secret_before_marietta",
+      "title": "DA stays secret before Marietta betrayal",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 110,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.hogs_head_da_recruitment",
+        "validToAnchor": "hp.y5.marietta_betrayal",
+        "sortKeyFrom": 9465,
+        "sortKeyTo": 9562,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before DA betrayal",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Hermione Granger",
+          "Dolores Umbridge"
+        ],
+        "topics": [
+          "DA secrecy",
+          "Room of Requirement",
+          "Marietta betrayal"
+        ],
+        "factions": [
+          "Dumbledore's Army"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:albus-dumbledore",
+        "character:dolores-umbridge",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:5"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Hermione Granger",
+            "Dolores Umbridge"
+          ],
+          "topicsAny": [
+            "DA secrecy",
+            "Room of Requirement",
+            "Marietta betrayal"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The DA is a clandestine student training group and must stay hidden from Umbridge until Marietta’s betrayal and the official crackdown.",
+        "injection": "Before the DA betrayal, do not have Umbridge or the school administration casually know the DA’s membership, meeting room, or practice details unless a scene establishes discovery.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before DA betrayal; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-5-order-of-the-phoenix",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-5-order-of-the-phoenix"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y5_guard_prophecy_unknown_until_dumbledore_explains",
+      "title": "Full prophecy unknown until Dumbledore explains",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.privet_drive_isolation",
+        "validToAnchor": "hp.y5.prophecy_explained",
+        "sortKeyFrom": 9344,
+        "sortKeyTo": 9665,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before prophecy explanation",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Albus Dumbledore",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "prophecy",
+          "Chosen One",
+          "Department of Mysteries"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:5",
+        "topic:prophecy"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Albus Dumbledore",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "prophecy",
+            "Chosen One",
+            "Department of Mysteries"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the end of Year 5, Harry has visions and fragments but not Dumbledore’s full explanation of the prophecy and its implications.",
+        "injection": "Before Dumbledore explains the prophecy, block full prophecy exposition, Chosen One framing, and confident prophecy logic from Harry’s internal reasoning or ordinary dialogue.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before prophecy explanation; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-5-order-of-the-phoenix",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-5-order-of-the-phoenix"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y5_guard_sirius_alive_until_veil",
+      "title": "Sirius alive until veil event",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 110,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.privet_drive_isolation",
+        "validToAnchor": "hp.y5.sirius_dies",
+        "sortKeyFrom": 9344,
+        "sortKeyTo": 9641,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Sirius dies",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Sirius Black",
+          "Harry Potter"
+        ],
+        "topics": [
+          "Sirius status",
+          "Department of Mysteries",
+          "veil death"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "character:sirius-black",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:5"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Sirius Black",
+            "Harry Potter"
+          ],
+          "topicsAny": [
+            "Sirius status",
+            "Department of Mysteries",
+            "veil death"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sirius is alive, trapped in Grimmauld Place, and emotionally volatile until the Department of Mysteries battle.",
+        "injection": "Before the veil event, do not treat Sirius as dead or posthumous; after the death anchor, switch to grief/absence cards and block casual living Sirius appearances unless AU is declared.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Sirius dies; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-5-order-of-the-phoenix",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-5-order-of-the-phoenix"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y5_guard_occlumency_not_mastered",
+      "title": "Harry does not master Occlumency",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "spell",
+      "relevance": "high",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 100,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y5.occlumency_lessons_begin",
+        "validToAnchor": "hp.y5.sirius_torture_vision",
+        "sortKeyFrom": 9514,
+        "sortKeyTo": 9617,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Occlumency lessons before false vision",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Severus Snape",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Occlumency",
+          "visions",
+          "false Sirius vision"
+        ],
+        "schoolYears": [
+          "5"
+        ],
+        "books": [
+          "Order of the Phoenix"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:harry-potter",
+        "character:severus-snape",
+        "character:sirius-black",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:5"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Severus Snape",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Occlumency",
+            "visions",
+            "false Sirius vision"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Harry receives Occlumency lessons from Snape but does not master them, leaving him vulnerable to visions and manipulation.",
+        "injection": "During the Occlumency window, do not make Harry reliably shielded or skilled at Occlumency; his failure is part of why the false Sirius vision works. Enforce this as a high-priority Context gate for Occlumency lessons before false vision; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Occlumency lessons before false vision; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Order of the Phoenix",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-5-order-of-the-phoenix",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-5-order-of-the-phoenix"
+        }
+      }
+    }
+  ]
+}

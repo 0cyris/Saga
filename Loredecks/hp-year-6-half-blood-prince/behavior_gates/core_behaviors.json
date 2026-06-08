@@ -10,7 +10,7 @@
       "kind": "behavior_gate",
       "gateType": "behavior_gate",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 75,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,7 +27,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.funeral",
-        "sortKeyFrom": 9740,
+        "sortKeyFrom": 9735,
         "sortKeyTo": 10042,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -69,8 +69,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter"
@@ -86,7 +86,13 @@
         "fact": "Harry is more experienced, suspicious of Draco, and still affected by Sirius’s death. He is increasingly burdened by Dumbledore’s lessons.",
         "injection": "Harry is more experienced, suspicious of Draco, and still affected by Sirius’s death; He is increasingly burdened by Dumbledore’s lessons; Do not write him as a naive first-year.",
         "constraints": [
-          "Do not write him as a naive first-year."
+          "Do not write him as a naive first-year.",
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -111,7 +117,17 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -120,7 +136,7 @@
       "kind": "behavior_gate",
       "gateType": "behavior_gate",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -128,7 +144,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -137,7 +153,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.funeral",
-        "sortKeyFrom": 9740,
+        "sortKeyFrom": 9735,
         "sortKeyTo": 10042,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -168,8 +184,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Draco Malfoy"
@@ -183,9 +199,15 @@
       },
       "content": {
         "fact": "In Year 6, Draco is under severe pressure from his secret mission, making him secretive, isolated, frightened, and prone to masking fear with arrogance.",
-        "injection": "In Year 6, Draco should be secretive, isolated, and strained under pressure from his hidden mission; arrogance may mask fear rather than simple school rivalry.",
+        "injection": "In Year 6, Draco should be secretive, isolated, and strained under pressure from his hidden mission; arrogance may mask fear rather than simple school rivalry. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not make Draco’s mission public unless discovered by the story."
+          "Do not make Draco’s mission public unless discovered by the story.",
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -210,7 +232,15 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:draco-malfoy",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -219,7 +249,7 @@
       "kind": "behavior_gate",
       "gateType": "behavior_gate",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 75,
       "injectableByDefault": true,
@@ -227,7 +257,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -236,7 +266,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.funeral",
-        "sortKeyFrom": 9740,
+        "sortKeyFrom": 9735,
         "sortKeyTo": 10042,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -278,8 +308,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Albus Dumbledore"
@@ -295,7 +325,13 @@
         "fact": "Dumbledore is actively guiding Harry through Voldemort’s past while withholding some information. He remains calm and strategic but physically weakened.",
         "injection": "Dumbledore is actively guiding Harry through Voldemort’s past while withholding some information; He remains calm and strategic but physically weakened; Before the tower event he is alive and still directing parts of the war effort.",
         "constraints": [
-          "Before the tower event he is alive and still directing parts of the war effort."
+          "Before the tower event he is alive and still directing parts of the war effort.",
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -324,7 +360,16 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     }
   ]
 }

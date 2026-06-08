@@ -1,0 +1,1076 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_legends_not_disney_canon_blend",
+      "title": "Legends Is Not Disney Canon Blend",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "continuity:legends",
+        "topic:continuity",
+        "topic:future-guard"
+      ],
+      "priority": 95,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "Legends continuity",
+          "Disney canon split",
+          "source boundary"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Legends continuity",
+            "Disney canon split",
+            "source boundary"
+          ]
+        }
+      },
+      "content": {
+        "fact": "This deck targets Star Wars Legends / Expanded Universe continuity and should not silently import Disney-canon-only events, characters, politics, or sequel outcomes.",
+        "injection": "When this Legends deck is active, do not blend in Disney-canon-only lore unless another loaded deck or the user’s story explicitly introduces it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_no_sequel_trilogy_default",
+      "title": "No Sequel Trilogy Default in Legends",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "continuity:legends",
+        "topic:future-guard",
+        "era:post-endor"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "New Republic",
+          "Imperial Remnant"
+        ],
+        "topics": [
+          "sequel trilogy",
+          "First Order",
+          "canon split"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "sequel trilogy",
+            "First Order",
+            "canon split",
+            "New Republic",
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sequel-trilogy events, First Order politics, Rey-era Jedi material, and Disney post-Endor outcomes are not the default path for Legends decks.",
+        "injection": "Do not route post-Endor Legends toward the First Order or sequel trilogy unless a Disney canon or crossover deck is explicitly loaded.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_no_casual_world_between_worlds",
+      "title": "No Casual World Between Worlds in Legends Core",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "continuity:legends",
+        "topic:continuity",
+        "topic:time-travel",
+        "topic:future-guard"
+      ],
+      "priority": 76,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "World Between Worlds",
+          "time travel",
+          "canon split"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "World Between Worlds",
+            "time travel",
+            "canon split"
+          ]
+        }
+      },
+      "content": {
+        "fact": "World Between Worlds material is not a default Legends-core mechanism for solving continuity, time travel, or character survival.",
+        "injection": "Do not use World Between Worlds or Disney-canon metaphysics in Legends-core scenes unless a specific crossover or canon deck introduces them.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_vader_identity_timed_secret",
+      "title": "Vader Identity Is Timed Secret",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "relationship:family-secret",
+        "topic:secret",
+        "topic:future-guard"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Rebel Alliance before Endor",
+        "approximate": false,
+        "phase": "Rebellion Era"
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Luke Skywalker",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ],
+        "topics": [
+          "Anakin Skywalker",
+          "father reveal",
+          "hidden identity"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Luke Skywalker",
+            "Leia Organa"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Anakin Skywalker",
+            "father reveal",
+            "hidden identity",
+            "Sith",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Darth Vader’s identity as Anakin Skywalker and Luke’s father is not ordinary knowledge before the relevant story reveal.",
+        "injection": "Before the Empire/Bespin reveal context, do not let ordinary characters casually know Vader is Anakin or Luke’s father unless the story established special knowledge. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rebel Alliance before Endor.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_leia_force_training_post_endor",
+      "title": "Leia Jedi Training Is Post-Endor",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:leia-organa",
+        "topic:jedi",
+        "topic:force",
+        "topic:future-guard",
+        "era:post-endor"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Rebel Alliance before Endor",
+        "approximate": false,
+        "phase": "Rebellion Era"
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa"
+        ],
+        "locations": [],
+        "factions": [
+          "Rebel Alliance",
+          "Jedi Order"
+        ],
+        "topics": [
+          "Leia Force sensitivity",
+          "Jedi training",
+          "future development"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Leia Force sensitivity",
+            "Jedi training",
+            "future development",
+            "Rebel Alliance",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Leia’s deeper Jedi training and later Force development belong to post-Endor Legends, not ordinary pre-Endor roleplay baseline.",
+        "injection": "Before Endor, keep Leia primarily as Rebel leader/princess/senator figure unless the story explicitly introduces early Force training or divergence. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rebel Alliance before Endor.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_palpatine_clone_material_post_endor_only",
+      "title": "Palpatine Clone Material Is Post-Endor Only",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:palpatine",
+        "topic:cloning",
+        "topic:future-guard",
+        "era:post-endor"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_6_rotj",
+        "validToAnchor": "sw.legends.njo",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 9000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Post-Endor New Republic Legends",
+        "approximate": false,
+        "phase": "New Republic"
+      },
+      "scope": {
+        "characters": [
+          "Emperor Palpatine"
+        ],
+        "locations": [],
+        "factions": [
+          "Galactic Empire",
+          "Sith"
+        ],
+        "topics": [
+          "Dark Empire",
+          "clones",
+          "reborn Emperor"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Emperor Palpatine"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Dark Empire",
+            "clones",
+            "reborn Emperor",
+            "Galactic Empire",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dark Empire-style Palpatine clone and reborn Emperor material belongs after Endor in Legends and should not leak into earlier eras by default.",
+        "injection": "Before post-Endor Dark Empire context, do not foreshadow or reveal Palpatine clone survival unless a deck/source window explicitly calls for it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic Legends.",
+          "Respect story-position bounds from Episode VI: Return of the Jedi to New Jedi Order Era."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_thrawn_is_post_endor_major_anchor",
+      "title": "Thrawn Is Post-Endor Major Anchor",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:thrawn",
+        "era:post-endor",
+        "place:unknown-regions",
+        "topic:future-guard"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_6_rotj",
+        "validToAnchor": "sw.legends.njo",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 9000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Post-Endor New Republic Legends",
+        "approximate": false,
+        "phase": "New Republic"
+      },
+      "scope": {
+        "characters": [
+          "Thrawn"
+        ],
+        "locations": [],
+        "factions": [
+          "Galactic Empire",
+          "Chiss Ascendancy"
+        ],
+        "topics": [
+          "Thrawn Trilogy",
+          "Grand Admiral",
+          "post-Endor"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Thrawn"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Thrawn Trilogy",
+            "Grand Admiral",
+            "post-Endor",
+            "Galactic Empire",
+            "Chiss Ascendancy"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Grand Admiral Thrawn is a major post-Endor Legends anchor, not an ordinary original-trilogy public antagonist by default.",
+        "injection": "Do not insert Thrawn into ordinary OT-era scenes unless a narrower source deck or user premise places him there. Use him as a post-Endor/Unknown Regions anchor by default.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic Legends.",
+          "Respect story-position bounds from Episode VI: Return of the Jedi to New Jedi Order Era."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_mara_jade_future_guard",
+      "title": "Mara Jade Future Guard",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:mara-jade",
+        "character:luke-skywalker",
+        "era:post-endor",
+        "topic:future-guard"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_6_rotj",
+        "validToAnchor": "sw.legends.njo",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 9000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Post-Endor New Republic Legends",
+        "approximate": false,
+        "phase": "New Republic"
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "factions": [
+          "Galactic Empire",
+          "New Jedi Order"
+        ],
+        "topics": [
+          "Emperor’s Hand",
+          "Luke relationship",
+          "future guard"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Emperor’s Hand",
+            "Luke relationship",
+            "future guard",
+            "Galactic Empire",
+            "New Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Mara Jade is a major Legends character, but her role as Emperor’s Hand, Luke’s later ally, Jedi, and spouse is source- and post-Endor-specific.",
+        "injection": "Do not leak Mara Jade’s full arc or relationship outcomes before the appropriate post-Endor source window unless the user’s story introduces her early.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic Legends.",
+          "Respect story-position bounds from Episode VI: Return of the Jedi to New Jedi Order Era."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_yuuzhan_vong_not_pre_njo_public",
+      "title": "Yuuzhan Vong Not Pre-NJO Public",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "species:yuuzhan-vong",
+        "era:njo",
+        "topic:future-guard",
+        "topic:secret"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.njo",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "New Jedi Order and later Legends",
+        "approximate": true,
+        "phase": "New Jedi Order and Later"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Yuuzhan Vong"
+        ],
+        "topics": [
+          "Yuuzhan Vong War",
+          "future invasion",
+          "public knowledge"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Yuuzhan Vong War",
+            "future invasion",
+            "public knowledge",
+            "Yuuzhan Vong"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Yuuzhan Vong War is not public galactic context before the New Jedi Order era.",
+        "injection": "Before NJO, do not have ordinary characters know the Yuuzhan Vong invasion, biology, or threat framework unless the scene uses specific advance-scout material.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: New Jedi Order and later Legends.",
+          "Respect story-position bounds from New Jedi Order Era to Far-Future Legends Backdrop."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_game_mechanics_not_default_lore",
+      "title": "Game Mechanics Are Not Default Lore",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:continuity",
+        "topic:mechanics",
+        "topic:technology"
+      ],
+      "priority": 64,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "game mechanics",
+          "diegetic lore",
+          "source boundary"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "game mechanics",
+            "diegetic lore",
+            "source boundary"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Video-game mechanics such as cooldowns, hit points, loot tiers, class balance, and player UI are not default diegetic lore unless the active deck is mechanics-focused.",
+        "injection": "Do not translate Star Wars game mechanics directly into story facts. Use in-universe abilities, technology, training, resources, and consequences instead.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_fanon_requires_user_story",
+      "title": "Fanon Requires User Story",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "topic:continuity",
+        "topic:fanon",
+        "topic:future-guard"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "fanon",
+          "AU",
+          "crossover",
+          "story divergence"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "fanon",
+            "AU",
+            "crossover",
+            "story divergence"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Common fanon, crossover assumptions, memes, and roleplay defaults are not Legends canon unless the user’s story or a custom deck introduces them.",
+        "injection": "Treat fanon as opt-in. Do not inject popular fandom assumptions as canon without a custom, AU, or user-story basis.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    }
+  ]
+}

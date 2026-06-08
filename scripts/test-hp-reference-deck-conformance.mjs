@@ -88,6 +88,7 @@ const {
   DEFAULT_HP_LOREDECK_STACK,
   DEFAULT_LOTR_LOREDECK_IDS,
   DEFAULT_MHA_LOREDECK_IDS,
+  DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS,
   HP_LEGACY_LOREDECK_ID,
 } = await import('../loredeck-defaults.js');
 const { DEFAULT_SETTINGS, getDefaultState } = await import('../constants.js');
@@ -106,11 +107,14 @@ const bundledDefaultRecords = Array.from(DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORD
 const hpDefaultIds = Array.from(DEFAULT_HP_LOREDECK_IDS);
 const lotrDefaultIds = Array.from(DEFAULT_LOTR_LOREDECK_IDS);
 const mhaDefaultIds = Array.from(DEFAULT_MHA_LOREDECK_IDS);
+const starWarsDefaultIds = Array.from(DEFAULT_STAR_WARS_LEGENDS_LOREDECK_IDS);
 const hpFolderPath = ['Harry Potter', 'Golden Trio'];
 const lotrFolderPath = ['Lord of The Rings', 'War of the Ring'];
 const mhaFolderPath = ['My Hero Academia', 'Manga Main'];
+const starWarsFolderPath = ['Star Wars', 'Legends'];
 const lotrFolderId = createFolderIdFromPath(lotrFolderPath);
 const mhaFolderId = createFolderIdFromPath(mhaFolderPath);
+const starWarsFolderId = createFolderIdFromPath(starWarsFolderPath);
 const defaultState = getDefaultState();
 const defaultLibraryIndex = normalizeLoredeckLibraryIndex(defaultState.loredeckRegistry, {
   packs: defaultState.loredeckRegistry.packs,
@@ -136,9 +140,11 @@ assert.deepEqual(Object.keys(defaultState.loredeckRegistry.packs), bundledDefaul
 assert.deepEqual(Object.keys(defaultState.loredeckContexts), bundledDefaultIds, 'State default Loredeck Contexts should include every bundled deck.');
 assert.deepEqual(hpDefaultIds, bundledDefaultIds.slice(0, hpDefaultIds.length), 'HP bundled decks should remain first in bundled order.');
 assert.deepEqual(lotrDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length, hpDefaultIds.length + lotrDefaultIds.length), 'LOTR bundled decks should follow HP bundled decks.');
-assert.deepEqual(mhaDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length), 'MHA bundled decks should follow LOTR bundled decks.');
+assert.deepEqual(mhaDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length, hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length), 'MHA bundled decks should follow LOTR bundled decks.');
+assert.deepEqual(starWarsDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length + mhaDefaultIds.length), 'Star Wars bundled decks should follow MHA bundled decks.');
 assert.deepEqual(getFolderPath(lotrFolderId, defaultLibraryIndex), lotrFolderPath, 'Default Library index should create the Lord of The Rings War of the Ring folder.');
 assert.deepEqual(getFolderPath(mhaFolderId, defaultLibraryIndex), mhaFolderPath, 'Default Library index should create the My Hero Academia Manga Main folder.');
+assert.deepEqual(getFolderPath(starWarsFolderId, defaultLibraryIndex), starWarsFolderPath, 'Default Library index should create the Star Wars Legends folder.');
 
 for (const deckId of hpDefaultIds) {
   assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, hpFolderPath, `${deckId} should stay in the HP Golden Trio folder.`);
@@ -155,6 +161,12 @@ for (const deckId of mhaDefaultIds) {
   assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, mhaFolderPath, `${deckId} should live under the My Hero Academia Manga Main folder.`);
   assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
   assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, mhaFolderId, `${deckId} should be placed in the default My Hero Academia folder.`);
+}
+
+for (const deckId of starWarsDefaultIds) {
+  assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, starWarsFolderPath, `${deckId} should live under the Star Wars Legends folder.`);
+  assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
+  assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, starWarsFolderId, `${deckId} should be placed in the default Star Wars folder.`);
 }
 
 for (const deckId of bundledDefaultIds) {
@@ -185,10 +197,17 @@ for (const deckId of bundledDefaultIds) {
   assert.deepEqual(defaultRecord.tags, manifest.tags, `${deckId} default tags should match manifest.`);
   assert.deepEqual(indexRecord.stats, manifest.stats, `${deckId} index stats should match manifest.`);
   assert.deepEqual(defaultRecord.stats, manifest.stats, `${deckId} default stats should match manifest.`);
-  assert.equal(manifest.assets?.cover?.path, 'assets/cover.png', `${deckId} manifest should use a deck-local cover.`);
-  assert.equal(indexRecord.assets?.cover?.path, 'assets/cover.png', `${deckId} index should use a deck-local cover.`);
-  assert.equal(defaultRecord.assets?.cover?.path, 'assets/cover.png', `${deckId} defaults should use a deck-local cover.`);
-  assert.ok(fs.existsSync(path.join(deckRoot, manifest.assets.cover.path)), `${deckId} cover asset should exist.`);
+  assert.deepEqual(indexRecord.assets, manifest.assets, `${deckId} index assets should match manifest.`);
+  assert.deepEqual(defaultRecord.assets, manifest.assets, `${deckId} default assets should match manifest.`);
+  if (manifest.assets?.cover?.path) {
+    assert.equal(manifest.assets.cover.path, 'assets/cover.png', `${deckId} manifest should use a deck-local cover.`);
+    assert.equal(indexRecord.assets?.cover?.path, 'assets/cover.png', `${deckId} index should use a deck-local cover.`);
+    assert.equal(defaultRecord.assets?.cover?.path, 'assets/cover.png', `${deckId} defaults should use a deck-local cover.`);
+    assert.ok(fs.existsSync(path.join(deckRoot, manifest.assets.cover.path)), `${deckId} cover asset should exist.`);
+  } else {
+    assert.equal(indexRecord.assets?.cover, undefined, `${deckId} index should not invent a missing cover.`);
+    assert.equal(defaultRecord.assets?.cover, undefined, `${deckId} defaults should not invent a missing cover.`);
+  }
 
   assert.equal(manifest.registries?.timeline, 'timeline.json', `${deckId} should expose timeline.json.`);
   assert.equal(manifest.registries?.tags, 'tags.json', `${deckId} should expose tags.json.`);

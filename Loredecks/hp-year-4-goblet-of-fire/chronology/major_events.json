@@ -10,7 +10,7 @@
       "kind": "future_guard",
       "gateType": "future_guard",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "temporal_gate",
       "specificityScore": 100,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9305,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -56,8 +56,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "topicsAny": [
             "Triwizard Tournament",
@@ -72,10 +72,14 @@
         "injection": "During Year 4, do not treat Harry as a Triwizard champion before the Goblet selects him, and do not leak later task, Portkey, graveyard, or Voldemort-return outcomes before the story reaches them.",
         "constraints": [
           "Before champion selection, Harry is not publicly a Triwizard champion.",
-          "After selection, task details and graveyard outcomes still remain future-gated until reached."
+          "After selection, task details and graveyard outcomes still remain future-gated until reached.",
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make September Year 4 scenes assume Harry is already a champion."
+          "Do not make September Year 4 scenes assume Harry is already a champion.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -99,7 +103,16 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     }
   ]
 }

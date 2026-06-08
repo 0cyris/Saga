@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve casual Old Republic / KOTOR / SWTOR phrases into Star Wars Legends Old Republic Context anchors and windows.",
+  "preferredFields": [
+    "era",
+    "game",
+    "beforeAfter",
+    "majorEvent",
+    "anchor",
+    "window"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer named era/game/event windows over invented BBY dates. Return only known anchor/window IDs from this deck. Prefer story-position anchors and windows over raw BBY/ABY dates; never invent timeline anchors outside this deck registry.",
+  "localPatterns": [
+    {
+      "pattern": "kotor era",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.or.jedi_civil_war_begins",
+        "anchorTo": "sw.or.star_forge_destroyed",
+        "label": "KOTOR / Jedi Civil War era"
+      }
+    },
+    {
+      "pattern": "during knights of the old republic",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.or.jedi_civil_war_begins",
+        "anchorTo": "sw.or.star_forge_destroyed",
+        "label": "KOTOR / Jedi Civil War era"
+      }
+    },
+    {
+      "pattern": "during kotor 2",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.or.dark_wars_begin",
+        "anchorTo": "sw.or.malachor_finale",
+        "label": "KOTOR II / Dark Wars"
+      }
+    },
+    {
+      "pattern": "after malachor",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.or.malachor_v",
+        "anchorTo": "sw.or.dark_wars_begin",
+        "label": "After Malachor V, before the Dark Wars"
+      }
+    },
+    {
+      "pattern": "during mandalorian wars",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.or.mandalorian_wars_begin",
+        "anchorTo": "sw.or.malachor_v",
+        "label": "During the Mandalorian Wars"
+      }
+    },
+    {
+      "pattern": "during great sith war",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.or.great_sith_war_begins",
+        "anchorTo": "sw.or.exar_kun_defeat",
+        "label": "During the Great Sith War"
+      }
+    },
+    {
+      "pattern": "during swtor",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.or.great_galactic_war",
+        "anchorTo": "sw.or.swtor_class_era",
+        "label": "SWTOR Great War / Cold War era"
+      }
+    },
+    {
+      "pattern": "old republic cold war",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.or.treaty_cold_war",
+        "anchorTo": "sw.or.swtor_class_era",
+        "label": "Treaty of Coruscant / Old Republic Cold War"
+      }
+    },
+    {
+      "pattern": "revanite crisis",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.or.revanite_crisis",
+        "label": "Revanite Crisis"
+      }
+    },
+    {
+      "pattern": "eternal empire",
+      "result": {
+        "contextType": "anchor",
+        "anchorId": "sw.or.eternal_empire_crisis",
+        "label": "Eternal Empire Crisis"
+      }
+    },
+    {
+      "pattern": "pre bane",
+      "result": {
+        "contextType": "anchor_window",
+        "anchorFrom": "sw.or.late_new_sith_wars",
+        "anchorTo": "sw.or.ruusan_reformation",
+        "label": "Late New Sith Wars / pre-Bane transition"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

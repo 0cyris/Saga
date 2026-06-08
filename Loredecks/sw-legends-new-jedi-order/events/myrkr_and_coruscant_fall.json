@@ -1,0 +1,1244 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_voxyn_threat_targets_jedi",
+      "title": "Voxyn Threat Targets Jedi",
+      "kind": "event_anchor",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.star_by_star",
+        "validToAnchor": "sw.njo.star_by_star",
+        "sortKeyFrom": 24000,
+        "sortKeyTo": 24000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star by Star Crisis",
+        "phase": "Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yuuzhan Vong"
+        ],
+        "locations": [],
+        "topics": [
+          "biotechnology",
+          "jedi",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Yuuzhan Vong",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:myrkr-and-coruscant-fall",
+        "character:yuuzhan-vong",
+        "faction:yuuzhan-vong",
+        "faction:jedi-order",
+        "topic:biotechnology",
+        "topic:jedi",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuuzhan Vong"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "biotechnology",
+            "jedi",
+            "war"
+          ],
+          "factionsAny": [
+            "Yuuzhan Vong",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Voxyn are engineered hunters that make Jedi survival and secrecy more urgent.",
+        "injection": "When voxyn are active, treat them as Jedi-specific biological predators, not generic monsters. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Star by Star Crisis.",
+          "Respect story-position bounds from Star by Star Crisis to Star by Star Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_myrkr_mission_young_jedi_high_risk",
+      "title": "Myrkr Mission Is Young Jedi High Risk",
+      "kind": "event_anchor",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.myrkr_mission",
+        "validToAnchor": "sw.njo.myrkr_mission",
+        "sortKeyFrom": 24200,
+        "sortKeyTo": 24200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Myrkr Voxyn Mission",
+        "phase": "Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Solo",
+          "Jacen Solo",
+          "Jaina Solo",
+          "Tahiri Veila"
+        ],
+        "locations": [
+          "Myrkr"
+        ],
+        "topics": [
+          "jedi",
+          "war",
+          "trauma"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:anakin-solo",
+          "sw-character:jacen-solo",
+          "sw-character:jaina-solo",
+          "sw-character:tahiri-veila",
+          "sw-location:myrkr",
+          "sw-faction:jedi-order",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:myrkr-and-coruscant-fall",
+        "character:anakin-solo",
+        "character:jacen-solo",
+        "character:jaina-solo",
+        "character:tahiri-veila",
+        "location:myrkr",
+        "faction:jedi-order",
+        "faction:yuuzhan-vong",
+        "topic:jedi",
+        "topic:war",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Solo",
+            "Jacen Solo",
+            "Jaina Solo",
+            "Tahiri Veila"
+          ],
+          "locationsAny": [
+            "Myrkr"
+          ],
+          "topicsAny": [
+            "jedi",
+            "war",
+            "trauma"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "The Myrkr voxyn mission places many young Jedi into a high-risk strike operation with major casualties and long-term trauma.",
+        "injection": "During Myrkr context, emphasize youth, desperation, command strain, and irreversible consequences. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Myrkr Voxyn Mission.",
+          "Respect story-position bounds from Myrkr Voxyn Mission to Myrkr Voxyn Mission."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_anakin_solo_death_at_myrkr",
+      "title": "Anakin Solo Dies at Myrkr",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 98,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.myrkr_mission",
+        "validToAnchor": "sw.njo.myrkr_mission",
+        "sortKeyFrom": 24200,
+        "sortKeyTo": 24200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Myrkr Voxyn Mission",
+        "phase": "Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Solo",
+          "Han Solo",
+          "Leia Organa Solo",
+          "Jacen Solo",
+          "Jaina Solo",
+          "Tahiri Veila"
+        ],
+        "locations": [
+          "Myrkr"
+        ],
+        "topics": [
+          "family",
+          "trauma",
+          "spoiler guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:anakin-solo",
+          "sw-character:han-solo",
+          "sw-character:leia-organa-solo",
+          "sw-character:jacen-solo",
+          "sw-character:jaina-solo",
+          "sw-character:tahiri-veila",
+          "sw-location:myrkr",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:myrkr-and-coruscant-fall",
+        "character:anakin-solo",
+        "character:han-solo",
+        "character:leia-organa-solo",
+        "character:jacen-solo",
+        "character:jaina-solo",
+        "character:tahiri-veila",
+        "location:myrkr",
+        "faction:jedi-order",
+        "topic:family",
+        "topic:trauma",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Solo",
+            "Han Solo",
+            "Leia Organa Solo",
+            "Jacen Solo",
+            "Jaina Solo",
+            "Tahiri Veila"
+          ],
+          "locationsAny": [
+            "Myrkr"
+          ],
+          "topicsAny": [
+            "family",
+            "trauma",
+            "spoiler guard"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Anakin Solo dies during the Myrkr mission, reshaping Solo family grief and Jedi youth dynamics.",
+        "injection": "After Myrkr, Anakin Solo is dead in standard Legends continuity; carry grief for Han, Leia, Jacen, Jaina, and Tahiri.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Myrkr Voxyn Mission.",
+          "Respect story-position bounds from Myrkr Voxyn Mission to Myrkr Voxyn Mission."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_jacen_captured_after_myrkr",
+      "title": "Jacen Captured After Myrkr",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.myrkr_mission",
+        "validToAnchor": "sw.njo.myrkr_mission",
+        "sortKeyFrom": 24200,
+        "sortKeyTo": 24200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Myrkr Voxyn Mission",
+        "phase": "Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo",
+          "Vergere",
+          "Yuuzhan Vong"
+        ],
+        "locations": [
+          "Myrkr"
+        ],
+        "topics": [
+          "jedi",
+          "knowledge gate",
+          "trauma"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:jacen-solo",
+          "sw-character:vergere",
+          "sw-faction:yuuzhan-vong",
+          "sw-location:myrkr",
+          "sw-faction:jedi-order",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:myrkr-and-coruscant-fall",
+        "character:jacen-solo",
+        "character:vergere",
+        "character:yuuzhan-vong",
+        "location:myrkr",
+        "faction:jedi-order",
+        "faction:yuuzhan-vong",
+        "topic:jedi",
+        "topic:knowledge-gate",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo",
+            "Vergere",
+            "Yuuzhan Vong"
+          ],
+          "locationsAny": [
+            "Myrkr"
+          ],
+          "topicsAny": [
+            "jedi",
+            "knowledge gate",
+            "trauma"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Jacen Solo is captured after the Myrkr mission, separating him from the surviving Jedi and placing him in Vergere/Yuuzhan Vong captivity.",
+        "injection": "After Myrkr and before Jacen’s return, do not write Jacen as freely with the heroes; treat his status as captive/unknown.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Myrkr Voxyn Mission.",
+          "Respect story-position bounds from Myrkr Voxyn Mission to Myrkr Voxyn Mission."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_jaina_dark_grief_goddess_arc",
+      "title": "Jaina Grief Fuels Darker War Persona",
+      "kind": "event_anchor",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.star_by_star",
+        "validToAnchor": "sw.njo.coruscant_falls",
+        "sortKeyFrom": 24000,
+        "sortKeyTo": 25000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Myrkr mission and fall of Coruscant",
+        "phase": "Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jaina Solo",
+          "Anakin Solo",
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "trauma",
+          "religion"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:jaina-solo",
+          "sw-character:anakin-solo",
+          "sw-character:jacen-solo",
+          "sw-faction:jedi-order",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:myrkr-and-coruscant-fall",
+        "character:jaina-solo",
+        "character:anakin-solo",
+        "character:jacen-solo",
+        "faction:jedi-order",
+        "faction:yuuzhan-vong",
+        "topic:family",
+        "topic:trauma",
+        "topic:religion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jaina Solo",
+            "Anakin Solo",
+            "Jacen Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "trauma",
+            "religion"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "After Myrkr, Jaina’s grief and rage feed a more aggressive persona that intersects with Yuuzhan Vong religious interpretation.",
+        "injection": "Post-Myrkr, Jaina can be colder, riskier, and symbolically entangled with Yun-Harla imagery; do not keep her prewar emotional baseline.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Myrkr mission and fall of Coruscant.",
+          "Respect story-position bounds from Star by Star Crisis to Coruscant Falls."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_coruscant_fall_breaks_new_republic_center",
+      "title": "Coruscant Fall Breaks New Republic Center",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.coruscant_falls",
+        "validToAnchor": "sw.njo.coruscant_falls",
+        "sortKeyFrom": 25000,
+        "sortKeyTo": 25000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Coruscant Falls",
+        "phase": "Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Borsk Feylya"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "government",
+          "war",
+          "refugees"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:borsk-feylya",
+          "sw-location:coruscant",
+          "sw-faction:new-republic",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:myrkr-and-coruscant-fall",
+        "character:borsk-feylya",
+        "location:coruscant",
+        "faction:new-republic",
+        "faction:yuuzhan-vong",
+        "topic:government",
+        "topic:war",
+        "topic:refugees"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Borsk Feylya"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "government",
+            "war",
+            "refugees"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "The fall of Coruscant breaks the New Republic’s political center and proves the Yuuzhan Vong invasion has reached galactic-core scale.",
+        "injection": "After Coruscant falls, do not use Coruscant as stable New Republic capital; shift scenes toward collapse, exile, and reorganization.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Coruscant Falls.",
+          "Respect story-position bounds from Coruscant Falls to Coruscant Falls."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_borsk_feylya_dies_at_coruscant",
+      "title": "Borsk Feylya Dies at Coruscant",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.coruscant_falls",
+        "validToAnchor": "sw.njo.coruscant_falls",
+        "sortKeyFrom": 25000,
+        "sortKeyTo": 25000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Coruscant Falls",
+        "phase": "Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Borsk Feylya"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "government",
+          "politics",
+          "spoiler guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ],
+        "entityIds": [
+          "sw-character:borsk-feylya",
+          "sw-location:coruscant",
+          "sw-faction:new-republic"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:myrkr-and-coruscant-fall",
+        "character:borsk-feylya",
+        "location:coruscant",
+        "faction:new-republic",
+        "topic:government",
+        "topic:politics",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Borsk Feylya"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "government",
+            "politics",
+            "spoiler guard"
+          ],
+          "factionsAny": [
+            "New Republic"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Borsk Feylya dies during the fall of Coruscant, ending his political role and marking the collapse of old New Republic leadership.",
+        "injection": "After Coruscant’s fall, remove Borsk from active leadership and treat old New Republic politics as shattered. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Coruscant Falls.",
+          "Respect story-position bounds from Coruscant Falls to Coruscant Falls."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_coruscant_becomes_yuuzhantar",
+      "title": "Coruscant Becomes Yuuzhan’tar",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.coruscant_falls",
+        "validToAnchor": "sw.njo.coruscant_falls",
+        "sortKeyFrom": 25000,
+        "sortKeyTo": 25000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Coruscant Falls",
+        "phase": "Myrkr and Coruscant Fall",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant",
+          "Yuuzhan'tar"
+        ],
+        "topics": [
+          "biotechnology",
+          "location state",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Yuuzhan Vong",
+          "New Republic"
+        ],
+        "entityIds": [
+          "sw-location:coruscant",
+          "sw-location:yuuzhantar",
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:new-republic"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:myrkr-and-coruscant-fall",
+        "location:coruscant",
+        "location:yuuzhantar",
+        "faction:yuuzhan-vong",
+        "faction:new-republic",
+        "topic:biotechnology",
+        "topic:location-state",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Coruscant",
+            "Yuuzhan'tar"
+          ],
+          "topicsAny": [
+            "biotechnology",
+            "location state",
+            "war"
+          ],
+          "factionsAny": [
+            "Yuuzhan Vong",
+            "New Republic"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "After its capture, Coruscant is reshaped by the Yuuzhan Vong as Yuuzhan’tar, a symbolic and ecological remaking of the galactic capital.",
+        "injection": "Post-fall, write Coruscant as occupied, transformed, and symbolically renamed Yuuzhan’tar, not as normal city-planet infrastructure.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Coruscant Falls.",
+          "Respect story-position bounds from Coruscant Falls to Coruscant Falls."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_refugee_crisis_after_coruscant",
+      "title": "Refugee Crisis Explodes After Coruscant",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.coruscant_falls",
+        "validToAnchor": "sw.njo.galactic_alliance_forms",
+        "sortKeyFrom": 25000,
+        "sortKeyTo": 28000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Coruscant falls, before Galactic Alliance consolidation",
+        "phase": "Myrkr and Coruscant Fall to Galactic Alliance Transition",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "refugees",
+          "government",
+          "military logistics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-location:coruscant",
+          "sw-faction:new-republic",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:myrkr-and-coruscant-fall-to-galactic-alliance-transition",
+        "location:coruscant",
+        "faction:new-republic",
+        "faction:galactic-alliance",
+        "topic:refugees",
+        "topic:government",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "refugees",
+            "government",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Coruscant’s fall creates massive refugee, intelligence, logistics, and legitimacy crises for surviving galactic leadership.",
+        "injection": "After Coruscant’s fall, include refugee displacement and fractured authority when politics or civilian life matters.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Coruscant falls, before Galactic Alliance consolidation.",
+          "Respect story-position bounds from Coruscant Falls to Galactic Alliance Forms."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_galaxy_no_longer_centered_on_coruscant",
+      "title": "Galaxy No Longer Centered on Coruscant",
+      "kind": "event_anchor",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.coruscant_falls",
+        "validToAnchor": "sw.njo.galactic_alliance_forms",
+        "sortKeyFrom": 25000,
+        "sortKeyTo": 28000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Coruscant falls, before Galactic Alliance consolidation",
+        "phase": "Myrkr and Coruscant Fall to Galactic Alliance Transition",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant",
+          "Mon Calamari",
+          "Borleias"
+        ],
+        "topics": [
+          "government",
+          "military logistics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-location:coruscant",
+          "sw-location:mon-calamari",
+          "sw-location:borleias",
+          "sw-faction:new-republic",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:myrkr-and-coruscant-fall-to-galactic-alliance-transition",
+        "location:coruscant",
+        "location:mon-calamari",
+        "location:borleias",
+        "faction:new-republic",
+        "faction:galactic-alliance",
+        "topic:government",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Coruscant",
+            "Mon Calamari",
+            "Borleias"
+          ],
+          "topicsAny": [
+            "government",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Once Coruscant falls, galactic coordination must operate without the symbolic and administrative center of the old Republic.",
+        "injection": "Do not route all post-fall decision-making through Coruscant; use mobile commands, Mon Calamari, Borleias, and coalition structures.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Coruscant falls, before Galactic Alliance consolidation.",
+          "Respect story-position bounds from Coruscant Falls to Galactic Alliance Forms."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

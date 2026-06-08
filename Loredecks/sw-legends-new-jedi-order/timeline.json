@@ -1,0 +1,879 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "summary": "Story-position timeline for Star Wars Legends: The New Jedi Order / Yuuzhan Vong War. BBY/ABY values are secondary metadata; anchors and windows are the user-facing Context model.",
+  "anchors": [
+    {
+      "id": "sw.njo.vector_prime_begins",
+      "label": "Vector Prime / Invasion Begins",
+      "sortKey": 20000,
+      "dateRange": {
+        "from": "25 ABY",
+        "to": "25 ABY"
+      },
+      "aliases": [
+        "vector prime",
+        "njo begins",
+        "yuuzhan vong invasion begins",
+        "first yuuzhan vong invasion"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:vector-prime"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Vector Prime / Invasion Begins"
+      }
+    },
+    {
+      "id": "sw.njo.sernpidal",
+      "label": "Sernpidal Disaster",
+      "sortKey": 20100,
+      "dateRange": {
+        "from": "25 ABY",
+        "to": "25 ABY"
+      },
+      "aliases": [
+        "sernpidal",
+        "chewbacca dies",
+        "chewie death",
+        "dobido moon"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:vector-prime"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Sernpidal Disaster"
+      }
+    },
+    {
+      "id": "sw.njo.helska_destroyed",
+      "label": "Helska IV Destroyed",
+      "sortKey": 20200,
+      "dateRange": {
+        "from": "25 ABY",
+        "to": "25 ABY"
+      },
+      "aliases": [
+        "helska",
+        "helska iv",
+        "praetorite vong defeated"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:vector-prime"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Helska IV Destroyed"
+      }
+    },
+    {
+      "id": "sw.njo.invasion_confirmed",
+      "label": "Yuuzhan Vong Threat Confirmed",
+      "sortKey": 20500,
+      "dateRange": {
+        "from": "25 ABY",
+        "to": "25 ABY"
+      },
+      "aliases": [
+        "invasion confirmed",
+        "vong threat confirmed",
+        "early yuuzhan vong war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:early-war"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Yuuzhan Vong Threat Confirmed"
+      }
+    },
+    {
+      "id": "sw.njo.ithor_campaign",
+      "label": "Ithor Campaign",
+      "sortKey": 21000,
+      "dateRange": {
+        "from": "25 ABY",
+        "to": "25 ABY"
+      },
+      "aliases": [
+        "ithor",
+        "dark tide",
+        "shedao shai"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:early-war"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Ithor Campaign"
+      }
+    },
+    {
+      "id": "sw.njo.ithor_devastated",
+      "label": "Ithor Devastated",
+      "sortKey": 21200,
+      "dateRange": {
+        "from": "25 ABY",
+        "to": "25 ABY"
+      },
+      "aliases": [
+        "ithor devastated",
+        "fall of ithor",
+        "ithor destroyed"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:early-war"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Ithor Devastated"
+      }
+    },
+    {
+      "id": "sw.njo.balance_point_duro",
+      "label": "Balance Point / Duro Crisis",
+      "sortKey": 22000,
+      "dateRange": {
+        "from": "26 ABY",
+        "to": "26 ABY"
+      },
+      "aliases": [
+        "duro crisis",
+        "balance point",
+        "duro refugee crisis"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:early-war"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Balance Point / Duro Crisis"
+      }
+    },
+    {
+      "id": "sw.njo.jedi_hunt_escalates",
+      "label": "Jedi Hunt Escalates",
+      "sortKey": 23000,
+      "dateRange": {
+        "from": "26 ABY",
+        "to": "27 ABY"
+      },
+      "aliases": [
+        "jedi hunt",
+        "jedi hunted",
+        "peace brigade hunters"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:jedi-under-siege"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Jedi Hunt Escalates"
+      }
+    },
+    {
+      "id": "sw.njo.edge_of_victory",
+      "label": "Edge of Victory / Jedi Survival",
+      "sortKey": 23500,
+      "dateRange": {
+        "from": "26 ABY",
+        "to": "27 ABY"
+      },
+      "aliases": [
+        "edge of victory",
+        "conquest rebirth",
+        "jedi survival"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:jedi-under-siege"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Edge of Victory / Jedi Survival"
+      }
+    },
+    {
+      "id": "sw.njo.star_by_star",
+      "label": "Star by Star Crisis",
+      "sortKey": 24000,
+      "dateRange": {
+        "from": "27 ABY",
+        "to": "27 ABY"
+      },
+      "aliases": [
+        "star by star",
+        "voxyn mission",
+        "myrkr"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:myrkr-and-coruscant-fall"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Star by Star Crisis"
+      }
+    },
+    {
+      "id": "sw.njo.myrkr_mission",
+      "label": "Myrkr Voxyn Mission",
+      "sortKey": 24200,
+      "dateRange": {
+        "from": "27 ABY",
+        "to": "27 ABY"
+      },
+      "aliases": [
+        "myrkr mission",
+        "voxyn queen",
+        "anakin solo death"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:myrkr-and-coruscant-fall"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Myrkr Voxyn Mission"
+      }
+    },
+    {
+      "id": "sw.njo.coruscant_falls",
+      "label": "Coruscant Falls",
+      "sortKey": 25000,
+      "dateRange": {
+        "from": "27 ABY",
+        "to": "27 ABY"
+      },
+      "aliases": [
+        "fall of coruscant",
+        "coruscant falls",
+        "coruscant captured",
+        "yuuzhantar"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:myrkr-and-coruscant-fall"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Coruscant Falls"
+      }
+    },
+    {
+      "id": "sw.njo.enemy_lines_borleias",
+      "label": "Borleias Resistance",
+      "sortKey": 26000,
+      "dateRange": {
+        "from": "27 ABY",
+        "to": "27 ABY"
+      },
+      "aliases": [
+        "borleias",
+        "enemy lines",
+        "wedge borleias"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:galactic-alliance-transition"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Borleias Resistance"
+      }
+    },
+    {
+      "id": "sw.njo.traitor_jacen_captive",
+      "label": "Jacen Captive / Traitor",
+      "sortKey": 27000,
+      "dateRange": {
+        "from": "27 ABY",
+        "to": "28 ABY"
+      },
+      "aliases": [
+        "traitor",
+        "jacen captive",
+        "verg ere jacen",
+        "vergere jacen"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:galactic-alliance-transition"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Jacen Captive / Traitor"
+      }
+    },
+    {
+      "id": "sw.njo.galactic_alliance_forms",
+      "label": "Galactic Alliance Forms",
+      "sortKey": 28000,
+      "dateRange": {
+        "from": "28 ABY",
+        "to": "28 ABY"
+      },
+      "aliases": [
+        "galactic alliance forms",
+        "new republic becomes galactic alliance",
+        "destiny way"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:galactic-alliance-transition"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Galactic Alliance Forms"
+      }
+    },
+    {
+      "id": "sw.njo.ebaQ9",
+      "label": "Battle of Ebaq 9",
+      "sortKey": 29000,
+      "dateRange": {
+        "from": "28 ABY",
+        "to": "28 ABY"
+      },
+      "aliases": [
+        "ebaq 9",
+        "battle of ebaq 9",
+        "tsavong lah defeated"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:turning-point"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Battle of Ebaq 9"
+      }
+    },
+    {
+      "id": "sw.njo.alpha_red",
+      "label": "Alpha Red Crisis",
+      "sortKey": 29500,
+      "dateRange": {
+        "from": "28 ABY",
+        "to": "28 ABY"
+      },
+      "aliases": [
+        "alpha red",
+        "bioweapon crisis",
+        "verg ere sabotage"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:turning-point"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Alpha Red Crisis"
+      }
+    },
+    {
+      "id": "sw.njo.zonama_sekot_found",
+      "label": "Zonama Sekot Found",
+      "sortKey": 30500,
+      "dateRange": {
+        "from": "29 ABY",
+        "to": "29 ABY"
+      },
+      "aliases": [
+        "zonama sekot",
+        "living planet",
+        "sekot found"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:unifying-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Zonama Sekot Found"
+      }
+    },
+    {
+      "id": "sw.njo.coruscant_liberation",
+      "label": "Coruscant / Yuuzhan'tar Liberation",
+      "sortKey": 31500,
+      "dateRange": {
+        "from": "29 ABY",
+        "to": "29 ABY"
+      },
+      "aliases": [
+        "liberation of coruscant",
+        "yuuzhantar liberated",
+        "coruscant liberation"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:unifying-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Coruscant / Yuuzhan'tar Liberation"
+      }
+    },
+    {
+      "id": "sw.njo.shimrra_onimi_defeated",
+      "label": "Shimrra and Onimi Defeated",
+      "sortKey": 32000,
+      "dateRange": {
+        "from": "29 ABY",
+        "to": "29 ABY"
+      },
+      "aliases": [
+        "shimrra defeated",
+        "onimi defeated",
+        "unifying force climax"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:unifying-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Shimrra and Onimi Defeated"
+      }
+    },
+    {
+      "id": "sw.njo.war_ends",
+      "label": "Yuuzhan Vong War Ends",
+      "sortKey": 32500,
+      "dateRange": {
+        "from": "29 ABY",
+        "to": "29 ABY"
+      },
+      "aliases": [
+        "war ends",
+        "new jedi order ends",
+        "unifying force ending",
+        "yuuzhan vong war settlement"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:unifying-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Yuuzhan Vong War Ends"
+      }
+    },
+    {
+      "id": "sw.njo.postwar_threshold",
+      "label": "Post-NJO Threshold",
+      "sortKey": 33000,
+      "dateRange": {
+        "from": "30 ABY",
+        "to": "30 ABY"
+      },
+      "aliases": [
+        "post njo",
+        "after new jedi order",
+        "after yuuzhan vong war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:postwar-threshold"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends: The New Jedi Order",
+        "sourceType": "novel-series",
+        "title": "Post-NJO Threshold"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "sw.njo.window.full-njo",
+      "label": "New Jedi Order / Yuuzhan Vong War",
+      "anchorFrom": "sw.njo.vector_prime_begins",
+      "anchorTo": "sw.njo.war_ends",
+      "sortKeyFrom": 20000,
+      "sortKeyTo": 32500,
+      "windowKind": "series",
+      "aliases": [
+        "new jedi order / yuuzhan vong war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ]
+    },
+    {
+      "id": "sw.njo.window.early-invasion",
+      "label": "Early Yuuzhan Vong invasion",
+      "anchorFrom": "sw.njo.vector_prime_begins",
+      "anchorTo": "sw.njo.ithor_devastated",
+      "sortKeyFrom": 20000,
+      "sortKeyTo": 21200,
+      "windowKind": "bounded",
+      "aliases": [
+        "early yuuzhan vong invasion"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ]
+    },
+    {
+      "id": "sw.njo.window.post-sernpidal",
+      "label": "After Sernpidal, before Ithor falls",
+      "anchorFrom": "sw.njo.sernpidal",
+      "anchorTo": "sw.njo.ithor_devastated",
+      "sortKeyFrom": 20100,
+      "sortKeyTo": 21200,
+      "windowKind": "bounded",
+      "aliases": [
+        "after sernpidal, before ithor falls"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ]
+    },
+    {
+      "id": "sw.njo.window.jedi-under-siege",
+      "label": "Jedi under siege before Myrkr",
+      "anchorFrom": "sw.njo.jedi_hunt_escalates",
+      "anchorTo": "sw.njo.myrkr_mission",
+      "sortKeyFrom": 23000,
+      "sortKeyTo": 24200,
+      "windowKind": "bounded",
+      "aliases": [
+        "jedi under siege before myrkr"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ]
+    },
+    {
+      "id": "sw.njo.window.myrkr-to-coruscant-fall",
+      "label": "Myrkr mission and fall of Coruscant",
+      "anchorFrom": "sw.njo.star_by_star",
+      "anchorTo": "sw.njo.coruscant_falls",
+      "sortKeyFrom": 24000,
+      "sortKeyTo": 25000,
+      "windowKind": "bounded",
+      "aliases": [
+        "myrkr mission and fall of coruscant"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ]
+    },
+    {
+      "id": "sw.njo.window.post-coruscant-fall",
+      "label": "After Coruscant falls, before Galactic Alliance consolidation",
+      "anchorFrom": "sw.njo.coruscant_falls",
+      "anchorTo": "sw.njo.galactic_alliance_forms",
+      "sortKeyFrom": 25000,
+      "sortKeyTo": 28000,
+      "windowKind": "bounded",
+      "aliases": [
+        "after coruscant falls, before galactic alliance consolidation"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ]
+    },
+    {
+      "id": "sw.njo.window.galactic-alliance-transition",
+      "label": "Galactic Alliance transition",
+      "anchorFrom": "sw.njo.enemy_lines_borleias",
+      "anchorTo": "sw.njo.ebaQ9",
+      "sortKeyFrom": 26000,
+      "sortKeyTo": 29000,
+      "windowKind": "bounded",
+      "aliases": [
+        "galactic alliance transition"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ]
+    },
+    {
+      "id": "sw.njo.window.turning-point",
+      "label": "Ebaq 9 and Alpha Red turning point",
+      "anchorFrom": "sw.njo.ebaQ9",
+      "anchorTo": "sw.njo.alpha_red",
+      "sortKeyFrom": 29000,
+      "sortKeyTo": 29500,
+      "windowKind": "bounded",
+      "aliases": [
+        "ebaq 9 and alpha red turning point"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ]
+    },
+    {
+      "id": "sw.njo.window.unifying-force",
+      "label": "The Unifying Force endgame",
+      "anchorFrom": "sw.njo.zonama_sekot_found",
+      "anchorTo": "sw.njo.war_ends",
+      "sortKeyFrom": 30500,
+      "sortKeyTo": 32500,
+      "windowKind": "bounded",
+      "aliases": [
+        "the unifying force endgame"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ]
+    },
+    {
+      "id": "sw.njo.window.postwar",
+      "label": "After the Yuuzhan Vong War",
+      "anchorFrom": "sw.njo.war_ends",
+      "anchorTo": "sw.njo.postwar_threshold",
+      "sortKeyFrom": 32500,
+      "sortKeyTo": 33000,
+      "windowKind": "bounded",
+      "aliases": [
+        "after the yuuzhan vong war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "sw-njo-phase:vector-prime",
+      "label": "Vector Prime",
+      "sortKeyFrom": 20000,
+      "sortKeyTo": 20200,
+      "aliases": [
+        "helska",
+        "sernpidal",
+        "vector prime"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:vector-prime"
+      ]
+    },
+    {
+      "id": "sw-njo-phase:early-war",
+      "label": "Early War",
+      "sortKeyFrom": 20500,
+      "sortKeyTo": 22000,
+      "aliases": [
+        "duro crisis",
+        "early war",
+        "invasion confirmed",
+        "ithor",
+        "ithor devastated"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:early-war"
+      ]
+    },
+    {
+      "id": "sw-njo-phase:jedi-under-siege",
+      "label": "Jedi Under Siege",
+      "sortKeyFrom": 23000,
+      "sortKeyTo": 23500,
+      "aliases": [
+        "edge of victory",
+        "jedi hunt",
+        "jedi under siege"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:jedi-under-siege"
+      ]
+    },
+    {
+      "id": "sw-njo-phase:myrkr-and-coruscant-fall",
+      "label": "Myrkr and Coruscant Fall",
+      "sortKeyFrom": 24000,
+      "sortKeyTo": 25000,
+      "aliases": [
+        "fall of coruscant",
+        "myrkr and coruscant fall",
+        "myrkr mission",
+        "star by star"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:myrkr-and-coruscant-fall"
+      ]
+    },
+    {
+      "id": "sw-njo-phase:galactic-alliance-transition",
+      "label": "Galactic Alliance Transition",
+      "sortKeyFrom": 26000,
+      "sortKeyTo": 28000,
+      "aliases": [
+        "borleias",
+        "galactic alliance forms",
+        "galactic alliance transition",
+        "traitor"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:galactic-alliance-transition"
+      ]
+    },
+    {
+      "id": "sw-njo-phase:turning-point",
+      "label": "Turning Point",
+      "sortKeyFrom": 29000,
+      "sortKeyTo": 29500,
+      "aliases": [
+        "alpha red",
+        "ebaq 9",
+        "turning point"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:turning-point"
+      ]
+    },
+    {
+      "id": "sw-njo-phase:unifying-force",
+      "label": "Unifying Force",
+      "sortKeyFrom": 30500,
+      "sortKeyTo": 32500,
+      "aliases": [
+        "liberation of coruscant",
+        "shimrra defeated",
+        "unifying force",
+        "war ends",
+        "zonama sekot"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:unifying-force"
+      ]
+    },
+    {
+      "id": "sw-njo-phase:postwar-threshold",
+      "label": "Postwar Threshold",
+      "sortKeyFrom": 33000,
+      "sortKeyTo": 33000,
+      "aliases": [
+        "post njo",
+        "postwar threshold"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:postwar-threshold"
+      ]
+    }
+  ],
+  "arcs": []
+}

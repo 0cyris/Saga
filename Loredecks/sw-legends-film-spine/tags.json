@@ -1,0 +1,1013 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "ability:force": {
+      "label": "Force",
+      "description": "Star Wars Legends film-spine tag: Force.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "ability:force-ghost": {
+      "label": "Force Ghost",
+      "description": "Star Wars Legends film-spine tag: Force Ghost.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "ability:jedi-training": {
+      "label": "Jedi Training",
+      "description": "Star Wars Legends film-spine tag: Jedi Training.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "ability:lightsaber": {
+      "label": "Lightsaber",
+      "description": "Star Wars Legends film-spine tag: Lightsaber.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "ability:precognition": {
+      "label": "Precognition",
+      "description": "Star Wars Legends film-spine tag: Precognition.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "ability:sith-training": {
+      "label": "Sith Training",
+      "description": "Star Wars Legends film-spine tag: Sith Training.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:admiral-ackbar": {
+      "label": "Admiral Ackbar",
+      "description": "Star Wars Legends film-spine tag: Admiral Ackbar.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:anakin-skywalker": {
+      "label": "Anakin Skywalker",
+      "description": "Star Wars Legends film-spine tag: Anakin Skywalker.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:bail-organa": {
+      "label": "Bail Organa",
+      "description": "Star Wars Legends film-spine tag: Bail Organa.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:beru-lars": {
+      "label": "Beru Lars",
+      "description": "Star Wars Legends film-spine tag: Beru Lars.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:boba-fett": {
+      "label": "Boba Fett",
+      "description": "Star Wars Legends film-spine tag: Boba Fett.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:c-3po": {
+      "label": "C-3PO",
+      "description": "Star Wars Legends film-spine tag: C-3PO.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:chewbacca": {
+      "label": "Chewbacca",
+      "description": "Star Wars Legends film-spine tag: Chewbacca.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:cliegg-lars": {
+      "label": "Cliegg Lars",
+      "description": "Star Wars Legends film-spine tag: Cliegg Lars.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:count-dooku": {
+      "label": "Count Dooku",
+      "description": "Star Wars Legends film-spine tag: Count Dooku.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-maul": {
+      "label": "Darth Maul",
+      "description": "Star Wars Legends film-spine tag: Darth Maul.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-sidious": {
+      "label": "Darth Sidious",
+      "description": "Star Wars Legends film-spine tag: Darth Sidious.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-vader": {
+      "label": "Darth Vader",
+      "description": "Star Wars Legends film-spine tag: Darth Vader.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:general-grievous": {
+      "label": "General Grievous",
+      "description": "Star Wars Legends film-spine tag: General Grievous.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:grand-moff-tarkin": {
+      "label": "Grand Moff Tarkin",
+      "description": "Star Wars Legends film-spine tag: Grand Moff Tarkin.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:han-solo": {
+      "label": "Han Solo",
+      "description": "Star Wars Legends film-spine tag: Han Solo.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jabba-the-hutt": {
+      "label": "Jabba the Hutt",
+      "description": "Star Wars Legends film-spine tag: Jabba the Hutt.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jango-fett": {
+      "label": "Jango Fett",
+      "description": "Star Wars Legends film-spine tag: Jango Fett.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jar-jar-binks": {
+      "label": "Jar Jar Binks",
+      "description": "Star Wars Legends film-spine tag: Jar Jar Binks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:lando-calrissian": {
+      "label": "Lando Calrissian",
+      "description": "Star Wars Legends film-spine tag: Lando Calrissian.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:leia-organa": {
+      "label": "Leia Organa",
+      "description": "Star Wars Legends film-spine tag: Leia Organa.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:luke-skywalker": {
+      "label": "Luke Skywalker",
+      "description": "Star Wars Legends film-spine tag: Luke Skywalker.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mace-windu": {
+      "label": "Mace Windu",
+      "description": "Star Wars Legends film-spine tag: Mace Windu.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mon-mothma": {
+      "label": "Mon Mothma",
+      "description": "Star Wars Legends film-spine tag: Mon Mothma.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nute-gunray": {
+      "label": "Nute Gunray",
+      "description": "Star Wars Legends film-spine tag: Nute Gunray.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:obi-wan-kenobi": {
+      "label": "Obi-Wan Kenobi",
+      "description": "Star Wars Legends film-spine tag: Obi-Wan Kenobi.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:owen-lars": {
+      "label": "Owen Lars",
+      "description": "Star Wars Legends film-spine tag: Owen Lars.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:padme-amidala": {
+      "label": "Padme Amidala",
+      "description": "Star Wars Legends film-spine tag: Padme Amidala.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:palpatine": {
+      "label": "Palpatine",
+      "description": "Star Wars Legends film-spine tag: Palpatine.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:qui-gon-jinn": {
+      "label": "Qui-Gon Jinn",
+      "description": "Star Wars Legends film-spine tag: Qui-Gon Jinn.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:r2-d2": {
+      "label": "R2-D2",
+      "description": "Star Wars Legends film-spine tag: R2-D2.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shmi-skywalker": {
+      "label": "Shmi Skywalker",
+      "description": "Star Wars Legends film-spine tag: Shmi Skywalker.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:wedge-antilles": {
+      "label": "Wedge Antilles",
+      "description": "Star Wars Legends film-spine tag: Wedge Antilles.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:wicket": {
+      "label": "Wicket",
+      "description": "Star Wars Legends film-spine tag: Wicket.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yoda": {
+      "label": "Yoda",
+      "description": "Star Wars Legends film-spine tag: Yoda.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:legends": {
+      "label": "Legends",
+      "description": "Star Wars Legends film-spine tag: Legends.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:clone-wars": {
+      "label": "Clone Wars",
+      "description": "Star Wars Legends film-spine tag: Clone Wars.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:fall-of-republic": {
+      "label": "Fall of the Republic",
+      "description": "Star Wars Legends film-spine tag: Fall of the Republic.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:imperial": {
+      "label": "Imperial Era",
+      "description": "Star Wars Legends film-spine tag: Imperial Era.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:post-endor": {
+      "label": "Post-Endor",
+      "description": "Star Wars Legends film-spine tag: Post-Endor.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:prequel": {
+      "label": "Prequel Era",
+      "description": "Star Wars Legends film-spine tag: Prequel Era.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:rebellion": {
+      "label": "Rebellion Era",
+      "description": "Star Wars Legends film-spine tag: Rebellion Era.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:alderaan-destruction": {
+      "label": "Alderaan Destruction",
+      "description": "Star Wars Legends film-spine tag: Alderaan Destruction.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:bespin": {
+      "label": "Bespin",
+      "description": "Star Wars Legends film-spine tag: Bespin.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:clone-wars-begin": {
+      "label": "Clone Wars Begin",
+      "description": "Star Wars Legends film-spine tag: Clone Wars Begin.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:empire-declared": {
+      "label": "Empire Declared",
+      "description": "Star Wars Legends film-spine tag: Empire Declared.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:endor": {
+      "label": "Battle of Endor",
+      "description": "Star Wars Legends film-spine tag: Battle of Endor.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:hoth": {
+      "label": "Battle of Hoth",
+      "description": "Star Wars Legends film-spine tag: Battle of Hoth.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:naboo-crisis": {
+      "label": "Naboo Crisis",
+      "description": "Star Wars Legends film-spine tag: Naboo Crisis.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:order-66": {
+      "label": "Order 66",
+      "description": "Star Wars Legends film-spine tag: Order 66.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:yavin": {
+      "label": "Battle of Yavin",
+      "description": "Star Wars Legends film-spine tag: Battle of Yavin.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:ewoks": {
+      "label": "Ewoks",
+      "description": "Star Wars Legends film-spine tag: Ewoks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-empire": {
+      "label": "Galactic Empire",
+      "description": "Star Wars Legends film-spine tag: Galactic Empire.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-republic": {
+      "label": "Galactic Republic",
+      "description": "Star Wars Legends film-spine tag: Galactic Republic.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:hutt-clan": {
+      "label": "Hutt Clan",
+      "description": "Star Wars Legends film-spine tag: Hutt Clan.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jedi-order": {
+      "label": "Jedi Order",
+      "description": "Star Wars Legends film-spine tag: Jedi Order.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:rebel-alliance": {
+      "label": "Rebel Alliance",
+      "description": "Star Wars Legends film-spine tag: Rebel Alliance.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:separatists": {
+      "label": "Separatists",
+      "description": "Star Wars Legends film-spine tag: Separatists.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:sith": {
+      "label": "Sith",
+      "description": "Star Wars Legends film-spine tag: Sith.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:trade-federation": {
+      "label": "Trade Federation",
+      "description": "Star Wars Legends film-spine tag: Trade Federation.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:star-wars": {
+      "label": "Star Wars",
+      "description": "Star Wars Legends film-spine tag: Star Wars.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:alderaan": {
+      "label": "Alderaan",
+      "description": "Star Wars Legends film-spine tag: Alderaan.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:bespin": {
+      "label": "Bespin",
+      "description": "Star Wars Legends film-spine tag: Bespin.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:coruscant": {
+      "label": "Coruscant",
+      "description": "Star Wars Legends film-spine tag: Coruscant.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:dagobah": {
+      "label": "Dagobah",
+      "description": "Star Wars Legends film-spine tag: Dagobah.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:death-star": {
+      "label": "Death Star",
+      "description": "Star Wars Legends film-spine tag: Death Star.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:death-star-ii": {
+      "label": "Death Star II",
+      "description": "Star Wars Legends film-spine tag: Death Star II.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:endor": {
+      "label": "Endor",
+      "description": "Star Wars Legends film-spine tag: Endor.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:geonosis": {
+      "label": "Geonosis",
+      "description": "Star Wars Legends film-spine tag: Geonosis.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:hoth": {
+      "label": "Hoth",
+      "description": "Star Wars Legends film-spine tag: Hoth.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:jabba-palace": {
+      "label": "Jabba Palace",
+      "description": "Star Wars Legends film-spine tag: Jabba Palace.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:jabbas-palace": {
+      "label": "Jabba Palace",
+      "description": "Star Wars Legends film-spine tag: Jabba Palace.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:kamino": {
+      "label": "Kamino",
+      "description": "Star Wars Legends film-spine tag: Kamino.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:mustafar": {
+      "label": "Mustafar",
+      "description": "Star Wars Legends film-spine tag: Mustafar.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:naboo": {
+      "label": "Naboo",
+      "description": "Star Wars Legends film-spine tag: Naboo.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:tatooine": {
+      "label": "Tatooine",
+      "description": "Star Wars Legends film-spine tag: Tatooine.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:yavin": {
+      "label": "Yavin",
+      "description": "Star Wars Legends film-spine tag: Yavin.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:carbonite": {
+      "label": "Carbonite",
+      "description": "Star Wars Legends film-spine tag: Carbonite.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:clone-army": {
+      "label": "Clone Army",
+      "description": "Star Wars Legends film-spine tag: Clone Army.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:cybernetics": {
+      "label": "Cybernetics",
+      "description": "Star Wars Legends film-spine tag: Cybernetics.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:death-star": {
+      "label": "Death Star",
+      "description": "Star Wars Legends film-spine tag: Death Star.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:death-star-ii": {
+      "label": "Death Star II",
+      "description": "Star Wars Legends film-spine tag: Death Star II.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:death-star-plans": {
+      "label": "Death Star Plans",
+      "description": "Star Wars Legends film-spine tag: Death Star Plans.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:droids": {
+      "label": "Droids",
+      "description": "Star Wars Legends film-spine tag: Droids.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:lightsaber": {
+      "label": "Lightsaber",
+      "description": "Star Wars Legends film-spine tag: Lightsaber.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:millennium-falcon": {
+      "label": "Millennium Falcon",
+      "description": "Star Wars Legends film-spine tag: Millennium Falcon.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:plans": {
+      "label": "Plans",
+      "description": "Star Wars Legends film-spine tag: Plans.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:podracer": {
+      "label": "Podracer",
+      "description": "Star Wars Legends film-spine tag: Podracer.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:shield-generator": {
+      "label": "Shield Generator",
+      "description": "Star Wars Legends film-spine tag: Shield Generator.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft": {
+      "label": "Draft",
+      "description": "Star Wars Legends film-spine tag: Draft.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:bounty": {
+      "label": "Bounty",
+      "description": "Star Wars Legends film-spine tag: Bounty.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:family-secret": {
+      "label": "Family Secret",
+      "description": "Star Wars Legends film-spine tag: Family Secret.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:mentor-student": {
+      "label": "Mentor Student",
+      "description": "Star Wars Legends film-spine tag: Mentor Student.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:political-alliance": {
+      "label": "Political Alliance",
+      "description": "Star Wars Legends film-spine tag: Political Alliance.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:romance": {
+      "label": "Romance",
+      "description": "Star Wars Legends film-spine tag: Romance.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:secret-marriage": {
+      "label": "Secret Marriage",
+      "description": "Star Wars Legends film-spine tag: Secret Marriage.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:film-spine": {
+      "label": "Film Spine",
+      "description": "Star Wars Legends film-spine tag: Film Spine.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "structure:split-loredeck": {
+      "label": "Split Loredeck",
+      "description": "Star Wars Legends film-spine tag: Split Loredeck.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:behavior-constraint": {
+      "label": "Behavior Constraint",
+      "description": "Star Wars Legends film-spine tag: Behavior Constraint.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:context-gate": {
+      "label": "Context Gate",
+      "description": "Star Wars Legends film-spine tag: Context Gate.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:family-secret": {
+      "label": "Family Secret",
+      "description": "Star Wars Legends film-spine tag: Family Secret.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-guard": {
+      "label": "Future Guard",
+      "description": "Star Wars Legends film-spine tag: Future Guard.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:identity-secret": {
+      "label": "Identity Secret",
+      "description": "Star Wars Legends film-spine tag: Identity Secret.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:knowledge-gate": {
+      "label": "Knowledge Gate",
+      "description": "Star Wars Legends film-spine tag: Knowledge Gate.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret": {
+      "label": "Secret",
+      "description": "Star Wars Legends film-spine tag: Secret.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:spoiler-guard": {
+      "label": "Spoiler Guard",
+      "description": "Star Wars Legends film-spine tag: Spoiler Guard.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:status-change": {
+      "label": "Status Change",
+      "description": "Star Wars Legends film-spine tag: Status Change.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

@@ -1,0 +1,811 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_leia_pre_reveal_romantic_tension_gated",
+      "title": "Luke-Leia Romantic Framing Is Pre-Reveal Only",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:endor",
+        "place:hoth",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:spoiler-guard"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.battle_of_endor",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 7600,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Before the Battle of Endor outcome",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Han Solo"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Hoth",
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "family secret",
+          "romance",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Hoth",
+            "Endor"
+          ],
+          "topicsAny": [
+            "family secret",
+            "romance",
+            "future guard"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Before the sibling reveal, early OT material can carry ambiguous or flirtatious framing, but it must stop after the family truth emerges.",
+        "injection": "Do not continue romantic Luke/Leia framing after Luke learns the sibling truth; before then, avoid future-aware disgust in characters who do not know. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Before the Battle of Endor outcome.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "characters/rebellion_relationship_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_han_leia_esb_to_rotj_romance_deepens",
+      "title": "Han-Leia Romance Deepens Through Crisis",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:bespin",
+        "place:endor",
+        "place:hoth",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:rescue"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.rotj_opening",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Hoth",
+          "Bespin",
+          "Tatooine",
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "romance",
+          "rescue"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Hoth",
+            "Bespin",
+            "Tatooine",
+            "Endor"
+          ],
+          "topicsAny": [
+            "romance",
+            "rescue"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Han and Leia’s relationship deepens through Hoth, the Falcon chase, Bespin, and the rescue arc.",
+        "injection": "In late OT context, write Han and Leia with earned emotional intimacy, not a sudden static couple state disconnected from danger.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Return of the Jedi.",
+          "Respect story-position bounds from Return of the Jedi Opening to Vader Redeemed and Anakin Dies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "characters/rebellion_relationship_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_vader_relationship_private_axis",
+      "title": "Luke-Vader Relationship Is a Private Axis",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:bespin",
+        "place:death-star-ii",
+        "scope:rebellion-era",
+        "topic:duel",
+        "topic:force"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Empire, before Return",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Leia Organa",
+          "Palpatine"
+        ],
+        "locations": [
+          "Bespin",
+          "Death Star II"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "family secret",
+          "force",
+          "duel"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Leia Organa",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "family secret",
+            "force",
+            "duel"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "After Bespin, Luke and Vader’s relationship becomes the private axis of Luke’s Jedi crisis and Vader’s conflict.",
+        "injection": "Use Luke/Vader scenes as family, temptation, and identity conflict; do not make the whole Alliance understand it before the reveal.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Empire, before Return.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "characters/rebellion_relationship_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_han_lando_trust_damaged_then_repaired",
+      "title": "Han-Lando Trust Damaged Then Repaired",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "character:lando-calrissian",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:cloud-city",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:bespin",
+        "place:rebel-fleet",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:rescue",
+        "topic:smuggling"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Empire, before Return",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Lando Calrissian",
+          "Leia Organa",
+          "Chewbacca"
+        ],
+        "locations": [
+          "Bespin",
+          "Tatooine",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Cloud City"
+        ],
+        "topics": [
+          "rescue",
+          "smuggling"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Lando Calrissian",
+            "Leia Organa",
+            "Chewbacca"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Tatooine",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "rescue",
+            "smuggling"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Cloud City"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Bespin damages Han and Lando’s trust, but Lando works to repair it through rescue and service to the Alliance.",
+        "injection": "After Bespin, Lando’s usefulness should not erase betrayal tension, but his rescue efforts matter. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Empire, before Return.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "characters/rebellion_relationship_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_chewie_lando_rescue_partnership",
+      "title": "Chewie and Lando Share Rescue Duty",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "character:lando-calrissian",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:millennium-falcon",
+        "place:rebel-fleet",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:rescue",
+        "topic:smuggling"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Empire, before Return",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Chewbacca",
+          "Lando Calrissian",
+          "Han Solo"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Tatooine"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "rescue",
+          "smuggling"
+        ],
+        "objects": [
+          "Millennium Falcon"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Chewbacca",
+            "Lando Calrissian",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "rescue",
+            "smuggling"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Millennium Falcon"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Chewbacca and Lando actively search for Han after Bespin.",
+        "injection": "In the ESB-to-ROTJ window, Chewie and Lando can cooperate under strained but practical rescue pressure. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Empire, before Return.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "characters/rebellion_relationship_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_leia_lando_suspicion_after_bespin",
+      "title": "Leia Suspicious of Lando After Bespin",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:han-solo",
+        "character:lando-calrissian",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:cloud-city",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:bespin",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:rescue"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.bespin_fallout",
+        "validToAnchor": "sw.rebellion.rotj_opening",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Empire, before Return",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Lando Calrissian",
+          "Han Solo"
+        ],
+        "locations": [
+          "Bespin",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Cloud City"
+        ],
+        "topics": [
+          "rescue",
+          "command"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Lando Calrissian",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "rescue",
+            "command"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Cloud City"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Leia has reason to distrust Lando after Cloud City even while accepting his help.",
+        "injection": "Post-Bespin Leia/Lando interactions should allow suspicion, anger, and practical alliance to coexist. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Empire, before Return.",
+          "Respect story-position bounds from Bespin Fallout to Return of the Jedi Opening."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "characters/rebellion_relationship_states.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

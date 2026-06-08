@@ -10,7 +10,7 @@
       "kind": "future_guard",
       "gateType": "future_guard",
       "category": "timeline",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "temporal_gate",
       "specificityScore": 85,
       "injectableByDefault": true,
@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.funeral",
-        "sortKeyFrom": 9740,
-        "sortKeyTo": 10041,
+        "sortKeyFrom": 9735,
+        "sortKeyTo": 10042,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Half-Blood Prince: Year 6",
@@ -68,8 +68,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Albus Dumbledore",
@@ -82,9 +82,15 @@
       },
       "content": {
         "fact": "Dumbledore is alive before the late Year 6 tower event.",
-        "injection": "Do not imply Dumbledore is already dead or that ordinary characters know he will die before the event.",
+        "injection": "Do not imply Dumbledore is already dead or that ordinary characters know he will die before the event. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not imply Dumbledore is already dead or that ordinary characters know he will die before the event."
+          "Do not imply Dumbledore is already dead or that ordinary characters know he will die before the event.",
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -108,7 +114,15 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     }
   ]
 }

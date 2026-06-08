@@ -1,0 +1,828 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "y6_guard_no_horcrux_term_before_memory_task",
+      "title": "No trio Horcrux knowledge before memory task",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 125,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.privet_summer_after_sirius",
+        "validToAnchor": "hp.y6.horcrux_memory_task_assigned",
+        "sortKeyFrom": 9692,
+        "sortKeyTo": 9871,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Slughorn Horcrux memory task",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Albus Dumbledore"
+        ],
+        "topics": [
+          "Horcruxes",
+          "Slughorn memory",
+          "Hermione knowledge boundary"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:6",
+        "topic:horcruxes"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Albus Dumbledore"
+          ],
+          "topicsAny": [
+            "Horcruxes",
+            "Slughorn memory",
+            "Hermione knowledge boundary"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Dumbledore assigns the Slughorn memory task, Harry, Ron, and Hermione do not know the term Horcrux or the mechanism of Voldemort’s immortality.",
+        "injection": "Before the Horcrux memory task, aggressively block Hermione, Ron, Harry, or narration from naming or explaining Horcruxes. Hermione may be clever and research-driven, but she has no valid clue path yet.",
+        "constraints": [
+          "This is the primary anti-leak card for early Year 6 Horcrux problems.",
+          "If a model makes Hermione explain Horcruxes before this anchor, this card should override that output.",
+          "Apply only when Saga Context matches Before Slughorn Horcrux memory task; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let Hermione’s intelligence become automatic Horcrux knowledge.",
+          "Do not use Year 7 Horcrux-hunt assumptions in early Year 6.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-6-half-blood-prince",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-6-half-blood-prince"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y6_guard_altered_memory_limited_horcrux_clue",
+      "title": "Altered memory gives limited Horcrux clue",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 125,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.horcrux_memory_task_assigned",
+        "validToAnchor": "hp.y6.true_slughorn_memory_obtained",
+        "sortKeyFrom": 9871,
+        "sortKeyTo": 9971,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After altered Slughorn memory before true memory",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Albus Dumbledore",
+          "Horace Slughorn"
+        ],
+        "topics": [
+          "altered Slughorn memory",
+          "Horcrux clue",
+          "limited knowledge"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:6",
+        "topic:horcruxes"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Albus Dumbledore",
+            "Horace Slughorn"
+          ],
+          "topicsAny": [
+            "altered Slughorn memory",
+            "Horcrux clue",
+            "limited knowledge"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the altered Slughorn memory, Harry has a dangerous term and task, but the full Horcrux mechanics, number, and object plan are not yet established for the trio.",
+        "injection": "In the altered-memory phase, Harry may pursue Slughorn and Hermione may research from the term if Harry tells her, but do not let Hermione or Ron fully explain Horcrux mechanics, Voldemort’s count, or the hunt plan before the true memory.",
+        "constraints": [
+          "Allow term-level awareness only if Harry shares it; block full mechanics until true memory.",
+          "Dumbledore may know more, but he controls disclosure.",
+          "Apply only when Saga Context matches After altered Slughorn memory before true memory; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not jump from hearing the word Horcrux to complete Year 7 hunt knowledge.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-6-half-blood-prince",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-6-half-blood-prince"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y6_guard_true_memory_harry_dumbledore_know_not_full_trio",
+      "title": "True memory initially informs Harry and Dumbledore",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 125,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.horcrux_truth_revealed",
+        "validToAnchor": "hp.y6.dumbledore_killed",
+        "sortKeyFrom": 9972,
+        "sortKeyTo": 10019,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After true memory before Dumbledore death",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Albus Dumbledore",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "true Slughorn memory",
+          "Horcrux truth",
+          "knowledge transfer"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:6",
+        "topic:horcruxes"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Albus Dumbledore",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "true Slughorn memory",
+            "Horcrux truth",
+            "knowledge transfer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the true Slughorn memory, Harry and Dumbledore understand the Horcrux framework and Voldemort’s intended soul split, but Ron and Hermione should not automatically receive the full briefing unless Harry shares it in-story.",
+        "injection": "Between the true memory and Dumbledore’s death, keep full Horcrux strategy centered on Harry and Dumbledore. Hermione and Ron may know partial information only if the scene establishes Harry told them; otherwise block them from fluent Horcrux exposition. Enforce this as a high-priority Context gate for After true memory before Dumbledore death; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "This card is meant to prevent Hermione from over-knowing even late in Year 6 before explicit sharing.",
+          "Use narrower accepted story lore if the user has Harry brief Ron and Hermione earlier.",
+          "Apply only when Saga Context matches After true memory before Dumbledore death; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not automatically promote Ron or Hermione to full Horcrux-hunt knowledge at the moment Harry sees the true memory.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-6-half-blood-prince",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-6-half-blood-prince"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y6_guard_trio_commit_after_funeral",
+      "title": "Trio commits to Horcrux hunt after funeral",
+      "kind": "status_gate",
+      "gateType": "status_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 120,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.funeral",
+        "validToAnchor": "hp.y6.horcrux_hunt_decision",
+        "sortKeyFrom": 10042,
+        "sortKeyTo": 10042,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Funeral and Horcrux hunt decision",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "Horcrux hunt decision",
+          "Dumbledore funeral",
+          "trio commitment"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "quality:relevance-curated",
+        "school-year:6",
+        "topic:horcruxes"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "Horcrux hunt decision",
+            "Dumbledore funeral",
+            "trio commitment"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Dumbledore’s funeral, Harry decides not to return to Hogwarts and Ron and Hermione commit to accompanying him on the Horcrux hunt.",
+        "injection": "At the post-funeral decision point, allow Ron and Hermione to know enough about the Horcrux quest to commit to it; before this point, do not assume they have complete hunt context unless Harry explicitly shared it.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Funeral and Horcrux hunt decision; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not move the Year 7 camping hunt, Hallows framework, or Ministry-fall state into the Year 6 school months.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-6-half-blood-prince",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-6-half-blood-prince"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y6_guard_draco_mission_hidden_until_tower",
+      "title": "Draco mission hidden until Tower crisis",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
+        "validToAnchor": "hp.y6.astronomy_tower_crisis",
+        "sortKeyFrom": 9735,
+        "sortKeyTo": 10019,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Tower crisis",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Draco Malfoy",
+          "Harry Potter",
+          "Hermione Granger",
+          "Ron Weasley",
+          "Severus Snape"
+        ],
+        "topics": [
+          "Draco mission",
+          "Vanishing Cabinet",
+          "Death Eater entry"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:vanishing-cabinet",
+        "book:half-blood-prince",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:severus-snape",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:6"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Draco Malfoy",
+            "Harry Potter",
+            "Hermione Granger",
+            "Ron Weasley",
+            "Severus Snape"
+          ],
+          "topicsAny": [
+            "Draco mission",
+            "Vanishing Cabinet",
+            "Death Eater entry"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Harry suspects Draco throughout Year 6, but the exact Vanishing Cabinet plan and Death Eater entry timing remain hidden until the Tower crisis unfolds.",
+        "injection": "Before the Tower crisis, write Draco’s mission through suspicion, evasions, and clues; do not let Harry, Hermione, Ron, or staff casually know the full cabinet plan unless the story has exposed it.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Tower crisis; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-6-half-blood-prince",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-6-half-blood-prince"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y6_guard_prince_identity_hidden_until_flight",
+      "title": "Half-Blood Prince identity hidden until flight",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 110,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.half_blood_prince_book",
+        "validToAnchor": "hp.y6.snape_half_blood_prince_reveal",
+        "sortKeyFrom": 9779,
+        "sortKeyTo": 10023,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Snape reveals Prince identity",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Severus Snape",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "Half-Blood Prince book",
+          "Prince identity",
+          "Snape reveal"
+        ],
+        "objects": [
+          "Half-Blood Prince book"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:6"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Severus Snape",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "Half-Blood Prince book",
+            "Prince identity",
+            "Snape reveal"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Harry uses the annotated Potions book without knowing Snape is the Half-Blood Prince until Snape reveals it during the flight after Dumbledore’s death.",
+        "injection": "Before the Prince reveal, keep the book’s author unknown to Harry and students; do not let characters casually identify Snape as the Prince or preempt the reveal.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Snape reveals Prince identity; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-6-half-blood-prince",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-6-half-blood-prince"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "y6_guard_dumbledore_alive_until_tower",
+      "title": "Dumbledore alive until Tower",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "hp.y6.privet_summer_after_sirius",
+        "validToAnchor": "hp.y6.dumbledore_killed",
+        "sortKeyFrom": 9692,
+        "sortKeyTo": 10019,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Dumbledore death",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Albus Dumbledore",
+          "Harry Potter",
+          "Severus Snape"
+        ],
+        "topics": [
+          "Dumbledore death",
+          "Astronomy Tower",
+          "future guard"
+        ],
+        "schoolYears": [
+          "6"
+        ],
+        "books": [
+          "Half-Blood Prince"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "school-year:6"
+      ],
+      "retrieval": {
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Albus Dumbledore",
+            "Harry Potter",
+            "Severus Snape"
+          ],
+          "topicsAny": [
+            "Dumbledore death",
+            "Astronomy Tower",
+            "future guard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dumbledore remains alive, active, and secretly weakened until the Astronomy Tower event.",
+        "injection": "Before the Tower death anchor, do not treat Dumbledore as dead, portrait-only, or posthumous; after the anchor, switch to mourning and post-death guidance rules.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Dumbledore death; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Half-Blood Prince",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-year-6-half-blood-prince",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-year-6-half-blood-prince"
+        }
+      }
+    }
+  ]
+}

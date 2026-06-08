@@ -1,0 +1,1068 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "anchor_window",
+  "sortKeyScale": "pack_local",
+  "summary": "Expanded Episode I-VI anchor timeline for the Star Wars Legends film spine. Designed for before/after film and major-event Context resolution.",
+  "axes": [
+    {
+      "id": "film",
+      "type": "anchor",
+      "label": "Film"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Major Event"
+    },
+    {
+      "id": "era",
+      "type": "phase",
+      "label": "Era"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "sw.film.episode_1_tpm",
+      "label": "Episode I: The Phantom Menace",
+      "contextType": "anchor",
+      "sortKey": 1000,
+      "aliases": [
+        "episode 1",
+        "episode i",
+        "episode i: the phantom menace",
+        "i: the phantom menace",
+        "phantom menace",
+        "tpm"
+      ],
+      "tags": [
+        "era:prequel",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode I: The Phantom Menace"
+      }
+    },
+    {
+      "id": "sw.film.tpm_naboo_crisis_begins",
+      "label": "Naboo Crisis Begins",
+      "contextType": "anchor",
+      "sortKey": 1040,
+      "aliases": [
+        "naboo crisis begins"
+      ],
+      "tags": [
+        "era:prequel",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Naboo Crisis Begins"
+      }
+    },
+    {
+      "id": "sw.film.tpm_maul_on_tatooine",
+      "label": "Maul Reveals Sith Threat on Tatooine",
+      "contextType": "anchor",
+      "sortKey": 1080,
+      "aliases": [
+        "maul reveals sith threat on tatooine"
+      ],
+      "tags": [
+        "era:prequel",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Maul Reveals Sith Threat on Tatooine"
+      }
+    },
+    {
+      "id": "sw.film.tpm_naboo_liberation",
+      "label": "Naboo Liberated",
+      "contextType": "anchor",
+      "sortKey": 1120,
+      "aliases": [
+        "naboo liberated"
+      ],
+      "tags": [
+        "era:prequel",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Naboo Liberated"
+      }
+    },
+    {
+      "id": "sw.film.tpm_quigon_death",
+      "label": "Qui-Gon Jinn Dies",
+      "contextType": "anchor",
+      "sortKey": 1140,
+      "aliases": [
+        "qui-gon jinn dies"
+      ],
+      "tags": [
+        "era:prequel",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Qui-Gon Jinn Dies"
+      }
+    },
+    {
+      "id": "sw.film.tpm_anakin_accepted_for_training",
+      "label": "Anakin Accepted for Jedi Training",
+      "contextType": "anchor",
+      "sortKey": 1160,
+      "aliases": [
+        "anakin accepted for jedi training"
+      ],
+      "tags": [
+        "era:prequel",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Anakin Accepted for Jedi Training"
+      }
+    },
+    {
+      "id": "sw.film.episode_2_aotc",
+      "label": "Episode II: Attack of the Clones",
+      "contextType": "anchor",
+      "sortKey": 2000,
+      "aliases": [
+        "aotc",
+        "attack of the clones",
+        "episode 2",
+        "episode ii",
+        "episode ii: attack of the clones",
+        "ii: attack of the clones"
+      ],
+      "tags": [
+        "era:prequel",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode II: Attack of the Clones"
+      }
+    },
+    {
+      "id": "sw.film.aotc_separatist_crisis",
+      "label": "Separatist Crisis Intensifies",
+      "contextType": "anchor",
+      "sortKey": 2050,
+      "aliases": [
+        "separatist crisis intensifies"
+      ],
+      "tags": [
+        "era:prequel",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Separatist Crisis Intensifies"
+      }
+    },
+    {
+      "id": "sw.film.aotc_kamino_army_discovered",
+      "label": "Clone Army Discovered on Kamino",
+      "contextType": "anchor",
+      "sortKey": 2120,
+      "aliases": [
+        "clone army discovered on kamino"
+      ],
+      "tags": [
+        "era:prequel",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Clone Army Discovered on Kamino"
+      }
+    },
+    {
+      "id": "sw.film.aotc_geonosis_arena",
+      "label": "Geonosis Arena Crisis",
+      "contextType": "anchor",
+      "sortKey": 2180,
+      "aliases": [
+        "geonosis arena crisis"
+      ],
+      "tags": [
+        "era:prequel",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Geonosis Arena Crisis"
+      }
+    },
+    {
+      "id": "sw.film.aotc_clone_wars_begin",
+      "label": "Clone Wars Begin",
+      "contextType": "anchor",
+      "sortKey": 2200,
+      "aliases": [
+        "clone wars begin"
+      ],
+      "tags": [
+        "era:clone-wars",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Clone Wars Begin"
+      }
+    },
+    {
+      "id": "sw.film.aotc_anakin_padme_married",
+      "label": "Anakin and Padme Secretly Marry",
+      "contextType": "anchor",
+      "sortKey": 2240,
+      "aliases": [
+        "anakin and padme secretly marry"
+      ],
+      "tags": [
+        "era:clone-wars",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Anakin and Padme Secretly Marry"
+      }
+    },
+    {
+      "id": "sw.film.episode_3_rots",
+      "label": "Episode III: Revenge of the Sith",
+      "contextType": "anchor",
+      "sortKey": 3000,
+      "aliases": [
+        "episode 3",
+        "episode iii",
+        "episode iii: revenge of the sith",
+        "iii: revenge of the sith",
+        "revenge of the sith",
+        "rots"
+      ],
+      "tags": [
+        "era:clone-wars",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode III: Revenge of the Sith"
+      }
+    },
+    {
+      "id": "sw.film.rots_palpatine_rescued",
+      "label": "Palpatine Rescued from Invisible Hand",
+      "contextType": "anchor",
+      "sortKey": 3020,
+      "aliases": [
+        "palpatine rescued from invisible hand"
+      ],
+      "tags": [
+        "era:clone-wars",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Palpatine Rescued from Invisible Hand"
+      }
+    },
+    {
+      "id": "sw.film.rots_grievous_dead",
+      "label": "General Grievous Killed",
+      "contextType": "anchor",
+      "sortKey": 3080,
+      "aliases": [
+        "general grievous killed"
+      ],
+      "tags": [
+        "era:clone-wars",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "General Grievous Killed"
+      }
+    },
+    {
+      "id": "sw.film.rots_anakin_falls",
+      "label": "Anakin Falls to the Dark Side",
+      "contextType": "anchor",
+      "sortKey": 3140,
+      "aliases": [
+        "anakin falls to the dark side"
+      ],
+      "tags": [
+        "era:fall-of-republic",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Anakin Falls to the Dark Side"
+      }
+    },
+    {
+      "id": "sw.film.rots_order66",
+      "label": "Order 66",
+      "contextType": "anchor",
+      "sortKey": 3180,
+      "aliases": [
+        "order 66"
+      ],
+      "tags": [
+        "era:fall-of-republic",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Order 66"
+      }
+    },
+    {
+      "id": "sw.film.rots_empire_declared",
+      "label": "Empire Declared",
+      "contextType": "anchor",
+      "sortKey": 3220,
+      "aliases": [
+        "empire declared"
+      ],
+      "tags": [
+        "era:fall-of-republic",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Empire Declared"
+      }
+    },
+    {
+      "id": "sw.film.rots_padme_dies_twins_hidden",
+      "label": "Padme Dies and the Twins Are Hidden",
+      "contextType": "anchor",
+      "sortKey": 3280,
+      "aliases": [
+        "padme dies and the twins are hidden"
+      ],
+      "tags": [
+        "era:fall-of-republic",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Padme Dies and the Twins Are Hidden"
+      }
+    },
+    {
+      "id": "sw.film.rots_vader_armored",
+      "label": "Darth Vader Armored",
+      "contextType": "anchor",
+      "sortKey": 3300,
+      "aliases": [
+        "darth vader armored"
+      ],
+      "tags": [
+        "era:imperial",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Darth Vader Armored"
+      }
+    },
+    {
+      "id": "sw.film.episode_4_anh",
+      "label": "Episode IV: A New Hope",
+      "contextType": "anchor",
+      "sortKey": 5000,
+      "aliases": [
+        "a new hope",
+        "anh",
+        "episode 4",
+        "episode iv",
+        "episode iv: a new hope",
+        "iv: a new hope",
+        "star wars"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode IV: A New Hope"
+      }
+    },
+    {
+      "id": "sw.film.anh_tantive_iv_captured",
+      "label": "Tantive IV Captured",
+      "contextType": "anchor",
+      "sortKey": 5020,
+      "aliases": [
+        "tantive iv captured"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Tantive IV Captured"
+      }
+    },
+    {
+      "id": "sw.film.anh_obiwan_death",
+      "label": "Obi-Wan Kenobi Dies on the Death Star",
+      "contextType": "anchor",
+      "sortKey": 5120,
+      "aliases": [
+        "obi-wan kenobi dies on the death star"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Obi-Wan Kenobi Dies on the Death Star"
+      }
+    },
+    {
+      "id": "sw.film.anh_alderaan_destroyed",
+      "label": "Alderaan Destroyed",
+      "contextType": "anchor",
+      "sortKey": 5140,
+      "aliases": [
+        "alderaan destroyed"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Alderaan Destroyed"
+      }
+    },
+    {
+      "id": "sw.film.anh_yavin_victory",
+      "label": "Battle of Yavin Victory",
+      "contextType": "anchor",
+      "sortKey": 5200,
+      "aliases": [
+        "after yavin",
+        "battle of yavin",
+        "battle of yavin victory",
+        "yavin"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Battle of Yavin Victory"
+      }
+    },
+    {
+      "id": "sw.film.episode_5_esb",
+      "label": "Episode V: The Empire Strikes Back",
+      "contextType": "anchor",
+      "sortKey": 6000,
+      "aliases": [
+        "empire",
+        "empire strikes back",
+        "episode 5",
+        "episode v",
+        "episode v: the empire strikes back",
+        "esb",
+        "the empire strikes back",
+        "v: the empire strikes back"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode V: The Empire Strikes Back"
+      }
+    },
+    {
+      "id": "sw.film.esb_hoth_evacuated",
+      "label": "Rebels Evacuate Hoth",
+      "contextType": "anchor",
+      "sortKey": 6060,
+      "aliases": [
+        "rebels evacuate hoth"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Rebels Evacuate Hoth"
+      }
+    },
+    {
+      "id": "sw.film.esb_dagobah_training",
+      "label": "Luke Trains on Dagobah",
+      "contextType": "anchor",
+      "sortKey": 6120,
+      "aliases": [
+        "luke trains on dagobah"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Luke Trains on Dagobah"
+      }
+    },
+    {
+      "id": "sw.film.esb_bespin_betrayal",
+      "label": "Bespin Betrayal",
+      "contextType": "anchor",
+      "sortKey": 6220,
+      "aliases": [
+        "bespin betrayal"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Bespin Betrayal"
+      }
+    },
+    {
+      "id": "sw.film.esb_vader_reveals_paternity",
+      "label": "Vader Reveals Luke Paternity",
+      "contextType": "anchor",
+      "sortKey": 6280,
+      "aliases": [
+        "vader reveals luke paternity"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Vader Reveals Luke Paternity"
+      }
+    },
+    {
+      "id": "sw.film.esb_han_frozen",
+      "label": "Han Frozen in Carbonite",
+      "contextType": "anchor",
+      "sortKey": 6300,
+      "aliases": [
+        "after bespin",
+        "after empire",
+        "han frozen",
+        "han frozen in carbonite",
+        "post-esb"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Han Frozen in Carbonite"
+      }
+    },
+    {
+      "id": "sw.film.episode_6_rotj",
+      "label": "Episode VI: Return of the Jedi",
+      "contextType": "anchor",
+      "sortKey": 7000,
+      "aliases": [
+        "episode 6",
+        "episode vi",
+        "episode vi: return of the jedi",
+        "jedi",
+        "return",
+        "return of the jedi",
+        "rotj",
+        "vi: return of the jedi"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episode VI: Return of the Jedi"
+      }
+    },
+    {
+      "id": "sw.film.rotj_jabba_palace",
+      "label": "Jabba Palace Rescue",
+      "contextType": "anchor",
+      "sortKey": 7040,
+      "aliases": [
+        "jabba palace rescue"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Jabba Palace Rescue"
+      }
+    },
+    {
+      "id": "sw.film.rotj_yoda_death",
+      "label": "Yoda Dies",
+      "contextType": "anchor",
+      "sortKey": 7100,
+      "aliases": [
+        "yoda dies"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Yoda Dies"
+      }
+    },
+    {
+      "id": "sw.film.rotj_leia_revealed_sister",
+      "label": "Leia Revealed as Luke Sister",
+      "contextType": "anchor",
+      "sortKey": 7120,
+      "aliases": [
+        "leia revealed as luke sister"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Leia Revealed as Luke Sister"
+      }
+    },
+    {
+      "id": "sw.film.rotj_endor_ground_battle",
+      "label": "Endor Ground Battle",
+      "contextType": "anchor",
+      "sortKey": 7180,
+      "aliases": [
+        "endor ground battle"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Endor Ground Battle"
+      }
+    },
+    {
+      "id": "sw.film.rotj_vader_redemption",
+      "label": "Vader Redeems Himself",
+      "contextType": "anchor",
+      "sortKey": 7220,
+      "aliases": [
+        "vader redeems himself"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Vader Redeems Himself"
+      }
+    },
+    {
+      "id": "sw.film.rotj_death_star_ii_destroyed",
+      "label": "Second Death Star Destroyed",
+      "contextType": "anchor",
+      "sortKey": 7240,
+      "aliases": [
+        "second death star destroyed"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Second Death Star Destroyed"
+      }
+    },
+    {
+      "id": "sw.film.rotj_emperor_defeated",
+      "label": "Emperor Defeated at Endor",
+      "contextType": "anchor",
+      "sortKey": 7260,
+      "aliases": [
+        "after endor",
+        "emperor defeated at endor",
+        "endor",
+        "post-endor"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Emperor Defeated at Endor"
+      }
+    },
+    {
+      "id": "sw.legends.post_endor_begins",
+      "label": "Post-Endor Legends Begins",
+      "contextType": "anchor",
+      "sortKey": 7300,
+      "aliases": [
+        "post-endor legends begins"
+      ],
+      "tags": [
+        "era:post-endor",
+        "scope:film-spine"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "timeline",
+        "title": "Post-Endor Legends Begins"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "sw.film.window.tpm",
+      "label": "Episode I: The Phantom Menace",
+      "anchorFrom": "sw.film.episode_1_tpm",
+      "anchorTo": "sw.film.tpm_anakin_accepted_for_training",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1160,
+      "aliases": [
+        "phantom menace",
+        "during tpm",
+        "episode i"
+      ],
+      "tags": [
+        "era:prequel"
+      ],
+      "windowKind": "bounded"
+    },
+    {
+      "id": "sw.film.window.after_tpm_before_aotc",
+      "label": "After The Phantom Menace, before Attack of the Clones",
+      "anchorFrom": "sw.film.tpm_anakin_accepted_for_training",
+      "anchorTo": "sw.film.episode_2_aotc",
+      "sortKeyFrom": 1160,
+      "sortKeyTo": 2000,
+      "aliases": [
+        "after phantom menace",
+        "before attack of the clones",
+        "between episode i and ii"
+      ],
+      "tags": [
+        "era:prequel"
+      ],
+      "windowKind": "wide"
+    },
+    {
+      "id": "sw.film.window.aotc",
+      "label": "Episode II: Attack of the Clones",
+      "anchorFrom": "sw.film.episode_2_aotc",
+      "anchorTo": "sw.film.aotc_anakin_padme_married",
+      "sortKeyFrom": 2000,
+      "sortKeyTo": 2240,
+      "aliases": [
+        "attack of the clones",
+        "during aotc",
+        "episode ii"
+      ],
+      "tags": [
+        "era:prequel"
+      ],
+      "windowKind": "bounded"
+    },
+    {
+      "id": "sw.film.window.clone_wars",
+      "label": "After Attack of the Clones, before Revenge of the Sith",
+      "anchorFrom": "sw.film.aotc_clone_wars_begin",
+      "anchorTo": "sw.film.episode_3_rots",
+      "sortKeyFrom": 2200,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "clone wars",
+        "during the clone wars",
+        "between attack and revenge"
+      ],
+      "tags": [
+        "era:clone-wars"
+      ],
+      "windowKind": "wide"
+    },
+    {
+      "id": "sw.film.window.rots",
+      "label": "Episode III: Revenge of the Sith",
+      "anchorFrom": "sw.film.episode_3_rots",
+      "anchorTo": "sw.film.rots_vader_armored",
+      "sortKeyFrom": 3000,
+      "sortKeyTo": 3300,
+      "aliases": [
+        "revenge of the sith",
+        "during rots",
+        "episode iii"
+      ],
+      "tags": [
+        "era:fall-of-republic"
+      ],
+      "windowKind": "bounded"
+    },
+    {
+      "id": "sw.film.window.imperial_before_anh",
+      "label": "After Revenge of the Sith, before A New Hope",
+      "anchorFrom": "sw.film.rots_vader_armored",
+      "anchorTo": "sw.film.episode_4_anh",
+      "sortKeyFrom": 3300,
+      "sortKeyTo": 5000,
+      "aliases": [
+        "dark times",
+        "imperial era before a new hope",
+        "between rots and anh"
+      ],
+      "tags": [
+        "era:imperial"
+      ],
+      "windowKind": "wide"
+    },
+    {
+      "id": "sw.film.window.anh",
+      "label": "Episode IV: A New Hope",
+      "anchorFrom": "sw.film.episode_4_anh",
+      "anchorTo": "sw.film.anh_yavin_victory",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 5200,
+      "aliases": [
+        "a new hope",
+        "during anh",
+        "episode iv"
+      ],
+      "tags": [
+        "era:rebellion"
+      ],
+      "windowKind": "bounded"
+    },
+    {
+      "id": "sw.film.window.after_anh_before_esb",
+      "label": "After A New Hope, before The Empire Strikes Back",
+      "anchorFrom": "sw.film.anh_yavin_victory",
+      "anchorTo": "sw.film.episode_5_esb",
+      "sortKeyFrom": 5200,
+      "sortKeyTo": 6000,
+      "aliases": [
+        "after a new hope",
+        "before empire",
+        "between a new hope and empire",
+        "post-yavin pre-hoth"
+      ],
+      "tags": [
+        "era:rebellion"
+      ],
+      "windowKind": "wide"
+    },
+    {
+      "id": "sw.film.window.esb",
+      "label": "Episode V: The Empire Strikes Back",
+      "anchorFrom": "sw.film.episode_5_esb",
+      "anchorTo": "sw.film.esb_han_frozen",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 6300,
+      "aliases": [
+        "empire",
+        "during empire",
+        "during esb",
+        "episode v"
+      ],
+      "tags": [
+        "era:rebellion"
+      ],
+      "windowKind": "bounded"
+    },
+    {
+      "id": "sw.film.window.after_esb_before_rotj",
+      "label": "After The Empire Strikes Back, before Return of the Jedi",
+      "anchorFrom": "sw.film.esb_han_frozen",
+      "anchorTo": "sw.film.episode_6_rotj",
+      "sortKeyFrom": 6300,
+      "sortKeyTo": 7000,
+      "aliases": [
+        "after empire before return",
+        "between empire and jedi",
+        "post-esb pre-rotj",
+        "after bespin before jabba"
+      ],
+      "tags": [
+        "era:rebellion"
+      ],
+      "windowKind": "wide"
+    },
+    {
+      "id": "sw.film.window.rotj",
+      "label": "Episode VI: Return of the Jedi",
+      "anchorFrom": "sw.film.episode_6_rotj",
+      "anchorTo": "sw.film.rotj_emperor_defeated",
+      "sortKeyFrom": 7000,
+      "sortKeyTo": 7260,
+      "aliases": [
+        "return of the jedi",
+        "during rotj",
+        "episode vi"
+      ],
+      "tags": [
+        "era:rebellion"
+      ],
+      "windowKind": "bounded"
+    },
+    {
+      "id": "sw.film.window.post_rotj",
+      "label": "After Return of the Jedi",
+      "anchorFrom": "sw.film.rotj_emperor_defeated",
+      "anchorTo": "sw.legends.post_endor_begins",
+      "sortKeyFrom": 7260,
+      "sortKeyTo": 7300,
+      "aliases": [
+        "after return",
+        "after endor",
+        "post-rotj",
+        "post-endor"
+      ],
+      "tags": [
+        "era:post-endor"
+      ],
+      "windowKind": "wide"
+    }
+  ],
+  "phases": [
+    {
+      "id": "sw.phase.prequel",
+      "label": "Prequel Era",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "prequels",
+        "prequel era"
+      ],
+      "tags": [
+        "era:prequel"
+      ]
+    },
+    {
+      "id": "sw.phase.clone_wars",
+      "label": "Clone Wars",
+      "sortKeyFrom": 2200,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "clone wars"
+      ],
+      "tags": [
+        "era:clone-wars"
+      ]
+    },
+    {
+      "id": "sw.phase.imperial",
+      "label": "Imperial Era",
+      "sortKeyFrom": 3300,
+      "sortKeyTo": 5000,
+      "aliases": [
+        "dark times",
+        "imperial era"
+      ],
+      "tags": [
+        "era:imperial"
+      ]
+    },
+    {
+      "id": "sw.phase.rebellion",
+      "label": "Rebellion Era",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 7260,
+      "aliases": [
+        "original trilogy",
+        "ot",
+        "rebellion era"
+      ],
+      "tags": [
+        "era:rebellion"
+      ]
+    },
+    {
+      "id": "sw.phase.post_endor",
+      "label": "Post-Endor Transition",
+      "sortKeyFrom": 7260,
+      "sortKeyTo": 7300,
+      "aliases": [
+        "post-endor",
+        "after return"
+      ],
+      "tags": [
+        "era:post-endor"
+      ]
+    }
+  ]
+}

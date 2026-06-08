@@ -1,0 +1,589 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "ability:force": {
+      "label": "Force",
+      "description": "Force tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "ability:force-ghost": {
+      "label": "Force Ghost",
+      "description": "Force Ghost tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:4-lom": {
+      "label": "4 Lom",
+      "description": "4 Lom tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:admiral-ackbar": {
+      "label": "Admiral Ackbar",
+      "description": "Admiral Ackbar tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:admiral-ozzel": {
+      "label": "Admiral Ozzel",
+      "description": "Admiral Ozzel tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:admiral-piett": {
+      "label": "Admiral Piett",
+      "description": "Admiral Piett tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:anakin-skywalker": {
+      "label": "Anakin Skywalker",
+      "description": "Anakin Skywalker tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:beru-lars": {
+      "label": "Beru Lars",
+      "description": "Beru Lars tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:bib-fortuna": {
+      "label": "Bib Fortuna",
+      "description": "Bib Fortuna tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:biggs-darklighter": {
+      "label": "Biggs Darklighter",
+      "description": "Biggs Darklighter tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:boba-fett": {
+      "label": "Boba Fett",
+      "description": "Boba Fett tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:bossk": {
+      "label": "Bossk",
+      "description": "Bossk tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:c-3po": {
+      "label": "C 3Po",
+      "description": "C 3Po tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:chewbacca": {
+      "label": "Chewbacca",
+      "description": "Chewbacca tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:darth-vader": {
+      "label": "Darth Vader",
+      "description": "Darth Vader tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:dash-rendar": {
+      "label": "Dash Rendar",
+      "description": "Dash Rendar tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:dengar": {
+      "label": "Dengar",
+      "description": "Dengar tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:general-rieekan": {
+      "label": "General Rieekan",
+      "description": "General Rieekan tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:general-veers": {
+      "label": "General Veers",
+      "description": "General Veers tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:gold-leader": {
+      "label": "Gold Leader",
+      "description": "Gold Leader tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:greedo": {
+      "label": "Greedo",
+      "description": "Greedo tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:guri": {
+      "label": "Guri",
+      "description": "Guri tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:han-solo": {
+      "label": "Han Solo",
+      "description": "Han Solo tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:ig-88": {
+      "label": "Ig 88",
+      "description": "Ig 88 tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:jabba-the-hutt": {
+      "label": "Jabba The Hutt",
+      "description": "Jabba The Hutt tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:lando-calrissian": {
+      "label": "Lando Calrissian",
+      "description": "Lando Calrissian tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:leia-organa": {
+      "label": "Leia Organa",
+      "description": "Leia Organa tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:luke-skywalker": {
+      "label": "Luke Skywalker",
+      "description": "Luke Skywalker tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:mara-jade": {
+      "label": "Mara Jade",
+      "description": "Mara Jade tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:mon-mothma": {
+      "label": "Mon Mothma",
+      "description": "Mon Mothma tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:nien-nunb": {
+      "label": "Nien Nunb",
+      "description": "Nien Nunb tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:obi-wan-kenobi": {
+      "label": "Obi Wan Kenobi",
+      "description": "Obi Wan Kenobi tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:owen-lars": {
+      "label": "Owen Lars",
+      "description": "Owen Lars tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:palpatine": {
+      "label": "Palpatine",
+      "description": "Palpatine tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:prince-xizor": {
+      "label": "Prince Xizor",
+      "description": "Prince Xizor tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:r2-d2": {
+      "label": "R2 D2",
+      "description": "R2 D2 tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:tarkin": {
+      "label": "Tarkin",
+      "description": "Tarkin tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:thrawn": {
+      "label": "Thrawn",
+      "description": "Thrawn tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:wedge-antilles": {
+      "label": "Wedge Antilles",
+      "description": "Wedge Antilles tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:wicket": {
+      "label": "Wicket",
+      "description": "Wicket tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:yoda": {
+      "label": "Yoda",
+      "description": "Yoda tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "character:zuckuss": {
+      "label": "Zuckuss",
+      "description": "Zuckuss tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "continuity:legends": {
+      "label": "Legends",
+      "description": "Legends tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "era:rebellion": {
+      "label": "Rebellion Era",
+      "description": "Rebellion Era tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "event:alderaan-destruction": {
+      "label": "Alderaan Destruction",
+      "description": "Alderaan Destruction tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "event:black-sun-conflict": {
+      "label": "Black Sun Conflict",
+      "description": "Black Sun Conflict tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "event:bothan-intel": {
+      "label": "Bothan Intelligence",
+      "description": "Bothan Intelligence tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "event:death-star": {
+      "label": "Death Star",
+      "description": "Death Star tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "event:death-star-ii": {
+      "label": "Second Death Star",
+      "description": "Second Death Star tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "event:shadows-of-the-empire": {
+      "label": "Shadows of the Empire",
+      "description": "Shadows of the Empire tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "event:tantive-iv": {
+      "label": "Tantive IV",
+      "description": "Tantive IV tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "event:yavin": {
+      "label": "Battle of Yavin",
+      "description": "Battle of Yavin tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:black-sun": {
+      "label": "Black Sun",
+      "description": "Black Sun tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:bothans": {
+      "label": "Bothans",
+      "description": "Bothans tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:bounty-hunters": {
+      "label": "Bounty Hunters",
+      "description": "Bounty Hunters tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:cloud-city": {
+      "label": "Cloud City",
+      "description": "Cloud City tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:criminal-underworld": {
+      "label": "Criminal Underworld",
+      "description": "Criminal Underworld tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:ewoks": {
+      "label": "Ewoks",
+      "description": "Ewoks tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:galactic-empire": {
+      "label": "Galactic Empire",
+      "description": "Galactic Empire tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:hutts": {
+      "label": "Hutts",
+      "description": "Hutts tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:imperial-army": {
+      "label": "Imperial Army",
+      "description": "Imperial Army tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:imperial-navy": {
+      "label": "Imperial Navy",
+      "description": "Imperial Navy tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:jedi-order": {
+      "label": "Jedi Order",
+      "description": "Jedi Order tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:rebel-alliance": {
+      "label": "Rebel Alliance",
+      "description": "Rebel Alliance tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:rogue-squadron": {
+      "label": "Rogue Squadron",
+      "description": "Rogue Squadron tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:sith": {
+      "label": "Sith",
+      "description": "Sith tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "faction:stormtroopers": {
+      "label": "Stormtroopers",
+      "description": "Stormtroopers tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "fandom:star-wars": {
+      "label": "Star Wars",
+      "description": "Star Wars tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:at-at": {
+      "label": "At At",
+      "description": "At At tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:bacta": {
+      "label": "Bacta",
+      "description": "Bacta tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:blaster": {
+      "label": "Blaster",
+      "description": "Blaster tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:carbonite": {
+      "label": "Carbonite",
+      "description": "Carbonite tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:death-star": {
+      "label": "Death Star",
+      "description": "Death Star tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:death-star-ii": {
+      "label": "Second Death Star",
+      "description": "Second Death Star tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:death-star-plans": {
+      "label": "Death Star Plans",
+      "description": "Death Star Plans tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:droids": {
+      "label": "Droids",
+      "description": "Droids tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:executor": {
+      "label": "Executor",
+      "description": "Executor tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:holonet": {
+      "label": "HoloNet",
+      "description": "HoloNet tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:hyperdrive": {
+      "label": "Hyperdrive",
+      "description": "Hyperdrive tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:ion-cannon": {
+      "label": "Ion Cannon",
+      "description": "Ion Cannon tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:lightsaber": {
+      "label": "Lightsaber",
+      "description": "Lightsaber tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:millennium-falcon": {
+      "label": "Millennium Falcon",
+      "description": "Millennium Falcon tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:mon-calamari-cruiser": {
+      "label": "Mon Calamari Cruiser",
+      "description": "Mon Calamari Cruiser tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:probe-droid": {
+      "label": "Probe Droid",
+      "description": "Probe Droid tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:prosthetic": {
+      "label": "Prosthetic",
+      "description": "Prosthetic tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:shield-generator": {
+      "label": "Shield Generator",
+      "description": "Shield Generator tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:slave-i": {
+      "label": "Slave I",
+      "description": "Slave I tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:snowspeeder": {
+      "label": "Snowspeeder",
+      "description": "Snowspeeder tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:speeder-bike": {
+      "label": "Speeder Bike",
+      "description": "Speeder Bike tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:star-destroyer": {
+      "label": "Star Destroyer",
+      "description": "Star Destroyer tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:super-star-destroyer": {
+      "label": "Super Star Destroyer",
+      "description": "Super Star Destroyer tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:thermal-detonator": {
+      "label": "Thermal Detonator",
+      "description": "Thermal Detonator tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:tie-fighter": {
+      "label": "TIE Fighter",
+      "description": "TIE Fighter tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:x-wing": {
+      "label": "X-wing",
+      "description": "X-wing tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "object:y-wing": {
+      "label": "Y-wing",
+      "description": "Y-wing tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:alderaan": {
+      "label": "Alderaan",
+      "description": "Alderaan tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:bespin": {
+      "label": "Bespin",
+      "description": "Bespin tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:cloud-city": {
+      "label": "Cloud City",
+      "description": "Cloud City tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:core-worlds": {
+      "label": "Core Worlds",
+      "description": "Core Worlds tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:coruscant": {
+      "label": "Coruscant",
+      "description": "Coruscant tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:dagobah": {
+      "label": "Dagobah",
+      "description": "Dagobah tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:death-star": {
+      "label": "Death Star",
+      "description": "Death Star tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:death-star-ii": {
+      "label": "Second Death Star",
+      "description": "Second Death Star tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:endor": {
+      "label": "Endor",
+      "description": "Endor tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:executor": {
+      "label": "Executor",
+      "description": "Executor tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:hoth": {
+      "label": "Hoth",
+      "description": "Hoth tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:jabbas-palace": {
+      "label": "Jabba's Palace",
+      "description": "Jabba's Palace tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:mos-eisley": {
+      "label": "Mos Eisley",
+      "description": "Mos Eisley tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:outer-rim": {
+      "label": "Outer Rim",
+      "description": "Outer Rim tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:rebel-fleet": {
+      "label": "Rebel Fleet",
+      "description": "Rebel Fleet tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:tantive-iv": {
+      "label": "Tantive Iv",
+      "description": "Tantive Iv tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:tatooine": {
+      "label": "Tatooine",
+      "description": "Tatooine tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:unknown-regions": {
+      "label": "Unknown Regions",
+      "description": "Unknown Regions tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "place:yavin": {
+      "label": "Yavin IV",
+      "description": "Yavin IV tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "relationship:bounty": {
+      "label": "Bounty",
+      "description": "Bounty tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "relationship:debtor-creditor": {
+      "label": "Debtor/Creditor",
+      "description": "Debtor/Creditor tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "relationship:family-secret": {
+      "label": "Family Secret",
+      "description": "Family Secret tag for Star Wars Legends Rebellion Era retrieval.",
+      "sensitive": true
+    },
+    "relationship:rescue-party": {
+      "label": "Rescue Party",
+      "description": "Rescue Party tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "relationship:rivalry": {
+      "label": "Rivalry",
+      "description": "Rivalry tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "relationship:romance": {
+      "label": "Romance",
+      "description": "Romance tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "scope:rebellion-era": {
+      "label": "Rebellion Era",
+      "description": "Rebellion Era tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:bounty-hunter": {
+      "label": "Bounty Hunter",
+      "description": "Bounty Hunter tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:command": {
+      "label": "Command",
+      "description": "Command tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:context-gate": {
+      "label": "Context Gate",
+      "description": "Context Gate tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:criminal-debt": {
+      "label": "Criminal Debt",
+      "description": "Criminal Debt tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:droid": {
+      "label": "Droid",
+      "description": "Droid tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:duel": {
+      "label": "Duel",
+      "description": "Duel tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:espionage": {
+      "label": "Espionage",
+      "description": "Espionage tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:family-secret": {
+      "label": "Family Secret",
+      "description": "Family Secret tag for Star Wars Legends Rebellion Era retrieval.",
+      "sensitive": true
+    },
+    "topic:force": {
+      "label": "The Force",
+      "description": "The Force tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:future-guard": {
+      "label": "Future Guard",
+      "description": "Future Guard tag for Star Wars Legends Rebellion Era retrieval.",
+      "sensitive": true
+    },
+    "topic:hyperspace": {
+      "label": "Hyperspace",
+      "description": "Hyperspace tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:jedi": {
+      "label": "Jedi",
+      "description": "Jedi tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:knowledge-gate": {
+      "label": "Knowledge Gate",
+      "description": "Knowledge Gate tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:military-logistics": {
+      "label": "Military Logistics",
+      "description": "Military Logistics tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:morale": {
+      "label": "Morale",
+      "description": "Morale tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:pilot": {
+      "label": "Pilot",
+      "description": "Pilot tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:politics": {
+      "label": "Politics",
+      "description": "Politics tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:propaganda": {
+      "label": "Propaganda",
+      "description": "Propaganda tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:rescue": {
+      "label": "Rescue",
+      "description": "Rescue tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:secret": {
+      "label": "Secret",
+      "description": "Secret tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:sith": {
+      "label": "Sith",
+      "description": "Sith tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:smuggling": {
+      "label": "Smuggling",
+      "description": "Smuggling tag for Star Wars Legends Rebellion Era retrieval."
+    },
+    "topic:spoiler-guard": {
+      "label": "Spoiler Guard",
+      "description": "Spoiler Guard tag for Star Wars Legends Rebellion Era retrieval.",
+      "sensitive": true
+    },
+    "topic:underworld": {
+      "label": "Underworld",
+      "description": "Underworld tag for Star Wars Legends Rebellion Era retrieval."
+    }
+  }
+}

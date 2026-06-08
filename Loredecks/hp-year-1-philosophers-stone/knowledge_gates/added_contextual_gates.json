@@ -10,7 +10,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "item",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 100,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.fluffy_discovery",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8027,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8031,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Philosopher's Stone: Year 1",
@@ -63,8 +63,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -83,12 +83,16 @@
       },
       "content": {
         "fact": "Before Christmas 1991, Harry has not received his Invisibility Cloak.",
-        "injection": "Before Christmas 1991, Harry should not have or use his Invisibility Cloak unless our story has established an early gift.",
+        "injection": "Before Christmas 1991, Harry should not have or use his Invisibility Cloak unless our story has established an early gift. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not solve early Year 1 stealth scenes with Harry's cloak before he receives it."
+          "Do not solve early Year 1 stealth scenes with Harry's cloak before he receives it.",
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not assume Harry always has cloak access from the start of first year."
+          "Do not assume Harry always has cloak access from the start of first year.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "sourceInfo": {
@@ -102,7 +106,19 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:invisibility-cloak",
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     }
   ]
 }

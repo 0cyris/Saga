@@ -10,7 +10,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.y2.privet_drive_summer",
         "validToAnchor": "hp.y2.dobby_warning",
         "sortKeyFrom": 8247,
-        "sortKeyTo": 8249,
+        "sortKeyTo": 8253,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -91,8 +91,16 @@
       },
       "content": {
         "fact": "On Harry’s twelfth birthday, Dobby warns him not to return to Hogwarts and causes a magical incident that brings a Ministry warning.",
-        "injection": "On Harry’s twelfth birthday, Dobby warns him not to return to Hogwarts and causes a magical incident that brings a Ministry warning.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "On Harry’s twelfth birthday, Dobby warns him not to return to Hogwarts and causes a magical incident that brings a Ministry warning. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -123,7 +131,16 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:harry-potter",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -132,7 +149,7 @@
       "kind": "artifact_state",
       "gateType": "artifact_state",
       "category": "item",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "item_state",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -140,7 +157,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -149,8 +166,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.privet_drive_summer",
         "validToAnchor": "hp.y2.mason_dinner_ruined",
-        "sortKeyFrom": 8250,
-        "sortKeyTo": 8257,
+        "sortKeyFrom": 8247,
+        "sortKeyTo": 8259,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -219,8 +236,16 @@
       },
       "content": {
         "fact": "Ron, Fred, and George use the flying Ford Anglia to rescue Harry from Privet Drive and bring him to the Burrow.",
-        "injection": "Ron, Fred, and George use the flying Ford Anglia to rescue Harry from Privet Drive and bring him to the Burrow.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Ron, Fred, and George use the flying Ford Anglia to rescue Harry from Privet Drive and bring him to the Burrow. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -251,7 +276,17 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:fred-weasley",
+        "character:george-weasley",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -260,7 +295,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -268,7 +303,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -277,8 +312,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.bars_on_window",
         "validToAnchor": "hp.y2.burrow_arrival",
-        "sortKeyFrom": 8266,
-        "sortKeyTo": 8273,
+        "sortKeyFrom": 8265,
+        "sortKeyTo": 8277,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -349,8 +384,16 @@
       },
       "content": {
         "fact": "Harry’s Floo misfire sends him to Knockturn Alley before he reunites with the Weasleys at Diagon Alley and encounters Lockhart and Lucius Malfoy at the book signing.",
-        "injection": "Harry’s Floo misfire sends him to Knockturn Alley before he reunites with the Weasleys at Diagon Alley and encounters Lockhart and Lucius Malfoy at the book signing.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry’s Floo misfire sends him to Knockturn Alley before he reunites with the Weasleys at Diagon Alley and encounters Lockhart and Lucius Malfoy at the book signing. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -381,7 +424,15 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -390,7 +441,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -398,7 +449,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -407,8 +458,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.burrow_family_baseline",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8280,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8283,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -475,8 +526,16 @@
       },
       "content": {
         "fact": "The barrier to Platform Nine and Three-Quarters closes on Harry and Ron, leading them to fly the Ford Anglia to Hogwarts and crash into the Whomping Willow.",
-        "injection": "The barrier to Platform Nine and Three-Quarters closes on Harry and Ron, leading them to fly the Ford Anglia to Hogwarts and crash into the Whomping Willow.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "The barrier to Platform Nine and Three-Quarters closes on Harry and Ron, leading them to fly the Ford Anglia to Hogwarts and crash into the Whomping Willow. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -507,7 +566,16 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -516,7 +584,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -524,7 +592,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -533,8 +601,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.burrow_family_baseline",
-        "sortKeyFrom": 8279,
-        "sortKeyTo": 8280,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8283,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -593,8 +661,16 @@
       },
       "content": {
         "fact": "Ginny Weasley begins Hogwarts and is sorted into Gryffindor during Harry’s second year.",
-        "injection": "Ginny Weasley begins Hogwarts and is sorted into Gryffindor during Harry’s second year.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Ginny Weasley begins Hogwarts and is sorted into Gryffindor during Harry’s second year. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -625,7 +701,16 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -634,7 +719,7 @@
       "kind": "behavior_gate",
       "gateType": "behavior_gate",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -642,7 +727,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 50,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -651,8 +736,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.burrow_arrival",
         "validToAnchor": "hp.y2.burrow_family_baseline",
-        "sortKeyFrom": 8281,
-        "sortKeyTo": 8282,
+        "sortKeyFrom": 8277,
+        "sortKeyTo": 8283,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -717,8 +802,16 @@
       },
       "content": {
         "fact": "Lockhart’s early Defence Against the Dark Arts lesson with Cornish pixies demonstrates his poor practical classroom control.",
-        "injection": "Lockhart’s early Defence Against the Dark Arts lesson with Cornish pixies demonstrates his poor practical classroom control.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Lockhart’s early Defence Against the Dark Arts lesson with Cornish pixies demonstrates his poor practical classroom control. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -749,7 +842,18 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -758,7 +862,7 @@
       "kind": "knowledge_guard",
       "gateType": "knowledge_guard",
       "category": "knowledge",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -766,7 +870,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -776,7 +880,7 @@
         "validFromAnchor": "hp.y2.burrow_family_baseline",
         "validToAnchor": "hp.y2.floo_knockturn_mishap",
         "sortKeyFrom": 8283,
-        "sortKeyTo": 8290,
+        "sortKeyTo": 8295,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -833,8 +937,16 @@
       },
       "content": {
         "fact": "Harry first hears the hidden basilisk voice during detention, before anyone understands that the sound is Parseltongue-linked and connected to the Chamber.",
-        "injection": "Harry first hears the hidden basilisk voice during detention, before anyone understands that the sound is Parseltongue-linked and connected to the Chamber.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry first hears the hidden basilisk voice during detention, before anyone understands that the sound is Parseltongue-linked and connected to the Chamber. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -865,7 +977,16 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:harry-potter",
+        "creature:basilisk",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -874,7 +995,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -882,7 +1003,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -891,8 +1012,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.filch_kwikspell_revealed",
         "validToAnchor": "hp.y2.ginny_sorted",
-        "sortKeyFrom": 8339,
-        "sortKeyTo": 8342,
+        "sortKeyFrom": 8337,
+        "sortKeyTo": 8343,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -959,8 +1080,16 @@
       },
       "content": {
         "fact": "Halloween brings Nearly Headless Nick’s deathday party, Harry’s second hearing of the hidden voice, and the petrification of Mrs Norris.",
-        "injection": "Halloween brings Nearly Headless Nick’s deathday party, Harry’s second hearing of the hidden voice, and the petrification of Mrs Norris.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Halloween brings Nearly Headless Nick’s deathday party, Harry’s second hearing of the hidden voice, and the petrification of Mrs Norris. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -991,7 +1120,17 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1000,7 +1139,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1008,7 +1147,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1018,7 +1157,7 @@
         "validFromAnchor": "hp.y2.ginny_sorted",
         "validToAnchor": "hp.y2.mandrakes_introduced",
         "sortKeyFrom": 8343,
-        "sortKeyTo": 8345,
+        "sortKeyTo": 8349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -1085,8 +1224,16 @@
       },
       "content": {
         "fact": "History of Magic discussion and Myrtle’s bathroom lead the trio toward the Chamber legend and the research needed to brew Polyjuice Potion.",
-        "injection": "History of Magic discussion and Myrtle’s bathroom lead the trio toward the Chamber legend and the research needed to brew Polyjuice Potion.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "History of Magic discussion and Myrtle’s bathroom lead the trio toward the Chamber legend and the research needed to brew Polyjuice Potion. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1117,7 +1264,17 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1126,7 +1283,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1134,7 +1291,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1143,8 +1300,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.ginny_sorted",
         "validToAnchor": "hp.y2.herbology_restoration_rule",
-        "sortKeyFrom": 8346,
-        "sortKeyTo": 8353,
+        "sortKeyFrom": 8343,
+        "sortKeyTo": 8355,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -1211,8 +1368,16 @@
       },
       "content": {
         "fact": "During the Gryffindor-Slytherin Quidditch match, a rogue Bludger breaks Harry’s arm; that night Dobby visits Harry and Colin Creevey is petrified.",
-        "injection": "During the Gryffindor-Slytherin Quidditch match, a rogue Bludger breaks Harry’s arm; that night Dobby visits Harry and Colin Creevey is petrified.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "During the Gryffindor-Slytherin Quidditch match, a rogue Bludger breaks Harry’s arm; that night Dobby visits Harry and Colin Creevey is petrified. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1243,7 +1408,15 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1252,7 +1425,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1260,7 +1433,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1269,8 +1442,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.mrs_norris_petrified",
         "validToAnchor": "hp.y2.moaning_myrtle_bathroom_base",
-        "sortKeyFrom": 8386,
-        "sortKeyTo": 8393,
+        "sortKeyFrom": 8385,
+        "sortKeyTo": 8397,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -1335,8 +1508,16 @@
       },
       "content": {
         "fact": "At the Dueling Club, Harry speaks Parseltongue publicly, increasing suspicion that he may be connected to Slytherin’s heir.",
-        "injection": "At the Dueling Club, Harry speaks Parseltongue publicly, increasing suspicion that he may be connected to Slytherin’s heir.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "At the Dueling Club, Harry speaks Parseltongue publicly, increasing suspicion that he may be connected to Slytherin’s heir. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1367,7 +1548,17 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:severus-snape",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1376,7 +1567,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1384,7 +1575,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1393,8 +1584,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.chamber_legend_researched",
         "validToAnchor": "hp.y2.rogue_bludger",
-        "sortKeyFrom": 8394,
-        "sortKeyTo": 8401,
+        "sortKeyFrom": 8391,
+        "sortKeyTo": 8403,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -1461,8 +1652,16 @@
       },
       "content": {
         "fact": "On Christmas, the Polyjuice plan lets Harry and Ron impersonate Crabbe and Goyle, while Hermione’s cat-hair mistake sends her to the hospital wing.",
-        "injection": "On Christmas, the Polyjuice plan lets Harry and Ron impersonate Crabbe and Goyle, while Hermione’s cat-hair mistake sends her to the hospital wing.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "On Christmas, the Polyjuice plan lets Harry and Ron impersonate Crabbe and Goyle, while Hermione’s cat-hair mistake sends her to the hospital wing. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1493,7 +1692,18 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:draco-malfoy",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1502,7 +1712,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1510,7 +1720,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1519,7 +1729,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.ginny_taken",
         "validToAnchor": "hp.y2.chamber_opened",
-        "sortKeyFrom": 8528,
+        "sortKeyFrom": 8523,
         "sortKeyTo": 8535,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -1585,8 +1795,16 @@
       },
       "content": {
         "fact": "The fourth attack petrifies Hermione and Penelope, cancels Quidditch, and leads to Dumbledore’s removal and Hagrid’s imprisonment.",
-        "injection": "The fourth attack petrifies Hermione and Penelope, cancels Quidditch, and leads to Dumbledore’s removal and Hagrid’s imprisonment.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "The fourth attack petrifies Hermione and Penelope, cancels Quidditch, and leads to Dumbledore’s removal and Hagrid’s imprisonment. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1617,7 +1835,18 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:albus-dumbledore",
+        "character:hermione-granger",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:2"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1626,7 +1855,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -1634,7 +1863,7 @@
       "canonStatus": "canon",
       "truthStatus": "established",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -1643,8 +1872,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y2.fawkes_sorting_hat_sword",
         "validToAnchor": "hp.y2.diary_destroyed",
-        "sortKeyFrom": 8544,
-        "sortKeyTo": 8548,
+        "sortKeyFrom": 8541,
+        "sortKeyTo": 8553,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Chamber of Secrets: Year 2",
@@ -1707,8 +1936,16 @@
       },
       "content": {
         "fact": "Harry and Ron’s visit to Aragog clarifies that Hagrid was not responsible for the old Chamber attack and points away from the acromantula as the monster.",
-        "injection": "Harry and Ron’s visit to Aragog clarifies that Hagrid was not responsible for the old Chamber attack and points away from the acromantula as the monster.",
-        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced."
+        "injection": "Harry and Ron’s visit to Aragog clarifies that Hagrid was not responsible for the old Chamber attack and points away from the acromantula as the monster. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
+        "constraints": [
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1739,7 +1976,16 @@
           "targetPackId": "hp-year-2-chamber-of-secrets",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:chamber-of-secrets",
+        "character:harry-potter",
+        "character:ron-weasley",
+        "character:rubeus-hagrid",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:2"
+      ]
     }
   ]
 }

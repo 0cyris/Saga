@@ -32,7 +32,6 @@ The harness seeds:
 - A loaded Loredeck stack with the Custom deck above `hp-golden-trio`.
 - Embedded schema v3 Lorecards.
 - A Pending Review proposal on the Custom deck.
-- A local update-source fixture for `Check Updates`.
 - A story-lore and pending-lore sample for the Lore and Injection tabs.
 
 ## Quick Contract Check
@@ -185,7 +184,7 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 - `Smoke Test: Arlong Park` is the selected Custom deck.
 - The tab shows the Library launcher card, not a second inline `Loredeck Library` dropdown/list.
 - The deck detail panel shows Custom/editable controls.
-- `Check Updates`, `Save Metadata`, `Sync From Manifest`, `Repair Safe Issues`, and export controls fit cleanly.
+- `Save Metadata`, `Sync From Manifest`, `Repair Safe Issues`, and zip-package export controls fit cleanly.
 - Collapsible sections have visible dropdown arrows.
 - `Reset Window` from the SillyTavern extension menu restores the expected default open/closed section state, default tab, shelf mode, and safe position/size.
 
@@ -198,19 +197,19 @@ Use a desktop-width browser first, then repeat at a narrow/mobile-ish width.
 - Selected deck details update when a Library card or stack card is clicked.
 - Click selects one deck, Ctrl/Cmd-click toggles decks, and Shift-click selects a visible range.
 - Selected count, Select Visible, Clear, and Export Selected controls are visible and fit the Library pane.
-- Export Selected downloads one `.saga-loredeck.json` file per selected deck rather than one whole-library file.
-- Selecting multiple local JSON files from Import Deck opens the bulk install preview and installs checked files only as new Custom copies.
+- Export Selected downloads one `.saga-loredeck.zip` package for the selected deck set rather than one whole-library file.
+- Selecting a local `.saga-loredeck.zip` package from Import Deck opens the package preview and installs checked decks as Custom Loredecks.
 - Custom/Generated decks expose `Delete Deck`; Bundled decks are protected from deletion.
 - Create/import/duplicate/delete actions refresh the Library without requiring a manual `Refresh Library` click.
 - Controls, chips, titles, and buttons match the runtime style and do not look oversized.
 
-4. Update Preview
+4. Zip Package Import Preview
 
-- Click `Check Updates`.
-- The modal title reads `Loredeck Update Preview`.
-- The preview shows target/original ID, version, content hash, update URL, and duplicate review.
-- A locally modified warning is visible.
-- `Update This Deck`, `Install As New Copy`, and `Cancel` are visible and not clipped.
+- Click `Import Deck` and select a local `.saga-loredeck.zip` fixture.
+- The modal title reads `Import Loredeck Package`.
+- Package chips show installable deck count, Lorecard count, folder count, and selected zip filename.
+- Duplicate package rows are unchecked by default when the content hash already exists.
+- `Install Selected` and `Cancel` are visible and not clipped.
 - Cancel closes the modal cleanly.
 
 5. Pending Review
@@ -294,7 +293,7 @@ Capture at least:
 - Custom Loredeck delete confirmation modal after clicking `Delete Deck`, canceled before deletion.
 - Deck Health Center overview.
 - Deck Health Center issue details.
-- Update preview modal after `Check Updates`.
+- Zip package import preview modal.
 - Pending Review Queue.
 - Fullscreen Loredeck Creator wizard.
 - Settings tab with provider controls.

@@ -1,0 +1,1050 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "anchor_window",
+  "sortKeyScale": "pack_local",
+  "summary": "Expanded Rebellion Era timeline for Star Wars Legends. Primary UX is story-position anchors/windows, with BBY/ABY retained as secondary metadata.",
+  "axes": [
+    {
+      "id": "film",
+      "type": "anchor",
+      "label": "Film / Screen Anchor"
+    },
+    {
+      "id": "event",
+      "type": "anchor",
+      "label": "Major Event"
+    },
+    {
+      "id": "legends-source",
+      "type": "phase",
+      "label": "Legends Source Window"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "sw.rebellion.tantive_iv_captured",
+      "label": "Tantive IV Captured",
+      "contextType": "anchor",
+      "sortKey": 5000,
+      "dateRange": {
+        "from": "0 ABY",
+        "to": "0 ABY"
+      },
+      "aliases": [
+        "leia captured",
+        "opening of a new hope",
+        "tantive captured",
+        "tantive iv",
+        "tantive iv captured"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Tantive IV Captured"
+      }
+    },
+    {
+      "id": "sw.rebellion.plans_reach_tatooine",
+      "label": "Death Star Plans Reach Tatooine",
+      "contextType": "anchor",
+      "sortKey": 5030,
+      "dateRange": {
+        "from": "0 ABY",
+        "to": "0 ABY"
+      },
+      "aliases": [
+        "death star plans reach tatooine",
+        "droids on tatooine",
+        "plans reach tatooine",
+        "r2 has the plans"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:death-star",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Death Star Plans Reach Tatooine"
+      }
+    },
+    {
+      "id": "sw.rebellion.obiwan_joins_luke",
+      "label": "Obi-Wan Draws Luke Into the Rebellion",
+      "contextType": "anchor",
+      "sortKey": 5070,
+      "dateRange": {
+        "from": "0 ABY",
+        "to": "0 ABY"
+      },
+      "aliases": [
+        "ben kenobi",
+        "luke leaves tatooine",
+        "obi-wan draws luke into the rebellion",
+        "obi-wan joins luke"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Obi-Wan Draws Luke Into the Rebellion"
+      }
+    },
+    {
+      "id": "sw.rebellion.alderaan_destroyed",
+      "label": "Alderaan Destroyed",
+      "contextType": "anchor",
+      "sortKey": 5120,
+      "dateRange": {
+        "from": "0 ABY",
+        "to": "0 ABY"
+      },
+      "aliases": [
+        "alderaan destroyed",
+        "death star destroys alderaan"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Alderaan Destroyed"
+      }
+    },
+    {
+      "id": "sw.rebellion.yavin_battle",
+      "label": "Battle of Yavin",
+      "contextType": "anchor",
+      "sortKey": 5150,
+      "dateRange": {
+        "from": "0 ABY",
+        "to": "0 ABY"
+      },
+      "aliases": [
+        "a new hope ending",
+        "battle of yavin",
+        "death star destroyed",
+        "yavin"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:yavin",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Battle of Yavin"
+      }
+    },
+    {
+      "id": "sw.rebellion.yavin_aftermath",
+      "label": "Yavin Aftermath",
+      "contextType": "anchor",
+      "sortKey": 5200,
+      "dateRange": {
+        "from": "0 ABY",
+        "to": "0 ABY"
+      },
+      "aliases": [
+        "after a new hope",
+        "after yavin",
+        "post anh",
+        "post yavin",
+        "yavin aftermath"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:yavin",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Yavin Aftermath"
+      }
+    },
+    {
+      "id": "sw.rebellion.rebel_base_search",
+      "label": "Rebel Base Search Intensifies",
+      "contextType": "anchor",
+      "sortKey": 5500,
+      "dateRange": {
+        "from": "0 ABY",
+        "to": "0 ABY"
+      },
+      "aliases": [
+        "between yavin and hoth",
+        "empire hunts rebels",
+        "rebel base search",
+        "rebel base search intensifies"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Rebel Base Search Intensifies"
+      }
+    },
+    {
+      "id": "sw.rebellion.hoth_established",
+      "label": "Echo Base Established on Hoth",
+      "contextType": "anchor",
+      "sortKey": 5800,
+      "dateRange": {
+        "from": "0 ABY",
+        "to": "0 ABY"
+      },
+      "aliases": [
+        "before hoth battle",
+        "echo base established",
+        "echo base established on hoth",
+        "hoth base"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:hoth",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Echo Base Established on Hoth"
+      }
+    },
+    {
+      "id": "sw.rebellion.probe_droid_finds_hoth",
+      "label": "Imperial Probe Finds Hoth",
+      "contextType": "anchor",
+      "sortKey": 5940,
+      "dateRange": {
+        "from": "0 ABY",
+        "to": "0 ABY"
+      },
+      "aliases": [
+        "hoth discovered",
+        "imperial probe finds hoth",
+        "imperials find echo base",
+        "probe droid finds hoth"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:hoth",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Imperial Probe Finds Hoth"
+      }
+    },
+    {
+      "id": "sw.rebellion.hoth_evacuated",
+      "label": "Hoth Evacuated",
+      "contextType": "anchor",
+      "sortKey": 6000,
+      "dateRange": {
+        "from": "3 ABY",
+        "to": "3 ABY"
+      },
+      "aliases": [
+        "after hoth",
+        "echo base lost",
+        "empire strikes back opening",
+        "hoth evacuated"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:hoth",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Hoth Evacuated"
+      }
+    },
+    {
+      "id": "sw.rebellion.dagobah_training",
+      "label": "Luke Trains on Dagobah",
+      "contextType": "anchor",
+      "sortKey": 6100,
+      "dateRange": {
+        "from": "3 ABY",
+        "to": "3 ABY"
+      },
+      "aliases": [
+        "dagobah training",
+        "luke trains on dagobah",
+        "luke trains with yoda",
+        "yoda training"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Luke Trains on Dagobah"
+      }
+    },
+    {
+      "id": "sw.rebellion.asteroid_pursuit",
+      "label": "Falcon Flees Through the Asteroids",
+      "contextType": "anchor",
+      "sortKey": 6140,
+      "dateRange": {
+        "from": "3 ABY",
+        "to": "3 ABY"
+      },
+      "aliases": [
+        "asteroid chase",
+        "falcon asteroid field",
+        "falcon flees through the asteroids",
+        "imperial pursuit"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Falcon Flees Through the Asteroids"
+      }
+    },
+    {
+      "id": "sw.rebellion.bespin_trap",
+      "label": "Cloud City Trap Springs",
+      "contextType": "anchor",
+      "sortKey": 6180,
+      "dateRange": {
+        "from": "3 ABY",
+        "to": "3 ABY"
+      },
+      "aliases": [
+        "bespin betrayal",
+        "cloud city trap",
+        "cloud city trap springs",
+        "lando betrays them"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:bespin",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Cloud City Trap Springs"
+      }
+    },
+    {
+      "id": "sw.rebellion.bespin_fallout",
+      "label": "Bespin Fallout",
+      "contextType": "anchor",
+      "sortKey": 6200,
+      "dateRange": {
+        "from": "3 ABY",
+        "to": "3 ABY"
+      },
+      "aliases": [
+        "after bespin",
+        "after empire",
+        "bespin fallout",
+        "cloud city aftermath",
+        "post esb"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:bespin",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Bespin Fallout"
+      }
+    },
+    {
+      "id": "sw.rebellion.vader_paternity_claim",
+      "label": "Vader Claims Luke as His Son",
+      "contextType": "anchor",
+      "sortKey": 6250,
+      "dateRange": {
+        "from": "3 ABY",
+        "to": "3 ABY"
+      },
+      "aliases": [
+        "i am your father aftermath",
+        "vader claims luke as his son",
+        "vader father reveal",
+        "vader paternity claim"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Vader Claims Luke as His Son"
+      }
+    },
+    {
+      "id": "sw.rebellion.han_at_jabba",
+      "label": "Han Held by Jabba",
+      "contextType": "anchor",
+      "sortKey": 6300,
+      "dateRange": {
+        "from": "3 ABY",
+        "to": "3 ABY"
+      },
+      "aliases": [
+        "han at jabba",
+        "han held by jabba",
+        "han in carbonite",
+        "jabba has han",
+        "rescue han setup"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:jabbas-palace",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Han Held by Jabba"
+      }
+    },
+    {
+      "id": "sw.rebellion.black_sun_conflict",
+      "label": "Black Sun Conflict",
+      "contextType": "anchor",
+      "sortKey": 6500,
+      "dateRange": {
+        "from": "3 ABY",
+        "to": "3 ABY"
+      },
+      "aliases": [
+        "between empire and return",
+        "black sun",
+        "black sun conflict",
+        "prince xizor",
+        "shadows of the empire",
+        "xizor"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:black-sun-conflict",
+        "event:shadows-of-the-empire",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Black Sun Conflict"
+      }
+    },
+    {
+      "id": "sw.rebellion.bothan_intel",
+      "label": "Bothan Intelligence Reaches the Alliance",
+      "contextType": "anchor",
+      "sortKey": 6850,
+      "dateRange": {
+        "from": "3 ABY",
+        "to": "3 ABY"
+      },
+      "aliases": [
+        "bothan intel",
+        "bothan intelligence reaches the alliance",
+        "bothan spies",
+        "second death star briefing setup"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:bothan-intel",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Bothan Intelligence Reaches the Alliance"
+      }
+    },
+    {
+      "id": "sw.rebellion.rotj_opening",
+      "label": "Return of the Jedi Opening",
+      "contextType": "anchor",
+      "sortKey": 7000,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "jabba palace begins",
+        "return of the jedi opening",
+        "rotj opening"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Return of the Jedi Opening"
+      }
+    },
+    {
+      "id": "sw.rebellion.jabba_rescue",
+      "label": "Jabba Rescue and Sarlacc Battle",
+      "contextType": "anchor",
+      "sortKey": 7050,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "jabba palace",
+        "jabba rescue",
+        "jabba rescue and sarlacc battle",
+        "sail barge",
+        "sarlacc"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:jabbas-palace",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Jabba Rescue and Sarlacc Battle"
+      }
+    },
+    {
+      "id": "sw.rebellion.yoda_death",
+      "label": "Yoda Dies on Dagobah",
+      "contextType": "anchor",
+      "sortKey": 7120,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "dagobah revelation",
+        "return to dagobah",
+        "yoda dies",
+        "yoda dies on dagobah"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Yoda Dies on Dagobah"
+      }
+    },
+    {
+      "id": "sw.rebellion.dagobah_revelations",
+      "label": "Dagobah Revelations",
+      "contextType": "anchor",
+      "sortKey": 7150,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "dagobah revelations",
+        "luke learns leia",
+        "obi-wan reveals leia"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dagobah Revelations"
+      }
+    },
+    {
+      "id": "sw.rebellion.endor_briefing",
+      "label": "Endor Mission Briefing",
+      "contextType": "anchor",
+      "sortKey": 7300,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "bothan spies",
+        "endor briefing",
+        "endor mission briefing",
+        "second death star briefing",
+        "shield generator"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:endor",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Endor Mission Briefing"
+      }
+    },
+    {
+      "id": "sw.rebellion.ewok_alliance",
+      "label": "Ewok Alliance Forms",
+      "contextType": "anchor",
+      "sortKey": 7420,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "endor ground team",
+        "ewok alliance",
+        "ewok alliance forms",
+        "ewok village"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Ewok Alliance Forms"
+      }
+    },
+    {
+      "id": "sw.rebellion.throne_room_confrontation",
+      "label": "Luke Confronts Vader and Palpatine",
+      "contextType": "anchor",
+      "sortKey": 7500,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "luke before emperor",
+        "luke confronts vader",
+        "luke confronts vader and palpatine",
+        "throne room"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Luke Confronts Vader and Palpatine"
+      }
+    },
+    {
+      "id": "sw.rebellion.battle_of_endor",
+      "label": "Battle of Endor",
+      "contextType": "anchor",
+      "sortKey": 7600,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "battle of endor",
+        "death star ii battle",
+        "endor"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:endor",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Battle of Endor"
+      }
+    },
+    {
+      "id": "sw.rebellion.death_star_ii_destroyed",
+      "label": "Second Death Star Destroyed",
+      "contextType": "anchor",
+      "sortKey": 7650,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "death star ii destroyed",
+        "second death star destroyed"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:death-star-ii",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Second Death Star Destroyed"
+      }
+    },
+    {
+      "id": "sw.rebellion.emperor_falls",
+      "label": "Emperor Falls at Endor",
+      "contextType": "anchor",
+      "sortKey": 7660,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "emperor defeated",
+        "emperor falls",
+        "emperor falls at endor",
+        "palpatine defeated"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:endor",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Emperor Falls at Endor"
+      }
+    },
+    {
+      "id": "sw.rebellion.vader_redeemed",
+      "label": "Vader Redeemed and Anakin Dies",
+      "contextType": "anchor",
+      "sortKey": 7670,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "anakin dies",
+        "vader dies",
+        "vader redeemed",
+        "vader redeemed and anakin dies"
+      ],
+      "tags": [
+        "era:rebellion",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Vader Redeemed and Anakin Dies"
+      }
+    },
+    {
+      "id": "sw.rebellion.post_endor_transition",
+      "label": "Post-Endor Transition Begins",
+      "contextType": "anchor",
+      "sortKey": 7800,
+      "dateRange": {
+        "from": "4 ABY",
+        "to": "4 ABY"
+      },
+      "aliases": [
+        "after endor",
+        "new republic begins later",
+        "post endor",
+        "post-endor transition begins"
+      ],
+      "tags": [
+        "era:rebellion",
+        "event:endor",
+        "scope:rebellion-era"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Post-Endor Transition Begins"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "sw.rebellion.window.anh_yavin_crisis",
+      "label": "A New Hope / Yavin Crisis",
+      "anchorFrom": "sw.rebellion.tantive_iv_captured",
+      "anchorTo": "sw.rebellion.yavin_battle",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 5150,
+      "aliases": [
+        "a new hope",
+        "during a new hope",
+        "yavin crisis"
+      ],
+      "tags": [
+        "event:yavin",
+        "event:death-star"
+      ],
+      "windowKind": "bounded"
+    },
+    {
+      "id": "sw.rebellion.window.after_yavin_before_hoth",
+      "label": "After Yavin, before Hoth",
+      "anchorFrom": "sw.rebellion.yavin_aftermath",
+      "anchorTo": "sw.rebellion.hoth_evacuated",
+      "sortKeyFrom": 5200,
+      "sortKeyTo": 6000,
+      "aliases": [
+        "after yavin before hoth",
+        "between anh and empire",
+        "post yavin pre hoth",
+        "after a new hope before empire"
+      ],
+      "tags": [
+        "event:yavin",
+        "event:hoth"
+      ],
+      "windowKind": "wide"
+    },
+    {
+      "id": "sw.rebellion.window.hoth_campaign",
+      "label": "Hoth Campaign",
+      "anchorFrom": "sw.rebellion.probe_droid_finds_hoth",
+      "anchorTo": "sw.rebellion.hoth_evacuated",
+      "sortKeyFrom": 5940,
+      "sortKeyTo": 6000,
+      "aliases": [
+        "battle of hoth",
+        "hoth evacuation",
+        "echo base evacuation"
+      ],
+      "tags": [
+        "event:hoth"
+      ],
+      "windowKind": "bounded"
+    },
+    {
+      "id": "sw.rebellion.window.esb_path",
+      "label": "The Empire Strikes Back Path",
+      "anchorFrom": "sw.rebellion.hoth_evacuated",
+      "anchorTo": "sw.rebellion.han_at_jabba",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 6300,
+      "aliases": [
+        "during empire",
+        "empire strikes back",
+        "esb"
+      ],
+      "tags": [
+        "event:hoth",
+        "event:bespin"
+      ],
+      "windowKind": "bounded"
+    },
+    {
+      "id": "sw.rebellion.window.after_empire_before_return",
+      "label": "After Empire, before Return",
+      "anchorFrom": "sw.rebellion.bespin_fallout",
+      "anchorTo": "sw.rebellion.rotj_opening",
+      "sortKeyFrom": 6200,
+      "sortKeyTo": 7000,
+      "aliases": [
+        "after empire before return",
+        "post esb pre rotj",
+        "between empire and return",
+        "after bespin before jabba",
+        "after empire, before return"
+      ],
+      "tags": [
+        "event:bespin",
+        "event:jabbas-palace"
+      ],
+      "windowKind": "wide"
+    },
+    {
+      "id": "sw.rebellion.window.shadows_of_the_empire",
+      "label": "Shadows of the Empire / Black Sun Window",
+      "anchorFrom": "sw.rebellion.bespin_fallout",
+      "anchorTo": "sw.rebellion.rotj_opening",
+      "sortKeyFrom": 6200,
+      "sortKeyTo": 7000,
+      "aliases": [
+        "shadows of the empire",
+        "black sun conflict",
+        "xizor era",
+        "dash rendar era"
+      ],
+      "tags": [
+        "event:shadows-of-the-empire",
+        "event:black-sun-conflict"
+      ],
+      "windowKind": "wide"
+    },
+    {
+      "id": "sw.rebellion.window.jabba_rescue",
+      "label": "Jabba Rescue Sequence",
+      "anchorFrom": "sw.rebellion.rotj_opening",
+      "anchorTo": "sw.rebellion.dagobah_revelations",
+      "sortKeyFrom": 7000,
+      "sortKeyTo": 7150,
+      "aliases": [
+        "jabba rescue",
+        "jabba palace",
+        "sarlacc",
+        "rescue han"
+      ],
+      "tags": [
+        "event:jabbas-palace",
+        "place:tatooine"
+      ],
+      "windowKind": "bounded"
+    },
+    {
+      "id": "sw.rebellion.window.endor_operation",
+      "label": "Endor Operation",
+      "anchorFrom": "sw.rebellion.endor_briefing",
+      "anchorTo": "sw.rebellion.vader_redeemed",
+      "sortKeyFrom": 7300,
+      "sortKeyTo": 7670,
+      "aliases": [
+        "endor operation",
+        "battle of endor",
+        "death star ii attack"
+      ],
+      "tags": [
+        "event:endor",
+        "event:death-star-ii"
+      ],
+      "windowKind": "bounded"
+    },
+    {
+      "id": "sw.rebellion.window.pre_endor_guard",
+      "label": "Before the Battle of Endor Outcome",
+      "anchorFrom": "sw.rebellion.yavin_aftermath",
+      "anchorTo": "sw.rebellion.battle_of_endor",
+      "sortKeyFrom": 5200,
+      "sortKeyTo": 7600,
+      "aliases": [
+        "before endor",
+        "pre endor",
+        "before new republic"
+      ],
+      "tags": [
+        "topic:future-guard",
+        "era:rebellion"
+      ],
+      "windowKind": "wide"
+    },
+    {
+      "id": "sw.rebellion.window.rebellion_series",
+      "label": "Galactic Civil War Rebellion Era",
+      "anchorFrom": "sw.rebellion.tantive_iv_captured",
+      "anchorTo": "sw.rebellion.vader_redeemed",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 7670,
+      "aliases": [
+        "rebellion era",
+        "original trilogy era",
+        "galactic civil war"
+      ],
+      "tags": [
+        "era:rebellion"
+      ],
+      "windowKind": "series"
+    }
+  ],
+  "phases": [
+    {
+      "id": "sw.rebellion.phase.anh_yavin",
+      "label": "A New Hope / Yavin Crisis",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 5200,
+      "aliases": [
+        "a new hope",
+        "yavin crisis"
+      ],
+      "tags": [
+        "event:yavin"
+      ]
+    },
+    {
+      "id": "sw.rebellion.phase.yavin_to_hoth",
+      "label": "Yavin to Hoth",
+      "sortKeyFrom": 5200,
+      "sortKeyTo": 6000,
+      "aliases": [
+        "between anh and empire",
+        "post-yavin"
+      ],
+      "tags": [
+        "event:yavin",
+        "event:hoth"
+      ]
+    },
+    {
+      "id": "sw.rebellion.phase.empire",
+      "label": "Empire / Hoth to Bespin",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 6300,
+      "aliases": [
+        "empire strikes back",
+        "esb"
+      ],
+      "tags": [
+        "event:hoth",
+        "event:bespin"
+      ]
+    },
+    {
+      "id": "sw.rebellion.phase.after_empire",
+      "label": "After Empire, before Return",
+      "sortKeyFrom": 6200,
+      "sortKeyTo": 7000,
+      "aliases": [
+        "post-esb pre-rotj",
+        "between empire and return"
+      ],
+      "tags": [
+        "event:bespin"
+      ]
+    },
+    {
+      "id": "sw.rebellion.phase.return",
+      "label": "Return of the Jedi",
+      "sortKeyFrom": 7000,
+      "sortKeyTo": 7670,
+      "aliases": [
+        "return of the jedi",
+        "rotj"
+      ],
+      "tags": [
+        "event:jabbas-palace",
+        "event:endor"
+      ]
+    }
+  ]
+}

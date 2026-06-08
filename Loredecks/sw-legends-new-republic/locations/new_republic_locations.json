@@ -1,0 +1,1013 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_coruscant_new_republic_capital_but_scarred",
+      "title": "Coruscant New Republic Capital but Scarred",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.coruscant_liberated",
+        "validToAnchor": "sw.nr.coruscant_liberated",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Coruscant Liberated",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "government",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "place:coruscant",
+        "scope:new-republic",
+        "topic:government",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "government",
+            "politics"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Once liberated, Coruscant becomes the New Republic capital but remains politically scarred by Imperial rule.",
+        "injection": "Use Coruscant as a bureaucratic and symbolic center with lingering Imperial infrastructure and intrigue. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Coruscant Liberated.",
+          "Respect story-position bounds from Coruscant Liberated to Coruscant Liberated."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "locations/new_republic_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_yavin_iv_praxeum_sacred_and_dangerous",
+      "title": "Yavin IV Praxeum Is Sacred and Dangerous",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.jedi_academy_founded",
+        "validToAnchor": "sw.nr.praxeum_stabilizes",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Academy founding era",
+        "phase": "Jedi Academy Era to Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Yavin IV"
+        ],
+        "topics": [
+          "jedi",
+          "dark-side",
+          "academy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "place:yavin-iv",
+        "scope:new-republic",
+        "topic:academy",
+        "topic:dark-side",
+        "topic:jedi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "jedi",
+            "dark-side",
+            "academy"
+          ],
+          "locationsAny": [
+            "Yavin IV"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Yavin IV becomes Luke’s Jedi training site while carrying ancient dark-side danger from Exar Kun.",
+        "injection": "During the Jedi Academy founding era, make Yavin IV both hopeful and hazardous: Luke is rebuilding Jedi training there, but ancient temple danger and Exar Kun-linked shadow can pressure scenes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Academy founding era.",
+          "Respect story-position bounds from Luke Founds the Jedi Academy to Jedi Praxeum Stabilizes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "locations/new_republic_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_wayland_mount_tantiss_hidden",
+      "title": "Wayland / Mount Tantiss Is Hidden Imperial Legacy",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Wayland"
+        ],
+        "topics": [
+          "clone",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "place:wayland",
+        "scope:new-republic",
+        "topic:clone",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "clone",
+            "secret"
+          ],
+          "locationsAny": [
+            "Wayland"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Wayland hides Mount Tantiss, cloning resources, and Imperial secrets that shape the Thrawn campaign.",
+        "injection": "Before discovery, keep Wayland/Tantiss as secret; after discovery, use it as a dangerous Imperial legacy site.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "locations/new_republic_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_byss_dark_empire_site_only",
+      "title": "Byss Belongs to Dark Empire Context",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.dark_empire_begins",
+        "validToAnchor": "sw.nr.palpatine_clone_defeated",
+        "sortKeyFrom": 12500,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Empire crisis",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Byss"
+        ],
+        "topics": [
+          "dark-side",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "place:byss",
+        "scope:new-republic",
+        "topic:dark-side",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "dark-side",
+            "secret"
+          ],
+          "locationsAny": [
+            "Byss"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Byss is a hidden dark-side Imperial throne world in Dark Empire, not common New Republic geography.",
+        "injection": "When active in Dark Empire crisis, only surface Byss as active lore in Dark Empire or later contexts, not routine post-Endor scenes. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Empire crisis.",
+          "Respect story-position bounds from Dark Empire Crisis Begins to Palpatine Clone Threat Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "locations/new_republic_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_dathomir_force_clan_world",
+      "title": "Dathomir Is a Force Clan World",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.han_leia_married",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Han and Leia Married",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Dathomir"
+        ],
+        "topics": [
+          "force",
+          "diplomacy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "place:dathomir",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:force"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "force",
+            "diplomacy"
+          ],
+          "locationsAny": [
+            "Dathomir"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Dathomir contains clan-based Force traditions, rancors, and local power structures distinct from galactic politics.",
+        "injection": "Use Dathomir as a dangerous local culture with its own rules rather than a generic wilderness planet. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Han and Leia Married.",
+          "Respect story-position bounds from Han and Leia Married to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "locations/new_republic_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_hapes_court_political_pressure",
+      "title": "Hapes Court Applies Marriage and Alliance Pressure",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.han_leia_married",
+        "validToAnchor": "sw.nr.han_leia_married",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Han and Leia Married",
+        "phase": "Early New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Hapes"
+        ],
+        "topics": [
+          "marriage",
+          "diplomacy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "place:hapes",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:marriage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "marriage",
+            "diplomacy"
+          ],
+          "locationsAny": [
+            "Hapes"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Hapes operates through court power, isolation, wealth, and dynastic politics.",
+        "injection": "In Hapan context, diplomacy often carries personal and marriage politics with strategic consequences. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Han and Leia Married.",
+          "Respect story-position bounds from Han and Leia Married to Han and Leia Married."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "locations/new_republic_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_bastion_later_remnant_center",
+      "title": "Bastion as Later Remnant Center",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.caamas_document_crisis",
+        "validToAnchor": "sw.nr.imperial_peace",
+        "sortKeyFrom": 18000,
+        "sortKeyTo": 19500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hand of Thrawn / Imperial peace",
+        "phase": "Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Bastion"
+        ],
+        "topics": [
+          "imperial remnant",
+          "government"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "place:bastion",
+        "scope:new-republic",
+        "topic:government",
+        "topic:imperial-remnant"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "imperial remnant",
+            "government"
+          ],
+          "locationsAny": [
+            "Bastion"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Bastion becomes associated with later Imperial Remnant governance rather than early post-Endor Imperial control.",
+        "injection": "Do not place Bastion-style Remnant stability too early; use it after the Remnant consolidates toward peace-era politics.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Hand of Thrawn / Imperial peace.",
+          "Respect story-position bounds from Caamas Document Crisis to New Republic and Imperial Remnant Peace."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "locations/new_republic_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_nirauan_hidden_thrawn_site",
+      "title": "Nirauan Hidden Thrawn Site",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.caamas_document_crisis",
+        "validToAnchor": "sw.nr.imperial_peace",
+        "sortKeyFrom": 18000,
+        "sortKeyTo": 19500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hand of Thrawn / Imperial peace",
+        "phase": "Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Nirauan"
+        ],
+        "topics": [
+          "secret",
+          "imperial remnant"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "place:nirauan",
+        "scope:new-republic",
+        "topic:imperial-remnant",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "secret",
+            "imperial remnant"
+          ],
+          "locationsAny": [
+            "Nirauan"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Nirauan hides the Hand of Thrawn site and should remain secret until Hand of Thrawn context.",
+        "injection": "Before the Hand of Thrawn resolution, block casual knowledge of Nirauan’s strategic significance. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Hand of Thrawn / Imperial peace.",
+          "Respect story-position bounds from Caamas Document Crisis to New Republic and Imperial Remnant Peace."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "locations/new_republic_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_moncala_symbolic_target_dark_empire",
+      "title": "Mon Calamari as Dark Empire Target",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.world_devastators",
+        "validToAnchor": "sw.nr.world_devastators",
+        "sortKeyFrom": 12600,
+        "sortKeyTo": 12600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "World Devastators Attack",
+        "phase": "Dark Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Mon Calamari"
+        ],
+        "topics": [
+          "superweapon",
+          "fleet"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "place:mon-calamari",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:superweapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "superweapon",
+            "fleet"
+          ],
+          "locationsAny": [
+            "Mon Calamari"
+          ],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Mon Calamari becomes a symbolic and strategic target during World Devastator attacks.",
+        "injection": "During Dark Empire, attacks on Mon Calamari should read as terror against a major Rebel/New Republic-aligned world.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: World Devastators Attack.",
+          "Respect story-position bounds from World Devastators Attack to World Devastators Attack."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "locations/new_republic_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_corellia_has_strong_local_identity",
+      "title": "Corellia Has Strong Local Identity",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.praxeum_stabilizes",
+        "validToAnchor": "sw.nr.caamas_document_crisis",
+        "sortKeyFrom": 15000,
+        "sortKeyTo": 18000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Mid New Republic crises",
+        "phase": "Mid New Republic to Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Corellia"
+        ],
+        "topics": [
+          "politics",
+          "government"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "place:corellia",
+        "scope:new-republic",
+        "topic:government",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "politics",
+            "government"
+          ],
+          "locationsAny": [
+            "Corellia"
+          ],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Corellia has strong local identity and later crisis potential that can conflict with central New Republic authority.",
+        "injection": "In Corellian contexts, emphasize local pride, autonomy, and political friction with Coruscant. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mid New Republic crises.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "locations/new_republic_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

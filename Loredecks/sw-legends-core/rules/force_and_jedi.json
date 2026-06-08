@@ -1,0 +1,1559 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_force_sensitive_not_automatic_jedi",
+      "title": "Force-Sensitive Is Not Automatic Jedi",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:force",
+        "topic:jedi",
+        "topic:sith",
+        "faction:jedi-order",
+        "faction:sith"
+      ],
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "Force sensitivity",
+          "Jedi training",
+          "Sith training",
+          "untrained Force users"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Force sensitivity",
+            "Jedi training",
+            "Sith training",
+            "untrained Force users",
+            "Jedi Order",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Force sensitivity does not make a person a trained Jedi or Sith; doctrine, training, discipline, and institutions matter.",
+        "injection": "Do not treat every Force-sensitive character as a trained Jedi or Sith. Distinguish raw sensitivity from practiced techniques, rank, doctrine, and institutional membership.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "force",
+        "name": "Force sensitivity",
+        "stage": "untrained_to_trained",
+        "ownerEntityIds": [],
+        "constraints": [
+          "Sensitivity alone does not grant controlled techniques."
+        ],
+        "antiLore": [
+          "Do not promote untrained sensitivity into full Jedi competence without story support."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_force_training_requires_discipline",
+      "title": "Force Training Requires Discipline",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:force",
+        "topic:jedi",
+        "topic:sith",
+        "relationship:mentor-student"
+      ],
+      "priority": 68,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "Force training",
+          "discipline",
+          "mentor training"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Force training",
+            "discipline",
+            "mentor training",
+            "Jedi Order",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Reliable Force use generally depends on practice, emotional control, and instruction, even for unusually gifted characters.",
+        "injection": "Portray controlled Force use as trained discipline. Gifted characters may have flashes of instinct, but reliable techniques need practice, focus, and limits.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "force",
+        "name": "Force training",
+        "stage": "general",
+        "ownerEntityIds": [],
+        "constraints": [
+          "Instinctive moments should not replace training arcs."
+        ],
+        "antiLore": [
+          "Do not make novice Force users casually master advanced powers."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_jedi_order_is_institution",
+      "title": "Jedi Order Is an Institution",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:jedi",
+        "faction:jedi-order",
+        "topic:force"
+      ],
+      "priority": 64,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Jedi identity",
+          "Jedi doctrine",
+          "Force users"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi identity",
+            "Jedi doctrine",
+            "Force users",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Jedi Order is a religious, philosophical, and peacekeeping institution, not a species or generic synonym for anyone who uses the Force.",
+        "injection": "Use Jedi to mean membership, training, or tradition within the Jedi Order. Do not use it as a blanket label for every light-side or Force-sensitive person.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_jedi_restraint_baseline",
+      "title": "Jedi Restraint Baseline",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:jedi",
+        "faction:jedi-order",
+        "topic:force"
+      ],
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Jedi Code",
+          "restraint",
+          "discipline"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi Code",
+            "restraint",
+            "discipline",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Traditional Jedi doctrine emphasizes restraint, service, emotional discipline, and defense over domination or revenge.",
+        "injection": "When writing orthodox Jedi, bias them toward restraint, defense, negotiation, and self-control unless the character or era gives a reason to deviate.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_jedi_are_republic_tied_before_purge",
+      "title": "Jedi Tied to Republic Before Purge",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:jedi",
+        "faction:jedi-order",
+        "faction:galactic-republic",
+        "era:prequel",
+        "event:clone-wars"
+      ],
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.film.episode_3_rots",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Prequel and Clone Wars broad window",
+        "approximate": false,
+        "phase": "Prequel Era"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "Jedi Council",
+          "Republic service",
+          "Clone Wars command"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi Council",
+            "Republic service",
+            "Clone Wars command",
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Order 66, the Jedi Order is closely tied to the Galactic Republic and its institutions, especially during the Clone Wars.",
+        "injection": "In prequel-era scenes, treat the Jedi as official Republic peacekeepers and commanders, not detached wandering adventurers unless the scene is outside institutional reach.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Prequel and Clone Wars broad window.",
+          "Respect story-position bounds from Episode I: The Phantom Menace to Episode III: Revenge of the Sith."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_jedi_order_broken_after_order66",
+      "title": "Jedi Order Broken After Order 66",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:jedi-order",
+        "faction:galactic-empire",
+        "topic:jedi",
+        "event:order-66",
+        "topic:future-guard",
+        "character:yoda",
+        "character:obi-wan-kenobi",
+        "character:luke-skywalker"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Revenge of the Sith, before Return of the Jedi",
+        "approximate": false,
+        "phase": "Imperial Era"
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Yoda",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Dagobah",
+          "Tatooine"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Order 66",
+          "Jedi survivors",
+          "Imperial Jedi purge"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Yoda",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Dagobah",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "Order 66",
+            "Jedi survivors",
+            "Imperial Jedi purge",
+            "Jedi Order",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Order 66, the Jedi Order is shattered; surviving Jedi are hidden, hunted, isolated, or operating under exceptional circumstances.",
+        "injection": "After Revenge of the Sith, do not portray open Jedi institutions or routine Jedi public authority unless a narrower deck establishes a survivor enclave or later Luke-era restoration. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Revenge of the Sith, before Return of the Jedi.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_luke_restoration_not_pre_endor",
+      "title": "Luke Restoration Not Pre-Endor",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:luke-skywalker",
+        "faction:jedi-order",
+        "topic:future-guard",
+        "era:post-endor"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Rebel Alliance before Endor",
+        "approximate": false,
+        "phase": "Rebellion Era"
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Jedi restoration",
+          "Jedi academy",
+          "future guard"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi restoration",
+            "Jedi academy",
+            "future guard",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke Skywalker has not rebuilt a functioning Jedi Order before the post-Endor Legends era.",
+        "injection": "Before the post-Endor era, keep Luke’s Jedi status personal and developing. Do not introduce a rebuilt Jedi academy or new Jedi Order unless the story explicitly diverges. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rebel Alliance before Endor.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_force_visions_are_ambiguous",
+      "title": "Force Visions Are Ambiguous",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "topic:force",
+        "topic:prophecy",
+        "topic:future-guard"
+      ],
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "Force visions",
+          "prophecy",
+          "premonitions",
+          "future knowledge"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Force visions",
+            "prophecy",
+            "premonitions",
+            "future knowledge"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Force visions can be symbolic, partial, misleading, or shaped by fear; they are not clean omniscient spoilers by default.",
+        "injection": "Treat Force visions as unstable signals. They may warn, tempt, or foreshadow, but should not provide complete future-canon certainty unless the story specifically establishes that.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_mind_tricks_need_opening",
+      "title": "Mind Tricks Need an Opening",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:force",
+        "topic:jedi",
+        "ability:mind-trick"
+      ],
+      "priority": 64,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "mind trick",
+          "mental influence",
+          "willpower"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "mind trick",
+            "mental influence",
+            "willpower",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Jedi mind influence is not universal mind control; it works best on weak-minded or susceptible targets and can fail against discipline, species resistance, or strong will.",
+        "injection": "Use mind tricks as limited influence, not automatic domination. Let trained, strong-willed, resistant, or alert targets plausibly resist.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "force",
+        "name": "Jedi mind trick",
+        "stage": "trained",
+        "ownerEntityIds": [],
+        "constraints": [
+          "Not reliable on every target."
+        ],
+        "antiLore": [
+          "Do not use mind tricks as effortless total mind control."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_telekinesis_needs_focus",
+      "title": "Force Telekinesis Needs Focus",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:force",
+        "ability:telekinesis"
+      ],
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "telekinesis",
+          "Force push",
+          "Force pull",
+          "focus"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "telekinesis",
+            "Force push",
+            "Force pull",
+            "focus"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Force telekinesis scales with focus, training, emotion, distance, mass, and opposition; it is not unlimited casual object control.",
+        "injection": "Constrain Force pushes, pulls, throws, and lifts by attention, training, target size, resistance, and scene pressure.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "force",
+        "name": "Telekinesis",
+        "stage": "general",
+        "ownerEntityIds": [],
+        "constraints": [
+          "Scale with training, mass, resistance, and focus."
+        ],
+        "antiLore": [
+          "Do not make telekinesis solve every obstacle without cost or attention."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_force_lightning_is_advanced_dark_side",
+      "title": "Force Lightning Is Advanced Dark Side",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "topic:force",
+        "topic:sith",
+        "ability:force-lightning",
+        "faction:sith"
+      ],
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Sith"
+        ],
+        "topics": [
+          "Force lightning",
+          "dark side techniques",
+          "advanced Force powers"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Force lightning",
+            "dark side techniques",
+            "advanced Force powers",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Force lightning is an advanced dark-side expression, not a casual neutral technique available to ordinary Force users.",
+        "injection": "Reserve Force lightning for trained dark-side users or exceptional circumstances established by the active story and source deck.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "force",
+        "name": "Force lightning",
+        "stage": "advanced_dark_side",
+        "ownerEntityIds": [],
+        "constraints": [
+          "Generally requires dark-side training or exceptional corruption."
+        ],
+        "antiLore": [
+          "Do not give Force lightning to ordinary Jedi or beginners by default."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_force_healing_not_casual_reset",
+      "title": "Force Healing Is Not a Casual Reset",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:force",
+        "ability:force-healing",
+        "topic:jedi"
+      ],
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Force healing",
+          "injuries",
+          "medical limits"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Force healing",
+            "injuries",
+            "medical limits",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Legends contains Force healing traditions, but healing is limited by training, injury severity, time, exhaustion, and the source tradition involved.",
+        "injection": "Do not use Force healing as a consequence-free reset. Require training, limits, recovery time, or a specific technique introduced by the loaded deck.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "force",
+        "name": "Force healing",
+        "stage": "trained_or_specialized",
+        "ownerEntityIds": [],
+        "constraints": [
+          "Healing should not erase serious injury without limits."
+        ],
+        "antiLore": [
+          "Do not turn every Force user into an instant healer."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_force_ghosts_are_exceptional",
+      "title": "Force Spirits Are Exceptional",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "topic:force",
+        "topic:jedi",
+        "topic:secret",
+        "character:obi-wan-kenobi",
+        "character:yoda"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Yoda"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Force spirits",
+          "death",
+          "afterlife"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Yoda"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Force spirits",
+            "death",
+            "afterlife",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Appearing after death as a Force spirit is exceptional and tied to specific training, destiny, or unusual spiritual circumstances.",
+        "injection": "Do not let any dead Jedi casually appear as a ghost. Force spirit appearances should be rare, purposeful, and source-supported.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_jedi_rank_matters",
+      "title": "Jedi Rank Matters",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:jedi",
+        "faction:jedi-order",
+        "relationship:mentor-student"
+      ],
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Padawan",
+          "Jedi Knight",
+          "Jedi Master",
+          "rank"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Padawan",
+            "Jedi Knight",
+            "Jedi Master",
+            "rank",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Padawan, Knight, and Master imply different authority, training, and responsibility inside the Jedi tradition.",
+        "injection": "Respect Jedi rank and training stage. A Padawan, Knight, and Master should not carry the same institutional authority or technical maturity.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_lightsabers_need_skill",
+      "title": "Lightsabers Need Skill",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "topic:lightsaber",
+        "object:lightsaber",
+        "topic:jedi",
+        "topic:sith"
+      ],
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Obi-Wan Kenobi",
+          "Yoda"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "lightsaber training",
+          "weapon handling",
+          "Force reflexes"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Obi-Wan Kenobi",
+            "Yoda"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "lightsaber training",
+            "weapon handling",
+            "Force reflexes",
+            "Jedi Order",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Lightsabers are dangerous precision weapons that strongly favor trained Force users, though others may handle them awkwardly or situationally.",
+        "injection": "Treat lightsaber competence as trained skill. Untrained users can injure themselves, overcommit, or lack defensive awareness.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "lightsaber",
+        "name": "Lightsaber combat",
+        "stage": "trained",
+        "ownerEntityIds": [],
+        "constraints": [
+          "Safe combat requires training and reflex discipline."
+        ],
+        "antiLore": [
+          "Do not make lightsaber mastery generic sword skill."
+        ]
+      }
+    }
+  ]
+}

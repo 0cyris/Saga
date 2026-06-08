@@ -10,7 +10,7 @@
       "kind": "behavior_gate",
       "gateType": "behavior_gate",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 75,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -27,7 +27,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.funeral",
-        "sortKeyFrom": 9740,
+        "sortKeyFrom": 9735,
         "sortKeyTo": 10042,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -58,8 +58,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Ron Weasley"
@@ -73,9 +73,15 @@
       },
       "content": {
         "fact": "Ron in Year 6 mixes loyalty, insecurity, humor, and sensitivity around relationships and status.",
-        "injection": "Ron in Year 6 should be loyal and funny but vulnerable to insecurity, jealousy, and embarrassment around romance/status.",
+        "injection": "Ron in Year 6 should be loyal and funny but vulnerable to insecurity, jealousy, and embarrassment around romance/status. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Keep behavior age- and year-appropriate."
+          "Keep behavior age- and year-appropriate.",
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -100,7 +106,14 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -109,7 +122,7 @@
       "kind": "behavior_gate",
       "gateType": "behavior_gate",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -117,7 +130,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -126,7 +139,7 @@
         "scope": "window",
         "validFromAnchor": "hp.y6.draco_borgin_burkes_suspicion",
         "validToAnchor": "hp.y6.funeral",
-        "sortKeyFrom": 9740,
+        "sortKeyFrom": 9735,
         "sortKeyTo": 10042,
         "precision": "school_year_window",
         "windowKind": "school_year",
@@ -157,8 +170,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Severus Snape"
@@ -172,9 +185,15 @@
       },
       "content": {
         "fact": "Snape in Year 6 is Defense professor, controlled, cutting, secretive, and operating under hidden obligations.",
-        "injection": "Snape in Year 6 should remain controlled, sharp, and opaque; do not reveal his full motives before late canon.",
+        "injection": "Snape in Year 6 should remain controlled, sharp, and opaque; do not reveal his full motives before late canon. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Protect hidden loyalty/motivation reveals."
+          "Protect hidden loyalty/motivation reveals.",
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -199,7 +218,15 @@
           "targetPackId": "hp-year-6-half-blood-prince",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:half-blood-prince",
+        "character:severus-snape",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "fandom:harry-potter",
+        "school-year:6"
+      ]
     }
   ]
 }

@@ -10,7 +10,7 @@
       "kind": "future_guard",
       "gateType": "future_guard",
       "category": "timeline",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "temporal_gate",
       "specificityScore": 70,
       "injectableByDefault": true,
@@ -66,9 +66,15 @@
       },
       "content": {
         "fact": "The Battle of Hogwarts has not happened before May 1998.",
-        "injection": "Do not imply the Battle of Hogwarts has already occurred or that characters know its outcome.",
+        "injection": "Do not imply the Battle of Hogwarts has already occurred or that characters know its outcome. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Protect the final battle as future canon."
+          "Protect the final battle as future canon.",
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -92,7 +98,21 @@
           "targetPackId": "hp-core",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1",
+        "school-year:2",
+        "school-year:3",
+        "school-year:4",
+        "school-year:5",
+        "school-year:6",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     }
   ]
 }

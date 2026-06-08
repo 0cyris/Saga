@@ -1,0 +1,1080 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_tatooine_outer_rim_underworld_node",
+      "title": "Tatooine as Outer Rim Underworld Node",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:criminal-underworld",
+        "faction:galactic-empire",
+        "faction:hutts",
+        "fandom:star-wars",
+        "place:jabbas-palace",
+        "place:mos-eisley",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:smuggling",
+        "topic:underworld"
+      ],
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.tantive_iv_captured",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Galactic Civil War Rebellion Era",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Han Solo",
+          "Jabba the Hutt"
+        ],
+        "locations": [
+          "Tatooine",
+          "Mos Eisley",
+          "Jabba Palace"
+        ],
+        "factions": [
+          "Hutts",
+          "Criminal Underworld",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "underworld",
+          "smuggling"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Han Solo",
+            "Jabba the Hutt"
+          ],
+          "locationsAny": [
+            "Tatooine",
+            "Mos Eisley",
+            "Jabba Palace"
+          ],
+          "topicsAny": [
+            "underworld",
+            "smuggling"
+          ],
+          "factionsAny": [
+            "Hutts",
+            "Criminal Underworld",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Tatooine sits outside polished Imperial society and is shaped by Hutts, moisture farms, smugglers, Jawas, and dangerous local travel.",
+        "injection": "Use Tatooine as a marginal Outer Rim world where Imperial reach, Hutt power, and survival economies overlap. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Civil War Rebellion Era.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "locations/rebellion_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_yavin_iv_rebel_base_temporarily_exposed",
+      "title": "Yavin IV Base Becomes Exposed",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:mon-mothma",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:yavin",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:military-logistics"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.yavin_aftermath",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yavin Aftermath",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Luke Skywalker",
+          "Mon Mothma"
+        ],
+        "locations": [
+          "Yavin IV"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "military logistics",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Luke Skywalker",
+            "Mon Mothma"
+          ],
+          "locationsAny": [
+            "Yavin IV"
+          ],
+          "topicsAny": [
+            "military logistics",
+            "future guard"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Yavin IV is a Rebel base during the first Death Star crisis, but it cannot remain safe afterward.",
+        "injection": "Do not leave the Alliance comfortably based on Yavin after ANH without addressing Imperial retaliation and relocation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Yavin Aftermath.",
+          "Respect story-position bounds from Yavin Aftermath to Yavin Aftermath."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "locations/rebellion_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_hoth_echo_base_is_hidden_not_fortress",
+      "title": "Echo Base Is Hidden, Not a Fortress",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:general-rieekan",
+        "character:han-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:ion-cannon",
+        "object:shield-generator",
+        "place:hoth",
+        "scope:rebellion-era",
+        "topic:military-logistics"
+      ],
+      "priority": 80,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.yavin_aftermath",
+        "validToAnchor": "sw.rebellion.hoth_evacuated",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Yavin, before Hoth",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "General Rieekan",
+          "Leia Organa",
+          "Han Solo"
+        ],
+        "locations": [
+          "Hoth"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "military logistics"
+        ],
+        "objects": [
+          "Ion cannon",
+          "Shield generator"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "General Rieekan",
+            "Leia Organa",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Hoth"
+          ],
+          "topicsAny": [
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Ion cannon",
+            "Shield generator"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Echo Base is a concealed Rebel outpost with defenses built around evacuation rather than permanent warfighting.",
+        "injection": "When active in After Yavin, before Hoth, on Hoth, treat Rebel defenses as improvised survival infrastructure, not a capital-grade fortress. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Yavin, before Hoth.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "locations/rebellion_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_dagobah_is_spiritual_exile_space",
+      "title": "Dagobah Is Spiritual Exile Space",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "place:dagobah",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:jedi"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.dagobah_training",
+        "validToAnchor": "sw.rebellion.dagobah_training",
+        "sortKeyFrom": 6100,
+        "sortKeyTo": 6100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke Trains on Dagobah",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yoda",
+          "Luke Skywalker",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Dagobah"
+        ],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "force",
+          "jedi",
+          "mentor-student"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yoda",
+            "Luke Skywalker",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "force",
+            "jedi",
+            "mentor-student"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Dagobah is Yoda’s hidden exile and training ground, remote from ordinary galactic politics.",
+        "injection": "Use Dagobah scenes for isolation, Force training, trial, and concealment, not for open Rebel logistics. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke Trains on Dagobah.",
+          "Respect story-position bounds from Luke Trains on Dagobah to Luke Trains on Dagobah."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "locations/rebellion_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_bespin_cloud_city_neutrality_fragile",
+      "title": "Cloud City Neutrality Is Fragile",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:han-solo",
+        "character:lando-calrissian",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:cloud-city",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "place:bespin",
+        "place:cloud-city",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:smuggling"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.bespin_trap",
+        "validToAnchor": "sw.rebellion.bespin_trap",
+        "sortKeyFrom": 6180,
+        "sortKeyTo": 6180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Cloud City Trap Springs",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lando Calrissian",
+          "Darth Vader",
+          "Han Solo"
+        ],
+        "locations": [
+          "Bespin",
+          "Cloud City"
+        ],
+        "factions": [
+          "Cloud City",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "command",
+          "smuggling"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lando Calrissian",
+            "Darth Vader",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Bespin",
+            "Cloud City"
+          ],
+          "topicsAny": [
+            "command",
+            "smuggling"
+          ],
+          "factionsAny": [
+            "Cloud City",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Cloud City’s apparent neutrality depends on avoiding Imperial attention, which fails when Vader arrives.",
+        "injection": "In Cloud City Trap Springs, on Bespin, use the tension between independent administration and Imperial coercion. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Cloud City Trap Springs.",
+          "Respect story-position bounds from Cloud City Trap Springs to Cloud City Trap Springs."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "locations/rebellion_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_jabba_palace_social_space",
+      "title": "Jabba’s Palace Is a Social Threat Environment",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:bib-fortuna",
+        "character:boba-fett",
+        "character:jabba-the-hutt",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:bounty-hunters",
+        "faction:criminal-underworld",
+        "faction:hutts",
+        "fandom:star-wars",
+        "object:carbonite",
+        "place:jabbas-palace",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:criminal-debt",
+        "topic:underworld"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.rotj_opening",
+        "validToAnchor": "sw.rebellion.dagobah_revelations",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7150,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jabba Rescue Sequence",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jabba the Hutt",
+          "Bib Fortuna",
+          "Leia Organa",
+          "Boba Fett"
+        ],
+        "locations": [
+          "Jabba Palace",
+          "Tatooine"
+        ],
+        "factions": [
+          "Hutts",
+          "Bounty Hunters",
+          "Criminal Underworld"
+        ],
+        "topics": [
+          "underworld",
+          "criminal debt"
+        ],
+        "objects": [
+          "Carbonite"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jabba the Hutt",
+            "Bib Fortuna",
+            "Leia Organa",
+            "Boba Fett"
+          ],
+          "locationsAny": [
+            "Jabba Palace",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "underworld",
+            "criminal debt"
+          ],
+          "factionsAny": [
+            "Hutts",
+            "Bounty Hunters",
+            "Criminal Underworld"
+          ],
+          "objectsAny": [
+            "Carbonite"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Jabba’s palace is a court of criminals, servants, entertainers, slaves, bounty hunters, and lethal spectacle.",
+        "injection": "In Jabba Palace scenes, use social danger and power display as much as physical guards. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jabba Rescue Sequence.",
+          "Respect story-position bounds from Return of the Jedi Opening to Dagobah Revelations."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "locations/rebellion_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_endor_forest_moon_terrain_matters",
+      "title": "Endor Terrain Matters",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:wicket",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:ewoks",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:shield-generator",
+        "object:speeder-bike",
+        "place:endor",
+        "scope:rebellion-era",
+        "topic:military-logistics"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.endor_briefing",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Endor Operation",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Wicket"
+        ],
+        "locations": [
+          "Endor"
+        ],
+        "factions": [
+          "Ewoks",
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "military logistics"
+        ],
+        "objects": [
+          "Speeder bike",
+          "Shield generator"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Wicket"
+          ],
+          "locationsAny": [
+            "Endor"
+          ],
+          "topicsAny": [
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Ewoks",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Speeder bike",
+            "Shield generator"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Endor’s forest terrain helps local Ewoks and Rebel commandos offset Imperial equipment in specific conditions.",
+        "injection": "During Endor ground scenes, terrain, concealment, traps, and local knowledge should matter. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Endor Operation.",
+          "Respect story-position bounds from Endor Mission Briefing to Vader Redeemed and Anakin Dies."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "locations/rebellion_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_death_star_ii_is_incomplete_but_operational",
+      "title": "Death Star II Incomplete but Operational",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "lorePurpose": "location_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-ackbar",
+        "character:lando-calrissian",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star-ii",
+        "place:death-star-ii",
+        "place:endor",
+        "scope:rebellion-era",
+        "topic:military-logistics",
+        "topic:propaganda"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.endor_briefing",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Endor Operation",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Admiral Ackbar",
+          "Lando Calrissian"
+        ],
+        "locations": [
+          "Death Star II",
+          "Endor"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "military logistics",
+          "propaganda"
+        ],
+        "objects": [
+          "Death Star II"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Admiral Ackbar",
+            "Lando Calrissian"
+          ],
+          "locationsAny": [
+            "Death Star II",
+            "Endor"
+          ],
+          "topicsAny": [
+            "military logistics",
+            "propaganda"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Death Star II"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The second Death Star appears unfinished but is operational enough to destroy capital ships.",
+        "injection": "During Endor, do not assume Death Star II is harmless because incomplete; its superlaser is battle-ready. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Endor Operation.",
+          "Respect story-position bounds from Endor Mission Briefing to Vader Redeemed and Anakin Dies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "locations/rebellion_locations.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

@@ -1,17 +1,121 @@
 {
   "schemaVersion": 1,
   "tags": {
+    "book:goblet-of-fire": {
+      "label": "Goblet Of Fire",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
     "calendar-year:1994": {
       "label": "1994",
       "description": "Harry Potter bundled Loredeck calendar year tag."
+    },
+    "character:alastor-moody": {
+      "label": "Alastor Moody",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:albus-dumbledore": {
+      "label": "Albus Dumbledore",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:barty-crouch-jr": {
+      "label": "Barty Crouch Jr",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:cedric-diggory": {
+      "label": "Cedric Diggory",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:draco-malfoy": {
+      "label": "Draco Malfoy",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:fred-weasley": {
+      "label": "Fred Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:george-weasley": {
+      "label": "George Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:ginny-weasley": {
+      "label": "Ginny Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:harry-potter": {
+      "label": "Harry Potter",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:hermione-granger": {
+      "label": "Hermione Granger",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:luna-lovegood": {
+      "label": "Luna Lovegood",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:neville-longbottom": {
+      "label": "Neville Longbottom",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:peter-pettigrew": {
+      "label": "Peter Pettigrew",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:remus-lupin": {
+      "label": "Remus Lupin",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:ron-weasley": {
+      "label": "Ron Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:rubeus-hagrid": {
+      "label": "Rubeus Hagrid",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:sirius-black": {
+      "label": "Sirius Black",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:voldemort": {
+      "label": "Voldemort",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "era:golden-trio": {
+      "label": "Golden Trio",
+      "description": "Harry Potter bundled Loredeck era tag."
     },
     "event:triwizard-tournament": {
       "label": "Triwizard Tournament",
       "description": "Harry Potter bundled Loredeck event tag."
     },
+    "faction:death-eaters": {
+      "label": "Death Eaters",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:dumbledores-army": {
+      "label": "Dumbledores Army",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:ministry-of-magic": {
+      "label": "Ministry Of Magic",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:order-of-the-phoenix": {
+      "label": "Order Of The Phoenix",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "fandom:harry-potter": {
+      "label": "Harry Potter",
+      "description": "Harry Potter bundled Loredeck fandom tag."
+    },
     "place:hogwarts": {
       "label": "Hogwarts",
       "description": "Harry Potter bundled Loredeck place tag."
+    },
+    "quality:relevance-curated": {
+      "label": "Relevance Curated",
+      "description": "Harry Potter bundled Loredeck quality tag."
     },
     "school-year:4": {
       "label": "4",

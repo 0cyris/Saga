@@ -10,19 +10,23 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "injectableByDefault": true,
       "canon": "canon",
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
       "tags": [
-        "school-year:7",
-        "calendar-year:1997",
         "artifact:deathly-hallows",
-        "event:second-wizarding-war"
+        "book:deathly-hallows",
+        "calendar-year:1997",
+        "era:golden-trio",
+        "event:second-wizarding-war",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows"
       ],
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -32,7 +36,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10469,
+        "sortKeyTo": 10349,
         "precision": "date_window",
         "windowKind": "wide",
         "label": "1997-09-01 to 1998-08-31",
@@ -92,8 +96,16 @@
       },
       "content": {
         "fact": "From September 1997 through August 1998, the main canon context aligns with the Deathly Hallows period and the open Second Wizarding War.",
-        "injection": "From September 1997 through August 1998, the main canon context aligns with the Deathly Hallows period and the open Second Wizarding War.",
-        "publicVersion": "The wizarding world is in open wartime conditions."
+        "injection": "From September 1997 through August 1998, the main canon context aligns with the Deathly Hallows period and the open Second Wizarding War. Enforce this as a high-priority Context gate for 1997-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "publicVersion": "The wizarding world is in open wartime conditions.",
+        "constraints": [
+          "Apply only when Saga Context matches 1997-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "extensions": {
         "sagaSplitLoredeck": {
@@ -101,7 +113,8 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "lorePurpose": "knowledge_gate"
     }
   ]
 }

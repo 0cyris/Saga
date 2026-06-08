@@ -1,0 +1,1486 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_borleias_resistance_operational_pause",
+      "title": "Borleias Resistance Buys Time",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.enemy_lines_borleias",
+        "validToAnchor": "sw.njo.enemy_lines_borleias",
+        "sortKeyFrom": 26000,
+        "sortKeyTo": 26000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Borleias Resistance",
+        "phase": "Galactic Alliance Transition",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Wedge Antilles"
+        ],
+        "locations": [
+          "Borleias"
+        ],
+        "topics": [
+          "military logistics",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:wedge-antilles",
+          "sw-location:borleias",
+          "sw-faction:new-republic",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:galactic-alliance-transition",
+        "character:wedge-antilles",
+        "location:borleias",
+        "faction:new-republic",
+        "faction:yuuzhan-vong",
+        "topic:military-logistics",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Wedge Antilles"
+          ],
+          "locationsAny": [
+            "Borleias"
+          ],
+          "topicsAny": [
+            "military logistics",
+            "war"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "The Borleias resistance gives surviving forces time, morale, and a defensive platform after the fall of Coruscant.",
+        "injection": "During Borleias context, emphasize delaying action, improvisation, fleet pressure, and Wedge’s operational competence.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Borleias Resistance.",
+          "Respect story-position bounds from Borleias Resistance to Borleias Resistance."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_galactic_alliance_replaces_new_republic",
+      "title": "Galactic Alliance Replaces New Republic Frame",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.galactic_alliance_forms",
+        "validToAnchor": "sw.njo.galactic_alliance_forms",
+        "sortKeyFrom": 28000,
+        "sortKeyTo": 28000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Galactic Alliance Forms",
+        "phase": "Galactic Alliance Transition",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Cal Omas",
+          "Leia Organa Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "government",
+          "politics",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "New Republic",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:cal-omas",
+          "sw-character:leia-organa-solo",
+          "sw-faction:galactic-alliance",
+          "sw-faction:new-republic",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:galactic-alliance-transition",
+        "character:cal-omas",
+        "character:leia-organa-solo",
+        "faction:galactic-alliance",
+        "faction:new-republic",
+        "faction:jedi-order",
+        "topic:government",
+        "topic:politics",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Cal Omas",
+            "Leia Organa Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "government",
+            "politics",
+            "war"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "New Republic",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "The Galactic Federation of Free Alliances emerges from New Republic failure and wartime coalition needs.",
+        "injection": "After the Galactic Alliance forms, use it as the main coalition government instead of treating the old New Republic as unchanged.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Alliance Forms.",
+          "Respect story-position bounds from Galactic Alliance Forms to Galactic Alliance Forms."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_cal_omas_wartime_leadership",
+      "title": "Cal Omas Leads Wartime Alliance",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.galactic_alliance_forms",
+        "validToAnchor": "sw.njo.galactic_alliance_forms",
+        "sortKeyFrom": 28000,
+        "sortKeyTo": 28000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Galactic Alliance Forms",
+        "phase": "Galactic Alliance Transition",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Cal Omas"
+        ],
+        "locations": [],
+        "topics": [
+          "government",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:cal-omas",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:galactic-alliance-transition",
+        "character:cal-omas",
+        "faction:galactic-alliance",
+        "topic:government",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Cal Omas"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "government",
+            "politics"
+          ],
+          "factionsAny": [
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Cal Omas becomes central to the wartime Galactic Alliance political structure.",
+        "injection": "In post-Destiny’s Way contexts, use Cal Omas as a key political leader rather than Borsk Fey’lya or generic Senate authority.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Alliance Forms.",
+          "Respect story-position bounds from Galactic Alliance Forms to Galactic Alliance Forms."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_jedi_alliance_formalization",
+      "title": "Jedi Relationship to Government Reframed",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.galactic_alliance_forms",
+        "validToAnchor": "sw.njo.galactic_alliance_forms",
+        "sortKeyFrom": 28000,
+        "sortKeyTo": 28000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Galactic Alliance Forms",
+        "phase": "Galactic Alliance Transition",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Cal Omas"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "government",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:cal-omas",
+          "sw-faction:jedi-order",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:galactic-alliance-transition",
+        "character:luke-skywalker",
+        "character:cal-omas",
+        "faction:jedi-order",
+        "faction:galactic-alliance",
+        "topic:jedi",
+        "topic:government",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Cal Omas"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "jedi",
+            "government",
+            "politics"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "The NJO era reframes the Jedi’s relationship to galactic government under the Galactic Alliance.",
+        "injection": "After the Alliance forms, treat Jedi-government cooperation as negotiated wartime structure, not a simple Old Republic restoration.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Alliance Forms.",
+          "Respect story-position bounds from Galactic Alliance Forms to Galactic Alliance Forms."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_ebaq9_turning_point",
+      "title": "Ebaq 9 Is a Major Military Turning Point",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.ebaQ9",
+        "validToAnchor": "sw.njo.ebaQ9",
+        "sortKeyFrom": 29000,
+        "sortKeyTo": 29000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Battle of Ebaq 9",
+        "phase": "Turning Point",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Tsavong Lah",
+          "Jaina Solo",
+          "Wedge Antilles",
+          "Traest Kre'fey"
+        ],
+        "locations": [
+          "Ebaq 9"
+        ],
+        "topics": [
+          "war",
+          "military logistics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Yuuzhan Vong",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:tsavong-lah",
+          "sw-character:jaina-solo",
+          "sw-character:wedge-antilles",
+          "sw-character:traest-krefey",
+          "sw-location:ebaq-9",
+          "sw-faction:galactic-alliance",
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:turning-point",
+        "character:tsavong-lah",
+        "character:jaina-solo",
+        "character:wedge-antilles",
+        "character:traest-krefey",
+        "location:ebaq-9",
+        "faction:galactic-alliance",
+        "faction:yuuzhan-vong",
+        "faction:jedi-order",
+        "topic:war",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tsavong Lah",
+            "Jaina Solo",
+            "Wedge Antilles",
+            "Traest Kre'fey"
+          ],
+          "locationsAny": [
+            "Ebaq 9"
+          ],
+          "topicsAny": [
+            "war",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Yuuzhan Vong",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "The Battle of Ebaq 9 is a major turning point where Yuuzhan Vong momentum is checked and Tsavong Lah is defeated.",
+        "injection": "After Ebaq 9, reduce the sense of unstoppable Yuuzhan Vong advance and allow Alliance strategic confidence to grow.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle of Ebaq 9.",
+          "Respect story-position bounds from Battle of Ebaq 9 to Battle of Ebaq 9."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_tsavong_lah_death_changes_vong_command",
+      "title": "Tsavong Lah Death Changes Vong Command",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.ebaQ9",
+        "validToAnchor": "sw.njo.ebaQ9",
+        "sortKeyFrom": 29000,
+        "sortKeyTo": 29000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Battle of Ebaq 9",
+        "phase": "Turning Point",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Tsavong Lah"
+        ],
+        "locations": [
+          "Ebaq 9"
+        ],
+        "topics": [
+          "war",
+          "spoiler guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Yuuzhan Vong",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:tsavong-lah",
+          "sw-location:ebaq-9",
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:turning-point",
+        "character:tsavong-lah",
+        "location:ebaq-9",
+        "faction:yuuzhan-vong",
+        "faction:galactic-alliance",
+        "topic:war",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tsavong Lah"
+          ],
+          "locationsAny": [
+            "Ebaq 9"
+          ],
+          "topicsAny": [
+            "war",
+            "spoiler guard"
+          ],
+          "factionsAny": [
+            "Yuuzhan Vong",
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Warmaster Tsavong Lah’s death removes a central aggressive military leader from the Yuuzhan Vong war effort.",
+        "injection": "After Ebaq 9, do not keep Tsavong Lah commanding active Yuuzhan Vong operations. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle of Ebaq 9.",
+          "Respect story-position bounds from Battle of Ebaq 9 to Battle of Ebaq 9."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_alpha_red_moral_boundary",
+      "title": "Alpha Red Is a Genocidal Moral Boundary",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.alpha_red",
+        "validToAnchor": "sw.njo.alpha_red",
+        "sortKeyFrom": 29500,
+        "sortKeyTo": 29500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Alpha Red Crisis",
+        "phase": "Turning Point",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Vergere"
+        ],
+        "locations": [],
+        "topics": [
+          "biotechnology",
+          "politics",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:vergere",
+          "sw-faction:galactic-alliance",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:turning-point",
+        "character:vergere",
+        "faction:galactic-alliance",
+        "faction:yuuzhan-vong",
+        "topic:biotechnology",
+        "topic:politics",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Vergere"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "biotechnology",
+            "politics",
+            "war"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Alpha Red represents a bioweapon option against the Yuuzhan Vong and creates severe moral, strategic, and political risk.",
+        "injection": "When Alpha Red is in play, treat it as genocide-level escalation, not a clean tactical solution. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Alpha Red Crisis.",
+          "Respect story-position bounds from Alpha Red Crisis to Alpha Red Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_zonama_sekot_living_planet_solution",
+      "title": "Zonama Sekot Is Living-Planet Solution Vector",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.zonama_sekot_found",
+        "validToAnchor": "sw.njo.zonama_sekot_found",
+        "sortKeyFrom": 30500,
+        "sortKeyTo": 30500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Zonama Sekot Found",
+        "phase": "Unifying Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Jacen Solo",
+          "Danni Quee"
+        ],
+        "locations": [
+          "Zonama Sekot"
+        ],
+        "topics": [
+          "force",
+          "religion",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Alliance",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:luke-skywalker",
+          "sw-character:jacen-solo",
+          "sw-character:danni-quee",
+          "sw-location:zonama-sekot",
+          "sw-faction:jedi-order",
+          "sw-faction:galactic-alliance",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:unifying-force",
+        "character:luke-skywalker",
+        "character:jacen-solo",
+        "character:danni-quee",
+        "location:zonama-sekot",
+        "faction:jedi-order",
+        "faction:galactic-alliance",
+        "faction:yuuzhan-vong",
+        "topic:force",
+        "topic:religion",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Jacen Solo",
+            "Danni Quee"
+          ],
+          "locationsAny": [
+            "Zonama Sekot"
+          ],
+          "topicsAny": [
+            "force",
+            "religion",
+            "politics"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Alliance",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Zonama Sekot becomes central to understanding and resolving the Yuuzhan Vong conflict beyond simple extermination.",
+        "injection": "In late NJO, use Zonama Sekot as a living, spiritual, and political solution vector, not just a location. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Zonama Sekot Found.",
+          "Respect story-position bounds from Zonama Sekot Found to Zonama Sekot Found."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_jacen_unifying_force_role",
+      "title": "Jacen’s Unifying Force Role Peaks at War End",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.shimrra_onimi_defeated",
+        "validToAnchor": "sw.njo.shimrra_onimi_defeated",
+        "sortKeyFrom": 32000,
+        "sortKeyTo": 32000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shimrra and Onimi Defeated",
+        "phase": "Unifying Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo",
+          "Onimi",
+          "Shimrra Jamaane"
+        ],
+        "locations": [
+          "Yuuzhan'tar"
+        ],
+        "topics": [
+          "force",
+          "jedi",
+          "spoiler guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:jacen-solo",
+          "sw-character:onimi",
+          "sw-character:shimrra-jamaane",
+          "sw-location:yuuzhantar",
+          "sw-faction:jedi-order",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:unifying-force",
+        "character:jacen-solo",
+        "character:onimi",
+        "character:shimrra-jamaane",
+        "location:yuuzhantar",
+        "faction:jedi-order",
+        "faction:yuuzhan-vong",
+        "topic:force",
+        "topic:jedi",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo",
+            "Onimi",
+            "Shimrra Jamaane"
+          ],
+          "locationsAny": [
+            "Yuuzhan'tar"
+          ],
+          "topicsAny": [
+            "force",
+            "jedi",
+            "spoiler guard"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Jacen Solo’s late-war experience culminates in a decisive spiritual/combat role during the final confrontation.",
+        "injection": "In The Unifying Force context, Jacen can act from a transformed understanding of the Force; do not backport this peak to early NJO.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Shimrra and Onimi Defeated.",
+          "Respect story-position bounds from Shimrra and Onimi Defeated to Shimrra and Onimi Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_onimi_hidden_true_power",
+      "title": "Onimi Hidden True Power",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.shimrra_onimi_defeated",
+        "validToAnchor": "sw.njo.shimrra_onimi_defeated",
+        "sortKeyFrom": 32000,
+        "sortKeyTo": 32000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shimrra and Onimi Defeated",
+        "phase": "Unifying Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Onimi",
+          "Shimrra Jamaane",
+          "Jacen Solo"
+        ],
+        "locations": [
+          "Yuuzhan'tar"
+        ],
+        "topics": [
+          "secret",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-character:onimi",
+          "sw-character:shimrra-jamaane",
+          "sw-character:jacen-solo",
+          "sw-location:yuuzhantar",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:unifying-force",
+        "character:onimi",
+        "character:shimrra-jamaane",
+        "character:jacen-solo",
+        "location:yuuzhantar",
+        "faction:yuuzhan-vong",
+        "topic:secret",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Onimi",
+            "Shimrra Jamaane",
+            "Jacen Solo"
+          ],
+          "locationsAny": [
+            "Yuuzhan'tar"
+          ],
+          "topicsAny": [
+            "secret",
+            "knowledge gate"
+          ],
+          "factionsAny": [
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "Onimi is more than a grotesque servant; his hidden role reframes the final enemy structure.",
+        "injection": "Before the endgame reveal, do not let characters casually know Onimi’s true significance. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Shimrra and Onimi Defeated.",
+          "Respect story-position bounds from Shimrra and Onimi Defeated to Shimrra and Onimi Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_vong_war_settlement_not_total_extermination",
+      "title": "War Ends Without Total Vong Extermination",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.njo.war_ends",
+        "validToAnchor": "sw.njo.war_ends",
+        "sortKeyFrom": 32500,
+        "sortKeyTo": 32500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yuuzhan Vong War Ends",
+        "phase": "Unifying Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Nas Choka",
+          "Luke Skywalker",
+          "Jacen Solo"
+        ],
+        "locations": [
+          "Zonama Sekot",
+          "Yuuzhan'tar"
+        ],
+        "topics": [
+          "politics",
+          "religion",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Yuuzhan Vong",
+          "Galactic Alliance",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:nas-choka",
+          "sw-character:luke-skywalker",
+          "sw-character:jacen-solo",
+          "sw-location:zonama-sekot",
+          "sw-location:yuuzhantar",
+          "sw-faction:yuuzhan-vong",
+          "sw-faction:galactic-alliance",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:unifying-force",
+        "character:nas-choka",
+        "character:luke-skywalker",
+        "character:jacen-solo",
+        "location:zonama-sekot",
+        "location:yuuzhantar",
+        "faction:yuuzhan-vong",
+        "faction:galactic-alliance",
+        "faction:jedi-order",
+        "topic:politics",
+        "topic:religion",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Nas Choka",
+            "Luke Skywalker",
+            "Jacen Solo"
+          ],
+          "locationsAny": [
+            "Zonama Sekot",
+            "Yuuzhan'tar"
+          ],
+          "topicsAny": [
+            "politics",
+            "religion",
+            "war"
+          ],
+          "factionsAny": [
+            "Yuuzhan Vong",
+            "Galactic Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "The Yuuzhan Vong War ends through defeat, surrender, relocation, and hard settlement rather than simple extermination of the species.",
+        "injection": "In Yuuzhan Vong War Ends, postwar, do not treat every Yuuzhan Vong as dead; use disarmament, exile/settlement, guilt, and survival consequences.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Yuuzhan Vong War Ends.",
+          "Respect story-position bounds from Yuuzhan Vong War Ends to Yuuzhan Vong War Ends."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_njo_postwar_galaxy_traumatized",
+      "title": "Postwar Galaxy Is Traumatized",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.njo.war_ends",
+        "validToAnchor": "sw.njo.postwar_threshold",
+        "sortKeyFrom": 32500,
+        "sortKeyTo": 33000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After the Yuuzhan Vong War",
+        "phase": "Unifying Force to Postwar Threshold",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "trauma",
+          "refugees",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Jedi Order",
+          "Yuuzhan Vong"
+        ],
+        "entityIds": [
+          "sw-faction:galactic-alliance",
+          "sw-faction:jedi-order",
+          "sw-faction:yuuzhan-vong"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:njo",
+        "era:new-jedi-order",
+        "era:unifying-force-to-postwar-threshold",
+        "faction:galactic-alliance",
+        "faction:jedi-order",
+        "faction:yuuzhan-vong",
+        "topic:trauma",
+        "topic:refugees",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "trauma",
+            "refugees",
+            "politics"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Jedi Order",
+            "Yuuzhan Vong"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends New Jedi Order era, from Vector Prime and the first Yuuzhan Vong invasion through The Unifying Force and the war settlement. Excludes Dark Nest, Legacy of the Force, Fate of the Jedi, and Disney canon outcomes except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and later post-NJO Legends unless a later deck is active."
+      },
+      "content": {
+        "fact": "After the Yuuzhan Vong War, the galaxy is politically, physically, and spiritually scarred.",
+        "injection": "In After the Yuuzhan Vong War, postwar scenes should carry reconstruction, refugees, suspicion, ecological damage, grief, and military exhaustion.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After the Yuuzhan Vong War.",
+          "Respect story-position bounds from Yuuzhan Vong War Ends to Post-NJO Threshold."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars: The New Jedi Order",
+        "confidence": 0.72,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

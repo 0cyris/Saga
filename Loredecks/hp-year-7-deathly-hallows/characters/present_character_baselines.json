@@ -10,7 +10,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10469,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 7",
@@ -72,9 +72,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -103,15 +103,19 @@
       },
       "content": {
         "fact": "In Year 7, Harry is hardened, hunted, mission-driven, secretive, and burdened by leadership under conditions he only partly understands.",
-        "injection": "Write Harry as his Year 7 self: guarded, mission-driven, brave, burdened, and improvisational, with leadership that can fracture under stress.",
+        "injection": "Write Harry as his Year 7 self: guarded, mission-driven, brave, burdened, and improvisational, with leadership that can fracture under stress. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should be more severe and isolated than his school-year self.",
           "He can make high-risk decisions from incomplete information.",
           "Keep him human, tired, and emotionally strained rather than calm and omniscient.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make Year 7 Harry a polished adult commander unless accepted story lore has changed him."
+          "Do not make Year 7 Harry a polished adult commander unless accepted story lore has changed him.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -154,7 +158,16 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -163,7 +176,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -171,7 +184,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -181,7 +194,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10469,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 7",
@@ -225,9 +238,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Hermione Granger",
@@ -256,15 +269,19 @@
       },
       "content": {
         "fact": "In Year 7, Hermione is disciplined, survival-focused, meticulous, emotionally strained, and often the planner who preserves order under unstable conditions.",
-        "injection": "Write Hermione as her Year 7 self: practical, precise, guarded, exhausted by danger, and fiercely committed to preparation without becoming invulnerable.",
+        "injection": "Write Hermione as her Year 7 self: practical, precise, guarded, exhausted by danger, and fiercely committed to preparation without becoming invulnerable. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "She should be more hardened and security-conscious than at school.",
           "Her competence should not erase fear, grief, or moral stress.",
           "Keep her plans constrained by what the scene has actually established.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not use Hermione as an all-knowing narrator for secrets the current story has not revealed."
+          "Do not use Hermione as an all-knowing narrator for secrets the current story has not revealed.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -307,7 +324,16 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -316,7 +342,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -324,7 +350,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -334,7 +360,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10469,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 7",
@@ -380,9 +406,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Ron Weasley",
@@ -412,15 +438,19 @@
       },
       "content": {
         "fact": "In Year 7, Ron is brave and loyal but strained by fear, deprivation, jealousy, and the pressure of being cut off from ordinary family and school life.",
-        "injection": "Write Ron as his Year 7 self: loyal but strain-prone, frightened but brave, practical about wizarding life, and vulnerable to despair under sustained pressure.",
+        "injection": "Write Ron as his Year 7 self: loyal but strain-prone, frightened but brave, practical about wizarding life, and vulnerable to despair under sustained pressure. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should be more severe and brittle than in ordinary school years.",
           "His humor can return as relief, but pressure can make him defensive or despairing.",
           "Keep any specific departure, return, or reconciliation states in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not bake specific Year 7 relationship rupture or repair into this baseline."
+          "Do not bake specific Year 7 relationship rupture or repair into this baseline.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -464,7 +494,16 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -473,7 +512,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -481,7 +520,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -491,7 +530,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10469,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 7",
@@ -537,9 +576,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Draco Malfoy",
@@ -569,15 +608,19 @@
       },
       "content": {
         "fact": "In Year 7, Draco is compromised, fearful, status-diminished, survival-oriented, and shaken by the consequences of the world his family supported.",
-        "injection": "Write Draco as his Year 7 self: frightened, compromised, defensive, and survival-oriented, with prejudice and self-preservation still unresolved.",
+        "injection": "Write Draco as his Year 7 self: frightened, compromised, defensive, and survival-oriented, with prejudice and self-preservation still unresolved. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should not behave like a secure school tyrant.",
           "His conscience may flicker, but do not assume full moral clarity without story development.",
           "Keep specific manor, battle, or rescue states in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make Year 7 Draco a cleanly heroic defector unless accepted story lore has established that change."
+          "Do not make Year 7 Draco a cleanly heroic defector unless accepted story lore has established that change.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -620,7 +663,16 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:draco-malfoy",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -629,7 +681,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -637,7 +689,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -647,7 +699,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10469,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 7",
@@ -691,9 +743,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Neville Longbottom",
@@ -722,15 +774,19 @@
       },
       "content": {
         "fact": "In Year 7, Neville is hardened, openly brave, defiant under oppression, and much more willing to take risks for others.",
-        "injection": "Write Neville as his Year 7 self: courageous, defiant, resilient, and protective, while still fundamentally kind rather than swaggering.",
+        "injection": "Write Neville as his Year 7 self: courageous, defiant, resilient, and protective, while still fundamentally kind rather than swaggering. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should be much less cowed than in early years.",
           "His courage should feel earned through accumulated pressure.",
           "Keep his warmth and humility present unless the scene is actively brutalizing him.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Year 7 Neville as timid first-year Neville or as a generic action hero."
+          "Do not write Year 7 Neville as timid first-year Neville or as a generic action hero.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -773,7 +829,16 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:neville-longbottom",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -782,7 +847,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -790,7 +855,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -800,7 +865,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10469,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 7",
@@ -846,9 +911,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Ginny Weasley",
@@ -878,15 +943,19 @@
       },
       "content": {
         "fact": "In Year 7, Ginny is more hardened, defiant, protective, and unwilling to be treated as a child, while still constrained by her age and school situation.",
-        "injection": "Write Ginny as her Year 7 self: defiant, protective, sharp, and hardened by danger, but not magically or politically omnipotent.",
+        "injection": "Write Ginny as her Year 7 self: defiant, protective, sharp, and hardened by danger, but not magically or politically omnipotent. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "She should be less easily intimidated than in earlier years.",
           "Her impatience with being protected can surface, but specific separation or battle events belong in dated entries.",
           "Keep her age and available information bounded by the current context.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Year 7 Ginny as either helpless child or fully autonomous adult combatant."
+          "Do not write Year 7 Ginny as either helpless child or fully autonomous adult combatant.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -930,7 +999,16 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:ginny-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -939,7 +1017,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -947,7 +1025,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -957,7 +1035,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10469,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 7",
@@ -1001,9 +1079,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Luna Lovegood",
@@ -1032,15 +1110,19 @@
       },
       "content": {
         "fact": "In Year 7, Luna is resilient, brave, gentle, and clear-eyed in danger, with eccentricity intact under wartime pressure.",
-        "injection": "Write Luna as her Year 7 self: brave, resilient, gentle, strange, and calm under danger without becoming detached from fear or loss.",
+        "injection": "Write Luna as her Year 7 self: brave, resilient, gentle, strange, and calm under danger without becoming detached from fear or loss. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Her calm can be stabilizing but should not imply ignorance of danger.",
           "Keep specific capture, imprisonment, or rescue states in separate dated entries.",
           "She should not become militarized or conventionally severe by default.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make Year 7 Luna an all-knowing prophet or a generic soldier."
+          "Do not make Year 7 Luna an all-knowing prophet or a generic soldier.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1083,7 +1165,16 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:luna-lovegood",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1092,7 +1183,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -1100,7 +1191,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1110,7 +1201,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10347,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 7",
@@ -1154,8 +1245,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Fred Weasley",
@@ -1182,15 +1273,19 @@
       },
       "content": {
         "fact": "In Year 7 before his death, Fred is a young adult in wartime: irreverent, brave, entrepreneurial, loyal, and still using humor as defiance.",
-        "injection": "Before his death date, write Fred in Year 7 as brave, sharp, irreverent, and war-tested without losing comic aggression.",
+        "injection": "Before his death date, write Fred in Year 7 as brave, sharp, irreverent, and war-tested without losing comic aggression. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "This living baseline applies only before the Battle of Hogwarts death-state window.",
           "He should not be treated as a Hogwarts pupil unless the story changed his path.",
           "Humor should remain defiant, not oblivious to danger.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not treat Fred as alive after his death-state entry applies unless accepted story lore says otherwise."
+          "Do not treat Fred as alive after his death-state entry applies unless accepted story lore says otherwise.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1234,7 +1329,15 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:fred-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1243,7 +1346,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -1251,7 +1354,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1261,7 +1364,7 @@
         "validFromAnchor": "hp.y7.rab_discovered",
         "validToAnchor": "hp.y7.battle_aftermath",
         "sortKeyFrom": 10105,
-        "sortKeyTo": 10469,
+        "sortKeyTo": 10349,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 7",
@@ -1304,9 +1407,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "George Weasley",
@@ -1333,15 +1436,19 @@
       },
       "content": {
         "fact": "In Year 7, George is a young adult in wartime: brave, irreverent, loyal, entrepreneurial, and more sober beneath the jokes than he was at school.",
-        "injection": "Write George in Year 7 as brave, witty, loyal, and war-tested, using humor as defiance without making him oblivious to danger.",
+        "injection": "Write George in Year 7 as brave, witty, loyal, and war-tested, using humor as defiance without making him oblivious to danger. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should not be treated as a Hogwarts pupil unless the story changed his path.",
           "His humor can be sharper and more strained under wartime conditions.",
           "Keep specific injury, grief, or battle states in separate dated entries.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not make Year 7 George simply carefree schoolboy George."
+          "Do not make Year 7 George simply carefree schoolboy George.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1385,7 +1492,15 @@
           "targetPackId": "hp-year-7-deathly-hallows",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:deathly-hallows",
+        "character:george-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:7",
+        "topic:deathly-hallows"
+      ]
     }
   ]
 }

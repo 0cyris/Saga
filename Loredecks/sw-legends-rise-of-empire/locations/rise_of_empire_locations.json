@@ -1,0 +1,1299 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_coruscant_late_republic_capital",
+      "title": "Coruscant Late Republic Capital",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Coruscant Late Republic Capital",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "capital",
+          "senate",
+          "jedi temple"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:coruscant",
+        "scope:rise-of-empire",
+        "topic:capital",
+        "topic:jedi-temple",
+        "topic:senate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "capital",
+            "senate",
+            "jedi temple"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Coruscant is the Republic capital, Senate seat, Jedi Temple world, and center of the political trap that becomes the Empire.",
+        "injection": "In this era, Coruscant should feel like both legitimate capital and the place where democracy is being hollowed out.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Coruscant Late Republic Capital.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Coruscant Late Republic Capital",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_jedi_temple_pre_purge_sanctuary",
+      "title": "Jedi Temple Pre-Purge Sanctuary",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Temple Pre-Purge Sanctuary",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Jedi Temple",
+          "Coruscant"
+        ],
+        "topics": [
+          "jedi temple",
+          "jedi headquarters"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:coruscant",
+        "location:jedi-temple",
+        "scope:rise-of-empire",
+        "topic:jedi-headquarters",
+        "topic:jedi-temple"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "jedi temple",
+            "jedi headquarters"
+          ],
+          "locationsAny": [
+            "Jedi Temple",
+            "Coruscant"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Before Order 66, the Jedi Temple is the Order’s central home, archive, school, and command hub.",
+        "injection": "Before Order 66, the Temple can function as Jedi headquarters; after Order 66, that safety must break. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Temple Pre-Purge Sanctuary.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Jedi Temple Pre-Purge Sanctuary",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_naboo_symbolizes_republic_failure",
+      "title": "Naboo Symbolizes Republic Failure",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.naboo_blockade",
+        "validToAnchor": "sw.roe.palpatine_chancellor",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 1350,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Naboo Symbolizes Republic Failure",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Naboo"
+        ],
+        "topics": [
+          "occupation",
+          "republic failure"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:naboo",
+        "scope:rise-of-empire",
+        "topic:occupation",
+        "topic:republic-failure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "occupation",
+            "republic failure"
+          ],
+          "locationsAny": [
+            "Naboo"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Naboo’s occupation exposes the Republic’s inability to act quickly against corporate aggression.",
+        "injection": "Use Naboo as evidence that legal procedure and Senate debate cannot reliably protect vulnerable worlds. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Naboo Symbolizes Republic Failure.",
+          "Respect story-position bounds from Naboo Blockade to Palpatine Becomes Chancellor."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Naboo Symbolizes Republic Failure",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_tatooine_is_outer_rim_beyond_republic_help",
+      "title": "Tatooine Beyond Republic Help",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.republic_decay",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Tatooine Beyond Republic Help",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Tatooine"
+        ],
+        "topics": [
+          "outer rim lawlessness",
+          "slavery"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:tatooine",
+        "scope:rise-of-empire",
+        "topic:outer-rim-lawlessness",
+        "topic:slavery"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "outer rim lawlessness",
+            "slavery"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Tatooine is an Outer Rim world where slavery, Hutts, and local power matter more than Republic law.",
+        "injection": "In prequel-era Tatooine scenes, do not expect Republic institutions to provide normal law enforcement or social protection.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Tatooine Beyond Republic Help.",
+          "Respect story-position bounds from Late Republic Institutional Decay to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Tatooine Beyond Republic Help",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_kamino_secret_clone_world",
+      "title": "Kamino Secret Clone World",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.kamino_discovery",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 2450,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Kamino Secret Clone World",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Kamino"
+        ],
+        "topics": [
+          "clone production",
+          "hidden world"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:kamino",
+        "scope:rise-of-empire",
+        "topic:clone-production",
+        "topic:hidden-world"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "clone production",
+            "hidden world"
+          ],
+          "locationsAny": [
+            "Kamino"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Kamino is the hidden cloning world whose army changes the Republic’s entire military future.",
+        "injection": "Use Kamino as a secretive technical site, not a common Republic military academy before discovery. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Kamino Secret Clone World.",
+          "Respect story-position bounds from Kamino Clone Army Discovered to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Kamino Secret Clone World",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_geonosis_war_starting_point",
+      "title": "Geonosis War Starting Point",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.geonosis_first_battle",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 2650,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Geonosis War Starting Point",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Geonosis"
+        ],
+        "topics": [
+          "droid foundry",
+          "first battle"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:geonosis",
+        "scope:rise-of-empire",
+        "topic:droid-foundry",
+        "topic:first-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "droid foundry",
+            "first battle"
+          ],
+          "locationsAny": [
+            "Geonosis"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Geonosis is the Separatist foundry world where Jedi rescue becomes the first open battle of the Clone Wars.",
+        "injection": "After Geonosis, treat the location as a decisive war-starting point and symbol of droid foundry power. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Geonosis War Starting Point.",
+          "Respect story-position bounds from First Battle of Geonosis to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Geonosis War Starting Point",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_jabiim_grim_clone_wars_front",
+      "title": "Jabiim Grim Clone Wars Front",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.jabiim_campaign",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 3200,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jabiim Grim Clone Wars Front",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Jabiim"
+        ],
+        "topics": [
+          "attrition",
+          "local grievance"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:jabiim",
+        "scope:rise-of-empire",
+        "topic:attrition",
+        "topic:local-grievance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "attrition",
+            "local grievance"
+          ],
+          "locationsAny": [
+            "Jabiim"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Jabiim represents the miserable local-war front where weather, betrayal, and casualties erode heroic narratives.",
+        "injection": "Use Jabiim to ground Clone Wars scenes in attrition and local political anger. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jabiim Grim Clone Wars Front.",
+          "Respect story-position bounds from Jabiim Campaign to Order 66."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Jabiim Grim Clone Wars Front",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_hypori_grievous_terror_site",
+      "title": "Hypori Grievous Terror Site",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.hypori_grievous_reveal",
+        "validToAnchor": "sw.roe.empire_declared",
+        "sortKeyFrom": 3400,
+        "sortKeyTo": 4925,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hypori Grievous Terror Site",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Hypori"
+        ],
+        "topics": [
+          "grievous reveal",
+          "jedi casualties"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:hypori",
+        "scope:rise-of-empire",
+        "topic:grievous-reveal",
+        "topic:jedi-casualties"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "grievous reveal",
+            "jedi casualties"
+          ],
+          "locationsAny": [
+            "Hypori"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Hypori is remembered for Grievous’s brutal emergence as a Jedi-killer threat.",
+        "injection": "After Hypori, use the event to justify Jedi fear or caution around Grievous. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Hypori Grievous Terror Site.",
+          "Respect story-position bounds from Hypori and Grievous Revealed to Galactic Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Hypori Grievous Terror Site",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_muunilinst_banking_war_site",
+      "title": "Muunilinst Banking War Site",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.muunilinst_campaign",
+        "validToAnchor": "sw.roe.outer_rim_sieges",
+        "sortKeyFrom": 3050,
+        "sortKeyTo": 4300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Muunilinst Banking War Site",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Muunilinst"
+        ],
+        "topics": [
+          "banking clan",
+          "war finance"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:muunilinst",
+        "scope:rise-of-empire",
+        "topic:banking-clan",
+        "topic:war-finance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "banking clan",
+            "war finance"
+          ],
+          "locationsAny": [
+            "Muunilinst"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Muunilinst ties the Clone Wars to banking, corporate power, and Separatist finance.",
+        "injection": "Use Muunilinst when war finance, corporate targets, or early Clone Wars campaigns matter. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Muunilinst Banking War Site.",
+          "Respect story-position bounds from Muunilinst Campaign and Durge Crisis to Outer Rim Sieges."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Muunilinst Banking War Site",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_utapau_grievous_endgame_site",
+      "title": "Utapau Grievous Endgame Site",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.outer_rim_sieges",
+        "validToAnchor": "sw.roe.order_66",
+        "sortKeyFrom": 4300,
+        "sortKeyTo": 4850,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Utapau Grievous Endgame Site",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Utapau"
+        ],
+        "topics": [
+          "grievous death",
+          "late war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:utapau",
+        "scope:rise-of-empire",
+        "topic:grievous-death",
+        "topic:late-war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "grievous death",
+            "late war"
+          ],
+          "locationsAny": [
+            "Utapau"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Utapau is the late-war site where Obi-Wan confronts and defeats Grievous shortly before Order 66.",
+        "injection": "In late Clone Wars context, use Utapau as Grievous’s endgame site and Obi-Wan’s separation from Anakin. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Utapau Grievous Endgame Site.",
+          "Respect story-position bounds from Outer Rim Sieges to Order 66."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Utapau Grievous Endgame Site",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_mustafar_separatist_shutdown_and_vader_ruin",
+      "title": "Mustafar Separatist Shutdown And Vader Ruin",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.order_66",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 4850,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Mustafar Separatist Shutdown And Vader Ruin",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Mustafar"
+        ],
+        "topics": [
+          "separatist shutdown",
+          "vader ruin"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:mustafar",
+        "scope:rise-of-empire",
+        "topic:separatist-shutdown",
+        "topic:vader-ruin"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "separatist shutdown",
+            "vader ruin"
+          ],
+          "locationsAny": [
+            "Mustafar"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Mustafar is where Vader kills Separatist leaders and is maimed after his duel with Obi-Wan.",
+        "injection": "After Mustafar, treat it as both the CIS death site and Vader’s bodily transformation point. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mustafar Separatist Shutdown And Vader Ruin.",
+          "Respect story-position bounds from Order 66 to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Mustafar Separatist Shutdown And Vader Ruin",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_alderaan_hides_leia_under_organa_cover",
+      "title": "Alderaan Hides Leia Under Organa Cover",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.children_hidden",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 5050,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Alderaan Hides Leia Under Organa Cover",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Alderaan"
+        ],
+        "topics": [
+          "leia hidden",
+          "organa family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:alderaan",
+        "scope:rise-of-empire",
+        "topic:leia-hidden",
+        "topic:organa-family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "leia hidden",
+            "organa family"
+          ],
+          "locationsAny": [
+            "Alderaan"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Alderaan becomes Leia’s hidden home under the Organa family after the fall of the Republic.",
+        "injection": "After the twins are hidden, Leia should be treated publicly as an Organa child, not known as Vader’s daughter.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Alderaan Hides Leia Under Organa Cover.",
+          "Respect story-position bounds from Skywalker Children Hidden to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Alderaan Hides Leia Under Organa Cover",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_dagobah_exile_site_after_fall",
+      "title": "Dagobah Exile Site After Fall",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.children_hidden",
+        "validToAnchor": "sw.roe.dark_times_begin",
+        "sortKeyFrom": 5050,
+        "sortKeyTo": 5800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dagobah Exile Site After Fall",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Dagobah"
+        ],
+        "topics": [
+          "yoda exile",
+          "hidden refuge"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:dagobah",
+        "scope:rise-of-empire",
+        "topic:hidden-refuge",
+        "topic:yoda-exile"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "yoda exile",
+            "hidden refuge"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Dagobah becomes Yoda’s exile world after the Jedi fall.",
+        "injection": "After Order 66, use Dagobah as hidden exile context, not a known Jedi sanctuary to ordinary Imperials. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dagobah Exile Site After Fall.",
+          "Respect story-position bounds from Skywalker Children Hidden to Dark Times and Imperial Consolidation."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dagobah Exile Site After Fall",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_roe_outer_rim_sieges_pull_war_from_capital",
+      "title": "Outer Rim Sieges Pull War From Capital",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 75,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.roe.outer_rim_sieges",
+        "validToAnchor": "sw.roe.coruscant_invasion",
+        "sortKeyFrom": 4300,
+        "sortKeyTo": 4550,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Outer Rim Sieges Pull War From Capital",
+        "phase": "Rise of Empire",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Outer Rim"
+        ],
+        "topics": [
+          "outer rim sieges",
+          "war dispersion"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:outer-rim",
+        "scope:rise-of-empire",
+        "topic:outer-rim-sieges",
+        "topic:war-dispersion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "outer rim sieges",
+            "war dispersion"
+          ],
+          "locationsAny": [
+            "Outer Rim"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Outer Rim Sieges draw Jedi and Republic attention far from Coruscant before Sidious’s endgame.",
+        "injection": "Use the Outer Rim as a military sink that leaves political events on Coruscant isolated. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Outer Rim Sieges Pull War From Capital.",
+          "Respect story-position bounds from Outer Rim Sieges to Battle of Coruscant."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-animation-game-reference",
+        "sourceBoundary": "Legends Rise of Empire material covering the late Galactic Republic, Naboo crisis, Separatist crisis, Clone Wars-era Legends, Revenge of the Sith transition, Order 66, Jedi Purge, and early Imperial consolidation before the classic Rebellion era.",
+        "notes": "Development deck. Keep separate from Disney canon-only Clone Wars and early Empire material unless stacked intentionally. Treat 2008 Clone Wars-era material as compatible only when the user's chosen Legends stack permits it."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Outer Rim Sieges Pull War From Capital",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

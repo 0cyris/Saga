@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y4.frank_bryce_murder",
         "validToAnchor": "hp.y4.world_cup_campsite",
-        "sortKeyFrom": 8978,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8992,
+        "sortKeyTo": 9009,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -89,7 +89,13 @@
       },
       "content": {
         "fact": "The Quidditch World Cup campsite brings together international magical communities, vendors, Ministry workers, and heightened spectacle before Year 4.",
-        "injection": "The Quidditch World Cup campsite brings together international magical communities, vendors, Ministry workers, and heightened spectacle before Year 4."
+        "injection": "The Quidditch World Cup campsite brings together international magical communities, vendors, Ministry workers, and heightened spectacle before Year 4. Keep this bounded to Goblet of Fire: Year 4; do not apply the state before or after its Context window without an explicit story override.",
+        "constraints": [
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -113,7 +119,17 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "fandom:harry-potter",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -122,7 +138,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -130,7 +146,7 @@
       "canonStatus": "canon",
       "truthStatus": "public_belief",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -139,8 +155,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y4.frank_bryce_murder",
         "validToAnchor": "hp.y4.world_cup_campsite",
-        "sortKeyFrom": 8978,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8992,
+        "sortKeyTo": 9009,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -178,8 +194,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -201,7 +217,15 @@
       },
       "content": {
         "fact": "The Dark Mark appears after a Death Eater disturbance at the Quidditch World Cup, reviving public fear tied to Voldemort's old followers.",
-        "injection": "The Dark Mark appears after a Death Eater disturbance at the Quidditch World Cup, reviving public fear tied to Voldemort's old followers."
+        "injection": "The Dark Mark appears after a Death Eater disturbance at the Quidditch World Cup, reviving public fear tied to Voldemort's old followers. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -225,7 +249,17 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:barty-crouch-jr",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "fandom:harry-potter",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -234,7 +268,7 @@
       "kind": "institution_state",
       "gateType": "institution_state",
       "category": "location",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -242,7 +276,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -252,7 +286,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.neville_cruciatus_reaction",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9069,
+        "sortKeyTo": 9071,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -294,8 +328,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -319,7 +353,15 @@
       },
       "content": {
         "fact": "The Triwizard Tournament returns in Year 4 with an Age Line and magically binding champion selection; Harry becomes a fourth champion despite being underage.",
-        "injection": "The Triwizard Tournament returns in Year 4 with an Age Line and magically binding champion selection; Harry becomes a fourth champion despite being underage."
+        "injection": "The Triwizard Tournament returns in Year 4 with an Age Line and magically binding champion selection; Harry becomes a fourth champion despite being underage. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -343,7 +385,17 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:albus-dumbledore",
+        "character:cedric-diggory",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -352,7 +404,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -360,7 +412,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "do_not_reveal",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": true,
       "locked": true,
@@ -370,7 +422,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9305,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -408,8 +460,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Barty Crouch Jr.",
@@ -431,9 +483,15 @@
       },
       "content": {
         "fact": "Before the end of Year 4, students and most staff believe Alastor Moody is teaching DADA; Barty Crouch Jr.'s impersonation is hidden.",
-        "injection": "Before the end of Year 4, students and most staff believe Alastor Moody is teaching DADA; Barty Crouch Jr.'s impersonation is hidden.",
+        "injection": "Before the end of Year 4, students and most staff believe Alastor Moody is teaching DADA; Barty Crouch Jr.'s impersonation is hidden. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Do not reveal Moody is an impostor before the post-graveyard exposure."
+          "Do not reveal Moody is an impostor before the post-graveyard exposure.",
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -458,7 +516,18 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:alastor-moody",
+        "character:albus-dumbledore",
+        "character:barty-crouch-jr",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -467,7 +536,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -475,7 +544,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -484,8 +553,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y4.moody_unforgivables_lesson",
         "validToAnchor": "hp.y4.rita_skeeter_harry_profile",
-        "sortKeyFrom": 9070,
-        "sortKeyTo": 9119,
+        "sortKeyFrom": 9066,
+        "sortKeyTo": 9123,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -527,8 +596,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -552,7 +621,15 @@
       },
       "content": {
         "fact": "In Year 4 DADA, students are formally exposed to the concept and effects of the Unforgivable Curses, but this does not make them competent users.",
-        "injection": "In Year 4 DADA, students are formally exposed to the concept and effects of the Unforgivable Curses, but this does not make them competent users."
+        "injection": "In Year 4 DADA, students are formally exposed to the concept and effects of the Unforgivable Curses, but this does not make them competent users. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -576,7 +653,19 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:barty-crouch-jr",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -602,8 +691,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y4.moody_unforgivables_lesson",
         "validToAnchor": "hp.y4.rita_skeeter_harry_profile",
-        "sortKeyFrom": 9070,
-        "sortKeyTo": 9119,
+        "sortKeyFrom": 9066,
+        "sortKeyTo": 9123,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -668,7 +757,13 @@
       },
       "content": {
         "fact": "For the first Triwizard task, Harry uses broom-summoning preparation and flying skill to get past a dragon rather than overpowering it directly.",
-        "injection": "For the first Triwizard task, Harry uses broom-summoning preparation and flying skill to get past a dragon rather than overpowering it directly."
+        "injection": "For the first Triwizard task, Harry uses broom-summoning preparation and flying skill to get past a dragon rather than overpowering it directly. Keep this bounded to Goblet of Fire: Year 4; do not apply the state before or after its Context window without an explicit story override.",
+        "constraints": [
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -692,7 +787,16 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:cedric-diggory",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -701,7 +805,7 @@
       "kind": "public_belief",
       "gateType": "public_belief",
       "category": "knowledge",
-      "relevance": "low",
+      "relevance": "normal",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 60,
       "injectableByDefault": true,
@@ -709,7 +813,7 @@
       "canonStatus": "canon",
       "truthStatus": "public_belief",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 85,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -718,8 +822,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y4.wand_weighing",
         "validToAnchor": "hp.y4.second_task_hostages_taken",
-        "sortKeyFrom": 9120,
-        "sortKeyTo": 9189,
+        "sortKeyFrom": 9117,
+        "sortKeyTo": 9191,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -780,7 +884,13 @@
       },
       "content": {
         "fact": "Rita Skeeter's reporting distorts public perception of Harry, Hermione, and tournament events, creating social pressure not equal to factual truth.",
-        "injection": "Rita Skeeter's reporting distorts public perception of Harry, Hermione, and tournament events, creating social pressure not equal to factual truth."
+        "injection": "Rita Skeeter's reporting distorts public perception of Harry, Hermione, and tournament events, creating social pressure not equal to factual truth. Keep this bounded to Goblet of Fire: Year 4; do not apply the state before or after its Context window without an explicit story override.",
+        "constraints": [
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -804,7 +914,16 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -830,8 +949,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y4.wand_weighing",
         "validToAnchor": "hp.y4.hermione_krum_reveal",
-        "sortKeyFrom": 9120,
-        "sortKeyTo": 9165,
+        "sortKeyFrom": 9117,
+        "sortKeyTo": 9168,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -898,7 +1017,13 @@
       },
       "content": {
         "fact": "The second task sends champions underwater to recover hostages, with Harry relying on Gillyweed rather than advanced transfiguration.",
-        "injection": "The second task sends champions underwater to recover hostages, with Harry relying on Gillyweed rather than advanced transfiguration."
+        "injection": "The second task sends champions underwater to recover hostages, with Harry relying on Gillyweed rather than advanced transfiguration. Keep this bounded to Goblet of Fire: Year 4; do not apply the state before or after its Context window without an explicit story override.",
+        "constraints": [
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -927,7 +1052,18 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:cedric-diggory",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -936,7 +1072,7 @@
       "kind": "knowledge_gate",
       "gateType": "knowledge_gate",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "knowledge_gate",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -944,7 +1080,7 @@
       "canonStatus": "canon",
       "truthStatus": "hidden",
       "revealPolicy": "private",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -953,8 +1089,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y4.moody_guides_harry_to_gillyweed",
         "validToAnchor": "hp.y4.fake_moody_revealed",
-        "sortKeyFrom": 9190,
-        "sortKeyTo": 9281,
+        "sortKeyFrom": 9186,
+        "sortKeyTo": 9283,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -993,8 +1129,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Barty Crouch Sr.",
@@ -1017,7 +1153,15 @@
       },
       "content": {
         "fact": "Crouch Sr., Winky, Karkaroff, and related clues point toward a hidden Death Eater plot, but Barty Crouch Jr. remains unidentified until the climax.",
-        "injection": "Crouch Sr., Winky, Karkaroff, and related clues point toward a hidden Death Eater plot, but Barty Crouch Jr. remains unidentified until the climax."
+        "injection": "Crouch Sr., Winky, Karkaroff, and related clues point toward a hidden Death Eater plot, but Barty Crouch Jr. remains unidentified until the climax. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1041,7 +1185,17 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:barty-crouch-jr",
+        "character:harry-potter",
+        "era:golden-trio",
+        "faction:death-eaters",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1050,7 +1204,7 @@
       "kind": "future_guard",
       "gateType": "future_guard",
       "category": "timeline",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "temporal_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -1068,7 +1222,7 @@
         "validFromAnchor": "hp.y4.world_cup_campsite",
         "validToAnchor": "hp.y4.train_home_after_cedric",
         "sortKeyFrom": 9009,
-        "sortKeyTo": 9305,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -1111,8 +1265,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -1137,9 +1291,15 @@
       },
       "content": {
         "fact": "Before the third task climax, the Triwizard Cup's Portkey trap, Cedric's death, and Voldemort's restored body must not leak into ordinary scene knowledge.",
-        "injection": "Before the third task climax, the Triwizard Cup's Portkey trap, Cedric's death, and Voldemort's restored body must not leak into ordinary scene knowledge.",
+        "injection": "Before the third task climax, the Triwizard Cup's Portkey trap, Cedric's death, and Voldemort's restored body must not leak into ordinary scene knowledge. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Keep Cedric alive and Voldemort's return unrevealed before the graveyard event."
+          "Keep Cedric alive and Voldemort's return unrevealed before the graveyard event.",
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -1163,7 +1323,17 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:cedric-diggory",
+        "character:harry-potter",
+        "character:peter-pettigrew",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1172,7 +1342,7 @@
       "kind": "event_anchor",
       "gateType": "event_anchor",
       "category": "event",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "event_anchor",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1189,8 +1359,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y4.dumbledore_reactivates_order",
         "validToAnchor": "hp.y4.train_home_after_cedric",
-        "sortKeyFrom": 9305,
-        "sortKeyTo": 9350,
+        "sortKeyFrom": 9300,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -1230,8 +1400,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -1255,7 +1425,15 @@
       },
       "content": {
         "fact": "After the graveyard, Cedric is dead, Voldemort has returned physically, and Harry is one of the few direct witnesses to the event.",
-        "injection": "After the graveyard, Cedric is dead, Voldemort has returned physically, and Harry is one of the few direct witnesses to the event."
+        "injection": "After the graveyard, Cedric is dead, Voldemort has returned physically, and Harry is one of the few direct witnesses to the event. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1284,7 +1462,18 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:albus-dumbledore",
+        "character:cedric-diggory",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1293,7 +1482,7 @@
       "kind": "institution_state",
       "gateType": "institution_state",
       "category": "knowledge",
-      "relevance": "normal",
+      "relevance": "high",
       "lorePurpose": "status_change",
       "specificityScore": 80,
       "injectableByDefault": true,
@@ -1301,7 +1490,7 @@
       "canonStatus": "canon",
       "truthStatus": "public_belief",
       "revealPolicy": "public",
-      "priority": 90,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1310,8 +1499,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y4.train_home_after_cedric",
         "validToAnchor": "hp.y4.train_home_after_cedric",
-        "sortKeyFrom": 9312,
-        "sortKeyTo": 9373,
+        "sortKeyFrom": 9306,
+        "sortKeyTo": 9306,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Goblet of Fire: Year 4",
@@ -1349,8 +1538,8 @@
       },
       "retrieval": {
         "activation": "context_or_topic",
-        "frequency": "normal",
-        "contextBoost": "medium",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "Cornelius Fudge",
@@ -1372,7 +1561,15 @@
       },
       "content": {
         "fact": "After Year 4, Dumbledore and Harry treat Voldemort's return as true while Fudge and the Ministry begin denying or minimizing the claim.",
-        "injection": "After Year 4, Dumbledore and Harry treat Voldemort's return as true while Fudge and the Ministry begin denying or minimizing the claim."
+        "injection": "After Year 4, Dumbledore and Harry treat Voldemort's return as true while Fudge and the Ministry begin denying or minimizing the claim. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
       },
       "effects": {
         "addsTags": [
@@ -1396,7 +1593,18 @@
           "targetPackId": "hp-year-4-goblet-of-fire",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:goblet-of-fire",
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:4"
+      ]
     }
   ]
 }

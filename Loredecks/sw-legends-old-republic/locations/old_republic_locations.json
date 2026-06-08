@@ -1,0 +1,1294 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_korriban_is_sith_tomb_world",
+      "title": "Korriban Is Sith Tomb World",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.old_sith_empire",
+        "validToAnchor": "sw.or.ruusan_reformation",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ancient Sith Foundations",
+        "phase": "Ancient Sith Foundations",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Korriban"
+        ],
+        "topics": [
+          "tombs",
+          "academy",
+          "sith history"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith",
+          "Old Sith Empire"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:ancient-sith-foundations",
+        "faction:old-sith-empire",
+        "faction:sith",
+        "fandom:star-wars",
+        "location:korriban",
+        "scope:old-republic",
+        "topic:academy",
+        "topic:sith-history",
+        "topic:tombs"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "tombs",
+            "academy",
+            "sith history"
+          ],
+          "locationsAny": [
+            "Korriban"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Old Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Korriban/Moraband is a Sith tomb world loaded with history, trials, relics, and dark-side prestige.",
+        "injection": "When Korriban is active, make tombs, ancient rivalries, tests, and predatory Sith pedagogy part of the atmosphere.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Ancient Sith Foundations.",
+          "Respect story-position bounds from Old Sith Empire Ascendant to Ruusan Reformation and Old Republic End-State."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Ancient Sith Foundations",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_dantooine_enclave_is_vulnerable_jedi_center",
+      "title": "Dantooine Enclave Is Vulnerable Jedi Center",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.jedi_civil_war_begins",
+        "validToAnchor": "sw.or.malachor_finale",
+        "sortKeyFrom": 5300,
+        "sortKeyTo": 5900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Bastila Shan",
+          "Revan"
+        ],
+        "locations": [
+          "Dantooine"
+        ],
+        "topics": [
+          "jedi enclave",
+          "training",
+          "vulnerability"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:bastila-shan",
+        "character:revan",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:dantooine",
+        "scope:old-republic",
+        "topic:jedi-enclave",
+        "topic:training",
+        "topic:vulnerability"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bastila Shan",
+            "Revan"
+          ],
+          "topicsAny": [
+            "jedi enclave",
+            "training",
+            "vulnerability"
+          ],
+          "locationsAny": [
+            "Dantooine"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dantooine’s Jedi enclave is important in KOTOR-era context but vulnerable to Sith attack and later devastation.",
+        "injection": "Use Dantooine as a quieter Jedi training and Council site before its destruction; after the relevant attack, do not treat the enclave as fully operational.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Jedi Civil War Begins to Malachor V Finale."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_taris_is_upper_lower_city_social_stack",
+      "title": "Taris Is Upper/Lower City Social Stack",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.star_forge_campaign",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mission Vao",
+          "Carth Onasi"
+        ],
+        "locations": [
+          "Taris"
+        ],
+        "topics": [
+          "class divide",
+          "occupation",
+          "rakghouls"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Republic",
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "character:carth-onasi",
+        "character:mission-vao",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:galactic-republic",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:taris",
+        "scope:old-republic",
+        "topic:class-divide",
+        "topic:occupation",
+        "topic:rakghouls"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mission Vao",
+            "Carth Onasi"
+          ],
+          "topicsAny": [
+            "class divide",
+            "occupation",
+            "rakghouls"
+          ],
+          "locationsAny": [
+            "Taris"
+          ],
+          "factionsAny": [
+            "Galactic Republic",
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "KOTOR-era Taris is defined by vertical class division, Sith occupation pressure, gang conflict, and lower-city danger.",
+        "injection": "In KOTOR Era, on Taris, use social stratification, quarantine, patrols, gangs, aliens, and rakghoul fear as scene texture. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Star Forge Campaign."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_taris_destruction_is_context_gate",
+      "title": "Taris Destruction Is Context Gate",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.star_forge_destroyed",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Malak"
+        ],
+        "locations": [
+          "Taris"
+        ],
+        "topics": [
+          "planetary bombardment",
+          "spoiler gate",
+          "refugees"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "character:darth-malak",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:taris",
+        "scope:old-republic",
+        "topic:planetary-bombardment",
+        "topic:refugees",
+        "topic:spoiler-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Malak"
+          ],
+          "topicsAny": [
+            "planetary bombardment",
+            "spoiler gate",
+            "refugees"
+          ],
+          "locationsAny": [
+            "Taris"
+          ],
+          "factionsAny": [
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Taris is devastated during the KOTOR campaign and should not remain a normal functioning city afterward.",
+        "injection": "After Taris’s destruction, treat it as a trauma/refugee/ruin state rather than a routine city stop. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Star Forge Destroyed."
+        ],
+        "antiLore": [
+          "Do not reveal Taris’s destruction before the active KOTOR context reaches that event.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_manaan_neutrality_is_fragile",
+      "title": "Manaan Neutrality Is Fragile",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.star_forge_destroyed",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Manaan"
+        ],
+        "topics": [
+          "kolto",
+          "neutrality",
+          "diplomacy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Republic",
+          "Sith Empire",
+          "Selkath"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:galactic-republic",
+        "faction:selkath",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:manaan",
+        "scope:old-republic",
+        "topic:diplomacy",
+        "topic:kolto",
+        "topic:neutrality"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "kolto",
+            "neutrality",
+            "diplomacy"
+          ],
+          "locationsAny": [
+            "Manaan"
+          ],
+          "factionsAny": [
+            "Galactic Republic",
+            "Sith Empire",
+            "Selkath"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Manaan’s neutrality and kolto supply make it politically sensitive during the Jedi Civil War.",
+        "injection": "In KOTOR Era, on Manaan, treat every factional move as constrained by Selkath law, kolto access, and the danger of violating neutrality.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Star Forge Destroyed."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_kashyyyk_has_czerka_and_wookiee_stakes",
+      "title": "Kashyyyk Has Czerka and Wookiee Stakes",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.star_forge_destroyed",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Zaalbar"
+        ],
+        "locations": [
+          "Kashyyyk"
+        ],
+        "topics": [
+          "enslavement",
+          "shadowlands",
+          "family conflict"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Czerka Corporation",
+          "Wookiees"
+        ]
+      },
+      "tags": [
+        "character:zaalbar",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:czerka-corporation",
+        "faction:wookiees",
+        "fandom:star-wars",
+        "location:kashyyyk",
+        "scope:old-republic",
+        "topic:enslavement",
+        "topic:family-conflict",
+        "topic:shadowlands"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Zaalbar"
+          ],
+          "topicsAny": [
+            "enslavement",
+            "shadowlands",
+            "family conflict"
+          ],
+          "locationsAny": [
+            "Kashyyyk"
+          ],
+          "factionsAny": [
+            "Czerka Corporation",
+            "Wookiees"
+          ]
+        }
+      },
+      "content": {
+        "fact": "KOTOR-era Kashyyyk combines Wookiee politics, Shadowlands danger, and Czerka exploitation.",
+        "injection": "In KOTOR Era, on Kashyyyk, use family loyalty, Wookiee honor, corporate abuse, and dangerous ecology rather than making it just a forest stop.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Star Forge Destroyed."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_lechon_rakata_prime_holds_star_forge_secret",
+      "title": "Lehon Holds Star Forge Secret",
+      "kind": "secret",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.star_forge_campaign",
+        "validToAnchor": "sw.or.star_forge_destroyed",
+        "sortKeyFrom": 5450,
+        "sortKeyTo": 5600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Revan",
+          "Darth Malak"
+        ],
+        "locations": [
+          "Lehon"
+        ],
+        "topics": [
+          "star forge location",
+          "rakata ruins",
+          "secret world"
+        ],
+        "objects": [
+          "Star Forge"
+        ],
+        "spells": [],
+        "factions": [
+          "Rakata"
+        ]
+      },
+      "tags": [
+        "character:darth-malak",
+        "character:revan",
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:rakata",
+        "fandom:star-wars",
+        "item:star-forge",
+        "location:lehon",
+        "scope:old-republic",
+        "topic:rakata-ruins",
+        "topic:secret-world",
+        "topic:star-forge-location"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Revan",
+            "Darth Malak"
+          ],
+          "topicsAny": [
+            "star forge location",
+            "rakata ruins",
+            "secret world"
+          ],
+          "locationsAny": [
+            "Lehon"
+          ],
+          "factionsAny": [
+            "Rakata"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Lehon/Rakata Prime is the hidden world tied to the Star Forge and Rakatan legacy.",
+        "injection": "Before the Star Forge route is discovered, do not casually reveal Lehon as the strategic key unless the story has found the maps or equivalent lead.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Star Forge Campaign to Star Forge Destroyed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_malachor_v_is_force_wound_location",
+      "title": "Malachor V Is Force-Wound Location",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.malachor_v",
+        "validToAnchor": "sw.or.malachor_finale",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Mandalorian Wars",
+        "phase": "Mandalorian Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Meetra Surik",
+          "Kreia"
+        ],
+        "locations": [
+          "Malachor V"
+        ],
+        "topics": [
+          "force wound",
+          "mass shadow generator",
+          "trayus academy"
+        ],
+        "objects": [
+          "Mass Shadow Generator"
+        ],
+        "spells": [],
+        "factions": [
+          "Sith Triumvirate"
+        ]
+      },
+      "tags": [
+        "character:kreia",
+        "character:meetra-surik",
+        "continuity:legends",
+        "era:mandalorian-wars",
+        "faction:sith-triumvirate",
+        "fandom:star-wars",
+        "item:mass-shadow-generator",
+        "location:malachor-v",
+        "scope:old-republic",
+        "topic:force-wound",
+        "topic:mass-shadow-generator",
+        "topic:trayus-academy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Meetra Surik",
+            "Kreia"
+          ],
+          "topicsAny": [
+            "force wound",
+            "mass shadow generator",
+            "trayus academy"
+          ],
+          "locationsAny": [
+            "Malachor V"
+          ],
+          "factionsAny": [
+            "Sith Triumvirate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Malachor V remains a broken Force-wound location after the Mandalorian Wars.",
+        "injection": "When Malachor V appears, make the world feel physically and spiritually wrong: wreckage, gravity, trauma, and dark-side residue matter.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mandalorian Wars.",
+          "Respect story-position bounds from Malachor V Ends the Mandalorian Wars to Malachor V Finale."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Mandalorian Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_telos_reconstruction_carries_postwar_weight",
+      "title": "Telos Reconstruction Carries Postwar Weight",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.dark_wars_begin",
+        "validToAnchor": "sw.or.malachor_finale",
+        "sortKeyFrom": 5750,
+        "sortKeyTo": 5900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Wars",
+        "phase": "Dark Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Carth Onasi"
+        ],
+        "locations": [
+          "Telos IV"
+        ],
+        "topics": [
+          "restoration project",
+          "war damage",
+          "republic recovery"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:carth-onasi",
+        "continuity:legends",
+        "era:dark-wars",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "location:telos-iv",
+        "scope:old-republic",
+        "topic:republic-recovery",
+        "topic:restoration-project",
+        "topic:war-damage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Carth Onasi"
+          ],
+          "topicsAny": [
+            "restoration project",
+            "war damage",
+            "republic recovery"
+          ],
+          "locationsAny": [
+            "Telos IV"
+          ],
+          "factionsAny": [
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Telos IV functions as a visible test case for Republic restoration after war devastation.",
+        "injection": "In KOTOR II context, use Telos to show whether the Republic can rebuild, not merely as a transit hub. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Wars.",
+          "Respect story-position bounds from Dark Wars Begin to Malachor V Finale."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dark Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_nar_shaddaa_is_refugee_underworld_pressure",
+      "title": "Nar Shaddaa Is Refugee Underworld Pressure",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.dark_wars_begin",
+        "validToAnchor": "sw.or.swtor_class_era",
+        "sortKeyFrom": 5750,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Wars",
+        "phase": "Dark Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Nar Shaddaa"
+        ],
+        "topics": [
+          "refugees",
+          "underworld",
+          "smuggling"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Exchange",
+          "Hutts"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:dark-wars",
+        "faction:exchange",
+        "faction:hutts",
+        "fandom:star-wars",
+        "location:nar-shaddaa",
+        "scope:old-republic",
+        "topic:refugees",
+        "topic:smuggling",
+        "topic:underworld"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "refugees",
+            "underworld",
+            "smuggling"
+          ],
+          "locationsAny": [
+            "Nar Shaddaa"
+          ],
+          "factionsAny": [
+            "Exchange",
+            "Hutts"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Nar Shaddaa concentrates refugees, smugglers, bounty hunters, crime syndicates, and desperate Force-sensitive traces.",
+        "injection": "In Dark Wars, on Nar Shaddaa, write crowded exploitation: every debt, rumor, and refugee camp can draw underworld attention.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Wars.",
+          "Respect story-position bounds from Dark Wars Begin to SWTOR Class-Story Era."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dark Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_tython_is_swtor_jedi_heart",
+      "title": "Tython Is SWTOR Jedi Heart",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.treaty_cold_war",
+        "validToAnchor": "sw.or.swtor_class_era",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "SWTOR Era",
+        "phase": "SWTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Satele Shan"
+        ],
+        "locations": [
+          "Tython"
+        ],
+        "topics": [
+          "jedi training",
+          "temple",
+          "origin world"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:satele-shan",
+        "continuity:legends",
+        "era:swtor-era",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:tython",
+        "scope:old-republic",
+        "topic:jedi-training",
+        "topic:origin-world",
+        "topic:temple"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satele Shan"
+          ],
+          "topicsAny": [
+            "jedi training",
+            "temple",
+            "origin world"
+          ],
+          "locationsAny": [
+            "Tython"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Tython functions as a central Jedi world in SWTOR-era scenes after the Treaty of Coruscant.",
+        "injection": "When the SWTOR cold-war Context is active, Tython can be the Jedi training and spiritual center instead of Coruscant.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: SWTOR Era.",
+          "Respect story-position bounds from Treaty of Coruscant and Cold War to SWTOR Class-Story Era."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "SWTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_dromund_kaas_atmosphere_is_sith_institutional_power",
+      "title": "Dromund Kaas Atmosphere Is Sith Institutional Power",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_galactic_war",
+        "validToAnchor": "sw.or.eternal_empire_crisis",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "SWTOR Era",
+        "phase": "SWTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Dromund Kaas"
+        ],
+        "topics": [
+          "capital world",
+          "sith hierarchy",
+          "dark council"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:swtor-era",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:dromund-kaas",
+        "scope:old-republic",
+        "topic:capital-world",
+        "topic:dark-council",
+        "topic:sith-hierarchy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "capital world",
+            "sith hierarchy",
+            "dark council"
+          ],
+          "locationsAny": [
+            "Dromund Kaas"
+          ],
+          "factionsAny": [
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dromund Kaas expresses Sith Imperial institutional power: hierarchy, storms, intelligence, academies, and Dark Council politics.",
+        "injection": "Use Dromund Kaas scenes to show Sith power as bureaucratic and cultural, not only mystical. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: SWTOR Era.",
+          "Respect story-position bounds from Great Galactic War Begins to Eternal Empire Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "SWTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

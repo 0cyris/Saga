@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9677,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Order of the Phoenix: Year 5",
@@ -73,9 +73,13 @@
       },
       "content": {
         "fact": "During Year 5, Umbridge’s authority reshapes Hogwarts through Ministry interference, surveillance, punitive discipline, and resistance from students and staff.",
-        "injection": "During Year 5, Umbridge’s authority reshapes Hogwarts through Ministry interference, surveillance, punitive discipline, and resistance from students and staff.",
+        "injection": "During Year 5, Umbridge’s authority reshapes Hogwarts through Ministry interference, surveillance, punitive discipline, and resistance from students and staff. Keep this bounded to Order of the Phoenix: Year 5; do not apply the state before or after its Context window without an explicit story override.",
         "constraints": [
-          "Treat Hogwarts as politically constrained under Umbridge during this period."
+          "Treat Hogwarts as politically constrained under Umbridge during this period.",
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
+        ],
+        "antiLore": [
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ]
       },
       "effects": {
@@ -100,7 +104,17 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:order-of-the-phoenix",
+        "character:dolores-umbridge",
+        "era:golden-trio",
+        "faction:ministry-of-magic",
+        "faction:order-of-the-phoenix",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     }
   ]
 }

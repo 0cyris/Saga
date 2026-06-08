@@ -1,0 +1,905 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_caamas_document_crisis_political_flashpoint",
+      "title": "Caamas Document Crisis Is a Political Flashpoint",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.caamas_document_crisis",
+        "validToAnchor": "sw.nr.caamas_document_crisis",
+        "sortKeyFrom": 18000,
+        "sortKeyTo": 18000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Caamas Document Crisis",
+        "phase": "Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Caamas",
+          "Coruscant"
+        ],
+        "topics": [
+          "politics",
+          "diplomacy",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Bothans",
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:hand-of-thrawn",
+        "event:caamas-document",
+        "faction:bothans",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "place:caamas",
+        "place:coruscant",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:espionage",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "politics",
+            "diplomacy",
+            "espionage"
+          ],
+          "locationsAny": [
+            "Caamas",
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "New Republic",
+            "Bothans",
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Caamas Document crisis threatens to fracture the New Republic through old Imperial atrocity, Bothan culpability, and factional outrage.",
+        "injection": "During the Caamas crisis, emphasize political legitimacy, species grievances, manipulated evidence, and the danger of civil fragmentation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Caamas Document Crisis.",
+          "Respect story-position bounds from Caamas Document Crisis to Caamas Document Crisis."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/hand_of_thrawn_and_peace.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_bothan_political_pressure_after_caamas",
+      "title": "Bothans Face Political Pressure After Caamas",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.caamas_document_crisis",
+        "validToAnchor": "sw.nr.caamas_document_crisis",
+        "sortKeyFrom": 18000,
+        "sortKeyTo": 18000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Caamas Document Crisis",
+        "phase": "Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Bothawui",
+          "Caamas"
+        ],
+        "topics": [
+          "politics",
+          "diplomacy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Bothans",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:bothans",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "place:bothawui",
+        "place:caamas",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "politics",
+            "diplomacy"
+          ],
+          "locationsAny": [
+            "Bothawui",
+            "Caamas"
+          ],
+          "factionsAny": [
+            "Bothans",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Bothan involvement in the Caamas tragedy creates enormous political pressure and resentment inside the New Republic.",
+        "injection": "In Caamas-era scenes, write Bothan politics as defensive, strategic, and vulnerable to backlash rather than neutral background.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Caamas Document Crisis.",
+          "Respect story-position bounds from Caamas Document Crisis to Caamas Document Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/hand_of_thrawn_and_peace.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_false_thrawn_rumor_destabilizes_galaxy",
+      "title": "Thrawn Return Rumor Destabilizes the Galaxy",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "rumor",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.caamas_document_crisis",
+        "validToAnchor": "sw.nr.imperial_peace",
+        "sortKeyFrom": 18000,
+        "sortKeyTo": 19500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hand of Thrawn / Imperial peace",
+        "phase": "Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Grand Admiral Thrawn",
+          "Luke Skywalker",
+          "Mara Jade",
+          "Pellaeon"
+        ],
+        "locations": [],
+        "topics": [
+          "secret",
+          "espionage",
+          "imperial remnant"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "character:pellaeon",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:imperial-remnant",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Grand Admiral Thrawn",
+            "Luke Skywalker",
+            "Mara Jade",
+            "Pellaeon"
+          ],
+          "topicsAny": [
+            "secret",
+            "espionage",
+            "imperial remnant"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The possibility of Thrawn’s return becomes a destabilizing rumor and strategic lever before the truth is resolved.",
+        "injection": "During Hand of Thrawn context, use uncertainty over Thrawn’s return as pressure; do not immediately reveal the full truth unless the context has reached Nirauan resolution.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Hand of Thrawn / Imperial peace.",
+          "Respect story-position bounds from Caamas Document Crisis to New Republic and Imperial Remnant Peace."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/hand_of_thrawn_and_peace.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_nirauan_hand_of_thrawn_hidden_site",
+      "title": "Nirauan and the Hand of Thrawn Are Hidden",
+      "kind": "secret",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.hand_of_thrawn_resolution",
+        "validToAnchor": "sw.nr.hand_of_thrawn_resolution",
+        "sortKeyFrom": 19000,
+        "sortKeyTo": 19000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hand of Thrawn Resolution",
+        "phase": "Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Mara Jade",
+          "Grand Admiral Thrawn"
+        ],
+        "locations": [
+          "Nirauan"
+        ],
+        "topics": [
+          "secret",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "Chiss"
+        ]
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "continuity:legends",
+        "faction:chiss",
+        "faction:imperial-remnant",
+        "fandom:star-wars",
+        "place:nirauan",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Mara Jade",
+            "Grand Admiral Thrawn"
+          ],
+          "topicsAny": [
+            "secret",
+            "espionage"
+          ],
+          "locationsAny": [
+            "Nirauan"
+          ],
+          "factionsAny": [
+            "Imperial Remnant",
+            "Chiss"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Nirauan and the Hand of Thrawn site conceal major Chiss/Imperial-linked secrets until discovered.",
+        "injection": "Before the Hand of Thrawn resolution, do not let ordinary characters know the site or its truth; treat it as high-level hidden strategic lore.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Hand of Thrawn Resolution.",
+          "Respect story-position bounds from Hand of Thrawn Resolution to Hand of Thrawn Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/hand_of_thrawn_and_peace.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_pellaeon_peace_pragmatism",
+      "title": "Pellaeon Chooses Pragmatic Peace",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.imperial_peace",
+        "validToAnchor": "sw.nr.imperial_peace",
+        "sortKeyFrom": 19500,
+        "sortKeyTo": 19500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "New Republic and Imperial Remnant Peace",
+        "phase": "Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Pellaeon"
+        ],
+        "locations": [],
+        "topics": [
+          "peace",
+          "treaty",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:pellaeon",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:peace",
+        "topic:politics",
+        "topic:treaty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Pellaeon"
+          ],
+          "topicsAny": [
+            "peace",
+            "treaty",
+            "politics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Pellaeon’s later Imperial leadership favors survival, order, and negotiated peace over endless war against the New Republic.",
+        "injection": "In Hand of Thrawn-era scenes, write Pellaeon as a pragmatic Remnant statesman-soldier, not merely a nostalgic Imperial attacker.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: New Republic and Imperial Remnant Peace.",
+          "Respect story-position bounds from New Republic and Imperial Remnant Peace to New Republic and Imperial Remnant Peace."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/hand_of_thrawn_and_peace.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_gavrisom_treaty_changes_galactic_state",
+      "title": "Imperial Peace Treaty Changes Galactic State",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.imperial_peace",
+        "validToAnchor": "sw.nr.imperial_peace",
+        "sortKeyFrom": 19500,
+        "sortKeyTo": 19500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "New Republic and Imperial Remnant Peace",
+        "phase": "Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Pellaeon"
+        ],
+        "locations": [],
+        "topics": [
+          "peace",
+          "treaty",
+          "government"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:pellaeon",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:government",
+        "topic:peace",
+        "topic:treaty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Pellaeon"
+          ],
+          "topicsAny": [
+            "peace",
+            "treaty",
+            "government"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The New Republic and Imperial Remnant peace settlement changes the galactic conflict from existential civil war to a smaller recognized Remnant state.",
+        "injection": "After the Pellaeon-Gavrisom peace, do not write the Imperial Remnant as the same all-consuming warfront it was immediately after Endor.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: New Republic and Imperial Remnant Peace.",
+          "Respect story-position bounds from New Republic and Imperial Remnant Peace to New Republic and Imperial Remnant Peace."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/hand_of_thrawn_and_peace.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_luke_mara_relationship_changes_after_hand",
+      "title": "Luke and Mara Relationship Changes After Hand of Thrawn",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.hand_of_thrawn_resolution",
+        "validToAnchor": "sw.nr.hand_of_thrawn_resolution",
+        "sortKeyFrom": 19000,
+        "sortKeyTo": 19000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hand of Thrawn Resolution",
+        "phase": "Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Mara Jade"
+        ],
+        "locations": [],
+        "topics": [
+          "relationship",
+          "marriage"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:marriage",
+        "topic:relationship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Mara Jade"
+          ],
+          "topicsAny": [
+            "relationship",
+            "marriage"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke and Mara’s relationship transforms decisively during the Hand of Thrawn events, leading toward their engagement and future marriage.",
+        "injection": "Before Hand of Thrawn, avoid writing Luke and Mara as settled partners; after it, allow explicit romantic commitment and shared future planning.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Hand of Thrawn Resolution.",
+          "Respect story-position bounds from Hand of Thrawn Resolution to Hand of Thrawn Resolution."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/hand_of_thrawn_and_peace.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_hand_of_thrawn_ends_bantam_era_state",
+      "title": "Hand of Thrawn Closes the Bantam-Era War State",
+      "kind": "temporal_gate",
+      "category": "timeline",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.imperial_peace",
+        "validToAnchor": "sw.nr.imperial_peace",
+        "sortKeyFrom": 19500,
+        "sortKeyTo": 19500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "New Republic and Imperial Remnant Peace",
+        "phase": "Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "context gate",
+          "peace",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Imperial Remnant",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:jedi-order",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:context-gate",
+        "topic:future-guard",
+        "topic:peace"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "context gate",
+            "peace",
+            "future guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Imperial Remnant",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Hand of Thrawn resolution functions as a major closure point for the earlier post-Endor Imperial war state before the Yuuzhan Vong era.",
+        "injection": "Use the Hand of Thrawn as a transition anchor: after it, the galaxy is closer to uneasy peace and pre-NJO setup than constant Imperial assault.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: New Republic and Imperial Remnant Peace.",
+          "Respect story-position bounds from New Republic and Imperial Remnant Peace to New Republic and Imperial Remnant Peace."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/hand_of_thrawn_and_peace.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

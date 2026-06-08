@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 3",
@@ -74,7 +74,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -103,15 +103,17 @@
       },
       "content": {
         "fact": "In Year 3, Harry is more independent and openly angry at injustice, with growing magical competence but still adolescent judgment.",
-        "injection": "Write Harry as his Year 3 self: more independent, quicker to anger at unfairness, increasingly capable, but still emotionally young and not yet war-hardened.",
+        "injection": "Write Harry as his Year 3 self: more independent, quicker to anger at unfairness, increasingly capable, but still emotionally young and not yet war-hardened. Use this only as a phase baseline for Year 3; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "His courage can outrun his caution.",
           "He should challenge perceived unfairness directly rather than manage it diplomatically.",
           "Keep his practical competence below later DA-leader or wartime levels.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write him as the controlled, mission-driven Harry of Year 7."
+          "Do not write him as the controlled, mission-driven Harry of Year 7.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -154,7 +156,16 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -180,8 +191,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 3",
@@ -227,7 +238,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Hermione Granger",
@@ -256,15 +267,17 @@
       },
       "content": {
         "fact": "In Year 3, Hermione is overloaded, perfectionistic, sharp under stress, increasingly independent, and more willing to challenge unfairness directly.",
-        "injection": "Write Hermione as her Year 3 self: brilliant but overloaded, perfectionistic, stressed, principled, and increasingly ready to defy rules for a justified cause.",
+        "injection": "Write Hermione as her Year 3 self: brilliant but overloaded, perfectionistic, stressed, principled, and increasingly ready to defy rules for a justified cause. Use this only as a phase baseline for Year 3; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "Stress should make her sharper and less patient, not serene.",
           "She should still default to research and procedure before improvising.",
           "Do not expose hidden logistical explanations unless the scene has established that knowledge.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not make Year 3 Hermione effortlessly balanced or socially effortless."
+          "Do not make Year 3 Hermione effortlessly balanced or socially effortless.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -307,7 +320,16 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -333,8 +355,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 3",
@@ -382,7 +404,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Ron Weasley",
@@ -412,15 +434,17 @@
       },
       "content": {
         "fact": "In Year 3, Ron is sarcastic, protective, insecure, emotionally direct, and brave in bursts even when frightened or physically outmatched.",
-        "injection": "Write Ron as his Year 3 self: sarcastic, protective, insecure, loyal, and emotionally straightforward, with courage that appears under pressure.",
+        "injection": "Write Ron as his Year 3 self: sarcastic, protective, insecure, loyal, and emotionally straightforward, with courage that appears under pressure. Use this only as a phase baseline for Year 3; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should argue, sulk, or joke in age-appropriate ways rather than process feelings cleanly.",
           "His loyalty can coexist with pettiness or defensiveness.",
           "Do not make him strategically or romantically mature.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not erase Ron’s insecurity, but do not reduce him to insecurity alone."
+          "Do not erase Ron’s insecurity, but do not reduce him to insecurity alone.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -464,7 +488,16 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -490,8 +523,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 3",
@@ -539,7 +572,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Draco Malfoy",
@@ -569,15 +602,17 @@
       },
       "content": {
         "fact": "In Year 3, Draco is smug, vindictive, and quick to exploit rules, teachers, or family influence when direct courage would be required.",
-        "injection": "Write Draco as his Year 3 self: vindictive, smug, theatrically wronged when useful, and reliant on institutional leverage rather than fair risk.",
+        "injection": "Write Draco as his Year 3 self: vindictive, smug, theatrically wronged when useful, and reliant on institutional leverage rather than fair risk. Use this only as a phase baseline for Year 3; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should enjoy humiliating rivals when protected from consequences.",
           "His bravery should be performative and audience-dependent.",
           "Keep him adolescent, not politically sophisticated.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not make Year 3 Draco quietly noble unless accepted story lore has established a different arc."
+          "Do not make Year 3 Draco quietly noble unless accepted story lore has established a different arc.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -620,7 +655,17 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:draco-malfoy",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -646,8 +691,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 3",
@@ -693,7 +738,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Neville Longbottom",
@@ -722,15 +767,17 @@
       },
       "content": {
         "fact": "In Year 3, Neville is still anxious and error-prone but a little steadier, with a quiet stubbornness that surfaces when pushed.",
-        "injection": "Write Neville as his Year 3 self: anxious and self-doubting, but a little steadier, kind, and capable of stubborn courage under pressure.",
+        "injection": "Write Neville as his Year 3 self: anxious and self-doubting, but a little steadier, kind, and capable of stubborn courage under pressure. Use this only as a phase baseline for Year 3; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should not become fluent at confrontation without support or provocation.",
           "His awkwardness remains part of his baseline.",
           "Keep later defensive competence and resistance authority out of this year.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 3 Neville as either helpless or fully transformed."
+          "Do not write Year 3 Neville as either helpless or fully transformed.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -773,7 +820,17 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:neville-longbottom",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -799,8 +856,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 3",
@@ -848,7 +905,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Ginny Weasley",
@@ -878,15 +935,17 @@
       },
       "content": {
         "fact": "In Year 3, Ginny is recovering social confidence, more present around peers, and beginning to show the bluntness and resilience of her later personality.",
-        "injection": "Write Ginny as her Year 3 self: still younger than Harry’s cohort, but regaining confidence, observant, resilient, and more willing to speak up.",
+        "injection": "Write Ginny as her Year 3 self: still younger than Harry’s cohort, but regaining confidence, observant, resilient, and more willing to speak up. Use this only as a phase baseline for Year 3; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "She should not yet be as socially central or openly forceful as in later years.",
           "Her resilience can show in small direct moments.",
           "Do not keep her frozen in Year 2 vulnerability unless the scene specifically invokes it.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 3 Ginny as either permanently timid or already fully mature."
+          "Do not write Year 3 Ginny as either permanently timid or already fully mature.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -930,7 +989,17 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -956,8 +1025,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 3",
@@ -1003,7 +1072,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Luna Lovegood",
@@ -1032,15 +1101,17 @@
       },
       "content": {
         "fact": "In Year 3, Luna remains dreamy, bluntly sincere, socially isolated, and more perceptive than many peers realize.",
-        "injection": "Write Luna in Year 3 as dreamy, unembarrassed, socially marginal, and calmly perceptive without making her omniscient.",
+        "injection": "Write Luna in Year 3 as dreamy, unembarrassed, socially marginal, and calmly perceptive without making her omniscient. Use this only as a phase baseline for Year 3; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "Her observations can be disarming but should remain age-appropriate.",
           "She should not automatically know private truths outside her experience.",
           "Do not make her eccentricity purely comedic.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not give Year 3 Luna later battle experience or inner-circle trust by default."
+          "Do not give Year 3 Luna later battle experience or inner-circle trust by default.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1083,7 +1154,16 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:luna-lovegood",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1109,8 +1189,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 3",
@@ -1158,7 +1238,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Fred Weasley",
@@ -1188,15 +1268,17 @@
       },
       "content": {
         "fact": "In Year 3, Fred is irreverent, daring, socially confident, and increasingly entrepreneurial in how he treats jokes, risks, and reputation.",
-        "injection": "Write Fred in Year 3 as daring, irreverent, quick to perform for an audience, and increasingly interested in joke-making as craft.",
+        "injection": "Write Fred in Year 3 as daring, irreverent, quick to perform for an audience, and increasingly interested in joke-making as craft. Use this only as a phase baseline for Year 3; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should be confident with school corridors, authority loopholes, and peer attention.",
           "His jokes can be disruptive but should remain clever rather than random.",
           "Do not make him a formal resistance figure yet.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 3 Fred as a settled adult businessman."
+          "Do not write Year 3 Fred as a settled adult businessman.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1240,7 +1322,16 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:fred-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1249,7 +1340,7 @@
       "kind": "character_state",
       "gateType": "character_state",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "behavior_constraint",
       "specificityScore": 90,
       "injectableByDefault": true,
@@ -1257,7 +1348,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -1266,8 +1357,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 3",
@@ -1313,9 +1404,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "charactersAny": [
             "George Weasley",
@@ -1345,15 +1436,19 @@
       },
       "content": {
         "fact": "In Year 3, George is daring, witty, socially confident, and increasingly skilled at turning mischief into coordinated planning.",
-        "injection": "Write George in Year 3 as daring, witty, coordinated, and confident, with mischief that feels planned as much as impulsive.",
+        "injection": "Write George in Year 3 as daring, witty, coordinated, and confident, with mischief that feels planned as much as impulsive. Enforce this as a high-priority Context gate for Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should know how to work an audience and a corridor.",
           "He can be less aggressive in forward push than Fred while still fully complicit.",
           "Do not make him a formal resistance figure yet.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not write Year 3 George as a settled adult businessman."
+          "Do not write Year 3 George as a settled adult businessman.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1397,7 +1492,16 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:george-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1423,8 +1527,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y3.sirius_news_context",
         "validToAnchor": "hp.y3.firebolt_gift_from_sirius",
-        "sortKeyFrom": 8644,
-        "sortKeyTo": 9008,
+        "sortKeyFrom": 8642,
+        "sortKeyTo": 8936,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 3",
@@ -1470,7 +1574,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Cedric Diggory",
@@ -1499,15 +1603,17 @@
       },
       "content": {
         "fact": "In Year 3, Cedric is capable, popular, fair-minded, and mature for a student, with a calm confidence that contrasts with more performative peers.",
-        "injection": "Write Cedric in Year 3 as capable, popular, courteous, and calm under attention, without arrogance or cruelty.",
+        "injection": "Write Cedric in Year 3 as capable, popular, courteous, and calm under attention, without arrogance or cruelty. Use this only as a phase baseline for Year 3; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should not be naive, but he should remain decent by default.",
           "His popularity should not make him vain by default.",
           "Keep specific match or school-event outcomes modular.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 3 Cedric as either blandly perfect or secretly cruel without story support."
+          "Do not write Year 3 Cedric as either blandly perfect or secretly cruel without story support.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1550,7 +1656,16 @@
           "targetPackId": "hp-year-3-prisoner-of-azkaban",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "book:prisoner-of-azkaban",
+        "character:cedric-diggory",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:azkaban",
+        "place:hogwarts",
+        "school-year:3"
+      ]
     }
   ]
 }

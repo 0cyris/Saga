@@ -1,0 +1,3048 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_jabba_palace_infiltration_is_layered",
+      "title": "Jabba Rescue Is Layered Infiltration",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:c-3po",
+        "character:chewbacca",
+        "character:han-solo",
+        "character:lando-calrissian",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:r2-d2",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:hutts",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:carbonite",
+        "object:lightsaber",
+        "place:jabbas-palace",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:rescue",
+        "topic:underworld"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.rotj_opening",
+        "validToAnchor": "sw.rebellion.dagobah_revelations",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7150,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jabba Rescue Sequence",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Lando Calrissian",
+          "Chewbacca",
+          "C-3PO",
+          "R2-D2",
+          "Han Solo"
+        ],
+        "locations": [
+          "Jabba Palace",
+          "Tatooine"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Hutts"
+        ],
+        "topics": [
+          "rescue",
+          "underworld"
+        ],
+        "objects": [
+          "Carbonite",
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Lando Calrissian",
+            "Chewbacca",
+            "C-3PO",
+            "R2-D2",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Jabba Palace",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "rescue",
+            "underworld"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Hutts"
+          ],
+          "objectsAny": [
+            "Carbonite",
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The rescue of Han uses staged arrivals, deception, bargaining, and hidden assets rather than a single frontal assault.",
+        "injection": "During the Jabba sequence, let the heroes’ plan unfold in layers; apparent capture can still be part of the operation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jabba Rescue Sequence.",
+          "Respect story-position bounds from Return of the Jedi Opening to Dagobah Revelations."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_leia_boushh_disguise",
+      "title": "Leia Uses Boushh Disguise",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:bounty-hunters",
+        "faction:hutts",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:carbonite",
+        "object:thermal-detonator",
+        "place:jabbas-palace",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:espionage",
+        "topic:rescue"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.rotj_opening",
+        "validToAnchor": "sw.rebellion.dagobah_revelations",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7150,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jabba Rescue Sequence",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Han Solo",
+          "Jabba the Hutt",
+          "Chewbacca"
+        ],
+        "locations": [
+          "Jabba Palace",
+          "Tatooine"
+        ],
+        "factions": [
+          "Hutts",
+          "Bounty Hunters",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "rescue",
+          "espionage"
+        ],
+        "objects": [
+          "Thermal detonator",
+          "Carbonite"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Han Solo",
+            "Jabba the Hutt",
+            "Chewbacca"
+          ],
+          "locationsAny": [
+            "Jabba Palace",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "rescue",
+            "espionage"
+          ],
+          "factionsAny": [
+            "Hutts",
+            "Bounty Hunters",
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Thermal detonator",
+            "Carbonite"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Leia infiltrates Jabba’s palace disguised as the bounty hunter Boushh to reach Han.",
+        "injection": "In Jabba Palace context, Leia can operate undercover as Boushh until the disguise is exposed.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jabba Rescue Sequence.",
+          "Respect story-position bounds from Return of the Jedi Opening to Dagobah Revelations."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_han_blind_after_carbonite",
+      "title": "Han Temporarily Blind After Carbonite",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:hutts",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:carbonite",
+        "place:jabbas-palace",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:rescue"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.jabba_rescue",
+        "validToAnchor": "sw.rebellion.jabba_rescue",
+        "sortKeyFrom": 7050,
+        "sortKeyTo": 7050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jabba Rescue and Sarlacc Battle",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Jabba the Hutt"
+        ],
+        "locations": [
+          "Jabba Palace",
+          "Tatooine"
+        ],
+        "factions": [
+          "Hutts",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "rescue"
+        ],
+        "objects": [
+          "Carbonite"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Jabba the Hutt"
+          ],
+          "locationsAny": [
+            "Jabba Palace",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "rescue"
+          ],
+          "factionsAny": [
+            "Hutts",
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Carbonite"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Han is weak and temporarily blind when released from carbonite.",
+        "injection": "When active in Jabba Rescue and Sarlacc Battle, immediately after thawing, do not portray Han as fully recovered; disorientation and vulnerability matter. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jabba Rescue and Sarlacc Battle.",
+          "Respect story-position bounds from Jabba Rescue and Sarlacc Battle to Jabba Rescue and Sarlacc Battle."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_jabba_confidence_jedi_growth",
+      "title": "Luke Faces Jabba with Jedi Confidence",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:jabba-the-hutt",
+        "character:luke-skywalker",
+        "character:r2-d2",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:hutts",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:jabbas-palace",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:jedi",
+        "topic:rescue"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.rotj_opening",
+        "validToAnchor": "sw.rebellion.dagobah_revelations",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7150,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jabba Rescue Sequence",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Jabba the Hutt",
+          "R2-D2"
+        ],
+        "locations": [
+          "Jabba Palace",
+          "Tatooine"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Hutts"
+        ],
+        "topics": [
+          "jedi",
+          "force",
+          "rescue"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Jabba the Hutt",
+            "R2-D2"
+          ],
+          "locationsAny": [
+            "Jabba Palace",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "jedi",
+            "force",
+            "rescue"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Hutts"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke confronts Jabba with much greater control than he had at Bespin.",
+        "injection": "During the Jabba rescue, Luke should read as calm and dangerous, using negotiation, Force presence, and a hidden lightsaber plan.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jabba Rescue Sequence.",
+          "Respect story-position bounds from Return of the Jedi Opening to Dagobah Revelations."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_jabba_death_breaks_local_hutt_hold",
+      "title": "Jabba’s Death Breaks the Immediate Hutt Threat",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:criminal-underworld",
+        "faction:hutts",
+        "fandom:star-wars",
+        "place:jabbas-palace",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:criminal-debt",
+        "topic:underworld"
+      ],
+      "priority": 88,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.jabba_rescue",
+        "validToAnchor": "sw.rebellion.jabba_rescue",
+        "sortKeyFrom": 7050,
+        "sortKeyTo": 7050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jabba Rescue and Sarlacc Battle",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jabba the Hutt",
+          "Leia Organa",
+          "Han Solo",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Tatooine",
+          "Jabba Palace"
+        ],
+        "factions": [
+          "Hutts",
+          "Criminal Underworld"
+        ],
+        "topics": [
+          "underworld",
+          "criminal debt"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jabba the Hutt",
+            "Leia Organa",
+            "Han Solo",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Tatooine",
+            "Jabba Palace"
+          ],
+          "topicsAny": [
+            "underworld",
+            "criminal debt"
+          ],
+          "factionsAny": [
+            "Hutts",
+            "Criminal Underworld"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Jabba dies during the sail barge battle, ending his immediate hold over Han and the rescue party.",
+        "injection": "After the Sarlacc battle, Jabba cannot continue collecting Han’s debt or commanding the palace unless the story branches.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jabba Rescue and Sarlacc Battle.",
+          "Respect story-position bounds from Jabba Rescue and Sarlacc Battle to Jabba Rescue and Sarlacc Battle."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_boba_fett_sarlacc_status_legends_caution",
+      "title": "Boba Sarlacc Status Needs Legends Caution",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:boba-fett",
+        "character:han-solo",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:bounty-hunters",
+        "faction:hutts",
+        "fandom:star-wars",
+        "object:slave-i",
+        "place:tatooine",
+        "scope:rebellion-era",
+        "topic:bounty-hunter",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.jabba_rescue",
+        "validToAnchor": "sw.rebellion.jabba_rescue",
+        "sortKeyFrom": 7050,
+        "sortKeyTo": 7050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jabba Rescue and Sarlacc Battle",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Boba Fett",
+          "Han Solo",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [
+          "Bounty Hunters",
+          "Hutts"
+        ],
+        "topics": [
+          "bounty hunter",
+          "future guard"
+        ],
+        "objects": [
+          "Slave I"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Boba Fett",
+            "Han Solo",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "bounty hunter",
+            "future guard"
+          ],
+          "factionsAny": [
+            "Bounty Hunters",
+            "Hutts"
+          ],
+          "objectsAny": [
+            "Slave I"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Boba falls into the Sarlacc during ROTJ; later Legends material can use his survival, but it should not affect scenes before the fall.",
+        "injection": "Before the Sarlacc event, keep Boba Fett active; immediately after it, treat him as lost to most characters, while leaving later Legends survival gated to post-ROTJ context.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jabba Rescue and Sarlacc Battle.",
+          "Respect story-position bounds from Jabba Rescue and Sarlacc Battle to Jabba Rescue and Sarlacc Battle."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_yoda_confirms_vader_truth",
+      "title": "Yoda Confirms Vader Is Luke’s Father",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:dagobah",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:knowledge-gate"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.yoda_death",
+        "validToAnchor": "sw.rebellion.yoda_death",
+        "sortKeyFrom": 7120,
+        "sortKeyTo": 7120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yoda Dies on Dagobah",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yoda",
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Dagobah"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "family secret",
+          "force"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yoda",
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "family secret",
+            "force"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "On Dagobah in ROTJ, Yoda confirms that Vader truly is Luke’s father.",
+        "injection": "After Yoda’s confirmation, Luke’s private knowledge hardens from traumatic claim to confirmed truth. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Yoda Dies on Dagobah.",
+          "Respect story-position bounds from Yoda Dies on Dagobah to Yoda Dies on Dagobah."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_obiwan_reveals_leia_to_luke",
+      "title": "Obi-Wan Reveals Leia to Luke",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "character:yoda",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "place:dagobah",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 94,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.dagobah_revelations",
+        "validToAnchor": "sw.rebellion.dagobah_revelations",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dagobah Revelations",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Luke Skywalker",
+          "Leia Organa",
+          "Yoda"
+        ],
+        "locations": [
+          "Dagobah"
+        ],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "family secret",
+          "force"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Luke Skywalker",
+            "Leia Organa",
+            "Yoda"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "family secret",
+            "force"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "After Yoda’s death, Obi-Wan reveals to Luke that Leia is his sister.",
+        "injection": "After the Dagobah revelations, Luke knows Leia is his sister; Leia herself need not know until Luke tells her.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dagobah Revelations.",
+          "Respect story-position bounds from Dagobah Revelations to Dagobah Revelations."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_leia_learns_family_truth_from_luke",
+      "title": "Leia Learns Family Truth From Luke",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:rebel-alliance",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:endor",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.endor_briefing",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Endor Operation",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "family secret",
+          "force"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Endor"
+          ],
+          "topicsAny": [
+            "family secret",
+            "force"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Jedi Order",
+            "Sith"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Leia learns from Luke that she is his sister and that Vader is their father before the Endor climax.",
+        "injection": "When active in Endor Operation, once Luke tells Leia on Endor, Leia has private family knowledge but is not suddenly a trained Jedi. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Endor Operation.",
+          "Respect story-position bounds from Endor Mission Briefing to Vader Redeemed and Anakin Dies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_endor_briefing_trap_shape",
+      "title": "Endor Briefing Sets a Trap the Rebels Cannot Fully See",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-ackbar",
+        "character:han-solo",
+        "character:lando-calrissian",
+        "character:leia-organa",
+        "character:mon-mothma",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:bothans",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star-ii",
+        "object:shield-generator",
+        "place:death-star-ii",
+        "place:endor",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:espionage",
+        "topic:knowledge-gate",
+        "topic:military-logistics"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.endor_briefing",
+        "validToAnchor": "sw.rebellion.endor_briefing",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endor Mission Briefing",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mon Mothma",
+          "Admiral Ackbar",
+          "Leia Organa",
+          "Han Solo",
+          "Lando Calrissian"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Endor",
+          "Death Star II"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire",
+          "Bothans"
+        ],
+        "topics": [
+          "espionage",
+          "military logistics"
+        ],
+        "objects": [
+          "Death Star II",
+          "Shield generator"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mon Mothma",
+            "Admiral Ackbar",
+            "Leia Organa",
+            "Han Solo",
+            "Lando Calrissian"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Endor",
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "espionage",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire",
+            "Bothans"
+          ],
+          "objectsAny": [
+            "Death Star II",
+            "Shield generator"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Alliance plans the Endor strike around Death Star II intelligence, not knowing the Emperor intends to spring a trap.",
+        "injection": "At the Endor briefing, Rebels can believe they have a narrow opportunity; do not reveal Palpatine’s full trap to them unless using Imperial-side knowledge.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Endor Mission Briefing.",
+          "Respect story-position bounds from Endor Mission Briefing to Endor Mission Briefing."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_han_leads_endor_ground_team",
+      "title": "Han Leads Endor Ground Team",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:c-3po",
+        "character:chewbacca",
+        "character:han-solo",
+        "character:leia-organa",
+        "character:r2-d2",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:shield-generator",
+        "place:endor",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:military-logistics"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.endor_briefing",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Endor Operation",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Chewbacca",
+          "C-3PO",
+          "R2-D2"
+        ],
+        "locations": [
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "command",
+          "military logistics"
+        ],
+        "objects": [
+          "Shield generator"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Chewbacca",
+            "C-3PO",
+            "R2-D2"
+          ],
+          "locationsAny": [
+            "Endor"
+          ],
+          "topicsAny": [
+            "command",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Shield generator"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Han leads the Rebel strike team assigned to destroy the Endor shield generator.",
+        "injection": "During the Endor operation, Han is not just a smuggler passenger; he holds field command responsibility. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Endor Operation.",
+          "Respect story-position bounds from Endor Mission Briefing to Vader Redeemed and Anakin Dies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_lando_commands_falcon_at_endor",
+      "title": "Lando Commands the Falcon at Endor",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:han-solo",
+        "character:lando-calrissian",
+        "character:nien-nunb",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star-ii",
+        "object:millennium-falcon",
+        "place:death-star-ii",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:pilot"
+      ],
+      "priority": 86,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.rebellion.endor_briefing",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7670,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Endor Operation",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lando Calrissian",
+          "Nien Nunb",
+          "Han Solo"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Death Star II"
+        ],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "pilot",
+          "command"
+        ],
+        "objects": [
+          "Millennium Falcon",
+          "Death Star II"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Lando Calrissian",
+            "Nien Nunb",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "pilot",
+            "command"
+          ],
+          "factionsAny": [
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Millennium Falcon",
+            "Death Star II"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Lando pilots the Millennium Falcon in the space attack on the second Death Star.",
+        "injection": "During Endor, Lando can command the Falcon in the fleet assault while Han is on the ground team. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Endor Operation.",
+          "Respect story-position bounds from Endor Mission Briefing to Vader Redeemed and Anakin Dies."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_ewoks_are_local_allies_not_rebel_regulars",
+      "title": "Ewoks Are Local Allies, Not Rebel Regulars",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:c-3po",
+        "character:han-solo",
+        "character:leia-organa",
+        "character:wicket",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:ewoks",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:endor",
+        "scope:rebellion-era",
+        "topic:military-logistics",
+        "topic:rescue"
+      ],
+      "priority": 82,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.ewok_alliance",
+        "validToAnchor": "sw.rebellion.ewok_alliance",
+        "sortKeyFrom": 7420,
+        "sortKeyTo": 7420,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ewok Alliance Forms",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Han Solo",
+          "C-3PO",
+          "Wicket"
+        ],
+        "locations": [
+          "Endor"
+        ],
+        "factions": [
+          "Ewoks",
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "rescue",
+          "military logistics"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Han Solo",
+            "C-3PO",
+            "Wicket"
+          ],
+          "locationsAny": [
+            "Endor"
+          ],
+          "topicsAny": [
+            "rescue",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Ewoks",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Ewoks become local allies on Endor after contact with the Rebel ground team.",
+        "injection": "Use Ewoks as local forest-moon allies with home-terrain knowledge, not as pre-existing Alliance soldiers. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Ewok Alliance Forms.",
+          "Respect story-position bounds from Ewok Alliance Forms to Ewok Alliance Forms."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_c3po_god_status_comedic_leverage",
+      "title": "C-3PO’s Ewok Status Becomes Leverage",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:c-3po",
+        "character:han-solo",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:wicket",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:ewoks",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:droids",
+        "place:endor",
+        "scope:rebellion-era",
+        "topic:droid",
+        "topic:politics"
+      ],
+      "priority": 76,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.ewok_alliance",
+        "validToAnchor": "sw.rebellion.ewok_alliance",
+        "sortKeyFrom": 7420,
+        "sortKeyTo": 7420,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ewok Alliance Forms",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "C-3PO",
+          "Luke Skywalker",
+          "Han Solo",
+          "Leia Organa",
+          "Wicket"
+        ],
+        "locations": [
+          "Endor"
+        ],
+        "factions": [
+          "Ewoks",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "droid",
+          "politics"
+        ],
+        "objects": [
+          "Droids"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "C-3PO",
+            "Luke Skywalker",
+            "Han Solo",
+            "Leia Organa",
+            "Wicket"
+          ],
+          "locationsAny": [
+            "Endor"
+          ],
+          "topicsAny": [
+            "droid",
+            "politics"
+          ],
+          "factionsAny": [
+            "Ewoks",
+            "Rebel Alliance"
+          ],
+          "objectsAny": [
+            "Droids"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Ewoks mistake C-3PO for a divine figure, creating diplomatic leverage and comic tension.",
+        "injection": "When active in Ewok Alliance Forms, on Endor before the battle, C-3PO’s accidental status can mediate between Rebels and Ewoks. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Ewok Alliance Forms.",
+          "Respect story-position bounds from Ewok Alliance Forms to Ewok Alliance Forms."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_surrenders_to_face_vader",
+      "title": "Luke Surrenders to Face Vader",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:death-star-ii",
+        "place:endor",
+        "scope:rebellion-era",
+        "topic:duel",
+        "topic:force"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.throne_room_confrontation",
+        "validToAnchor": "sw.rebellion.throne_room_confrontation",
+        "sortKeyFrom": 7500,
+        "sortKeyTo": 7500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke Confronts Vader and Palpatine",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Palpatine",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Endor",
+          "Death Star II"
+        ],
+        "factions": [
+          "Jedi Order",
+          "Sith",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "force",
+          "duel",
+          "family secret"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Palpatine",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Endor",
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "force",
+            "duel",
+            "family secret"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke leaves the Endor mission and surrenders because he believes Vader can still be reached.",
+        "injection": "During the Endor operation, Luke’s objective diverges from the ground mission into a personal Jedi/Sith confrontation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke Confronts Vader and Palpatine.",
+          "Respect story-position bounds from Luke Confronts Vader and Palpatine to Luke Confronts Vader and Palpatine."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_palpatine_temptation_targets_luke_attachment",
+      "title": "Palpatine Tempts Luke Through Attachment and Anger",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "place:death-star-ii",
+        "scope:rebellion-era",
+        "topic:duel",
+        "topic:force",
+        "topic:sith",
+        "topic:spoiler-guard"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.throne_room_confrontation",
+        "validToAnchor": "sw.rebellion.throne_room_confrontation",
+        "sortKeyFrom": 7500,
+        "sortKeyTo": 7500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke Confronts Vader and Palpatine",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Death Star II"
+        ],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ],
+        "topics": [
+          "sith",
+          "force",
+          "duel"
+        ],
+        "objects": [
+          "Lightsaber"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "sith",
+            "force",
+            "duel"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Jedi Order"
+          ],
+          "objectsAny": [
+            "Lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Palpatine tries to turn Luke by weaponizing fear for his friends, anger at the Empire, and his bond with Vader.",
+        "injection": "In the throne-room confrontation, Palpatine should pressure Luke through emotional stakes rather than only physical threat.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke Confronts Vader and Palpatine.",
+          "Respect story-position bounds from Luke Confronts Vader and Palpatine to Luke Confronts Vader and Palpatine."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_vader_redemption_not_certain_before_choice",
+      "title": "Vader Redemption Not Certain Before Choice",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:death-star-ii",
+        "scope:rebellion-era",
+        "topic:force",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:spoiler-guard"
+      ],
+      "priority": 92,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.throne_room_confrontation",
+        "validToAnchor": "sw.rebellion.throne_room_confrontation",
+        "sortKeyFrom": 7500,
+        "sortKeyTo": 7500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke Confronts Vader and Palpatine",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Luke Skywalker",
+          "Palpatine"
+        ],
+        "locations": [
+          "Death Star II"
+        ],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ],
+        "topics": [
+          "force",
+          "family secret"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Luke Skywalker",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "force",
+            "family secret"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Before Vader chooses to save Luke, his redemption is not an assumed fact for characters in the scene.",
+        "injection": "Do not write pre-choice Vader as already redeemed; the tension is whether he will remain Sith or act as Anakin.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke Confronts Vader and Palpatine.",
+          "Respect story-position bounds from Luke Confronts Vader and Palpatine to Luke Confronts Vader and Palpatine."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_death_star_ii_trap_revealed",
+      "title": "Death Star II Trap Revealed During Battle",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:admiral-ackbar",
+        "character:lando-calrissian",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star-ii",
+        "object:millennium-falcon",
+        "place:death-star-ii",
+        "place:rebel-fleet",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:knowledge-gate",
+        "topic:military-logistics"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.battle_of_endor",
+        "validToAnchor": "sw.rebellion.battle_of_endor",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 7600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Battle of Endor",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Admiral Ackbar",
+          "Lando Calrissian",
+          "Palpatine"
+        ],
+        "locations": [
+          "Rebel fleet",
+          "Death Star II"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "military logistics",
+          "command"
+        ],
+        "objects": [
+          "Death Star II",
+          "Millennium Falcon"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Admiral Ackbar",
+            "Lando Calrissian",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Rebel fleet",
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "military logistics",
+            "command"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire"
+          ],
+          "objectsAny": [
+            "Death Star II",
+            "Millennium Falcon"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During Endor, the Rebels realize the Death Star II is operational and the fleet has been trapped.",
+        "injection": "At Endor, Alliance confidence should turn into crisis when the trap is revealed and the superlaser fires. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle of Endor.",
+          "Respect story-position bounds from Battle of Endor to Battle of Endor."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_shield_generator_destroyed_by_ground_team",
+      "title": "Shield Generator Destroyed by Ground Team",
+      "kind": "objective",
+      "gateType": "objective",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "objective",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:chewbacca",
+        "character:han-solo",
+        "character:lando-calrissian",
+        "character:leia-organa",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:ewoks",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star-ii",
+        "object:shield-generator",
+        "place:death-star-ii",
+        "place:endor",
+        "scope:rebellion-era",
+        "topic:command",
+        "topic:military-logistics"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.battle_of_endor",
+        "validToAnchor": "sw.rebellion.battle_of_endor",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 7600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Battle of Endor",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Chewbacca",
+          "Lando Calrissian"
+        ],
+        "locations": [
+          "Endor",
+          "Death Star II"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire",
+          "Ewoks"
+        ],
+        "topics": [
+          "military logistics",
+          "command"
+        ],
+        "objects": [
+          "Shield generator",
+          "Death Star II"
+        ],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Chewbacca",
+            "Lando Calrissian"
+          ],
+          "locationsAny": [
+            "Endor",
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "military logistics",
+            "command"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Galactic Empire",
+            "Ewoks"
+          ],
+          "objectsAny": [
+            "Shield generator",
+            "Death Star II"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Death Star II becomes vulnerable only after the Endor shield generator is destroyed.",
+        "injection": "During Endor, space victory depends on the ground team disabling the shield; do not allow the fleet to destroy the station before that condition.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Battle of Endor.",
+          "Respect story-position bounds from Battle of Endor to Battle of Endor."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_emperor_defeated_but_empire_not_instantly_gone",
+      "title": "Emperor Defeated, Empire Not Instantly Gone",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "faction",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:mon-mothma",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:galactic-empire",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:core-worlds",
+        "place:endor",
+        "place:outer-rim",
+        "scope:rebellion-era",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:military-logistics",
+        "topic:politics",
+        "topic:spoiler-guard"
+      ],
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.emperor_falls",
+        "validToAnchor": "sw.rebellion.emperor_falls",
+        "sortKeyFrom": 7660,
+        "sortKeyTo": 7660,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Emperor Falls at Endor",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Darth Vader",
+          "Luke Skywalker",
+          "Mon Mothma"
+        ],
+        "locations": [
+          "Endor",
+          "Core Worlds",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "future guard",
+          "politics",
+          "military logistics"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Darth Vader",
+            "Luke Skywalker",
+            "Mon Mothma"
+          ],
+          "locationsAny": [
+            "Endor",
+            "Core Worlds",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "future guard",
+            "politics",
+            "military logistics"
+          ],
+          "factionsAny": [
+            "Galactic Empire",
+            "Rebel Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "The Emperor’s defeat at Endor is decisive but does not make the Empire vanish everywhere overnight in Legends.",
+        "injection": "After Endor, the Emperor’s defeat does not make the galaxy instantly peaceful or uniformly New Republic-controlled; preserve Imperial remnants, local power struggles, and postwar instability.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Emperor Falls at Endor.",
+          "Respect story-position bounds from Emperor Falls at Endor to Emperor Falls at Endor."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_vader_redeems_and_dies",
+      "title": "Vader Redeems Himself and Dies as Anakin",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:death-star-ii",
+        "scope:rebellion-era",
+        "topic:force"
+      ],
+      "priority": 94,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.vader_redeemed",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 7670,
+        "sortKeyTo": 7670,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vader Redeemed and Anakin Dies",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Anakin Skywalker",
+          "Luke Skywalker",
+          "Palpatine"
+        ],
+        "locations": [
+          "Death Star II"
+        ],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ],
+        "topics": [
+          "family secret",
+          "force"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Anakin Skywalker",
+            "Luke Skywalker",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "family secret",
+            "force"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Vader saves Luke from Palpatine and dies as Anakin Skywalker.",
+        "injection": "After the throne-room climax, Vader is dead and redeemed; before that point, do not inject redeemed-Anakin status.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vader Redeemed and Anakin Dies.",
+          "Respect story-position bounds from Vader Redeemed and Anakin Dies to Vader Redeemed and Anakin Dies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_reb_luke_cremates_vader_privately",
+      "title": "Luke Handles Vader’s Death Privately",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "faction:jedi-order",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "place:endor",
+        "scope:rebellion-era",
+        "topic:morale"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.rebellion.vader_redeemed",
+        "validToAnchor": "sw.rebellion.vader_redeemed",
+        "sortKeyFrom": 7670,
+        "sortKeyTo": 7670,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vader Redeemed and Anakin Dies",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Leia Organa"
+        ],
+        "locations": [
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Jedi Order"
+        ],
+        "topics": [
+          "family secret",
+          "morale"
+        ],
+        "objects": [],
+        "spells": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Leia Organa"
+          ],
+          "locationsAny": [
+            "Endor"
+          ],
+          "topicsAny": [
+            "family secret",
+            "morale"
+          ],
+          "factionsAny": [
+            "Rebel Alliance",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "content": {
+        "fact": "Luke privately handles Vader’s body and grief after escaping the Death Star II.",
+        "injection": "After Endor, Luke’s relationship to Vader’s death is private and spiritually complex; the Alliance celebration need not understand the full family truth.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vader Redeemed and Anakin Dies.",
+          "Respect story-position bounds from Vader Redeemed and Anakin Dies to Vader Redeemed and Anakin Dies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "film-novel-comic-game",
+        "sourceBoundary": "Legends-compatible Galactic Civil War material from A New Hope through the Battle of Endor, with Shadows of the Empire-style ESB-to-ROTJ support.",
+        "notes": "Development deck. Do not silently blend with Disney canon sequel-era assumptions."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Civil War / Original Trilogy era",
+        "confidence": 0.82,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-rebellion-era",
+          "packTitle": "Star Wars Legends: Rebellion Era",
+          "file": "events/return_of_the_jedi_endor.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

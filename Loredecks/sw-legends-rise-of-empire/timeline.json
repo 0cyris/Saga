@@ -1,0 +1,966 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "summary": "Story-position anchors for the Star Wars Legends Rise of Empire deck. Use story anchors/windows first; BBY dates are secondary metadata.",
+  "anchors": [
+    {
+      "id": "sw.roe.republic_decay",
+      "label": "Late Republic Institutional Decay",
+      "sortKey": 1000,
+      "dateRange": {
+        "from": "42 BBY",
+        "to": "33 BBY"
+      },
+      "aliases": [
+        "late republic",
+        "republic decline",
+        "before naboo",
+        "pre-naboo republic"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:late-republic",
+        "topic:republic-corruption"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Late Republic Institutional Decay"
+      }
+    },
+    {
+      "id": "sw.roe.naboo_blockade",
+      "label": "Naboo Blockade",
+      "sortKey": 1200,
+      "dateRange": {
+        "from": "32 BBY",
+        "to": "32 BBY"
+      },
+      "aliases": [
+        "naboo crisis",
+        "naboo blockade",
+        "phantom menace opening"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:naboo-crisis",
+        "location:naboo",
+        "faction:trade-federation"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Naboo Blockade"
+      }
+    },
+    {
+      "id": "sw.roe.palpatine_chancellor",
+      "label": "Palpatine Becomes Chancellor",
+      "sortKey": 1350,
+      "dateRange": {
+        "from": "32 BBY",
+        "to": "32 BBY"
+      },
+      "aliases": [
+        "palpatine elected chancellor",
+        "palpatine becomes chancellor",
+        "after naboo"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:naboo-crisis",
+        "character:palpatine",
+        "faction:galactic-senate"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Palpatine Becomes Chancellor"
+      }
+    },
+    {
+      "id": "sw.roe.dooku_leaves_order",
+      "label": "Dooku Leaves the Jedi Order",
+      "sortKey": 1650,
+      "dateRange": {
+        "from": "32 BBY",
+        "to": "24 BBY"
+      },
+      "aliases": [
+        "dooku leaves the jedi",
+        "count dooku leaves order",
+        "lost twenty"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "character:count-dooku",
+        "faction:jedi-order",
+        "topic:separatist-crisis"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dooku Leaves the Jedi Order"
+      }
+    },
+    {
+      "id": "sw.roe.outbound_flight",
+      "label": "Outbound Flight Disaster",
+      "sortKey": 1900,
+      "dateRange": {
+        "from": "27 BBY",
+        "to": "27 BBY"
+      },
+      "aliases": [
+        "outbound flight",
+        "thrawn and outbound flight",
+        "outbound flight project"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "topic:outbound-flight",
+        "character:thrawn",
+        "era:late-republic"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Outbound Flight Disaster"
+      }
+    },
+    {
+      "id": "sw.roe.separatist_crisis",
+      "label": "Separatist Crisis",
+      "sortKey": 2200,
+      "dateRange": {
+        "from": "24 BBY",
+        "to": "22 BBY"
+      },
+      "aliases": [
+        "separatist crisis",
+        "before geonosis",
+        "confederacy forms",
+        "cis movement"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "faction:cis",
+        "faction:separatists",
+        "era:separatist-crisis"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Separatist Crisis"
+      }
+    },
+    {
+      "id": "sw.roe.kamino_discovery",
+      "label": "Kamino Clone Army Discovered",
+      "sortKey": 2450,
+      "dateRange": {
+        "from": "22 BBY",
+        "to": "22 BBY"
+      },
+      "aliases": [
+        "kamino discovery",
+        "clone army discovered",
+        "obi-wan on kamino"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "location:kamino",
+        "faction:clone-army",
+        "topic:clone-army"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Kamino Clone Army Discovered"
+      }
+    },
+    {
+      "id": "sw.roe.geonosis_first_battle",
+      "label": "First Battle of Geonosis",
+      "sortKey": 2650,
+      "dateRange": {
+        "from": "22 BBY",
+        "to": "22 BBY"
+      },
+      "aliases": [
+        "battle of geonosis",
+        "first geonosis",
+        "clone wars begin"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "location:geonosis",
+        "event:first-battle-of-geonosis",
+        "era:clone-wars"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "First Battle of Geonosis"
+      }
+    },
+    {
+      "id": "sw.roe.clone_wars_begin",
+      "label": "Clone Wars Begin",
+      "sortKey": 2700,
+      "dateRange": {
+        "from": "22 BBY",
+        "to": "22 BBY"
+      },
+      "aliases": [
+        "start of clone wars",
+        "clone wars opening",
+        "early clone wars"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:clone-wars",
+        "faction:galactic-republic",
+        "faction:cis"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Begin"
+      }
+    },
+    {
+      "id": "sw.roe.muunilinst_campaign",
+      "label": "Muunilinst Campaign and Durge Crisis",
+      "sortKey": 3050,
+      "dateRange": {
+        "from": "22 BBY",
+        "to": "21 BBY"
+      },
+      "aliases": [
+        "muunilinst campaign",
+        "durge campaign",
+        "clone wars microseries early"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "location:muunilinst",
+        "character:durge",
+        "era:clone-wars"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Muunilinst Campaign and Durge Crisis"
+      }
+    },
+    {
+      "id": "sw.roe.jabiim_campaign",
+      "label": "Jabiim Campaign",
+      "sortKey": 3200,
+      "dateRange": {
+        "from": "22 BBY",
+        "to": "21 BBY"
+      },
+      "aliases": [
+        "battle of jabiim",
+        "jabiim campaign",
+        "mud planet clone wars"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "location:jabiim",
+        "era:clone-wars",
+        "topic:clone-wars-cost"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Jabiim Campaign"
+      }
+    },
+    {
+      "id": "sw.roe.hypori_grievous_reveal",
+      "label": "Hypori and Grievous Revealed",
+      "sortKey": 3400,
+      "dateRange": {
+        "from": "22 BBY",
+        "to": "21 BBY"
+      },
+      "aliases": [
+        "hypori",
+        "grievous reveal",
+        "general grievous introduced"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "character:general-grievous",
+        "location:hypori",
+        "era:clone-wars"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Hypori and Grievous Revealed"
+      }
+    },
+    {
+      "id": "sw.roe.ventress_hunts_jedi",
+      "label": "Ventress Hunts Jedi",
+      "sortKey": 3550,
+      "dateRange": {
+        "from": "22 BBY",
+        "to": "20 BBY"
+      },
+      "aliases": [
+        "ventress hunts jedi",
+        "asajj ventress clone wars",
+        "dooku's assassin"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "character:asajj-ventress",
+        "character:count-dooku",
+        "era:clone-wars"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Ventress Hunts Jedi"
+      }
+    },
+    {
+      "id": "sw.roe.clone_wars_midpoint",
+      "label": "Clone Wars Midpoint",
+      "sortKey": 3700,
+      "dateRange": {
+        "from": "21 BBY",
+        "to": "20 BBY"
+      },
+      "aliases": [
+        "mid clone wars",
+        "during clone wars",
+        "clone wars midpoint"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:clone-wars",
+        "topic:war-fatigue"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Clone Wars Midpoint"
+      }
+    },
+    {
+      "id": "sw.roe.outer_rim_sieges",
+      "label": "Outer Rim Sieges",
+      "sortKey": 4300,
+      "dateRange": {
+        "from": "20 BBY",
+        "to": "19 BBY"
+      },
+      "aliases": [
+        "outer rim sieges",
+        "late clone wars",
+        "before revenge of the sith"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:late-clone-wars",
+        "topic:outer-rim-sieges"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Outer Rim Sieges"
+      }
+    },
+    {
+      "id": "sw.roe.coruscant_invasion",
+      "label": "Battle of Coruscant",
+      "sortKey": 4550,
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "19 BBY"
+      },
+      "aliases": [
+        "battle of coruscant",
+        "coruscant invasion",
+        "palpatine kidnapped"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "location:coruscant",
+        "event:battle-of-coruscant",
+        "era:rots-transition"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Battle of Coruscant"
+      }
+    },
+    {
+      "id": "sw.roe.dooku_death",
+      "label": "Dooku Dies Aboard Invisible Hand",
+      "sortKey": 4625,
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "19 BBY"
+      },
+      "aliases": [
+        "dooku death",
+        "dooku killed",
+        "invisible hand duel"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "character:count-dooku",
+        "character:anakin-skywalker",
+        "era:rots-transition"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dooku Dies Aboard Invisible Hand"
+      }
+    },
+    {
+      "id": "sw.roe.jedi_council_spy_order",
+      "label": "Jedi Ask Anakin to Monitor Palpatine",
+      "sortKey": 4725,
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "19 BBY"
+      },
+      "aliases": [
+        "anakin spies on palpatine",
+        "jedi ask anakin to report",
+        "council distrusts chancellor"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "character:anakin-skywalker",
+        "character:palpatine",
+        "faction:jedi-order"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Jedi Ask Anakin to Monitor Palpatine"
+      }
+    },
+    {
+      "id": "sw.roe.order_66",
+      "label": "Order 66",
+      "sortKey": 4850,
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "19 BBY"
+      },
+      "aliases": [
+        "order 66",
+        "jedi purge begins",
+        "clone betrayal"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "event:order-66",
+        "faction:jedi-order",
+        "faction:clone-army"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Order 66"
+      }
+    },
+    {
+      "id": "sw.roe.empire_declared",
+      "label": "Galactic Empire Declared",
+      "sortKey": 4925,
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "19 BBY"
+      },
+      "aliases": [
+        "empire declared",
+        "birth of the empire",
+        "republic becomes empire"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "faction:galactic-empire",
+        "character:palpatine",
+        "era:early-empire"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Galactic Empire Declared"
+      }
+    },
+    {
+      "id": "sw.roe.mustafar_duel",
+      "label": "Mustafar Duel and Vader's Ruin",
+      "sortKey": 5000,
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "19 BBY"
+      },
+      "aliases": [
+        "mustafar duel",
+        "obi-wan vs anakin",
+        "vader suit begins"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "location:mustafar",
+        "character:anakin-skywalker",
+        "character:darth-vader"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Mustafar Duel and Vader's Ruin"
+      }
+    },
+    {
+      "id": "sw.roe.children_hidden",
+      "label": "Skywalker Children Hidden",
+      "sortKey": 5050,
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "19 BBY"
+      },
+      "aliases": [
+        "luke and leia hidden",
+        "skywalker twins hidden",
+        "padme gives birth"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "character:luke-skywalker",
+        "character:leia-organa",
+        "topic:skywalker-twins"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Skywalker Children Hidden"
+      }
+    },
+    {
+      "id": "sw.roe.jedi_purge_early",
+      "label": "Early Jedi Purge",
+      "sortKey": 5300,
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "17 BBY"
+      },
+      "aliases": [
+        "jedi purge",
+        "early purge",
+        "dark times begin"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "event:jedi-purge",
+        "era:early-empire",
+        "faction:inquisitors"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Early Jedi Purge"
+      }
+    },
+    {
+      "id": "sw.roe.vader_early_empire",
+      "label": "Vader's Early Imperial Enforcement",
+      "sortKey": 5500,
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "15 BBY"
+      },
+      "aliases": [
+        "early vader",
+        "vader hunts jedi",
+        "vader early empire"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "character:darth-vader",
+        "era:early-empire",
+        "topic:jedi-hunt"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Vader's Early Imperial Enforcement"
+      }
+    },
+    {
+      "id": "sw.roe.dark_times_begin",
+      "label": "Dark Times and Imperial Consolidation",
+      "sortKey": 5800,
+      "dateRange": {
+        "from": "19 BBY",
+        "to": "13 BBY"
+      },
+      "aliases": [
+        "dark times",
+        "early empire",
+        "imperial consolidation"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:dark-times",
+        "faction:galactic-empire",
+        "topic:imperial-consolidation"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dark Times and Imperial Consolidation"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "sw.roe.window.late_republic",
+      "label": "Late Republic Before Naboo",
+      "anchorFrom": "sw.roe.republic_decay",
+      "anchorTo": "sw.roe.naboo_blockade",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1200,
+      "aliases": [
+        "late republic before naboo",
+        "pre-naboo republic"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:late-republic"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.roe.window.naboo_crisis",
+      "label": "Naboo Crisis",
+      "anchorFrom": "sw.roe.naboo_blockade",
+      "anchorTo": "sw.roe.palpatine_chancellor",
+      "sortKeyFrom": 1200,
+      "sortKeyTo": 1350,
+      "aliases": [
+        "during phantom menace",
+        "naboo crisis",
+        "during naboo blockade"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:naboo-crisis",
+        "location:naboo"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.roe.window.separatist_crisis",
+      "label": "Separatist Crisis Before Geonosis",
+      "anchorFrom": "sw.roe.palpatine_chancellor",
+      "anchorTo": "sw.roe.geonosis_first_battle",
+      "sortKeyFrom": 1350,
+      "sortKeyTo": 2650,
+      "aliases": [
+        "between phantom menace and attack of the clones",
+        "before geonosis",
+        "separatist crisis"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:separatist-crisis"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.roe.window.early_clone_wars",
+      "label": "Early Clone Wars",
+      "anchorFrom": "sw.roe.clone_wars_begin",
+      "anchorTo": "sw.roe.hypori_grievous_reveal",
+      "sortKeyFrom": 2700,
+      "sortKeyTo": 3400,
+      "aliases": [
+        "early clone wars",
+        "after geonosis",
+        "before grievous reveal"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:clone-wars"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.roe.window.mid_clone_wars",
+      "label": "Mid Clone Wars",
+      "anchorFrom": "sw.roe.hypori_grievous_reveal",
+      "anchorTo": "sw.roe.outer_rim_sieges",
+      "sortKeyFrom": 3400,
+      "sortKeyTo": 4300,
+      "aliases": [
+        "mid clone wars",
+        "during the clone wars",
+        "before outer rim sieges"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:clone-wars"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.roe.window.late_clone_wars",
+      "label": "Late Clone Wars and Outer Rim Sieges",
+      "anchorFrom": "sw.roe.outer_rim_sieges",
+      "anchorTo": "sw.roe.coruscant_invasion",
+      "sortKeyFrom": 4300,
+      "sortKeyTo": 4550,
+      "aliases": [
+        "late clone wars",
+        "outer rim sieges",
+        "before revenge of the sith"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:late-clone-wars"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.roe.window.rots_transition",
+      "label": "Revenge of the Sith Transition",
+      "anchorFrom": "sw.roe.coruscant_invasion",
+      "anchorTo": "sw.roe.children_hidden",
+      "sortKeyFrom": 4550,
+      "sortKeyTo": 5050,
+      "aliases": [
+        "during revenge of the sith",
+        "rots transition",
+        "fall of the republic"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:rots-transition"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.roe.window.order_66_fall",
+      "label": "Order 66 and Fall of the Jedi",
+      "anchorFrom": "sw.roe.order_66",
+      "anchorTo": "sw.roe.children_hidden",
+      "sortKeyFrom": 4850,
+      "sortKeyTo": 5050,
+      "aliases": [
+        "during order 66",
+        "fall of the jedi",
+        "jedi temple massacre"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "event:order-66",
+        "event:jedi-purge"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.roe.window.early_empire_purge",
+      "label": "Early Empire and Jedi Purge",
+      "anchorFrom": "sw.roe.empire_declared",
+      "anchorTo": "sw.roe.dark_times_begin",
+      "sortKeyFrom": 4925,
+      "sortKeyTo": 5800,
+      "aliases": [
+        "early empire",
+        "jedi purge era",
+        "dark times beginning"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "era:early-empire",
+        "event:jedi-purge"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    },
+    {
+      "id": "sw.roe.window.full_rise_of_empire",
+      "label": "Rise of Empire Full Era",
+      "anchorFrom": "sw.roe.republic_decay",
+      "anchorTo": "sw.roe.dark_times_begin",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 5800,
+      "aliases": [
+        "rise of empire era",
+        "prequel era legends",
+        "republic to empire"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:rise-of-empire",
+        "scope:rise-of-empire"
+      ],
+      "windowKind": "bounded",
+      "precision": "anchor_window"
+    }
+  ],
+  "arcs": [
+    {
+      "id": "sw.roe.arc.late_republic",
+      "label": "Late Republic",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 2650,
+      "aliases": [
+        "late republic",
+        "pre-clone-wars"
+      ],
+      "tags": [
+        "era:late-republic"
+      ]
+    },
+    {
+      "id": "sw.roe.arc.clone_wars",
+      "label": "Clone Wars",
+      "sortKeyFrom": 2700,
+      "sortKeyTo": 4850,
+      "aliases": [
+        "clone wars",
+        "during clone wars"
+      ],
+      "tags": [
+        "era:clone-wars"
+      ]
+    },
+    {
+      "id": "sw.roe.arc.republic_fall",
+      "label": "Fall of the Republic",
+      "sortKeyFrom": 4550,
+      "sortKeyTo": 5050,
+      "aliases": [
+        "revenge of the sith",
+        "fall of the republic"
+      ],
+      "tags": [
+        "era:rots-transition"
+      ]
+    },
+    {
+      "id": "sw.roe.arc.early_empire",
+      "label": "Early Empire",
+      "sortKeyFrom": 4925,
+      "sortKeyTo": 5800,
+      "aliases": [
+        "early empire",
+        "dark times begin"
+      ],
+      "tags": [
+        "era:early-empire"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "sw.roe.phase.rise_of_empire",
+      "label": "Rise of Empire",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 5800,
+      "aliases": [
+        "rise of empire",
+        "prequel era legends",
+        "republic to empire"
+      ],
+      "tags": [
+        "scope:rise-of-empire"
+      ]
+    }
+  ]
+}

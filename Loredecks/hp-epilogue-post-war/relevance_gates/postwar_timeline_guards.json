@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "postwar_guard_immediate_aftermath_not_epilogue",
+      "title": "Immediate postwar is not epilogue state",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "timeline",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 105,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 10349,
+        "sortKeyTo": 10591,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Immediate postwar before settled adult epilogue",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Ginny Weasley"
+        ],
+        "topics": [
+          "postwar aftermath",
+          "epilogue guard",
+          "reconstruction"
+        ],
+        "books": [
+          "Post-War and Epilogue"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:post-war-and-epilogue",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "quality:relevance-curated"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Ginny Weasley"
+          ],
+          "topicsAny": [
+            "postwar aftermath",
+            "epilogue guard",
+            "reconstruction"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Immediately after the Battle of Hogwarts, characters are in grief, recovery, reconstruction, and political transition; they are not yet in the settled 2017 epilogue family state.",
+        "injection": "In immediate postwar Context, preserve trauma, funerals, repairs, and institutional cleanup; do not jump to married-with-children epilogue assumptions unless the active Context is the epilogue.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Immediate postwar before settled adult epilogue; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Post-War and Epilogue",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-epilogue-post-war",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-epilogue-post-war"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "postwar_guard_next_generation_only_epilogue",
+      "title": "Next generation appears only in epilogue Context",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 105,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 10349,
+        "sortKeyTo": 17409,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Before 2017 King’s Cross epilogue",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Ginny Weasley",
+          "Draco Malfoy"
+        ],
+        "topics": [
+          "next generation",
+          "2017 epilogue",
+          "King’s Cross"
+        ],
+        "books": [
+          "Post-War and Epilogue"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "book:post-war-and-epilogue",
+        "character:draco-malfoy",
+        "character:ginny-weasley",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:sirius-black",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "quality:relevance-curated"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Ginny Weasley",
+            "Draco Malfoy"
+          ],
+          "topicsAny": [
+            "next generation",
+            "2017 epilogue",
+            "King’s Cross"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the 2017 King’s Cross epilogue Context, the next-generation children should not be active Hogwarts students or used to define immediate postwar scenes.",
+        "injection": "Block Albus Severus, Rose, Hugo, James Sirius, Lily Luna, and Scorpius school-era assumptions until the epilogue window is active or an AU timeskip is declared. Enforce this as a high-priority Context gate for Before 2017 King’s Cross epilogue; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before 2017 King’s Cross epilogue; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
+          "Do not let generic model memory override the active Saga Context.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Post-War and Epilogue",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-epilogue-post-war",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-epilogue-post-war"
+        }
+      }
+    }
+  ]
+}

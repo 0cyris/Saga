@@ -1421,10 +1421,10 @@
       "id": "hp.y6.locket_fake_revealed",
       "label": "Locket Fake Revealed",
       "contextType": "story_anchor",
-      "sortKey": 9998,
+      "sortKey": 10020,
       "dateRange": {
-        "from": "1997-05-17",
-        "to": "1997-05-17",
+        "from": "1997-06-08",
+        "to": "1997-06-08",
         "precision": "approximate"
       },
       "book": "Half-Blood Prince",
@@ -1505,10 +1505,10 @@
       "id": "hp.y6.snape_half_blood_prince_reveal",
       "label": "Snape Half Blood Prince Reveal",
       "contextType": "story_anchor",
-      "sortKey": 10017,
+      "sortKey": 10023,
       "dateRange": {
-        "from": "1997-06-05",
-        "to": "1997-06-05",
+        "from": "1997-06-11",
+        "to": "1997-06-11",
         "precision": "approximate"
       },
       "book": "Half-Blood Prince",
@@ -1855,16 +1855,19 @@
     },
     {
       "id": "hp.y6.window.slughorn_memory_hunt",
-      "label": "Window Slughorn Memory Hunt",
+      "label": "Window Slughorn Memory Hunt and Horcrux Task",
       "contextType": "window",
       "windowKind": "story_phase",
-      "validFromAnchor": "hp.y6.felix_felicis_used",
+      "validFromAnchor": "hp.y6.horcrux_memory_task_assigned",
       "validToAnchor": "hp.y6.horcrux_truth_revealed",
-      "sortKeyFrom": 9971,
+      "sortKeyFrom": 9871,
       "sortKeyTo": 9972,
       "aliases": [
         "Window Slughorn Memory Hunt",
-        "window slughorn_memory_hunt"
+        "window slughorn_memory_hunt",
+        "Horcrux memory task",
+        "Slughorn memory task",
+        "before true Horcrux memory"
       ],
       "tags": [
         "fandom:harry-potter",
@@ -1897,13 +1900,13 @@
     },
     {
       "id": "hp.y6.window.harry_ginny_relationship",
-      "label": "Window Harry Ginny Relationship",
+      "label": "Window Harry and Ginny Relationship",
       "contextType": "window",
       "windowKind": "story_phase",
-      "validFromAnchor": "hp.y6.dumbledore_cave_mission",
-      "validToAnchor": "hp.y6.dumbledore_killed",
-      "sortKeyFrom": 10018,
-      "sortKeyTo": 10019,
+      "validFromAnchor": "hp.y6.harry_ginny_start",
+      "validToAnchor": "hp.y6.harry_ginny_breakup",
+      "sortKeyFrom": 10001,
+      "sortKeyTo": 10035,
       "aliases": [
         "Window Harry Ginny Relationship",
         "window harry_ginny_relationship"
@@ -1918,13 +1921,13 @@
     },
     {
       "id": "hp.y6.window.cave_and_tower",
-      "label": "Window Cave and Tower",
+      "label": "Window Cave, Tower, and Flight Aftermath",
       "contextType": "window",
       "windowKind": "story_phase",
-      "validFromAnchor": "hp.y6.snape_half_blood_prince_reveal",
-      "validToAnchor": "hp.y6.harry_ginny_breakup",
-      "sortKeyFrom": 10017,
-      "sortKeyTo": 10035,
+      "validFromAnchor": "hp.y6.dumbledore_cave_mission",
+      "validToAnchor": "hp.y6.fight_and_flight_aftermath",
+      "sortKeyFrom": 10018,
+      "sortKeyTo": 10023,
       "aliases": [
         "Window Cave and Tower",
         "window cave_and_tower"

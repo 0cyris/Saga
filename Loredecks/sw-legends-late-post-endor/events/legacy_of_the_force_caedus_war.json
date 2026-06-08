@@ -1,0 +1,2478 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_corellian_crisis_starts_confederation_pressure",
+      "title": "Corellian Crisis Starts Confederation Pressure",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.lotf_betrayal",
+        "validToAnchor": "sw.late.lotf_betrayal",
+        "sortKeyFrom": 40000,
+        "sortKeyTo": 40000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Legacy of the Force Begins / Betrayal",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa Solo",
+          "Jacen Solo"
+        ],
+        "locations": [
+          "Corellia"
+        ],
+        "topics": [
+          "politics",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Confederation"
+        ],
+        "entityIds": [
+          "sw-character:han-solo",
+          "sw-character:leia-organa-solo",
+          "sw-character:jacen-solo",
+          "sw-faction:corellia",
+          "sw-faction:galactic-alliance",
+          "sw-faction:confederation"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:han-solo",
+        "character:leia-organa-solo",
+        "character:jacen-solo",
+        "location:corellia",
+        "faction:galactic-alliance",
+        "faction:confederation",
+        "topic:politics",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa Solo",
+            "Jacen Solo"
+          ],
+          "locationsAny": [
+            "Corellia"
+          ],
+          "topicsAny": [
+            "politics",
+            "war"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Confederation"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "The Legacy of the Force era begins with Corellian resistance to Galactic Alliance central authority and a widening secession crisis.",
+        "injection": "At LOTF opening, frame the conflict as federal/secession pressure, not as a simple Imperial war. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy of the Force Begins / Betrayal.",
+          "Respect story-position bounds from Legacy of the Force Begins / Betrayal to Legacy of the Force Begins / Betrayal."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_han_leia_split_from_ga_policy",
+      "title": "Han and Leia Split from GA Policy",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.corellian_insurrection",
+        "validToAnchor": "sw.late.corellian_insurrection",
+        "sortKeyFrom": 40200,
+        "sortKeyTo": 40200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Second Corellian Insurrection",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa Solo",
+          "Jacen Solo"
+        ],
+        "locations": [
+          "Corellia"
+        ],
+        "topics": [
+          "family",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Confederation"
+        ],
+        "entityIds": [
+          "sw-character:han-solo",
+          "sw-character:leia-organa-solo",
+          "sw-character:jacen-solo",
+          "sw-faction:corellia",
+          "sw-faction:galactic-alliance",
+          "sw-faction:confederation"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:han-solo",
+        "character:leia-organa-solo",
+        "character:jacen-solo",
+        "location:corellia",
+        "faction:galactic-alliance",
+        "faction:confederation",
+        "topic:family",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa Solo",
+            "Jacen Solo"
+          ],
+          "locationsAny": [
+            "Corellia"
+          ],
+          "topicsAny": [
+            "family",
+            "politics"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Confederation"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Han and Leia’s Corellian ties and moral objections place them at odds with some Galactic Alliance actions.",
+        "injection": "During early LOTF, Han and Leia can oppose GA policy without becoming villains or anti-democratic caricatures.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Second Corellian Insurrection.",
+          "Respect story-position bounds from Second Corellian Insurrection to Second Corellian Insurrection."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_jacen_security_hardline",
+      "title": "Jacen Takes Security Hardline",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.gag_established",
+        "validToAnchor": "sw.late.gag_established",
+        "sortKeyFrom": 40500,
+        "sortKeyTo": 40500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Galactic Alliance Guard Established",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "government",
+          "dark side"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance",
+          "Galactic Alliance Guard"
+        ],
+        "entityIds": [
+          "sw-character:jacen-solo",
+          "sw-faction:galactic-alliance",
+          "sw-faction:galactic-alliance-guard"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:jacen-solo",
+        "faction:galactic-alliance",
+        "faction:galactic-alliance-guard",
+        "topic:government",
+        "topic:dark-side"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "government",
+            "dark side"
+          ],
+          "factionsAny": [
+            "Galactic Alliance",
+            "Galactic Alliance Guard"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Jacen Solo moves into an increasingly authoritarian security role as the Corellian conflict worsens.",
+        "injection": "During early Jacen-fall context, portray his coercive choices as justified by order/security in his own mind. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Alliance Guard Established.",
+          "Respect story-position bounds from Galactic Alliance Guard Established to Galactic Alliance Guard Established."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_gag_intimidation_constraint",
+      "title": "GAG Intimidation Constraint",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.gag_established",
+        "validToAnchor": "sw.late.gag_established",
+        "sortKeyFrom": 40500,
+        "sortKeyTo": 40500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Galactic Alliance Guard Established",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "security",
+          "politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance Guard",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:jacen-solo",
+          "sw-location:coruscant",
+          "sw-faction:galactic-alliance-guard",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:jacen-solo",
+        "location:coruscant",
+        "faction:galactic-alliance-guard",
+        "faction:galactic-alliance",
+        "topic:security",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "security",
+            "politics"
+          ],
+          "factionsAny": [
+            "Galactic Alliance Guard",
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "The Galactic Alliance Guard becomes associated with intrusive arrests, surveillance, and intimidation under Jacen’s command.",
+        "injection": "When GAG appears, treat it as a feared internal-security force rather than a neutral police bureau. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Galactic Alliance Guard Established.",
+          "Respect story-position bounds from Galactic Alliance Guard Established to Galactic Alliance Guard Established."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_lumiya_sith_influence_secret",
+      "title": "Lumiya Sith Influence Is Secret",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.lumiya_influence",
+        "validToAnchor": "sw.late.lumiya_influence",
+        "sortKeyFrom": 41000,
+        "sortKeyTo": 41000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Lumiya Guides Jacen",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lumiya",
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "secret",
+          "sith",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:lumiya",
+          "sw-character:jacen-solo"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:lumiya",
+        "character:jacen-solo",
+        "topic:secret",
+        "topic:sith",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Lumiya",
+            "Jacen Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "secret",
+            "sith",
+            "knowledge gate"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Lumiya secretly guides Jacen toward Sith ideology before the Darth Caedus identity is openly relevant.",
+        "injection": "Before the Sith reveal is active, do not have ordinary characters know Lumiya is shaping Jacen unless scene access supports it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Lumiya Guides Jacen.",
+          "Respect story-position bounds from Lumiya Guides Jacen to Lumiya Guides Jacen."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_jacen_fall_not_publicly_caedus_yet",
+      "title": "Jacen Falling Before Caedus Publicity",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lumiya_influence",
+        "validToAnchor": "sw.late.caedus_declared",
+        "sortKeyFrom": 41000,
+        "sortKeyTo": 43000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jacen falling before public Caedus endpoint",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo",
+          "Lumiya"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:jacen-solo",
+          "sw-character:lumiya",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:jacen-solo",
+        "character:lumiya",
+        "faction:galactic-alliance",
+        "topic:future-guard",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo",
+            "Lumiya"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "future guard",
+            "secret"
+          ],
+          "factionsAny": [
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Jacen’s moral fall and Sith training precede broader public understanding of Darth Caedus.",
+        "injection": "In this window, write Jacen as falling and secretive, not as openly branded Darth Caedus to the galaxy. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jacen falling before public Caedus endpoint.",
+          "Respect story-position bounds from Lumiya Guides Jacen to Darth Caedus Emerges."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_mara_hunts_jacen",
+      "title": "Mara Hunts Jacen",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.mara_jade_killed",
+        "validToAnchor": "sw.late.mara_jade_killed",
+        "sortKeyFrom": 42000,
+        "sortKeyTo": 42000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mara Jade Skywalker Killed",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade Skywalker",
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:mara-jade-skywalker",
+          "sw-character:jacen-solo",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:mara-jade-skywalker",
+        "character:jacen-solo",
+        "faction:jedi-order",
+        "topic:family",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade Skywalker",
+            "Jacen Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "secret"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Mara Jade Skywalker identifies Jacen as a severe threat and moves against him before her death.",
+        "injection": "During the Sacrifice window, Mara should be suspicious, proactive, and personally dangerous to Jacen. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mara Jade Skywalker Killed.",
+          "Respect story-position bounds from Mara Jade Skywalker Killed to Mara Jade Skywalker Killed."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_mara_jade_death_gate",
+      "title": "Mara Jade Death Gate",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 97,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.mara_jade_killed",
+        "validToAnchor": "sw.late.mara_jade_killed",
+        "sortKeyFrom": 42000,
+        "sortKeyTo": 42000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mara Jade Skywalker Killed",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade Skywalker",
+          "Jacen Solo",
+          "Luke Skywalker",
+          "Ben Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "spoiler guard",
+          "family",
+          "trauma"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:mara-jade-skywalker",
+          "sw-character:jacen-solo",
+          "sw-character:luke-skywalker",
+          "sw-character:ben-skywalker",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:mara-jade-skywalker",
+        "character:jacen-solo",
+        "character:luke-skywalker",
+        "character:ben-skywalker",
+        "faction:jedi-order",
+        "topic:spoiler-guard",
+        "topic:family",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade Skywalker",
+            "Jacen Solo",
+            "Luke Skywalker",
+            "Ben Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "spoiler guard",
+            "family",
+            "trauma"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Jacen kills Mara Jade Skywalker, deepening the Skywalker-Solo rupture and Ben’s trauma.",
+        "injection": "After Mara’s death, do not include Mara alive in standard Legends scenes; preserve Luke and Ben’s grief unless an alternate branch says otherwise.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mara Jade Skywalker Killed.",
+          "Respect story-position bounds from Mara Jade Skywalker Killed to Mara Jade Skywalker Killed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_ben_skywalker_mother_murder_trauma",
+      "title": "Ben Skywalker Trauma After Mara",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.mara_jade_killed",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 42000,
+        "sortKeyTo": 45000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Mara Jade is killed, before Caedus falls",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ben Skywalker",
+          "Mara Jade Skywalker",
+          "Jacen Solo",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "trauma"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:ben-skywalker",
+          "sw-character:mara-jade-skywalker",
+          "sw-character:jacen-solo",
+          "sw-character:luke-skywalker",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:ben-skywalker",
+        "character:mara-jade-skywalker",
+        "character:jacen-solo",
+        "character:luke-skywalker",
+        "faction:jedi-order",
+        "topic:family",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ben Skywalker",
+            "Mara Jade Skywalker",
+            "Jacen Solo",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "trauma"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "After Mara’s death, Ben’s grief, anger, and suspicion around Jacen become active character constraints.",
+        "injection": "Post-Mara death, write Ben as grieving and sharpened by betrayal; do not treat him as emotionally untouched. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Mara Jade is killed, before Caedus falls.",
+          "Respect story-position bounds from Mara Jade Skywalker Killed to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_caedus_identity_active",
+      "title": "Darth Caedus Identity Active",
+      "kind": "event_anchor",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.caedus_declared",
+        "validToAnchor": "sw.late.caedus_declared",
+        "sortKeyFrom": 43000,
+        "sortKeyTo": 43000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Darth Caedus Emerges",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jacen Solo",
+          "Darth Caedus"
+        ],
+        "locations": [],
+        "topics": [
+          "sith",
+          "spoiler guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:jacen-solo",
+          "sw-character:darth-caedus",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:jacen-solo",
+        "character:darth-caedus",
+        "faction:galactic-alliance",
+        "topic:sith",
+        "topic:spoiler-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jacen Solo",
+            "Darth Caedus"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "sith",
+            "spoiler guard"
+          ],
+          "factionsAny": [
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Jacen Solo becomes Darth Caedus, a Sith Lord and central antagonist of the late Galactic Alliance crisis.",
+        "injection": "After Caedus emerges, use Darth Caedus/Jacen dual identity as active antagonist-state lore. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Darth Caedus Emerges.",
+          "Respect story-position bounds from Darth Caedus Emerges to Darth Caedus Emerges."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_tahiri_caedus_manipulation",
+      "title": "Tahiri Manipulated by Caedus",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.caedus_declared",
+        "validToAnchor": "sw.late.caedus_declared",
+        "sortKeyFrom": 43000,
+        "sortKeyTo": 43000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Darth Caedus Emerges",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Tahiri Veila",
+          "Darth Caedus",
+          "Anakin Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "trauma",
+          "family"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:tahiri-veila",
+          "sw-character:darth-caedus",
+          "sw-character:anakin-solo",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:tahiri-veila",
+        "character:darth-caedus",
+        "character:anakin-solo",
+        "faction:galactic-alliance",
+        "topic:trauma",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tahiri Veila",
+            "Darth Caedus",
+            "Anakin Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "trauma",
+            "family"
+          ],
+          "factionsAny": [
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Caedus manipulates Tahiri Veila through grief, guilt, and promises tied to Anakin Solo.",
+        "injection": "In LOTF late scenes, Tahiri’s loyalty to Caedus should be emotionally compromised, not simple political agreement.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Darth Caedus Emerges.",
+          "Respect story-position bounds from Darth Caedus Emerges to Darth Caedus Emerges."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_allana_target_pressure",
+      "title": "Allana Becomes Strategic Vulnerability",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.fondor_and_allana_pressure",
+        "validToAnchor": "sw.late.fondor_and_allana_pressure",
+        "sortKeyFrom": 43800,
+        "sortKeyTo": 43800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Fondor / Allana Pressure",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Allana Solo",
+          "Tenel Ka Djo",
+          "Darth Caedus"
+        ],
+        "locations": [
+          "Hapes"
+        ],
+        "topics": [
+          "family",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Hapes Consortium"
+        ],
+        "entityIds": [
+          "sw-character:allana-solo",
+          "sw-character:tenel-ka-djo",
+          "sw-character:darth-caedus",
+          "sw-location:hapes",
+          "sw-faction:hapes-consortium"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:allana-solo",
+        "character:tenel-ka-djo",
+        "character:darth-caedus",
+        "location:hapes",
+        "faction:hapes-consortium",
+        "topic:family",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Allana Solo",
+            "Tenel Ka Djo",
+            "Darth Caedus"
+          ],
+          "locationsAny": [
+            "Hapes"
+          ],
+          "topicsAny": [
+            "family",
+            "secret"
+          ],
+          "factionsAny": [
+            "Hapes Consortium"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Allana’s secret identity and Hapan connection become strategically dangerous during Caedus’s war.",
+        "injection": "When Allana is relevant in late LOTF, protect her identity and treat her as a hostage/lineage vulnerability. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Fondor / Allana Pressure.",
+          "Respect story-position bounds from Fondor / Allana Pressure to Fondor / Allana Pressure."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_jaina_sword_against_caedus",
+      "title": "Jaina Becomes Sword Against Caedus",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.caedus_falls",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 45000,
+        "sortKeyTo": 45000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Caedus Falls / Invincible",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jaina Solo",
+          "Darth Caedus",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:jaina-solo",
+          "sw-character:darth-caedus",
+          "sw-character:luke-skywalker",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:jaina-solo",
+        "character:darth-caedus",
+        "character:luke-skywalker",
+        "faction:jedi-order",
+        "topic:family",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jaina Solo",
+            "Darth Caedus",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "war"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Jaina Solo becomes the necessary combat answer to Darth Caedus when family, Jedi, and politics fail to stop him.",
+        "injection": "In Caedus Falls / Invincible, late LOTF should use Jaina as the reluctant but central counter-Caedus figure. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Caedus Falls / Invincible.",
+          "Respect story-position bounds from Caedus Falls / Invincible to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_caedus_death_gate",
+      "title": "Caedus Death Gate",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 97,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 97,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.caedus_falls",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 45000,
+        "sortKeyTo": 45000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Caedus Falls / Invincible",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jaina Solo",
+          "Darth Caedus",
+          "Jacen Solo",
+          "Allana Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "spoiler guard",
+          "family",
+          "war"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-character:jaina-solo",
+          "sw-character:darth-caedus",
+          "sw-character:jacen-solo",
+          "sw-character:allana-solo",
+          "sw-faction:jedi-order",
+          "sw-faction:galactic-alliance"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:jaina-solo",
+        "character:darth-caedus",
+        "character:jacen-solo",
+        "character:allana-solo",
+        "faction:jedi-order",
+        "faction:galactic-alliance",
+        "topic:spoiler-guard",
+        "topic:family",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Jaina Solo",
+            "Darth Caedus",
+            "Jacen Solo",
+            "Allana Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "spoiler guard",
+            "family",
+            "war"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Alliance"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Jaina kills Darth Caedus/Jacen Solo, ending his immediate reign and leaving lasting family and political scars.",
+        "injection": "After Invincible, Jacen/Caedus is dead in standard Legends continuity; use aftermath, grief, and divided memory rather than active Caedus.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Caedus Falls / Invincible.",
+          "Respect story-position bounds from Caedus Falls / Invincible to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_post_caedus_family_wound",
+      "title": "Post-Caedus Family Wound",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.caedus_falls",
+        "validToAnchor": "sw.late.post_caedus",
+        "sortKeyFrom": 45000,
+        "sortKeyTo": 46000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Caedus falls",
+        "phase": "Legacy of the Force to Post-Legacy Reckoning",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa Solo",
+          "Jaina Solo",
+          "Allana Solo",
+          "Ben Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "trauma"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:han-solo",
+          "sw-character:leia-organa-solo",
+          "sw-character:jaina-solo",
+          "sw-character:allana-solo",
+          "sw-character:ben-skywalker"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force-to-post-legacy-reckoning",
+        "character:han-solo",
+        "character:leia-organa-solo",
+        "character:jaina-solo",
+        "character:allana-solo",
+        "character:ben-skywalker",
+        "topic:family",
+        "topic:trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa Solo",
+            "Jaina Solo",
+            "Allana Solo",
+            "Ben Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "trauma"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "After Caedus falls, the Solo-Skywalker family is not emotionally reset; grief, secrecy, and moral injury persist.",
+        "injection": "Post-LOTF scenes should preserve family trauma around Jacen rather than treating victory as clean closure. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Caedus falls.",
+          "Respect story-position bounds from Caedus Falls / Invincible to Post-Caedus Reckoning."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_lumiya_not_palpatine_clone_thread",
+      "title": "Lumiya Not Palpatine Clone Thread",
+      "kind": "branch_fact",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lotf_betrayal",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 40000,
+        "sortKeyTo": 45000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy of the Force / Caedus War",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Lumiya",
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "continuity",
+          "sith"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:lumiya",
+          "sw-character:jacen-solo"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:lumiya",
+        "character:jacen-solo",
+        "topic:continuity",
+        "topic:sith"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lumiya",
+            "Jacen Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "continuity",
+            "sith"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Lumiya’s role in Jacen’s fall is distinct from Dark Empire clone-Palpatine material.",
+        "injection": "Do not merge Lumiya/Caedus Sith guidance with Palpatine clone plots unless a crossover branch explicitly combines them.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy of the Force / Caedus War.",
+          "Respect story-position bounds from Legacy of the Force Begins / Betrayal to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_vergere_legacy_ambiguous_influence",
+      "title": "Vergere Legacy Ambiguous Influence",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lotf_betrayal",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 40000,
+        "sortKeyTo": 45000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy of the Force / Caedus War",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Vergere",
+          "Jacen Solo",
+          "Lumiya"
+        ],
+        "locations": [],
+        "topics": [
+          "force",
+          "sith",
+          "secret"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:vergere",
+          "sw-character:jacen-solo",
+          "sw-character:lumiya"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:vergere",
+        "character:jacen-solo",
+        "character:lumiya",
+        "topic:force",
+        "topic:sith",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Vergere",
+            "Jacen Solo",
+            "Lumiya"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "force",
+            "sith",
+            "secret"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Vergere’s teachings and memory become part of the interpretive field around Jacen’s later fall.",
+        "injection": "When Vergere is referenced in LOTF, treat her as contested interpretive influence rather than a simple exposition answer.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy of the Force / Caedus War.",
+          "Respect story-position bounds from Legacy of the Force Begins / Betrayal to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_corellian_superweapon_anxiety",
+      "title": "Corellian Superweapon Anxiety",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lotf_betrayal",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 40000,
+        "sortKeyTo": 45000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy of the Force / Caedus War",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Corellia"
+        ],
+        "topics": [
+          "superweapon",
+          "war"
+        ],
+        "objects": [
+          "Centerpoint Station"
+        ],
+        "spells": [],
+        "factions": [
+          "Confederation",
+          "Galactic Alliance"
+        ],
+        "entityIds": [
+          "sw-faction:corellia",
+          "sw-faction:confederation",
+          "sw-faction:galactic-alliance",
+          "sw-location:centerpoint-station"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "location:corellia",
+        "faction:confederation",
+        "faction:galactic-alliance",
+        "object:centerpoint-station",
+        "topic:superweapon",
+        "topic:war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Corellia"
+          ],
+          "topicsAny": [
+            "superweapon",
+            "war"
+          ],
+          "factionsAny": [
+            "Confederation",
+            "Galactic Alliance"
+          ],
+          "objectsAny": [
+            "Centerpoint Station"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Centerpoint and Corellian strategic leverage amplify fear that the secession crisis could become catastrophic.",
+        "injection": "In Corellian crisis scenes, include superweapon anxiety when Centerpoint or system defense is relevant. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy of the Force / Caedus War.",
+          "Respect story-position bounds from Legacy of the Force Begins / Betrayal to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_ben_gag_service_complication",
+      "title": "Ben GAG Service Complication",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.late.lotf_betrayal",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 40000,
+        "sortKeyTo": 45000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Legacy of the Force / Caedus War",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Ben Skywalker",
+          "Jacen Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "security"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Alliance Guard",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:ben-skywalker",
+          "sw-character:jacen-solo",
+          "sw-faction:galactic-alliance-guard",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:ben-skywalker",
+        "character:jacen-solo",
+        "faction:galactic-alliance-guard",
+        "faction:jedi-order",
+        "topic:family",
+        "topic:security"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ben Skywalker",
+            "Jacen Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "security"
+          ],
+          "factionsAny": [
+            "Galactic Alliance Guard",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Ben Skywalker’s connection to Jacen and security work complicates his later grief and mistrust.",
+        "injection": "Use Ben’s GAG/Jacen proximity as a complication when writing post-Mara or post-Caedus scenes. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Legacy of the Force / Caedus War.",
+          "Respect story-position bounds from Legacy of the Force Begins / Betrayal to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_mandalorian_jaina_training_context",
+      "title": "Mandalorian Jaina Training Context",
+      "kind": "ability_gate",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.caedus_falls",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 45000,
+        "sortKeyTo": 45000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Caedus Falls / Invincible",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Jaina Solo",
+          "Darth Caedus",
+          "Boba Fett"
+        ],
+        "locations": [],
+        "topics": [
+          "combat",
+          "mandalorian"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Mandalorians",
+          "Jedi Order"
+        ],
+        "entityIds": [
+          "sw-character:jaina-solo",
+          "sw-character:darth-caedus",
+          "sw-character:boba-fett",
+          "sw-faction:mandalorians",
+          "sw-faction:jedi-order"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:jaina-solo",
+        "character:darth-caedus",
+        "character:boba-fett",
+        "faction:mandalorians",
+        "faction:jedi-order",
+        "topic:combat",
+        "topic:mandalorian"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jaina Solo",
+            "Darth Caedus",
+            "Boba Fett"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "combat",
+            "mandalorian"
+          ],
+          "factionsAny": [
+            "Mandalorians",
+            "Jedi Order"
+          ],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Jaina’s preparation against Caedus can involve Mandalorian combat framing and anti-Jedi tactics.",
+        "injection": "When Jaina trains to fight Caedus, allow practical anti-Force combat emphasis instead of only Jedi sparring. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Caedus Falls / Invincible.",
+          "Respect story-position bounds from Caedus Falls / Invincible to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_late_caedus_last_motive_allana",
+      "title": "Caedus Last Motive Around Allana",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "when_context_matches",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.late.caedus_falls",
+        "validToAnchor": "sw.late.caedus_falls",
+        "sortKeyFrom": 45000,
+        "sortKeyTo": 45000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Caedus Falls / Invincible",
+        "phase": "Legacy of the Force",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Caedus",
+          "Allana Solo",
+          "Jaina Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "sith"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [],
+        "entityIds": [
+          "sw-character:darth-caedus",
+          "sw-character:allana-solo",
+          "sw-character:jaina-solo"
+        ]
+      },
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "scope:late-post-endor",
+        "era:late-post-endor",
+        "era:legacy-of-the-force",
+        "character:darth-caedus",
+        "character:allana-solo",
+        "character:jaina-solo",
+        "topic:family",
+        "topic:sith"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Caedus",
+            "Allana Solo",
+            "Jaina Solo"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "family",
+            "sith"
+          ],
+          "factionsAny": [],
+          "objectsAny": []
+        }
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-reference",
+        "sourceBoundary": "Legends late post-Endor/post-NJO era covering Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-style late Big Three transition. Excludes the far-future Legacy comics except as future guards.",
+        "notes": "Development deck. Keep separate from Disney canon and from earlier New Republic/NJO decks unless they are active in the same Saga stack."
+      },
+      "content": {
+        "fact": "Caedus’s final choices are tangled with protecting Allana and his own catastrophic idea of order.",
+        "injection": "Late Caedus scenes should preserve the Allana-protection motive without excusing his crimes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Caedus Falls / Invincible.",
+          "Respect story-position bounds from Caedus Falls / Invincible to Caedus Falls / Invincible."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Star Wars Legends late post-Endor",
+        "confidence": 0.7,
+        "notes": "Development draft from broad Legends continuity knowledge; verify during human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "developmentStatus": "draft",
+          "generatedAt": "2026-06-08"
+        }
+      }
+    }
+  ]
+}

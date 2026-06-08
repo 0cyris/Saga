@@ -1,0 +1,1000 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "summary": "Late post-Endor Legends story-position anchors for Dark Nest, Legacy of the Force, Fate of the Jedi, and Crucible-era transition. BBY/ABY values are approximate secondary metadata.",
+  "anchors": [
+    {
+      "id": "sw.late.post_njo_recovery",
+      "label": "Post-NJO Recovery",
+      "sortKey": 33000,
+      "dateRange": {
+        "from": "30 ABY",
+        "to": "34 ABY"
+      },
+      "aliases": [
+        "post njo",
+        "after the yuuzhan vong war",
+        "post yuuzhan vong war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:post-njo-recovery"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Post-NJO Recovery"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.dark_nest_begins",
+      "label": "Dark Nest Crisis Begins",
+      "sortKey": 35000,
+      "dateRange": {
+        "from": "35 ABY",
+        "to": "35 ABY"
+      },
+      "aliases": [
+        "dark nest begins",
+        "killik crisis",
+        "joiner crisis begins"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:dark-nest"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Dark Nest Crisis Begins"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.joiner_pull",
+      "label": "Joiner Pull Draws Jedi",
+      "sortKey": 35200,
+      "dateRange": {
+        "from": "35 ABY",
+        "to": "35 ABY"
+      },
+      "aliases": [
+        "joiner pull",
+        "killik joiners",
+        "raynar thul returns"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:dark-nest"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Joiner Pull Draws Jedi"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.gorog_revealed",
+      "label": "Gorog / Dark Nest Revealed",
+      "sortKey": 35600,
+      "dateRange": {
+        "from": "35 ABY",
+        "to": "36 ABY"
+      },
+      "aliases": [
+        "gorog revealed",
+        "dark nest revealed",
+        "unnseen queen"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:dark-nest"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Gorog / Dark Nest Revealed"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.swarm_war",
+      "label": "Swarm War",
+      "sortKey": 36000,
+      "dateRange": {
+        "from": "36 ABY",
+        "to": "36 ABY"
+      },
+      "aliases": [
+        "swarm war",
+        "killik war",
+        "dark nest climax"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:dark-nest"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Swarm War"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.post_dark_nest",
+      "label": "Post-Dark Nest Threshold",
+      "sortKey": 37000,
+      "dateRange": {
+        "from": "37 ABY",
+        "to": "39 ABY"
+      },
+      "aliases": [
+        "after dark nest",
+        "post swarm war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:post-dark-nest"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Post-Dark Nest Threshold"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.lotf_betrayal",
+      "label": "Legacy of the Force Begins / Betrayal",
+      "sortKey": 40000,
+      "dateRange": {
+        "from": "40 ABY",
+        "to": "40 ABY"
+      },
+      "aliases": [
+        "legacy of the force begins",
+        "betrayal",
+        "corellian crisis begins"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Legacy of the Force Begins / Betrayal"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.corellian_insurrection",
+      "label": "Second Corellian Insurrection",
+      "sortKey": 40200,
+      "dateRange": {
+        "from": "40 ABY",
+        "to": "40 ABY"
+      },
+      "aliases": [
+        "corellian crisis",
+        "corellian insurrection",
+        "corellian conflict"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Second Corellian Insurrection"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.gag_established",
+      "label": "Galactic Alliance Guard Established",
+      "sortKey": 40500,
+      "dateRange": {
+        "from": "40 ABY",
+        "to": "40 ABY"
+      },
+      "aliases": [
+        "gag established",
+        "galactic alliance guard",
+        "jacen security force"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Galactic Alliance Guard Established"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.lumiya_influence",
+      "label": "Lumiya Guides Jacen",
+      "sortKey": 41000,
+      "dateRange": {
+        "from": "40 ABY",
+        "to": "40 ABY"
+      },
+      "aliases": [
+        "lumiya",
+        "lumiya guides jacen",
+        "sith training begins"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Lumiya Guides Jacen"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.mara_jade_killed",
+      "label": "Mara Jade Skywalker Killed",
+      "sortKey": 42000,
+      "dateRange": {
+        "from": "40 ABY",
+        "to": "40 ABY"
+      },
+      "aliases": [
+        "mara dies",
+        "mara jade killed",
+        "sacrifice"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Mara Jade Skywalker Killed"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.caedus_declared",
+      "label": "Darth Caedus Emerges",
+      "sortKey": 43000,
+      "dateRange": {
+        "from": "40 ABY",
+        "to": "41 ABY"
+      },
+      "aliases": [
+        "darth caedus",
+        "jacen becomes caedus",
+        "caedus emerges"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Darth Caedus Emerges"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.fondor_and_allana_pressure",
+      "label": "Fondor / Allana Pressure",
+      "sortKey": 43800,
+      "dateRange": {
+        "from": "41 ABY",
+        "to": "41 ABY"
+      },
+      "aliases": [
+        "fondor",
+        "allana threatened",
+        "caedus war escalates"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Fondor / Allana Pressure"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.caedus_falls",
+      "label": "Caedus Falls / Invincible",
+      "sortKey": 45000,
+      "dateRange": {
+        "from": "41 ABY",
+        "to": "41 ABY"
+      },
+      "aliases": [
+        "caedus falls",
+        "jacen dies",
+        "invincible",
+        "jaina kills jacen"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Caedus Falls / Invincible"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.post_caedus",
+      "label": "Post-Caedus Reckoning",
+      "sortKey": 46000,
+      "dateRange": {
+        "from": "42 ABY",
+        "to": "42 ABY"
+      },
+      "aliases": [
+        "after caedus",
+        "post legacy of the force",
+        "jacen aftermath"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:post-legacy-reckoning"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Post-Caedus Reckoning"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.fotj_outcast",
+      "label": "Fate of the Jedi Begins / Outcast",
+      "sortKey": 47000,
+      "dateRange": {
+        "from": "43 ABY",
+        "to": "43 ABY"
+      },
+      "aliases": [
+        "fate of the jedi begins",
+        "outcast",
+        "luke exile begins"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:fate-of-the-jedi"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Fate of the Jedi Begins / Outcast"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.luke_ben_exile",
+      "label": "Luke and Ben Exile Journey",
+      "sortKey": 47200,
+      "dateRange": {
+        "from": "43 ABY",
+        "to": "43 ABY"
+      },
+      "aliases": [
+        "luke exile",
+        "ben and luke journey",
+        "jacen force journey investigation"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:fate-of-the-jedi"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Luke and Ben Exile Journey"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.jedi_psychosis",
+      "label": "Jedi Psychosis Crisis",
+      "sortKey": 47500,
+      "dateRange": {
+        "from": "43 ABY",
+        "to": "44 ABY"
+      },
+      "aliases": [
+        "jedi psychosis",
+        "jedi madness",
+        "young jedi madness"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:fate-of-the-jedi"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Jedi Psychosis Crisis"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.lost_tribe_emerges",
+      "label": "Lost Tribe of the Sith Emerges",
+      "sortKey": 48000,
+      "dateRange": {
+        "from": "43 ABY",
+        "to": "44 ABY"
+      },
+      "aliases": [
+        "lost tribe",
+        "lost tribe emerges",
+        "kesh sith"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:fate-of-the-jedi"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Lost Tribe of the Sith Emerges"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.abeloth_revealed",
+      "label": "Abeloth Revealed",
+      "sortKey": 49000,
+      "dateRange": {
+        "from": "44 ABY",
+        "to": "44 ABY"
+      },
+      "aliases": [
+        "abeloth",
+        "abeloth revealed",
+        "beyond shadows"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:fate-of-the-jedi"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Abeloth Revealed"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.coruscant_sith_alliance",
+      "label": "Coruscant Sith Infiltration",
+      "sortKey": 50000,
+      "dateRange": {
+        "from": "44 ABY",
+        "to": "44 ABY"
+      },
+      "aliases": [
+        "sith on coruscant",
+        "vestara",
+        "lost tribe coruscant"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:fate-of-the-jedi"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Coruscant Sith Infiltration"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.apocalypse_endgame",
+      "label": "Apocalypse Endgame",
+      "sortKey": 51000,
+      "dateRange": {
+        "from": "44 ABY",
+        "to": "44 ABY"
+      },
+      "aliases": [
+        "apocalypse",
+        "fate of the jedi ending",
+        "abeloth endgame"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:fate-of-the-jedi"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Apocalypse Endgame"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.post_fotj",
+      "label": "Post-Fate of the Jedi Threshold",
+      "sortKey": 52000,
+      "dateRange": {
+        "from": "45 ABY",
+        "to": "45 ABY"
+      },
+      "aliases": [
+        "after fate of the jedi",
+        "post fotj"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:post-fotj"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Post-Fate of the Jedi Threshold"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.crucible",
+      "label": "Crucible / Big Three Transition",
+      "sortKey": 53000,
+      "dateRange": {
+        "from": "45 ABY",
+        "to": "45 ABY"
+      },
+      "aliases": [
+        "crucible",
+        "big three transition",
+        "after crucible"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:crucible"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Crucible / Big Three Transition"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    },
+    {
+      "id": "sw.late.legacy_comics_threshold",
+      "label": "Far-Future Legacy Threshold",
+      "sortKey": 100000,
+      "dateRange": {
+        "from": "130 ABY",
+        "to": "140 ABY"
+      },
+      "aliases": [
+        "legacy comics",
+        "cade skywalker era",
+        "far future legacy"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-comics-future-guard"
+      ],
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "novel-series",
+        "title": "Far-Future Legacy Threshold"
+      },
+      "extensions": {
+        "bbyAbyApproximate": true
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "sw.late.window.full-late-post-endor",
+      "label": "Late post-Endor Legends",
+      "anchorFrom": "sw.late.post_njo_recovery",
+      "anchorTo": "sw.late.crucible",
+      "sortKeyFrom": 33000,
+      "sortKeyTo": 53000,
+      "aliases": [
+        "late post-endor legends",
+        "late post endor legends"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:post-njo-recovery-to-crucible"
+      ]
+    },
+    {
+      "id": "sw.late.window.dark-nest",
+      "label": "Dark Nest crisis",
+      "anchorFrom": "sw.late.dark_nest_begins",
+      "anchorTo": "sw.late.swarm_war",
+      "sortKeyFrom": 35000,
+      "sortKeyTo": 36000,
+      "aliases": [
+        "dark nest crisis",
+        "dark nest crisis"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:dark-nest"
+      ]
+    },
+    {
+      "id": "sw.late.window.post-dark-nest",
+      "label": "After Dark Nest, before Legacy of the Force",
+      "anchorFrom": "sw.late.post_dark_nest",
+      "anchorTo": "sw.late.lotf_betrayal",
+      "sortKeyFrom": 37000,
+      "sortKeyTo": 40000,
+      "aliases": [
+        "after dark nest, before legacy of the force",
+        "after dark nest before legacy of the force"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:post-dark-nest-to-legacy-of-the-force"
+      ]
+    },
+    {
+      "id": "sw.late.window.legacy-of-force",
+      "label": "Legacy of the Force / Caedus War",
+      "anchorFrom": "sw.late.lotf_betrayal",
+      "anchorTo": "sw.late.caedus_falls",
+      "sortKeyFrom": 40000,
+      "sortKeyTo": 45000,
+      "aliases": [
+        "legacy of the force / caedus war",
+        "legacy of the force caedus war"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ]
+    },
+    {
+      "id": "sw.late.window.jacen-fall-window",
+      "label": "Jacen falling before public Caedus endpoint",
+      "anchorFrom": "sw.late.lumiya_influence",
+      "anchorTo": "sw.late.caedus_declared",
+      "sortKeyFrom": 41000,
+      "sortKeyTo": 43000,
+      "aliases": [
+        "jacen falling before public caedus endpoint",
+        "jacen falling before public caedus endpoint"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ]
+    },
+    {
+      "id": "sw.late.window.after-mara-before-caedus-falls",
+      "label": "After Mara Jade is killed, before Caedus falls",
+      "anchorFrom": "sw.late.mara_jade_killed",
+      "anchorTo": "sw.late.caedus_falls",
+      "sortKeyFrom": 42000,
+      "sortKeyTo": 45000,
+      "aliases": [
+        "after mara jade is killed, before caedus falls",
+        "after mara jade is killed before caedus falls"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ]
+    },
+    {
+      "id": "sw.late.window.post-caedus-reckoning",
+      "label": "After Caedus falls",
+      "anchorFrom": "sw.late.caedus_falls",
+      "anchorTo": "sw.late.post_caedus",
+      "sortKeyFrom": 45000,
+      "sortKeyTo": 46000,
+      "aliases": [
+        "after caedus falls",
+        "after caedus falls"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force-to-post-legacy-reckoning"
+      ]
+    },
+    {
+      "id": "sw.late.window.fate-of-jedi",
+      "label": "Fate of the Jedi / Abeloth crisis",
+      "anchorFrom": "sw.late.fotj_outcast",
+      "anchorTo": "sw.late.apocalypse_endgame",
+      "sortKeyFrom": 47000,
+      "sortKeyTo": 51000,
+      "aliases": [
+        "fate of the jedi / abeloth crisis",
+        "fate of the jedi abeloth crisis"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:fate-of-the-jedi"
+      ]
+    },
+    {
+      "id": "sw.late.window.luke-exile-journey",
+      "label": "Luke and Ben exile journey",
+      "anchorFrom": "sw.late.luke_ben_exile",
+      "anchorTo": "sw.late.abeloth_revealed",
+      "sortKeyFrom": 47200,
+      "sortKeyTo": 49000,
+      "aliases": [
+        "luke and ben exile journey",
+        "luke and ben exile journey"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:fate-of-the-jedi"
+      ]
+    },
+    {
+      "id": "sw.late.window.lost-tribe-abeloth",
+      "label": "Lost Tribe and Abeloth crisis",
+      "anchorFrom": "sw.late.lost_tribe_emerges",
+      "anchorTo": "sw.late.apocalypse_endgame",
+      "sortKeyFrom": 48000,
+      "sortKeyTo": 51000,
+      "aliases": [
+        "lost tribe and abeloth crisis",
+        "lost tribe and abeloth crisis"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:fate-of-the-jedi"
+      ]
+    },
+    {
+      "id": "sw.late.window.post-fotj-to-crucible",
+      "label": "After Fate of the Jedi through Crucible",
+      "anchorFrom": "sw.late.post_fotj",
+      "anchorTo": "sw.late.crucible",
+      "sortKeyFrom": 52000,
+      "sortKeyTo": 53000,
+      "aliases": [
+        "after fate of the jedi through crucible",
+        "after fate of the jedi through crucible"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:post-fotj-to-crucible"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "sw.late.phase:crucible",
+      "label": "Crucible",
+      "sortKeyFrom": 53000,
+      "sortKeyTo": 53000,
+      "aliases": [
+        "crucible"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:crucible"
+      ]
+    },
+    {
+      "id": "sw.late.phase:dark-nest",
+      "label": "Dark Nest",
+      "sortKeyFrom": 35000,
+      "sortKeyTo": 36000,
+      "aliases": [
+        "dark nest"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:dark-nest"
+      ]
+    },
+    {
+      "id": "sw.late.phase:fate-of-the-jedi",
+      "label": "Fate of the Jedi",
+      "sortKeyFrom": 47000,
+      "sortKeyTo": 51000,
+      "aliases": [
+        "fate of the jedi"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:fate-of-the-jedi"
+      ]
+    },
+    {
+      "id": "sw.late.phase:legacy-comics-future-guard",
+      "label": "Legacy Comics Future Guard",
+      "sortKeyFrom": 100000,
+      "sortKeyTo": 100000,
+      "aliases": [
+        "legacy comics future guard"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-comics-future-guard"
+      ]
+    },
+    {
+      "id": "sw.late.phase:legacy-of-the-force",
+      "label": "Legacy of the Force",
+      "sortKeyFrom": 40000,
+      "sortKeyTo": 45000,
+      "aliases": [
+        "legacy of the force"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:legacy-of-the-force"
+      ]
+    },
+    {
+      "id": "sw.late.phase:post-dark-nest",
+      "label": "Post-Dark Nest",
+      "sortKeyFrom": 37000,
+      "sortKeyTo": 37000,
+      "aliases": [
+        "post-dark nest"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:post-dark-nest"
+      ]
+    },
+    {
+      "id": "sw.late.phase:post-fotj",
+      "label": "Post-FOTJ",
+      "sortKeyFrom": 52000,
+      "sortKeyTo": 52000,
+      "aliases": [
+        "post-fotj"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:post-fotj"
+      ]
+    },
+    {
+      "id": "sw.late.phase:post-legacy-reckoning",
+      "label": "Post-Legacy Reckoning",
+      "sortKeyFrom": 46000,
+      "sortKeyTo": 46000,
+      "aliases": [
+        "post-legacy reckoning"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:post-legacy-reckoning"
+      ]
+    },
+    {
+      "id": "sw.late.phase:post-njo-recovery",
+      "label": "Post-NJO Recovery",
+      "sortKeyFrom": 33000,
+      "sortKeyTo": 33000,
+      "aliases": [
+        "post-njo recovery"
+      ],
+      "tags": [
+        "fandom:star-wars",
+        "continuity:legends",
+        "era:post-njo-recovery"
+      ]
+    }
+  ],
+  "arcs": []
+}

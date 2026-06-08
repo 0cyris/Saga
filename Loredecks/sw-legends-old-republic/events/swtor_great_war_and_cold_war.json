@@ -1,0 +1,1562 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_true_sith_empire_survives_beyond_kotor",
+      "title": "True Sith Empire Survives Beyond KOTOR",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.dark_wars_begin",
+        "validToAnchor": "sw.or.great_galactic_war",
+        "sortKeyFrom": 5750,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Wars",
+        "phase": "Dark Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Revan",
+          "Meetra Surik",
+          "Vitiate"
+        ],
+        "locations": [
+          "Dromund Kaas",
+          "Unknown Regions"
+        ],
+        "topics": [
+          "true sith",
+          "hidden empire",
+          "future threat"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "character:meetra-surik",
+        "character:revan",
+        "character:vitiate",
+        "continuity:legends",
+        "era:dark-wars",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:dromund-kaas",
+        "location:unknown-regions",
+        "scope:old-republic",
+        "topic:future-threat",
+        "topic:hidden-empire",
+        "topic:true-sith"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Revan",
+            "Meetra Surik",
+            "Vitiate"
+          ],
+          "topicsAny": [
+            "true sith",
+            "hidden empire",
+            "future threat"
+          ],
+          "locationsAny": [
+            "Dromund Kaas",
+            "Unknown Regions"
+          ],
+          "factionsAny": [
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "KOTOR-era hints point toward a surviving Sith power beyond the known Republic-Sith war.",
+        "injection": "Before the Sith Empire returns openly, treat the True Sith as hidden, fragmentary knowledge rather than common galactic fact.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Wars.",
+          "Respect story-position bounds from Dark Wars Begin to Great Galactic War Begins."
+        ],
+        "antiLore": [
+          "Do not make SWTOR’s Sith Empire common public knowledge during KOTOR unless the story has revealed it.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dark Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_great_galactic_war_returns_sith_empire_openly",
+      "title": "Great Galactic War Returns Sith Empire Openly",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_galactic_war",
+        "validToAnchor": "sw.or.sacking_coruscant",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7150,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Great Galactic War",
+        "phase": "Great Galactic War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Vitiate",
+          "Darth Malgus",
+          "Satele Shan"
+        ],
+        "locations": [
+          "Dromund Kaas",
+          "Coruscant"
+        ],
+        "topics": [
+          "great galactic war",
+          "sith return",
+          "empire"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire",
+          "Galactic Republic",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:darth-malgus",
+        "character:satele-shan",
+        "character:vitiate",
+        "continuity:legends",
+        "era:great-galactic-war",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:coruscant",
+        "location:dromund-kaas",
+        "scope:old-republic",
+        "topic:empire",
+        "topic:great-galactic-war",
+        "topic:sith-return"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Vitiate",
+            "Darth Malgus",
+            "Satele Shan"
+          ],
+          "topicsAny": [
+            "great galactic war",
+            "sith return",
+            "empire"
+          ],
+          "locationsAny": [
+            "Dromund Kaas",
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "Sith Empire",
+            "Galactic Republic",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The reconstituted Sith Empire returns as an open galactic superpower and forces the Republic into a large-scale war.",
+        "injection": "During the Great Galactic War, treat the Sith Empire as a state actor with fleets, armies, intelligence services, academies, and territory.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Great Galactic War.",
+          "Respect story-position bounds from Great Galactic War Begins to Sacking of Coruscant."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Great Galactic War",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_sacking_coruscant_shocks_republic_into_treaty",
+      "title": "Sacking Coruscant Shocks Republic Into Treaty",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.or.sacking_coruscant",
+        "validToAnchor": "sw.or.sacking_coruscant",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Great Galactic War",
+        "phase": "Great Galactic War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Malgus",
+          "Satele Shan"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "topics": [
+          "sacking of coruscant",
+          "treaty",
+          "jedi temple"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire",
+          "Galactic Republic",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:darth-malgus",
+        "character:satele-shan",
+        "continuity:legends",
+        "era:great-galactic-war",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:coruscant",
+        "scope:old-republic",
+        "topic:jedi-temple",
+        "topic:sacking-of-coruscant",
+        "topic:treaty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Malgus",
+            "Satele Shan"
+          ],
+          "topicsAny": [
+            "sacking of coruscant",
+            "treaty",
+            "jedi temple"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "Sith Empire",
+            "Galactic Republic",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Sacking of Coruscant devastates the Republic capital and forces the Treaty of Coruscant under humiliating conditions.",
+        "injection": "At the Sacking of Coruscant, write the Republic and Jedi as shocked, damaged, and politically forced into compromise.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Great Galactic War.",
+          "Respect story-position bounds from Sacking of Coruscant to Sacking of Coruscant."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Great Galactic War",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_treaty_creates_cold_war_not_peace",
+      "title": "Treaty Creates Cold War, Not Peace",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.treaty_cold_war",
+        "validToAnchor": "sw.or.swtor_class_era",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Old Republic Cold War",
+        "phase": "Old Republic Cold War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "cold war",
+          "proxy conflict",
+          "treaty"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire",
+          "Galactic Republic",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:old-republic-cold-war",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:cold-war",
+        "topic:proxy-conflict",
+        "topic:treaty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "cold war",
+            "proxy conflict",
+            "treaty"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Sith Empire",
+            "Galactic Republic",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Treaty of Coruscant produces a tense cold war full of proxy conflicts, espionage, and border crises rather than real peace.",
+        "injection": "During SWTOR cold-war context, keep overt galactic war constrained but make covert operations, local wars, and political sabotage common.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Old Republic Cold War.",
+          "Respect story-position bounds from Treaty of Coruscant and Cold War to SWTOR Class-Story Era."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Republic Cold War",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_jedi_relocate_to_tython_after_coruscant",
+      "title": "Jedi Relocate to Tython After Coruscant",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.treaty_cold_war",
+        "validToAnchor": "sw.or.swtor_class_era",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Old Republic Cold War",
+        "phase": "Old Republic Cold War",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Satele Shan"
+        ],
+        "locations": [
+          "Tython",
+          "Coruscant"
+        ],
+        "topics": [
+          "jedi temple",
+          "relocation",
+          "training"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:satele-shan",
+        "continuity:legends",
+        "era:old-republic-cold-war",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:coruscant",
+        "location:tython",
+        "scope:old-republic",
+        "topic:jedi-temple",
+        "topic:relocation",
+        "topic:training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satele Shan"
+          ],
+          "topicsAny": [
+            "jedi temple",
+            "relocation",
+            "training"
+          ],
+          "locationsAny": [
+            "Tython",
+            "Coruscant"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Coruscant’s devastation, the Jedi Order re-centers training and reflection on Tython in SWTOR-era context.",
+        "injection": "During SWTOR cold-war scenes, Tython can function as the Jedi spiritual and training center while Coruscant remains politically central but wounded.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Old Republic Cold War.",
+          "Respect story-position bounds from Treaty of Coruscant and Cold War to SWTOR Class-Story Era."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Republic Cold War",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_dromund_kaas_is_sith_imperial_capital",
+      "title": "Dromund Kaas Is Sith Imperial Capital",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_galactic_war",
+        "validToAnchor": "sw.or.eternal_empire_crisis",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "SWTOR Era",
+        "phase": "SWTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Vitiate"
+        ],
+        "locations": [
+          "Dromund Kaas"
+        ],
+        "topics": [
+          "imperial capital",
+          "sith politics",
+          "dark side nexus"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "character:vitiate",
+        "continuity:legends",
+        "era:swtor-era",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:dromund-kaas",
+        "scope:old-republic",
+        "topic:dark-side-nexus",
+        "topic:imperial-capital",
+        "topic:sith-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Vitiate"
+          ],
+          "topicsAny": [
+            "imperial capital",
+            "sith politics",
+            "dark side nexus"
+          ],
+          "locationsAny": [
+            "Dromund Kaas"
+          ],
+          "factionsAny": [
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dromund Kaas is the Sith Empire’s storm-wrapped capital and a center of Imperial military, political, and dark-side authority.",
+        "injection": "In SWTOR-era scenes, use Dromund Kaas as the seat of Sith Imperial power, intrigue, hierarchy, and dark-side atmosphere.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: SWTOR Era.",
+          "Respect story-position bounds from Great Galactic War Begins to Eternal Empire Crisis."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "SWTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_vitiate_is_emperor_hidden_apocalypse_risk",
+      "title": "Vitiate Is Hidden Apocalypse Risk",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_galactic_war",
+        "validToAnchor": "sw.or.eternal_empire_crisis",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "SWTOR Era",
+        "phase": "SWTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Vitiate"
+        ],
+        "locations": [
+          "Dromund Kaas",
+          "Zakuul"
+        ],
+        "topics": [
+          "immortal emperor",
+          "planetary consumption",
+          "secret threat"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire",
+          "Eternal Empire"
+        ]
+      },
+      "tags": [
+        "character:vitiate",
+        "continuity:legends",
+        "era:swtor-era",
+        "faction:eternal-empire",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:dromund-kaas",
+        "location:zakuul",
+        "scope:old-republic",
+        "topic:immortal-emperor",
+        "topic:planetary-consumption",
+        "topic:secret-threat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Vitiate"
+          ],
+          "topicsAny": [
+            "immortal emperor",
+            "planetary consumption",
+            "secret threat"
+          ],
+          "locationsAny": [
+            "Dromund Kaas",
+            "Zakuul"
+          ],
+          "factionsAny": [
+            "Sith Empire",
+            "Eternal Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Vitiate/Valkorion operates as more than a normal Sith Emperor; his deeper goals and identities are high-risk spoiler material.",
+        "injection": "Before the relevant SWTOR context reveals it, do not casually expose Vitiate’s full nature, Valkorion identity, or galaxy-consuming ambitions.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: SWTOR Era.",
+          "Respect story-position bounds from Great Galactic War Begins to Eternal Empire Crisis."
+        ],
+        "antiLore": [
+          "Do not spoil Valkorion/Eternal Empire material in early SWTOR cold-war context.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "SWTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_malgus_embodies_imperial_reform_through_war",
+      "title": "Malgus Embodies Imperial Reform Through War",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_galactic_war",
+        "validToAnchor": "sw.or.swtor_class_era",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "SWTOR Era",
+        "phase": "SWTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Malgus"
+        ],
+        "locations": [
+          "Coruscant",
+          "Dromund Kaas"
+        ],
+        "topics": [
+          "sith reform",
+          "military power",
+          "imperial politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "character:darth-malgus",
+        "continuity:legends",
+        "era:swtor-era",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:coruscant",
+        "location:dromund-kaas",
+        "scope:old-republic",
+        "topic:imperial-politics",
+        "topic:military-power",
+        "topic:sith-reform"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Malgus"
+          ],
+          "topicsAny": [
+            "sith reform",
+            "military power",
+            "imperial politics"
+          ],
+          "locationsAny": [
+            "Coruscant",
+            "Dromund Kaas"
+          ],
+          "factionsAny": [
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Darth Malgus represents a militarized, reformist Sith threat willing to break Imperial norms when they limit conquest.",
+        "injection": "When Malgus is relevant, write him as direct, martial, visionary, and dangerous to both Republic enemies and stagnant Sith institutions.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: SWTOR Era.",
+          "Respect story-position bounds from Great Galactic War Begins to SWTOR Class-Story Era."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "SWTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_satele_shan_bridges_jedi_legacy",
+      "title": "Satele Shan Bridges Jedi Legacy",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.great_galactic_war",
+        "validToAnchor": "sw.or.swtor_class_era",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "SWTOR Era",
+        "phase": "SWTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Satele Shan",
+          "Bastila Shan",
+          "Revan"
+        ],
+        "locations": [
+          "Tython"
+        ],
+        "topics": [
+          "jedi leadership",
+          "shan lineage",
+          "grand master"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:bastila-shan",
+        "character:revan",
+        "character:satele-shan",
+        "continuity:legends",
+        "era:swtor-era",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:tython",
+        "scope:old-republic",
+        "topic:grand-master",
+        "topic:jedi-leadership",
+        "topic:shan-lineage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Satele Shan",
+            "Bastila Shan",
+            "Revan"
+          ],
+          "topicsAny": [
+            "jedi leadership",
+            "shan lineage",
+            "grand master"
+          ],
+          "locationsAny": [
+            "Tython"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Satele Shan carries Shan/Revan-era legacy while serving as a central Jedi leader during the Sith Empire crisis.",
+        "injection": "In SWTOR-era scenes, write Satele as a senior Jedi balancing inherited legacy, wartime burden, and the need to rebuild Jedi confidence.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: SWTOR Era.",
+          "Respect story-position bounds from Great Galactic War Begins to SWTOR Class-Story Era."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "SWTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_swtor_class_era_is_multi_protagonist_state",
+      "title": "SWTOR Class Era Is Multi-Protagonist State",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.swtor_class_era",
+        "validToAnchor": "sw.or.revanite_crisis",
+        "sortKeyFrom": 7450,
+        "sortKeyTo": 7600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "SWTOR Era",
+        "phase": "SWTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "class stories",
+          "multiple protagonists",
+          "player route"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire",
+          "Galactic Republic",
+          "Jedi Order",
+          "Mandalorians"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:swtor-era",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "faction:mandalorians",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:class-stories",
+        "topic:multiple-protagonists",
+        "topic:player-route"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "class stories",
+            "multiple protagonists",
+            "player route"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Sith Empire",
+            "Galactic Republic",
+            "Jedi Order",
+            "Mandalorians"
+          ]
+        }
+      },
+      "content": {
+        "fact": "SWTOR-era story state can vary by class path, allegiance, and player route; a deck should avoid assuming one universal protagonist unless a route is selected.",
+        "injection": "When using SWTOR material, preserve route ambiguity: avoid declaring one class-story protagonist as present or dominant unless the chat specifies that route.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: SWTOR Era.",
+          "Respect story-position bounds from SWTOR Class-Story Era to Revanite Crisis."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "SWTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_revanite_crisis_reintroduces_revan_as_symbol",
+      "title": "Revanite Crisis Reintroduces Revan as Symbol",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.or.revanite_crisis",
+        "validToAnchor": "sw.or.revanite_crisis",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 7600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Revanite Crisis",
+        "phase": "Revanite Crisis",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Revan"
+        ],
+        "locations": [
+          "Yavin IV"
+        ],
+        "topics": [
+          "revanites",
+          "cult",
+          "shadow of revan"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Revanites",
+          "Sith Empire",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:revan",
+        "continuity:legends",
+        "era:revanite-crisis",
+        "faction:galactic-republic",
+        "faction:revanites",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:yavin-iv",
+        "scope:old-republic",
+        "topic:cult",
+        "topic:revanites",
+        "topic:shadow-of-revan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Revan"
+          ],
+          "topicsAny": [
+            "revanites",
+            "cult",
+            "shadow of revan"
+          ],
+          "locationsAny": [
+            "Yavin IV"
+          ],
+          "factionsAny": [
+            "Revanites",
+            "Sith Empire",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Revanite crisis turns Revan into a cross-faction symbol and destabilizing obsession rather than only a KOTOR-era figure.",
+        "injection": "During Revanite crisis context, write Revan’s legacy as contested by cultists, Republic actors, Sith, and survivors of older wars.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Revanite Crisis.",
+          "Respect story-position bounds from Revanite Crisis to Revanite Crisis."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Revanite Crisis",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_eternal_empire_overrides_republic_sith_binary",
+      "title": "Eternal Empire Overrides Republic-Sith Binary",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.or.eternal_empire_crisis",
+        "validToAnchor": "sw.or.eternal_empire_crisis",
+        "sortKeyFrom": 7800,
+        "sortKeyTo": 7800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eternal Empire Crisis",
+        "phase": "Eternal Empire Crisis",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Valkorion",
+          "Arcann",
+          "Thexan",
+          "Vaylin"
+        ],
+        "locations": [
+          "Zakuul"
+        ],
+        "topics": [
+          "eternal fleet",
+          "zakuul",
+          "third power"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Eternal Empire",
+          "Sith Empire",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:arcann",
+        "character:thexan",
+        "character:valkorion",
+        "character:vaylin",
+        "continuity:legends",
+        "era:eternal-empire-crisis",
+        "faction:eternal-empire",
+        "faction:galactic-republic",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:zakuul",
+        "scope:old-republic",
+        "topic:eternal-fleet",
+        "topic:third-power",
+        "topic:zakuul"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Valkorion",
+            "Arcann",
+            "Thexan",
+            "Vaylin"
+          ],
+          "topicsAny": [
+            "eternal fleet",
+            "zakuul",
+            "third power"
+          ],
+          "locationsAny": [
+            "Zakuul"
+          ],
+          "factionsAny": [
+            "Eternal Empire",
+            "Sith Empire",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Eternal Empire crisis introduces a third imperial power that can dominate both Republic and Sith Empire assumptions.",
+        "injection": "In Eternal Empire context, do not reduce the conflict to Republic versus Sith; Zakuul and the Eternal Fleet can impose a new galactic order.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Eternal Empire Crisis.",
+          "Respect story-position bounds from Eternal Empire Crisis to Eternal Empire Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Eternal Empire Crisis",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_zakuul_is_not_normal_sith_world",
+      "title": "Zakuul Is Not Normal Sith World",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.or.eternal_empire_crisis",
+        "validToAnchor": "sw.or.eternal_empire_crisis",
+        "sortKeyFrom": 7800,
+        "sortKeyTo": 7800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eternal Empire Crisis",
+        "phase": "Eternal Empire Crisis",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Valkorion"
+        ],
+        "locations": [
+          "Zakuul"
+        ],
+        "topics": [
+          "zakuul culture",
+          "eternal empire",
+          "knights of zakuul"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Eternal Empire"
+        ]
+      },
+      "tags": [
+        "character:valkorion",
+        "continuity:legends",
+        "era:eternal-empire-crisis",
+        "faction:eternal-empire",
+        "fandom:star-wars",
+        "location:zakuul",
+        "scope:old-republic",
+        "topic:eternal-empire",
+        "topic:knights-of-zakuul",
+        "topic:zakuul-culture"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Valkorion"
+          ],
+          "topicsAny": [
+            "zakuul culture",
+            "eternal empire",
+            "knights of zakuul"
+          ],
+          "locationsAny": [
+            "Zakuul"
+          ],
+          "factionsAny": [
+            "Eternal Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Zakuul is a distinct Eternal Empire society, not simply another Sith academy world or Republic planet.",
+        "injection": "When Zakuul is active, portray it with its own mythology, civic order, Knights, technology, and relationship to Valkorion.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Eternal Empire Crisis.",
+          "Respect story-position bounds from Eternal Empire Crisis to Eternal Empire Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Eternal Empire Crisis",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_late_new_sith_wars_point_toward_bane_but_not_yet_films",
+      "title": "Late New Sith Wars Point Toward Bane, Not Films",
+      "kind": "temporal_gate",
+      "category": "timeline",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.late_new_sith_wars",
+        "validToAnchor": "sw.or.ruusan_reformation",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Late New Sith Wars",
+        "phase": "Late New Sith Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Ruusan"
+        ],
+        "topics": [
+          "new sith wars",
+          "bane",
+          "rule of two setup"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith",
+          "Jedi Order",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:late-new-sith-wars",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "location:ruusan",
+        "scope:old-republic",
+        "topic:bane",
+        "topic:new-sith-wars",
+        "topic:rule-of-two-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "new sith wars",
+            "bane",
+            "rule of two setup"
+          ],
+          "locationsAny": [
+            "Ruusan"
+          ],
+          "factionsAny": [
+            "Sith",
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The late New Sith Wars and Ruusan transition set up Darth Bane’s Rule of Two, but remain far before film-era Sith politics.",
+        "injection": "In late Old Republic context, allow the Sith to collapse toward Bane’s reform, but do not import Palpatine, Clone Wars, or Galactic Empire state.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Late New Sith Wars.",
+          "Respect story-position bounds from Late New Sith Wars to Ruusan Reformation and Old Republic End-State."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Late New Sith Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

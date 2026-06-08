@@ -1,0 +1,977 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_humans_common_not_default_only",
+      "title": "Humans Common, Not Default Only",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "rule",
+      "relevance": "low",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "species:human",
+        "topic:society",
+        "topic:species"
+      ],
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "humans",
+          "species diversity",
+          "society"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "humans",
+            "species diversity",
+            "society"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Humans are widespread in the galaxy, but Star Wars societies are multispecies and species context affects culture, prejudice, physiology, and politics.",
+        "injection": "Do not make the galaxy feel human-only. Include species diversity where appropriate, while avoiding single-trait stereotypes for entire peoples.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_wookiees_are_strong_social_people",
+      "title": "Wookiees Are Strong Social People",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "species:wookiee",
+        "character:chewbacca",
+        "place:kashyyyk"
+      ],
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Chewbacca"
+        ],
+        "locations": [
+          "Kashyyyk"
+        ],
+        "factions": [],
+        "topics": [
+          "Wookiees",
+          "life debt",
+          "honor",
+          "strength"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Chewbacca"
+          ],
+          "locationsAny": [
+            "Kashyyyk"
+          ],
+          "topicsAny": [
+            "Wookiees",
+            "life debt",
+            "honor",
+            "strength"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Wookiees such as Chewbacca are physically powerful and socially bound by language, honor, kinship, rage, loyalty, and Kashyyyk culture.",
+        "injection": "Write Wookiees as people with culture and agency, not as pets or simple muscle. Physical strength should not erase intelligence or social bonds.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_hutt_power_is_political_and_criminal",
+      "title": "Hutts Are Political-Criminal Powers",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "species:hutt",
+        "faction:hutts",
+        "topic:crime",
+        "character:jabba-the-hutt"
+      ],
+      "priority": 60,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Jabba the Hutt"
+        ],
+        "locations": [
+          "Hutt Space",
+          "Tatooine"
+        ],
+        "factions": [
+          "Hutts"
+        ],
+        "topics": [
+          "Hutt clans",
+          "crime lord",
+          "debts"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Jabba the Hutt"
+          ],
+          "locationsAny": [
+            "Hutt Space",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "Hutt clans",
+            "crime lord",
+            "debts",
+            "Hutts"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hutts are long-lived crime lords and clan powers whose influence combines wealth, patronage, slavery, debts, territory, and fear.",
+        "injection": "Use Hutts as political-criminal authorities. Their power comes from networks, favors, enforcers, debts, and territory, not only personal size.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_twi_leks_have_varied_roles",
+      "title": "Twi’leks Have Varied Roles",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "rule",
+      "relevance": "low",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "species:twi-lek",
+        "topic:society",
+        "topic:species"
+      ],
+      "priority": 46,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "Twi’leks",
+          "Ryloth",
+          "species stereotype"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Twi’leks",
+            "Ryloth",
+            "species stereotype"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Twi’leks appear across many roles, from politicians and pilots to dancers, slaves, criminals, rebels, and civilians; the species should not be reduced to one trope.",
+        "injection": "Use Twi’lek identity with range. Avoid making every Twi’lek a dancer, slave, or underworld figure unless the local scene supports that.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_bothans_known_for_spynet",
+      "title": "Bothans Known for Spynet",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "species:bothan",
+        "topic:intelligence",
+        "faction:rebel-alliance"
+      ],
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Rebel Alliance before Endor",
+        "approximate": false,
+        "phase": "Rebellion Era"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Bothan Spynet",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "Bothans",
+          "spynet",
+          "intelligence"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Bothans",
+            "spynet",
+            "intelligence",
+            "Bothan Spynet",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Bothans are strongly associated with intelligence networks and political maneuvering, but individual Bothans still vary by role and allegiance.",
+        "injection": "Use Bothan spy associations carefully. They can signal intelligence tradecraft, but do not make every Bothan a spy or traitor. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rebel Alliance before Endor.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_jawas_are_tatooine_scavengers",
+      "title": "Jawas Are Tatooine Scavengers",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "species:jawa",
+        "place:tatooine",
+        "topic:droid",
+        "topic:trade"
+      ],
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [],
+        "topics": [
+          "Jawas",
+          "sandcrawler",
+          "salvage",
+          "droid sale"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "Jawas",
+            "sandcrawler",
+            "salvage",
+            "droid sale"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Jawas on Tatooine are mobile scavenger-traders whose sandcrawlers, droid sales, and salvaging shape local desert life.",
+        "injection": "Use Jawas for scavenging, bargaining, salvage, and droid trade on Tatooine rather than generic comic noise.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_tusken_raiders_are_local_people",
+      "title": "Tusken Raiders Are Local People",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "species:tusken-raider",
+        "place:tatooine",
+        "topic:frontier"
+      ],
+      "priority": 48,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [],
+        "topics": [
+          "Tusken Raiders",
+          "indigenous people",
+          "territory"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "Tusken Raiders",
+            "indigenous people",
+            "territory"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Tusken Raiders are indigenous Tatooine peoples with territorial practices, culture, violence, and history, not just random desert monsters.",
+        "injection": "Write Tusken Raiders as culturally situated and territorial. Avoid reducing them to nameless creatures unless the scene is using limited outsider perspective.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_clones_are_people_not_only_units",
+      "title": "Clones Are People, Not Only Units",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "species:clone",
+        "event:clone-wars",
+        "faction:galactic-republic",
+        "topic:military"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_2_aotc",
+        "validToAnchor": "sw.film.episode_3_rots",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Clone Wars before Revenge of the Sith",
+        "approximate": false,
+        "phase": "Clone Wars"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Grand Army of the Republic"
+        ],
+        "topics": [
+          "clone troopers",
+          "identity",
+          "conditioning",
+          "Order 66"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "clone troopers",
+            "identity",
+            "conditioning",
+            "Order 66",
+            "Grand Army of the Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Clone troopers are bred soldiers with shared origin and military conditioning, but they develop individual names, loyalties, personalities, and trauma.",
+        "injection": "During Clone Wars or clone-survivor scenes, treat clones as people within military structures, not interchangeable objects.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars before Revenge of the Sith.",
+          "Respect story-position bounds from Episode II: Attack of the Clones to Episode III: Revenge of the Sith."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_chiss_context_is_limited",
+      "title": "Chiss Context Is Limited",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "species:chiss",
+        "faction:chiss-ascendancy",
+        "character:thrawn",
+        "place:unknown-regions"
+      ],
+      "priority": 50,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Thrawn"
+        ],
+        "locations": [
+          "Unknown Regions"
+        ],
+        "factions": [
+          "Chiss Ascendancy"
+        ],
+        "topics": [
+          "Chiss culture",
+          "Unknown Regions",
+          "limited knowledge"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Thrawn"
+          ],
+          "locationsAny": [
+            "Unknown Regions"
+          ],
+          "topicsAny": [
+            "Chiss culture",
+            "Unknown Regions",
+            "limited knowledge",
+            "Chiss Ascendancy"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Chiss society, names, politics, and Unknown Regions context are not common knowledge in most galactic scenes.",
+        "injection": "Do not assume ordinary pilots, rebels, or civilians understand Chiss culture or Thrawn’s background without relevant source/context.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_yuuzhan_vong_future_guard",
+      "title": "Yuuzhan Vong Future Guard",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "species:yuuzhan-vong",
+        "era:njo",
+        "topic:future-guard",
+        "topic:secret"
+      ],
+      "priority": 84,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.njo",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "New Jedi Order and later Legends",
+        "approximate": true,
+        "phase": "New Jedi Order and Later"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Yuuzhan Vong"
+        ],
+        "topics": [
+          "Yuuzhan Vong",
+          "future invasion",
+          "New Jedi Order"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Yuuzhan Vong",
+            "future invasion",
+            "New Jedi Order",
+            "Yuuzhan Vong"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Yuuzhan Vong and their invasion are not ordinary known galactic context before the New Jedi Order era.",
+        "injection": "Before the New Jedi Order era, do not leak Yuuzhan Vong biology, invasion plans, or public threat status unless a specific source deck introduces advance scouts or foreshadowing.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: New Jedi Order and later Legends.",
+          "Respect story-position bounds from New Jedi Order Era to Far-Future Legends Backdrop."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    }
+  ]
+}

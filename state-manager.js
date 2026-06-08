@@ -583,7 +583,7 @@ function normalizeLoredeckEntryOverrides(value) {
         entry.id = id;
         output[id] = entry;
         count += 1;
-        if (count >= 500) break;
+        if (count >= 5000) break;
     }
     return output;
 }

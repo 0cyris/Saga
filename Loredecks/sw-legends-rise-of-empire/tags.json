@@ -1,0 +1,5049 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "character:aayla-secura": {
+      "label": "Aayla Secura",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Aayla Secura.",
+      "aliases": [
+        "aayla secura"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ahsoka-tano": {
+      "label": "Ahsoka Tano",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Ahsoka Tano.",
+      "aliases": [
+        "ahsoka tano"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:anakin-skywalker": {
+      "label": "Anakin Skywalker",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Anakin Skywalker.",
+      "aliases": [
+        "anakin skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:arc-troopers": {
+      "label": "Arc Troopers",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Arc Troopers.",
+      "aliases": [
+        "arc troopers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:asajj-ventress": {
+      "label": "Asajj Ventress",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Asajj Ventress.",
+      "aliases": [
+        "asajj ventress"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:bail-organa": {
+      "label": "Bail Organa",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Bail Organa.",
+      "aliases": [
+        "bail organa"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:boba-fett": {
+      "label": "Boba Fett",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Boba Fett.",
+      "aliases": [
+        "boba fett"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:cade-skywalker": {
+      "label": "Cade Skywalker",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Cade Skywalker.",
+      "aliases": [
+        "cade skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:captain-rex": {
+      "label": "Captain Rex",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Captain Rex.",
+      "aliases": [
+        "captain rex"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:clone-commandos": {
+      "label": "Clone Commandos",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Commandos.",
+      "aliases": [
+        "clone commandos"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:clone-troopers": {
+      "label": "Clone Troopers",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Troopers.",
+      "aliases": [
+        "clone troopers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:commander-cody": {
+      "label": "Commander Cody",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Commander Cody.",
+      "aliases": [
+        "commander cody"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:count-dooku": {
+      "label": "Count Dooku",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Count Dooku.",
+      "aliases": [
+        "count dooku"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-bane": {
+      "label": "Darth Bane",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Darth Bane.",
+      "aliases": [
+        "darth bane"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-krayt": {
+      "label": "Darth Krayt",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Darth Krayt.",
+      "aliases": [
+        "darth krayt"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-maul": {
+      "label": "Darth Maul",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Darth Maul.",
+      "aliases": [
+        "darth maul"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-sidious": {
+      "label": "Darth Sidious",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Darth Sidious.",
+      "aliases": [
+        "darth sidious"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-tyranus": {
+      "label": "Darth Tyranus",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Darth Tyranus.",
+      "aliases": [
+        "darth tyranus"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-vader": {
+      "label": "Darth Vader",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Darth Vader.",
+      "aliases": [
+        "darth vader"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:durge": {
+      "label": "Durge",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Durge.",
+      "aliases": [
+        "durge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:general-grievous": {
+      "label": "General Grievous",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: General Grievous.",
+      "aliases": [
+        "general grievous"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jacen-solo": {
+      "label": "Jacen Solo",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jacen Solo.",
+      "aliases": [
+        "jacen solo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jango-fett": {
+      "label": "Jango Fett",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jango Fett.",
+      "aliases": [
+        "jango fett"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jedi-generals": {
+      "label": "Jedi Generals",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Generals.",
+      "aliases": [
+        "jedi generals"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jedi-knights": {
+      "label": "Jedi Knights",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Knights.",
+      "aliases": [
+        "jedi knights"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jedi-survivors": {
+      "label": "Jedi Survivors",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Survivors.",
+      "aliases": [
+        "jedi survivors"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jorus-cbaoth": {
+      "label": "Jorus Cbaoth",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jorus Cbaoth.",
+      "aliases": [
+        "jorus cbaoth"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:leia-organa": {
+      "label": "Leia Organa",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Leia Organa.",
+      "aliases": [
+        "leia organa"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:luke-skywalker": {
+      "label": "Luke Skywalker",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Luke Skywalker.",
+      "aliases": [
+        "luke skywalker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mace-windu": {
+      "label": "Mace Windu",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Mace Windu.",
+      "aliases": [
+        "mace windu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mara-jade": {
+      "label": "Mara Jade",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Mara Jade.",
+      "aliases": [
+        "mara jade"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mon-mothma": {
+      "label": "Mon Mothma",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Mon Mothma.",
+      "aliases": [
+        "mon mothma"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nute-gunray": {
+      "label": "Nute Gunray",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Nute Gunray.",
+      "aliases": [
+        "nute gunray"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:obi-wan-kenobi": {
+      "label": "Obi Wan Kenobi",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Obi Wan Kenobi.",
+      "aliases": [
+        "obi wan kenobi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:padme-amidala": {
+      "label": "Padme Amidala",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Padme Amidala.",
+      "aliases": [
+        "padme amidala"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:palpatine": {
+      "label": "Palpatine",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Palpatine.",
+      "aliases": [
+        "palpatine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:qui-gon-jinn": {
+      "label": "Qui Gon Jinn",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Qui Gon Jinn.",
+      "aliases": [
+        "qui gon jinn"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:quinlan-vos": {
+      "label": "Quinlan Vos",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Quinlan Vos.",
+      "aliases": [
+        "quinlan vos"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:rebel-alliance": {
+      "label": "Rebel Alliance",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Rebel Alliance.",
+      "aliases": [
+        "rebel alliance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:sifo-dyas": {
+      "label": "Sifo Dyas",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sifo Dyas.",
+      "aliases": [
+        "sifo dyas"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:thrawn": {
+      "label": "Thrawn",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Thrawn.",
+      "aliases": [
+        "thrawn"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:wilhuff-tarkin": {
+      "label": "Wilhuff Tarkin",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Wilhuff Tarkin.",
+      "aliases": [
+        "wilhuff tarkin"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yoda": {
+      "label": "Yoda",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Yoda.",
+      "aliases": [
+        "yoda"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:legends": {
+      "label": "Legends",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Legends.",
+      "aliases": [
+        "legends"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:clone-wars": {
+      "label": "Clone Wars",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Wars.",
+      "aliases": [
+        "clone wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:dark-times": {
+      "label": "Dark Times",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Dark Times.",
+      "aliases": [
+        "dark times"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:early-empire": {
+      "label": "Early Empire",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Early Empire.",
+      "aliases": [
+        "early empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:late-clone-wars": {
+      "label": "Late Clone Wars",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Late Clone Wars.",
+      "aliases": [
+        "late clone wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:late-republic": {
+      "label": "Late Republic",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Late Republic.",
+      "aliases": [
+        "late republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:naboo-crisis": {
+      "label": "Naboo Crisis",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Naboo Crisis.",
+      "aliases": [
+        "naboo crisis"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:rots-transition": {
+      "label": "Rots Transition",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Rots Transition.",
+      "aliases": [
+        "rots transition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:separatist-crisis": {
+      "label": "Separatist Crisis",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Crisis.",
+      "aliases": [
+        "separatist crisis"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:battle-of-coruscant": {
+      "label": "Battle Of Coruscant",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Battle Of Coruscant.",
+      "aliases": [
+        "battle of coruscant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:first-battle-of-geonosis": {
+      "label": "First Battle Of Geonosis",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: First Battle Of Geonosis.",
+      "aliases": [
+        "first battle of geonosis"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:jedi-purge": {
+      "label": "Jedi Purge",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Purge.",
+      "aliases": [
+        "jedi purge"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:order-66": {
+      "label": "Order 66",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Order 66.",
+      "aliases": [
+        "order 66"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:bounty-hunters": {
+      "label": "Bounty Hunters",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Bounty Hunters.",
+      "aliases": [
+        "bounty hunters"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:chiss-ascendancy": {
+      "label": "Chiss Ascendancy",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Chiss Ascendancy.",
+      "aliases": [
+        "chiss ascendancy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:cis": {
+      "label": "Cis",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Cis.",
+      "aliases": [
+        "cis"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:clone-army": {
+      "label": "Clone Army",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Army.",
+      "aliases": [
+        "clone army"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:commerce-guild": {
+      "label": "Commerce Guild",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Commerce Guild.",
+      "aliases": [
+        "commerce guild"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:confederacy-of-independent-systems": {
+      "label": "Confederacy Of Independent Systems",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Confederacy Of Independent Systems.",
+      "aliases": [
+        "confederacy of independent systems"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:death-watch": {
+      "label": "Death Watch",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Death Watch.",
+      "aliases": [
+        "death watch"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:fel-empire": {
+      "label": "Fel Empire",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Fel Empire.",
+      "aliases": [
+        "fel empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-empire": {
+      "label": "Galactic Empire",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Galactic Empire.",
+      "aliases": [
+        "galactic empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-republic": {
+      "label": "Galactic Republic",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Galactic Republic.",
+      "aliases": [
+        "galactic republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-senate": {
+      "label": "Galactic Senate",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Galactic Senate.",
+      "aliases": [
+        "galactic senate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:imperial-remnant": {
+      "label": "Imperial Remnant",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Imperial Remnant.",
+      "aliases": [
+        "imperial remnant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:inquisitors": {
+      "label": "Inquisitors",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Inquisitors.",
+      "aliases": [
+        "inquisitors"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:intergalactic-banking-clan": {
+      "label": "Intergalactic Banking Clan",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Intergalactic Banking Clan.",
+      "aliases": [
+        "intergalactic banking clan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jedi-order": {
+      "label": "Jedi Order",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Order.",
+      "aliases": [
+        "jedi order"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:kaminoans": {
+      "label": "Kaminoans",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Kaminoans.",
+      "aliases": [
+        "kaminoans"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:lars-family": {
+      "label": "Lars Family",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Lars Family.",
+      "aliases": [
+        "lars family"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:loyalist-committee": {
+      "label": "Loyalist Committee",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Loyalist Committee.",
+      "aliases": [
+        "loyalist committee"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:mandalorians": {
+      "label": "Mandalorians",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Mandalorians.",
+      "aliases": [
+        "mandalorians"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:naboo-royal-house": {
+      "label": "Naboo Royal House",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Naboo Royal House.",
+      "aliases": [
+        "naboo royal house"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:new-jedi-order": {
+      "label": "New Jedi Order",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: New Jedi Order.",
+      "aliases": [
+        "new jedi order"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:new-republic": {
+      "label": "New Republic",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: New Republic.",
+      "aliases": [
+        "new republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:organa-family": {
+      "label": "Organa Family",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Organa Family.",
+      "aliases": [
+        "organa family"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:rebel-alliance": {
+      "label": "Rebel Alliance",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Rebel Alliance.",
+      "aliases": [
+        "rebel alliance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:republic-navy": {
+      "label": "Republic Navy",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Republic Navy.",
+      "aliases": [
+        "republic navy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:separatists": {
+      "label": "Separatists",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatists.",
+      "aliases": [
+        "separatists"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:sith": {
+      "label": "Sith",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sith.",
+      "aliases": [
+        "sith"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:techno-union": {
+      "label": "Techno Union",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Techno Union.",
+      "aliases": [
+        "techno union"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:trade-federation": {
+      "label": "Trade Federation",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Trade Federation.",
+      "aliases": [
+        "trade federation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:yuuzhan-vong": {
+      "label": "Yuuzhan Vong",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Yuuzhan Vong.",
+      "aliases": [
+        "yuuzhan vong"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:star-wars": {
+      "label": "Star Wars",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Star Wars.",
+      "aliases": [
+        "star wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:bacta": {
+      "label": "Bacta",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Bacta.",
+      "aliases": [
+        "bacta"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:battle-droid": {
+      "label": "Battle Droid",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Battle Droid.",
+      "aliases": [
+        "battle droid"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:clone-armor": {
+      "label": "Clone Armor",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Armor.",
+      "aliases": [
+        "clone armor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:cybernetics": {
+      "label": "Cybernetics",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Cybernetics.",
+      "aliases": [
+        "cybernetics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:droideka": {
+      "label": "Droideka",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Droideka.",
+      "aliases": [
+        "droideka"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:holonet": {
+      "label": "Holonet",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Holonet.",
+      "aliases": [
+        "holonet"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:invisible-hand": {
+      "label": "Invisible Hand",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Invisible Hand.",
+      "aliases": [
+        "invisible hand"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:jedi-archives": {
+      "label": "Jedi Archives",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Archives.",
+      "aliases": [
+        "jedi archives"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:laat-gunship": {
+      "label": "Laat Gunship",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Laat Gunship.",
+      "aliases": [
+        "laat gunship"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:lightsaber": {
+      "label": "Lightsaber",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Lightsaber.",
+      "aliases": [
+        "lightsaber"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:order-66-protocol": {
+      "label": "Order 66 Protocol",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Order 66 Protocol.",
+      "aliases": [
+        "order 66 protocol"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:sith-holocron": {
+      "label": "Sith Holocron",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sith Holocron.",
+      "aliases": [
+        "sith holocron"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:super-battle-droid": {
+      "label": "Super Battle Droid",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Super Battle Droid.",
+      "aliases": [
+        "super battle droid"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:venator-class-star-destroyer": {
+      "label": "Venator Class Star Destroyer",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Venator Class Star Destroyer.",
+      "aliases": [
+        "venator class star destroyer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:alderaan": {
+      "label": "Alderaan",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Alderaan.",
+      "aliases": [
+        "alderaan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:coruscant": {
+      "label": "Coruscant",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Coruscant.",
+      "aliases": [
+        "coruscant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:dagobah": {
+      "label": "Dagobah",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Dagobah.",
+      "aliases": [
+        "dagobah"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:geonosis": {
+      "label": "Geonosis",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Geonosis.",
+      "aliases": [
+        "geonosis"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:hypori": {
+      "label": "Hypori",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Hypori.",
+      "aliases": [
+        "hypori"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:jabiim": {
+      "label": "Jabiim",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jabiim.",
+      "aliases": [
+        "jabiim"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:jedi-temple": {
+      "label": "Jedi Temple",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Temple.",
+      "aliases": [
+        "jedi temple"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:kamino": {
+      "label": "Kamino",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Kamino.",
+      "aliases": [
+        "kamino"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:mustafar": {
+      "label": "Mustafar",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Mustafar.",
+      "aliases": [
+        "mustafar"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:muunilinst": {
+      "label": "Muunilinst",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Muunilinst.",
+      "aliases": [
+        "muunilinst"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:naboo": {
+      "label": "Naboo",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Naboo.",
+      "aliases": [
+        "naboo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:outer-rim": {
+      "label": "Outer Rim",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Outer Rim.",
+      "aliases": [
+        "outer rim"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:tatooine": {
+      "label": "Tatooine",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Tatooine.",
+      "aliases": [
+        "tatooine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:utapau": {
+      "label": "Utapau",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Utapau.",
+      "aliases": [
+        "utapau"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft": {
+      "label": "Draft",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Draft.",
+      "aliases": [
+        "draft"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:era": {
+      "label": "Era",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Era.",
+      "aliases": [
+        "era"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:rise-of-empire": {
+      "label": "Rise Of Empire",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Rise Of Empire.",
+      "aliases": [
+        "rise of empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "structure:split-loredeck": {
+      "label": "Split Loredeck",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Split Loredeck.",
+      "aliases": [
+        "split loredeck"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:accelerated-aging": {
+      "label": "Accelerated Aging",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Accelerated Aging.",
+      "aliases": [
+        "accelerated aging"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ahsoka-guard": {
+      "label": "Ahsoka Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Ahsoka Guard.",
+      "aliases": [
+        "ahsoka guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:anti-alien-prejudice": {
+      "label": "Anti Alien Prejudice",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Anti Alien Prejudice.",
+      "aliases": [
+        "anti alien prejudice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:anti-jedi-propaganda": {
+      "label": "Anti Jedi Propaganda",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Anti Jedi Propaganda.",
+      "aliases": [
+        "anti jedi propaganda"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:anti-militarization": {
+      "label": "Anti Militarization",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Anti Militarization.",
+      "aliases": [
+        "anti militarization"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:apprentice": {
+      "label": "Apprentice",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Apprentice.",
+      "aliases": [
+        "apprentice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:arc-troopers": {
+      "label": "Arc Troopers",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Arc Troopers.",
+      "aliases": [
+        "arc troopers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:attachment": {
+      "label": "Attachment",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Attachment.",
+      "aliases": [
+        "attachment"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:attrition": {
+      "label": "Attrition",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Attrition.",
+      "aliases": [
+        "attrition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:authoritarian-drift": {
+      "label": "Authoritarian Drift",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Authoritarian Drift.",
+      "aliases": [
+        "authoritarian drift"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:authoritarian-victory": {
+      "label": "Authoritarian Victory",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Authoritarian Victory.",
+      "aliases": [
+        "authoritarian victory"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bacta": {
+      "label": "Bacta",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Bacta.",
+      "aliases": [
+        "bacta"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bane-backfill-guard": {
+      "label": "Bane Backfill Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Bane Backfill Guard.",
+      "aliases": [
+        "bane backfill guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:banking-clan": {
+      "label": "Banking Clan",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Banking Clan.",
+      "aliases": [
+        "banking clan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:battle-droids": {
+      "label": "Battle Droids",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Battle Droids.",
+      "aliases": [
+        "battle droids"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:battle-of-coruscant": {
+      "label": "Battle Of Coruscant",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Battle Of Coruscant.",
+      "aliases": [
+        "battle of coruscant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:battlefield-victory-limits": {
+      "label": "Battlefield Victory Limits",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Battlefield Victory Limits.",
+      "aliases": [
+        "battlefield victory limits"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:blockade": {
+      "label": "Blockade",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Blockade.",
+      "aliases": [
+        "blockade"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bounty-hunter": {
+      "label": "Bounty Hunter",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Bounty Hunter.",
+      "aliases": [
+        "bounty hunter"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:caedus-future-guard": {
+      "label": "Caedus Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Caedus Future Guard.",
+      "aliases": [
+        "caedus future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:capital": {
+      "label": "Capital",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Capital.",
+      "aliases": [
+        "capital"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:capital-attack": {
+      "label": "Capital Attack",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Capital Attack.",
+      "aliases": [
+        "capital attack"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:chancellor": {
+      "label": "Chancellor",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Chancellor.",
+      "aliases": [
+        "chancellor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:chosen-one": {
+      "label": "Chosen One",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Chosen One.",
+      "aliases": [
+        "chosen one"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-armor": {
+      "label": "Clone Armor",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Armor.",
+      "aliases": [
+        "clone armor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-army": {
+      "label": "Clone Army",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Army.",
+      "aliases": [
+        "clone army"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-betrayal": {
+      "label": "Clone Betrayal",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Betrayal.",
+      "aliases": [
+        "clone betrayal"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-command": {
+      "label": "Clone Command",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Command.",
+      "aliases": [
+        "clone command"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-commander": {
+      "label": "Clone Commander",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Commander.",
+      "aliases": [
+        "clone commander"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-commandos": {
+      "label": "Clone Commandos",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Commandos.",
+      "aliases": [
+        "clone commandos"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-free-will": {
+      "label": "Clone Free Will",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Free Will.",
+      "aliases": [
+        "clone free will"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-identity": {
+      "label": "Clone Identity",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Identity.",
+      "aliases": [
+        "clone identity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-individuality": {
+      "label": "Clone Individuality",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Individuality.",
+      "aliases": [
+        "clone individuality"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-names": {
+      "label": "Clone Names",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Names.",
+      "aliases": [
+        "clone names"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-origin": {
+      "label": "Clone Origin",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Origin.",
+      "aliases": [
+        "clone origin"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-production": {
+      "label": "Clone Production",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Production.",
+      "aliases": [
+        "clone production"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-template": {
+      "label": "Clone Template",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Template.",
+      "aliases": [
+        "clone template"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-war-infrastructure": {
+      "label": "Clone War Infrastructure",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone War Infrastructure.",
+      "aliases": [
+        "clone war infrastructure"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-wars-begin": {
+      "label": "Clone Wars Begin",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Wars Begin.",
+      "aliases": [
+        "clone wars begin"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-wars-command": {
+      "label": "Clone Wars Command",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Wars Command.",
+      "aliases": [
+        "clone wars command"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-wars-cost": {
+      "label": "Clone Wars Cost",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Wars Cost.",
+      "aliases": [
+        "clone wars cost"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-wars-end": {
+      "label": "Clone Wars End",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Wars End.",
+      "aliases": [
+        "clone wars end"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-wars-layers": {
+      "label": "Clone Wars Layers",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Wars Layers.",
+      "aliases": [
+        "clone wars layers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-wars-mandalorians": {
+      "label": "Clone Wars Mandalorians",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Wars Mandalorians.",
+      "aliases": [
+        "clone wars mandalorians"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-wars-not-started": {
+      "label": "Clone Wars Not Started",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Clone Wars Not Started.",
+      "aliases": [
+        "clone wars not started"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:continuity-caution": {
+      "label": "Continuity Caution",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Continuity Caution.",
+      "aliases": [
+        "continuity caution"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:contractors": {
+      "label": "Contractors",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Contractors.",
+      "aliases": [
+        "contractors"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:corporate-influence": {
+      "label": "Corporate Influence",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Corporate Influence.",
+      "aliases": [
+        "corporate influence"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:corporate-war-machine": {
+      "label": "Corporate War Machine",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Corporate War Machine.",
+      "aliases": [
+        "corporate war machine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:council-seat": {
+      "label": "Council Seat",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Council Seat.",
+      "aliases": [
+        "council seat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:cybernetics": {
+      "label": "Cybernetics",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Cybernetics.",
+      "aliases": [
+        "cybernetics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:cyborg-commander": {
+      "label": "Cyborg Commander",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Cyborg Commander.",
+      "aliases": [
+        "cyborg commander"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-acolyte": {
+      "label": "Dark Acolyte",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Dark Acolyte.",
+      "aliases": [
+        "dark acolyte"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-empire-future-guard": {
+      "label": "Dark Empire Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Dark Empire Future Guard.",
+      "aliases": [
+        "dark empire future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-side-agents": {
+      "label": "Dark Side Agents",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Dark Side Agents.",
+      "aliases": [
+        "dark side agents"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:death-star-future-guard": {
+      "label": "Death Star Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Death Star Future Guard.",
+      "aliases": [
+        "death star future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:debt": {
+      "label": "Debt",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Debt.",
+      "aliases": [
+        "debt"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:disney-canon-guard": {
+      "label": "Disney Canon Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Disney Canon Guard.",
+      "aliases": [
+        "disney canon guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:divided-loyalty": {
+      "label": "Divided Loyalty",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Divided Loyalty.",
+      "aliases": [
+        "divided loyalty"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dooku-agent": {
+      "label": "Dooku Agent",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Dooku Agent.",
+      "aliases": [
+        "dooku agent"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dooku-death": {
+      "label": "Dooku Death",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Dooku Death.",
+      "aliases": [
+        "dooku death"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:droid-armies": {
+      "label": "Droid Armies",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Droid Armies.",
+      "aliases": [
+        "droid armies"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:droid-control": {
+      "label": "Droid Control",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Droid Control.",
+      "aliases": [
+        "droid control"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:droid-foundry": {
+      "label": "Droid Foundry",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Droid Foundry.",
+      "aliases": [
+        "droid foundry"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:droid-infantry": {
+      "label": "Droid Infantry",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Droid Infantry.",
+      "aliases": [
+        "droid infantry"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:droideka": {
+      "label": "Droideka",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Droideka.",
+      "aliases": [
+        "droideka"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:early-rebellion-seeds": {
+      "label": "Early Rebellion Seeds",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Early Rebellion Seeds.",
+      "aliases": [
+        "early rebellion seeds"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:early-resistance": {
+      "label": "Early Resistance",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Early Resistance.",
+      "aliases": [
+        "early resistance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:elite-clone-units": {
+      "label": "Elite Clone Units",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Elite Clone Units.",
+      "aliases": [
+        "elite clone units"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:emergency-powers": {
+      "label": "Emergency Powers",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Emergency Powers.",
+      "aliases": [
+        "emergency powers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:empire-declaration": {
+      "label": "Empire Declaration",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Empire Declaration.",
+      "aliases": [
+        "empire declaration"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:engineered-war": {
+      "label": "Engineered War",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Engineered War.",
+      "aliases": [
+        "engineered war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fear-of-loss": {
+      "label": "Fear Of Loss",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Fear Of Loss.",
+      "aliases": [
+        "fear of loss"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:field-medicine": {
+      "label": "Field Medicine",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Field Medicine.",
+      "aliases": [
+        "field medicine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:first-battle": {
+      "label": "First Battle",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: First Battle.",
+      "aliases": [
+        "first battle"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:first-battle-of-geonosis": {
+      "label": "First Battle Of Geonosis",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: First Battle Of Geonosis.",
+      "aliases": [
+        "first battle of geonosis"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:forbidden-power": {
+      "label": "Forbidden Power",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Forbidden Power.",
+      "aliases": [
+        "forbidden power"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-sensitivity": {
+      "label": "Force Sensitivity",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Force Sensitivity.",
+      "aliases": [
+        "force sensitivity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-guard": {
+      "label": "Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Future Guard.",
+      "aliases": [
+        "future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-rebellion": {
+      "label": "Future Rebellion",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Future Rebellion.",
+      "aliases": [
+        "future rebellion"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:gen-dai": {
+      "label": "Gen Dai",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Gen Dai.",
+      "aliases": [
+        "gen dai"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:grand-plan": {
+      "label": "Grand Plan",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Grand Plan.",
+      "aliases": [
+        "grand plan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:grievous": {
+      "label": "Grievous",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Grievous.",
+      "aliases": [
+        "grievous"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:grievous-death": {
+      "label": "Grievous Death",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Grievous Death.",
+      "aliases": [
+        "grievous death"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:grievous-reveal": {
+      "label": "Grievous Reveal",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Grievous Reveal.",
+      "aliases": [
+        "grievous reveal"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:guardianship": {
+      "label": "Guardianship",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Guardianship.",
+      "aliases": [
+        "guardianship"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-with-no-fear": {
+      "label": "Hero With No Fear",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Hero With No Fear.",
+      "aliases": [
+        "hero with no fear"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hidden-children": {
+      "label": "Hidden Children",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Hidden Children.",
+      "aliases": [
+        "hidden children"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hidden-command": {
+      "label": "Hidden Command",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Hidden Command.",
+      "aliases": [
+        "hidden command"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hidden-refuge": {
+      "label": "Hidden Refuge",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Hidden Refuge.",
+      "aliases": [
+        "hidden refuge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hidden-world": {
+      "label": "Hidden World",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Hidden World.",
+      "aliases": [
+        "hidden world"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:high-republic-guard": {
+      "label": "High Republic Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: High Republic Guard.",
+      "aliases": [
+        "high republic guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:holocrons": {
+      "label": "Holocrons",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Holocrons.",
+      "aliases": [
+        "holocrons"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:holonet": {
+      "label": "Holonet",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Holonet.",
+      "aliases": [
+        "holonet"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:humanocentrism": {
+      "label": "Humanocentrism",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Humanocentrism.",
+      "aliases": [
+        "humanocentrism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperial-consolidation": {
+      "label": "Imperial Consolidation",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Imperial Consolidation.",
+      "aliases": [
+        "imperial consolidation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperial-doctrine": {
+      "label": "Imperial Doctrine",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Imperial Doctrine.",
+      "aliases": [
+        "imperial doctrine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperial-seizure": {
+      "label": "Imperial Seizure",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Imperial Seizure.",
+      "aliases": [
+        "imperial seizure"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperial-transition": {
+      "label": "Imperial Transition",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Imperial Transition.",
+      "aliases": [
+        "imperial transition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperialization": {
+      "label": "Imperialization",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Imperialization.",
+      "aliases": [
+        "imperialization"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:inquisitors": {
+      "label": "Inquisitors",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Inquisitors.",
+      "aliases": [
+        "inquisitors"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:institutional-continuity": {
+      "label": "Institutional Continuity",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Institutional Continuity.",
+      "aliases": [
+        "institutional continuity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:institutional-trap": {
+      "label": "Institutional Trap",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Institutional Trap.",
+      "aliases": [
+        "institutional trap"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:invisible-hand": {
+      "label": "Invisible Hand",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Invisible Hand.",
+      "aliases": [
+        "invisible hand"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jango-death": {
+      "label": "Jango Death",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jango Death.",
+      "aliases": [
+        "jango death"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-academy-future-guard": {
+      "label": "Jedi Academy Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Academy Future Guard.",
+      "aliases": [
+        "jedi academy future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-archives": {
+      "label": "Jedi Archives",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Archives.",
+      "aliases": [
+        "jedi archives"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-blindness": {
+      "label": "Jedi Blindness",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Blindness.",
+      "aliases": [
+        "jedi blindness"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-casualties": {
+      "label": "Jedi Casualties",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Casualties.",
+      "aliases": [
+        "jedi casualties"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-council": {
+      "label": "Jedi Council",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Council.",
+      "aliases": [
+        "jedi council"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-coup-narrative": {
+      "label": "Jedi Coup Narrative",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Coup Narrative.",
+      "aliases": [
+        "jedi coup narrative"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-dispersed": {
+      "label": "Jedi Dispersed",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Dispersed.",
+      "aliases": [
+        "jedi dispersed"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-exile": {
+      "label": "Jedi Exile",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Exile.",
+      "aliases": [
+        "jedi exile"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-general": {
+      "label": "Jedi General",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi General.",
+      "aliases": [
+        "jedi general"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-generals": {
+      "label": "Jedi Generals",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Generals.",
+      "aliases": [
+        "jedi generals"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-headquarters": {
+      "label": "Jedi Headquarters",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Headquarters.",
+      "aliases": [
+        "jedi headquarters"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-hunt": {
+      "label": "Jedi Hunt",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Hunt.",
+      "aliases": [
+        "jedi hunt"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-hunters": {
+      "label": "Jedi Hunters",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Hunters.",
+      "aliases": [
+        "jedi hunters"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-killer": {
+      "label": "Jedi Killer",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Killer.",
+      "aliases": [
+        "jedi killer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-knowledge": {
+      "label": "Jedi Knowledge",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Knowledge.",
+      "aliases": [
+        "jedi knowledge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-purge": {
+      "label": "Jedi Purge",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Purge.",
+      "aliases": [
+        "jedi purge"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-role": {
+      "label": "Jedi Role",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Role.",
+      "aliases": [
+        "jedi role"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-survivor-guard": {
+      "label": "Jedi Survivor Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Survivor Guard.",
+      "aliases": [
+        "jedi survivor guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-temple": {
+      "label": "Jedi Temple",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Temple.",
+      "aliases": [
+        "jedi temple"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-training": {
+      "label": "Jedi Training",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Training.",
+      "aliases": [
+        "jedi training"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-trauma": {
+      "label": "Jedi Trauma",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Jedi Trauma.",
+      "aliases": [
+        "jedi trauma"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:laat-gunship": {
+      "label": "Laat Gunship",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Laat Gunship.",
+      "aliases": [
+        "laat gunship"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:late-post-endor-future-guard": {
+      "label": "Late Post Endor Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Late Post Endor Future Guard.",
+      "aliases": [
+        "late post endor future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:late-republic": {
+      "label": "Late Republic",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Late Republic.",
+      "aliases": [
+        "late republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:late-war": {
+      "label": "Late War",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Late War.",
+      "aliases": [
+        "late war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:legacy-comics-future-guard": {
+      "label": "Legacy Comics Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Legacy Comics Future Guard.",
+      "aliases": [
+        "legacy comics future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:legacy-comics-guard": {
+      "label": "Legacy Comics Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Legacy Comics Guard.",
+      "aliases": [
+        "legacy comics guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:legal-state": {
+      "label": "Legal State",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Legal State.",
+      "aliases": [
+        "legal state"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:legalism": {
+      "label": "Legalism",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Legalism.",
+      "aliases": [
+        "legalism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:leia-future-guard": {
+      "label": "Leia Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Leia Future Guard.",
+      "aliases": [
+        "leia future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:leia-hidden": {
+      "label": "Leia Hidden",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Leia Hidden.",
+      "aliases": [
+        "leia hidden"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:life-support": {
+      "label": "Life Support",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Life Support.",
+      "aliases": [
+        "life support"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:lightsabers": {
+      "label": "Lightsabers",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Lightsabers.",
+      "aliases": [
+        "lightsabers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:local-grievance": {
+      "label": "Local Grievance",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Local Grievance.",
+      "aliases": [
+        "local grievance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:loyalist-senators": {
+      "label": "Loyalist Senators",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Loyalist Senators.",
+      "aliases": [
+        "loyalist senators"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:luke-future-guard": {
+      "label": "Luke Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Luke Future Guard.",
+      "aliases": [
+        "luke future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mandalorian-factions": {
+      "label": "Mandalorian Factions",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Mandalorian Factions.",
+      "aliases": [
+        "mandalorian factions"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mandalorian-hatred": {
+      "label": "Mandalorian Hatred",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Mandalorian Hatred.",
+      "aliases": [
+        "mandalorian hatred"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mara-jade-future-guard": {
+      "label": "Mara Jade Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Mara Jade Future Guard.",
+      "aliases": [
+        "mara jade future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:master-apprentice": {
+      "label": "Master Apprentice",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Master Apprentice.",
+      "aliases": [
+        "master apprentice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:master-rank": {
+      "label": "Master Rank",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Master Rank.",
+      "aliases": [
+        "master rank"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:militarization": {
+      "label": "Militarization",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Militarization.",
+      "aliases": [
+        "militarization"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:militarized-jedi": {
+      "label": "Militarized Jedi",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Militarized Jedi.",
+      "aliases": [
+        "militarized jedi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:military-backbone": {
+      "label": "Military Backbone",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Military Backbone.",
+      "aliases": [
+        "military backbone"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:military-transition": {
+      "label": "Military Transition",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Military Transition.",
+      "aliases": [
+        "military transition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:monitor-palpatine": {
+      "label": "Monitor Palpatine",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Monitor Palpatine.",
+      "aliases": [
+        "monitor palpatine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:moral-strain": {
+      "label": "Moral Strain",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Moral Strain.",
+      "aliases": [
+        "moral strain"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mortis-guard": {
+      "label": "Mortis Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Mortis Guard.",
+      "aliases": [
+        "mortis guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mustafar-injuries": {
+      "label": "Mustafar Injuries",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Mustafar Injuries.",
+      "aliases": [
+        "mustafar injuries"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mustafar-massacre": {
+      "label": "Mustafar Massacre",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Mustafar Massacre.",
+      "aliases": [
+        "mustafar massacre"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:naboo-aftermath": {
+      "label": "Naboo Aftermath",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Naboo Aftermath.",
+      "aliases": [
+        "naboo aftermath"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:naboo-invasion": {
+      "label": "Naboo Invasion",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Naboo Invasion.",
+      "aliases": [
+        "naboo invasion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:new-republic-future-guard": {
+      "label": "New Republic Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: New Republic Future Guard.",
+      "aliases": [
+        "new republic future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:njo-future-guard": {
+      "label": "Njo Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Njo Future Guard.",
+      "aliases": [
+        "njo future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:no-empire-yet": {
+      "label": "No Empire Yet",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: No Empire Yet.",
+      "aliases": [
+        "no empire yet"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:no-jedi-purge-yet": {
+      "label": "No Jedi Purge Yet",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: No Jedi Purge Yet.",
+      "aliases": [
+        "no jedi purge yet"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:no-rebel-hero-yet": {
+      "label": "No Rebel Hero Yet",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: No Rebel Hero Yet.",
+      "aliases": [
+        "no rebel hero yet"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:no-rebel-leader-yet": {
+      "label": "No Rebel Leader Yet",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: No Rebel Leader Yet.",
+      "aliases": [
+        "no rebel leader yet"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:no-suited-vader-yet": {
+      "label": "No Suited Vader Yet",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: No Suited Vader Yet.",
+      "aliases": [
+        "no suited vader yet"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:occupation": {
+      "label": "Occupation",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Occupation.",
+      "aliases": [
+        "occupation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:one-sith-future-guard": {
+      "label": "One Sith Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: One Sith Future Guard.",
+      "aliases": [
+        "one sith future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:operation-knightfall": {
+      "label": "Operation Knightfall",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Operation Knightfall.",
+      "aliases": [
+        "operation knightfall"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:order-66": {
+      "label": "Order 66",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Order 66.",
+      "aliases": [
+        "order 66"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:order-66-interpretation": {
+      "label": "Order 66 Interpretation",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Order 66 Interpretation.",
+      "aliases": [
+        "order 66 interpretation"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:order-66-protocol": {
+      "label": "Order 66 Protocol",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Order 66 Protocol.",
+      "aliases": [
+        "order 66 protocol"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:order-66-vulnerability": {
+      "label": "Order 66 Vulnerability",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Order 66 Vulnerability.",
+      "aliases": [
+        "order 66 vulnerability"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:organa-family": {
+      "label": "Organa Family",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Organa Family.",
+      "aliases": [
+        "organa family"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ot-future-guard": {
+      "label": "Ot Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Ot Future Guard.",
+      "aliases": [
+        "ot future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ot-trio-future-guard": {
+      "label": "Ot Trio Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Ot Trio Future Guard.",
+      "aliases": [
+        "ot trio future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:outbound-flight": {
+      "label": "Outbound Flight",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Outbound Flight.",
+      "aliases": [
+        "outbound flight"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:outer-rim-lawlessness": {
+      "label": "Outer Rim Lawlessness",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Outer Rim Lawlessness.",
+      "aliases": [
+        "outer rim lawlessness"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:outer-rim-sieges": {
+      "label": "Outer Rim Sieges",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Outer Rim Sieges.",
+      "aliases": [
+        "outer rim sieges"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:padme-death": {
+      "label": "Padme Death",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Padme Death.",
+      "aliases": [
+        "padme death"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:palpatine-arrest": {
+      "label": "Palpatine Arrest",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Palpatine Arrest.",
+      "aliases": [
+        "palpatine arrest"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:palpatine-identity": {
+      "label": "Palpatine Identity",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Palpatine Identity.",
+      "aliases": [
+        "palpatine identity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:palpatine-manipulation": {
+      "label": "Palpatine Manipulation",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Palpatine Manipulation.",
+      "aliases": [
+        "palpatine manipulation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:palpatine-suspicion": {
+      "label": "Palpatine Suspicion",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Palpatine Suspicion.",
+      "aliases": [
+        "palpatine suspicion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:parentage-secret": {
+      "label": "Parentage Secret",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Parentage Secret.",
+      "aliases": [
+        "parentage secret"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:peacekeepers": {
+      "label": "Peacekeepers",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Peacekeepers.",
+      "aliases": [
+        "peacekeepers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:political-manipulation": {
+      "label": "Political Manipulation",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Political Manipulation.",
+      "aliases": [
+        "political manipulation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:postwar-remnants": {
+      "label": "Postwar Remnants",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Postwar Remnants.",
+      "aliases": [
+        "postwar remnants"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:propaganda": {
+      "label": "Propaganda",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Propaganda.",
+      "aliases": [
+        "propaganda"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-identity": {
+      "label": "Public Identity",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Public Identity.",
+      "aliases": [
+        "public identity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-ignorance": {
+      "label": "Public Ignorance",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Public Ignorance.",
+      "aliases": [
+        "public ignorance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-perception": {
+      "label": "Public Perception",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Public Perception.",
+      "aliases": [
+        "public perception"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rebel-alliance-future-guard": {
+      "label": "Rebel Alliance Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Rebel Alliance Future Guard.",
+      "aliases": [
+        "rebel alliance future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rebellion-era-guard": {
+      "label": "Rebellion Era Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Rebellion Era Guard.",
+      "aliases": [
+        "rebellion era guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:republic-allegiance": {
+      "label": "Republic Allegiance",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Republic Allegiance.",
+      "aliases": [
+        "republic allegiance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:republic-corruption": {
+      "label": "Republic Corruption",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Republic Corruption.",
+      "aliases": [
+        "republic corruption"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:republic-decay": {
+      "label": "Republic Decay",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Republic Decay.",
+      "aliases": [
+        "republic decay"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:republic-failure": {
+      "label": "Republic Failure",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Republic Failure.",
+      "aliases": [
+        "republic failure"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:republic-government": {
+      "label": "Republic Government",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Republic Government.",
+      "aliases": [
+        "republic government"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:republic-navy": {
+      "label": "Republic Navy",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Republic Navy.",
+      "aliases": [
+        "republic navy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:resentment": {
+      "label": "Resentment",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Resentment.",
+      "aliases": [
+        "resentment"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rule-of-two": {
+      "label": "Rule Of Two",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Rule Of Two.",
+      "aliases": [
+        "rule of two"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secession": {
+      "label": "Secession",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Secession.",
+      "aliases": [
+        "secession"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret-identity": {
+      "label": "Secret Identity",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Secret Identity.",
+      "aliases": [
+        "secret identity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret-marriage": {
+      "label": "Secret Marriage",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Secret Marriage.",
+      "aliases": [
+        "secret marriage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret-military-buildup": {
+      "label": "Secret Military Buildup",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Secret Military Buildup.",
+      "aliases": [
+        "secret military buildup"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret-sith": {
+      "label": "Secret Sith",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Secret Sith.",
+      "aliases": [
+        "secret sith"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret-weapon": {
+      "label": "Secret Weapon",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Secret Weapon.",
+      "aliases": [
+        "secret weapon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sector-security": {
+      "label": "Sector Security",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sector Security.",
+      "aliases": [
+        "sector security"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:security-state": {
+      "label": "Security State",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Security State.",
+      "aliases": [
+        "security state"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:senate": {
+      "label": "Senate",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Senate.",
+      "aliases": [
+        "senate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:senate-corruption": {
+      "label": "Senate Corruption",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Senate Corruption.",
+      "aliases": [
+        "senate corruption"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:senate-erosion": {
+      "label": "Senate Erosion",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Senate Erosion.",
+      "aliases": [
+        "senate erosion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:senate-opposition": {
+      "label": "Senate Opposition",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Senate Opposition.",
+      "aliases": [
+        "senate opposition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:senate-politics": {
+      "label": "Senate Politics",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Senate Politics.",
+      "aliases": [
+        "senate politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:senator": {
+      "label": "Senator",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Senator.",
+      "aliases": [
+        "senator"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-command": {
+      "label": "Separatist Command",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Command.",
+      "aliases": [
+        "separatist command"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-commander": {
+      "label": "Separatist Commander",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Commander.",
+      "aliases": [
+        "separatist commander"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-council": {
+      "label": "Separatist Council",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Council.",
+      "aliases": [
+        "separatist council"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-crisis": {
+      "label": "Separatist Crisis",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Crisis.",
+      "aliases": [
+        "separatist crisis"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-grievance": {
+      "label": "Separatist Grievance",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Grievance.",
+      "aliases": [
+        "separatist grievance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-holdouts": {
+      "label": "Separatist Holdouts",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Holdouts.",
+      "aliases": [
+        "separatist holdouts"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-leader": {
+      "label": "Separatist Leader",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Leader.",
+      "aliases": [
+        "separatist leader"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-leadership": {
+      "label": "Separatist Leadership",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Leadership.",
+      "aliases": [
+        "separatist leadership"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-logistics": {
+      "label": "Separatist Logistics",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Logistics.",
+      "aliases": [
+        "separatist logistics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-politics": {
+      "label": "Separatist Politics",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Politics.",
+      "aliases": [
+        "separatist politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-shutdown": {
+      "label": "Separatist Shutdown",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Shutdown.",
+      "aliases": [
+        "separatist shutdown"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separatist-warfare": {
+      "label": "Separatist Warfare",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Separatist Warfare.",
+      "aliases": [
+        "separatist warfare"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shielded-droid": {
+      "label": "Shielded Droid",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Shielded Droid.",
+      "aliases": [
+        "shielded droid"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sidious-identity": {
+      "label": "Sidious Identity",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sidious Identity.",
+      "aliases": [
+        "sidious identity"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sidious-reveal": {
+      "label": "Sidious Reveal",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sidious Reveal.",
+      "aliases": [
+        "sidious reveal"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sifo-dyas": {
+      "label": "Sifo Dyas",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sifo Dyas.",
+      "aliases": [
+        "sifo dyas"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-apprentice": {
+      "label": "Sith Apprentice",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sith Apprentice.",
+      "aliases": [
+        "sith apprentice"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-artifacts": {
+      "label": "Sith Artifacts",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sith Artifacts.",
+      "aliases": [
+        "sith artifacts"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-clouding-force": {
+      "label": "Sith Clouding Force",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sith Clouding Force.",
+      "aliases": [
+        "sith clouding force"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-grand-plan": {
+      "label": "Sith Grand Plan",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sith Grand Plan.",
+      "aliases": [
+        "sith grand plan"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-manipulation": {
+      "label": "Sith Manipulation",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sith Manipulation.",
+      "aliases": [
+        "sith manipulation"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-return": {
+      "label": "Sith Return",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Sith Return.",
+      "aliases": [
+        "sith return"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:skywalker-twins": {
+      "label": "Skywalker Twins",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Skywalker Twins.",
+      "aliases": [
+        "skywalker twins"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:skywalker-twins-hidden": {
+      "label": "Skywalker Twins Hidden",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Skywalker Twins Hidden.",
+      "aliases": [
+        "skywalker twins hidden"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:slavery": {
+      "label": "Slavery",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Slavery.",
+      "aliases": [
+        "slavery"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:special-operations": {
+      "label": "Special Operations",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Special Operations.",
+      "aliases": [
+        "special operations"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:stormtrooper-lineage": {
+      "label": "Stormtrooper Lineage",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Stormtrooper Lineage.",
+      "aliases": [
+        "stormtrooper lineage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:super-battle-droids": {
+      "label": "Super Battle Droids",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Super Battle Droids.",
+      "aliases": [
+        "super battle droids"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:survivors": {
+      "label": "Survivors",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Survivors.",
+      "aliases": [
+        "survivors"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:symbolic-weapon": {
+      "label": "Symbolic Weapon",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Symbolic Weapon.",
+      "aliases": [
+        "symbolic weapon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tatooine-exile": {
+      "label": "Tatooine Exile",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Tatooine Exile.",
+      "aliases": [
+        "tatooine exile"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tcw-continuity-caution": {
+      "label": "Tcw Continuity Caution",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Tcw Continuity Caution.",
+      "aliases": [
+        "tcw continuity caution"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tcw-layer": {
+      "label": "Tcw Layer",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Tcw Layer.",
+      "aliases": [
+        "tcw layer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:temple-massacre": {
+      "label": "Temple Massacre",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Temple Massacre.",
+      "aliases": [
+        "temple massacre"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:thrawn-campaign-future-guard": {
+      "label": "Thrawn Campaign Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Thrawn Campaign Future Guard.",
+      "aliases": [
+        "thrawn campaign future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:traitor-narrative": {
+      "label": "Traitor Narrative",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Traitor Narrative.",
+      "aliases": [
+        "traitor narrative"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:troop-transport": {
+      "label": "Troop Transport",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Troop Transport.",
+      "aliases": [
+        "troop transport"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:two-sided-war": {
+      "label": "Two Sided War",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Two Sided War.",
+      "aliases": [
+        "two sided war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:undercover-jedi": {
+      "label": "Undercover Jedi",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Undercover Jedi.",
+      "aliases": [
+        "undercover jedi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:unknown-regions": {
+      "label": "Unknown Regions",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Unknown Regions.",
+      "aliases": [
+        "unknown regions"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:vader-identity": {
+      "label": "Vader Identity",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Vader Identity.",
+      "aliases": [
+        "vader identity"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:vader-identity-hidden": {
+      "label": "Vader Identity Hidden",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Vader Identity Hidden.",
+      "aliases": [
+        "vader identity hidden"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:vader-redemption-future-guard": {
+      "label": "Vader Redemption Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Vader Redemption Future Guard.",
+      "aliases": [
+        "vader redemption future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:vader-ruin": {
+      "label": "Vader Ruin",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Vader Ruin.",
+      "aliases": [
+        "vader ruin"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:vader-suit": {
+      "label": "Vader Suit",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Vader Suit.",
+      "aliases": [
+        "vader suit"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:venator": {
+      "label": "Venator",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Venator.",
+      "aliases": [
+        "venator"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:victory-rhetoric": {
+      "label": "Victory Rhetoric",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Victory Rhetoric.",
+      "aliases": [
+        "victory rhetoric"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war-disillusionment": {
+      "label": "War Disillusionment",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: War Disillusionment.",
+      "aliases": [
+        "war disillusionment"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war-dispersion": {
+      "label": "War Dispersion",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: War Dispersion.",
+      "aliases": [
+        "war dispersion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war-fatigue": {
+      "label": "War Fatigue",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: War Fatigue.",
+      "aliases": [
+        "war fatigue"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war-finance": {
+      "label": "War Finance",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: War Finance.",
+      "aliases": [
+        "war finance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:wartime-navy": {
+      "label": "Wartime Navy",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Wartime Navy.",
+      "aliases": [
+        "wartime navy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:yoda-exile": {
+      "label": "Yoda Exile",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Yoda Exile.",
+      "aliases": [
+        "yoda exile"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:young-boba": {
+      "label": "Young Boba",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Young Boba.",
+      "aliases": [
+        "young boba"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:yuuzhan-vong-future-guard": {
+      "label": "Yuuzhan Vong Future Guard",
+      "color": "#6b4d1d",
+      "textColor": "#fff7d6",
+      "description": "Star Wars Legends Rise of Empire tag: Yuuzhan Vong Future Guard.",
+      "aliases": [
+        "yuuzhan vong future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

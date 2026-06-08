@@ -1,0 +1,1364 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_luke_founds_yavin_praxeum",
+      "title": "Luke Founds the Yavin IV Jedi Praxeum",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.jedi_academy_founded",
+        "validToAnchor": "sw.nr.jedi_academy_founded",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 14000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Luke Founds the Jedi Academy",
+        "phase": "Jedi Academy Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Yavin IV"
+        ],
+        "topics": [
+          "jedi",
+          "academy",
+          "training"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:jedi-academy",
+        "event:jedi-academy",
+        "faction:jedi-order",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "place:yavin-iv",
+        "scope:new-republic",
+        "topic:academy",
+        "topic:jedi",
+        "topic:training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "jedi",
+            "academy",
+            "training"
+          ],
+          "locationsAny": [
+            "Yavin IV"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke establishes a Jedi academy on Yavin IV to begin rebuilding the Jedi Order in institutional form.",
+        "injection": "After the Jedi Academy founding, Luke can have students, training obligations, and institutional failures; before it, he remains a mostly solitary Jedi teacher.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Luke Founds the Jedi Academy.",
+          "Respect story-position bounds from Luke Founds the Jedi Academy to Luke Founds the Jedi Academy."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_praxeum_not_old_jedi_order",
+      "title": "Praxeum Is Not the Old Jedi Order",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.jedi_academy_founded",
+        "validToAnchor": "sw.nr.praxeum_stabilizes",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Academy founding era",
+        "phase": "Jedi Academy Era to Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Yavin IV"
+        ],
+        "topics": [
+          "jedi",
+          "academy",
+          "training"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "place:yavin-iv",
+        "scope:new-republic",
+        "topic:academy",
+        "topic:jedi",
+        "topic:training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "jedi",
+            "academy",
+            "training"
+          ],
+          "locationsAny": [
+            "Yavin IV"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke’s academy lacks the Old Republic Jedi Order’s full archives, hierarchy, and institutional memory.",
+        "injection": "Write early New Jedi training as improvised, rediscovered, and vulnerable to mistakes rather than a perfect restoration of the old Order.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Academy founding era.",
+          "Respect story-position bounds from Luke Founds the Jedi Academy to Jedi Praxeum Stabilizes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_early_students_are_adults_and_mixed_backgrounds",
+      "title": "Early Jedi Students Have Mixed Backgrounds",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.jedi_academy_founded",
+        "validToAnchor": "sw.nr.praxeum_stabilizes",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Academy founding era",
+        "phase": "Jedi Academy Era to Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Kyp Durron",
+          "Corran Horn",
+          "Tionne",
+          "Streen"
+        ],
+        "locations": [
+          "Yavin IV"
+        ],
+        "topics": [
+          "jedi",
+          "training"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:corran-horn",
+        "character:kyp-durron",
+        "character:luke-skywalker",
+        "character:streen",
+        "character:tionne",
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "place:yavin-iv",
+        "scope:new-republic",
+        "topic:jedi",
+        "topic:training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Kyp Durron",
+            "Corran Horn",
+            "Tionne",
+            "Streen"
+          ],
+          "topicsAny": [
+            "jedi",
+            "training"
+          ],
+          "locationsAny": [
+            "Yavin IV"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke’s early students are often adults or young adults with varied histories, trauma, politics, and uneven Force awareness.",
+        "injection": "Do not write the first Praxeum as a clean child-only temple; students arrive with prior lives and unstable assumptions.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Academy founding era.",
+          "Respect story-position bounds from Luke Founds the Jedi Academy to Jedi Praxeum Stabilizes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_exar_kun_spirit_hidden_threat",
+      "title": "Exar Kun’s Spirit Is a Hidden Academy Threat",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.exar_kun_defeated",
+        "validToAnchor": "sw.nr.exar_kun_defeated",
+        "sortKeyFrom": 14300,
+        "sortKeyTo": 14300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Exar Kun Defeated at Yavin IV",
+        "phase": "Jedi Academy Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Exar Kun",
+          "Luke Skywalker",
+          "Kyp Durron"
+        ],
+        "locations": [
+          "Yavin IV"
+        ],
+        "topics": [
+          "dark-side",
+          "secret",
+          "academy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ]
+      },
+      "tags": [
+        "character:exar-kun",
+        "character:kyp-durron",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:sith",
+        "fandom:star-wars",
+        "place:yavin-iv",
+        "scope:new-republic",
+        "topic:academy",
+        "topic:dark-side",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Exar Kun",
+            "Luke Skywalker",
+            "Kyp Durron"
+          ],
+          "topicsAny": [
+            "dark-side",
+            "secret",
+            "academy"
+          ],
+          "locationsAny": [
+            "Yavin IV"
+          ],
+          "factionsAny": [
+            "Jedi Order",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Exar Kun’s dark-side spirit on Yavin IV threatens Luke’s students before they fully understand the danger.",
+        "injection": "During early Praxeum context, let Yavin IV carry hidden dark-side risk; do not have all students immediately understand Exar Kun’s presence.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Exar Kun Defeated at Yavin IV.",
+          "Respect story-position bounds from Exar Kun Defeated at Yavin IV to Exar Kun Defeated at Yavin IV."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_kyp_durron_trauma_and_power",
+      "title": "Kyp Durron Combines Trauma and Dangerous Power",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.jedi_academy_founded",
+        "validToAnchor": "sw.nr.praxeum_stabilizes",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Academy founding era",
+        "phase": "Jedi Academy Era to Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Kyp Durron",
+          "Luke Skywalker",
+          "Exar Kun"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "dark-side",
+          "training"
+        ],
+        "objects": [
+          "Sun Crusher"
+        ],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:exar-kun",
+        "character:kyp-durron",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "object:sun-crusher",
+        "scope:new-republic",
+        "topic:dark-side",
+        "topic:jedi",
+        "topic:training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kyp Durron",
+            "Luke Skywalker",
+            "Exar Kun"
+          ],
+          "topicsAny": [
+            "jedi",
+            "dark-side",
+            "training"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Kyp Durron is powerful, traumatized, and vulnerable to dark-side manipulation, especially around Exar Kun and the Sun Crusher.",
+        "injection": "In Jedi Academy scenes, write Kyp as more than reckless; his trauma, power, guilt, and manipulation should all matter.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Academy founding era.",
+          "Respect story-position bounds from Luke Founds the Jedi Academy to Jedi Praxeum Stabilizes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_sun_crusher_not_generic_weapon",
+      "title": "Sun Crusher Is an Extreme Superweapon",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.kyp_and_sun_crusher",
+        "validToAnchor": "sw.nr.kyp_and_sun_crusher",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kyp Durron and Sun Crusher Crisis",
+        "phase": "Jedi Academy Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Kyp Durron"
+        ],
+        "locations": [],
+        "topics": [
+          "superweapon",
+          "dark-side"
+        ],
+        "objects": [
+          "Sun Crusher"
+        ],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:kyp-durron",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "object:sun-crusher",
+        "scope:new-republic",
+        "topic:dark-side",
+        "topic:superweapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kyp Durron"
+          ],
+          "topicsAny": [
+            "superweapon",
+            "dark-side"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Sun Crusher is an extreme superweapon capable of destroying stars, making it far beyond ordinary military hardware.",
+        "injection": "If the Sun Crusher appears, treat it as a strategic and moral crisis, not a normal starfighter or bargaining chip.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Kyp Durron and Sun Crusher Crisis.",
+          "Respect story-position bounds from Kyp Durron and Sun Crusher Crisis to Kyp Durron and Sun Crusher Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_maw_installation_hidden_weapons_lab",
+      "title": "Maw Installation Is a Hidden Imperial Weapons Lab",
+      "kind": "secret",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.kyp_and_sun_crusher",
+        "validToAnchor": "sw.nr.kyp_and_sun_crusher",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kyp Durron and Sun Crusher Crisis",
+        "phase": "Jedi Academy Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Maw Installation"
+        ],
+        "topics": [
+          "superweapon",
+          "secret",
+          "military logistics"
+        ],
+        "objects": [
+          "Sun Crusher"
+        ],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "fandom:star-wars",
+        "object:sun-crusher",
+        "place:maw-installation",
+        "scope:new-republic",
+        "topic:military-logistics",
+        "topic:secret",
+        "topic:superweapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "superweapon",
+            "secret",
+            "military logistics"
+          ],
+          "locationsAny": [
+            "Maw Installation"
+          ],
+          "factionsAny": [
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Maw Installation is a hidden Imperial research facility tied to superweapon development.",
+        "injection": "Before discovery, do not let ordinary New Republic characters know the Maw’s full purpose; when active, use it as secret weapons-infrastructure lore.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Kyp Durron and Sun Crusher Crisis.",
+          "Respect story-position bounds from Kyp Durron and Sun Crusher Crisis to Kyp Durron and Sun Crusher Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_daala_represents_isolated_imperial_holdout",
+      "title": "Daala Represents Isolated Imperial Holdout Power",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.daala_campaigns",
+        "validToAnchor": "sw.nr.daala_campaigns",
+        "sortKeyFrom": 14500,
+        "sortKeyTo": 14500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Daala and Imperial Holdout Campaigns",
+        "phase": "Jedi Academy Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Admiral Daala"
+        ],
+        "locations": [
+          "Maw Installation"
+        ],
+        "topics": [
+          "imperial remnant",
+          "fleet"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "character:admiral-daala",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "fandom:star-wars",
+        "place:maw-installation",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:imperial-remnant"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Admiral Daala"
+          ],
+          "topicsAny": [
+            "imperial remnant",
+            "fleet"
+          ],
+          "locationsAny": [
+            "Maw Installation"
+          ],
+          "factionsAny": [
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Admiral Daala emerges from isolated Imperial weapons infrastructure rather than normal Remnant politics.",
+        "injection": "When Daala appears, distinguish her from Pellaeon-style professional Remnant politics and Thrawn-style strategic command.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Daala and Imperial Holdout Campaigns.",
+          "Respect story-position bounds from Daala and Imperial Holdout Campaigns to Daala and Imperial Holdout Campaigns."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_jedi_academy_vulnerability_public_trust",
+      "title": "Academy Failures Affect Public Trust",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.jedi_academy_founded",
+        "validToAnchor": "sw.nr.praxeum_stabilizes",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Academy founding era",
+        "phase": "Jedi Academy Era to Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Kyp Durron"
+        ],
+        "locations": [],
+        "topics": [
+          "politics",
+          "academy",
+          "dark-side"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:kyp-durron",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "faction:jedi-order",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:academy",
+        "topic:dark-side",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Kyp Durron"
+          ],
+          "topicsAny": [
+            "politics",
+            "academy",
+            "dark-side"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Early Jedi academy failures can affect how the New Republic and ordinary citizens view Luke’s attempt to restore the Jedi.",
+        "injection": "When dark-side incidents involve Luke’s students, include political and public-trust consequences instead of treating them as private school drama only.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Academy founding era.",
+          "Respect story-position bounds from Luke Founds the Jedi Academy to Jedi Praxeum Stabilizes."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_tionne_lore_keeper_role",
+      "title": "Tionne as Jedi Lore Keeper",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 74,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.jedi_academy_founded",
+        "validToAnchor": "sw.nr.praxeum_stabilizes",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Academy founding era",
+        "phase": "Jedi Academy Era to Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Tionne",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "training",
+          "history"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "character:tionne",
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:history",
+        "topic:jedi",
+        "topic:training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tionne",
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "jedi",
+            "training",
+            "history"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Tionne contributes through lore-gathering, historical recovery, and cultural memory rather than raw combat dominance.",
+        "injection": "Use Tionne for Jedi history, songs, records, and recovery of lost tradition; do not flatten all students into combat archetypes. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Academy founding era.",
+          "Respect story-position bounds from Luke Founds the Jedi Academy to Jedi Praxeum Stabilizes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_corran_horn_jedi_training_complicates_identity",
+      "title": "Corran’s Jedi Training Complicates Pilot Identity",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.jedi_academy_founded",
+        "validToAnchor": "sw.nr.praxeum_stabilizes",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Academy founding era",
+        "phase": "Jedi Academy Era to Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Corran Horn",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "pilot",
+          "training"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Rogue Squadron",
+          "CorSec"
+        ]
+      },
+      "tags": [
+        "character:corran-horn",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "faction:corsec",
+        "faction:jedi-order",
+        "faction:rogue-squadron",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:jedi",
+        "topic:pilot",
+        "topic:training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Corran Horn",
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "jedi",
+            "pilot",
+            "training"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Rogue Squadron",
+            "CorSec"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Corran Horn’s Jedi path complicates his existing identity as investigator, pilot, husband, and Rogue Squadron veteran.",
+        "injection": "When Corran trains as a Jedi, keep his CorSec/Rogue habits and skepticism active rather than making him instantly temple-shaped.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Academy founding era.",
+          "Respect story-position bounds from Luke Founds the Jedi Academy to Jedi Praxeum Stabilizes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_new_jedi_order_name_context",
+      "title": "New Jedi Order Means Luke’s Rebuilt Order Here",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.jedi_academy_founded",
+        "validToAnchor": "sw.nr.praxeum_stabilizes",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 15000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Jedi Academy founding era",
+        "phase": "Jedi Academy Era to Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "jedi",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:jedi",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "jedi",
+            "knowledge gate"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In pre-NJO Legends context, “New Jedi Order” can mean Luke’s rebuilding Jedi movement, not necessarily the later Yuuzhan Vong-era book series.",
+        "injection": "In Jedi Academy founding era, disambiguate “New Jedi Order” by context: before 25 ABY, it usually refers to Luke’s restored Jedi institution, not the NJO invasion era.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jedi Academy founding era.",
+          "Respect story-position bounds from Luke Founds the Jedi Academy to Jedi Praxeum Stabilizes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/jedi_academy.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

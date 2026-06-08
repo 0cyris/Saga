@@ -1,0 +1,1703 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-08",
+  "sourcePackId": "sw-legends-film-spine",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_naboo_blockade_active",
+      "title": "Naboo Blockade Opens the Crisis",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:prequel",
+        "event:naboo-crisis",
+        "faction:trade-federation",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.tpm_naboo_crisis_begins",
+        "validToAnchor": "sw.film.tpm_naboo_crisis_begins",
+        "sortKeyFrom": 1040,
+        "sortKeyTo": 1040,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Naboo Crisis Begins",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Naboo",
+          "Coruscant"
+        ],
+        "factions": [
+          "Trade Federation",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "Naboo blockade",
+          "Senate crisis"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Naboo",
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "Naboo blockade",
+            "Senate crisis",
+            "Trade Federation",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "At the opening of The Phantom Menace, the Trade Federation blockade has made Naboo the immediate political crisis.",
+        "injection": "During the Naboo blockade, center political pressure on Naboo, the Trade Federation, and the Senate response rather than on open galactic war.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Naboo Crisis Begins.",
+          "Respect story-position bounds from Naboo Crisis Begins to Naboo Crisis Begins."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_jedi_envoys_not_army",
+      "title": "Jedi Act as Envoys Before the War",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:prequel",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:context-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.film.tpm_anakin_accepted_for_training",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1160,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode I: The Phantom Menace",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Qui-Gon Jinn",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "Jedi diplomacy",
+          "prewar Republic"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Qui-Gon Jinn",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi diplomacy",
+            "prewar Republic",
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Qui-Gon and Obi-Wan enter the Naboo crisis as Jedi envoys, not as commanders of a Republic army.",
+        "injection": "Before the Clone Wars, portray Jedi intervention as diplomacy, protection, investigation, and limited combat rather than military command.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode I: The Phantom Menace.",
+          "Respect story-position bounds from Episode I: The Phantom Menace to Anakin Accepted for Jedi Training."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_anakin_slave_on_tatooine",
+      "title": "Anakin Starts as an Enslaved Child on Tatooine",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:force",
+        "character:anakin-skywalker",
+        "continuity:legends",
+        "era:prequel",
+        "fandom:star-wars",
+        "location:tatooine",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.tpm_maul_on_tatooine",
+        "validToAnchor": "sw.film.tpm_maul_on_tatooine",
+        "sortKeyFrom": 1080,
+        "sortKeyTo": 1080,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Maul Reveals Sith Threat on Tatooine",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Qui-Gon Jinn",
+          "Shmi Skywalker"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [],
+        "topics": [
+          "slavery",
+          "Force potential",
+          "podracing"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Qui-Gon Jinn",
+            "Shmi Skywalker"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "slavery",
+            "Force potential",
+            "podracing"
+          ]
+        }
+      },
+      "content": {
+        "fact": "When Qui-Gon meets Anakin, Anakin is an enslaved child on Tatooine with exceptional mechanical talent and unusually strong Force potential.",
+        "injection": "In Episode I context, write Anakin as a gifted enslaved child on Tatooine, not as a trained Jedi, soldier, Sith, or adult political actor.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Maul Reveals Sith Threat on Tatooine.",
+          "Respect story-position bounds from Maul Reveals Sith Threat on Tatooine to Maul Reveals Sith Threat on Tatooine."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_anakin_untrained_force_potential",
+      "title": "Anakin Has Potential, Not Jedi Control",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:force",
+        "ability:jedi-training",
+        "character:anakin-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.film.tpm_anakin_accepted_for_training",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1160,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode I: The Phantom Menace",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "Force potential",
+          "Jedi training"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Force potential",
+            "Jedi training"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin has extraordinary Force potential in Episode I but lacks Jedi discipline and formal technique.",
+        "injection": "Do not give Episode I Anakin reliable Jedi skills beyond instinct, reflex, empathy, and raw potential. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode I: The Phantom Menace.",
+          "Respect story-position bounds from Episode I: The Phantom Menace to Anakin Accepted for Jedi Training."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      },
+      "ability": {
+        "system": "force",
+        "name": "Force sensitivity",
+        "stage": "untrained child",
+        "ownerEntityIds": [
+          "sw:anakin-skywalker"
+        ],
+        "constraints": [
+          "Raw potential does not equal trained control."
+        ],
+        "antiLore": [
+          "Do not portray Episode I Anakin as already using mature Jedi techniques."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_quigon_identifies_chosen_one_possibility",
+      "title": "Qui-Gon Suspects Anakin Is the Chosen One",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:qui-gon-jinn",
+        "continuity:legends",
+        "era:prequel",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:knowledge-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.tpm_maul_on_tatooine",
+        "validToAnchor": "sw.film.tpm_maul_on_tatooine",
+        "sortKeyFrom": 1080,
+        "sortKeyTo": 1080,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Maul Reveals Sith Threat on Tatooine",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Qui-Gon Jinn",
+          "Anakin Skywalker",
+          "Yoda",
+          "Mace Windu"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Chosen One prophecy",
+          "Jedi Council"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Qui-Gon Jinn",
+            "Anakin Skywalker",
+            "Yoda",
+            "Mace Windu"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Chosen One prophecy",
+            "Jedi Council",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Qui-Gon comes to believe Anakin may be the Chosen One, but this is contested and not institutionally accepted at first.",
+        "injection": "Treat Qui-Gon’s belief in Anakin as the Chosen One as strong but disputed; the Jedi Council is not fully convinced by default.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Maul Reveals Sith Threat on Tatooine.",
+          "Respect story-position bounds from Maul Reveals Sith Threat on Tatooine to Maul Reveals Sith Threat on Tatooine."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_maul_reveals_sith_return",
+      "title": "Darth Maul Reveals the Sith Threat",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-maul",
+        "continuity:legends",
+        "era:prequel",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:spoiler-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.tpm_maul_on_tatooine",
+        "validToAnchor": "sw.film.tpm_maul_on_tatooine",
+        "sortKeyFrom": 1080,
+        "sortKeyTo": 1080,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Maul Reveals Sith Threat on Tatooine",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Maul",
+          "Qui-Gon Jinn",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ],
+        "topics": [
+          "Sith return"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Maul",
+            "Qui-Gon Jinn",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Sith return",
+            "Sith",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Darth Maul’s attack confirms that Sith activity has returned to practical relevance after long institutional disbelief.",
+        "injection": "After Maul reveals himself, Jedi characters may treat the Sith threat as real but still poorly understood. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Maul Reveals Sith Threat on Tatooine.",
+          "Respect story-position bounds from Maul Reveals Sith Threat on Tatooine to Maul Reveals Sith Threat on Tatooine."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_palpatine_public_senator_private_sith",
+      "title": "Palpatine Public Senator, Hidden Sith",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-sidious",
+        "character:palpatine",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:identity-secret",
+        "topic:spoiler-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.film.tpm_anakin_accepted_for_training",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1160,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode I: The Phantom Menace",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Darth Sidious"
+        ],
+        "locations": [
+          "Coruscant",
+          "Naboo"
+        ],
+        "factions": [
+          "Galactic Republic",
+          "Sith"
+        ],
+        "topics": [
+          "secret identity",
+          "political manipulation"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Darth Sidious"
+          ],
+          "locationsAny": [
+            "Coruscant",
+            "Naboo"
+          ],
+          "topicsAny": [
+            "secret identity",
+            "political manipulation",
+            "Galactic Republic",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During Episode I, Palpatine is publicly Naboo’s senator while secretly operating as Darth Sidious.",
+        "injection": "In Episode I context, do not reveal Palpatine as Darth Sidious to ordinary characters unless the scene explicitly uses Sith-side knowledge.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode I: The Phantom Menace.",
+          "Respect story-position bounds from Episode I: The Phantom Menace to Anakin Accepted for Jedi Training."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_padme_identity_queen_handmaiden",
+      "title": "Padme Uses the Queen-Handmaiden Disguise",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "normal",
+      "lorePurpose": "secret",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "character:padme-amidala",
+        "continuity:legends",
+        "event:naboo-crisis",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:identity-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.film.tpm_anakin_accepted_for_training",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1160,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode I: The Phantom Menace",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Padme Amidala"
+        ],
+        "locations": [
+          "Naboo"
+        ],
+        "factions": [],
+        "topics": [
+          "royal disguise",
+          "Naboo court"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Padme Amidala"
+          ],
+          "locationsAny": [
+            "Naboo"
+          ],
+          "topicsAny": [
+            "royal disguise",
+            "Naboo court"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Padme Amidala can conceal her identity through the queen-handmaiden arrangement during the Naboo crisis.",
+        "injection": "When the queen-handmaiden switch matters, keep Padme’s true identity controlled by scene knowledge; strangers should not automatically know the disguise.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode I: The Phantom Menace.",
+          "Respect story-position bounds from Episode I: The Phantom Menace to Anakin Accepted for Jedi Training."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_senate_gridlock_enables_no_confidence",
+      "title": "Senate Gridlock Enables Palpatine’s Rise",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:palpatine",
+        "continuity:legends",
+        "event:naboo-crisis",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "location:coruscant",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.tpm_naboo_liberation",
+        "validToAnchor": "sw.film.tpm_naboo_liberation",
+        "sortKeyFrom": 1120,
+        "sortKeyTo": 1120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Naboo Liberated",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Padme Amidala"
+        ],
+        "locations": [
+          "Coruscant",
+          "Naboo"
+        ],
+        "factions": [
+          "Galactic Republic"
+        ],
+        "topics": [
+          "Senate gridlock",
+          "no-confidence vote"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Padme Amidala"
+          ],
+          "locationsAny": [
+            "Coruscant",
+            "Naboo"
+          ],
+          "topicsAny": [
+            "Senate gridlock",
+            "no-confidence vote",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Naboo crisis exposes Senate paralysis and enables Palpatine’s political ascent through a no-confidence maneuver.",
+        "injection": "During or after Episode I, portray the Republic Senate as procedurally powerful but vulnerable to gridlock and manipulation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Naboo Liberated.",
+          "Respect story-position bounds from Naboo Liberated to Naboo Liberated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_naboo_local_victory_not_galactic_war",
+      "title": "Naboo Victory Does Not Start Open Galactic War",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:prequel",
+        "event:naboo-crisis",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:context-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.tpm_naboo_liberation",
+        "validToAnchor": "sw.film.tpm_naboo_liberation",
+        "sortKeyFrom": 1120,
+        "sortKeyTo": 1120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Naboo Liberated",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Naboo"
+        ],
+        "factions": [
+          "Trade Federation",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "Naboo liberation",
+          "prewar Republic"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Naboo"
+          ],
+          "topicsAny": [
+            "Naboo liberation",
+            "prewar Republic",
+            "Trade Federation",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The liberation of Naboo ends the local crisis but does not yet start the Clone Wars or expose the Sith master.",
+        "injection": "After Naboo is liberated, do not jump directly to open Republic-Separatist war unless the story advances toward Attack of the Clones or later.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Naboo Liberated.",
+          "Respect story-position bounds from Naboo Liberated to Naboo Liberated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_quigon_dies_obiwan_knights",
+      "title": "Qui-Gon Dies and Obi-Wan Becomes Anakin’s Teacher",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:obi-wan-kenobi",
+        "character:qui-gon-jinn",
+        "continuity:legends",
+        "fandom:star-wars",
+        "relationship:mentor-student",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.tpm_quigon_death",
+        "validToAnchor": "sw.film.tpm_quigon_death",
+        "sortKeyFrom": 1140,
+        "sortKeyTo": 1140,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Qui-Gon Jinn Dies",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Qui-Gon Jinn",
+          "Obi-Wan Kenobi",
+          "Anakin Skywalker"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Jedi apprenticeship"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Qui-Gon Jinn",
+            "Obi-Wan Kenobi",
+            "Anakin Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi apprenticeship",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Qui-Gon dies, Obi-Wan commits to training Anakin and becomes his master.",
+        "injection": "After Episode I, treat Obi-Wan as Anakin’s Jedi master; Qui-Gon cannot mentor Anakin directly unless the story uses visions, memory, or an alternate branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Qui-Gon Jinn Dies.",
+          "Respect story-position bounds from Qui-Gon Jinn Dies to Qui-Gon Jinn Dies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_tpm_anakin_accepted_despite_council_doubt",
+      "title": "Anakin Accepted Despite Council Doubt",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:anakin-skywalker",
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "relationship:mentor-student",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.tpm_anakin_accepted_for_training",
+        "validToAnchor": "sw.film.tpm_anakin_accepted_for_training",
+        "sortKeyFrom": 1160,
+        "sortKeyTo": 1160,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Anakin Accepted for Jedi Training",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Obi-Wan Kenobi",
+          "Yoda",
+          "Mace Windu"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Jedi Council",
+          "training approval",
+          "attachment risk"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Obi-Wan Kenobi",
+            "Yoda",
+            "Mace Windu"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi Council",
+            "training approval",
+            "attachment risk",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin is accepted for Jedi training despite serious Council reservations about his age, fear, attachment, and future risk.",
+        "injection": "After Episode I, Anakin is a Jedi trainee under Obi-Wan, but Council skepticism and concern about attachment remain valid tension.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Anakin Accepted for Jedi Training.",
+          "Respect story-position bounds from Anakin Accepted for Jedi Training to Anakin Accepted for Jedi Training."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_tpm_dooku_not_public_sith_yet",
+      "title": "Dooku Not Yet Public Sith After Episode I",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:count-dooku",
+        "continuity:legends",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.tpm_anakin_accepted_for_training",
+        "validToAnchor": "sw.film.episode_2_aotc",
+        "sortKeyFrom": 1160,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After The Phantom Menace, before Attack of the Clones",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Count Dooku"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ],
+        "topics": [
+          "future Separatist crisis"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Count Dooku"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "future Separatist crisis",
+            "Sith",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Immediately after The Phantom Menace, Count Dooku is not publicly framed as the Separatist Sith threat in ordinary public knowledge.",
+        "injection": "Do not foreground Count Dooku as the known Separatist Sith leader in immediate post-TPM scenes unless the story deliberately advances or uses private Sith knowledge.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After The Phantom Menace, before Attack of the Clones.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not leak Attack of the Clones political state into immediate post-TPM scenes.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_tpm_clones_not_public_issue_yet",
+      "title": "Clone Army Not Public Issue After Episode I",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "continuity:legends",
+        "era:prequel",
+        "fandom:star-wars",
+        "object:clone-army",
+        "scope:film-spine",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.tpm_anakin_accepted_for_training",
+        "validToAnchor": "sw.film.episode_2_aotc",
+        "sortKeyFrom": 1160,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After The Phantom Menace, before Attack of the Clones",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Kamino"
+        ],
+        "factions": [
+          "Galactic Republic",
+          "Jedi Order"
+        ],
+        "topics": [
+          "clone army",
+          "Kamino"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Kamino"
+          ],
+          "topicsAny": [
+            "clone army",
+            "Kamino",
+            "Galactic Republic",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After The Phantom Menace but before Attack of the Clones, the clone army is not a public Republic military fact.",
+        "injection": "Do not have ordinary Republic, Jedi, or civilian characters discuss the Kamino clone army before it is discovered or introduced by the story.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After The Phantom Menace, before Attack of the Clones.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_tpm_anakin_padme_not_romance_yet",
+      "title": "Anakin and Padme Not Married After Episode I",
+      "kind": "temporal_gate",
+      "gateType": "temporal_gate",
+      "category": "relationship",
+      "relevance": "normal",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "guard",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:padme-amidala",
+        "continuity:legends",
+        "fandom:star-wars",
+        "relationship:secret-marriage",
+        "scope:film-spine",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.tpm_anakin_accepted_for_training",
+        "validToAnchor": "sw.film.episode_2_aotc",
+        "sortKeyFrom": 1160,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After The Phantom Menace, before Attack of the Clones",
+        "phase": "Prequel Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Padme Amidala"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "future romance",
+          "marriage gate"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "guard"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Padme Amidala"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "future romance",
+            "marriage gate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After The Phantom Menace, Anakin and Padme are connected by the Naboo crisis but are not married or openly romantic.",
+        "injection": "In post-TPM/pre-AOTC context, do not portray Anakin and Padme as spouses or established lovers unless the story introduces a divergence.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After The Phantom Menace, before Attack of the Clones.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    }
+  ]
+}

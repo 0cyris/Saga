@@ -1,0 +1,1265 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_old_republic_is_expansive_but_not_all_powerful",
+      "title": "Old Republic Is Expansive But Not All-Powerful",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.republic_jedi_foundations",
+        "validToAnchor": "sw.or.ruusan_reformation",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Old Republic",
+        "phase": "Old Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Outer Rim",
+          "Core Worlds"
+        ],
+        "topics": [
+          "government",
+          "frontier limits",
+          "senate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:old-republic",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "location:core-worlds",
+        "location:outer-rim",
+        "scope:old-republic",
+        "topic:frontier-limits",
+        "topic:government",
+        "topic:senate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "government",
+            "frontier limits",
+            "senate"
+          ],
+          "locationsAny": [
+            "Outer Rim",
+            "Core Worlds"
+          ],
+          "factionsAny": [
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Old Republic spans much of the galaxy but cannot instantly control distant frontier, corporate, Sith, or Mandalorian spaces.",
+        "injection": "In Old Republic scenes, let Republic authority be real but uneven: Core bureaucracy is strong, frontier enforcement is slow, and border crises can outrun Senate process.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Old Republic.",
+          "Respect story-position bounds from Old Republic and Jedi Foundations to Ruusan Reformation and Old Republic End-State."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Republic",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_jedi_order_has_multiple_training_centers",
+      "title": "Jedi Order Has Multiple Training Centers",
+      "kind": "location_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.republic_jedi_foundations",
+        "validToAnchor": "sw.or.ruusan_reformation",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Old Republic",
+        "phase": "Old Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant",
+          "Dantooine",
+          "Tython"
+        ],
+        "topics": [
+          "jedi enclave",
+          "temple",
+          "training"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:old-republic",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:coruscant",
+        "location:dantooine",
+        "location:tython",
+        "scope:old-republic",
+        "topic:jedi-enclave",
+        "topic:temple",
+        "topic:training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "jedi enclave",
+            "temple",
+            "training"
+          ],
+          "locationsAny": [
+            "Coruscant",
+            "Dantooine",
+            "Tython"
+          ],
+          "factionsAny": [
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Old Republic Jedi activity can center on multiple temples, enclaves, and academy worlds depending on era.",
+        "injection": "Do not assume all Jedi scenes must occur at the film-era Coruscant Temple; Dantooine, Tython, and other centers can be appropriate by Context.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Old Republic.",
+          "Respect story-position bounds from Old Republic and Jedi Foundations to Ruusan Reformation and Old Republic End-State."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Republic",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_sith_empire_is_state_and_religion",
+      "title": "Sith Empire Is State and Religion",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.old_sith_empire",
+        "validToAnchor": "sw.or.eternal_empire_crisis",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 7800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ancient Sith Foundations",
+        "phase": "Ancient Sith Foundations",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Korriban",
+          "Dromund Kaas"
+        ],
+        "topics": [
+          "sith politics",
+          "empire",
+          "dark side"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Empire",
+          "Old Sith Empire"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:ancient-sith-foundations",
+        "faction:old-sith-empire",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "location:dromund-kaas",
+        "location:korriban",
+        "scope:old-republic",
+        "topic:dark-side",
+        "topic:empire",
+        "topic:sith-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "sith politics",
+            "empire",
+            "dark side"
+          ],
+          "locationsAny": [
+            "Korriban",
+            "Dromund Kaas"
+          ],
+          "factionsAny": [
+            "Sith Empire",
+            "Old Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Old Republic Sith power often combines statecraft, aristocracy, military command, slavery, academy politics, and dark-side religion.",
+        "injection": "Write Sith Empires as governments with institutions and logistics, not just scattered dark wizards. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Ancient Sith Foundations.",
+          "Respect story-position bounds from Old Sith Empire Ascendant to Eternal Empire Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Ancient Sith Foundations",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_mandalorians_are_culture_and_war_machine",
+      "title": "Mandalorians Are Culture and War Machine",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.mandalorian_wars_begin",
+        "validToAnchor": "sw.or.swtor_class_era",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Mandalorian Wars",
+        "phase": "Mandalorian Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Mandalore",
+          "Dxun"
+        ],
+        "topics": [
+          "clans",
+          "warrior culture",
+          "mercenary"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Mandalorians"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:mandalorian-wars",
+        "faction:mandalorians",
+        "fandom:star-wars",
+        "location:dxun",
+        "location:mandalore",
+        "scope:old-republic",
+        "topic:clans",
+        "topic:mercenary",
+        "topic:warrior-culture"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "clans",
+            "warrior culture",
+            "mercenary"
+          ],
+          "locationsAny": [
+            "Mandalore",
+            "Dxun"
+          ],
+          "factionsAny": [
+            "Mandalorians"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Old Republic Mandalorians are a culture, title system, and war machine, not simply a species or generic mercenary gang.",
+        "injection": "When Mandalorians appear, emphasize clan identity, martial prestige, armor, personal honor, and leader/title politics.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mandalorian Wars.",
+          "Respect story-position bounds from Mandalorian Wars Begin to SWTOR Class-Story Era."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Mandalorian Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_czerka_represents_corporate_exploitation",
+      "title": "Czerka Represents Corporate Exploitation",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.mandalorian_wars_begin",
+        "validToAnchor": "sw.or.swtor_class_era",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7450,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Kashyyyk",
+          "Tatooine"
+        ],
+        "topics": [
+          "corporate exploitation",
+          "colonial labor",
+          "profit"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Czerka Corporation"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:czerka-corporation",
+        "fandom:star-wars",
+        "location:kashyyyk",
+        "location:tatooine",
+        "scope:old-republic",
+        "topic:colonial-labor",
+        "topic:corporate-exploitation",
+        "topic:profit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "corporate exploitation",
+            "colonial labor",
+            "profit"
+          ],
+          "locationsAny": [
+            "Kashyyyk",
+            "Tatooine"
+          ],
+          "factionsAny": [
+            "Czerka Corporation"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Czerka Corporation is a useful Old Republic lever for corporate exploitation, frontier abuse, and profit-driven neutrality.",
+        "injection": "Use Czerka when scenes need non-Sith antagonism: contracts, extraction, slavery-adjacent exploitation, and bureaucratic deniability.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Mandalorian Wars Begin to SWTOR Class-Story Era."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_exchange_is_underworld_infrastructure",
+      "title": "Exchange Is Underworld Infrastructure",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.jedi_civil_war_begins",
+        "validToAnchor": "sw.or.malachor_finale",
+        "sortKeyFrom": 5300,
+        "sortKeyTo": 5900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Nar Shaddaa"
+        ],
+        "topics": [
+          "crime syndicate",
+          "bounty",
+          "smuggling"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Exchange"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:exchange",
+        "fandom:star-wars",
+        "location:nar-shaddaa",
+        "scope:old-republic",
+        "topic:bounty",
+        "topic:crime-syndicate",
+        "topic:smuggling"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "crime syndicate",
+            "bounty",
+            "smuggling"
+          ],
+          "locationsAny": [
+            "Nar Shaddaa"
+          ],
+          "factionsAny": [
+            "Exchange"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Exchange gives KOTOR-era underworld stories organized crime infrastructure across worlds like Taris and Nar Shaddaa.",
+        "injection": "When the Exchange is relevant, write criminal pressure through debts, bounties, informants, smugglers, and local bosses.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Jedi Civil War Begins to Malachor V Finale."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_rakata_are_ancient_tech_legacy",
+      "title": "Rakata Are Ancient Technology Legacy",
+      "kind": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.jedi_civil_war_begins",
+        "validToAnchor": "sw.or.star_forge_destroyed",
+        "sortKeyFrom": 5300,
+        "sortKeyTo": 5600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "KOTOR Era",
+        "phase": "KOTOR Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Lehon"
+        ],
+        "topics": [
+          "infinite empire",
+          "ancient technology",
+          "star forge"
+        ],
+        "objects": [
+          "Star Forge"
+        ],
+        "spells": [],
+        "factions": [
+          "Rakata"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:kotor-era",
+        "faction:rakata",
+        "fandom:star-wars",
+        "item:star-forge",
+        "location:lehon",
+        "scope:old-republic",
+        "topic:ancient-technology",
+        "topic:infinite-empire",
+        "topic:star-forge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "infinite empire",
+            "ancient technology",
+            "star forge"
+          ],
+          "locationsAny": [
+            "Lehon"
+          ],
+          "factionsAny": [
+            "Rakata"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Rakata are an ancient precursor civilization whose surviving technology can distort KOTOR-era power balances.",
+        "injection": "Use Rakatan ruins and artifacts as rare, dangerous legacy technology rather than normal Old Republic infrastructure.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: KOTOR Era.",
+          "Respect story-position bounds from Jedi Civil War Begins to Star Forge Destroyed."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "KOTOR Era",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_sith_triumvirate_is_not_same_as_sith_empire",
+      "title": "Sith Triumvirate Is Not Same as Sith Empire",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.dark_wars_begin",
+        "validToAnchor": "sw.or.malachor_finale",
+        "sortKeyFrom": 5750,
+        "sortKeyTo": 5900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dark Wars",
+        "phase": "Dark Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Kreia",
+          "Darth Nihilus",
+          "Darth Sion"
+        ],
+        "locations": [],
+        "topics": [
+          "sith triumvirate",
+          "dark wars",
+          "hidden sith"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Sith Triumvirate",
+          "Sith Empire"
+        ]
+      },
+      "tags": [
+        "character:darth-nihilus",
+        "character:darth-sion",
+        "character:kreia",
+        "continuity:legends",
+        "era:dark-wars",
+        "faction:sith-empire",
+        "faction:sith-triumvirate",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:dark-wars",
+        "topic:hidden-sith",
+        "topic:sith-triumvirate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kreia",
+            "Darth Nihilus",
+            "Darth Sion"
+          ],
+          "topicsAny": [
+            "sith triumvirate",
+            "dark wars",
+            "hidden sith"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Sith Triumvirate",
+            "Sith Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Sith Triumvirate is a hidden post-KOTOR threat and should not be treated as the same political entity as SWTOR’s Sith Empire.",
+        "injection": "Do not conflate KOTOR II’s Triumvirate with the later returned Sith Empire; they operate differently and belong to different Context windows.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Dark Wars.",
+          "Respect story-position bounds from Dark Wars Begin to Malachor V Finale."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Dark Wars",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_revanites_are_cross_faction_cult",
+      "title": "Revanites Are Cross-Faction Cult",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.or.revanite_crisis",
+        "validToAnchor": "sw.or.revanite_crisis",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 7600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Revanite Crisis",
+        "phase": "Revanite Crisis",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Revan"
+        ],
+        "locations": [],
+        "topics": [
+          "cult",
+          "revan legacy",
+          "cross faction"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Revanites",
+          "Sith Empire",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "character:revan",
+        "continuity:legends",
+        "era:revanite-crisis",
+        "faction:galactic-republic",
+        "faction:revanites",
+        "faction:sith-empire",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:cross-faction",
+        "topic:cult",
+        "topic:revan-legacy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Revan"
+          ],
+          "topicsAny": [
+            "cult",
+            "revan legacy",
+            "cross faction"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Revanites",
+            "Sith Empire",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Revanites can cross Republic/Sith boundaries because Revan’s legend appeals across ideological lines.",
+        "injection": "During Revanite crisis scenes, treat Revanite loyalty as an ideological infection that can compromise both major powers.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Revanite Crisis.",
+          "Respect story-position bounds from Revanite Crisis to Revanite Crisis."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Revanite Crisis",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_eternal_empire_has_knights_not_sith_lords",
+      "title": "Eternal Empire Has Knights, Not Sith Lords",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.or.eternal_empire_crisis",
+        "validToAnchor": "sw.or.eternal_empire_crisis",
+        "sortKeyFrom": 7800,
+        "sortKeyTo": 7800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eternal Empire Crisis",
+        "phase": "Eternal Empire Crisis",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Valkorion"
+        ],
+        "locations": [
+          "Zakuul"
+        ],
+        "topics": [
+          "knights of zakuul",
+          "third faction",
+          "force tradition"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Eternal Empire"
+        ]
+      },
+      "tags": [
+        "character:valkorion",
+        "continuity:legends",
+        "era:eternal-empire-crisis",
+        "faction:eternal-empire",
+        "fandom:star-wars",
+        "location:zakuul",
+        "scope:old-republic",
+        "topic:force-tradition",
+        "topic:knights-of-zakuul",
+        "topic:third-faction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Valkorion"
+          ],
+          "topicsAny": [
+            "knights of zakuul",
+            "third faction",
+            "force tradition"
+          ],
+          "locationsAny": [
+            "Zakuul"
+          ],
+          "factionsAny": [
+            "Eternal Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Eternal Empire’s Force-users are not simply Sith Lords under another name.",
+        "injection": "When writing Zakuul, distinguish Knights of Zakuul and Eternal Empire institutions from Sith academy hierarchy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Eternal Empire Crisis.",
+          "Respect story-position bounds from Eternal Empire Crisis to Eternal Empire Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Eternal Empire Crisis",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_hutt_space_remains_old_republic_edge",
+      "title": "Hutt Space Remains Old Republic Edge",
+      "kind": "location_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.republic_jedi_foundations",
+        "validToAnchor": "sw.or.ruusan_reformation",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Old Republic",
+        "phase": "Old Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Hutt Space",
+          "Nar Shaddaa"
+        ],
+        "topics": [
+          "neutral space",
+          "crime",
+          "border politics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Hutts",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:old-republic",
+        "faction:galactic-republic",
+        "faction:hutts",
+        "fandom:star-wars",
+        "location:hutt-space",
+        "location:nar-shaddaa",
+        "scope:old-republic",
+        "topic:border-politics",
+        "topic:crime",
+        "topic:neutral-space"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "neutral space",
+            "crime",
+            "border politics"
+          ],
+          "locationsAny": [
+            "Hutt Space",
+            "Nar Shaddaa"
+          ],
+          "factionsAny": [
+            "Hutts",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hutt Space remains a persistent edge zone where Republic law, underworld power, and local deals collide.",
+        "injection": "In Old Republic play, Hutt Space can plausibly host fugitives, smugglers, bounty hunters, corporate agents, and diplomats avoiding clean jurisdiction.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Old Republic.",
+          "Respect story-position bounds from Old Republic and Jedi Foundations to Ruusan Reformation and Old Republic End-State."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Republic",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_or_jedi_and_republic_are_allied_not_identical",
+      "title": "Jedi and Republic Are Allied, Not Identical",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.or.republic_jedi_foundations",
+        "validToAnchor": "sw.or.ruusan_reformation",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 9300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Old Republic",
+        "phase": "Old Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "jedi autonomy",
+          "senate politics",
+          "republic law"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "era:old-republic",
+        "faction:galactic-republic",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:old-republic",
+        "topic:jedi-autonomy",
+        "topic:republic-law",
+        "topic:senate-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "jedi autonomy",
+            "senate politics",
+            "republic law"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Jedi Order serves and defends the Republic but retains spiritual and institutional autonomy.",
+        "injection": "When Jedi and Senate interests diverge, allow disagreement, delay, and moral tension rather than treating Jedi as simple Republic police.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Old Republic.",
+          "Respect story-position bounds from Old Republic and Jedi Foundations to Ruusan Reformation and Old Republic End-State."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "comic-game-novel-reference",
+        "sourceBoundary": "Legends Old Republic material covering Tales of the Jedi, Knights of the Old Republic, KOTOR II, SWTOR-adjacent eras, ancient Sith/Jedi state, and late Old Republic transition context before the prequel-era Republic.",
+        "notes": "Development deck. Keep separate from Disney canon Old Republic reintroductions and from later film-era context unless stacked intentionally."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Old Republic",
+        "confidence": 0.72,
+        "notes": "Generated development Lorecard for Saga; requires human canon review."
+      },
+      "extensions": {}
+    }
+  ]
+}

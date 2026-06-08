@@ -1525,7 +1525,7 @@ function normalizeEntryOverrideMap(value) {
             ...clonePlainObject(raw),
             id,
         });
-        if (output.size >= 500) break;
+        if (output.size >= 5000) break;
     }
     return output;
 }

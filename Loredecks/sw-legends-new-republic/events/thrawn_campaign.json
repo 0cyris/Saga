@@ -1,0 +1,2056 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_thrawn_returns_as_strategic_imperial_threat",
+      "title": "Thrawn Returns as Strategic Imperial Threat",
+      "kind": "event_anchor",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_returns",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Thrawn Returns",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Grand Admiral Thrawn",
+          "Pellaeon"
+        ],
+        "locations": [],
+        "topics": [
+          "imperial remnant",
+          "fleet",
+          "strategy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "character:pellaeon",
+        "continuity:legends",
+        "era:thrawn-campaign",
+        "event:thrawn-campaign",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:imperial-remnant",
+        "topic:strategy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Grand Admiral Thrawn",
+            "Pellaeon"
+          ],
+          "topicsAny": [
+            "imperial remnant",
+            "fleet",
+            "strategy"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Grand Admiral Thrawn returns from the Unknown Regions and turns fragmented Imperial forces into a coherent strategic threat.",
+        "injection": "During the Thrawn campaign, write the Imperial threat as disciplined, art-informed, and strategically coordinated under Thrawn rather than brute-force warlord chaos.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Returns.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Returns."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_thrawn_art_analysis_constraint",
+      "title": "Thrawn Uses Art as Strategic Intelligence",
+      "kind": "behavior_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Grand Admiral Thrawn"
+        ],
+        "locations": [],
+        "topics": [
+          "strategy",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:strategy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Grand Admiral Thrawn"
+          ],
+          "topicsAny": [
+            "strategy",
+            "espionage"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Thrawn studies art and culture to infer enemy psychology, doctrine, and likely decisions.",
+        "injection": "When Thrawn is active, let him exploit cultural analysis and pattern recognition; do not reduce him to generic villain arrogance.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_pellaeon_professional_imperial_witness",
+      "title": "Pellaeon Is a Professional Imperial Witness",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Pellaeon",
+          "Grand Admiral Thrawn"
+        ],
+        "locations": [],
+        "topics": [
+          "fleet",
+          "command"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "character:pellaeon",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:command",
+        "topic:fleet"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Pellaeon",
+            "Grand Admiral Thrawn"
+          ],
+          "topicsAny": [
+            "fleet",
+            "command"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gilad Pellaeon serves as Thrawn’s experienced subordinate and provides a disciplined Imperial military viewpoint.",
+        "injection": "Use Pellaeon as professional, pragmatic, and observant, not as a Sith fanatic or careless thug. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_cbaoth_unstable_dark_jedi_not_sith",
+      "title": "C’baoth Is Unstable Dark Jedi, Not Sith Lord",
+      "kind": "knowledge_gate",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.heir_to_empire",
+        "validToAnchor": "sw.nr.heir_to_empire",
+        "sortKeyFrom": 11200,
+        "sortKeyTo": 11200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heir to the Empire Crisis",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Joruus Cbaoth",
+          "Grand Admiral Thrawn",
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "topics": [
+          "dark-side",
+          "clone",
+          "jedi"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "Jedi Order"
+        ]
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "character:joruus-cbaoth",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:clone",
+        "topic:dark-side",
+        "topic:jedi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Joruus Cbaoth",
+            "Grand Admiral Thrawn",
+            "Luke Skywalker"
+          ],
+          "topicsAny": [
+            "dark-side",
+            "clone",
+            "jedi"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Joruus C’baoth is an unstable clone dark Jedi used by Thrawn, not a formal Sith master.",
+        "injection": "In Thrawn Trilogy context, C’baoth can be powerful and dangerous, but do not portray him as Palpatine’s direct Sith successor.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Heir to the Empire Crisis.",
+          "Respect story-position bounds from Heir to the Empire Crisis to Heir to the Empire Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_mara_jade_emperors_hand_past_hidden",
+      "title": "Mara Jade’s Emperor’s Hand Past Is Hidden",
+      "kind": "secret",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade",
+          "Palpatine",
+          "Luke Skywalker",
+          "Talon Karrde"
+        ],
+        "locations": [],
+        "topics": [
+          "secret",
+          "identity",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Court",
+          "Smugglers",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "character:palpatine",
+        "character:talon-karrde",
+        "continuity:legends",
+        "faction:imperial-court",
+        "faction:new-republic",
+        "faction:smugglers",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:identity",
+        "topic:knowledge-gate",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade",
+            "Palpatine",
+            "Luke Skywalker",
+            "Talon Karrde"
+          ],
+          "topicsAny": [
+            "secret",
+            "identity",
+            "knowledge gate"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Court",
+            "Smugglers",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Mara Jade was once the Emperor’s Hand, but that past is not public knowledge and carries lethal emotional and political consequences.",
+        "injection": "Before Mara’s history is revealed in-scene, do not let casual characters know she served Palpatine; treat it as dangerous hidden identity material.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_mara_kill_luke_command_active",
+      "title": "Mara Carries the Kill Luke Command",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Mara Jade",
+          "Luke Skywalker",
+          "Palpatine"
+        ],
+        "locations": [],
+        "topics": [
+          "secret",
+          "dark-side",
+          "identity"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Court",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:imperial-court",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:dark-side",
+        "topic:identity",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mara Jade",
+            "Luke Skywalker",
+            "Palpatine"
+          ],
+          "topicsAny": [
+            "secret",
+            "dark-side",
+            "identity"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Court",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Mara carries Palpatine’s last command to kill Luke, complicating her motives even when she cooperates with New Republic heroes.",
+        "injection": "During early Mara/Luke interactions, preserve tension: she may cooperate with Luke while carrying a compelled or obsessive command to kill him.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_talon_karrde_information_broker_neutrality",
+      "title": "Karrde Is an Information Broker, Not Rebel Loyalist",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Talon Karrde",
+          "Mara Jade",
+          "Han Solo",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "topics": [
+          "smuggling",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Smugglers",
+          "New Republic",
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "character:han-solo",
+        "character:leia-organa",
+        "character:mara-jade",
+        "character:talon-karrde",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "faction:smugglers",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:smuggling"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Talon Karrde",
+            "Mara Jade",
+            "Han Solo",
+            "Leia Organa"
+          ],
+          "topicsAny": [
+            "smuggling",
+            "espionage"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Smugglers",
+            "New Republic",
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Talon Karrde’s organization values information, neutrality, and survival before open allegiance to the New Republic.",
+        "injection": "Write Karrde as measured, commercially minded, and protective of his network; his cooperation should feel negotiated, not automatic heroism.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_ysalamiri_neutralize_force_locally",
+      "title": "Ysalamiri Create Local Force Voids",
+      "kind": "ability_gate",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Grand Admiral Thrawn",
+          "Luke Skywalker",
+          "Mara Jade"
+        ],
+        "locations": [],
+        "topics": [
+          "force",
+          "military logistics"
+        ],
+        "objects": [
+          "Ysalamiri"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:ysalamiri",
+        "scope:new-republic",
+        "topic:force",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Grand Admiral Thrawn",
+            "Luke Skywalker",
+            "Mara Jade"
+          ],
+          "topicsAny": [
+            "force",
+            "military logistics"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Ysalamiri can create local bubbles where Force use is suppressed, making them strategically valuable against Jedi.",
+        "injection": "In Thrawn Campaign, where ysalamiri are present, block easy Force sensing, telekinesis, mind influence, and Jedi combat assumptions inside their effect.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_noghri_serve_vader_leia_deception",
+      "title": "Noghri Loyalty Turns on Imperial Deception",
+      "kind": "knowledge_gate",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.noghri_truth",
+        "validToAnchor": "sw.nr.noghri_truth",
+        "sortKeyFrom": 11800,
+        "sortKeyTo": 11800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Noghri Truth Revealed",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Darth Vader",
+          "Grand Admiral Thrawn"
+        ],
+        "locations": [
+          "Honoghr"
+        ],
+        "topics": [
+          "knowledge gate",
+          "family",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Noghri",
+          "Imperial Remnant",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:darth-vader",
+        "character:grand-admiral-thrawn",
+        "character:leia-organa",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "faction:noghri",
+        "fandom:star-wars",
+        "place:honoghr",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:family",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Darth Vader",
+            "Grand Admiral Thrawn"
+          ],
+          "topicsAny": [
+            "knowledge gate",
+            "family",
+            "espionage"
+          ],
+          "locationsAny": [
+            "Honoghr"
+          ],
+          "factionsAny": [
+            "Noghri",
+            "Imperial Remnant",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Noghri serve Vader’s legacy and the Empire under a manipulated debt until Leia exposes the truth of Honoghr’s poisoning.",
+        "injection": "Before the Noghri truth is revealed, write them as lethal Imperial-aligned commandos; after it, their loyalty can pivot toward Leia and her family.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Noghri Truth Revealed.",
+          "Respect story-position bounds from Noghri Truth Revealed to Noghri Truth Revealed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_leia_vader_daughter_matters_to_noghri",
+      "title": "Leia’s Vader Lineage Matters to Noghri",
+      "kind": "knowledge_gate",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.noghri_truth",
+        "validToAnchor": "sw.nr.noghri_truth",
+        "sortKeyFrom": 11800,
+        "sortKeyTo": 11800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Noghri Truth Revealed",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "identity",
+          "diplomacy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Noghri",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "continuity:legends",
+        "faction:new-republic",
+        "faction:noghri",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:diplomacy",
+        "topic:family",
+        "topic:identity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Darth Vader"
+          ],
+          "topicsAny": [
+            "family",
+            "identity",
+            "diplomacy"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Noghri",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Leia’s status as Vader’s daughter is central to how the Noghri interpret her authority and obligations.",
+        "injection": "In Noghri contexts after the reveal, let Leia’s Vader lineage carry cultural and political weight rather than only personal discomfort.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Noghri Truth Revealed.",
+          "Respect story-position bounds from Noghri Truth Revealed to Noghri Truth Revealed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_katana_fleet_is_force_multiplier",
+      "title": "Katana Fleet Is a Strategic Force Multiplier",
+      "kind": "objective",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.katana_fleet_race",
+        "validToAnchor": "sw.nr.katana_fleet_race",
+        "sortKeyFrom": 11500,
+        "sortKeyTo": 11500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Katana Fleet Race",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Grand Admiral Thrawn",
+          "Han Solo",
+          "Talon Karrde"
+        ],
+        "locations": [],
+        "topics": [
+          "fleet",
+          "military logistics"
+        ],
+        "objects": [
+          "Katana Fleet",
+          "Dreadnaught"
+        ],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Imperial Remnant",
+          "Smugglers"
+        ]
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "character:han-solo",
+        "character:talon-karrde",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "faction:smugglers",
+        "fandom:star-wars",
+        "object:dreadnaught",
+        "object:katana-fleet",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:military-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Grand Admiral Thrawn",
+            "Han Solo",
+            "Talon Karrde"
+          ],
+          "topicsAny": [
+            "fleet",
+            "military logistics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Imperial Remnant",
+            "Smugglers"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Katana Fleet can rapidly shift military balance because it offers many lost warships to whoever recovers them.",
+        "injection": "During the Katana Fleet race, make the objective about strategic force multiplication, not mere treasure hunting.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Katana Fleet Race.",
+          "Respect story-position bounds from Katana Fleet Race to Katana Fleet Race."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_mount_tantiss_cloning_secret",
+      "title": "Mount Tantiss Is a Hidden Cloning and Storehouse Site",
+      "kind": "secret",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.heir_to_empire",
+        "validToAnchor": "sw.nr.heir_to_empire",
+        "sortKeyFrom": 11200,
+        "sortKeyTo": 11200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heir to the Empire Crisis",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Grand Admiral Thrawn",
+          "Joruus Cbaoth"
+        ],
+        "locations": [
+          "Wayland",
+          "Mount Tantiss"
+        ],
+        "topics": [
+          "clone",
+          "secret"
+        ],
+        "objects": [
+          "Spaarti cylinders"
+        ],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "character:joruus-cbaoth",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "fandom:star-wars",
+        "object:spaarti-cylinders",
+        "place:mount-tantiss",
+        "place:wayland",
+        "scope:new-republic",
+        "topic:clone",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Grand Admiral Thrawn",
+            "Joruus Cbaoth"
+          ],
+          "topicsAny": [
+            "clone",
+            "secret"
+          ],
+          "locationsAny": [
+            "Wayland",
+            "Mount Tantiss"
+          ],
+          "factionsAny": [
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Mount Tantiss on Wayland hides Imperial cloning resources and secrets that Thrawn exploits.",
+        "injection": "Before Mount Tantiss is discovered, do not let New Republic characters casually know the source of Thrawn’s cloning advantage.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Heir to the Empire Crisis.",
+          "Respect story-position bounds from Heir to the Empire Crisis to Heir to the Empire Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_clone_troops_not_clone_wars_public_memory",
+      "title": "Thrawn Cloning Is a New Crisis, Not Clone Wars Repeat",
+      "kind": "knowledge_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "clone",
+          "military logistics",
+          "secret"
+        ],
+        "objects": [
+          "Spaarti cylinders"
+        ],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "object:spaarti-cylinders",
+        "scope:new-republic",
+        "topic:clone",
+        "topic:military-logistics",
+        "topic:secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "clone",
+            "military logistics",
+            "secret"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Thrawn’s use of cloning technology is a specific hidden tactical advantage, not a public return to Clone Wars-style clone armies.",
+        "injection": "During the Thrawn campaign, keep cloning secretive and tied to Mount Tantiss/Spaarti technology unless the context has exposed it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_leia_pregnant_with_twins_during_thrawn",
+      "title": "Leia Pregnant with Twins During Thrawn Campaign",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Han Solo",
+          "Jacen Solo",
+          "Jaina Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "children",
+          "diplomacy"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Noghri"
+        ]
+      },
+      "tags": [
+        "character:han-solo",
+        "character:jacen-solo",
+        "character:jaina-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "faction:new-republic",
+        "faction:noghri",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:children",
+        "topic:diplomacy",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Han Solo",
+            "Jacen Solo",
+            "Jaina Solo"
+          ],
+          "topicsAny": [
+            "family",
+            "children",
+            "diplomacy"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Noghri"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During much of the Thrawn campaign, Leia is pregnant with Jacen and Jaina while carrying major diplomatic and political burdens.",
+        "injection": "In Thrawn-era scenes, Leia’s pregnancy with twins can affect risk, Noghri attention, and political pressure; do not replace her agency with passivity.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_jacen_jaina_birth_changes_family_state",
+      "title": "Jacen and Jaina Birth Changes Solo Family State",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.thrawn_defeated",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Thrawn Defeated",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Jacen Solo",
+          "Jaina Solo"
+        ],
+        "locations": [],
+        "topics": [
+          "family",
+          "children"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:han-solo",
+        "character:jacen-solo",
+        "character:jaina-solo",
+        "character:leia-organa",
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:children",
+        "topic:family"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Jacen Solo",
+            "Jaina Solo"
+          ],
+          "topicsAny": [
+            "family",
+            "children"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The birth of Jacen and Jaina changes Han and Leia’s obligations and creates new targets for Imperial and dark-side threats.",
+        "injection": "After the twins are born, include childcare, protection, political security, and family vulnerability when relevant.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Defeated.",
+          "Respect story-position bounds from Thrawn Defeated to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_luke_and_mara_not_romantic_yet",
+      "title": "Luke and Mara Are Not Romantic Yet",
+      "kind": "future_guard",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.thrawn_returns",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Thrawn Campaign",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Mara Jade"
+        ],
+        "locations": [],
+        "topics": [
+          "future guard",
+          "relationship",
+          "knowledge gate"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "character:luke-skywalker",
+        "character:mara-jade",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:future-guard",
+        "topic:knowledge-gate",
+        "topic:relationship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Mara Jade"
+          ],
+          "topicsAny": [
+            "future guard",
+            "relationship",
+            "knowledge gate"
+          ],
+          "locationsAny": [],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "During the Thrawn campaign, Luke and Mara’s bond is tense, complex, and formative, but not yet their later romance or marriage.",
+        "injection": "Do not portray Luke and Mara as already romantic partners in Thrawn Trilogy context; use distrust, reluctant alliance, and unresolved history.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Campaign.",
+          "Respect story-position bounds from Thrawn Returns to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_thrawn_defeat_not_imperial_extinction",
+      "title": "Thrawn’s Defeat Does Not End Imperial Threats",
+      "kind": "future_guard",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.thrawn_defeated",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Thrawn Defeated",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Grand Admiral Thrawn",
+          "Pellaeon"
+        ],
+        "locations": [],
+        "topics": [
+          "imperial remnant",
+          "future guard"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Imperial Remnant",
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "character:pellaeon",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:future-guard",
+        "topic:imperial-remnant"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Grand Admiral Thrawn",
+            "Pellaeon"
+          ],
+          "topicsAny": [
+            "imperial remnant",
+            "future guard"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Imperial Remnant",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Thrawn’s defeat breaks his campaign but does not eliminate Imperial warlords, dark-side remnants, or future crises.",
+        "injection": "After Thrawn is defeated, reduce coordinated Thrawn pressure but keep post-Endor Imperial instability and future Imperial threats available.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Defeated.",
+          "Respect story-position bounds from Thrawn Defeated to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_rukh_assassination_ends_thrawn_campaign",
+      "title": "Rukh’s Assassination Ends Thrawn’s Campaign",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.thrawn_defeated",
+        "validToAnchor": "sw.nr.thrawn_defeated",
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Thrawn Defeated",
+        "phase": "Thrawn Campaign",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Grand Admiral Thrawn",
+          "Rukh",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "topics": [
+          "knowledge gate",
+          "espionage"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "Noghri",
+          "Imperial Remnant"
+        ]
+      },
+      "tags": [
+        "character:grand-admiral-thrawn",
+        "character:leia-organa",
+        "character:rukh",
+        "continuity:legends",
+        "faction:imperial-remnant",
+        "faction:noghri",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:espionage",
+        "topic:knowledge-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Grand Admiral Thrawn",
+            "Rukh",
+            "Leia Organa"
+          ],
+          "topicsAny": [
+            "knowledge gate",
+            "espionage"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Noghri",
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Rukh kills Thrawn after Noghri loyalty turns, ending the Grand Admiral’s campaign at its decisive moment.",
+        "injection": "At the end of the Thrawn campaign, Thrawn’s fall should connect to his exploitation of the Noghri, not simple battlefield incompetence.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Thrawn Defeated.",
+          "Respect story-position bounds from Thrawn Defeated to Thrawn Defeated."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/thrawn_campaign.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

@@ -1836,48 +1836,39 @@ Current tag health behavior:
 - `tag_registry_missing` is a suggestion, not a warning, because imported or early Custom packs may use entry tags before defining `tags.json`.
 - `orphaned_tag_definition` is a suggestion for registry definitions not used by entries or registry relationships.
 
-## Import And Export Bundle
+## Import And Export Packages
 
-Saga should support both loose-folder packs and bundled imports.
+Saga's public Loredeck import/export format should be a zip package that mirrors the bundled `Loredecks/` folder shape. The active development plan lives in [../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md](../development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md).
 
-### JSON Bundle
+Front-facing `.saga-loredeck.json` import/export was legacy interim behavior and should not appear in the Library UI. Public sharing should use `.saga-loredeck.zip` packages.
 
-A JSON bundle can embed every file in one document.
-
-```json
-{
-  "bundleSchemaVersion": 1,
-  "bundleType": "saga_loredeck",
-  "manifest": {},
-  "files": {
-    "taxonomy.json": {},
-    "tags.json": {},
-    "entities.json": {},
-    "timeline.json": {},
-    "resolver.json": {},
-    "entries/core.json": {
-      "schemaVersion": 2,
-      "entries": []
-    }
-  }
-}
-```
-
-### Zip Bundle
-
-A zip bundle should contain a `loredeck.json` at the root.
+Preferred package extension:
 
 ```text
-my-pack.zip
-  loredeck.json
-  tags.json
-  entities.json
-  timeline.json
-  entries/
-    core.json
+.saga-loredeck.zip
 ```
 
-Saga should reject zip entries that try to escape the pack root with absolute paths or `..` traversal.
+Preferred package shape:
+
+```text
+my-pack.saga-loredeck.zip
+  saga-package.json
+  Loredecks/
+    index.json
+    my-pack-core/
+      loredeck.json
+      manifest.json
+      tags.json
+      timeline.json
+      assets/
+        cover.png
+      entries/
+        core.json
+```
+
+`Loredecks/index.json` should list the package's included Loredecks and folder metadata. Package exports should prefer a neutral `loredecks` array, while importers can accept bundled-style `bundled` indexes as compatibility input and still install those decks as Custom user content.
+
+Saga should reject zip entries that try to escape the package root with absolute paths, drive-letter paths, `..` traversal, NUL characters, or backslash-normalized traversal. Saga should also reject executable or active content inside Loredeck packages; packages are data-only containers.
 
 ## Loader Output
 

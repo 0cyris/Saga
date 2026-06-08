@@ -10,7 +10,7 @@
       "kind": "skill_band",
       "gateType": "skill_band",
       "category": "character",
-      "relevance": "low",
+      "relevance": "high",
       "lorePurpose": "ability_gate",
       "specificityScore": 95,
       "injectableByDefault": true,
@@ -18,7 +18,7 @@
       "canonStatus": "canon",
       "truthStatus": "true",
       "revealPolicy": "public",
-      "priority": 75,
+      "priority": 100,
       "status": "active",
       "protected": false,
       "locked": true,
@@ -28,7 +28,7 @@
         "validFromAnchor": "hp.y5.sirius_trapped_at_grimmauld",
         "validToAnchor": "hp.y5.grief_and_train_home",
         "sortKeyFrom": 9374,
-        "sortKeyTo": 9739,
+        "sortKeyTo": 9672,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 5",
@@ -50,9 +50,9 @@
         "revealPolicy": "public"
       },
       "retrieval": {
-        "activation": "topic_or_entity",
-        "frequency": "low",
-        "contextBoost": "low",
+        "activation": "context_or_topic",
+        "frequency": "high",
+        "contextBoost": "high",
         "triggers": {
           "topicsAny": [
             "school skill",
@@ -62,12 +62,16 @@
       },
       "content": {
         "fact": "Fifth-year defensive improvement should be tied to OWL work, DA participation, or other story-established training, not assumed for every student.",
-        "injection": "Do not give all fifth-years DA-level defensive competence by default; tie improved skills to OWL work, DA participation, or established training.",
+        "injection": "Do not give all fifth-years DA-level defensive competence by default; tie improved skills to OWL work, DA participation, or established training. Enforce this as a high-priority Context gate for Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "DA skill gains apply to participants, not every student automatically."
+          "DA skill gains apply to participants, not every student automatically.",
+          "Apply only when Saga Context matches Year 5; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [
-          "Do not treat DA training as universal school-wide competence."
+          "Do not treat DA training as universal school-wide competence.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
         ]
       },
       "effects": {
@@ -90,7 +94,14 @@
           "targetPackId": "hp-year-5-order-of-the-phoenix",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "era:golden-trio",
+        "faction:dumbledores-army",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:5"
+      ]
     }
   ]
 }

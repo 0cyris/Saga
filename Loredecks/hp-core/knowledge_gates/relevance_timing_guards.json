@@ -1,0 +1,538 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "core_guard_future_book_reveals_by_context",
+      "title": "Future book reveals obey active Context",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 110,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7843,
+        "sortKeyTo": 10349,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "Golden Trio context-sensitive future reveal guard",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "future canon leakage",
+          "spoiler control",
+          "active Context"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "topic:deathly-hallows",
+        "topic:horcruxes",
+        "topic:prophecy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "future canon leakage",
+            "spoiler control",
+            "active Context"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Later-book deaths, secret identities, Horcrux/Hallows knowledge, prophecy details, and final-war outcomes must not leak into earlier Contexts.",
+        "injection": "Enforce active Context over model memory: keep later-book reveals out of narration and dialogue until the relevant year/anchor is active or accepted story lore explicitly changes the timeline.",
+        "constraints": [
+          "This is a broad guard; narrower year-specific cards override it with exact timing.",
+          "Use it when a model tries to import later-book knowledge into an earlier scene.",
+          "Apply only when Saga Context matches Golden Trio context-sensitive future reveal guard; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not allow Hermione, Ron, Harry, teachers, or narration to casually reference future secrets before their discovery windows.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Golden Trio era",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-core",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-core"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "core_guard_horcruxes_not_common_knowledge",
+      "title": "Horcruxes are not common wizarding knowledge",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 115,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7843,
+        "sortKeyTo": 10042,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Before and during Horcrux discovery arc",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger",
+          "Albus Dumbledore",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Horcruxes",
+          "restricted dark magic",
+          "knowledge boundary"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "topic:horcruxes"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger",
+            "Albus Dumbledore",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Horcruxes",
+            "restricted dark magic",
+            "knowledge boundary"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Horcruxes are obscure, taboo, and not ordinary wizarding vocabulary; even clever students should not know the mechanics without a specific discovery path.",
+        "injection": "Treat Horcrux knowledge as restricted: before the Year 6 Slughorn-memory path, block casual use of the term or mechanics by Harry, Ron, Hermione, teachers, or ordinary wizards unless the story explicitly establishes early discovery.",
+        "constraints": [
+          "Dumbledore and Voldemort may have private knowledge earlier; that does not make the knowledge public or available to students.",
+          "Hermione’s intelligence supports research after a clue; it does not grant unearned future knowledge.",
+          "Apply only when Saga Context matches Before and during Horcrux discovery arc; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not treat Horcruxes as classroom material, library trivia, or common Auror vocabulary in earlier years.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Golden Trio era",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-core",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-core"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "core_guard_deathly_hallows_not_active_before_year7",
+      "title": "Deathly Hallows quest is not active before Year 7",
+      "kind": "future_guard",
+      "gateType": "future_guard",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 105,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7843,
+        "sortKeyTo": 10188,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Before Xenophilius explains the Hallows",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Ron Weasley",
+          "Hermione Granger"
+        ],
+        "topics": [
+          "Deathly Hallows",
+          "Elder Wand",
+          "Resurrection Stone",
+          "Invisibility Cloak"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "artifact:invisibility-cloak",
+        "artifact:philosophers-stone",
+        "character:harry-potter",
+        "character:hermione-granger",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "topic:deathly-hallows",
+        "topic:elder-wand",
+        "topic:horcruxes"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Ron Weasley",
+            "Hermione Granger"
+          ],
+          "topicsAny": [
+            "Deathly Hallows",
+            "Elder Wand",
+            "Resurrection Stone",
+            "Invisibility Cloak"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Year 7 Hallows explanation, the Hallows are not an active quest framework for the trio.",
+        "injection": "Before the Hallows are introduced, do not have Harry, Ron, or Hermione reason in terms of the Elder Wand, Resurrection Stone, Cloak trio, Hallows symbol, or Hallows-versus-Horcrux choice unless accepted story lore introduced that path early.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Xenophilius explains the Hallows; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not import Hallows vocabulary into Years 1-6 as if the trio is already pursuing it.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Golden Trio era",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-core",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-core"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "core_guard_snape_loyalty_hidden_until_memories",
+      "title": "Snape loyalty remains hidden until memories",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 110,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7843,
+        "sortKeyTo": 10303,
+        "precision": "date_window",
+        "windowKind": "series",
+        "label": "Before Snape memories reveal",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Severus Snape",
+          "Harry Potter",
+          "Albus Dumbledore",
+          "Lord Voldemort"
+        ],
+        "topics": [
+          "Snape loyalty",
+          "Lily Potter",
+          "hidden motive"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:severus-snape",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Severus Snape",
+            "Harry Potter",
+            "Albus Dumbledore",
+            "Lord Voldemort"
+          ],
+          "topicsAny": [
+            "Snape loyalty",
+            "Lily Potter",
+            "hidden motive"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Snape’s true long-term loyalty, love for Lily, and Dumbledore-arranged role remain hidden until Harry receives Snape’s memories near the end of Year 7.",
+        "injection": "Before the Snape memories Context, write Snape’s motives as opaque or apparently hostile; do not let narration or characters confidently reveal his full loyalty, Lily motivation, or Dumbledore plan unless this story has already exposed it.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Snape memories reveal; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not let later fandom shorthand turn Snape into openly known Dumbledore-loyal ally before the memory reveal.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Golden Trio era",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-core",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-core"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "core_guard_prophecy_not_full_public_knowledge",
+      "title": "Prophecy details stay restricted",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 105,
+      "status": "active",
+      "protected": false,
+      "locked": true,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "sortKeyFrom": 7843,
+        "sortKeyTo": 9664,
+        "precision": "date_window",
+        "windowKind": "wide",
+        "label": "Before Dumbledore explains the prophecy",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Harry Potter",
+          "Albus Dumbledore",
+          "Lord Voldemort",
+          "Sybill Trelawney"
+        ],
+        "topics": [
+          "prophecy",
+          "Department of Mysteries",
+          "secret knowledge"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "tags": [
+        "character:albus-dumbledore",
+        "character:harry-potter",
+        "character:voldemort",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "quality:relevance-curated",
+        "topic:prophecy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Harry Potter",
+            "Albus Dumbledore",
+            "Lord Voldemort",
+            "Sybill Trelawney"
+          ],
+          "topicsAny": [
+            "prophecy",
+            "Department of Mysteries",
+            "secret knowledge"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the end of Year 5, Harry does not know the full prophecy; most characters never know it unless directly told.",
+        "injection": "Block full prophecy exposition before Dumbledore explains it after the Department of Mysteries; characters may fear a prophecy or seek it, but should not quote or reason from the complete wording without an established source.",
+        "constraints": [
+          "Use this as a story-position gate, not a general encyclopedia fact.",
+          "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
+          "Apply only when Saga Context matches Before Dumbledore explains the prophecy; if the scene is earlier, withhold this fact or state.",
+          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+        ],
+        "antiLore": [
+          "Do not make the prophecy common Order, Ministry, or student knowledge.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
+          "Do not reveal, assume, or discuss this outcome before the relevant anchor/window is active unless the user has created an AU branch."
+        ]
+      },
+      "sourceInfo": {
+        "work": "Harry Potter",
+        "sourceType": "book",
+        "title": "Golden Trio era",
+        "confidence": 0.82,
+        "notes": "Relevance-curated Saga development pass; verify in Deck Health and human review."
+      },
+      "extensions": {
+        "sagaCuration": {
+          "curationPass": "hp-relevance-v0.2.0",
+          "deckId": "hp-core",
+          "purpose": "story-position control"
+        },
+        "sagaSplitLoredeck": {
+          "targetPackId": "hp-core"
+        }
+      }
+    }
+  ]
+}

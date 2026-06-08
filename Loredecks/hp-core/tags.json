@@ -9,6 +9,38 @@
       "label": "Marauders Map",
       "description": "Harry Potter bundled Loredeck artifact tag."
     },
+    "artifact:philosophers-stone": {
+      "label": "Philosophers Stone",
+      "description": "Harry Potter bundled Loredeck artifact tag."
+    },
+    "book:chamber-of-secrets": {
+      "label": "Chamber Of Secrets",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
+    "book:deathly-hallows": {
+      "label": "Deathly Hallows",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
+    "book:goblet-of-fire": {
+      "label": "Goblet Of Fire",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
+    "book:half-blood-prince": {
+      "label": "Half Blood Prince",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
+    "book:order-of-the-phoenix": {
+      "label": "Order Of The Phoenix",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
+    "book:philosophers-stone": {
+      "label": "Philosophers Stone",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
+    "book:prisoner-of-azkaban": {
+      "label": "Prisoner Of Azkaban",
+      "description": "Harry Potter bundled Loredeck book tag."
+    },
     "category:artifact": {
       "label": "Artifact",
       "description": "Harry Potter bundled Loredeck category tag."
@@ -17,12 +49,40 @@
       "label": "Knowledge",
       "description": "Harry Potter bundled Loredeck category tag."
     },
+    "character:alastor-moody": {
+      "label": "Alastor Moody",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
     "character:albus-dumbledore": {
       "label": "Albus Dumbledore",
       "description": "Harry Potter bundled Loredeck character tag."
     },
+    "character:barty-crouch-jr": {
+      "label": "Barty Crouch Jr",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:cedric-diggory": {
+      "label": "Cedric Diggory",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:dolores-umbridge": {
+      "label": "Dolores Umbridge",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
     "character:draco-malfoy": {
       "label": "Draco Malfoy",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:fred-weasley": {
+      "label": "Fred Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:george-weasley": {
+      "label": "George Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:ginny-weasley": {
+      "label": "Ginny Weasley",
       "description": "Harry Potter bundled Loredeck character tag."
     },
     "character:harry-potter": {
@@ -33,21 +93,57 @@
       "label": "Hermione Granger",
       "description": "Harry Potter bundled Loredeck character tag."
     },
+    "character:luna-lovegood": {
+      "label": "Luna Lovegood",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:neville-longbottom": {
+      "label": "Neville Longbottom",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:quirinus-quirrell": {
+      "label": "Quirinus Quirrell",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:remus-lupin": {
+      "label": "Remus Lupin",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
     "character:ron-weasley": {
       "label": "Ron Weasley",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
+    "character:rubeus-hagrid": {
+      "label": "Rubeus Hagrid",
       "description": "Harry Potter bundled Loredeck character tag."
     },
     "character:severus-snape": {
       "label": "Severus Snape",
       "description": "Harry Potter bundled Loredeck character tag."
     },
+    "character:sirius-black": {
+      "label": "Sirius Black",
+      "description": "Harry Potter bundled Loredeck character tag."
+    },
     "character:voldemort": {
       "label": "Voldemort",
       "description": "Harry Potter bundled Loredeck character tag."
     },
+    "era:golden-trio": {
+      "label": "Golden Trio",
+      "description": "Harry Potter bundled Loredeck era tag."
+    },
     "event:second-wizarding-war": {
       "label": "Second Wizarding War",
       "description": "Harry Potter bundled Loredeck event tag."
+    },
+    "faction:death-eaters": {
+      "label": "Death Eaters",
+      "description": "Harry Potter bundled Loredeck faction tag."
+    },
+    "faction:dumbledores-army": {
+      "label": "Dumbledores Army",
+      "description": "Harry Potter bundled Loredeck faction tag."
     },
     "faction:ministry-of-magic": {
       "label": "Ministry Of Magic",
@@ -64,6 +160,10 @@
     "family:weasley": {
       "label": "Weasley",
       "description": "Harry Potter bundled Loredeck family tag."
+    },
+    "fandom:harry-potter": {
+      "label": "Harry Potter",
+      "description": "Harry Potter bundled Loredeck fandom tag."
     },
     "function:continuity": {
       "label": "Continuity",
@@ -109,6 +209,10 @@
       "label": "Horcrux",
       "description": "Harry Potter bundled Loredeck magic tag."
     },
+    "place:azkaban": {
+      "label": "Azkaban",
+      "description": "Harry Potter bundled Loredeck place tag."
+    },
     "place:britain": {
       "label": "Britain",
       "description": "Harry Potter bundled Loredeck place tag."
@@ -129,6 +233,10 @@
       "label": "Village",
       "description": "Harry Potter bundled Loredeck place tag."
     },
+    "quality:relevance-curated": {
+      "label": "Relevance Curated",
+      "description": "Harry Potter bundled Loredeck quality tag."
+    },
     "relationship:rival": {
       "label": "Rival",
       "description": "Harry Potter bundled Loredeck relationship tag."
@@ -145,9 +253,41 @@
       "label": "Student",
       "description": "Harry Potter bundled Loredeck role tag."
     },
+    "school-year:1": {
+      "label": "1",
+      "description": "Harry Potter bundled Loredeck school year tag."
+    },
+    "school-year:2": {
+      "label": "2",
+      "description": "Harry Potter bundled Loredeck school year tag."
+    },
+    "school-year:3": {
+      "label": "3",
+      "description": "Harry Potter bundled Loredeck school year tag."
+    },
+    "school-year:4": {
+      "label": "4",
+      "description": "Harry Potter bundled Loredeck school year tag."
+    },
+    "school-year:5": {
+      "label": "5",
+      "description": "Harry Potter bundled Loredeck school year tag."
+    },
     "school-year:6": {
       "label": "6",
       "description": "Harry Potter bundled Loredeck school year tag."
+    },
+    "school-year:7": {
+      "label": "7",
+      "description": "Harry Potter bundled Loredeck school year tag."
+    },
+    "spell:patronus": {
+      "label": "Patronus",
+      "description": "Harry Potter bundled Loredeck spell tag."
+    },
+    "spell:sectumsempra": {
+      "label": "Sectumsempra",
+      "description": "Harry Potter bundled Loredeck spell tag."
     },
     "subject:defense-against-the-dark-arts": {
       "label": "Defense Against The Dark Arts",
@@ -160,6 +300,26 @@
     "tactic:stealth": {
       "label": "Stealth",
       "description": "Harry Potter bundled Loredeck tactic tag."
+    },
+    "topic:deathly-hallows": {
+      "label": "Deathly Hallows",
+      "description": "Harry Potter bundled Loredeck topic tag."
+    },
+    "topic:elder-wand": {
+      "label": "Elder Wand",
+      "description": "Harry Potter bundled Loredeck topic tag."
+    },
+    "topic:horcruxes": {
+      "label": "Horcruxes",
+      "description": "Harry Potter bundled Loredeck topic tag."
+    },
+    "topic:prophecy": {
+      "label": "Prophecy",
+      "description": "Harry Potter bundled Loredeck topic tag."
+    },
+    "topic:time-turner": {
+      "label": "Time Turner",
+      "description": "Harry Potter bundled Loredeck topic tag."
     }
   }
 }

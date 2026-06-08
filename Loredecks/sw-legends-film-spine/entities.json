@@ -1,0 +1,1413 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "sw:anakin-skywalker": {
+      "type": "character",
+      "label": "Anakin Skywalker",
+      "aliases": [
+        "Anakin",
+        "Skywalker",
+        "Darth Vader"
+      ],
+      "canonicalNames": [
+        "Anakin Skywalker"
+      ],
+      "tags": [
+        "character:anakin-skywalker"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:bail-organa": {
+      "type": "character",
+      "label": "Bail Organa",
+      "aliases": [],
+      "canonicalNames": [
+        "Bail Organa"
+      ],
+      "tags": [
+        "character:bail-organa"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:beru-lars": {
+      "type": "character",
+      "label": "Beru Lars",
+      "aliases": [],
+      "canonicalNames": [
+        "Beru Lars"
+      ],
+      "tags": [
+        "character:beru-lars"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:boba-fett": {
+      "type": "character",
+      "label": "Boba Fett",
+      "aliases": [],
+      "canonicalNames": [
+        "Boba Fett"
+      ],
+      "tags": [
+        "character:boba-fett"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:c-3po": {
+      "type": "character",
+      "label": "C-3PO",
+      "aliases": [
+        "Threepio"
+      ],
+      "canonicalNames": [
+        "C-3PO"
+      ],
+      "tags": [
+        "character:c-3po"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:chewbacca": {
+      "type": "character",
+      "label": "Chewbacca",
+      "aliases": [
+        "Chewie"
+      ],
+      "canonicalNames": [
+        "Chewbacca"
+      ],
+      "tags": [
+        "character:chewbacca"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:count-dooku": {
+      "type": "character",
+      "label": "Count Dooku",
+      "aliases": [],
+      "canonicalNames": [
+        "Count Dooku"
+      ],
+      "tags": [
+        "character:count-dooku"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:darth-maul": {
+      "type": "character",
+      "label": "Darth Maul",
+      "aliases": [],
+      "canonicalNames": [
+        "Darth Maul"
+      ],
+      "tags": [
+        "character:darth-maul"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:darth-sidious": {
+      "type": "character",
+      "label": "Darth Sidious",
+      "aliases": [
+        "Sidious",
+        "Palpatine",
+        "Emperor"
+      ],
+      "canonicalNames": [
+        "Darth Sidious"
+      ],
+      "tags": [
+        "character:darth-sidious"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:darth-vader": {
+      "type": "character",
+      "label": "Darth Vader",
+      "aliases": [
+        "Vader",
+        "Lord Vader",
+        "Anakin Skywalker"
+      ],
+      "canonicalNames": [
+        "Darth Vader"
+      ],
+      "tags": [
+        "character:darth-vader"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:grand-moff-tarkin": {
+      "type": "character",
+      "label": "Grand Moff Tarkin",
+      "aliases": [],
+      "canonicalNames": [
+        "Grand Moff Tarkin"
+      ],
+      "tags": [
+        "character:grand-moff-tarkin"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:han-solo": {
+      "type": "character",
+      "label": "Han Solo",
+      "aliases": [
+        "Han",
+        "Captain Solo"
+      ],
+      "canonicalNames": [
+        "Han Solo"
+      ],
+      "tags": [
+        "character:han-solo"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:jabba-the-hutt": {
+      "type": "character",
+      "label": "Jabba the Hutt",
+      "aliases": [],
+      "canonicalNames": [
+        "Jabba the Hutt"
+      ],
+      "tags": [
+        "character:jabba-the-hutt"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:jango-fett": {
+      "type": "character",
+      "label": "Jango Fett",
+      "aliases": [],
+      "canonicalNames": [
+        "Jango Fett"
+      ],
+      "tags": [
+        "character:jango-fett"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:lando-calrissian": {
+      "type": "character",
+      "label": "Lando Calrissian",
+      "aliases": [],
+      "canonicalNames": [
+        "Lando Calrissian"
+      ],
+      "tags": [
+        "character:lando-calrissian"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:leia-organa": {
+      "type": "character",
+      "label": "Leia Organa",
+      "aliases": [
+        "Leia",
+        "Princess Leia",
+        "Senator Organa"
+      ],
+      "canonicalNames": [
+        "Leia Organa"
+      ],
+      "tags": [
+        "character:leia-organa"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:luke-skywalker": {
+      "type": "character",
+      "label": "Luke Skywalker",
+      "aliases": [
+        "Luke",
+        "Commander Skywalker"
+      ],
+      "canonicalNames": [
+        "Luke Skywalker"
+      ],
+      "tags": [
+        "character:luke-skywalker"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:mace-windu": {
+      "type": "character",
+      "label": "Mace Windu",
+      "aliases": [],
+      "canonicalNames": [
+        "Mace Windu"
+      ],
+      "tags": [
+        "character:mace-windu"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:obi-wan-kenobi": {
+      "type": "character",
+      "label": "Obi-Wan Kenobi",
+      "aliases": [
+        "Obi-Wan",
+        "Ben Kenobi"
+      ],
+      "canonicalNames": [
+        "Obi-Wan Kenobi"
+      ],
+      "tags": [
+        "character:obi-wan-kenobi"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:owen-lars": {
+      "type": "character",
+      "label": "Owen Lars",
+      "aliases": [],
+      "canonicalNames": [
+        "Owen Lars"
+      ],
+      "tags": [
+        "character:owen-lars"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:padme-amidala": {
+      "type": "character",
+      "label": "Padme Amidala",
+      "aliases": [
+        "Padme",
+        "Queen Amidala",
+        "Senator Amidala"
+      ],
+      "canonicalNames": [
+        "Padme Amidala"
+      ],
+      "tags": [
+        "character:padme-amidala"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:palpatine": {
+      "type": "character",
+      "label": "Palpatine",
+      "aliases": [
+        "Emperor Palpatine",
+        "Chancellor Palpatine",
+        "Darth Sidious",
+        "Sidious"
+      ],
+      "canonicalNames": [
+        "Palpatine"
+      ],
+      "tags": [
+        "character:palpatine"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:qui-gon-jinn": {
+      "type": "character",
+      "label": "Qui-Gon Jinn",
+      "aliases": [],
+      "canonicalNames": [
+        "Qui-Gon Jinn"
+      ],
+      "tags": [
+        "character:qui-gon-jinn"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:r2-d2": {
+      "type": "character",
+      "label": "R2-D2",
+      "aliases": [
+        "Artoo"
+      ],
+      "canonicalNames": [
+        "R2-D2"
+      ],
+      "tags": [
+        "character:r2-d2"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:shmi-skywalker": {
+      "type": "character",
+      "label": "Shmi Skywalker",
+      "aliases": [],
+      "canonicalNames": [
+        "Shmi Skywalker"
+      ],
+      "tags": [
+        "character:shmi-skywalker"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:wicket": {
+      "type": "character",
+      "label": "Wicket",
+      "aliases": [],
+      "canonicalNames": [
+        "Wicket"
+      ],
+      "tags": [
+        "character:wicket"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:yoda": {
+      "type": "character",
+      "label": "Yoda",
+      "aliases": [],
+      "canonicalNames": [
+        "Yoda"
+      ],
+      "tags": [
+        "character:yoda"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "sw:alderaan": {
+      "type": "location",
+      "label": "Alderaan",
+      "aliases": [],
+      "canonicalNames": [
+        "Alderaan"
+      ],
+      "tags": [
+        "location:alderaan"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:bespin": {
+      "type": "location",
+      "label": "Bespin",
+      "aliases": [],
+      "canonicalNames": [
+        "Bespin"
+      ],
+      "tags": [
+        "location:bespin"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:coruscant": {
+      "type": "location",
+      "label": "Coruscant",
+      "aliases": [],
+      "canonicalNames": [
+        "Coruscant"
+      ],
+      "tags": [
+        "location:coruscant"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:dagobah": {
+      "type": "location",
+      "label": "Dagobah",
+      "aliases": [],
+      "canonicalNames": [
+        "Dagobah"
+      ],
+      "tags": [
+        "location:dagobah"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:death-star": {
+      "type": "item",
+      "label": "Death Star",
+      "aliases": [],
+      "canonicalNames": [
+        "Death Star"
+      ],
+      "tags": [
+        "object:death-star"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:death-star-ii": {
+      "type": "item",
+      "label": "Death Star II",
+      "aliases": [],
+      "canonicalNames": [
+        "Death Star II"
+      ],
+      "tags": [
+        "object:death-star-ii"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:endor": {
+      "type": "location",
+      "label": "Endor",
+      "aliases": [],
+      "canonicalNames": [
+        "Endor"
+      ],
+      "tags": [
+        "location:endor"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:geonosis": {
+      "type": "location",
+      "label": "Geonosis",
+      "aliases": [],
+      "canonicalNames": [
+        "Geonosis"
+      ],
+      "tags": [
+        "location:geonosis"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:hoth": {
+      "type": "location",
+      "label": "Hoth",
+      "aliases": [],
+      "canonicalNames": [
+        "Hoth"
+      ],
+      "tags": [
+        "location:hoth"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:jabba-palace": {
+      "type": "location",
+      "label": "Jabba Palace",
+      "aliases": [],
+      "canonicalNames": [
+        "Jabba Palace"
+      ],
+      "tags": [
+        "location:jabba-palace"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:kamino": {
+      "type": "location",
+      "label": "Kamino",
+      "aliases": [],
+      "canonicalNames": [
+        "Kamino"
+      ],
+      "tags": [
+        "location:kamino"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:mustafar": {
+      "type": "location",
+      "label": "Mustafar",
+      "aliases": [],
+      "canonicalNames": [
+        "Mustafar"
+      ],
+      "tags": [
+        "location:mustafar"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:naboo": {
+      "type": "location",
+      "label": "Naboo",
+      "aliases": [],
+      "canonicalNames": [
+        "Naboo"
+      ],
+      "tags": [
+        "location:naboo"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:tatooine": {
+      "type": "location",
+      "label": "Tatooine",
+      "aliases": [],
+      "canonicalNames": [
+        "Tatooine"
+      ],
+      "tags": [
+        "location:tatooine"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:yavin": {
+      "type": "location",
+      "label": "Yavin",
+      "aliases": [],
+      "canonicalNames": [
+        "Yavin"
+      ],
+      "tags": [
+        "location:yavin"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:ewoks": {
+      "type": "faction",
+      "label": "Ewoks",
+      "aliases": [],
+      "canonicalNames": [
+        "Ewoks"
+      ],
+      "tags": [
+        "faction:ewoks"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:galactic-empire": {
+      "type": "faction",
+      "label": "Galactic Empire",
+      "aliases": [],
+      "canonicalNames": [
+        "Galactic Empire"
+      ],
+      "tags": [
+        "faction:galactic-empire"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:galactic-republic": {
+      "type": "faction",
+      "label": "Galactic Republic",
+      "aliases": [],
+      "canonicalNames": [
+        "Galactic Republic"
+      ],
+      "tags": [
+        "faction:galactic-republic"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:hutt-clan": {
+      "type": "faction",
+      "label": "Hutt Clan",
+      "aliases": [],
+      "canonicalNames": [
+        "Hutt Clan"
+      ],
+      "tags": [
+        "faction:hutt-clan"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:jedi-order": {
+      "type": "faction",
+      "label": "Jedi Order",
+      "aliases": [],
+      "canonicalNames": [
+        "Jedi Order"
+      ],
+      "tags": [
+        "faction:jedi-order"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:rebel-alliance": {
+      "type": "faction",
+      "label": "Rebel Alliance",
+      "aliases": [],
+      "canonicalNames": [
+        "Rebel Alliance"
+      ],
+      "tags": [
+        "faction:rebel-alliance"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:separatists": {
+      "type": "faction",
+      "label": "Separatists",
+      "aliases": [],
+      "canonicalNames": [
+        "Separatists"
+      ],
+      "tags": [
+        "faction:separatists"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:sith": {
+      "type": "faction",
+      "label": "Sith",
+      "aliases": [],
+      "canonicalNames": [
+        "Sith"
+      ],
+      "tags": [
+        "faction:sith"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:trade-federation": {
+      "type": "faction",
+      "label": "Trade Federation",
+      "aliases": [],
+      "canonicalNames": [
+        "Trade Federation"
+      ],
+      "tags": [
+        "faction:trade-federation"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:death-star-plans": {
+      "type": "item",
+      "label": "Death Star plans",
+      "aliases": [],
+      "canonicalNames": [
+        "Death Star plans"
+      ],
+      "tags": [
+        "object:death-star-plans"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:millennium-falcon": {
+      "type": "item",
+      "label": "Millennium Falcon",
+      "aliases": [],
+      "canonicalNames": [
+        "Millennium Falcon"
+      ],
+      "tags": [
+        "object:millennium-falcon"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:carbonite": {
+      "type": "item",
+      "label": "carbonite",
+      "aliases": [],
+      "canonicalNames": [
+        "carbonite"
+      ],
+      "tags": [
+        "object:carbonite"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:droids": {
+      "type": "item",
+      "label": "droids",
+      "aliases": [],
+      "canonicalNames": [
+        "droids"
+      ],
+      "tags": [
+        "object:droids"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:lightsaber": {
+      "type": "item",
+      "label": "lightsaber",
+      "aliases": [],
+      "canonicalNames": [
+        "lightsaber"
+      ],
+      "tags": [
+        "object:lightsaber"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    },
+    "sw:shield-generator": {
+      "type": "item",
+      "label": "shield generator",
+      "aliases": [],
+      "canonicalNames": [
+        "shield generator"
+      ],
+      "tags": [
+        "object:shield-generator"
+      ],
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "confidence": 0.75
+      },
+      "extensions": {}
+    }
+  }
+}

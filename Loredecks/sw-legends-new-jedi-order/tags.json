@@ -1,0 +1,1623 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "character:anakin-solo": {
+      "label": "Anakin Solo",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Anakin Solo tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "anakin solo"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ben-skywalker": {
+      "label": "Ben Skywalker",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Ben Skywalker tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "ben skywalker"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:borsk-feylya": {
+      "label": "Borsk Feylya",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Borsk Feylya tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "borsk feylya"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:cal-omas": {
+      "label": "Cal Omas",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Cal Omas tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "cal omas"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:chewbacca": {
+      "label": "Chewbacca",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Chewbacca tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "chewbacca"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:corran-horn": {
+      "label": "Corran Horn",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Corran Horn tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "corran horn"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:danni-quee": {
+      "label": "Danni Quee",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Danni Quee tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "danni quee"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ganner-rhysode": {
+      "label": "Ganner Rhysode",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Ganner Rhysode tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "ganner rhysode"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:han-solo": {
+      "label": "Han Solo",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Han Solo tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "han solo"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:harrar": {
+      "label": "Harrar",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Harrar tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "harrar"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jacen-solo": {
+      "label": "Jacen Solo",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Jacen Solo tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "jacen solo"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jagged-fel": {
+      "label": "Jagged Fel",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Jagged Fel tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "jagged fel"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jaina-solo": {
+      "label": "Jaina Solo",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Jaina Solo tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "jaina solo"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kyp-durron": {
+      "label": "Kyp Durron",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Kyp Durron tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "kyp durron"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:leia-organa-solo": {
+      "label": "Leia Organa Solo",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Leia Organa Solo tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "leia organa solo"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:luke-skywalker": {
+      "label": "Luke Skywalker",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Luke Skywalker tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "luke skywalker"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mara-jade-skywalker": {
+      "label": "Mara Jade Skywalker",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Mara Jade Skywalker tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "mara jade skywalker"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:miko-reglia": {
+      "label": "Miko Reglia",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Miko Reglia tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "miko reglia"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nas-choka": {
+      "label": "Nas Choka",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Nas Choka tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "nas choka"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nen-yim": {
+      "label": "Nen Yim",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Nen Yim tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "nen yim"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nom-anor": {
+      "label": "Nom Anor",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Nom Anor tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "nom anor"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:onimi": {
+      "label": "Onimi",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Onimi tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "onimi"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:pellaeon": {
+      "label": "Pellaeon",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Pellaeon tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "pellaeon"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:rey": {
+      "label": "Rey",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Rey tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "rey"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shedao-shai": {
+      "label": "Shedao Shai",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Shedao Shai tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "shedao shai"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shimrra-jamaane": {
+      "label": "Shimrra Jamaane",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Shimrra Jamaane tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "shimrra jamaane"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tahiri-veila": {
+      "label": "Tahiri Veila",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Tahiri Veila tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "tahiri veila"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tenel-ka-djo": {
+      "label": "Tenel Ka Djo",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Tenel Ka Djo tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "tenel ka djo"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:traest-krefey": {
+      "label": "Traest Krefey",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Traest Krefey tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "traest krefey"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tsavong-lah": {
+      "label": "Tsavong Lah",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Tsavong Lah tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "tsavong lah"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:vergere": {
+      "label": "Vergere",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Vergere tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "vergere"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:wedge-antilles": {
+      "label": "Wedge Antilles",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Wedge Antilles tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "wedge antilles"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yuuzhan-vong": {
+      "label": "Yuuzhan Vong",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Yuuzhan Vong tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "yuuzhan vong"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:legends": {
+      "label": "Legends",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Legends tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "legends"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:early-war": {
+      "label": "Early War",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Early War tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "early war"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:galactic-alliance-transition": {
+      "label": "Galactic Alliance Transition",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Galactic Alliance Transition tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "galactic alliance transition"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:galactic-alliance-transition-to-turning-point": {
+      "label": "Galactic Alliance Transition To Turning Point",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Galactic Alliance Transition To Turning Point tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "galactic alliance transition to turning point"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:jedi-under-siege": {
+      "label": "Jedi Under Siege",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Jedi Under Siege tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "jedi under siege"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:jedi-under-siege-to-myrkr-and-coruscant-fall": {
+      "label": "Jedi Under Siege To Myrkr And Coruscant Fall",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Jedi Under Siege To Myrkr And Coruscant Fall tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "jedi under siege to myrkr and coruscant fall"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:myrkr-and-coruscant-fall": {
+      "label": "Myrkr And Coruscant Fall",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Myrkr And Coruscant Fall tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "myrkr and coruscant fall"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:myrkr-and-coruscant-fall-to-galactic-alliance-transition": {
+      "label": "Myrkr And Coruscant Fall To Galactic Alliance Transition",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Myrkr And Coruscant Fall To Galactic Alliance Transition tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "myrkr and coruscant fall to galactic alliance transition"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:new-jedi-order": {
+      "label": "New Jedi Order",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "New Jedi Order tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "new jedi order"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:postwar-threshold": {
+      "label": "Postwar Threshold",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Postwar Threshold tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "postwar threshold"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:turning-point": {
+      "label": "Turning Point",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Turning Point tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "turning point"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:unifying-force": {
+      "label": "Unifying Force",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Unifying Force tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "unifying force"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:unifying-force-to-postwar-threshold": {
+      "label": "Unifying Force To Postwar Threshold",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Unifying Force To Postwar Threshold tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "unifying force to postwar threshold"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:vector-prime": {
+      "label": "Vector Prime",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Vector Prime tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "vector prime"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:vector-prime-to-early-war": {
+      "label": "Vector Prime To Early War",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Vector Prime To Early War tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "vector prime to early war"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:vector-prime-to-unifying-force": {
+      "label": "Vector Prime To Unifying Force",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Vector Prime To Unifying Force tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "vector prime to unifying force"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:yuuzhan-vong-war": {
+      "label": "Yuuzhan Vong War",
+      "color": "#3f2f1d",
+      "textColor": "#fff7ed",
+      "description": "Yuuzhan Vong War tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "yuuzhan vong war"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:yuuzhan-vong-invasion": {
+      "label": "Yuuzhan Vong Invasion",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Yuuzhan Vong Invasion tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "yuuzhan vong invasion"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:chiss-ascendancy": {
+      "label": "Chiss Ascendancy",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Chiss Ascendancy tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "chiss ascendancy"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-alliance": {
+      "label": "Galactic Alliance",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Galactic Alliance tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "galactic alliance"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:hapes-consortium": {
+      "label": "Hapes Consortium",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Hapes Consortium tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "hapes consortium"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:imperial-remnant": {
+      "label": "Imperial Remnant",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Imperial Remnant tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "imperial remnant"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jedi-order": {
+      "label": "Jedi Order",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Jedi Order tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "jedi order"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:new-republic": {
+      "label": "New Republic",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "New Republic tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "new republic"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:peace-brigade": {
+      "label": "Peace Brigade",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Peace Brigade tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "peace brigade"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:yuuzhan-vong": {
+      "label": "Yuuzhan Vong",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Yuuzhan Vong tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "yuuzhan vong"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:star-wars": {
+      "label": "Star Wars",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Star Wars tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "star wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:borleias": {
+      "label": "Borleias",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Borleias tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "borleias"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:coruscant": {
+      "label": "Coruscant",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Coruscant tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "coruscant"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:duro": {
+      "label": "Duro",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Duro tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "duro"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:ebaq-9": {
+      "label": "Ebaq 9",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Ebaq 9 tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "ebaq 9"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:helska-iv": {
+      "label": "Helska Iv",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Helska Iv tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "helska iv"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:ithor": {
+      "label": "Ithor",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Ithor tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "ithor"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:mon-calamari": {
+      "label": "Mon Calamari",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Mon Calamari tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "mon calamari"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:myrkr": {
+      "label": "Myrkr",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Myrkr tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "myrkr"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:sernpidal": {
+      "label": "Sernpidal",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Sernpidal tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "sernpidal"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:yuuzhantar": {
+      "label": "Yuuzhantar",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Yuuzhantar tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "yuuzhantar"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:zonama-sekot": {
+      "label": "Zonama Sekot",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Zonama Sekot tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "zonama sekot"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:alpha-red": {
+      "label": "Alpha Red",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Alpha Red tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "alpha red"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:amphistaff": {
+      "label": "Amphistaff",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Amphistaff tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "amphistaff"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:coralskipper": {
+      "label": "Coralskipper",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Coralskipper tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "coralskipper"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:dovin-basal": {
+      "label": "Dovin Basal",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Dovin Basal tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "dovin basal"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:ooglith-masquer": {
+      "label": "Ooglith Masquer",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Ooglith Masquer tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "ooglith masquer"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:villip": {
+      "label": "Villip",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Villip tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "villip"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:vonduun-crab-armor": {
+      "label": "Vonduun Crab Armor",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Vonduun Crab Armor tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "vonduun crab armor"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:worldship": {
+      "label": "Worldship",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Worldship tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "worldship"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "object:yammosk": {
+      "label": "Yammosk",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Yammosk tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "yammosk"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft": {
+      "label": "Draft",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Draft tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "draft"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:era": {
+      "label": "Era Deck",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Era Deck tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "era"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:njo": {
+      "label": "New Jedi Order Deck",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "New Jedi Order Deck tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "njo"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "structure:split-loredeck": {
+      "label": "Split Loredeck",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Split Loredeck tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "split loredeck"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:biotechnology": {
+      "label": "Biotechnology",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Biotechnology tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "biotechnology"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:communication": {
+      "label": "Communication",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Communication tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "communication"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:context-gate": {
+      "label": "Context Gate",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Context Gate tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "context gate"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:continuity": {
+      "label": "Continuity",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Continuity tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "continuity"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ecology": {
+      "label": "Ecology",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Ecology tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "ecology"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:family": {
+      "label": "Family",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Family tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "family"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force": {
+      "label": "Force",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Force tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "force"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-guard": {
+      "label": "Future Guard",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Future Guard tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "future guard"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:government": {
+      "label": "Government",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Government tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "government"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:infiltration": {
+      "label": "Infiltration",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Infiltration tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "infiltration"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi": {
+      "label": "Jedi",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Jedi tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "jedi"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:knowledge-gate": {
+      "label": "Knowledge Gate",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Knowledge Gate tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "knowledge gate"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:location-state": {
+      "label": "Location State",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Location State tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "location state"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:military-logistics": {
+      "label": "Military Logistics",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Military Logistics tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "military logistics"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:politics": {
+      "label": "Politics",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Politics tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "politics"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:refugees": {
+      "label": "Refugees",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Refugees tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "refugees"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:relationship": {
+      "label": "Relationship",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Relationship tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "relationship"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:religion": {
+      "label": "Religion",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Religion tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "religion"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:science": {
+      "label": "Science",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Science tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "science"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret": {
+      "label": "Secret",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Secret tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "secret"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:spoiler-guard": {
+      "label": "Spoiler Guard",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Spoiler Guard tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "spoiler guard"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:theocracy": {
+      "label": "Theocracy",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Theocracy tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "theocracy"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trauma": {
+      "label": "Trauma",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "Trauma tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "trauma"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war": {
+      "label": "War",
+      "color": "#334155",
+      "textColor": "#fff7ed",
+      "description": "War tag for Star Wars Legends NJO retrieval.",
+      "aliases": [
+        "war"
+      ],
+      "parents": [
+        "fandom:star-wars"
+      ],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

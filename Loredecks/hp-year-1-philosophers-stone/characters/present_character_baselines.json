@@ -27,8 +27,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.train_home",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8278,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8206,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 1",
@@ -74,7 +74,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Harry Potter",
@@ -103,15 +103,17 @@
       },
       "content": {
         "fact": "In Year 1, Harry is newly exposed to the magical world: curious, guarded, instinctively brave, and still shaped by neglect rather than confidence.",
-        "injection": "Write Harry as his Year 1 self: young, curious, guarded, instinctively brave, and not yet strategically mature or magically polished.",
+        "injection": "Write Harry as his Year 1 self: young, curious, guarded, instinctively brave, and not yet strategically mature or magically polished. Use this only as a phase baseline for Year 1; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "Keep his judgment, vocabulary, and emotional regulation age-appropriate for an eleven-year-old.",
           "He may distrust unfair adults, but he should not yet think like a trained resistance leader.",
           "Let curiosity and loyalty drive rule-breaking more than calculated strategy.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not import later-war certainty, combat discipline, or adult political awareness into Year 1 Harry."
+          "Do not import later-war certainty, combat discipline, or adult political awareness into Year 1 Harry.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -154,7 +156,16 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -180,8 +191,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.train_home",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8278,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8206,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 1",
@@ -227,7 +238,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Hermione Granger",
@@ -256,15 +267,17 @@
       },
       "content": {
         "fact": "In Year 1, Hermione is brilliant, rule-conscious, eager to prove herself, socially awkward, and more comfortable with books than peer dynamics.",
-        "injection": "Write Hermione as her Year 1 self: exceptionally studious, rule-conscious, eager to be correct, socially blunt, and not yet emotionally or socially polished.",
+        "injection": "Write Hermione as her Year 1 self: exceptionally studious, rule-conscious, eager to be correct, socially blunt, and not yet emotionally or socially polished. Use this only as a phase baseline for Year 1; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "Her confidence should be academic more than social.",
           "She may over-explain or correct others without realizing the social cost.",
           "Let moral courage emerge, but do not give her later-years tactical poise.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 1 Hermione as the politically strategic Hermione of Years 5-7."
+          "Do not write Year 1 Hermione as the politically strategic Hermione of Years 5-7.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -307,7 +320,16 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:hermione-granger",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -333,8 +355,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.train_home",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8278,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8206,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 1",
@@ -382,7 +404,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Ron Weasley",
@@ -412,15 +434,17 @@
       },
       "content": {
         "fact": "In Year 1, Ron is funny, insecure about status and comparison, loyal once attached, and more strategically perceptive in games and concrete situations than in academics.",
-        "injection": "Write Ron as his Year 1 self: young, funny, insecure, loyal, tactically intuitive in concrete situations, and not emotionally polished.",
+        "injection": "Write Ron as his Year 1 self: young, funny, insecure, loyal, tactically intuitive in concrete situations, and not emotionally polished. Use this only as a phase baseline for Year 1; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "His humor can cover embarrassment or envy.",
           "He should react like an eleven-year-old from a large, financially strained family.",
           "Do not make him a mature wartime confidant this early.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not import Year 7 sacrifice, despair, or adult romance dynamics into Year 1 Ron."
+          "Do not import Year 7 sacrifice, despair, or adult romance dynamics into Year 1 Ron.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -464,7 +488,16 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:ron-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -490,8 +523,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.train_home",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8278,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8206,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 1",
@@ -539,7 +572,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Draco Malfoy",
@@ -569,15 +602,17 @@
       },
       "content": {
         "fact": "In Year 1, Draco is spoiled, status-conscious, eager to assert pure-blood superiority, and quick to retreat when his confidence is challenged.",
-        "injection": "Write Draco as his Year 1 self: entitled, performatively superior, class-conscious, and more bully than strategist.",
+        "injection": "Write Draco as his Year 1 self: entitled, performatively superior, class-conscious, and more bully than strategist. Use this only as a phase baseline for Year 1; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "His cruelty should feel juvenile and status-driven.",
           "He should use family name and house identity as armor.",
           "Do not give him later Death Eater stakes or adult cunning.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 1 Draco as already tragic, repentant, or operationally dangerous."
+          "Do not write Year 1 Draco as already tragic, repentant, or operationally dangerous.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -620,7 +655,16 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:draco-malfoy",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -646,8 +690,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.train_home",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8278,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8206,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 1",
@@ -693,7 +737,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Neville Longbottom",
@@ -722,15 +766,17 @@
       },
       "content": {
         "fact": "In Year 1, Neville is anxious, forgetful, easily intimidated, and socially vulnerable, but already has a stubborn moral core under fear.",
-        "injection": "Write Neville as his Year 1 self: timid, forgetful, anxious, and underestimated, with courage appearing as moral stubbornness rather than confidence.",
+        "injection": "Write Neville as his Year 1 self: timid, forgetful, anxious, and underestimated, with courage appearing as moral stubbornness rather than confidence. Use this only as a phase baseline for Year 1; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should not speak or act like a polished fighter.",
           "His bravery should cost him visible effort.",
           "Do not erase his fear when showing his integrity.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not import Year 7 resistance-leader confidence into Year 1 Neville."
+          "Do not import Year 7 resistance-leader confidence into Year 1 Neville.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -773,7 +819,16 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:neville-longbottom",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -799,8 +854,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.train_home",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8278,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8206,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 1",
@@ -848,7 +903,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Ginny Weasley",
@@ -878,15 +933,17 @@
       },
       "content": {
         "fact": "In Year 1, Ginny is still pre-Hogwarts age: young, observant, spirited within her family context, and not yet a Hogwarts peer.",
-        "injection": "Write Ginny in Year 1 as a younger pre-Hogwarts child: spirited but not yet a student peer, with limited school-world agency.",
+        "injection": "Write Ginny in Year 1 as a younger pre-Hogwarts child: spirited but not yet a student peer, with limited school-world agency. Use this only as a phase baseline for Year 1; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "Do not place her in Hogwarts classes or student politics during Year 1 unless the story has changed her age or enrollment.",
           "Keep her perspective younger than Harry’s cohort.",
           "Do not import her later confidence and romantic/social presence into this year.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 1 Ginny as the assertive upper-year Ginny of Years 5-6."
+          "Do not write Year 1 Ginny as the assertive upper-year Ginny of Years 5-6.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -930,7 +987,16 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:ginny-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -956,8 +1022,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.train_home",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8278,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8206,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 1",
@@ -1005,7 +1071,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Fred Weasley",
@@ -1035,15 +1101,17 @@
       },
       "content": {
         "fact": "In Year 1, Fred is a confident older Gryffindor prankster: bold, funny, rule-testing, and more socially dominant than Harry’s cohort.",
-        "injection": "Write Fred in Year 1 as a confident older student: mischievous, bold, socially quick, and willing to test rules for amusement.",
+        "injection": "Write Fred in Year 1 as a confident older student: mischievous, bold, socially quick, and willing to test rules for amusement. Use this only as a phase baseline for Year 1; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should feel older and more socially fluent than first-years.",
           "His mischief should be energetic, not cruel by default.",
           "Do not import later shop-owner maturity or war stakes.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 1 Fred as a hardened wartime adult."
+          "Do not write Year 1 Fred as a hardened wartime adult.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1087,7 +1155,17 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:fred-weasley",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1113,8 +1191,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.train_home",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8278,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8206,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 1",
@@ -1162,7 +1240,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "George Weasley",
@@ -1192,15 +1270,17 @@
       },
       "content": {
         "fact": "In Year 1, George is a confident older Gryffindor prankster: witty, rule-testing, and often slightly more measured in delivery than Fred.",
-        "injection": "Write George in Year 1 as a confident older student: mischievous, witty, socially fluent, and slightly more measured than Fred.",
+        "injection": "Write George in Year 1 as a confident older student: mischievous, witty, socially fluent, and slightly more measured than Fred. Use this only as a phase baseline for Year 1; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should feel older and more socially fluent than first-years.",
           "His mischief should be playful and coordinated rather than random.",
           "Do not import later adult grief or war stakes.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write Year 1 George as a hardened wartime adult."
+          "Do not write Year 1 George as a hardened wartime adult.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1244,7 +1324,16 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:george-weasley",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     },
     {
       "schemaVersion": 3,
@@ -1270,8 +1359,8 @@
         "scope": "window",
         "validFromAnchor": "hp.y1.diagon_alley_first_visit",
         "validToAnchor": "hp.y1.train_home",
-        "sortKeyFrom": 7913,
-        "sortKeyTo": 8278,
+        "sortKeyFrom": 7910,
+        "sortKeyTo": 8206,
         "precision": "school_year_window",
         "windowKind": "school_year",
         "label": "Year 1",
@@ -1317,7 +1406,7 @@
       "retrieval": {
         "activation": "topic_or_entity",
         "frequency": "low",
-        "contextBoost": "low",
+        "contextBoost": "medium",
         "triggers": {
           "charactersAny": [
             "Cedric Diggory",
@@ -1346,15 +1435,17 @@
       },
       "content": {
         "fact": "In Year 1, Cedric is an older Hufflepuff student relative to Harry’s cohort, already socially steadier, courteous, and more conventionally confident than first-years.",
-        "injection": "Write Cedric in Year 1 as an older, courteous Hufflepuff student: steady, fair-minded, socially confident, and not part of first-year immaturity.",
+        "injection": "Write Cedric in Year 1 as an older, courteous Hufflepuff student: steady, fair-minded, socially confident, and not part of first-year immaturity. Use this only as a phase baseline for Year 1; narrower event, knowledge, relationship, injury, death, or reveal cards override it.",
         "constraints": [
           "He should feel older than Harry’s cohort.",
           "His confidence should be calm rather than arrogant.",
           "Do not import later tournament status into this early baseline.",
-          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline."
+          "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
+          "Apply only when Saga Context matches Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
-          "Do not write early Cedric as already defined by his death or championship."
+          "Do not write early Cedric as already defined by his death or championship.",
+          "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context."
         ],
         "notes": "Present-character baseline only; excludes dated relationship, event, secret-knowledge, injury, and death-state facts."
       },
@@ -1397,7 +1488,17 @@
           "targetPackId": "hp-year-1-philosophers-stone",
           "splitAt": "2026-06-05"
         }
-      }
+      },
+      "tags": [
+        "artifact:philosophers-stone",
+        "book:philosophers-stone",
+        "character:cedric-diggory",
+        "character:harry-potter",
+        "era:golden-trio",
+        "fandom:harry-potter",
+        "place:hogwarts",
+        "school-year:1"
+      ]
     }
   ]
 }

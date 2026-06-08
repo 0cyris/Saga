@@ -1,0 +1,2190 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-08",
+  "sourcePackId": "sw-legends-film-spine",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_jabba_rescue_operation",
+      "title": "Jabba Palace Rescue Opens Return",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:jabbas-palace",
+        "relationship:bounty",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_jabba_palace",
+        "validToAnchor": "sw.film.rotj_jabba_palace",
+        "sortKeyFrom": 7040,
+        "sortKeyTo": 7040,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jabba Palace Rescue",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Luke Skywalker",
+          "Lando Calrissian",
+          "Jabba the Hutt"
+        ],
+        "locations": [
+          "Jabba Palace",
+          "Tatooine"
+        ],
+        "factions": [
+          "Hutt Clan"
+        ],
+        "topics": [
+          "rescue operation",
+          "underworld hostage"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Luke Skywalker",
+            "Lando Calrissian",
+            "Jabba the Hutt"
+          ],
+          "locationsAny": [
+            "Jabba Palace",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "rescue operation",
+            "underworld hostage",
+            "Hutt Clan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Return of the Jedi opens with a coordinated effort to rescue Han from Jabba.",
+        "injection": "In Jabba Palace Rescue, early ROTJ scenes should center Han’s rescue, Jabba’s underworld power, and the heroes’ staged infiltration. Do not import later-era status, relationships, factions, or outcomes into this window.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jabba Palace Rescue.",
+          "Respect story-position bounds from Jabba Palace Rescue to Jabba Palace Rescue."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_luke_more_composed_but_not_master",
+      "title": "Luke More Composed, Not a Jedi Master",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:jedi-training",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "era:rebellion",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.episode_6_rotj",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Episode VI: Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Yoda",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "Jedi maturity",
+          "final test"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Yoda",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi maturity",
+            "final test"
+          ]
+        }
+      },
+      "content": {
+        "fact": "By ROTJ, Luke is more composed and capable, but his final Jedi test and confrontation with Vader remain unresolved.",
+        "injection": "Write ROTJ Luke as markedly more disciplined than ESB Luke, but do not overstate him as an old-order Master. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode VI: Return of the Jedi.",
+          "Respect story-position bounds from Episode VI: Return of the Jedi to Episode VI: Return of the Jedi."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_luke_new_lightsaber",
+      "title": "Luke Has New Green Lightsaber",
+      "kind": "item_state",
+      "gateType": "item_state",
+      "category": "item",
+      "relevance": "high",
+      "lorePurpose": "item_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:lightsaber",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.episode_6_rotj",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Episode VI: Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "new lightsaber"
+        ],
+        "objects": [
+          "lightsaber"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "new lightsaber",
+            "lightsaber"
+          ]
+        }
+      },
+      "content": {
+        "fact": "By Return of the Jedi, Luke has constructed a new lightsaber.",
+        "injection": "In ROTJ context, Luke may use his new lightsaber; before this period, do not assume he has it unless the story establishes construction.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode VI: Return of the Jedi.",
+          "Respect story-position bounds from Episode VI: Return of the Jedi to Episode VI: Return of the Jedi."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_jabba_killed_han_freed",
+      "title": "Jabba Killed and Han Freed",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:han-solo",
+        "character:jabba-the-hutt",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:jabbas-palace",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_jabba_palace",
+        "validToAnchor": "sw.film.rotj_jabba_palace",
+        "sortKeyFrom": 7040,
+        "sortKeyTo": 7040,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jabba Palace Rescue",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Jabba the Hutt",
+          "Leia Organa",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Jabba Palace",
+          "Tatooine"
+        ],
+        "factions": [
+          "Hutt Clan"
+        ],
+        "topics": [
+          "Jabba death",
+          "Han freed"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Jabba the Hutt",
+            "Leia Organa",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Jabba Palace",
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "Jabba death",
+            "Han freed",
+            "Hutt Clan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Jabba Palace rescue frees Han and kills Jabba, resolving Han’s immediate carbonite captivity.",
+        "injection": "After the Jabba rescue, Han is free and Jabba no longer directly controls the situation. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jabba Palace Rescue.",
+          "Respect story-position bounds from Jabba Palace Rescue to Jabba Palace Rescue."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_boba_fett_sarlacc_event",
+      "title": "Boba Fett Falls at the Sarlacc",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:boba-fett",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:tatooine",
+        "relationship:bounty",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_jabba_palace",
+        "validToAnchor": "sw.film.rotj_jabba_palace",
+        "sortKeyFrom": 7040,
+        "sortKeyTo": 7040,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jabba Palace Rescue",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Boba Fett",
+          "Han Solo",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Tatooine"
+        ],
+        "factions": [],
+        "topics": [
+          "Sarlacc",
+          "bounty hunter status"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Boba Fett",
+            "Han Solo",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Tatooine"
+          ],
+          "topicsAny": [
+            "Sarlacc",
+            "bounty hunter status"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During the Jabba rescue, Boba Fett is knocked into the Sarlacc.",
+        "injection": "At the film-spine ROTJ Sarlacc event, treat Boba Fett as lost from the immediate cast; later Legends survival/recovery details require a narrower post-ROTJ deck or explicit context.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Jabba Palace Rescue.",
+          "Respect story-position bounds from Jabba Palace Rescue to Jabba Palace Rescue."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_yoda_confirms_vader_truth",
+      "title": "Yoda Confirms Vader Is Luke’s Father",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:yoda",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:family-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_yoda_death",
+        "validToAnchor": "sw.film.rotj_yoda_death",
+        "sortKeyFrom": 7100,
+        "sortKeyTo": 7100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yoda Dies",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yoda",
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [
+          "Dagobah"
+        ],
+        "factions": [],
+        "topics": [
+          "paternity confirmation"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yoda",
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "paternity confirmation"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Yoda confirms that Vader is Luke’s father before dying.",
+        "injection": "After Yoda’s death scene, Luke has confirmation that Vader is his father; before this, he has Vader’s claim and his own fear, not Yoda’s confirmation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Yoda Dies.",
+          "Respect story-position bounds from Yoda Dies to Yoda Dies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_yoda_dies",
+      "title": "Yoda Dies on Dagobah",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:force-ghost",
+        "character:yoda",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:dagobah",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_yoda_death",
+        "validToAnchor": "sw.film.rotj_yoda_death",
+        "sortKeyFrom": 7100,
+        "sortKeyTo": 7100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yoda Dies",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yoda",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Dagobah"
+        ],
+        "factions": [],
+        "topics": [
+          "mentor death",
+          "Force spirit"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yoda",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Dagobah"
+          ],
+          "topicsAny": [
+            "mentor death",
+            "Force spirit"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Yoda dies on Dagobah during Return of the Jedi.",
+        "injection": "After Yoda dies, he should appear only through Force-spirit presence, memory, or alternate continuity. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Yoda Dies.",
+          "Respect story-position bounds from Yoda Dies to Yoda Dies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_obiwan_explains_point_of_view",
+      "title": "Obi-Wan Explains His Withheld Truth",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:luke-skywalker",
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:knowledge-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_yoda_death",
+        "validToAnchor": "sw.film.rotj_yoda_death",
+        "sortKeyFrom": 7100,
+        "sortKeyTo": 7100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yoda Dies",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Luke Skywalker",
+          "Darth Vader",
+          "Anakin Skywalker"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "withheld truth",
+          "point of view"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Luke Skywalker",
+            "Darth Vader",
+            "Anakin Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "withheld truth",
+            "point of view"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Obi-Wan explains his earlier statement about Anakin and Vader as a point-of-view truth, not literal openness.",
+        "injection": "After ROTJ Dagobah scenes, Luke has more context for Obi-Wan’s withheld truth; before then, do not assume he has heard that explanation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Yoda Dies.",
+          "Respect story-position bounds from Yoda Dies to Yoda Dies."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_leia_sibling_reveal",
+      "title": "Leia Revealed as Luke’s Sister",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:family-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_leia_revealed_sister",
+        "validToAnchor": "sw.film.rotj_leia_revealed_sister",
+        "sortKeyFrom": 7120,
+        "sortKeyTo": 7120,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Leia Revealed as Luke Sister",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "sibling reveal",
+          "hidden twins"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "sibling reveal",
+            "hidden twins"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke learns Leia is his sister and later tells Leia enough for the truth to become personally relevant.",
+        "injection": "After the ROTJ sibling reveal, Luke and Leia’s sibling relationship is valid; before this reveal, keep it hidden.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Leia Revealed as Luke Sister.",
+          "Respect story-position bounds from Leia Revealed as Luke Sister to Leia Revealed as Luke Sister."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_death_star_ii_trap",
+      "title": "Second Death Star Is Imperial Trap",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:palpatine",
+        "continuity:legends",
+        "event:endor",
+        "fandom:star-wars",
+        "object:death-star-ii",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_6_rotj",
+        "validToAnchor": "sw.film.rotj_emperor_defeated",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7260,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode VI: Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Darth Vader",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Endor",
+          "Death Star II"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "Imperial trap",
+          "fleet battle"
+        ],
+        "objects": [
+          "Death Star II",
+          "shield generator"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Darth Vader",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Endor",
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "Imperial trap",
+            "fleet battle",
+            "Death Star II",
+            "shield generator",
+            "Galactic Empire",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The second Death Star assault is part of Palpatine’s trap, not a simple exposed weakness.",
+        "injection": "During ROTJ, treat the second Death Star battle as a layered Imperial trap involving the fleet, shield generator, and Luke’s confrontation.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode VI: Return of the Jedi.",
+          "Respect story-position bounds from Episode VI: Return of the Jedi to Emperor Defeated at Endor."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_endor_shield_generator_ground_mission",
+      "title": "Endor Shield Generator Controls the Assault",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "lorePurpose": "location_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:endor",
+        "fandom:star-wars",
+        "location:endor",
+        "object:shield-generator",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_endor_ground_battle",
+        "validToAnchor": "sw.film.rotj_endor_ground_battle",
+        "sortKeyFrom": 7180,
+        "sortKeyTo": 7180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endor Ground Battle",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Han Solo",
+          "Leia Organa",
+          "Chewbacca"
+        ],
+        "locations": [
+          "Endor"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire",
+          "Ewoks"
+        ],
+        "topics": [
+          "ground mission",
+          "fleet assault"
+        ],
+        "objects": [
+          "shield generator"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Han Solo",
+            "Leia Organa",
+            "Chewbacca"
+          ],
+          "locationsAny": [
+            "Endor"
+          ],
+          "topicsAny": [
+            "ground mission",
+            "fleet assault",
+            "shield generator",
+            "Rebel Alliance",
+            "Galactic Empire",
+            "Ewoks"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Rebel fleet assault depends on disabling the Endor shield generator.",
+        "injection": "During the Endor operation, keep the ground mission strategically tied to the fleet battle and Death Star II vulnerability.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Endor Ground Battle.",
+          "Respect story-position bounds from Endor Ground Battle to Endor Ground Battle."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_ewoks_local_allies",
+      "title": "Ewoks Become Local Rebel Allies",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:endor",
+        "faction:ewoks",
+        "fandom:star-wars",
+        "location:endor",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_endor_ground_battle",
+        "validToAnchor": "sw.film.rotj_endor_ground_battle",
+        "sortKeyFrom": 7180,
+        "sortKeyTo": 7180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endor Ground Battle",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Wicket",
+          "Leia Organa",
+          "Han Solo",
+          "Chewbacca"
+        ],
+        "locations": [
+          "Endor"
+        ],
+        "factions": [
+          "Ewoks",
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "local allies",
+          "forest moon warfare"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Wicket",
+            "Leia Organa",
+            "Han Solo",
+            "Chewbacca"
+          ],
+          "locationsAny": [
+            "Endor"
+          ],
+          "topicsAny": [
+            "local allies",
+            "forest moon warfare",
+            "Ewoks",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Ewoks become crucial local allies during the Endor ground battle.",
+        "injection": "In Endor Ground Battle, on Endor after alliance is established, Ewoks can aid the Rebels with local terrain knowledge and improvised warfare.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Endor Ground Battle.",
+          "Respect story-position bounds from Endor Ground Battle to Endor Ground Battle."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_luke_surrenders_to_vader",
+      "title": "Luke Surrenders to Vader",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "relationship:family-secret",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_6_rotj",
+        "validToAnchor": "sw.film.rotj_emperor_defeated",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7260,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode VI: Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "redemption hope",
+          "father-son conflict"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "redemption hope",
+            "father-son conflict"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke surrenders to Vader because he believes there is still conflict and possible good in him.",
+        "injection": "During ROTJ, Luke’s approach to Vader is relational and redemptive, not simply tactical assassination. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode VI: Return of the Jedi.",
+          "Respect story-position bounds from Episode VI: Return of the Jedi to Emperor Defeated at Endor."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_palpatine_tempts_luke",
+      "title": "Palpatine Tries to Turn Luke",
+      "kind": "ability_gate",
+      "gateType": "ability_gate",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:force",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_6_rotj",
+        "validToAnchor": "sw.film.rotj_emperor_defeated",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7260,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode VI: Return of the Jedi",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Luke Skywalker",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith"
+        ],
+        "topics": [
+          "dark-side temptation",
+          "throne room"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Luke Skywalker",
+            "Darth Vader"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "dark-side temptation",
+            "throne room",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Palpatine tries to turn Luke through fear, anger, helplessness, and threat to his friends.",
+        "injection": "In throne-room scenes, center the dark-side temptation on anger, fear for friends, and family pressure rather than simple combat.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode VI: Return of the Jedi.",
+          "Respect story-position bounds from Episode VI: Return of the Jedi to Emperor Defeated at Endor."
+        ],
+        "antiLore": [
+          "Do not solve the scene by ignoring this rule unless user-authored continuity overrides it."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_luke_refuses_dark_side",
+      "title": "Luke Refuses the Dark Side",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "ability:jedi-training",
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_vader_redemption",
+        "validToAnchor": "sw.film.rotj_vader_redemption",
+        "sortKeyFrom": 7220,
+        "sortKeyTo": 7220,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vader Redeems Himself",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Darth Vader",
+          "Palpatine"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Sith"
+        ],
+        "topics": [
+          "dark-side refusal",
+          "Jedi test"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Darth Vader",
+            "Palpatine"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "dark-side refusal",
+            "Jedi test",
+            "Jedi Order",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke refuses to kill Vader in hatred and rejects Palpatine’s dark-side victory condition.",
+        "injection": "After Luke’s refusal, his Jedi identity is defined by restraint and compassion rather than killing Vader. Treat conflicting later-era or alternate-continuity model memory as out of context unless the user explicitly selects that branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vader Redeems Himself.",
+          "Respect story-position bounds from Vader Redeems Himself to Vader Redeems Himself."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_vader_redeems_himself",
+      "title": "Vader Redeems Himself to Save Luke",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:darth-vader",
+        "character:luke-skywalker",
+        "character:palpatine",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_vader_redemption",
+        "validToAnchor": "sw.film.rotj_vader_redemption",
+        "sortKeyFrom": 7220,
+        "sortKeyTo": 7220,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vader Redeems Himself",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Anakin Skywalker",
+          "Luke Skywalker",
+          "Palpatine"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ],
+        "topics": [
+          "redemption",
+          "father-son"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Anakin Skywalker",
+            "Luke Skywalker",
+            "Palpatine"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "redemption",
+            "father-son",
+            "Sith",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Vader turns on Palpatine to save Luke, completing his redemption at the end of the film spine.",
+        "injection": "After Vader’s redemption, Anakin’s final act is saving Luke from Palpatine; before ROTJ, do not treat this as established.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Vader Redeems Himself.",
+          "Respect story-position bounds from Vader Redeems Himself to Vader Redeems Himself."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_palpatine_defeated_at_endor",
+      "title": "Palpatine Defeated at Endor",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:palpatine",
+        "continuity:legends",
+        "event:endor",
+        "fandom:star-wars",
+        "object:death-star-ii",
+        "scope:film-spine",
+        "topic:future-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_emperor_defeated",
+        "validToAnchor": "sw.film.rotj_emperor_defeated",
+        "sortKeyFrom": 7260,
+        "sortKeyTo": 7260,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Emperor Defeated at Endor",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Darth Vader",
+          "Luke Skywalker"
+        ],
+        "locations": [
+          "Death Star II",
+          "Endor"
+        ],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance",
+          "Sith"
+        ],
+        "topics": [
+          "Emperor defeated",
+          "future guard"
+        ],
+        "objects": [
+          "Death Star II"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Darth Vader",
+            "Luke Skywalker"
+          ],
+          "locationsAny": [
+            "Death Star II",
+            "Endor"
+          ],
+          "topicsAny": [
+            "Emperor defeated",
+            "future guard",
+            "Death Star II",
+            "Galactic Empire",
+            "Rebel Alliance",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Palpatine is defeated aboard the second Death Star at Endor.",
+        "injection": "At the film-spine ROTJ endpoint, Palpatine is defeated at Endor for ordinary scene purposes; Dark Empire clone-resurrection material belongs only to later post-Endor Legends decks.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Emperor Defeated at Endor.",
+          "Respect story-position bounds from Emperor Defeated at Endor to Emperor Defeated at Endor."
+        ],
+        "antiLore": [
+          "Do not inject Dark Empire clone material into OT contexts unless a post-Endor Legends deck and context require it.",
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rotj_second_death_star_destroyed",
+      "title": "Second Death Star Destroyed",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:endor",
+        "faction:rebel-alliance",
+        "fandom:star-wars",
+        "object:death-star-ii",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rotj_death_star_ii_destroyed",
+        "validToAnchor": "sw.film.rotj_death_star_ii_destroyed",
+        "sortKeyFrom": 7240,
+        "sortKeyTo": 7240,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Second Death Star Destroyed",
+        "phase": "Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Endor",
+          "Death Star II"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "station destroyed",
+          "Endor victory"
+        ],
+        "objects": [
+          "Death Star II"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Endor",
+            "Death Star II"
+          ],
+          "topicsAny": [
+            "station destroyed",
+            "Endor victory",
+            "Death Star II",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The second Death Star is destroyed at Endor.",
+        "injection": "After Endor, the second Death Star is gone; the post-Endor problem becomes Imperial fragmentation and succession, not an intact second station.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Second Death Star Destroyed.",
+          "Respect story-position bounds from Second Death Star Destroyed to Second Death Star Destroyed."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_rotj_empire_shattered_not_instantly_gone",
+      "title": "Empire Shattered, Not Instantly Gone",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:post-endor",
+        "event:endor",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.rotj_emperor_defeated",
+        "validToAnchor": "sw.legends.post_endor_begins",
+        "sortKeyFrom": 7260,
+        "sortKeyTo": 7300,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Return of the Jedi",
+        "phase": "Rebellion Era to New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "Imperial fragmentation",
+          "post-Endor"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Imperial fragmentation",
+            "post-Endor",
+            "Galactic Empire",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Endor, Imperial leadership is shattered, but Imperial forces and successor authorities do not vanish instantly in Legends.",
+        "injection": "Post-ROTJ scenes should treat the Empire as destabilized and leaderless, not magically erased from the galaxy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Return of the Jedi.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    }
+  ]
+}

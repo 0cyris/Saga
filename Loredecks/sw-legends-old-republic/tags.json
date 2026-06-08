@@ -1,0 +1,4594 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "character:arcann": {
+      "label": "Arcann",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Arcann tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "arcann"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:bastila-shan": {
+      "label": "Bastila Shan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Bastila Shan tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "bastila shan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:carth-onasi": {
+      "label": "Carth Onasi",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Carth Onasi tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "carth onasi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-bane": {
+      "label": "Darth Bane",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Darth Bane tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "darth bane"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-malak": {
+      "label": "Darth Malak",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Darth Malak tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "darth malak"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-malgus": {
+      "label": "Darth Malgus",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Darth Malgus tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "darth malgus"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-nihilus": {
+      "label": "Darth Nihilus",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Darth Nihilus tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "darth nihilus"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:darth-sion": {
+      "label": "Darth Sion",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Darth Sion tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "darth sion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:exar-kun": {
+      "label": "Exar Kun",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Exar Kun tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "exar kun"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:hk-47": {
+      "label": "Hk 47",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hk 47 tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "hk 47"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jolee-bindo": {
+      "label": "Jolee Bindo",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jolee Bindo tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jolee bindo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kreia": {
+      "label": "Kreia",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Kreia tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "kreia"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:malak": {
+      "label": "Malak",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Malak tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "malak"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mandalore-the-preserver": {
+      "label": "Mandalore The Preserver",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mandalore The Preserver tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mandalore the preserver"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mandalore-the-ultimate": {
+      "label": "Mandalore The Ultimate",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mandalore The Ultimate tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mandalore the ultimate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:meetra-surik": {
+      "label": "Meetra Surik",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Meetra Surik tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "meetra surik"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mission-vao": {
+      "label": "Mission Vao",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mission Vao tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mission vao"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nomi-sunrider": {
+      "label": "Nomi Sunrider",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Nomi Sunrider tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "nomi sunrider"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:revan": {
+      "label": "Revan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Revan tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "revan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:satele-shan": {
+      "label": "Satele Shan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Satele Shan tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "satele shan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:saul-karath": {
+      "label": "Saul Karath",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Saul Karath tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "saul karath"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:thexan": {
+      "label": "Thexan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Thexan tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "thexan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ulic-qel-droma": {
+      "label": "Ulic Qel Droma",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ulic Qel Droma tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ulic qel droma"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:valkorion": {
+      "label": "Valkorion",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Valkorion tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "valkorion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:vaylin": {
+      "label": "Vaylin",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Vaylin tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "vaylin"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:vitiate": {
+      "label": "Vitiate",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Vitiate tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "vitiate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:zaalbar": {
+      "label": "Zaalbar",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Zaalbar tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "zaalbar"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:legends": {
+      "label": "Legends",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Legends tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "legends"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:ancient-old-republic": {
+      "label": "Ancient Old Republic",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ancient Old Republic tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ancient old republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:ancient-sith": {
+      "label": "Ancient Sith",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ancient Sith tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ancient sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:ancient-sith-foundations": {
+      "label": "Ancient Sith Foundations",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ancient Sith Foundations tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ancient sith foundations"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:dark-wars": {
+      "label": "Dark Wars",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dark Wars tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "dark wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:eternal-empire": {
+      "label": "Eternal Empire",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Eternal Empire tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "eternal empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:eternal-empire-crisis": {
+      "label": "Eternal Empire Crisis",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Eternal Empire Crisis tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "eternal empire crisis"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:great-galactic-war": {
+      "label": "Great Galactic War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Great Galactic War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "great galactic war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:great-hyperspace-war": {
+      "label": "Great Hyperspace War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Great Hyperspace War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "great hyperspace war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:great-sith-war": {
+      "label": "Great Sith War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Great Sith War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "great sith war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:jedi-civil-war": {
+      "label": "Jedi Civil War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Civil War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi civil war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:kotor": {
+      "label": "Kotor",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Kotor tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "kotor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:kotor-era": {
+      "label": "Kotor Era",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Kotor Era tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "kotor era"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:kotor-swtor-route-caution": {
+      "label": "Kotor Swtor Route Caution",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Kotor Swtor Route Caution tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "kotor swtor route caution"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:late-new-sith-wars": {
+      "label": "Late New Sith Wars",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Late New Sith Wars tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "late new sith wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:mandalorian-wars": {
+      "label": "Mandalorian Wars",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mandalorian Wars tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mandalorian wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:new-sith-wars": {
+      "label": "New Sith Wars",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "New Sith Wars tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "new sith wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:old-republic": {
+      "label": "Old Republic",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Old Republic tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "old republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:old-republic-cold-war": {
+      "label": "Old Republic Cold War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Old Republic Cold War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "old republic cold war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:revanite-crisis": {
+      "label": "Revanite Crisis",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Revanite Crisis tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "revanite crisis"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:ruusan": {
+      "label": "Ruusan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ruusan tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ruusan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:swtor": {
+      "label": "Swtor",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Swtor tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "swtor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:swtor-era": {
+      "label": "Swtor Era",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Swtor Era tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "swtor era"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:great-hyperspace-war": {
+      "label": "Great Hyperspace War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Great Hyperspace War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "great hyperspace war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:great-sith-war": {
+      "label": "Great Sith War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Great Sith War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "great sith war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:star-forge-campaign": {
+      "label": "Star Forge Campaign",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Star Forge Campaign tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "star forge campaign"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:treaty-of-coruscant": {
+      "label": "Treaty Of Coruscant",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Treaty Of Coruscant tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "treaty of coruscant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:czerka-corporation": {
+      "label": "Czerka Corporation",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Czerka Corporation tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "czerka corporation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:eternal-empire": {
+      "label": "Eternal Empire",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Eternal Empire tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "eternal empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:exchange": {
+      "label": "Exchange",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Exchange tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "exchange"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:galactic-republic": {
+      "label": "Galactic Republic",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Galactic Republic tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "galactic republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:hutts": {
+      "label": "Hutts",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hutts tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "hutts"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:jedi-order": {
+      "label": "Jedi Order",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Order tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi order"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:mandalorians": {
+      "label": "Mandalorians",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mandalorians tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mandalorians"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:old-sith-empire": {
+      "label": "Old Sith Empire",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Old Sith Empire tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "old sith empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:rakata": {
+      "label": "Rakata",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Rakata tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "rakata"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:revanites": {
+      "label": "Revanites",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Revanites tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "revanites"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:selkath": {
+      "label": "Selkath",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Selkath tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "selkath"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:sith": {
+      "label": "Sith",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:sith-empire": {
+      "label": "Sith Empire",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Empire tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:sith-triumvirate": {
+      "label": "Sith Triumvirate",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Triumvirate tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith triumvirate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:wookiees": {
+      "label": "Wookiees",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Wookiees tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "wookiees"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:star-wars": {
+      "label": "Star Wars",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Star Wars tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "star wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:ebon-hawk": {
+      "label": "Ebon Hawk",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ebon Hawk tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ebon hawk"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:hk-47": {
+      "label": "Hk 47",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hk 47 tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "hk 47"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:kolto": {
+      "label": "Kolto",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Kolto tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "kolto"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:lightsaber": {
+      "label": "Lightsaber",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Lightsaber tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "lightsaber"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:mass-shadow-generator": {
+      "label": "Mass Shadow Generator",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mass Shadow Generator tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mass shadow generator"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:sith-holocron": {
+      "label": "Sith Holocron",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Holocron tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith holocron"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:star-forge": {
+      "label": "Star Forge",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Star Forge tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "star forge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:star-map": {
+      "label": "Star Map",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Star Map tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "star map"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:core-worlds": {
+      "label": "Core Worlds",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Core Worlds tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "core worlds"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:coruscant": {
+      "label": "Coruscant",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Coruscant tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "coruscant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:dantooine": {
+      "label": "Dantooine",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dantooine tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "dantooine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:dromund-kaas": {
+      "label": "Dromund Kaas",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dromund Kaas tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "dromund kaas"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:dxun": {
+      "label": "Dxun",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dxun tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "dxun"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:hutt-space": {
+      "label": "Hutt Space",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hutt Space tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "hutt space"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:kashyyyk": {
+      "label": "Kashyyyk",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Kashyyyk tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "kashyyyk"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:korriban": {
+      "label": "Korriban",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Korriban tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "korriban"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:lehon": {
+      "label": "Lehon",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Lehon tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "lehon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:malachor-v": {
+      "label": "Malachor V",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Malachor V tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "malachor v"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:manaan": {
+      "label": "Manaan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Manaan tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "manaan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:mandalore": {
+      "label": "Mandalore",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mandalore tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mandalore"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:nar-shaddaa": {
+      "label": "Nar Shaddaa",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Nar Shaddaa tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "nar shaddaa"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:onderon": {
+      "label": "Onderon",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Onderon tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "onderon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:outer-rim": {
+      "label": "Outer Rim",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Outer Rim tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "outer rim"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:ruusan": {
+      "label": "Ruusan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ruusan tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ruusan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:taris": {
+      "label": "Taris",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Taris tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "taris"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:tatooine": {
+      "label": "Tatooine",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Tatooine tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "tatooine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:telos-iv": {
+      "label": "Telos Iv",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Telos Iv tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "telos iv"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:tython": {
+      "label": "Tython",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Tython tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "tython"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:unknown-regions": {
+      "label": "Unknown Regions",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Unknown Regions tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "unknown regions"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:yavin-iv": {
+      "label": "Yavin Iv",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Yavin Iv tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "yavin iv"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:zakuul": {
+      "label": "Zakuul",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Zakuul tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "zakuul"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft": {
+      "label": "Draft",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Draft tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "draft"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:old-republic": {
+      "label": "Old Republic",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Old Republic tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "old republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "structure:split-loredeck": {
+      "label": "Split Loredeck",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Split Loredeck tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "split loredeck"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ability-gates": {
+      "label": "Ability Gates",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ability Gates tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ability gates"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:academy": {
+      "label": "Academy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Academy tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "academy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:aftermath": {
+      "label": "Aftermath",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Aftermath tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "aftermath"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ancient-continuity": {
+      "label": "Ancient Continuity",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ancient Continuity tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ancient continuity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ancient-government": {
+      "label": "Ancient Government",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ancient Government tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ancient government"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ancient-knowledge": {
+      "label": "Ancient Knowledge",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ancient Knowledge tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ancient knowledge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ancient-sith": {
+      "label": "Ancient Sith",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ancient Sith tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ancient sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ancient-technology": {
+      "label": "Ancient Technology",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ancient Technology tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ancient technology"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:assassin-droid": {
+      "label": "Assassin Droid",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Assassin Droid tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "assassin droid"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:attachment": {
+      "label": "Attachment",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Attachment tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "attachment"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bacta-precursor": {
+      "label": "Bacta Precursor",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Bacta Precursor tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "bacta precursor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bane": {
+      "label": "Bane",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Bane tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "bane"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:battle-meditation": {
+      "label": "Battle Meditation",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Battle Meditation tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "battle meditation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:betrayal": {
+      "label": "Betrayal",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Betrayal tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "betrayal"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:border-politics": {
+      "label": "Border Politics",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Border Politics tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "border politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bounty": {
+      "label": "Bounty",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Bounty tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "bounty"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:capital-world": {
+      "label": "Capital World",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Capital World tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "capital world"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clan-leadership": {
+      "label": "Clan Leadership",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Clan Leadership tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "clan leadership"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clans": {
+      "label": "Clans",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Clans tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "clans"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:class-divide": {
+      "label": "Class Divide",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Class Divide tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "class divide"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:class-stories": {
+      "label": "Class Stories",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Class Stories tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "class stories"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:clone-troopers": {
+      "label": "Clone Troopers",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Clone Troopers tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "clone troopers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:cold-war": {
+      "label": "Cold War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Cold War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "cold war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:colonial-labor": {
+      "label": "Colonial Labor",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Colonial Labor tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "colonial labor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:companion-fates": {
+      "label": "Companion Fates",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Companion Fates tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "companion fates"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:companions": {
+      "label": "Companions",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Companions tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "companions"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:continuity-split": {
+      "label": "Continuity Split",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Continuity Split tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "continuity split"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:corporate-exploitation": {
+      "label": "Corporate Exploitation",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Corporate Exploitation tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "corporate exploitation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:crime": {
+      "label": "Crime",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Crime tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "crime"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:crime-syndicate": {
+      "label": "Crime Syndicate",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Crime Syndicate tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "crime syndicate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:cross-faction": {
+      "label": "Cross Faction",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Cross Faction tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "cross faction"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:crusaders": {
+      "label": "Crusaders",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Crusaders tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "crusaders"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:cult": {
+      "label": "Cult",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Cult tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "cult"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-council": {
+      "label": "Dark Council",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dark Council tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "dark council"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-humor": {
+      "label": "Dark Humor",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dark Humor tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "dark humor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-jedi": {
+      "label": "Dark Jedi",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dark Jedi tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "dark jedi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-side": {
+      "label": "Dark Side",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dark Side tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "dark side"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-side-nexus": {
+      "label": "Dark Side Nexus",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dark Side Nexus tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "dark side nexus"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-wars": {
+      "label": "Dark Wars",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dark Wars tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "dark wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dark-wars-ending": {
+      "label": "Dark Wars Ending",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Dark Wars Ending tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "dark wars ending"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:defeat": {
+      "label": "Defeat",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Defeat tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "defeat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:diaspora": {
+      "label": "Diaspora",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Diaspora tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "diaspora"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:diplomacy": {
+      "label": "Diplomacy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Diplomacy tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "diplomacy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:disney-canon-guard": {
+      "label": "Disney Canon Guard",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Disney Canon Guard tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "disney canon guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:droids": {
+      "label": "Droids",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Droids tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "droids"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:emperor": {
+      "label": "Emperor",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Emperor tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "emperor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:empire": {
+      "label": "Empire",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Empire tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:enslavement": {
+      "label": "Enslavement",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Enslavement tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "enslavement"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:equipment-guard": {
+      "label": "Equipment Guard",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Equipment Guard tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "equipment guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:era-dependent": {
+      "label": "Era Dependent",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Era Dependent tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "era dependent"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:era-separation": {
+      "label": "Era Separation",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Era Separation tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "era separation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:eternal-empire": {
+      "label": "Eternal Empire",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Eternal Empire tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "eternal empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:eternal-fleet": {
+      "label": "Eternal Fleet",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Eternal Fleet tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "eternal fleet"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:exile": {
+      "label": "Exile",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Exile tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "exile"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:expansion-guard": {
+      "label": "Expansion Guard",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Expansion Guard tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "expansion guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fallen-hero": {
+      "label": "Fallen Hero",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Fallen Hero tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "fallen hero"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fallen-heroes": {
+      "label": "Fallen Heroes",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Fallen Heroes tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "fallen heroes"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fallen-jedi": {
+      "label": "Fallen Jedi",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Fallen Jedi tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "fallen jedi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:family-conflict": {
+      "label": "Family Conflict",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Family Conflict tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "family conflict"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:films": {
+      "label": "Films",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Films tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "films"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fleet-morale": {
+      "label": "Fleet Morale",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Fleet Morale tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "fleet morale"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fleet-production": {
+      "label": "Fleet Production",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Fleet Production tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "fleet production"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-ability": {
+      "label": "Force Ability",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Force Ability tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "force ability"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-bond": {
+      "label": "Force Bond",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Force Bond tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "force bond"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-coordination": {
+      "label": "Force Coordination",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Force Coordination tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "force coordination"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-critique": {
+      "label": "Force Critique",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Force Critique tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "force critique"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-hunger": {
+      "label": "Force Hunger",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Force Hunger tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "force hunger"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-orders": {
+      "label": "Force Orders",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Force Orders tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "force orders"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-powers": {
+      "label": "Force Powers",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Force Powers tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "force powers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-tradition": {
+      "label": "Force Tradition",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Force Tradition tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "force tradition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:force-wound": {
+      "label": "Force Wound",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Force Wound tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "force wound"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:friendship": {
+      "label": "Friendship",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Friendship tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "friendship"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:frontier": {
+      "label": "Frontier",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Frontier tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "frontier"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:frontier-limits": {
+      "label": "Frontier Limits",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Frontier Limits tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "frontier limits"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-guard": {
+      "label": "Future Guard",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Future Guard tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-threat": {
+      "label": "Future Threat",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Future Threat tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "future threat"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:government": {
+      "label": "Government",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Government tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "government"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:grand-master": {
+      "label": "Grand Master",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Grand Master tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "grand master"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:great-galactic-war": {
+      "label": "Great Galactic War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Great Galactic War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "great galactic war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:great-sith-war": {
+      "label": "Great Sith War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Great Sith War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "great sith war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:grey-jedi": {
+      "label": "Grey Jedi",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Grey Jedi tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "grey jedi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hidden-empire": {
+      "label": "Hidden Empire",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hidden Empire tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "hidden empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hidden-identity": {
+      "label": "Hidden Identity",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hidden Identity tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "hidden identity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hidden-sith": {
+      "label": "Hidden Sith",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hidden Sith tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "hidden sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:high-republic": {
+      "label": "High Republic",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "High Republic tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "high republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:holocron": {
+      "label": "Holocron",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Holocron tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "holocron"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hyperspace": {
+      "label": "Hyperspace",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hyperspace tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "hyperspace"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hyperspace-route": {
+      "label": "Hyperspace Route",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Hyperspace Route tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "hyperspace route"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:identity": {
+      "label": "Identity",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Identity tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "identity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:identity-masks": {
+      "label": "Identity Masks",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Identity Masks tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "identity masks"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:identity-reveal": {
+      "label": "Identity Reveal",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Identity Reveal tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "identity reveal"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:immortal-emperor": {
+      "label": "Immortal Emperor",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Immortal Emperor tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "immortal emperor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:immortality": {
+      "label": "Immortality",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Immortality tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "immortality"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperial-capital": {
+      "label": "Imperial Capital",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Imperial Capital tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "imperial capital"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperial-politics": {
+      "label": "Imperial Politics",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Imperial Politics tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "imperial politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:infinite-empire": {
+      "label": "Infinite Empire",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Infinite Empire tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "infinite empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:influence": {
+      "label": "Influence",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Influence tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "influence"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:institutional-state": {
+      "label": "Institutional State",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Institutional State tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "institutional state"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:intervention": {
+      "label": "Intervention",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Intervention tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "intervention"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-autonomy": {
+      "label": "Jedi Autonomy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Autonomy tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi autonomy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-civil-war": {
+      "label": "Jedi Civil War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Civil War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi civil war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-code": {
+      "label": "Jedi Code",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Code tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi code"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-council": {
+      "label": "Jedi Council",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Council tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi council"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-enclave": {
+      "label": "Jedi Enclave",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Enclave tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi enclave"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-leadership": {
+      "label": "Jedi Leadership",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Leadership tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi leadership"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-losses": {
+      "label": "Jedi Losses",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Losses tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi losses"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-order": {
+      "label": "Jedi Order",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Order tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi order"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-padawan": {
+      "label": "Jedi Padawan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Padawan tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi padawan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-purge": {
+      "label": "Jedi Purge",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Purge tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi purge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-rebuilding": {
+      "label": "Jedi Rebuilding",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Rebuilding tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi rebuilding"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-restraint": {
+      "label": "Jedi Restraint",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Restraint tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi restraint"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-sith-opposition": {
+      "label": "Jedi Sith Opposition",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Sith Opposition tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi sith opposition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-skepticism": {
+      "label": "Jedi Skepticism",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Skepticism tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi skepticism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-temple": {
+      "label": "Jedi Temple",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Temple tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi temple"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:jedi-training": {
+      "label": "Jedi Training",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Jedi Training tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "jedi training"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:knights-of-zakuul": {
+      "label": "Knights Of Zakuul",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Knights Of Zakuul tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "knights of zakuul"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:kolto": {
+      "label": "Kolto",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Kolto tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "kolto"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:kreia-philosophy": {
+      "label": "Kreia Philosophy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Kreia Philosophy tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "kreia philosophy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:leadership": {
+      "label": "Leadership",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Leadership tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "leadership"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:light-side-dark-side": {
+      "label": "Light Side Dark Side",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Light Side Dark Side tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "light side dark side"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:lightsaber": {
+      "label": "Lightsaber",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Lightsaber tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "lightsaber"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:loss": {
+      "label": "Loss",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Loss tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "loss"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:malachor": {
+      "label": "Malachor",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Malachor tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "malachor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:malachor-trauma": {
+      "label": "Malachor Trauma",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Malachor Trauma tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "malachor trauma"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:malak-defeat": {
+      "label": "Malak Defeat",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Malak Defeat tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "malak defeat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mandalore-title": {
+      "label": "Mandalore Title",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mandalore Title tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mandalore title"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mandalorian-clans": {
+      "label": "Mandalorian Clans",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mandalorian Clans tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mandalorian clans"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mandalorian-crusade": {
+      "label": "Mandalorian Crusade",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mandalorian Crusade tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mandalorian crusade"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mandalorian-wars": {
+      "label": "Mandalorian Wars",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mandalorian Wars tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mandalorian wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:manipulation": {
+      "label": "Manipulation",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Manipulation tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "manipulation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:maps": {
+      "label": "Maps",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Maps tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "maps"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mass-shadow-generator": {
+      "label": "Mass Shadow Generator",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mass Shadow Generator tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mass shadow generator"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:meatbag": {
+      "label": "Meatbag",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Meatbag tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "meatbag"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:medicine": {
+      "label": "Medicine",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Medicine tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "medicine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:memory": {
+      "label": "Memory",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Memory tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "memory"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:memory-wipe": {
+      "label": "Memory Wipe",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Memory Wipe tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "memory wipe"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mercenary": {
+      "label": "Mercenary",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mercenary tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mercenary"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:military-power": {
+      "label": "Military Power",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Military Power tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "military power"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:multiple-protagonists": {
+      "label": "Multiple Protagonists",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Multiple Protagonists tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "multiple protagonists"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mutation": {
+      "label": "Mutation",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Mutation tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "mutation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:neutral-space": {
+      "label": "Neutral Space",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Neutral Space tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "neutral space"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:neutrality": {
+      "label": "Neutrality",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Neutrality tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "neutrality"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:new-sith-wars": {
+      "label": "New Sith Wars",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "New Sith Wars tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "new sith wars"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:occupation": {
+      "label": "Occupation",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Occupation tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "occupation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:old-hermit": {
+      "label": "Old Hermit",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Old Hermit tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "old hermit"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:old-republic": {
+      "label": "Old Republic",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Old Republic tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "old republic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:origin-world": {
+      "label": "Origin World",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Origin World tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "origin world"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ownership": {
+      "label": "Ownership",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ownership tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ownership"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:pain": {
+      "label": "Pain",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Pain tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "pain"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:party-hub": {
+      "label": "Party Hub",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Party Hub tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "party hub"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:personal-tragedy": {
+      "label": "Personal Tragedy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Personal Tragedy tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "personal tragedy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:planetary-bombardment": {
+      "label": "Planetary Bombardment",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Planetary Bombardment tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "planetary bombardment"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:planetary-consumption": {
+      "label": "Planetary Consumption",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Planetary Consumption tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "planetary consumption"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:player-canon": {
+      "label": "Player Canon",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Player Canon tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "player canon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:player-route": {
+      "label": "Player Route",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Player Route tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "player route"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:postwar-exhaustion": {
+      "label": "Postwar Exhaustion",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Postwar Exhaustion tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "postwar exhaustion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:prequel-guard": {
+      "label": "Prequel Guard",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Prequel Guard tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "prequel guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:profit": {
+      "label": "Profit",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Profit tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "profit"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:proxy-conflict": {
+      "label": "Proxy Conflict",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Proxy Conflict tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "proxy conflict"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-memory": {
+      "label": "Public Memory",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Public Memory tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "public memory"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-sith": {
+      "label": "Public Sith",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Public Sith tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "public sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quest-route": {
+      "label": "Quest Route",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Quest Route tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "quest route"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rakata": {
+      "label": "Rakata",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Rakata tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "rakata"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rakata-ruins": {
+      "label": "Rakata Ruins",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Rakata Ruins tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "rakata ruins"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rakghouls": {
+      "label": "Rakghouls",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Rakghouls tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "rakghouls"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:redemption": {
+      "label": "Redemption",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Redemption tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "redemption"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:refugees": {
+      "label": "Refugees",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Refugees tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "refugees"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:relocation": {
+      "label": "Relocation",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Relocation tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "relocation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:republic-instability": {
+      "label": "Republic Instability",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Republic Instability tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "republic instability"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:republic-law": {
+      "label": "Republic Law",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Republic Law tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "republic law"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:republic-officer": {
+      "label": "Republic Officer",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Republic Officer tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "republic officer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:republic-recovery": {
+      "label": "Republic Recovery",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Republic Recovery tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "republic recovery"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:republic-war": {
+      "label": "Republic War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Republic War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "republic war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:restoration-project": {
+      "label": "Restoration Project",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Restoration Project tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "restoration project"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:revan": {
+      "label": "Revan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Revan tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "revan"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:revan-fall": {
+      "label": "Revan Fall",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Revan Fall tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "revan fall"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:revan-legacy": {
+      "label": "Revan Legacy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Revan Legacy tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "revan legacy"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:revanchists": {
+      "label": "Revanchists",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Revanchists tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "revanchists"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:revanites": {
+      "label": "Revanites",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Revanites tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "revanites"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:romance": {
+      "label": "Romance",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Romance tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "romance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:route-caution": {
+      "label": "Route Caution",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Route Caution tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "route caution"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:route-choice": {
+      "label": "Route Choice",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Route Choice tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "route choice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rule-of-two": {
+      "label": "Rule Of Two",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Rule Of Two tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "rule of two"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rule-of-two-setup": {
+      "label": "Rule Of Two Setup",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Rule Of Two Setup tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "rule of two setup"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ruusan": {
+      "label": "Ruusan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ruusan tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ruusan"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sacking-of-coruscant": {
+      "label": "Sacking Of Coruscant",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sacking Of Coruscant tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sacking of coruscant"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:schism": {
+      "label": "Schism",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Schism tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "schism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret-threat": {
+      "label": "Secret Threat",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Secret Threat tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "secret threat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret-world": {
+      "label": "Secret World",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Secret World tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "secret world"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:senate": {
+      "label": "Senate",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Senate tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "senate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:senate-politics": {
+      "label": "Senate Politics",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Senate Politics tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "senate politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shadow-of-revan": {
+      "label": "Shadow Of Revan",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Shadow Of Revan tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "shadow of revan"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shadowlands": {
+      "label": "Shadowlands",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Shadowlands tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "shadowlands"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shan-lineage": {
+      "label": "Shan Lineage",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Shan Lineage tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "shan lineage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ship": {
+      "label": "Ship",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Ship tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "ship"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-alchemy": {
+      "label": "Sith Alchemy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Alchemy tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith alchemy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-apprentice": {
+      "label": "Sith Apprentice",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Apprentice tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith apprentice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-armada": {
+      "label": "Sith Armada",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Armada tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith armada"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-empire": {
+      "label": "Sith Empire",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Empire tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith empire"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-hierarchy": {
+      "label": "Sith Hierarchy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Hierarchy tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith hierarchy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-history": {
+      "label": "Sith History",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith History tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith history"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-horror": {
+      "label": "Sith Horror",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Horror tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith horror"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-invasion": {
+      "label": "Sith Invasion",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Invasion tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith invasion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-lord": {
+      "label": "Sith Lord",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Lord tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith lord"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-origin": {
+      "label": "Sith Origin",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Origin tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith origin"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-politics": {
+      "label": "Sith Politics",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Politics tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith politics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-reform": {
+      "label": "Sith Reform",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Reform tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith reform"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-return": {
+      "label": "Sith Return",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Return tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith return"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-schism": {
+      "label": "Sith Schism",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Schism tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith schism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-spirit": {
+      "label": "Sith Spirit",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Spirit tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith spirit"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-teachings": {
+      "label": "Sith Teachings",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Teachings tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith teachings"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sith-triumvirate": {
+      "label": "Sith Triumvirate",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Sith Triumvirate tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "sith triumvirate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:smuggling": {
+      "label": "Smuggling",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Smuggling tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "smuggling"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:smuggling-freighter": {
+      "label": "Smuggling Freighter",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Smuggling Freighter tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "smuggling freighter"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:spoiler": {
+      "label": "Spoiler",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Spoiler tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:spoiler-gate": {
+      "label": "Spoiler Gate",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Spoiler Gate tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "spoiler gate"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:spoiler-guard": {
+      "label": "Spoiler Guard",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Spoiler Guard tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "spoiler guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:star-forge": {
+      "label": "Star Forge",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Star Forge tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "star forge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:star-forge-location": {
+      "label": "Star Forge Location",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Star Forge Location tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "star forge location"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:star-maps": {
+      "label": "Star Maps",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Star Maps tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "star maps"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:stormtroopers": {
+      "label": "Stormtroopers",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Stormtroopers tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "stormtroopers"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:strategic-asset": {
+      "label": "Strategic Asset",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Strategic Asset tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "strategic asset"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:street-survival": {
+      "label": "Street Survival",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Street Survival tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "street survival"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:superweapon": {
+      "label": "Superweapon",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Superweapon tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "superweapon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:swtor-characters": {
+      "label": "Swtor Characters",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Swtor Characters tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "swtor characters"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:teacher": {
+      "label": "Teacher",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Teacher tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "teacher"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:temple": {
+      "label": "Temple",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Temple tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "temple"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:temporal-leakage": {
+      "label": "Temporal Leakage",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Temporal Leakage tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "temporal leakage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:third-faction": {
+      "label": "Third Faction",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Third Faction tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "third faction"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:third-power": {
+      "label": "Third Power",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Third Power tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "third power"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tombs": {
+      "label": "Tombs",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Tombs tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "tombs"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tragic-bond": {
+      "label": "Tragic Bond",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Tragic Bond tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "tragic bond"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:training": {
+      "label": "Training",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Training tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "training"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trauma": {
+      "label": "Trauma",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Trauma tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "trauma"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:travel-limits": {
+      "label": "Travel Limits",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Travel Limits tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "travel limits"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trayus-academy": {
+      "label": "Trayus Academy",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Trayus Academy tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "trayus academy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:treaty": {
+      "label": "Treaty",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Treaty tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "treaty"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:true-sith": {
+      "label": "True Sith",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "True Sith tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "true sith"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trust-issues": {
+      "label": "Trust Issues",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Trust Issues tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "trust issues"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:underworld": {
+      "label": "Underworld",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Underworld tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "underworld"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:vulnerability": {
+      "label": "Vulnerability",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Vulnerability tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "vulnerability"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war": {
+      "label": "War",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "War tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "war"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war-damage": {
+      "label": "War Damage",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "War Damage tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "war damage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war-ending": {
+      "label": "War Ending",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "War Ending tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "war ending"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:war-icons": {
+      "label": "War Icons",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "War Icons tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "war icons"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:warrior-culture": {
+      "label": "Warrior Culture",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Warrior Culture tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "warrior culture"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:wound-in-the-force": {
+      "label": "Wound In The Force",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Wound In The Force tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "wound in the force"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:zakuul": {
+      "label": "Zakuul",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Zakuul tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "zakuul"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:zakuul-culture": {
+      "label": "Zakuul Culture",
+      "color": "#3a2a14",
+      "textColor": "#f5d58a",
+      "description": "Zakuul Culture tag for Star Wars Legends Old Republic deck.",
+      "aliases": [
+        "zakuul culture"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

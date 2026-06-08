@@ -1,0 +1,1409 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_republic_is_bureaucratic_galactic_state",
+      "title": "Republic Is a Bureaucratic Galactic State",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:galactic-republic",
+        "topic:senate",
+        "topic:law",
+        "era:prequel"
+      ],
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_1_tpm",
+        "validToAnchor": "sw.film.episode_3_rots",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Prequel and Clone Wars broad window",
+        "approximate": false,
+        "phase": "Prequel Era"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant"
+        ],
+        "factions": [
+          "Galactic Republic",
+          "Galactic Senate"
+        ],
+        "topics": [
+          "Senate politics",
+          "bureaucracy",
+          "jurisdiction"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "Senate politics",
+            "bureaucracy",
+            "jurisdiction",
+            "Galactic Republic",
+            "Galactic Senate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Galactic Republic is a vast democratic state with Senate politics, bureaucracy, local autonomy, corruption, and uneven enforcement.",
+        "injection": "Pre-Empire Republic scenes should include political process, jurisdiction, local interests, and bureaucratic friction rather than a perfectly responsive central government.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Prequel and Clone Wars broad window.",
+          "Respect story-position bounds from Episode I: The Phantom Menace to Episode III: Revenge of the Sith."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_separatists_are_coalition",
+      "title": "Separatists Are a Coalition",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:separatists",
+        "event:clone-wars",
+        "faction:galactic-republic",
+        "topic:politics"
+      ],
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_2_aotc",
+        "validToAnchor": "sw.film.episode_3_rots",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Clone Wars before Revenge of the Sith",
+        "approximate": false,
+        "phase": "Clone Wars"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Confederacy of Independent Systems",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "Separatist Senate",
+          "droid army",
+          "corporate interests"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Separatist Senate",
+            "droid army",
+            "corporate interests",
+            "Confederacy of Independent Systems",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Separatist movement is a political and corporate coalition, not only a faceless droid army.",
+        "injection": "During the Clone Wars, treat Separatists as a mix of political systems, corporate interests, commanders, and droid forces.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Clone Wars before Revenge of the Sith.",
+          "Respect story-position bounds from Episode II: Attack of the Clones to Episode III: Revenge of the Sith."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_empire_uses_fear_bureaucracy_military",
+      "title": "Empire Uses Fear, Bureaucracy, and Force Projection",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:galactic-empire",
+        "character:darth-vader",
+        "character:palpatine",
+        "topic:imperial-rule"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Imperial rule before Endor",
+        "approximate": false,
+        "phase": "Imperial Era"
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Emperor Palpatine"
+        ],
+        "locations": [
+          "Core Worlds",
+          "Outer Rim"
+        ],
+        "factions": [
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Imperial rule",
+          "Moffs",
+          "stormtroopers",
+          "Navy",
+          "propaganda"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Emperor Palpatine"
+          ],
+          "locationsAny": [
+            "Core Worlds",
+            "Outer Rim"
+          ],
+          "topicsAny": [
+            "Imperial rule",
+            "Moffs",
+            "stormtroopers",
+            "Navy",
+            "propaganda",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Galactic Empire governs through military force, regional authorities, bureaucracy, propaganda, and fear.",
+        "injection": "Write the Empire as an institution, not just Vader and stormtroopers: Moffs, governors, officers, surveillance, propaganda, paperwork, and Navy presence all matter.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial rule before Endor.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Episode VI: Return of the Jedi."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_imperial_navy_controls_space",
+      "title": "Imperial Navy Controls Space",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:galactic-empire",
+        "topic:starships",
+        "topic:military",
+        "object:star-destroyer"
+      ],
+      "priority": 66,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Imperial rule before Endor",
+        "approximate": false,
+        "phase": "Imperial Era"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Imperial Navy",
+          "Star Destroyers",
+          "blockades",
+          "space control"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Imperial Navy",
+            "Star Destroyers",
+            "blockades",
+            "space control",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Imperial Navy projects power through Star Destroyers, sector fleets, blockades, patrols, carriers, customs enforcement, and orbital threat.",
+        "injection": "Use Imperial space control as a practical constraint. Smugglers and rebels must avoid patrols, inspections, scans, blockades, and overwhelming capital ships.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial rule before Endor.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Episode VI: Return of the Jedi."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_stormtroopers_are_state_force",
+      "title": "Stormtroopers Are State Force",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:galactic-empire",
+        "topic:stormtroopers",
+        "topic:military"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Imperial rule before Endor",
+        "approximate": false,
+        "phase": "Imperial Era"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Empire"
+        ],
+        "topics": [
+          "stormtroopers",
+          "occupation",
+          "boarding actions"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "stormtroopers",
+            "occupation",
+            "boarding actions",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Stormtroopers are the Empire’s iconic military/security instrument, used for occupation, boarding actions, raids, intimidation, and battlefield force.",
+        "injection": "Treat stormtroopers as trained state troops whose quality varies by unit and situation, not merely disposable comic relief.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial rule before Endor.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Episode VI: Return of the Jedi."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_moffs_have_regional_power",
+      "title": "Moffs Have Regional Power",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:galactic-empire",
+        "topic:moffs",
+        "topic:politics"
+      ],
+      "priority": 58,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Imperial rule before Endor",
+        "approximate": false,
+        "phase": "Imperial Era"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Moffs",
+          "sector governors",
+          "regional authority"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Moffs",
+            "sector governors",
+            "regional authority",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Moffs and regional governors hold major sector authority under the Empire, often controlling military and civil pressure across systems.",
+        "injection": "In Imperial political scenes, include regional governors, sector priorities, rival authorities, and local enforcement chains where relevant.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial rule before Endor.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Episode VI: Return of the Jedi."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_imperial_intelligence_and_isb_watch",
+      "title": "Imperial Intelligence Watches",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:galactic-empire",
+        "topic:intelligence",
+        "topic:secrecy",
+        "faction:rebel-alliance"
+      ],
+      "priority": 68,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Imperial rule before Endor",
+        "approximate": false,
+        "phase": "Imperial Era"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Empire",
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "ISB",
+          "Imperial Intelligence",
+          "informants",
+          "surveillance"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "ISB",
+            "Imperial Intelligence",
+            "informants",
+            "surveillance",
+            "Galactic Empire",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Imperial Intelligence, the ISB, informants, customs, and local collaborators make open resistance dangerous in Imperial space.",
+        "injection": "Resistance scenes under the Empire should account for surveillance, informants, interrogation, checkpoints, forged papers, and compartmentalized secrecy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Imperial rule before Endor.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Episode VI: Return of the Jedi."
+        ],
+        "antiLore": [
+          "Do not let general model memory override the selected Legends story position."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_rebellion_is_alliance_not_state_pre_endor",
+      "title": "Rebellion Is Not Yet a State",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:rebel-alliance",
+        "faction:galactic-empire",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "character:han-solo"
+      ],
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Rebel Alliance before Endor",
+        "approximate": false,
+        "phase": "Rebellion Era"
+      },
+      "scope": {
+        "characters": [
+          "Leia Organa",
+          "Luke Skywalker",
+          "Han Solo"
+        ],
+        "locations": [
+          "Yavin",
+          "Hoth",
+          "Rebel fleet"
+        ],
+        "factions": [
+          "Rebel Alliance",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Alliance cells",
+          "secret bases",
+          "scarcity",
+          "legitimacy"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Leia Organa",
+            "Luke Skywalker",
+            "Han Solo"
+          ],
+          "locationsAny": [
+            "Yavin",
+            "Hoth",
+            "Rebel fleet"
+          ],
+          "topicsAny": [
+            "Alliance cells",
+            "secret bases",
+            "scarcity",
+            "legitimacy",
+            "Rebel Alliance",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Endor, the Rebel Alliance is a military-political insurgency, not a recognized galactic government with secure territory everywhere.",
+        "injection": "Pre-Endor Rebel scenes should feel resource-constrained, mobile, secretive, and dependent on alliances, safehouses, and intelligence. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rebel Alliance before Endor.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_rebel_cells_compartmentalized",
+      "title": "Rebel Cells Are Compartmentalized",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:rebel-alliance",
+        "topic:secrecy",
+        "topic:intelligence"
+      ],
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_4_anh",
+        "validToAnchor": "sw.film.episode_6_rotj",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Rebel Alliance before Endor",
+        "approximate": false,
+        "phase": "Rebellion Era"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Rebel Alliance"
+        ],
+        "topics": [
+          "cells",
+          "need-to-know",
+          "safehouses",
+          "spy networks"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "cells",
+            "need-to-know",
+            "safehouses",
+            "spy networks",
+            "Rebel Alliance"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Rebel groups often compartmentalize contacts, supply routes, bases, and identities to survive Imperial pressure.",
+        "injection": "Do not make every Rebel know every base, leader, agent, or operation. Use need-to-know secrecy and fragmentary networks. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Rebel Alliance before Endor.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_new_republic_after_endor",
+      "title": "New Republic After Endor",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:new-republic",
+        "faction:rebel-alliance",
+        "era:post-endor",
+        "event:endor"
+      ],
+      "priority": 72,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_6_rotj",
+        "validToAnchor": "sw.legends.njo",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 9000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Post-Endor New Republic Legends",
+        "approximate": false,
+        "phase": "New Republic"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "New Republic",
+          "Rebel Alliance",
+          "Imperial Remnant"
+        ],
+        "topics": [
+          "New Republic",
+          "post-Endor governance",
+          "territory"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "New Republic",
+            "post-Endor governance",
+            "territory",
+            "New Republic",
+            "Rebel Alliance",
+            "Imperial Remnant"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Endor, the Rebel Alliance begins transforming into the New Republic, but legitimacy, territory, military control, and governance remain contested.",
+        "injection": "Post-Endor scenes should not make the New Republic instantly omnipotent. It inherits war, institutions, scarcity, political compromise, and Imperial holdouts.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic Legends.",
+          "Respect story-position bounds from Episode VI: Return of the Jedi to New Jedi Order Era."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_imperial_remnant_after_endor",
+      "title": "Imperial Remnant After Endor",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:imperial-remnant",
+        "faction:galactic-empire",
+        "era:post-endor"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_6_rotj",
+        "validToAnchor": "sw.legends.njo",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 9000,
+        "precision": "anchor_window",
+        "windowKind": "era",
+        "label": "Post-Endor New Republic Legends",
+        "approximate": false,
+        "phase": "New Republic"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Imperial Remnant",
+          "Galactic Empire",
+          "New Republic"
+        ],
+        "topics": [
+          "Imperial holdouts",
+          "warlords",
+          "post-Endor war"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Imperial holdouts",
+            "warlords",
+            "post-Endor war",
+            "Imperial Remnant",
+            "Galactic Empire",
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Endor, Imperial power fragments into holdouts, warlords, fleets, loyalist territory, and eventually more formal Remnant structures in Legends.",
+        "injection": "Post-Endor Legends should retain Imperial danger through splinter forces, warlords, fleets, and loyalist systems rather than treating Endor as instant total collapse.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Post-Endor New Republic Legends.",
+          "Respect story-position bounds from Episode VI: Return of the Jedi to New Jedi Order Era."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_criminal_powers_fill_gaps",
+      "title": "Criminal Powers Fill Authority Gaps",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "faction:hutts",
+        "faction:underworld",
+        "place:outer-rim",
+        "topic:crime"
+      ],
+      "priority": 62,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Outer Rim",
+          "Hutt Space"
+        ],
+        "factions": [
+          "Hutts",
+          "Criminal underworld"
+        ],
+        "topics": [
+          "bounties",
+          "smuggling",
+          "crime syndicates"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Outer Rim",
+            "Hutt Space"
+          ],
+          "topicsAny": [
+            "bounties",
+            "smuggling",
+            "crime syndicates",
+            "Hutts",
+            "Criminal underworld"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hutt clans, syndicates, bounty brokers, smugglers, and local strongmen exploit weak state control across the Outer Rim and contested territories.",
+        "injection": "Where central authority is weak, let criminal and local powers matter: debts, favors, protection, spice, bounties, and private enforcement shape scenes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_mandalorian_identity_varies_by_era",
+      "title": "Mandalorian Identity Varies by Era",
+      "kind": "rule_constraint",
+      "gateType": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "branch_fact",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "faction:mandalorians",
+        "topic:continuity",
+        "topic:future-guard"
+      ],
+      "priority": 56,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Mandalorians"
+        ],
+        "topics": [
+          "Mandalorian culture",
+          "armor",
+          "clans",
+          "source boundary"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Mandalorian culture",
+            "armor",
+            "clans",
+            "source boundary",
+            "Mandalorians"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Mandalorians are a culture and martial tradition whose politics, leadership, armor customs, and faction state vary heavily by era and source.",
+        "injection": "Do not flatten all Mandalorians into one uniform faction. Use era/source context before assigning leaders, loyalties, armor rules, or politics.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_legends_core_chiss_are_unknown_regions_power",
+      "title": "Chiss Are Unknown Regions Power",
+      "kind": "location_state",
+      "gateType": "location_state",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "location_state",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "faction:chiss-ascendancy",
+        "place:unknown-regions",
+        "character:thrawn",
+        "topic:future-guard"
+      ],
+      "priority": 52,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.legends.era.begin",
+        "validToAnchor": "sw.legends.era.end",
+        "sortKeyFrom": 0,
+        "sortKeyTo": 10000,
+        "precision": "anchor_window",
+        "windowKind": "series",
+        "label": "Broad Star Wars Legends continuity",
+        "approximate": false,
+        "phase": "Legends Core"
+      },
+      "scope": {
+        "characters": [
+          "Thrawn"
+        ],
+        "locations": [
+          "Unknown Regions"
+        ],
+        "factions": [
+          "Chiss Ascendancy"
+        ],
+        "topics": [
+          "Chiss",
+          "Unknown Regions",
+          "isolation"
+        ]
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Thrawn"
+          ],
+          "locationsAny": [
+            "Unknown Regions"
+          ],
+          "topicsAny": [
+            "Chiss",
+            "Unknown Regions",
+            "isolation",
+            "Chiss Ascendancy"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Chiss Ascendancy is an isolated Unknown Regions power; most Core or Imperial citizens do not treat Chiss politics as everyday knowledge.",
+        "injection": "Use the Chiss as regionally opaque and politically distinct. Do not make Chiss society common public knowledge in ordinary Core/Rebellion scenes.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Broad Star Wars Legends continuity.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "sourceBoundary": "Broad Star Wars Legends continuity scaffold; intended to be stacked under narrower era/source decks."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "Core Legends baseline",
+        "confidence": 0.72,
+        "notes": "Drafted as reusable Saga core lore, not as exhaustive encyclopedia coverage."
+      },
+      "extensions": {}
+    }
+  ]
+}

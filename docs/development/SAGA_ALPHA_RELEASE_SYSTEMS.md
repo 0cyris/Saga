@@ -111,7 +111,7 @@ Tag registry, namespaced tags, tag manager, bulk tag edits, malformed tag repair
 
 ### 15. Import, Export, And Update System
 
-Individual `.saga-loredeck.json` export, selected bulk export, local import, URL/GitHub import, update preview, canonical content-hash comparison, declared-hash mismatch warnings, collision handling, local modification warnings, and Custom-copy installation behavior.
+Current implementation uses `.saga-loredeck.zip` packages for the front-facing Library import/export workflow. Packages mirror bundled Loredeck folders, carry indexes/manifests/registries/covers, and preserve safe preview, content-hash comparison, collision handling, folder placement, and Custom-copy installation behavior. URL/GitHub package import and update checks are deferred until the local package path is stable. The package plan lives in [LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md](LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md).
 
 ### 16. Loredeck Creator
 

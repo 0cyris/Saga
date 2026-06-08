@@ -1,0 +1,424 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_corellian_crisis_local_autonomy_pressure",
+      "title": "Corellian Crisis Centers Local Autonomy Pressure",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.corellian_crisis",
+        "validToAnchor": "sw.nr.corellian_crisis",
+        "sortKeyFrom": 16000,
+        "sortKeyTo": 16000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Corellian Crisis",
+        "phase": "Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Corellia",
+          "Centerpoint Station"
+        ],
+        "topics": [
+          "politics",
+          "government",
+          "superweapon"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "place:centerpoint-station",
+        "place:corellia",
+        "scope:new-republic",
+        "topic:government",
+        "topic:politics",
+        "topic:superweapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "politics",
+            "government",
+            "superweapon"
+          ],
+          "locationsAny": [
+            "Corellia",
+            "Centerpoint Station"
+          ],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Corellian crisis tests New Republic unity through local autonomy, Corellian identity, and Centerpoint Station stakes.",
+        "injection": "During Corellian Crisis context, emphasize internal Republic fracture and local politics more than Imperial invasion.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Corellian Crisis.",
+          "Respect story-position bounds from Corellian Crisis to Corellian Crisis."
+        ],
+        "antiLore": [
+          "Do not skip ahead to later character, faction, relationship, location, or event states."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/mid_new_republic_crises.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_centerpoint_not_generic_space_station",
+      "title": "Centerpoint Is Not a Generic Station",
+      "kind": "knowledge_gate",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.corellian_crisis",
+        "validToAnchor": "sw.nr.corellian_crisis",
+        "sortKeyFrom": 16000,
+        "sortKeyTo": 16000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Corellian Crisis",
+        "phase": "Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Corellia"
+        ],
+        "topics": [
+          "superweapon",
+          "future guard"
+        ],
+        "objects": [
+          "Centerpoint Station"
+        ],
+        "spells": [],
+        "factions": []
+      },
+      "tags": [
+        "continuity:legends",
+        "fandom:star-wars",
+        "object:centerpoint-station",
+        "place:corellia",
+        "scope:new-republic",
+        "topic:future-guard",
+        "topic:superweapon"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "superweapon",
+            "future guard"
+          ],
+          "locationsAny": [
+            "Corellia"
+          ],
+          "factionsAny": []
+        }
+      },
+      "content": {
+        "fact": "Centerpoint Station carries ancient and dangerous system-scale capabilities, not ordinary orbital infrastructure.",
+        "injection": "In Corellian Crisis, only use Centerpoint as a massive ancient strategic object when Corellian Crisis context or explicit premise supports it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Corellian Crisis.",
+          "Respect story-position bounds from Corellian Crisis to Corellian Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/mid_new_republic_crises.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_black_fleet_crisis_political_military_separate",
+      "title": "Black Fleet Crisis Has Military and Political Separation",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.nr.black_fleet_crisis",
+        "validToAnchor": "sw.nr.black_fleet_crisis",
+        "sortKeyFrom": 17000,
+        "sortKeyTo": 17000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Black Fleet Crisis",
+        "phase": "Mid New Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "fleet",
+          "politics",
+          "military logistics"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic",
+          "Yevetha"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:new-republic",
+        "faction:yevetha",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:fleet",
+        "topic:military-logistics",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "fleet",
+            "politics",
+            "military logistics"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic",
+            "Yevetha"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Black Fleet Crisis combines external military threat, New Republic politics, and personal search threads without being an Imperial Remnant campaign.",
+        "injection": "If using Black Fleet context, do not default the enemy to Imperial Remnant; keep the Yevetha-specific conflict distinct.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Black Fleet Crisis.",
+          "Respect story-position bounds from Black Fleet Crisis to Black Fleet Crisis."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/mid_new_republic_crises.json",
+          "generatedStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_nr_mid_era_threats_not_all_sith",
+      "title": "Mid-Era Threats Are Not All Sith",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.nr.praxeum_stabilizes",
+        "validToAnchor": "sw.nr.caamas_document_crisis",
+        "sortKeyFrom": 15000,
+        "sortKeyTo": 18000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Mid New Republic crises",
+        "phase": "Mid New Republic to Hand of Thrawn Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "topics": [
+          "politics",
+          "military logistics",
+          "jedi"
+        ],
+        "objects": [],
+        "spells": [],
+        "factions": [
+          "New Republic"
+        ]
+      },
+      "tags": [
+        "continuity:legends",
+        "faction:new-republic",
+        "fandom:star-wars",
+        "scope:new-republic",
+        "topic:jedi",
+        "topic:military-logistics",
+        "topic:politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "topicsAny": [
+            "politics",
+            "military logistics",
+            "jedi"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "New Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Many mid-New Republic threats are political, military, local, or alien-state conflicts rather than Sith plots.",
+        "injection": "Do not force every New Republic crisis into Jedi/Sith structure; use the appropriate faction and pressure type. Use this as a background rule only; narrower active era/source cards should override it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Mid New Republic crises.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "mixed",
+        "medium": "novel-comic-game-film-reference",
+        "sourceBoundary": "Legends post-Endor New Republic material from the immediate aftermath of Return of the Jedi through the Hand of Thrawn peace settlement, before the New Jedi Order era begins.",
+        "notes": "Development deck. Keep separate from Disney canon post-Endor and sequel-era continuity."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "mixed",
+        "title": "New Republic era / Bantam-era Expanded Universe",
+        "confidence": 0.78,
+        "notes": "Generated development Lorecard pending human review."
+      },
+      "extensions": {
+        "sagaLoredeck": {
+          "packId": "sw-legends-new-republic",
+          "packTitle": "Star Wars Legends: New Republic",
+          "file": "events/mid_new_republic_crises.json",
+          "generatedStatus": "draft"
+        }
+      }
+    }
+  ]
+}

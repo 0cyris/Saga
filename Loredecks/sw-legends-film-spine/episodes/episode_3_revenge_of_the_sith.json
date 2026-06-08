@@ -1,0 +1,2374 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-08",
+  "sourcePackId": "sw-legends-film-spine",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_opening_clone_wars_still_active",
+      "title": "Revenge Opens with Clone Wars Still Active",
+      "kind": "event_anchor",
+      "gateType": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:clone-wars",
+        "faction:separatists",
+        "fandom:star-wars",
+        "location:coruscant",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.episode_3_rots",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 3000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Episode III: Revenge of the Sith",
+        "phase": "Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Coruscant"
+        ],
+        "factions": [
+          "Galactic Republic",
+          "Separatists",
+          "Jedi Order"
+        ],
+        "topics": [
+          "Clone Wars",
+          "Coruscant battle"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "Clone Wars",
+            "Coruscant battle",
+            "Galactic Republic",
+            "Separatists",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "At the start of Revenge of the Sith, the Clone Wars are still active and Coruscant itself has been attacked.",
+        "injection": "In Episode III: Revenge of the Sith, early ROTS scenes should still treat the galaxy as a Republic-Separatist war zone, not yet as a settled Empire.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode III: Revenge of the Sith.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Episode III: Revenge of the Sith."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_palpatine_captive_public_victim",
+      "title": "Palpatine Publicly Appears as Captive Victim",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-sidious",
+        "character:palpatine",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:identity-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_palpatine_rescued",
+        "validToAnchor": "sw.film.rots_palpatine_rescued",
+        "sortKeyFrom": 3020,
+        "sortKeyTo": 3020,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Palpatine Rescued from Invisible Hand",
+        "phase": "Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Darth Sidious",
+          "Anakin Skywalker",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [],
+        "factions": [
+          "Galactic Republic",
+          "Sith"
+        ],
+        "topics": [
+          "kidnapping",
+          "hidden orchestration"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Darth Sidious",
+            "Anakin Skywalker",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "kidnapping",
+            "hidden orchestration",
+            "Galactic Republic",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "During the Invisible Hand crisis, Palpatine publicly appears as a kidnapped chancellor rather than as the hidden Sith architect.",
+        "injection": "Keep Palpatine’s public role as victim and chancellor separate from his hidden orchestration unless the scene has Sith-side knowledge.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Palpatine Rescued from Invisible Hand.",
+          "Respect story-position bounds from Palpatine Rescued from Invisible Hand to Palpatine Rescued from Invisible Hand."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_dooku_killed_by_anakin",
+      "title": "Dooku Dies by Anakin’s Hand",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:count-dooku",
+        "continuity:legends",
+        "faction:separatists",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_palpatine_rescued",
+        "validToAnchor": "sw.film.rots_palpatine_rescued",
+        "sortKeyFrom": 3020,
+        "sortKeyTo": 3020,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Palpatine Rescued from Invisible Hand",
+        "phase": "Clone Wars",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Count Dooku",
+          "Anakin Skywalker",
+          "Palpatine"
+        ],
+        "locations": [],
+        "factions": [
+          "Separatists",
+          "Sith"
+        ],
+        "topics": [
+          "Dooku death",
+          "Sith manipulation"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Count Dooku",
+            "Anakin Skywalker",
+            "Palpatine"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Dooku death",
+            "Sith manipulation",
+            "Separatists",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin kills Count Dooku during the rescue of Palpatine, removing the visible Separatist Sith figure.",
+        "injection": "After Dooku dies, do not keep him active as the public Separatist leader unless using an alternate branch or earlier Context.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Palpatine Rescued from Invisible Hand.",
+          "Respect story-position bounds from Palpatine Rescued from Invisible Hand to Palpatine Rescued from Invisible Hand."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_padme_pregnancy_secret",
+      "title": "Padme Pregnancy Is Private",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:padme-amidala",
+        "continuity:legends",
+        "fandom:star-wars",
+        "relationship:secret-marriage",
+        "scope:film-spine",
+        "topic:secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.rots_vader_armored",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 3300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode III: Revenge of the Sith",
+        "phase": "Clone Wars to Imperial Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Padme Amidala",
+          "Anakin Skywalker"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "pregnancy",
+          "secret marriage"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Padme Amidala",
+            "Anakin Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "pregnancy",
+            "secret marriage"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Padme’s pregnancy is private and politically dangerous because of her secret marriage to Anakin.",
+        "injection": "During ROTS, keep Padme’s pregnancy and marriage context private unless the scene includes someone who has been told or discovers it.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode III: Revenge of the Sith.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Darth Vader Armored."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_anakin_council_seat_no_master_rank",
+      "title": "Anakin Gets Council Seat Without Master Rank",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:anakin-skywalker",
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "location:coruscant",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.rots_vader_armored",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 3300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode III: Revenge of the Sith",
+        "phase": "Clone Wars to Imperial Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Mace Windu",
+          "Yoda"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "Jedi Council",
+          "Master rank",
+          "mistrust"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Mace Windu",
+            "Yoda"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi Council",
+            "Master rank",
+            "mistrust",
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin is placed on the Jedi Council but denied the rank of Master, worsening his resentment.",
+        "injection": "During ROTS, Anakin can sit on the Council while still feeling humiliated and mistrusted because he is not granted Master rank.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode III: Revenge of the Sith.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Darth Vader Armored."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_jedi_suspect_palpatine_power_grab",
+      "title": "Jedi Suspect Palpatine’s Power Grab",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "tags": [
+        "character:palpatine",
+        "continuity:legends",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:knowledge-gate"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.rots_vader_armored",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 3300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode III: Revenge of the Sith",
+        "phase": "Clone Wars to Imperial Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Mace Windu",
+          "Yoda",
+          "Anakin Skywalker"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic"
+        ],
+        "topics": [
+          "emergency powers",
+          "Jedi suspicion"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Mace Windu",
+            "Yoda",
+            "Anakin Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "emergency powers",
+            "Jedi suspicion",
+            "Jedi Order",
+            "Galactic Republic"
+          ]
+        }
+      },
+      "content": {
+        "fact": "By ROTS, the Jedi Council distrusts Palpatine’s emergency powers and political control, but they do not initially know he is Sidious.",
+        "injection": "Write Jedi suspicion of Palpatine as political and spiritual alarm before the Sith identity reveal, not as automatic full knowledge.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode III: Revenge of the Sith.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Darth Vader Armored."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_sidious_reveals_to_anakin",
+      "title": "Sidious Reveals Himself to Anakin",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:darth-sidious",
+        "character:palpatine",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:identity-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.episode_3_rots",
+        "validToAnchor": "sw.film.rots_vader_armored",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 3300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Episode III: Revenge of the Sith",
+        "phase": "Clone Wars to Imperial Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine",
+          "Darth Sidious",
+          "Anakin Skywalker"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ],
+        "topics": [
+          "Sith reveal",
+          "private knowledge"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine",
+            "Darth Sidious",
+            "Anakin Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Sith reveal",
+            "private knowledge",
+            "Sith",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Palpatine reveals his Sith identity to Anakin before the Jedi fully expose him.",
+        "injection": "After Sidious reveals himself to Anakin, Anakin has private knowledge the Jedi Council must still be told or act upon.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Episode III: Revenge of the Sith.",
+          "Respect story-position bounds from Episode III: Revenge of the Sith to Darth Vader Armored."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_anakin_falls_after_mace_confrontation",
+      "title": "Anakin Falls After Mace Confrontation",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:mace-windu",
+        "character:palpatine",
+        "continuity:legends",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_anakin_falls",
+        "validToAnchor": "sw.film.rots_anakin_falls",
+        "sortKeyFrom": 3140,
+        "sortKeyTo": 3140,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Anakin Falls to the Dark Side",
+        "phase": "Fall of the Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Palpatine",
+          "Mace Windu"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith",
+          "Jedi Order"
+        ],
+        "topics": [
+          "fall to dark side",
+          "Mace confrontation"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Palpatine",
+            "Mace Windu"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "fall to dark side",
+            "Mace confrontation",
+            "Sith",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Anakin’s decisive fall comes during the confrontation between Mace Windu and Palpatine.",
+        "injection": "After the Mace-Palpatine confrontation, Anakin has chosen Sidious and should be treated as fallen unless the story branches.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Anakin Falls to the Dark Side.",
+          "Respect story-position bounds from Anakin Falls to the Dark Side to Anakin Falls to the Dark Side."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_vader_name_after_fall",
+      "title": "Darth Vader Name Applies After Fall",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:darth-vader",
+        "continuity:legends",
+        "faction:sith",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_anakin_falls",
+        "validToAnchor": "sw.film.rots_anakin_falls",
+        "sortKeyFrom": 3140,
+        "sortKeyTo": 3140,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Anakin Falls to the Dark Side",
+        "phase": "Fall of the Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Anakin Skywalker",
+          "Darth Vader",
+          "Palpatine"
+        ],
+        "locations": [],
+        "factions": [
+          "Sith"
+        ],
+        "topics": [
+          "Sith naming",
+          "identity shift"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "private"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Anakin Skywalker",
+            "Darth Vader",
+            "Palpatine"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Sith naming",
+            "identity shift",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Palpatine names Anakin Darth Vader after Anakin’s fall to the dark side.",
+        "injection": "Use Darth Vader for Anakin only after Sidious names him, unless a scene deliberately uses future knowledge or prophecy.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Anakin Falls to the Dark Side.",
+          "Respect story-position bounds from Anakin Falls to the Dark Side to Anakin Falls to the Dark Side."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_order66_purges_jedi",
+      "title": "Order 66 Purges the Jedi",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:order-66",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "object:clone-army",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_order66",
+        "validToAnchor": "sw.film.rots_order66",
+        "sortKeyFrom": 3180,
+        "sortKeyTo": 3180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Order 66",
+        "phase": "Fall of the Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Republic",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Jedi purge",
+          "clone betrayal"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi purge",
+            "clone betrayal",
+            "Jedi Order",
+            "Galactic Republic",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Order 66 turns clone forces against the Jedi and destroys the Jedi Order as a galactic institution.",
+        "injection": "After Order 66, surviving Jedi should be isolated, hunted, or hidden; do not portray the prewar Jedi Order as still openly functioning.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Order 66.",
+          "Respect story-position bounds from Order 66 to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_clones_loyal_to_order66",
+      "title": "Clone Troops Enforce Order 66",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:order-66",
+        "faction:galactic-empire",
+        "fandom:star-wars",
+        "object:clone-army",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_order66",
+        "validToAnchor": "sw.film.rots_order66",
+        "sortKeyFrom": 3180,
+        "sortKeyTo": 3180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Order 66",
+        "phase": "Fall of the Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Galactic Republic",
+          "Galactic Empire",
+          "Jedi Order"
+        ],
+        "topics": [
+          "clone loyalty",
+          "Jedi survival"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "clone loyalty",
+            "Jedi survival",
+            "Galactic Republic",
+            "Galactic Empire",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The clone army executes Order 66 as a system-level betrayal from the Jedi perspective.",
+        "injection": "After Order 66, treat clone forces as dangerous to Jedi survivors unless a specific individual or story branch establishes otherwise.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Order 66.",
+          "Respect story-position bounds from Order 66 to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_yoda_obiwan_survive_purge",
+      "title": "Yoda and Obi-Wan Survive the Purge",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:obi-wan-kenobi",
+        "character:yoda",
+        "continuity:legends",
+        "event:order-66",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_order66",
+        "validToAnchor": "sw.film.rots_order66",
+        "sortKeyFrom": 3180,
+        "sortKeyTo": 3180,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Order 66",
+        "phase": "Fall of the Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Yoda",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [],
+        "factions": [
+          "Jedi Order"
+        ],
+        "topics": [
+          "Jedi survivors",
+          "exile"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yoda",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi survivors",
+            "exile",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Yoda and Obi-Wan survive Order 66 and become hidden survivors rather than active public leaders.",
+        "injection": "After ROTS, Yoda and Obi-Wan should be written as hidden exiles or secret mentors, not open commanders of the Jedi Order.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Order 66.",
+          "Respect story-position bounds from Order 66 to Order 66."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_empire_declared_republic_ends",
+      "title": "Empire Declared and Republic Ends",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "event:empire-declared",
+        "faction:galactic-empire",
+        "faction:galactic-republic",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_empire_declared",
+        "validToAnchor": "sw.film.rots_empire_declared",
+        "sortKeyFrom": 3220,
+        "sortKeyTo": 3220,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Empire Declared",
+        "phase": "Fall of the Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Palpatine"
+        ],
+        "locations": [
+          "Coruscant"
+        ],
+        "factions": [
+          "Galactic Republic",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Empire declaration",
+          "Senate applause"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Coruscant"
+          ],
+          "topicsAny": [
+            "Empire declaration",
+            "Senate applause",
+            "Galactic Republic",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Palpatine transforms the Republic into the Galactic Empire with public legitimacy and Senate support.",
+        "injection": "After the Empire is declared, use Imperial institutions, propaganda, and authoritarian rule rather than normal Republic governance.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Empire Declared.",
+          "Respect story-position bounds from Empire Declared to Empire Declared."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_mustafar_separatist_leaders_killed",
+      "title": "Separatist Leadership Killed on Mustafar",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:darth-vader",
+        "continuity:legends",
+        "faction:separatists",
+        "fandom:star-wars",
+        "location:mustafar",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_anakin_falls",
+        "validToAnchor": "sw.film.rots_anakin_falls",
+        "sortKeyFrom": 3140,
+        "sortKeyTo": 3140,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Anakin Falls to the Dark Side",
+        "phase": "Fall of the Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader"
+        ],
+        "locations": [
+          "Mustafar"
+        ],
+        "factions": [
+          "Separatists",
+          "Sith"
+        ],
+        "topics": [
+          "Separatist leadership purge"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader"
+          ],
+          "locationsAny": [
+            "Mustafar"
+          ],
+          "topicsAny": [
+            "Separatist leadership purge",
+            "Separatists",
+            "Sith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Vader kills the Separatist leaders on Mustafar, ending their usefulness to Sidious.",
+        "injection": "After Mustafar, do not portray the Separatist Council as an active strategic leadership body unless using an alternate branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Anakin Falls to the Dark Side.",
+          "Respect story-position bounds from Anakin Falls to the Dark Side to Anakin Falls to the Dark Side."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_padme_confronts_vader_on_mustafar",
+      "title": "Padme Confronts Fallen Anakin on Mustafar",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:darth-vader",
+        "character:padme-amidala",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:mustafar",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_anakin_falls",
+        "validToAnchor": "sw.film.rots_anakin_falls",
+        "sortKeyFrom": 3140,
+        "sortKeyTo": 3140,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Anakin Falls to the Dark Side",
+        "phase": "Fall of the Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Padme Amidala",
+          "Anakin Skywalker",
+          "Darth Vader",
+          "Obi-Wan Kenobi"
+        ],
+        "locations": [
+          "Mustafar"
+        ],
+        "factions": [],
+        "topics": [
+          "relationship collapse",
+          "dark-side violence"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Padme Amidala",
+            "Anakin Skywalker",
+            "Darth Vader",
+            "Obi-Wan Kenobi"
+          ],
+          "locationsAny": [
+            "Mustafar"
+          ],
+          "topicsAny": [
+            "relationship collapse",
+            "dark-side violence"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Padme confronts Anakin on Mustafar after his fall, and their relationship collapses under his violence and paranoia.",
+        "injection": "In Anakin Falls to the Dark Side, on Mustafar, do not write Anakin and Padme as merely strained lovers; his fall has become dangerous and coercive.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Anakin Falls to the Dark Side.",
+          "Respect story-position bounds from Anakin Falls to the Dark Side to Anakin Falls to the Dark Side."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_obiwan_defeats_anakin",
+      "title": "Obi-Wan Defeats Anakin on Mustafar",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:darth-vader",
+        "character:obi-wan-kenobi",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:mustafar",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_vader_armored",
+        "validToAnchor": "sw.film.rots_vader_armored",
+        "sortKeyFrom": 3300,
+        "sortKeyTo": 3300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Darth Vader Armored",
+        "phase": "Imperial Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Obi-Wan Kenobi",
+          "Darth Vader",
+          "Anakin Skywalker",
+          "Palpatine"
+        ],
+        "locations": [
+          "Mustafar"
+        ],
+        "factions": [],
+        "topics": [
+          "Mustafar duel",
+          "Vader injury"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Obi-Wan Kenobi",
+            "Darth Vader",
+            "Anakin Skywalker",
+            "Palpatine"
+          ],
+          "locationsAny": [
+            "Mustafar"
+          ],
+          "topicsAny": [
+            "Mustafar duel",
+            "Vader injury"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Obi-Wan defeats Anakin on Mustafar, leaving him horribly injured before Palpatine retrieves him.",
+        "injection": "After Mustafar, Vader’s armored state and dependence on life support become valid; before this point, he should not be described as armored cyborg Vader.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Darth Vader Armored.",
+          "Respect story-position bounds from Darth Vader Armored to Darth Vader Armored."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_luke_leia_birth_hidden",
+      "title": "Luke and Leia Are Born in Secret",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:darth-vader",
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:family-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_padme_dies_twins_hidden",
+        "validToAnchor": "sw.film.rots_padme_dies_twins_hidden",
+        "sortKeyFrom": 3280,
+        "sortKeyTo": 3280,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Padme Dies and the Twins Are Hidden",
+        "phase": "Fall of the Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Padme Amidala",
+          "Darth Vader"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "hidden twins",
+          "family secret"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Padme Amidala",
+            "Darth Vader"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "hidden twins",
+            "family secret"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke and Leia are born in secret as Anakin and Padme’s twins.",
+        "injection": "After ROTS, Luke and Leia exist as hidden twins; ordinary characters should not know they are Vader’s children or each other’s siblings.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Padme Dies and the Twins Are Hidden.",
+          "Respect story-position bounds from Padme Dies and the Twins Are Hidden to Padme Dies and the Twins Are Hidden."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_padme_dies_after_birth",
+      "title": "Padme Dies After the Twins’ Birth",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "character:padme-amidala",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:status-change"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_padme_dies_twins_hidden",
+        "validToAnchor": "sw.film.rots_padme_dies_twins_hidden",
+        "sortKeyFrom": 3280,
+        "sortKeyTo": 3280,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Padme Dies and the Twins Are Hidden",
+        "phase": "Fall of the Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Padme Amidala",
+          "Luke Skywalker",
+          "Leia Organa"
+        ],
+        "locations": [],
+        "factions": [],
+        "topics": [
+          "Padme death"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Padme Amidala",
+            "Luke Skywalker",
+            "Leia Organa"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "Padme death"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Padme dies after giving birth to Luke and Leia.",
+        "injection": "After ROTS, Padme should not be active in ordinary continuity scenes except through memory, records, visions, or an alternate branch.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Padme Dies and the Twins Are Hidden.",
+          "Respect story-position bounds from Padme Dies and the Twins Are Hidden to Padme Dies and the Twins Are Hidden."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_rots_twins_split_tatooine_alderaan",
+      "title": "Twins Split Between Tatooine and Alderaan",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:leia-organa",
+        "character:luke-skywalker",
+        "continuity:legends",
+        "fandom:star-wars",
+        "location:alderaan",
+        "location:tatooine",
+        "scope:film-spine",
+        "topic:family-secret"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "anchor",
+        "validFromAnchor": "sw.film.rots_padme_dies_twins_hidden",
+        "validToAnchor": "sw.film.rots_padme_dies_twins_hidden",
+        "sortKeyFrom": 3280,
+        "sortKeyTo": 3280,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Padme Dies and the Twins Are Hidden",
+        "phase": "Fall of the Republic",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Luke Skywalker",
+          "Leia Organa",
+          "Owen Lars",
+          "Beru Lars",
+          "Bail Organa"
+        ],
+        "locations": [
+          "Tatooine",
+          "Alderaan"
+        ],
+        "factions": [],
+        "topics": [
+          "hidden children",
+          "adoption",
+          "Lars homestead"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Luke Skywalker",
+            "Leia Organa",
+            "Owen Lars",
+            "Beru Lars",
+            "Bail Organa"
+          ],
+          "locationsAny": [
+            "Tatooine",
+            "Alderaan"
+          ],
+          "topicsAny": [
+            "hidden children",
+            "adoption",
+            "Lars homestead"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Luke is hidden with the Lars family on Tatooine while Leia is adopted by Bail Organa and raised on Alderaan.",
+        "injection": "After ROTS and before ANH, Luke belongs to the Tatooine farm context while Leia belongs to Alderaan’s royal/political context; their sibling link remains hidden.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: Padme Dies and the Twins Are Hidden.",
+          "Respect story-position bounds from Padme Dies and the Twins Are Hidden to Padme Dies and the Twins Are Hidden."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_rots_vader_identity_hidden",
+      "title": "Vader Identity Hidden After ROTS",
+      "kind": "secret",
+      "gateType": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "lorePurpose": "secret",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "tags": [
+        "character:anakin-skywalker",
+        "character:darth-vader",
+        "continuity:legends",
+        "fandom:star-wars",
+        "scope:film-spine",
+        "topic:identity-secret",
+        "topic:spoiler-guard"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.rots_vader_armored",
+        "validToAnchor": "sw.film.episode_4_anh",
+        "sortKeyFrom": 3300,
+        "sortKeyTo": 5000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Revenge of the Sith, before A New Hope",
+        "phase": "Imperial Era to Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [
+          "Darth Vader",
+          "Anakin Skywalker"
+        ],
+        "locations": [],
+        "factions": [
+          "Galactic Empire",
+          "Jedi Order"
+        ],
+        "topics": [
+          "identity secret"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "do_not_reveal"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Darth Vader",
+            "Anakin Skywalker"
+          ],
+          "locationsAny": [],
+          "topicsAny": [
+            "identity secret",
+            "Galactic Empire",
+            "Jedi Order"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After ROTS, Darth Vader’s identity as Anakin Skywalker is not public knowledge.",
+        "injection": "In Imperial-era scenes, do not let ordinary Imperials, Rebels, or civilians know Vader was Anakin Skywalker unless source/context establishes that knowledge.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Revenge of the Sith, before A New Hope.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "sw_film_spine_post_rots_jedi_order_dead_not_forgotten",
+      "title": "Jedi Order Destroyed but Not Erased",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "knowledge",
+      "relevance": "high",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "canon": "canon",
+      "canonStatus": "canon",
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "tags": [
+        "continuity:legends",
+        "era:imperial",
+        "faction:galactic-empire",
+        "faction:jedi-order",
+        "fandom:star-wars",
+        "scope:film-spine"
+      ],
+      "priority": 70,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "sw.film.rots_vader_armored",
+        "validToAnchor": "sw.film.episode_4_anh",
+        "sortKeyFrom": 3300,
+        "sortKeyTo": 5000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "After Revenge of the Sith, before A New Hope",
+        "phase": "Imperial Era to Rebellion Era",
+        "approximate": false
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "factions": [
+          "Jedi Order",
+          "Galactic Empire"
+        ],
+        "topics": [
+          "Jedi purge",
+          "Imperial propaganda",
+          "survivors"
+        ],
+        "objects": []
+      },
+      "visibility": {
+        "revealPolicy": "public"
+      },
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "topicsAny": [
+            "Jedi purge",
+            "Imperial propaganda",
+            "survivors",
+            "Jedi Order",
+            "Galactic Empire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After ROTS, the Jedi Order is destroyed as an institution, but memories, records, survivors, and Imperial propaganda still shape how people understand it.",
+        "injection": "In Imperial-era scenes, portray the Jedi as purged and dangerous to discuss, not as a normal active public order.",
+        "constraints": [
+          "Apply only when the active Saga Context overlaps: After Revenge of the Sith, before A New Hope.",
+          "Keep retrieval topic/entity-gated; this wide-context card should not flood unrelated scenes."
+        ],
+        "antiLore": [
+          "Do not treat later-era, alternate-continuity, or fanon facts as true in this Context unless the user explicitly selected that branch."
+        ],
+        "notes": "Generated development draft; verify during Saga review."
+      },
+      "continuity": {
+        "continuityId": "star-wars-legends",
+        "canonTier": "legends",
+        "adaptation": "film",
+        "medium": "film",
+        "sourceBoundary": "Episodes I-VI as the shared Legends cinematic anchor spine."
+      },
+      "sourceInfo": {
+        "work": "Star Wars Legends",
+        "sourceType": "film",
+        "title": "Episodes I-VI film spine",
+        "confidence": 0.78,
+        "notes": "Cinematic spine draft, intended as context-gated baseline for Legends decks."
+      },
+      "extensions": {
+        "sagaLoredeckDev": {
+          "deckFamilyId": "sw-legends",
+          "targetPackId": "sw-legends-film-spine",
+          "generatedAt": "2026-06-08",
+          "reviewStatus": "draft"
+        }
+      }
+    }
+  ]
+}
