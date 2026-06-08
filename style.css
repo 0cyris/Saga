@@ -3141,16 +3141,6 @@
         0 8px 18px rgba(0, 0, 0, 0.32);
 }
 
-.wandlight-loredeck-library-inline-folder-row:hover .wandlight-loredeck-library-folder-cover-tile:nth-child(odd),
-.wandlight-loredeck-library-inline-folder-row:focus-within .wandlight-loredeck-library-folder-cover-tile:nth-child(odd) {
-    transform: translateY(-2px) rotate(-1.5deg);
-}
-
-.wandlight-loredeck-library-inline-folder-row:hover .wandlight-loredeck-library-folder-cover-tile:nth-child(even),
-.wandlight-loredeck-library-inline-folder-row:focus-within .wandlight-loredeck-library-folder-cover-tile:nth-child(even) {
-    transform: translateY(-1px) rotate(1.2deg);
-}
-
 .wandlight-loredeck-library-inline-folder-row:hover .wandlight-loredeck-library-folder-cover-tile:hover,
 .wandlight-loredeck-library-inline-folder-row:focus-within .wandlight-loredeck-library-folder-cover-tile:hover {
     z-index: 30;
