@@ -280,6 +280,11 @@ export function countLoredeckManifestFiles(manifest = null) {
     return Array.isArray(manifest?.files) ? manifest.files.length : 0;
 }
 
+function isHealthForLoredeckPack(packId = '', health = null) {
+    const id = String(packId || '').trim();
+    return !!id && !!health && String(health.packId || '').trim() === id;
+}
+
 export function buildLoredeckHealthPackSummary(pack = {}, cached = {}, health = null) {
     const overrideCount = pack.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
         ? Object.keys(pack.entryOverrides).length

@@ -1,5 +1,5 @@
 import { DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORDS } from './loredeck-defaults.js';
-import { fetchJson } from './loredeck-loader.js';
+import { fetchJson, LOREDECK_INDEX_URL } from './loredeck-loader.js';
 import {
     addTooltip,
     chooseAction,
@@ -186,6 +186,22 @@ export function closeLoredeckLibraryWindow() {
     document.querySelector('.wandlight-loredeck-library-overlay')?.remove();
 }
 
+function createLoredeckLibraryRenderErrorCard(error) {
+    const body = document.createElement('div');
+    body.className = 'wandlight-loredeck-library-body';
+    const card = document.createElement('div');
+    card.className = 'wandlight-runtime-card wandlight-runtime-error-card';
+    const title = document.createElement('h4');
+    title.textContent = 'Loredeck Library could not render.';
+    card.appendChild(title);
+    const message = document.createElement('div');
+    message.className = 'wandlight-runtime-help';
+    message.textContent = error?.message || String(error || 'Unknown render error.');
+    card.appendChild(message);
+    body.appendChild(card);
+    return body;
+}
+
 function normalizeBundledLoredeckIndexRecord(record = {}) {
     if (!record || typeof record !== 'object' || Array.isArray(record)) return null;
     const packId = String(record.packId || record.id || '').trim();
@@ -354,23 +370,28 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     header.appendChild(actions);
     shell.appendChild(header);
 
-    const body = document.createElement('div');
-    body.className = 'wandlight-loredeck-library-body';
-    loredeckLibraryDetailsHeight = getLoredeckLibraryDetailsHeight(state);
-    const detailsCollapsed = getLoredeckLibraryDetailsCollapsed(state);
-    body.classList.toggle('wandlight-loredeck-library-details-collapsed', detailsCollapsed);
-    body.style.setProperty('--wandlight-loredeck-library-details-height', `${loredeckLibraryDetailsHeight}px`);
+    try {
+        const body = document.createElement('div');
+        body.className = 'wandlight-loredeck-library-body';
+        loredeckLibraryDetailsHeight = getLoredeckLibraryDetailsHeight(state);
+        const detailsCollapsed = getLoredeckLibraryDetailsCollapsed(state);
+        body.classList.toggle('wandlight-loredeck-library-details-collapsed', detailsCollapsed);
+        body.style.setProperty('--wandlight-loredeck-library-details-height', `${loredeckLibraryDetailsHeight}px`);
 
-    const columns = document.createElement('div');
-    columns.className = 'wandlight-loredeck-library-columns';
-    columns.appendChild(createLoredeckLibraryPane(filteredPacks, stack, canonDb, health, libraryIndex, library, scopedLibrary, activeViewId));
-    columns.appendChild(createLoredeckLibraryTransferPane(selectedPack, filteredPacks, stack, selectedPacks, selectedFolderDetails, libraryIndex));
-    columns.appendChild(createLoredeckActiveStackPane(stack, library, canonDb, health, libraryIndex));
-    body.appendChild(columns);
-    body.appendChild(createLoredeckLibraryResizeHandle(detailsCollapsed));
-    body.appendChild(createLoredeckLibraryDetailsPanel(selectedPack, stack, canonDb, health, selectedFolderDetails, libraryIndex, library));
-    shell.appendChild(body);
-    restoreLoredeckLibraryScrollState(scrollState);
+        const columns = document.createElement('div');
+        columns.className = 'wandlight-loredeck-library-columns';
+        columns.appendChild(createLoredeckLibraryPane(filteredPacks, stack, canonDb, health, libraryIndex, library, scopedLibrary, activeViewId));
+        columns.appendChild(createLoredeckLibraryTransferPane(selectedPack, filteredPacks, stack, selectedPacks, selectedFolderDetails, libraryIndex));
+        columns.appendChild(createLoredeckActiveStackPane(stack, library, canonDb, health, libraryIndex));
+        body.appendChild(columns);
+        body.appendChild(createLoredeckLibraryResizeHandle(detailsCollapsed));
+        body.appendChild(createLoredeckLibraryDetailsPanel(selectedPack, stack, canonDb, health, selectedFolderDetails, libraryIndex, library));
+        shell.appendChild(body);
+        restoreLoredeckLibraryScrollState(scrollState);
+    } catch (error) {
+        console.error('[Saga] Loredeck Library body render failed:', error);
+        shell.appendChild(createLoredeckLibraryRenderErrorCard(error));
+    }
 }
 
 function getLoredeckLibraryOverlayContext() {

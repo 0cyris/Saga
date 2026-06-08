@@ -690,32 +690,46 @@ export function writeThemeColorsToSettings(settings, colors = {}) {
     return settings;
 }
 
+function writeRuntimeThemeVars(target, colors) {
+    if (!target?.style) return;
+    target.style.setProperty('--wandlight-bg', hexToRgba(colors.background, 0.97));
+    target.style.setProperty('--wandlight-bg-2', hexToRgba(colors.backgroundAlt, 0.94));
+    target.style.setProperty('--wandlight-bg-gradient-start', hexToRgba(colors.gradientStart, 0.985));
+    target.style.setProperty('--wandlight-bg-gradient-end', hexToRgba(colors.gradientEnd, 0.98));
+    target.style.setProperty('--wandlight-surface', hexToRgba(colors.surface, 0.74));
+    target.style.setProperty('--wandlight-surface-2', hexToRgba(colors.surfaceAlt, 0.62));
+    target.style.setProperty('--wandlight-border', hexToRgba(colors.border, 0.38));
+    target.style.setProperty('--wandlight-border-soft', hexToRgba(colors.border, 0.18));
+    target.style.setProperty('--wandlight-border-strong', hexToRgba(colors.borderStrong, 0.58));
+    target.style.setProperty('--wandlight-gold', colors.accent);
+    target.style.setProperty('--wandlight-gold-soft', hexToRgba(colors.accent, 0.74));
+    target.style.setProperty('--wandlight-gold-surface', hexToRgba(colors.accent, 0.12));
+    target.style.setProperty('--wandlight-red', colors.danger);
+    target.style.setProperty('--wandlight-red-soft', hexToRgba(colors.danger, 0.42));
+    target.style.setProperty('--wandlight-red-surface', hexToRgba(colors.danger, 0.24));
+    target.style.setProperty('--wandlight-red-hover', hexToRgba(colors.danger, 0.34));
+    target.style.setProperty('--wandlight-green', colors.success);
+    target.style.setProperty('--wandlight-green-soft', hexToRgba(colors.success, 0.42));
+    target.style.setProperty('--wandlight-warning', colors.warning);
+    target.style.setProperty('--wandlight-warning-soft', hexToRgba(colors.warning, 0.42));
+    target.style.setProperty('--wandlight-focus', colors.focus);
+    target.style.setProperty('--wandlight-button', hexToRgba(colors.button, 0.82));
+    target.style.setProperty('--wandlight-button-hover', hexToRgba(colors.buttonHover, 0.82));
+    target.style.setProperty('--wandlight-button-text', colors.buttonText);
+    target.style.setProperty('--wandlight-input', hexToRgba(colors.input, 0.76));
+    target.style.setProperty('--wandlight-input-border', hexToRgba(colors.inputBorder, 0.34));
+    target.style.setProperty('--wandlight-text', colors.text);
+    target.style.setProperty('--wandlight-muted', hexToRgba(colors.mutedText, 0.68));
+    target.style.setProperty('--wandlight-text-muted', hexToRgba(colors.mutedText, 0.68));
+}
+
 export function applyRuntimeTheme(root, settings = getSettings()) {
-    if (!root?.style) return;
     const colors = getActiveThemeColors(settings);
-    root.style.setProperty('--wandlight-bg', hexToRgba(colors.background, 0.97));
-    root.style.setProperty('--wandlight-bg-2', hexToRgba(colors.backgroundAlt, 0.94));
-    root.style.setProperty('--wandlight-bg-gradient-start', hexToRgba(colors.gradientStart, 0.985));
-    root.style.setProperty('--wandlight-bg-gradient-end', hexToRgba(colors.gradientEnd, 0.98));
-    root.style.setProperty('--wandlight-surface', hexToRgba(colors.surface, 0.74));
-    root.style.setProperty('--wandlight-surface-2', hexToRgba(colors.surfaceAlt, 0.62));
-    root.style.setProperty('--wandlight-border', hexToRgba(colors.border, 0.38));
-    root.style.setProperty('--wandlight-border-soft', hexToRgba(colors.border, 0.18));
-    root.style.setProperty('--wandlight-border-strong', hexToRgba(colors.borderStrong, 0.58));
-    root.style.setProperty('--wandlight-gold', colors.accent);
-    root.style.setProperty('--wandlight-gold-soft', hexToRgba(colors.accent, 0.74));
-    root.style.setProperty('--wandlight-red', colors.danger);
-    root.style.setProperty('--wandlight-green', colors.success);
-    root.style.setProperty('--wandlight-warning', colors.warning);
-    root.style.setProperty('--wandlight-focus', colors.focus);
-    root.style.setProperty('--wandlight-button', hexToRgba(colors.button, 0.82));
-    root.style.setProperty('--wandlight-button-hover', hexToRgba(colors.buttonHover, 0.82));
-    root.style.setProperty('--wandlight-button-text', colors.buttonText);
-    root.style.setProperty('--wandlight-input', hexToRgba(colors.input, 0.76));
-    root.style.setProperty('--wandlight-input-border', hexToRgba(colors.inputBorder, 0.34));
-    root.style.setProperty('--wandlight-text', colors.text);
-    root.style.setProperty('--wandlight-muted', hexToRgba(colors.mutedText, 0.68));
-    root.style.setProperty('--wandlight-text-muted', hexToRgba(colors.mutedText, 0.68));
+    writeRuntimeThemeVars(root, colors);
+    if (typeof document !== 'undefined') {
+        writeRuntimeThemeVars(document.documentElement, colors);
+        writeRuntimeThemeVars(document.body, colors);
+    }
 }
 
 function hexToRgbParts(hex) {
