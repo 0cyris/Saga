@@ -2771,10 +2771,10 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    border: 1px solid rgba(215, 181, 109, 0.34);
+    border: 1px solid var(--wandlight-border, rgba(215, 181, 109, 0.34));
     border-radius: 8px 8px 0 0;
     background:
-        linear-gradient(180deg, rgba(215, 181, 109, 0.11), rgba(8, 10, 14, 0.28));
+        linear-gradient(180deg, var(--wandlight-gold-surface, rgba(215, 181, 109, 0.11)), var(--wandlight-surface-2, rgba(8, 10, 14, 0.28)));
     color: var(--wandlight-gold, #d7b56d);
     padding: 0 10px;
     cursor: row-resize;
@@ -2783,10 +2783,10 @@
 
 .wandlight-loredeck-library-resize-handle-collapsed {
     cursor: pointer;
-    border-color: rgba(245, 196, 91, 0.64);
+    border-color: var(--wandlight-border-strong, rgba(245, 196, 91, 0.64));
     background:
-        radial-gradient(circle at 50% 0%, rgba(245, 196, 91, 0.16), transparent 56%),
-        rgba(8, 10, 14, 0.64);
+        radial-gradient(circle at 50% 0%, var(--wandlight-gold-surface, rgba(245, 196, 91, 0.16)), transparent 56%),
+        var(--wandlight-surface-2, rgba(8, 10, 14, 0.64));
 }
 
 .wandlight-loredeck-library-resize-track {
@@ -2812,8 +2812,8 @@
     height: 4px;
     display: block;
     border-radius: 999px;
-    background: rgba(215, 181, 109, 0.78);
-    box-shadow: 0 0 5px rgba(215, 181, 109, 0.22);
+    background: var(--wandlight-border-strong, rgba(215, 181, 109, 0.78));
+    box-shadow: 0 0 5px var(--wandlight-gold-surface, rgba(215, 181, 109, 0.22));
 }
 
 .wandlight-loredeck-library-resize-label {
@@ -2843,7 +2843,7 @@
 .wandlight-loredeck-library-resize-handle:focus-visible .wandlight-loredeck-library-resize-track,
 .wandlight-loredeck-library-resizing .wandlight-loredeck-library-resize-handle .wandlight-loredeck-library-resize-track {
     opacity: 1;
-    filter: drop-shadow(0 0 5px rgba(215, 181, 109, 0.36));
+    filter: drop-shadow(0 0 5px var(--wandlight-gold-surface, rgba(215, 181, 109, 0.36)));
 }
 
 .wandlight-loredeck-library-resizing {
@@ -2959,11 +2959,11 @@
     align-items: center;
     align-self: stretch;
     margin-left: calc(var(--wandlight-folder-depth, 0) * 18px);
-    border: 1px solid rgba(185, 139, 54, 0.2);
+    border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.2));
     border-radius: 7px;
     background:
-        radial-gradient(circle at 8% 0%, rgba(215, 181, 109, 0.12), transparent 38%),
-        linear-gradient(180deg, rgba(20, 17, 18, 0.78), rgba(8, 10, 14, 0.84));
+        radial-gradient(circle at 8% 0%, var(--wandlight-gold-surface, rgba(215, 181, 109, 0.12)), transparent 38%),
+        linear-gradient(180deg, var(--wandlight-surface, rgba(20, 17, 18, 0.78)), var(--wandlight-surface-2, rgba(8, 10, 14, 0.84)));
     color: var(--wandlight-text, #f1ead8);
     padding: 7px 9px;
     box-sizing: border-box;
@@ -2979,47 +2979,47 @@
 
 .wandlight-loredeck-library-inline-folder-row:hover,
 .wandlight-loredeck-library-inline-folder-row:focus-visible {
-    border-color: rgba(215, 181, 109, 0.46);
+    border-color: var(--wandlight-border-strong, rgba(215, 181, 109, 0.46));
     background:
-        radial-gradient(circle at 8% 0%, rgba(245, 196, 91, 0.16), transparent 40%),
-        linear-gradient(180deg, rgba(31, 23, 22, 0.86), rgba(8, 10, 14, 0.88));
+        radial-gradient(circle at 8% 0%, var(--wandlight-gold-surface, rgba(245, 196, 91, 0.16)), transparent 40%),
+        linear-gradient(180deg, var(--wandlight-button-hover, rgba(31, 23, 22, 0.86)), var(--wandlight-surface-2, rgba(8, 10, 14, 0.88)));
 }
 
 .wandlight-loredeck-library-inline-folder-row.wandlight-loredeck-library-drag-drop-target {
-    outline: 1px dashed rgba(245, 196, 91, 0.72);
+    outline: 1px dashed var(--wandlight-border-strong, rgba(245, 196, 91, 0.72));
     outline-offset: -3px;
-    border-color: rgba(245, 196, 91, 0.76);
+    border-color: var(--wandlight-border-strong, rgba(245, 196, 91, 0.76));
 }
 
 .wandlight-loredeck-library-inline-folder-row.wandlight-loredeck-library-search-match {
-    border-color: rgba(245, 196, 91, 0.62);
+    border-color: var(--wandlight-border-strong, rgba(245, 196, 91, 0.62));
     background:
-        radial-gradient(circle at 8% 0%, rgba(245, 196, 91, 0.18), transparent 40%),
-        linear-gradient(180deg, rgba(35, 25, 18, 0.86), rgba(8, 10, 14, 0.88));
-    box-shadow: 0 0 0 1px rgba(245, 196, 91, 0.12) inset;
+        radial-gradient(circle at 8% 0%, var(--wandlight-gold-surface, rgba(245, 196, 91, 0.18)), transparent 40%),
+        linear-gradient(180deg, var(--wandlight-button-hover, rgba(35, 25, 18, 0.86)), var(--wandlight-surface-2, rgba(8, 10, 14, 0.88)));
+    box-shadow: 0 0 0 1px var(--wandlight-gold-surface, rgba(245, 196, 91, 0.12)) inset;
 }
 
 .wandlight-loredeck-library-inline-folder-row.wandlight-loredeck-library-search-context {
-    border-color: rgba(185, 139, 54, 0.28);
+    border-color: var(--wandlight-border-soft, rgba(185, 139, 54, 0.28));
     background:
-        radial-gradient(circle at 8% 0%, rgba(215, 181, 109, 0.08), transparent 38%),
-        linear-gradient(180deg, rgba(18, 17, 20, 0.7), rgba(8, 10, 14, 0.82));
+        radial-gradient(circle at 8% 0%, var(--wandlight-gold-surface, rgba(215, 181, 109, 0.08)), transparent 38%),
+        linear-gradient(180deg, var(--wandlight-surface, rgba(18, 17, 20, 0.7)), var(--wandlight-surface-2, rgba(8, 10, 14, 0.82)));
 }
 
 .wandlight-loredeck-library-inline-folder-row.wandlight-loredeck-library-folder-row-active {
-    border-color: rgba(255, 207, 105, 0.98);
+    border-color: var(--wandlight-border-strong, rgba(255, 207, 105, 0.98));
     background:
-        radial-gradient(circle at 0% 50%, rgba(255, 207, 105, 0.28), transparent 52%),
-        radial-gradient(circle at 100% 0%, rgba(245, 196, 91, 0.16), transparent 38%),
-        linear-gradient(180deg, rgba(111, 39, 45, 0.66), rgba(43, 18, 24, 0.72));
+        radial-gradient(circle at 0% 50%, var(--wandlight-gold-surface, rgba(255, 207, 105, 0.28)), transparent 52%),
+        radial-gradient(circle at 100% 0%, var(--wandlight-gold-surface, rgba(245, 196, 91, 0.16)), transparent 38%),
+        linear-gradient(180deg, var(--wandlight-button-hover, rgba(111, 39, 45, 0.66)), var(--wandlight-bg-2, rgba(43, 18, 24, 0.72)));
     box-shadow:
-        0 0 0 1px rgba(255, 207, 105, 0.34) inset,
-        3px 0 0 rgba(255, 207, 105, 0.82) inset,
-        0 0 22px rgba(245, 196, 91, 0.22);
+        0 0 0 1px var(--wandlight-gold-surface, rgba(255, 207, 105, 0.34)) inset,
+        3px 0 0 var(--wandlight-border-strong, rgba(255, 207, 105, 0.82)) inset,
+        0 0 22px var(--wandlight-gold-surface, rgba(245, 196, 91, 0.22));
 }
 
 .wandlight-loredeck-library-inline-folder-row.wandlight-loredeck-library-folder-row-active .wandlight-loredeck-library-folder-label {
-    color: #ffe1a2;
+    color: var(--wandlight-gold, #ffe1a2);
 }
 
 .wandlight-loredeck-library-folder-grip {
@@ -3031,9 +3031,9 @@
     height: 24px;
     display: inline-grid;
     place-items: center;
-    border: 1px solid rgba(185, 139, 54, 0.2);
+    border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.2));
     border-radius: 6px;
-    background: rgba(0, 0, 0, 0.24);
+    background: var(--wandlight-button, rgba(0, 0, 0, 0.24));
     color: var(--wandlight-gold, #d7b56d);
     font-size: 0.72em;
     font-weight: 900;
@@ -3087,18 +3087,18 @@
     flex: 0 0 var(--wandlight-folder-cover-size);
     display: inline-grid;
     place-items: center;
-    border: 1px solid rgba(215, 181, 109, 0.28);
+    border: 1px solid var(--wandlight-border-soft, rgba(215, 181, 109, 0.28));
     border-radius: 5px;
     background:
-        radial-gradient(circle at 45% 25%, rgba(215, 181, 109, 0.2), transparent 62%),
-        rgba(8, 10, 14, 0.9);
+        radial-gradient(circle at 45% 25%, var(--wandlight-gold-surface, rgba(215, 181, 109, 0.2)), transparent 62%),
+        var(--wandlight-bg-2, rgba(8, 10, 14, 0.9));
     color: var(--wandlight-gold, #d7b56d);
     font-size: 0.64em;
     font-weight: 900;
     line-height: 1;
     overflow: hidden;
     box-shadow:
-        0 0 0 1px rgba(215, 181, 109, 0.08) inset,
+        0 0 0 1px var(--wandlight-gold-surface, rgba(215, 181, 109, 0.08)) inset,
         0 2px 8px rgba(0, 0, 0, 0.24);
     transition:
         width 180ms ease,
@@ -3137,7 +3137,7 @@
 .wandlight-loredeck-library-inline-folder-row:focus-within .wandlight-loredeck-library-folder-cover-tile {
     overflow: visible;
     box-shadow:
-        0 0 0 1px rgba(255, 207, 105, 0.16) inset,
+        0 0 0 1px var(--wandlight-gold-surface, rgba(255, 207, 105, 0.16)) inset,
         0 8px 18px rgba(0, 0, 0, 0.32);
 }
 
@@ -3170,8 +3170,8 @@
 .wandlight-loredeck-library-folder-cover-tile-contain img {
     object-fit: contain;
     background:
-        radial-gradient(circle at 50% 42%, rgba(215, 181, 109, 0.1), transparent 62%),
-        linear-gradient(180deg, rgba(8, 10, 14, 0.94), rgba(3, 4, 7, 0.98));
+        radial-gradient(circle at 50% 42%, var(--wandlight-gold-surface, rgba(215, 181, 109, 0.1)), transparent 62%),
+        linear-gradient(180deg, var(--wandlight-bg-2, rgba(8, 10, 14, 0.94)), var(--wandlight-bg-gradient-end, rgba(3, 4, 7, 0.98)));
 }
 
 .wandlight-loredeck-library-folder-cover-more {
@@ -3230,10 +3230,10 @@
     grid-template-columns: 20px 54px minmax(0, 1fr);
     gap: 8px;
     align-items: center;
-    border: 1px solid rgba(185, 139, 54, 0.2);
+    border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.2));
     border-radius: 7px;
     background:
-        linear-gradient(180deg, rgba(18, 18, 24, 0.74), rgba(8, 10, 14, 0.82));
+        linear-gradient(180deg, var(--wandlight-surface, rgba(18, 18, 24, 0.74)), var(--wandlight-surface-2, rgba(8, 10, 14, 0.82)));
     color: var(--wandlight-text, #f1ead8);
     text-align: left;
     padding: 7px 34px 7px 7px;
@@ -3256,51 +3256,51 @@
 
 .wandlight-loredeck-library-deck-card:hover,
 .wandlight-loredeck-library-stack-card:hover {
-    border-color: rgba(215, 181, 109, 0.42);
+    border-color: var(--wandlight-border-strong, rgba(215, 181, 109, 0.42));
     background:
-        radial-gradient(circle at 12% 0%, rgba(215, 181, 109, 0.1), transparent 32%),
-        linear-gradient(180deg, rgba(28, 20, 22, 0.82), rgba(8, 10, 14, 0.86));
+        radial-gradient(circle at 12% 0%, var(--wandlight-gold-surface, rgba(215, 181, 109, 0.1)), transparent 32%),
+        linear-gradient(180deg, var(--wandlight-button-hover, rgba(28, 20, 22, 0.82)), var(--wandlight-surface-2, rgba(8, 10, 14, 0.86)));
 }
 
 .wandlight-loredeck-library-deck-selected,
 .wandlight-loredeck-library-stack-card-selected {
-    border-color: rgba(245, 196, 91, 0.78);
+    border-color: var(--wandlight-border-strong, rgba(245, 196, 91, 0.78));
     box-shadow:
-        0 0 0 1px rgba(245, 196, 91, 0.16) inset,
-        0 0 18px rgba(215, 181, 109, 0.12);
+        0 0 0 1px var(--wandlight-gold-surface, rgba(245, 196, 91, 0.16)) inset,
+        0 0 18px var(--wandlight-gold-surface, rgba(215, 181, 109, 0.12));
 }
 
 .wandlight-loredeck-library-deck-bulk-selected {
-    border-color: rgba(245, 196, 91, 0.86);
+    border-color: var(--wandlight-border-strong, rgba(245, 196, 91, 0.86));
     box-shadow:
-        0 0 0 1px rgba(245, 196, 91, 0.22) inset,
-        3px 0 0 rgba(245, 196, 91, 0.7) inset;
+        0 0 0 1px var(--wandlight-gold-surface, rgba(245, 196, 91, 0.22)) inset,
+        3px 0 0 var(--wandlight-border-strong, rgba(245, 196, 91, 0.7)) inset;
 }
 
 .wandlight-loredeck-library-deck-active {
     background:
-        radial-gradient(circle at 90% 10%, rgba(76, 138, 78, 0.14), transparent 28%),
-        linear-gradient(180deg, rgba(18, 24, 18, 0.74), rgba(8, 10, 14, 0.82));
+        radial-gradient(circle at 90% 10%, var(--wandlight-green-soft, rgba(76, 138, 78, 0.14)), transparent 28%),
+        linear-gradient(180deg, var(--wandlight-surface, rgba(18, 24, 18, 0.74)), var(--wandlight-surface-2, rgba(8, 10, 14, 0.82)));
 }
 
 .wandlight-loredeck-library-deck-card.wandlight-loredeck-library-deck-selected {
-    border-color: rgba(255, 207, 105, 0.98);
+    border-color: var(--wandlight-border-strong, rgba(255, 207, 105, 0.98));
     background:
-        radial-gradient(circle at 10% 0%, rgba(255, 207, 105, 0.18), transparent 34%),
-        radial-gradient(circle at 100% 20%, rgba(104, 34, 42, 0.26), transparent 44%),
-        linear-gradient(180deg, rgba(36, 25, 23, 0.9), rgba(11, 10, 13, 0.92));
+        radial-gradient(circle at 10% 0%, var(--wandlight-gold-surface, rgba(255, 207, 105, 0.18)), transparent 34%),
+        radial-gradient(circle at 100% 20%, var(--wandlight-red-surface, rgba(104, 34, 42, 0.26)), transparent 44%),
+        linear-gradient(180deg, var(--wandlight-button-hover, rgba(36, 25, 23, 0.9)), var(--wandlight-bg-2, rgba(11, 10, 13, 0.92)));
     box-shadow:
-        0 0 0 1px rgba(255, 207, 105, 0.28) inset,
-        3px 0 0 rgba(255, 207, 105, 0.78) inset,
-        0 0 22px rgba(245, 196, 91, 0.18);
+        0 0 0 1px var(--wandlight-gold-surface, rgba(255, 207, 105, 0.28)) inset,
+        3px 0 0 var(--wandlight-border-strong, rgba(255, 207, 105, 0.78)) inset,
+        0 0 22px var(--wandlight-gold-surface, rgba(245, 196, 91, 0.18));
 }
 
 .wandlight-loredeck-library-deck-warning {
-    border-left: 3px solid rgba(226, 177, 98, 0.72);
+    border-left: 3px solid var(--wandlight-warning-soft, rgba(226, 177, 98, 0.72));
 }
 
 .wandlight-loredeck-library-deck-error {
-    border-left: 3px solid rgba(219, 105, 105, 0.82);
+    border-left: 3px solid var(--wandlight-red-soft, rgba(219, 105, 105, 0.82));
 }
 
 .wandlight-loredeck-library-monogram,
@@ -3310,15 +3310,15 @@
     display: grid;
     place-items: center;
     aspect-ratio: 1 / 1;
-    border: 1px solid rgba(185, 139, 54, 0.36);
+    border: 1px solid var(--wandlight-border, rgba(185, 139, 54, 0.36));
     border-radius: 6px;
     background:
-        radial-gradient(circle at 50% 35%, rgba(215, 181, 109, 0.18), transparent 58%),
-        linear-gradient(180deg, rgba(27, 22, 20, 0.95), rgba(8, 10, 14, 0.96));
+        radial-gradient(circle at 50% 35%, var(--wandlight-gold-surface, rgba(215, 181, 109, 0.18)), transparent 58%),
+        linear-gradient(180deg, var(--wandlight-surface, rgba(27, 22, 20, 0.95)), var(--wandlight-bg-2, rgba(8, 10, 14, 0.96)));
     color: var(--wandlight-gold, #d7b56d);
     font-weight: 800;
     line-height: 1;
-    box-shadow: 0 0 0 1px rgba(215, 181, 109, 0.05) inset;
+    box-shadow: 0 0 0 1px var(--wandlight-gold-surface, rgba(215, 181, 109, 0.05)) inset;
 }
 
 .wandlight-loredeck-library-monogram {
@@ -3346,8 +3346,8 @@
 .wandlight-loredeck-library-visual-contain img {
     object-fit: contain;
     background:
-        radial-gradient(circle at 50% 42%, rgba(215, 181, 109, 0.1), transparent 62%),
-        linear-gradient(180deg, rgba(8, 10, 14, 0.94), rgba(3, 4, 7, 0.98));
+        radial-gradient(circle at 50% 42%, var(--wandlight-gold-surface, rgba(215, 181, 109, 0.1)), transparent 62%),
+        linear-gradient(180deg, var(--wandlight-bg-2, rgba(8, 10, 14, 0.94)), var(--wandlight-bg-gradient-end, rgba(3, 4, 7, 0.98)));
 }
 
 .wandlight-loredeck-library-visual-cover {
@@ -3361,7 +3361,7 @@
     border-radius: inherit;
     pointer-events: none;
     box-shadow:
-        0 0 0 1px rgba(215, 181, 109, 0.22) inset,
+        0 0 0 1px var(--wandlight-border-soft, rgba(215, 181, 109, 0.22)) inset,
         0 1px 0 rgba(255, 237, 181, 0.16) inset,
         0 -1px 0 rgba(0, 0, 0, 0.34) inset;
 }
@@ -3405,9 +3405,9 @@
     height: 22px;
     display: inline-grid;
     place-items: center;
-    border: 1px solid rgba(215, 181, 109, 0.42);
+    border: 1px solid var(--wandlight-border, rgba(215, 181, 109, 0.42));
     border-radius: 6px;
-    background: rgba(7, 7, 10, 0.82);
+    background: var(--wandlight-button, rgba(7, 7, 10, 0.82));
     color: var(--wandlight-gold, #d7b56d);
     font-size: 0.78em;
     font-weight: 900;
@@ -3427,24 +3427,24 @@
 
 .wandlight-loredeck-library-cover-action:hover,
 .wandlight-loredeck-library-cover-action:focus-visible {
-    border-color: rgba(255, 207, 105, 0.82);
-    background: rgba(215, 181, 109, 0.18);
+    border-color: var(--wandlight-border-strong, rgba(255, 207, 105, 0.82));
+    background: var(--wandlight-gold-surface, rgba(215, 181, 109, 0.18));
     box-shadow:
-        0 0 0 1px rgba(255, 207, 105, 0.16),
-        0 0 14px rgba(215, 181, 109, 0.28);
+        0 0 0 1px var(--wandlight-gold-surface, rgba(255, 207, 105, 0.16)),
+        0 0 14px var(--wandlight-gold-surface, rgba(215, 181, 109, 0.28));
     transform: translateY(-1px);
 }
 
 .wandlight-loredeck-library-cover-action-remove {
-    border-color: rgba(219, 105, 105, 0.48);
-    color: #f07f68;
+    border-color: var(--wandlight-red-soft, rgba(219, 105, 105, 0.48));
+    color: var(--wandlight-red, #f07f68);
 }
 
 .wandlight-loredeck-library-cover-action-remove:hover,
 .wandlight-loredeck-library-cover-action-remove:focus-visible {
-    border-color: rgba(240, 127, 104, 0.82);
-    background: rgba(111, 29, 31, 0.62);
-    color: #ffd0c2;
+    border-color: var(--wandlight-red-soft, rgba(240, 127, 104, 0.82));
+    background: var(--wandlight-red-hover, rgba(111, 29, 31, 0.62));
+    color: var(--wandlight-button-text, #ffd0c2);
 }
 
 .wandlight-loredeck-library-cover-action:disabled {
@@ -3681,10 +3681,10 @@
     grid-template-columns: 20px 54px minmax(0, 1fr) 24px;
     gap: 8px;
     align-items: center;
-    border: 1px solid rgba(185, 139, 54, 0.22);
+    border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.22));
     border-radius: 7px;
     background:
-        linear-gradient(180deg, rgba(18, 18, 24, 0.8), rgba(8, 10, 14, 0.86));
+        linear-gradient(180deg, var(--wandlight-surface, rgba(18, 18, 24, 0.8)), var(--wandlight-surface-2, rgba(8, 10, 14, 0.86)));
     padding: 7px 8px;
     box-sizing: border-box;
     cursor: pointer;
@@ -3703,17 +3703,17 @@
 }
 
 .wandlight-loredeck-library-stack-card-suppressed {
-    border-color: rgba(226, 177, 98, 0.42);
+    border-color: var(--wandlight-warning-soft, rgba(226, 177, 98, 0.42));
     background:
-        radial-gradient(circle at 12% 0%, rgba(226, 177, 98, 0.12), transparent 34%),
-        linear-gradient(180deg, rgba(24, 18, 17, 0.82), rgba(8, 10, 14, 0.88));
-    box-shadow: 0 0 0 1px rgba(226, 177, 98, 0.08) inset;
+        radial-gradient(circle at 12% 0%, var(--wandlight-warning-soft, rgba(226, 177, 98, 0.12)), transparent 34%),
+        linear-gradient(180deg, var(--wandlight-surface, rgba(24, 18, 17, 0.82)), var(--wandlight-surface-2, rgba(8, 10, 14, 0.88)));
+    box-shadow: 0 0 0 1px var(--wandlight-warning-soft, rgba(226, 177, 98, 0.08)) inset;
 }
 
 .wandlight-loredeck-library-stack-folder-card {
     background:
-        radial-gradient(circle at 12% 10%, rgba(215, 181, 109, 0.12), transparent 34%),
-        linear-gradient(180deg, rgba(22, 19, 18, 0.84), rgba(8, 10, 14, 0.88));
+        radial-gradient(circle at 12% 10%, var(--wandlight-gold-surface, rgba(215, 181, 109, 0.12)), transparent 34%),
+        linear-gradient(180deg, var(--wandlight-surface, rgba(22, 19, 18, 0.84)), var(--wandlight-surface-2, rgba(8, 10, 14, 0.88)));
 }
 
 .wandlight-loredeck-library-stack-folder-card-expanded {
@@ -3721,8 +3721,8 @@
 }
 
 .wandlight-loredeck-library-stack-folder-card-has-suppressed {
-    border-color: rgba(226, 177, 98, 0.36);
-    box-shadow: 0 0 0 1px rgba(226, 177, 98, 0.09) inset;
+    border-color: var(--wandlight-warning-soft, rgba(226, 177, 98, 0.36));
+    box-shadow: 0 0 0 1px var(--wandlight-warning-soft, rgba(226, 177, 98, 0.09)) inset;
 }
 
 .wandlight-loredeck-library-stack-duplicate-summary {
@@ -3739,15 +3739,15 @@
 }
 
 .wandlight-loredeck-library-stack-card.wandlight-loredeck-library-stack-card-selected {
-    border-color: rgba(255, 207, 105, 0.98);
+    border-color: var(--wandlight-border-strong, rgba(255, 207, 105, 0.98));
     background:
-        radial-gradient(circle at 10% 0%, rgba(255, 207, 105, 0.18), transparent 36%),
-        radial-gradient(circle at 100% 18%, rgba(104, 34, 42, 0.24), transparent 44%),
-        linear-gradient(180deg, rgba(36, 25, 23, 0.9), rgba(11, 10, 13, 0.92));
+        radial-gradient(circle at 10% 0%, var(--wandlight-gold-surface, rgba(255, 207, 105, 0.18)), transparent 36%),
+        radial-gradient(circle at 100% 18%, var(--wandlight-red-surface, rgba(104, 34, 42, 0.24)), transparent 44%),
+        linear-gradient(180deg, var(--wandlight-button-hover, rgba(36, 25, 23, 0.9)), var(--wandlight-bg-2, rgba(11, 10, 13, 0.92)));
     box-shadow:
-        0 0 0 1px rgba(255, 207, 105, 0.28) inset,
-        3px 0 0 rgba(255, 207, 105, 0.78) inset,
-        0 0 22px rgba(245, 196, 91, 0.18);
+        0 0 0 1px var(--wandlight-gold-surface, rgba(255, 207, 105, 0.28)) inset,
+        3px 0 0 var(--wandlight-border-strong, rgba(255, 207, 105, 0.78)) inset,
+        0 0 22px var(--wandlight-gold-surface, rgba(245, 196, 91, 0.18));
 }
 
 .wandlight-loredeck-library-stack-folder-visual {
@@ -3776,10 +3776,10 @@
 }
 
 .wandlight-loredeck-library-stack-card-bulk-selected {
-    border-color: rgba(245, 196, 91, 0.86);
+    border-color: var(--wandlight-border-strong, rgba(245, 196, 91, 0.86));
     box-shadow:
-        0 0 0 1px rgba(245, 196, 91, 0.22) inset,
-        3px 0 0 rgba(245, 196, 91, 0.7) inset;
+        0 0 0 1px var(--wandlight-gold-surface, rgba(245, 196, 91, 0.22)) inset,
+        3px 0 0 var(--wandlight-border-strong, rgba(245, 196, 91, 0.7)) inset;
 }
 
 .wandlight-loredeck-library-stack-grip {
@@ -3790,9 +3790,9 @@
     height: 52px;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(185, 139, 54, 0.18);
+    border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.18));
     border-radius: 6px;
-    background: rgba(0, 0, 0, 0.18);
+    background: var(--wandlight-button, rgba(0, 0, 0, 0.18));
     color: var(--wandlight-gold, #d7b56d);
     padding: 0;
     cursor: grab;
@@ -3814,13 +3814,13 @@
     display: block;
     opacity: 0.74;
     background:
-        radial-gradient(circle, rgba(215, 181, 109, 0.78) 0 1.4px, transparent 2px) 0 0 / 5px 7px repeat;
+        radial-gradient(circle, var(--wandlight-border-strong, rgba(215, 181, 109, 0.78)) 0 1.4px, transparent 2px) 0 0 / 5px 7px repeat;
 }
 
 .wandlight-loredeck-library-stack-grip:hover,
 .wandlight-loredeck-library-stack-grip:focus-visible {
-    border-color: rgba(245, 196, 91, 0.62);
-    box-shadow: 0 0 0 1px rgba(245, 196, 91, 0.16) inset;
+    border-color: var(--wandlight-border-strong, rgba(245, 196, 91, 0.62));
+    box-shadow: 0 0 0 1px var(--wandlight-gold-surface, rgba(245, 196, 91, 0.16)) inset;
 }
 
 .wandlight-loredeck-library-stack-card-dragging-source {
@@ -4171,17 +4171,19 @@
     min-width: 46px;
     min-height: 46px;
     justify-self: center;
-    display: grid;
+    display: inline-grid !important;
     place-items: center;
     padding: 0;
     border-radius: 7px;
     color: var(--wandlight-gold, #d7b56d);
+    line-height: 0;
 }
 
 .wandlight-loredeck-library-icon-action svg {
     width: 30px;
     height: 30px;
     display: block;
+    grid-area: 1 / 1;
     fill: none;
     stroke: currentColor;
     stroke-width: 2.2;
@@ -4190,38 +4192,39 @@
 }
 
 .wandlight-loredeck-library-icon-action .wandlight-icon-fill-soft {
-    fill: rgba(215, 181, 109, 0.08);
+    fill: var(--wandlight-gold-surface, rgba(215, 181, 109, 0.08));
 }
 
 .wandlight-loredeck-library-icon-action .wandlight-icon-spark {
-    fill: rgba(215, 181, 109, 0.12);
+    fill: var(--wandlight-gold-surface, rgba(215, 181, 109, 0.12));
     stroke-width: 1.8;
 }
 
 .wandlight-loredeck-library-square-action-danger {
-    border-color: rgba(219, 105, 105, 0.42);
-    color: #f07f68;
+    border-color: var(--wandlight-red-soft, rgba(219, 105, 105, 0.42));
+    color: var(--wandlight-red, #f07f68);
 }
 
 .wandlight-loredeck-library-square-action-danger .wandlight-icon-fill-soft {
-    fill: rgba(219, 105, 105, 0.1);
+    fill: var(--wandlight-red-surface, rgba(219, 105, 105, 0.1));
 }
 
 .wandlight-loredeck-library-square-action-danger .wandlight-icon-spark {
-    fill: rgba(215, 181, 109, 0.1);
+    fill: var(--wandlight-gold-surface, rgba(215, 181, 109, 0.1));
     color: var(--wandlight-gold, #d7b56d);
 }
 
 .wandlight-loredeck-library-details {
+    height: 100%;
     min-height: 0;
     display: grid;
     grid-template-columns: minmax(260px, 0.44fr) minmax(0, 1fr);
     gap: 10px;
-    border: 1px solid rgba(185, 139, 54, 0.24);
+    border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.24));
     border-radius: 8px;
     background:
-        radial-gradient(circle at 12% 0%, rgba(215, 181, 109, 0.08), transparent 30%),
-        rgba(8, 10, 14, 0.48);
+        radial-gradient(circle at 12% 0%, var(--wandlight-gold-surface, rgba(215, 181, 109, 0.08)), transparent 30%),
+        var(--wandlight-surface-2, rgba(8, 10, 14, 0.48));
     padding: 9px;
     overflow: hidden;
     box-sizing: border-box;
@@ -4238,6 +4241,7 @@
 }
 
 .wandlight-loredeck-library-detail-identity {
+    align-self: start;
     min-width: 0;
     display: grid;
     grid-template-columns: 66px minmax(0, 1fr);
@@ -4318,6 +4322,8 @@
 }
 
 .wandlight-loredeck-library-folder-detail-visual {
+    align-self: start;
+    justify-self: start;
     overflow: hidden;
     padding: 4px;
 }
@@ -4339,6 +4345,7 @@
 }
 
 .wandlight-loredeck-library-folder-detail-content {
+    min-height: 0;
     gap: 8px;
 }
 
@@ -4366,6 +4373,7 @@
 }
 
 .wandlight-loredeck-library-folder-loredeck-list-wrap {
+    flex: 1 1 auto;
     min-height: 0;
     display: flex;
     flex-direction: column;
@@ -4374,8 +4382,9 @@
 }
 
 .wandlight-loredeck-library-folder-loredeck-list {
+    flex: 1 1 auto;
     min-height: 0;
-    max-height: 160px;
+    max-height: none;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -4391,9 +4400,9 @@
     grid-template-columns: minmax(110px, 1fr) minmax(84px, 0.42fr) 46px 42px;
     gap: 8px;
     align-items: center;
-    border: 1px solid rgba(185, 139, 54, 0.16);
+    border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.16));
     border-radius: 6px;
-    background: rgba(0, 0, 0, 0.18);
+    background: var(--wandlight-surface-2, rgba(0, 0, 0, 0.18));
     color: var(--wandlight-text, #f1ead8);
     padding: 5px 7px;
     text-align: left;
@@ -4403,8 +4412,8 @@
 
 .wandlight-loredeck-library-folder-loredeck-row:hover,
 .wandlight-loredeck-library-folder-loredeck-row:focus-visible {
-    border-color: rgba(245, 196, 91, 0.5);
-    box-shadow: 0 0 0 1px rgba(245, 196, 91, 0.12) inset;
+    border-color: var(--wandlight-border-strong, rgba(245, 196, 91, 0.5));
+    box-shadow: 0 0 0 1px var(--wandlight-gold-surface, rgba(245, 196, 91, 0.12)) inset;
 }
 
 .wandlight-loredeck-library-folder-loredeck-title {
@@ -4420,8 +4429,8 @@
     min-width: 0;
     height: 8px;
     border-radius: 999px;
-    border: 1px solid rgba(185, 139, 54, 0.18);
-    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.18));
+    background: var(--wandlight-input, rgba(0, 0, 0, 0.28));
     overflow: hidden;
 }
 
@@ -4430,7 +4439,7 @@
     height: 100%;
     display: block;
     border-radius: inherit;
-    background: linear-gradient(90deg, rgba(185, 139, 54, 0.58), rgba(245, 196, 91, 0.88));
+    background: linear-gradient(90deg, var(--wandlight-gold-soft, rgba(185, 139, 54, 0.58)), var(--wandlight-border-strong, rgba(245, 196, 91, 0.88)));
 }
 
 .wandlight-loredeck-library-folder-loredeck-entry-count,
@@ -4447,33 +4456,33 @@
     min-width: 30px;
     display: inline-grid;
     place-items: center;
-    border: 1px solid rgba(185, 139, 54, 0.18);
+    border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.18));
     border-radius: 999px;
     padding: 3px 5px;
 }
 
 .wandlight-loredeck-library-folder-loredeck-health-error {
-    color: #ffb3aa;
-    border-color: rgba(219, 105, 105, 0.5);
+    color: color-mix(in srgb, var(--wandlight-red, #ffb3aa) 45%, var(--wandlight-text, #f1ead8));
+    border-color: var(--wandlight-red-soft, rgba(219, 105, 105, 0.5));
 }
 
 .wandlight-loredeck-library-folder-loredeck-health-warning {
-    color: #ffd58a;
-    border-color: rgba(226, 177, 98, 0.5);
+    color: color-mix(in srgb, var(--wandlight-warning, #ffd58a) 68%, var(--wandlight-text, #f1ead8));
+    border-color: var(--wandlight-warning-soft, rgba(226, 177, 98, 0.5));
 }
 
 .wandlight-loredeck-library-folder-loredeck-health-ok {
-    color: #bce4a7;
-    border-color: rgba(119, 184, 93, 0.46);
+    color: color-mix(in srgb, var(--wandlight-green, #bce4a7) 46%, var(--wandlight-text, #f1ead8));
+    border-color: var(--wandlight-green-soft, rgba(119, 184, 93, 0.46));
 }
 
 .wandlight-loredeck-library-health-top-issue {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    border: 1px solid rgba(185, 139, 54, 0.18);
+    border: 1px solid var(--wandlight-border-soft, rgba(185, 139, 54, 0.18));
     border-radius: 7px;
-    background: rgba(0, 0, 0, 0.16);
+    background: var(--wandlight-surface-2, rgba(0, 0, 0, 0.16));
     padding: 8px;
 }
 
@@ -4502,10 +4511,10 @@
     gap: 3px;
     min-height: 16px;
     padding: 0 5px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--wandlight-border-soft, rgba(255, 255, 255, 0.1));
     border-radius: 6px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #d8d0c0;
+    background: var(--wandlight-chip-bg, rgba(255, 255, 255, 0.08));
+    color: var(--wandlight-chip-fg, #d8d0c0);
     font-size: 0.68em;
     font-weight: 500;
     line-height: 1.45;

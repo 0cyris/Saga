@@ -419,9 +419,13 @@ export function createLoredeckContextCard(state = {}, contextIndex = null) {
 
     const indexMeta = document.createElement('div');
     indexMeta.className = 'wandlight-context-index-summary';
-    indexMeta.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Context timeline registry status for the enabled Loredeck stack.'));
-    if (contextIndex?.summary?.issueCount) {
-        indexMeta.appendChild(createStatusPill(`${contextIndex.summary.issueCount} index issue${contextIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load warnings or suggestions.'));
+    if (stack.length) {
+        indexMeta.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Context timeline registry status for the enabled Loredeck stack.'));
+        if (contextIndex?.summary?.issueCount) {
+            indexMeta.appendChild(createStatusPill(`${contextIndex.summary.issueCount} index issue${contextIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load warnings or suggestions.'));
+        }
+    } else {
+        indexMeta.appendChild(createStatusPill('No loaded Loredecks', 'Load Loredecks into the active stack before setting per-Loredeck Context.'));
     }
     header.appendChild(indexMeta);
     card.appendChild(header);

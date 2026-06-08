@@ -196,8 +196,14 @@ function normalizeFolderList(defaults = [], input = []) {
   return [...folderMap.values()].sort(sortByOrderThenTitle);
 }
 
-function ensureFolderPath(folderMap, segments = []) {
+function isBundledPackRecord(pack = {}) {
+  const type = cleanString(pack?.type || pack?.manifestData?.type || pack?.source?.kind || '', 80).toLowerCase();
+  return type === 'bundled';
+}
+
+function ensureFolderPath(folderMap, segments = [], options = {}) {
   let parentId = '';
+  const collapsed = options.collapsed === true;
   for (let index = 0; index < segments.length; index += 1) {
     const path = segments.slice(0, index + 1);
     const id = createFolderIdFromPath(path);
@@ -209,7 +215,7 @@ function ensureFolderPath(folderMap, segments = []) {
         sortOrder: ((folderMap.size + 1) * 100),
         icon: '',
         color: '',
-        collapsed: false,
+        collapsed,
         createdAt: 0,
         updatedAt: 0,
       });
@@ -228,7 +234,7 @@ function applySuggestedPackPaths(folders, placementMap, packs = {}) {
     const library = normalizePackLibraryMetadata(pack?.library || pack?.manifestData?.library || {});
     const suggestedPath = library.suggestedPath || [];
     if (!suggestedPath.length) continue;
-    const folderId = ensureFolderPath(folderMap, suggestedPath);
+    const folderId = ensureFolderPath(folderMap, suggestedPath, { collapsed: isBundledPackRecord(pack) });
     placementMap.set(packId, {
       deckId: packId,
       folderId,

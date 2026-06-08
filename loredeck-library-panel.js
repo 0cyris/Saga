@@ -153,12 +153,14 @@ let loredeckLibraryBulkSelectedIds = new Set();
 let loredeckLibraryLastSelectionAnchorId = '';
 let loredeckLibraryDetailsHeight = LOREDECK_LIBRARY_DETAILS_DEFAULT_HEIGHT;
 let loredeckLibraryCollapsedFolderIds = new Set();
+let loredeckLibraryExpandedFolderIds = new Set();
 let loredeckStackDragState = null;
 let loredeckLibraryDeckDragState = null;
 let loredeckLibraryFolderDragState = null;
 let loredeckLibrarySelectedFolderId = 'all';
 let loredeckLibrarySelectedFolderDetailsId = '';
 let loredeckLibraryFolderCoverResizeObserver = null;
+let loredeckLibrarySelectionRefreshFrame = 0;
 let bundledLoredeckIndexCache = null;
 let bundledLoredeckIndexLoading = false;
 let bundledLoredeckIndexLoadAttempted = false;
@@ -181,6 +183,10 @@ export function openLoredeckLibraryDetails(packId = '') {
 
 export function closeLoredeckLibraryWindow() {
     loredeckLibraryOpen = false;
+    if (loredeckLibrarySelectionRefreshFrame && typeof cancelAnimationFrame === 'function') {
+        cancelAnimationFrame(loredeckLibrarySelectionRefreshFrame);
+    }
+    loredeckLibrarySelectionRefreshFrame = 0;
     loredeckLibraryFolderCoverResizeObserver?.disconnect?.();
     loredeckLibraryFolderCoverResizeObserver = null;
     document.querySelector('.wandlight-loredeck-library-overlay')?.remove();
@@ -429,6 +435,7 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
     if (!loredeckLibraryOpen) return;
     const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
     if (!overlay) return;
+    loredeckLibrarySelectionRefreshFrame = 0;
     const context = getLoredeckLibraryOverlayContext();
     const selectedId = String(context.state?.lorePanel?.selectedLoredeckId || '').trim();
     const selectedIds = new Set(context.selectedPackIds || []);
@@ -457,6 +464,12 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
         card.classList.toggle('wandlight-loredeck-library-stack-card-selected', selectedId === packId);
         card.classList.toggle('wandlight-loredeck-library-stack-card-bulk-selected', selectedIds.has(packId));
         card.toggleAttribute('aria-current', selectedId === packId);
+    }
+
+    for (const folderCard of overlay.querySelectorAll('.wandlight-loredeck-library-stack-folder-card[data-folder-id]')) {
+        const folderId = String(folderCard.dataset.folderId || '').trim();
+        folderCard.classList.toggle('wandlight-loredeck-library-stack-card-selected', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
+        folderCard.toggleAttribute('aria-current', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
     }
 
     for (const folderRow of overlay.querySelectorAll('.wandlight-loredeck-library-inline-folder-row[data-folder-id]')) {
@@ -491,6 +504,58 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
         context.libraryIndex,
         context.library,
     ));
+}
+
+function refreshLoredeckLibrarySelectionHighlights() {
+    if (!loredeckLibraryOpen) return;
+    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+    if (!overlay) return;
+    const selectedId = String(getState()?.lorePanel?.selectedLoredeckId || '').trim();
+    const selectedIds = new Set(loredeckLibraryBulkSelectedIds || []);
+
+    for (const card of overlay.querySelectorAll('.wandlight-loredeck-library-deck-card[data-pack-id]')) {
+        const packId = String(card.dataset.packId || '').trim();
+        const bulkSelected = selectedIds.has(packId);
+        card.classList.toggle('wandlight-loredeck-library-deck-selected', selectedId === packId);
+        card.classList.toggle('wandlight-loredeck-library-deck-bulk-selected', bulkSelected);
+        card.setAttribute('aria-pressed', bulkSelected ? 'true' : 'false');
+        card.toggleAttribute('aria-current', selectedId === packId);
+    }
+
+    for (const card of overlay.querySelectorAll('.wandlight-loredeck-library-stack-card[data-pack-id]')) {
+        const packId = String(card.dataset.packId || '').trim();
+        card.classList.toggle('wandlight-loredeck-library-stack-card-selected', selectedId === packId);
+        card.classList.toggle('wandlight-loredeck-library-stack-card-bulk-selected', selectedIds.has(packId));
+        card.toggleAttribute('aria-current', selectedId === packId);
+    }
+
+    for (const folderCard of overlay.querySelectorAll('.wandlight-loredeck-library-stack-folder-card[data-folder-id]')) {
+        const folderId = String(folderCard.dataset.folderId || '').trim();
+        folderCard.classList.toggle('wandlight-loredeck-library-stack-card-selected', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
+        folderCard.toggleAttribute('aria-current', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
+    }
+
+    for (const folderRow of overlay.querySelectorAll('.wandlight-loredeck-library-inline-folder-row[data-folder-id]')) {
+        const folderId = String(folderRow.dataset.folderId || '').trim();
+        folderRow.classList.toggle('wandlight-loredeck-library-folder-row-active', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
+        folderRow.toggleAttribute('aria-current', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
+    }
+}
+
+function scheduleLoredeckLibrarySelectionSurfaceRefresh() {
+    refreshLoredeckLibrarySelectionHighlights();
+    if (!loredeckLibraryOpen) return;
+    if (loredeckLibrarySelectionRefreshFrame && typeof cancelAnimationFrame === 'function') {
+        cancelAnimationFrame(loredeckLibrarySelectionRefreshFrame);
+    }
+    if (typeof requestAnimationFrame !== 'function') {
+        refreshLoredeckLibrarySelectionSurfaces();
+        return;
+    }
+    loredeckLibrarySelectionRefreshFrame = requestAnimationFrame(() => {
+        loredeckLibrarySelectionRefreshFrame = 0;
+        refreshLoredeckLibrarySelectionSurfaces();
+    });
 }
 
 function getLoredeckLibraryDetailsHeight(state = getState()) {
@@ -751,6 +816,27 @@ function getLoredeckLibraryFolderScopedPacks(library = [], libraryIndex = {}, fo
     if (id === 'active') return library.filter(pack => activeIds.has(pack.packId));
     const deckIds = new Set(getLoredeckLibraryFolderDeckIds(id, libraryIndex, { includeNested: true }));
     return library.filter(pack => deckIds.has(pack.packId));
+}
+
+function isLoredeckLibraryBundledFolder(folderId = '', library = [], libraryIndex = {}) {
+    const id = String(folderId || '').trim();
+    if (!id || id === 'unfiled' || isLoredeckLibrarySpecialFolderId(id)) return false;
+    return getLoredeckLibraryFolderPacks(id, library, libraryIndex, { includeNested: true })
+        .some(pack => pack?.type === 'bundled' || isBundledLoredeckLibraryPack(pack));
+}
+
+function isLoredeckLibraryFolderCollapsedByDefault(folder = {}, library = [], libraryIndex = {}) {
+    const id = String(folder?.id || folder || '').trim();
+    if (!id) return false;
+    return folder?.collapsed === true || isLoredeckLibraryBundledFolder(id, library, libraryIndex);
+}
+
+function getLoredeckLibraryFolderCollapsedState(folder = {}, library = [], libraryIndex = {}, options = {}) {
+    const id = String(folder?.id || folder || '').trim();
+    if (!id || options.query) return false;
+    if (loredeckLibraryExpandedFolderIds.has(id)) return false;
+    if (loredeckLibraryCollapsedFolderIds.has(id)) return true;
+    return isLoredeckLibraryFolderCollapsedByDefault(folder, library, libraryIndex);
 }
 
 function getLoredeckLibraryViewTitle(folderId = 'all', libraryIndex = {}) {
@@ -1078,7 +1164,7 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
 
         const folderAllPacks = getLoredeckLibraryFolderPacks(folder.id, library, libraryIndex, { includeNested: true });
         const stats = getLoredeckLibraryFolderStats(folder.id, library, libraryIndex, stack, canonDb, health);
-        const collapsed = query ? false : loredeckLibraryCollapsedFolderIds.has(folder.id);
+        const collapsed = getLoredeckLibraryFolderCollapsedState(folder, library, libraryIndex, { query });
         list.appendChild(createLoredeckLibraryInlineFolderRow(folder, {
             depth,
             collapsed,
@@ -1098,7 +1184,7 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
 
     if (unfiledPacks.length || (showEmptyFolders && allUnfiledPacks.length)) {
         const unfiledVisible = unfiledPacks.length ? unfiledPacks : (showEmptyFolders ? allUnfiledPacks : []);
-        const collapsed = query ? false : loredeckLibraryCollapsedFolderIds.has('unfiled');
+        const collapsed = getLoredeckLibraryFolderCollapsedState('unfiled', library, libraryIndex, { query });
         list.appendChild(createLoredeckLibraryInlineFolderRow({
             id: 'unfiled',
             title: 'Unfiled',
@@ -1306,10 +1392,9 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     if (loredeckLibrarySelectedFolderDetailsId === folderId) row.setAttribute('aria-current', 'true');
     addTooltip(row, options.special ? 'System Library section.' : (getFolderPath(folderId, getLoredeckLibraryIndexForPacks()).join(' > ') || folder.title || 'Folder'));
     const selectFolder = () => {
-        loredeckLibrarySelectedFolderId = folderId || 'all';
         loredeckLibrarySelectedFolderDetailsId = folderId || '';
         setLoredeckLibraryBulkSelection([], '');
-        renderLoredeckLibraryOverlay();
+        scheduleLoredeckLibrarySelectionSurfaceRefresh();
     };
     row.addEventListener('click', e => {
         e.stopPropagation();
@@ -1321,10 +1406,10 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
             selectFolder();
         } else if (e.key === 'ArrowRight' && collapsed) {
             e.preventDefault();
-            toggleLoredeckLibraryFolderCollapsed(folderId);
+            toggleLoredeckLibraryFolderCollapsed(folderId, collapsed);
         } else if (e.key === 'ArrowLeft' && !collapsed) {
             e.preventDefault();
-            toggleLoredeckLibraryFolderCollapsed(folderId);
+            toggleLoredeckLibraryFolderCollapsed(folderId, collapsed);
         }
     });
 
@@ -1351,7 +1436,7 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     disclosure.addEventListener('click', e => {
         e.preventDefault();
         e.stopPropagation();
-        toggleLoredeckLibraryFolderCollapsed(folderId);
+        toggleLoredeckLibraryFolderCollapsed(folderId, collapsed);
     });
     row.appendChild(disclosure);
 
@@ -1386,13 +1471,23 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     return row;
 }
 
-function toggleLoredeckLibraryFolderCollapsed(folderId = '') {
+function toggleLoredeckLibraryFolderCollapsed(folderId = '', currentCollapsed = null) {
     const id = String(folderId || '').trim();
     if (!id) return;
-    const next = new Set(loredeckLibraryCollapsedFolderIds);
-    if (next.has(id)) next.delete(id);
-    else next.add(id);
-    loredeckLibraryCollapsedFolderIds = next;
+    const collapsed = currentCollapsed === null
+        ? getLoredeckLibraryFolderCollapsedState(id, getLoredeckLibrary(getState()), getLoredeckLibraryIndexForPacks())
+        : currentCollapsed === true;
+    const collapsedIds = new Set(loredeckLibraryCollapsedFolderIds);
+    const expandedIds = new Set(loredeckLibraryExpandedFolderIds);
+    if (collapsed) {
+        collapsedIds.delete(id);
+        expandedIds.add(id);
+    } else {
+        expandedIds.delete(id);
+        collapsedIds.add(id);
+    }
+    loredeckLibraryCollapsedFolderIds = collapsedIds;
+    loredeckLibraryExpandedFolderIds = expandedIds;
     renderLoredeckLibraryOverlay();
 }
 
@@ -2016,10 +2111,9 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     card.addEventListener('click', e => {
         e.stopPropagation();
         if (e.target?.closest?.('button')) return;
-        loredeckLibrarySelectedFolderId = folderId;
         loredeckLibrarySelectedFolderDetailsId = folderId;
         setLoredeckLibraryBulkSelection([], '');
-        renderLoredeckLibraryOverlay();
+        scheduleLoredeckLibrarySelectionSurfaceRefresh();
     });
 
     const grip = document.createElement('button');
@@ -4253,7 +4347,10 @@ function createLoredeckLibraryFolder(parentId = '', title = '', libraryIndex = g
     }
     const folder = result.folder;
     saveLoredeckLibraryFolderRecords(result.folders);
-    if (targetParentId) loredeckLibraryCollapsedFolderIds.delete(targetParentId);
+    if (targetParentId) {
+        loredeckLibraryCollapsedFolderIds.delete(targetParentId);
+        loredeckLibraryExpandedFolderIds.add(targetParentId);
+    }
     loredeckLibrarySelectedFolderId = folder.id;
     loredeckLibrarySelectedFolderDetailsId = folder.id;
     loredeckLibrarySort = 'manual';
@@ -4382,7 +4479,10 @@ function applyLoredeckLibraryFolderRemoval(plan = {}, strategy = 'empty') {
             }
         });
     }
-    for (const id of result.removedFolderIds) loredeckLibraryCollapsedFolderIds.delete(id);
+    for (const id of result.removedFolderIds) {
+        loredeckLibraryCollapsedFolderIds.delete(id);
+        loredeckLibraryExpandedFolderIds.delete(id);
+    }
     loredeckLibrarySelectedFolderId = result.selectedFolderId;
     loredeckLibrarySelectedFolderDetailsId = '';
     if (result.selectedDeckIds.length) setLoredeckLibraryBulkSelection(result.selectedDeckIds, result.selectedDeckIds[0]);
@@ -4403,7 +4503,10 @@ function moveLoredeckLibraryFolder(folderId = '', targetParentId = '', targetInd
     saveLoredeckLibraryFolderRecords(result.folders);
     loredeckLibrarySelectedFolderId = id;
     loredeckLibrarySelectedFolderDetailsId = id;
-    if (targetParentId) loredeckLibraryCollapsedFolderIds.delete(targetParentId);
+    if (targetParentId) {
+        loredeckLibraryCollapsedFolderIds.delete(targetParentId);
+        loredeckLibraryExpandedFolderIds.add(targetParentId);
+    }
     loredeckLibrarySort = 'manual';
     toast(`${result.folder.title || id} folder ${result.sameParent ? 'reordered' : 'moved'}.`, 'success');
     return true;

@@ -60,6 +60,7 @@ const packs = {
   },
   'hp-year-6-half-blood-prince': {
     title: 'Harry Potter Year 6: Half-Blood Prince',
+    type: 'bundled',
     library: { suggestedPath: ['Harry Potter', 'Golden Trio'], familyOrder: 70 },
   },
 };
@@ -68,10 +69,14 @@ const index = normalizeLoredeckLibraryIndex({}, { packs });
 const onePieceId = createFolderIdFromPath(['One Piece']);
 const eastBlueId = createFolderIdFromPath(['One Piece', 'East Blue Saga']);
 const arlongId = createFolderIdFromPath(['One Piece', 'East Blue Saga', 'Arlong Park']);
+const hpRootId = createFolderIdFromPath(['Harry Potter']);
 const hpGoldenTrioId = createFolderIdFromPath(['Harry Potter', 'Golden Trio']);
 
 assert.ok(index.folders.some(folder => folder.id === onePieceId));
 assert.ok(index.folders.some(folder => folder.id === arlongId && folder.parentId === eastBlueId));
+assert.equal(index.folders.find(folder => folder.id === onePieceId)?.collapsed, false);
+assert.equal(index.folders.find(folder => folder.id === hpRootId)?.collapsed, true);
+assert.equal(index.folders.find(folder => folder.id === hpGoldenTrioId)?.collapsed, true);
 assert.deepEqual(getFolderPath(arlongId, index), ['One Piece', 'East Blue Saga', 'Arlong Park']);
 assert.equal(index.deckPlacements.find(item => item.deckId === 'onepiece-arlong-core')?.folderId, arlongId);
 assert.equal(index.deckPlacements.find(item => item.deckId === 'hp-year-6-half-blood-prince')?.folderId, hpGoldenTrioId);
