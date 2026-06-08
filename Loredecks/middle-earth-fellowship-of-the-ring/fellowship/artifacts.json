@@ -1,0 +1,1576 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-07",
+  "sourcePackId": "middle-earth-fellowship-of-the-ring",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_bilbo_leaves_ring_to_frodo",
+      "title": "Bilbo Leaves The Ring To Frodo",
+      "kind": "status_change",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.bilbo-party",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Bilbo leaves the Shire"
+      },
+      "scope": {
+        "characters": [
+          "Bilbo Baggins",
+          "Frodo Baggins",
+          "Gandalf"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "inheritance",
+          "Bag End",
+          "Ring ownership",
+          "Bilbo Baggins",
+          "Frodo Baggins",
+          "One Ring",
+          "Shire"
+        ],
+        "locations": [
+          "The Shire"
+        ],
+        "entityIds": [
+          "middle-earth:bilbo-baggins",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gandalf",
+          "middle-earth:shire",
+          "middle-earth:one-ring",
+          "middle-earth:bag-end"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "character:bilbo-baggins",
+        "character:frodo-baggins",
+        "artifact:one-ring",
+        "region:shire"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Bilbo Baggins",
+            "Frodo Baggins",
+            "Gandalf"
+          ],
+          "locationsAny": [
+            "The Shire"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "inheritance",
+            "Bag End",
+            "Ring ownership",
+            "Bilbo Baggins",
+            "Frodo Baggins",
+            "One Ring",
+            "Shire"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "character:bilbo-baggins",
+            "character:frodo-baggins",
+            "artifact:one-ring",
+            "region:shire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Bilbo leaves the Shire, Frodo inherits Bilbo's ring at Bag End before fully understanding that it is the One Ring.",
+        "injection": "After Bilbo leaves, treat Frodo as the keeper of Bilbo's ring at Bag End. Frodo should not initially understand the full danger until Gandalf confirms it.",
+        "constraints": [
+          "Bilbo is no longer the active Ring-bearer during the main Fellowship plot.",
+          "Frodo's early possession is private and domestic before it becomes a quest burden."
+        ],
+        "antiLore": [
+          "Do not have ordinary Shire residents know the ring is the One Ring.",
+          "Do not treat Frodo as mission-ready immediately after Bilbo departs."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "A Long-expected Party"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_mithril-coat-is-secret-protective-inheritance",
+      "title": "Mithril Coat Is Secret Protective Inheritance",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.bilbo-party",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Mithril Coat Is Secret Protective Inheritance"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Mithril Coat",
+          "Frodo Baggins"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:mithril-coat",
+          "middle-earth:frodo-baggins",
+          "middle-earth:bilbo-baggins"
+        ]
+      },
+      "tags": [
+        "artifact:mithril-coat",
+        "character:frodo-baggins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Mithril Coat",
+            "Frodo Baggins"
+          ],
+          "matchTags": [
+            "artifact:mithril-coat",
+            "character:frodo-baggins"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Bilbo’s mithril coat becomes Frodo’s hidden protection and a sign of extraordinary craft-value.",
+        "injection": "Bilbo’s mithril coat becomes Frodo’s hidden protection and a sign of extraordinary craft-value. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "A Long-expected Party"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:bilbo-baggins"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_phial-is-not-available-before-lothlorien",
+      "title": "Phial Is Not Available Before Lothlorien",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.bilbo-party",
+        "validToAnchor": "lotr.fotr.lothlorien",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 2200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Phial Is Not Available Before Lothlorien"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Phial Of Galadriel",
+          "Future Item",
+          "Phial Available Lothlorien"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:phial-of-galadriel",
+          "middle-earth:galadriel",
+          "middle-earth:lothlorien"
+        ]
+      },
+      "tags": [
+        "artifact:phial-of-galadriel",
+        "secret:future-item"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Phial Of Galadriel",
+            "Future Item",
+            "Phial Available Lothlorien"
+          ],
+          "matchTags": [
+            "artifact:phial-of-galadriel",
+            "secret:future-item"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Phial of Galadriel is not available before Galadriel gives it in Lothlorien.",
+        "injection": "Use this as a concrete runtime constraint when the scoped entities or topics are relevant: The Phial of Galadriel is not available before Galadriel gives it in Lothlorien.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "A Long-expected Party"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:phial-of-galadriel",
+          "middle-earth:galadriel"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_barrow-blades-carry-ancient-consequence",
+      "title": "Barrow-blades Carry Ancient Consequence",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.old-forest",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 1300,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Barrow-blades Carry Ancient Consequence"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Barrow Blades",
+          "Barrow Downs"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:barrow-blades",
+          "middle-earth:barrow-downs",
+          "middle-earth:meriadoc-brandybuck"
+        ]
+      },
+      "tags": [
+        "artifact:barrow-blades",
+        "location:barrow-downs"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Barrow Blades",
+            "Barrow Downs"
+          ],
+          "matchTags": [
+            "artifact:barrow-blades",
+            "location:barrow-downs"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The blades taken from the Barrow-downs are meaningful carried items with later consequence, especially Merry’s blade.",
+        "injection": "Use this as a concrete runtime constraint when the scoped entities or topics are relevant: The blades taken from the Barrow-downs are meaningful carried items with later consequence, especially Merry’s blade.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Old Forest / In the House of Tom Bombadil"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_tom_bombadils_power_is_local_and_nonportable",
+      "title": "Tom Bombadil’s Power Is Local And Nonportable",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.tom-bombadil-house",
+        "validToAnchor": "lotr.fotr.barrow-wight",
+        "sortKeyFrom": 1320,
+        "sortKeyTo": 1330,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Tom Bombadil’s Power Is Local And Nonportable"
+      },
+      "scope": {
+        "characters": [
+          "Tom Bombadil",
+          "Frodo Baggins"
+        ],
+        "locations": [
+          "Old Forest",
+          "Barrow-downs"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "factions": [],
+        "topics": [
+          "Tom Bombadil",
+          "local domain",
+          "Ring immunity"
+        ],
+        "entityIds": [
+          "middle-earth:barrow-downs",
+          "middle-earth:frodo-baggins",
+          "middle-earth:old-forest",
+          "middle-earth:one-ring",
+          "middle-earth:tom-bombadil"
+        ]
+      },
+      "tags": [
+        "artifact:one-ring",
+        "book:fellowship-of-the-ring",
+        "character:frodo-baggins",
+        "character:tom-bombadil",
+        "location:barrow-downs",
+        "location:old-forest",
+        "topic:local-power"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tom Bombadil",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "Old Forest",
+            "Barrow-downs"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Tom Bombadil",
+            "local domain",
+            "Ring immunity"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "character:tom-bombadil",
+            "topic:local-power",
+            "character:frodo-baggins",
+            "location:old-forest",
+            "location:barrow-downs",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Tom Bombadil is unaffected by the Ring within his domain, but not a portable solution to the Ring quest.",
+        "injection": "Keep Bombadil exceptional and local; his freedom from the Ring should not make him a universal anti-Sauron weapon.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "In the House of Tom Bombadil",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_barrow_blades_carry_delayed_witch_king_significance",
+      "title": "Barrow-blades Carry Delayed Witch-king Significance",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.barrow-wight",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 1330,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Barrow-blades Carry Delayed Witch-king Significance"
+      },
+      "scope": {
+        "characters": [
+          "Meriadoc Brandybuck"
+        ],
+        "locations": [
+          "Barrow-downs"
+        ],
+        "objects": [
+          "Barrow-blades"
+        ],
+        "factions": [],
+        "topics": [
+          "Barrow-blades",
+          "delayed setup"
+        ],
+        "entityIds": [
+          "middle-earth:barrow-blades",
+          "middle-earth:barrow-downs",
+          "middle-earth:meriadoc-brandybuck"
+        ]
+      },
+      "tags": [
+        "artifact:barrow-blades",
+        "book:fellowship-of-the-ring",
+        "character:meriadoc-brandybuck",
+        "location:barrow-downs",
+        "secret:future-weapon-significance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Meriadoc Brandybuck"
+          ],
+          "locationsAny": [
+            "Barrow-downs"
+          ],
+          "objectsAny": [
+            "Barrow-blades"
+          ],
+          "topicsAny": [
+            "Barrow-blades",
+            "delayed setup"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "secret:future-weapon-significance",
+            "character:meriadoc-brandybuck",
+            "location:barrow-downs",
+            "artifact:barrow-blades"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The blades taken from the Barrow-downs have significance beyond immediate survival, especially for Merry later.",
+        "injection": "Treat the Barrow-blades as old weapons with future significance without revealing Pelennor early.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "Fog on the Barrow-downs",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_elrond_frames_destruction_as_the_only_safe_course",
+      "title": "Elrond Frames Destruction As The Only Safe Course",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.council-of-elrond",
+        "validToAnchor": "lotr.fotr.fellowship-forms",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Elrond Frames Destruction As The Only Safe Course"
+      },
+      "scope": {
+        "characters": [
+          "Elrond",
+          "Gandalf",
+          "Frodo Baggins"
+        ],
+        "locations": [
+          "Rivendell",
+          "Mount Doom"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "factions": [],
+        "topics": [
+          "Ring destruction decision",
+          "no safe storage"
+        ],
+        "entityIds": [
+          "middle-earth:elrond",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gandalf",
+          "middle-earth:mount-doom",
+          "middle-earth:one-ring",
+          "middle-earth:rivendell"
+        ]
+      },
+      "tags": [
+        "artifact:one-ring",
+        "book:fellowship-of-the-ring",
+        "character:elrond",
+        "character:frodo-baggins",
+        "character:gandalf",
+        "location:mount-doom",
+        "location:rivendell"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Elrond",
+            "Gandalf",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "Rivendell",
+            "Mount Doom"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Ring destruction decision",
+            "no safe storage"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "character:elrond",
+            "character:gandalf",
+            "character:frodo-baggins",
+            "location:rivendell",
+            "location:mount-doom",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Elrond’s counsel establishes that the Ring must be destroyed rather than hidden, guarded, or wielded.",
+        "injection": "After the Council, serious plans should center on destruction at Mount Doom.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "The Council of Elrond",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_the_balrog_is_ancient_terror_not_a_generic_monster",
+      "title": "The Balrog Is Ancient Terror Not A Generic Monster",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.balin-tomb",
+        "validToAnchor": "lotr.fotr.gandalf-falls",
+        "sortKeyFrom": 2020,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Balrog Is Ancient Terror Not A Generic Monster"
+      },
+      "scope": {
+        "characters": [
+          "Gandalf"
+        ],
+        "locations": [
+          "Moria"
+        ],
+        "objects": [],
+        "factions": [
+          "Fellowship"
+        ],
+        "topics": [
+          "Balrog",
+          "ancient terror"
+        ],
+        "entityIds": [
+          "middle-earth:fellowship",
+          "middle-earth:gandalf",
+          "middle-earth:moria"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "character:gandalf",
+        "faction:fellowship",
+        "location:moria",
+        "topic:ancient-evil"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gandalf"
+          ],
+          "locationsAny": [
+            "Moria"
+          ],
+          "factionsAny": [
+            "Fellowship"
+          ],
+          "topicsAny": [
+            "Balrog",
+            "ancient terror"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "topic:ancient-evil",
+            "character:gandalf",
+            "location:moria",
+            "faction:fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Balrog is an ancient terror whose presence overwhelms ordinary battle logic.",
+        "injection": "Treat the Balrog as catastrophic ancient power; the Company should flee and Gandalf’s stand should feel exceptional.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "The Bridge of Khazad-dum",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_galadriel-s-gifts-are-practical-and-symbolic",
+      "title": "Galadriel’s Gifts Are Practical And Symbolic",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.lothlorien",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Galadriel’s Gifts Are Practical And Symbolic",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring",
+        "phaseId": "lotr.fotr.phase.fellowship-active",
+        "phase": "Fellowship Active"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Phial Of Galadriel",
+          "Lembas"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:phial-of-galadriel",
+          "middle-earth:lembas",
+          "middle-earth:galadriel",
+          "middle-earth:lothlorien"
+        ]
+      },
+      "tags": [
+        "artifact:phial-of-galadriel",
+        "artifact:lembas"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Phial Of Galadriel",
+            "Lembas"
+          ],
+          "matchTags": [
+            "artifact:phial-of-galadriel",
+            "artifact:lembas"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The gifts from Lothlorien are practical aids and symbolic blessings tailored to later hardship.",
+        "injection": "Use this as a concrete runtime constraint when the scoped entities or topics are relevant: The gifts from Lothlorien are practical aids and symbolic blessings tailored to later hardship.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Farewell to Lórien / The Great River"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_galadriels_mirror_is_not_deterministic_prophecy",
+      "title": "Galadriel’s Mirror Is Not Deterministic Prophecy",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.mirror-of-galadriel",
+        "validToAnchor": "lotr.fotr.galadriel-refuses-ring",
+        "sortKeyFrom": 2220,
+        "sortKeyTo": 2230,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Galadriel’s Mirror Is Not Deterministic Prophecy"
+      },
+      "scope": {
+        "characters": [
+          "Galadriel",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Lothlorien"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "factions": [],
+        "topics": [
+          "ambiguous visions",
+          "temptation"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:galadriel",
+          "middle-earth:lothlorien",
+          "middle-earth:one-ring",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "artifact:one-ring",
+        "book:fellowship-of-the-ring",
+        "character:frodo-baggins",
+        "character:galadriel",
+        "character:samwise-gamgee",
+        "region:lothlorien",
+        "topic:visions"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Galadriel",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Lothlorien"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "ambiguous visions",
+            "temptation"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "topic:visions",
+            "character:galadriel",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "region:lothlorien",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Galadriel’s Mirror can show things that were, are, may be, or may be misleading.",
+        "injection": "Use the Mirror as ambiguous pressure and temptation; it should not make prophecy mechanically certain.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "The Mirror of Galadriel",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_gifts_of_lorien_are_practical_and_symbolic",
+      "title": "Gifts Of Lorien Are Practical And Symbolic",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.lorien-gifts",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 2240,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gifts Of Lorien Are Practical And Symbolic"
+      },
+      "scope": {
+        "characters": [
+          "Galadriel",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Lothlorien"
+        ],
+        "objects": [
+          "Phial of Galadriel",
+          "Elven cloaks",
+          "Lembas"
+        ],
+        "factions": [],
+        "topics": [
+          "Lorien gifts",
+          "practical aid"
+        ],
+        "entityIds": [
+          "middle-earth:elven-cloaks",
+          "middle-earth:frodo-baggins",
+          "middle-earth:galadriel",
+          "middle-earth:lembas",
+          "middle-earth:lothlorien",
+          "middle-earth:phial-of-galadriel",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "artifact:elven-cloaks",
+        "artifact:lembas",
+        "artifact:phial-of-galadriel",
+        "book:fellowship-of-the-ring",
+        "character:frodo-baggins",
+        "character:galadriel",
+        "character:samwise-gamgee",
+        "region:lothlorien"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Galadriel",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Lothlorien"
+          ],
+          "objectsAny": [
+            "Phial of Galadriel",
+            "Elven cloaks",
+            "Lembas"
+          ],
+          "topicsAny": [
+            "Lorien gifts",
+            "practical aid"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "character:galadriel",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "region:lothlorien",
+            "artifact:phial-of-galadriel",
+            "artifact:elven-cloaks",
+            "artifact:lembas"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The gifts from Lorien are practical aids and symbolic tokens that matter later.",
+        "injection": "Keep Lorien gifts understated but useful: memory, survival value, and hope, not flashy spectacle.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "Farewell to Lorien",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v6_lorien_gifts_create_future_item_states",
+      "title": "Lorien Gifts Create Future Item States",
+      "kind": "status_change",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 77,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.lorien-gifts",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 2240,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Galadriel gives the Fellowship gifts",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring",
+        "phaseId": "lotr.fotr.phase.fellowship-active",
+        "phase": "Fellowship Active"
+      },
+      "scope": {
+        "characters": [
+          "Galadriel",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Lothlorien"
+        ],
+        "topics": [
+          "gifts",
+          "future aid",
+          "Elven blessing",
+          "Lorien Gifts",
+          "Phial Of Galadriel",
+          "Lembas",
+          "Fellowship"
+        ],
+        "objects": [
+          "Phial of Galadriel",
+          "lembas",
+          "Elven rope"
+        ],
+        "factions": [
+          "Fellowship"
+        ],
+        "entityIds": [
+          "middle-earth:galadriel",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:lothlorien",
+          "middle-earth:phial-of-galadriel",
+          "middle-earth:lembas",
+          "middle-earth:fellowship",
+          "middle-earth:lorien-gifts"
+        ]
+      },
+      "tags": [
+        "event:lorien-gifts",
+        "artifact:phial-of-galadriel",
+        "artifact:lembas",
+        "faction:fellowship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Galadriel",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Lothlorien"
+          ],
+          "topicsAny": [
+            "gifts",
+            "future aid",
+            "Elven blessing",
+            "Lorien Gifts",
+            "Phial Of Galadriel",
+            "Lembas",
+            "Fellowship"
+          ],
+          "objectsAny": [
+            "Phial of Galadriel",
+            "lembas",
+            "Elven rope"
+          ],
+          "factionsAny": [
+            "Fellowship"
+          ],
+          "matchTags": [
+            "event:lorien-gifts",
+            "artifact:phial-of-galadriel",
+            "artifact:lembas",
+            "faction:fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Lothlorien, the Fellowship carries Galadriel’s gifts, which become practical and symbolic resources in later hardship.",
+        "injection": "Once the Fellowship leaves Lothlorien, make Galadriel’s gifts available as established item states. Do not use the Phial, Elven rope, or other gifts before they are given.",
+        "constraints": [
+          "This is a future-utility guard, not a prompt to overuse the items.",
+          "The gifts should feel tailored and meaningful."
+        ],
+        "antiLore": [
+          "Do not let Frodo or Sam have the Phial before Lothlorien."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Farewell to Lórien / The Great River"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

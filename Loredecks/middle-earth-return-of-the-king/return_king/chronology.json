@@ -1,0 +1,3556 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_pippin-s-palantir-look-forces-gandalf-s-ride",
+      "title": "Pippin’s Palantir Look Forces Gandalf’s Ride",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.isengard-aftermath",
+        "validToAnchor": "lotr.rotk.pippin-minas-tirith",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Pippin’s Palantir Look Forces Gandalf’s Ride",
+        "phaseId": "lotr.rotk.phase.pre-siege",
+        "phase": "Before The Siege Peaks"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Peregrin Took",
+          "Palantir"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:peregrin-took",
+          "middle-earth:palantir",
+          "middle-earth:gandalf",
+          "middle-earth:minas-tirith"
+        ]
+      },
+      "tags": [
+        "character:peregrin-took",
+        "artifact:palantir"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Peregrin Took",
+            "Palantir"
+          ],
+          "matchTags": [
+            "character:peregrin-took",
+            "artifact:palantir"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Pippin’s look into the palantir accelerates Gandalf’s ride to Minas Tirith.",
+        "injection": "Pippin’s look into the palantir accelerates Gandalf’s ride to Minas Tirith. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Minas Tirith"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_pippin_serves_denethor",
+      "title": "Pippin Enters Denethor’s Service",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.pippin-minas-tirith",
+        "validToAnchor": "lotr.rotk.denethor-pyre",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 1700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Pippin in Minas Tirith before Denethor falls",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Peregrin Took",
+          "Denethor",
+          "Gandalf"
+        ],
+        "locations": [
+          "Minas Tirith"
+        ],
+        "topics": [
+          "service",
+          "Steward of Gondor",
+          "Pippin in Gondor",
+          "Peregrin Took",
+          "Denethor",
+          "Gondor"
+        ],
+        "factions": [
+          "Gondor"
+        ],
+        "entityIds": [
+          "middle-earth:peregrin-took",
+          "middle-earth:denethor",
+          "middle-earth:gandalf",
+          "middle-earth:minas-tirith",
+          "middle-earth:gondor",
+          "middle-earth:boromir"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:peregrin-took",
+        "character:denethor",
+        "faction:gondor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Peregrin Took",
+            "Denethor",
+            "Gandalf"
+          ],
+          "locationsAny": [
+            "Minas Tirith"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "service",
+            "Steward of Gondor",
+            "Pippin in Gondor",
+            "Peregrin Took",
+            "Denethor",
+            "Gondor"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:peregrin-took",
+            "character:denethor",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Pippin enters the service of Denethor in Minas Tirith after feeling bound by Boromir’s death and Gondor’s need.",
+        "injection": "In Minas Tirith scenes before Denethor falls, Pippin may serve in the Citadel and experience Gondor through the Steward’s court, fear, formality, and siege pressure.",
+        "constraints": [
+          "Pippin remains a Hobbit and outsider even while wearing Gondorian livery."
+        ],
+        "antiLore": [
+          "Do not keep Pippin traveling with Merry or Aragorn during the Minas Tirith siege."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Minas Tirith"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_beacons-signal-gondor-s-crisis",
+      "title": "Beacons Signal Gondor’s Crisis",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.pippin-minas-tirith",
+        "validToAnchor": "lotr.rotk.rohan-musters",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Beacons Signal Gondor’s Crisis",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor",
+        "phaseId": "lotr.rotk.phase.pre-siege",
+        "phase": "Before The Siege Peaks"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Gondor",
+          "Rohan"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gondor",
+          "middle-earth:rohan"
+        ]
+      },
+      "tags": [
+        "faction:gondor",
+        "faction:rohan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Gondor",
+            "Rohan"
+          ],
+          "matchTags": [
+            "faction:gondor",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The beacons and calls for aid mark Gondor’s crisis and pressure Rohan’s alliance obligations.",
+        "injection": "The beacons and calls for aid mark Gondor’s crisis and pressure Rohan’s alliance obligations. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Minas Tirith"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_aragorn-uses-the-palantir-as-a-challenge",
+      "title": "Aragorn Uses The Palantir As A Challenge",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.aragorn-palantir",
+        "validToAnchor": "lotr.rotk.paths-of-dead",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 1300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Aragorn Uses The Palantir As A Challenge",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor",
+        "phaseId": "lotr.rotk.phase.pre-siege",
+        "phase": "Before The Siege Peaks"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Aragorn",
+          "Palantir"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:palantir",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "character:aragorn",
+        "artifact:palantir"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Aragorn",
+            "Palantir"
+          ],
+          "matchTags": [
+            "character:aragorn",
+            "artifact:palantir"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn deliberately reveals himself through the palantir to challenge Sauron and influence enemy attention.",
+        "injection": "Aragorn deliberately reveals himself through the palantir to challenge Sauron and influence enemy attention. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Passing of the Grey Company"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_grey-company-reinforces-aragorn-s-path",
+      "title": "Grey Company Reinforces Aragorn’s Path",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.aragorn-palantir",
+        "validToAnchor": "lotr.rotk.paths-of-dead",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 1300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Grey Company Reinforces Aragorn’s Path",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor",
+        "phaseId": "lotr.rotk.phase.pre-siege",
+        "phase": "Before The Siege Peaks"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Rangers Of The North",
+          "Aragorn"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:rangers-of-the-north",
+          "middle-earth:aragorn"
+        ]
+      },
+      "tags": [
+        "faction:rangers-of-the-north",
+        "character:aragorn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Rangers Of The North",
+            "Aragorn"
+          ],
+          "matchTags": [
+            "faction:rangers-of-the-north",
+            "character:aragorn"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Grey Company joins Aragorn and reinforces the northern lineage and kingship thread.",
+        "injection": "The Grey Company joins Aragorn and reinforces the northern lineage and kingship thread. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Passing of the Grey Company"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_aragorn_takes_paths_of_dead",
+      "title": "Aragorn Takes The Paths Of The Dead",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.paths-of-dead",
+        "validToAnchor": "lotr.rotk.aragorn-arrives",
+        "sortKeyFrom": 1300,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Aragorn uses the Paths of the Dead before Pelennor arrival",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn",
+          "Legolas",
+          "Gimli"
+        ],
+        "locations": [
+          "Paths of the Dead",
+          "Stone of Erech"
+        ],
+        "topics": [
+          "Oathbreakers",
+          "Isildur’s heir",
+          "southern forces",
+          "Aragorn",
+          "Dead Men of Dunharrow",
+          "Paths Of The Dead"
+        ],
+        "factions": [
+          "Dead Men of Dunharrow",
+          "Gondor"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:paths-of-the-dead",
+          "middle-earth:dead-men-of-dunharrow",
+          "middle-earth:gondor",
+          "middle-earth:dead-men-dunharrow",
+          "middle-earth:mordor-faction"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:aragorn",
+        "people:dead-men-of-dunharrow",
+        "location:paths-of-the-dead"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn",
+            "Legolas",
+            "Gimli"
+          ],
+          "locationsAny": [
+            "Paths of the Dead",
+            "Stone of Erech"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Oathbreakers",
+            "Isildur’s heir",
+            "southern forces",
+            "Aragorn",
+            "Dead Men of Dunharrow",
+            "Paths Of The Dead"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:aragorn",
+            "people:dead-men-of-dunharrow",
+            "location:paths-of-the-dead"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn takes the Paths of the Dead to summon the oath-bound Dead Men and turn the southern threat against Mordor’s allies.",
+        "injection": "When the Paths of the Dead arc is active, Aragorn’s lineage has concrete supernatural and military consequence: only Isildur’s heir can command the oathbreakers to fulfill their ancient oath.",
+        "constraints": [
+          "This route removes Aragorn, Legolas, and Gimli from the main Rohan ride until Aragorn’s later arrival by ship."
+        ],
+        "antiLore": [
+          "Do not have Aragorn ride openly with Theoden to Minas Tirith if the Paths of the Dead route is active."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Passing of the Grey Company"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_the_paths_of_the_dead_test_aragorns_legitimacy",
+      "title": "The Paths Of The Dead Test Aragorn’s Legitimacy",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.paths-of-dead",
+        "validToAnchor": "lotr.rotk.dead-fulfill-oath",
+        "sortKeyFrom": 1300,
+        "sortKeyTo": 1320,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Paths Of The Dead Test Aragorn’s Legitimacy"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn"
+        ],
+        "locations": [
+          "Paths of the Dead"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Oathbreakers",
+          "Aragorn legitimacy"
+        ],
+        "people": [
+          "Dead Men of Dunharrow"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:dead-men-of-dunharrow",
+          "middle-earth:paths-of-the-dead"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:aragorn",
+        "location:paths-of-the-dead",
+        "people:dead-men-of-dunharrow"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn"
+          ],
+          "locationsAny": [
+            "Paths of the Dead"
+          ],
+          "topicsAny": [
+            "Oathbreakers",
+            "Aragorn legitimacy"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:aragorn",
+            "location:paths-of-the-dead",
+            "people:dead-men-of-dunharrow"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn’s passage works because of lineage, courage, command, and the Dead Men’s ancient oath.",
+        "injection": "The Dead answer Aragorn’s rightful command through oath and fear, not because anyone can recruit ghosts.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Passing of the Grey Company",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_corsair-threat-is-removed-before-aragorn-arrives",
+      "title": "Corsair Threat Is Removed Before Aragorn Arrives",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.paths-of-dead",
+        "validToAnchor": "lotr.rotk.aragorn-arrives",
+        "sortKeyFrom": 1300,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Corsair Threat Is Removed Before Aragorn Arrives",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Corsairs Defeated",
+          "Aragorn"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:corsairs-defeated",
+          "middle-earth:aragorn"
+        ]
+      },
+      "tags": [
+        "event:corsairs-defeated",
+        "character:aragorn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Corsairs Defeated",
+            "Aragorn"
+          ],
+          "matchTags": [
+            "event:corsairs-defeated",
+            "character:aragorn"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn breaks the Corsair threat and arrives with southern forces by ship.",
+        "injection": "Aragorn breaks the Corsair threat and arrives with southern forces by ship. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Passing of the Grey Company"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_the_corsair_ships_become_a_hidden_turn",
+      "title": "The Corsair Ships Become A Hidden Turn",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.dead-fulfill-oath",
+        "validToAnchor": "lotr.rotk.aragorn-arrives",
+        "sortKeyFrom": 1320,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Corsair Ships Become A Hidden Turn"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn",
+          "Prince Imrahil"
+        ],
+        "locations": [
+          "Pelennor Fields",
+          "Anduin"
+        ],
+        "objects": [],
+        "factions": [
+          "Gondor faction"
+        ],
+        "topics": [
+          "Corsair ships",
+          "hidden reversal"
+        ],
+        "entityIds": [
+          "middle-earth:anduin",
+          "middle-earth:aragorn",
+          "middle-earth:gondor",
+          "middle-earth:pelennor-fields",
+          "middle-earth:prince-imrahil"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:aragorn",
+        "character:prince-imrahil",
+        "event:corsair-ships",
+        "faction:gondor",
+        "location:pelennor-fields",
+        "region:anduin"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn",
+            "Prince Imrahil"
+          ],
+          "locationsAny": [
+            "Pelennor Fields",
+            "Anduin"
+          ],
+          "factionsAny": [
+            "Gondor faction"
+          ],
+          "topicsAny": [
+            "Corsair ships",
+            "hidden reversal"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "event:corsair-ships",
+            "character:aragorn",
+            "character:prince-imrahil",
+            "location:pelennor-fields",
+            "region:anduin",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn’s southern campaign turns expected enemy ships into the means of his arrival at Pelennor.",
+        "injection": "Before Aragorn arrives, characters may fear the black-sailed ships; keep the reversal hidden until revealed.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Battle of the Pelennor Fields",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_the_druedain_hidden_road_prevents_ambush",
+      "title": "The Druedain Hidden Road Prevents Ambush",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.druedain-road",
+        "validToAnchor": "lotr.rotk.rohirrim-ride-to-gondor",
+        "sortKeyFrom": 1420,
+        "sortKeyTo": 1430,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Druedain Hidden Road Prevents Ambush"
+      },
+      "scope": {
+        "characters": [
+          "Ghan-buri-Ghan",
+          "Theoden"
+        ],
+        "locations": [
+          "Druadan Forest"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hidden path",
+          "Rohirrim movement"
+        ],
+        "people": [
+          "Drúedain",
+          "Rohirrim"
+        ],
+        "entityIds": [
+          "middle-earth:druadan-forest",
+          "middle-earth:druedain",
+          "middle-earth:ghan-buri-ghan",
+          "middle-earth:rohirrim",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:ghan-buri-ghan",
+        "character:theoden",
+        "event:druedain-road",
+        "location:druadan-forest",
+        "people:druedain",
+        "people:rohirrim"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ghan-buri-Ghan",
+            "Theoden"
+          ],
+          "locationsAny": [
+            "Druadan Forest"
+          ],
+          "topicsAny": [
+            "hidden path",
+            "Rohirrim movement"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "event:druedain-road",
+            "character:ghan-buri-ghan",
+            "character:theoden",
+            "location:druadan-forest",
+            "people:druedain",
+            "people:rohirrim"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ghan-buri-Ghan and the Druedain guide the Rohirrim around enemy watch and ambush.",
+        "injection": "Use the Druedain road as local knowledge and alliance, not as a generic shortcut.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Ride of the Rohirrim",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_faramir_rides_under_impossible_orders",
+      "title": "Faramir Rides Under Impossible Orders",
+      "kind": "objective",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.faramir-osgiliath",
+        "validToAnchor": "lotr.rotk.faramir-retreats",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1510,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Faramir Rides Under Impossible Orders"
+      },
+      "scope": {
+        "characters": [
+          "Faramir",
+          "Denethor"
+        ],
+        "locations": [
+          "Osgiliath",
+          "Minas Tirith"
+        ],
+        "objects": [],
+        "factions": [
+          "Gondor faction"
+        ],
+        "topics": [
+          "Faramir sortie",
+          "impossible duty"
+        ],
+        "entityIds": [
+          "middle-earth:denethor",
+          "middle-earth:faramir",
+          "middle-earth:gondor",
+          "middle-earth:minas-tirith",
+          "middle-earth:osgiliath"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:denethor",
+        "character:faramir",
+        "faction:gondor",
+        "location:minas-tirith",
+        "location:osgiliath"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Faramir",
+            "Denethor"
+          ],
+          "locationsAny": [
+            "Osgiliath",
+            "Minas Tirith"
+          ],
+          "factionsAny": [
+            "Gondor faction"
+          ],
+          "topicsAny": [
+            "Faramir sortie",
+            "impossible duty"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:faramir",
+            "character:denethor",
+            "location:osgiliath",
+            "location:minas-tirith",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Faramir’s sortie is shaped by Denethor’s grief, impossible expectation, and obedience despite danger.",
+        "injection": "Faramir’s ride should feel dutiful and doomed, not rash glory-seeking.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Siege of Gondor",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_siege_of_minas_tirith",
+      "title": "Minas Tirith Is Under Siege",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.siege-minas-tirith",
+        "validToAnchor": "lotr.rotk.aragorn-arrives",
+        "sortKeyFrom": 1600,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Siege of Minas Tirith through Aragorn’s arrival",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor",
+        "phaseId": "lotr.rotk.phase.siege-and-pelennor",
+        "phase": "Siege And Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Gandalf",
+          "Denethor",
+          "Peregrin Took",
+          "Faramir"
+        ],
+        "locations": [
+          "Minas Tirith",
+          "Pelennor Fields"
+        ],
+        "topics": [
+          "siege",
+          "Gondor under assault",
+          "city defense",
+          "Minas Tirith",
+          "Gondor",
+          "Mordor"
+        ],
+        "factions": [
+          "Gondor",
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:denethor",
+          "middle-earth:peregrin-took",
+          "middle-earth:faramir",
+          "middle-earth:minas-tirith",
+          "middle-earth:pelennor-fields",
+          "middle-earth:gondor",
+          "middle-earth:mordor-faction",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "location:minas-tirith",
+        "faction:gondor",
+        "faction:mordor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gandalf",
+            "Denethor",
+            "Peregrin Took",
+            "Faramir"
+          ],
+          "locationsAny": [
+            "Minas Tirith",
+            "Pelennor Fields"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "siege",
+            "Gondor under assault",
+            "city defense",
+            "Minas Tirith",
+            "Gondor",
+            "Mordor"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "location:minas-tirith",
+            "faction:gondor",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Minas Tirith is besieged by Mordor, with fear, exhaustion, command strain, and collapsing hope shaping the city’s behavior.",
+        "injection": "During the Siege of Minas Tirith, write Gondor as embattled and strained: walls, horns, smoke, fear, command breakdown, and desperate endurance should shape scenes.",
+        "constraints": [
+          "The city is not merely a scenic capital during this window; it is under existential military pressure."
+        ],
+        "antiLore": [
+          "Do not portray Minas Tirith as safe, normal court life during the active siege."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Siege of Gondor"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_denethor_pyre_crisis",
+      "title": "Denethor’s Pyre Crisis Threatens Faramir",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.denethor-pyre",
+        "validToAnchor": "lotr.rotk.houses-of-healing",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Denethor pyre through Houses of Healing",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor",
+        "phaseId": "lotr.rotk.phase.siege-and-pelennor",
+        "phase": "Siege And Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Denethor",
+          "Faramir",
+          "Peregrin Took",
+          "Gandalf",
+          "Beregond"
+        ],
+        "locations": [
+          "Minas Tirith",
+          "House of Stewards"
+        ],
+        "topics": [
+          "despair",
+          "funeral pyre",
+          "Stewardship crisis",
+          "Denethor",
+          "Faramir",
+          "Denethor Pyre"
+        ],
+        "factions": [
+          "Gondor"
+        ],
+        "entityIds": [
+          "middle-earth:denethor",
+          "middle-earth:faramir",
+          "middle-earth:peregrin-took",
+          "middle-earth:gandalf",
+          "middle-earth:beregond",
+          "middle-earth:minas-tirith",
+          "middle-earth:gondor",
+          "middle-earth:denethor-pyre"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:denethor",
+        "character:faramir",
+        "event:denethor-pyre"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Denethor",
+            "Faramir",
+            "Peregrin Took",
+            "Gandalf",
+            "Beregond"
+          ],
+          "locationsAny": [
+            "Minas Tirith",
+            "House of Stewards"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "despair",
+            "funeral pyre",
+            "Stewardship crisis",
+            "Denethor",
+            "Faramir",
+            "Denethor Pyre"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:denethor",
+            "character:faramir",
+            "event:denethor-pyre"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Denethor, driven by despair, attempts to burn himself and the still-living Faramir on a funeral pyre during the siege.",
+        "injection": "When Denethor’s pyre crisis is active, treat it as a culmination of despair and broken Stewardship, with Faramir’s life at immediate risk.",
+        "constraints": [
+          "Pippin and Beregond are relevant to the attempt to save Faramir."
+        ],
+        "antiLore": [
+          "Do not portray Denethor’s death as calm retirement or political resignation."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Ride of the Rohirrim / The Pyre of Denethor"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:faramir",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:denethor",
+          "middle-earth:gandalf",
+          "middle-earth:peregrin-took",
+          "middle-earth:sauron",
+          "middle-earth:aragorn"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_pelennor_turns_battle",
+      "title": "Pelennor Turns The War Front",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.pelennor",
+        "validToAnchor": "lotr.rotk.houses-of-healing",
+        "sortKeyFrom": 1800,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Battle of Pelennor and immediate aftermath",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor",
+        "phaseId": "lotr.rotk.phase.siege-and-pelennor",
+        "phase": "Siege And Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Theoden",
+          "Eowyn",
+          "Meriadoc Brandybuck",
+          "Aragorn",
+          "Gandalf"
+        ],
+        "locations": [
+          "Pelennor Fields",
+          "Minas Tirith"
+        ],
+        "topics": [
+          "battle",
+          "Rohan charge",
+          "Mordor assault",
+          "war turning point",
+          "Pelennor",
+          "Rohan",
+          "Gondor"
+        ],
+        "factions": [
+          "Rohan",
+          "Gondor",
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:theoden",
+          "middle-earth:eowyn",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:aragorn",
+          "middle-earth:gandalf",
+          "middle-earth:pelennor-fields",
+          "middle-earth:minas-tirith",
+          "middle-earth:rohan",
+          "middle-earth:gondor",
+          "middle-earth:mordor-faction",
+          "middle-earth:pelennor"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "event:pelennor",
+        "faction:rohan",
+        "faction:gondor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Theoden",
+            "Eowyn",
+            "Meriadoc Brandybuck",
+            "Aragorn",
+            "Gandalf"
+          ],
+          "locationsAny": [
+            "Pelennor Fields",
+            "Minas Tirith"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "battle",
+            "Rohan charge",
+            "Mordor assault",
+            "war turning point",
+            "Pelennor",
+            "Rohan",
+            "Gondor"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "event:pelennor",
+            "faction:rohan",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Battle of Pelennor Fields breaks the immediate siege of Minas Tirith through Rohan’s arrival, sacrifice, and Aragorn’s later arrival with southern forces.",
+        "injection": "During Pelennor, keep the battle as a massive turning point: Rohan’s charge, Theoden’s fall, Eowyn and Merry’s deed, and Aragorn’s arrival all matter to the outcome.",
+        "constraints": [
+          "The battle is not won by one single action; several timed reversals compound."
+        ],
+        "antiLore": [
+          "Do not skip Rohan’s sacrifice or Aragorn’s arrival if portraying the book battle."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Battle of the Pelennor Fields"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_the_witch_king_falls_through_eowyn_and_merry_together",
+      "title": "The Witch-king Falls Through Eowyn And Merry Together",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "lotr.rotk.witch-king-falls",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 1900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "The Witch-king Falls Through Eowyn And Merry Together"
+      },
+      "scope": {
+        "characters": [
+          "Eowyn",
+          "Meriadoc Brandybuck",
+          "Witch-king"
+        ],
+        "locations": [
+          "Pelennor Fields"
+        ],
+        "objects": [
+          "Barrow-blades"
+        ],
+        "factions": [],
+        "topics": [
+          "Witch-king death",
+          "Eowyn and Merry"
+        ],
+        "entityIds": [
+          "middle-earth:barrow-blades",
+          "middle-earth:eowyn",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:pelennor-fields",
+          "middle-earth:witch-king"
+        ]
+      },
+      "tags": [
+        "artifact:barrow-blades",
+        "book:return-of-the-king",
+        "character:eowyn",
+        "character:meriadoc-brandybuck",
+        "character:witch-king",
+        "location:pelennor-fields"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eowyn",
+            "Meriadoc Brandybuck",
+            "Witch-king"
+          ],
+          "locationsAny": [
+            "Pelennor Fields"
+          ],
+          "objectsAny": [
+            "Barrow-blades"
+          ],
+          "topicsAny": [
+            "Witch-king death",
+            "Eowyn and Merry"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:eowyn",
+            "character:meriadoc-brandybuck",
+            "character:witch-king",
+            "location:pelennor-fields",
+            "artifact:barrow-blades"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Witch-king’s fall depends on Eowyn’s defiance and Merry’s Barrow-blade strike together.",
+        "injection": "Preserve the combined logic: Eowyn confronts him and Merry’s blade enables the fatal opening.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Battle of the Pelennor Fields",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_the_houses_of_healing_create_political_recognition",
+      "title": "The Houses Of Healing Create Political Recognition",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.houses-of-healing",
+        "validToAnchor": "lotr.rotk.last-debate",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Houses Of Healing Create Political Recognition"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn",
+          "Faramir",
+          "Eowyn",
+          "Meriadoc Brandybuck"
+        ],
+        "locations": [
+          "Houses of Healing",
+          "Minas Tirith"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "public recognition",
+          "Aragorn legitimacy"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:eowyn",
+          "middle-earth:faramir",
+          "middle-earth:houses-of-healing",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:minas-tirith"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:aragorn",
+        "character:eowyn",
+        "character:faramir",
+        "character:meriadoc-brandybuck",
+        "location:houses-of-healing",
+        "location:minas-tirith"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn",
+            "Faramir",
+            "Eowyn",
+            "Meriadoc Brandybuck"
+          ],
+          "locationsAny": [
+            "Houses of Healing",
+            "Minas Tirith"
+          ],
+          "topicsAny": [
+            "public recognition",
+            "Aragorn legitimacy"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:aragorn",
+            "character:faramir",
+            "character:eowyn",
+            "character:meriadoc-brandybuck",
+            "location:houses-of-healing",
+            "location:minas-tirith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Houses of Healing bring private recovery, public rumor, and political recognition around Aragorn before coronation.",
+        "injection": "After the healings, let recognition of Aragorn spread while formal kingship waits.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Houses of Healing",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_the_black_gate_march_is_a_deliberate_sacrifice",
+      "title": "The Black Gate March Is A Deliberate Sacrifice",
+      "kind": "objective",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.last-debate",
+        "validToAnchor": "lotr.rotk.black-gate",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Black Gate March Is A Deliberate Sacrifice"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn",
+          "Gandalf",
+          "Eomer"
+        ],
+        "locations": [
+          "Black Gate"
+        ],
+        "objects": [],
+        "factions": [
+          "Free Peoples",
+          "Mordor faction"
+        ],
+        "topics": [
+          "Black Gate diversion",
+          "sacrificial strategy"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:black-gate",
+          "middle-earth:eomer",
+          "middle-earth:free-peoples",
+          "middle-earth:gandalf",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:aragorn",
+        "character:eomer",
+        "character:gandalf",
+        "event:black-gate-diversion",
+        "faction:free-peoples",
+        "faction:mordor",
+        "location:black-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn",
+            "Gandalf",
+            "Eomer"
+          ],
+          "locationsAny": [
+            "Black Gate"
+          ],
+          "factionsAny": [
+            "Free Peoples",
+            "Mordor faction"
+          ],
+          "topicsAny": [
+            "Black Gate diversion",
+            "sacrificial strategy"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "event:black-gate-diversion",
+            "character:aragorn",
+            "character:gandalf",
+            "character:eomer",
+            "location:black-gate",
+            "faction:free-peoples",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The march to the Black Gate is a diversion to draw Sauron’s eye from Frodo and Sam.",
+        "injection": "The Captains of the West should understand the march as strategic self-sacrifice, not conventional invasion.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Last Debate / The Black Gate Opens",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.black-gate",
+          "label": "Black Gate Diversion",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_last-debate-chooses-deliberate-diversion",
+      "title": "Last Debate Chooses Deliberate Diversion",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.last-debate",
+        "validToAnchor": "lotr.rotk.black-gate",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Last Debate Chooses Deliberate Diversion",
+        "phaseId": "lotr.rotk.phase.final-gambit",
+        "phase": "Black Gate And Mount Doom"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Last Debate",
+          "Black Gate"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:last-debate",
+          "middle-earth:black-gate",
+          "middle-earth:frodo-baggins",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "event:last-debate",
+        "location:black-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Last Debate",
+            "Black Gate"
+          ],
+          "matchTags": [
+            "event:last-debate",
+            "location:black-gate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Last Debate chooses a desperate diversion at the Black Gate to draw Sauron’s Eye away from Frodo and Sam.",
+        "injection": "The Last Debate chooses a desperate diversion at the Black Gate to draw Sauron’s Eye away from Frodo and Sam. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Last Debate"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.black-gate",
+          "label": "Black Gate Diversion",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_gollums_final_intervention_fulfills_pity_and_chance",
+      "title": "Gollum’s Final Intervention Fulfills Pity And Chance",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.gollum-reappears-doom",
+        "validToAnchor": "lotr.rotk.ring-destroyed",
+        "sortKeyFrom": 2610,
+        "sortKeyTo": 2700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gollum’s Final Intervention Fulfills Pity And Chance"
+      },
+      "scope": {
+        "characters": [
+          "Gollum",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Mount Doom"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "factions": [],
+        "topics": [
+          "Gollum final role",
+          "pity and chance"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum",
+          "middle-earth:mount-doom",
+          "middle-earth:one-ring",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "artifact:one-ring",
+        "book:return-of-the-king",
+        "character:frodo-baggins",
+        "character:gollum",
+        "character:samwise-gamgee",
+        "event:ring-destruction",
+        "location:mount-doom",
+        "theme:pity-and-mercy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gollum",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Mount Doom"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Gollum final role",
+            "pity and chance"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "theme:pity-and-mercy",
+            "event:ring-destruction",
+            "character:gollum",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "location:mount-doom",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gollum’s final struggle and fall fulfill long consequences of pity, obsession, chance, and corruption.",
+        "injection": "The Ring’s destruction should come through Gollum’s intervention after Frodo fails, not a planned victory.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "Mount Doom",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_ring_destroyed_sauron_falls",
+      "title": "Ring Destruction Causes Sauron’s Fall",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 95,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.ring-destroyed",
+        "validToAnchor": "lotr.rotk.grey-havens",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 3200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After the Ring is destroyed"
+      },
+      "scope": {
+        "characters": [
+          "Sauron",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Mount Doom",
+          "Mordor"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "Ring destruction",
+          "Sauron’s fall",
+          "end of the War",
+          "Sauron Fall",
+          "One Ring"
+        ],
+        "factions": [
+          "Mordor",
+          "Free Peoples"
+        ],
+        "entityIds": [
+          "middle-earth:sauron",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:mount-doom",
+          "middle-earth:mordor-faction",
+          "middle-earth:one-ring",
+          "middle-earth:free-peoples",
+          "middle-earth:ring-destruction",
+          "middle-earth:sauron-fall"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "event:ring-destruction",
+        "event:sauron-fall",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Sauron",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Mount Doom",
+            "Mordor"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Ring destruction",
+            "Sauron’s fall",
+            "end of the War",
+            "Sauron Fall",
+            "One Ring"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "event:ring-destruction",
+            "event:sauron-fall",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The destruction of the One Ring destroys Sauron’s immediate power, collapses Mordor’s command, and ends the central War of the Ring threat.",
+        "injection": "After the Ring is destroyed, do not continue portraying Sauron or Mordor as functioning with the same direct centralized power. The Enemy’s will has broken.",
+        "constraints": [
+          "Enemy remnants and aftermath problems can remain, but Sauron’s ruling power is gone."
+        ],
+        "antiLore": [
+          "Do not keep Sauron as an active commanding Dark Lord after the Ring’s destruction in book continuity."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Field of Cormallen"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_cormallen_honors_are_relief_not_full_recovery",
+      "title": "Cormallen Honors Are Relief Not Full Recovery",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.cormallen",
+        "validToAnchor": "lotr.rotk.return-journey",
+        "sortKeyFrom": 2800,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Cormallen Honors Are Relief Not Full Recovery"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Aragorn"
+        ],
+        "locations": [
+          "Cormallen"
+        ],
+        "objects": [],
+        "factions": [
+          "Free Peoples"
+        ],
+        "topics": [
+          "public honors",
+          "relief after victory"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:cormallen",
+          "middle-earth:free-peoples",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:aragorn",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "event:cormallen",
+        "faction:free-peoples",
+        "location:cormallen"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Aragorn"
+          ],
+          "locationsAny": [
+            "Cormallen"
+          ],
+          "factionsAny": [
+            "Free Peoples"
+          ],
+          "topicsAny": [
+            "public honors",
+            "relief after victory"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "event:cormallen",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:aragorn",
+            "location:cormallen",
+            "faction:free-peoples"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Cormallen honors Frodo and Sam publicly and gives relief, but does not erase trauma or grief.",
+        "injection": "Cormallen scenes can be joyful and ceremonial while preserving exhaustion, loss, and delayed aftermath.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Field of Cormallen",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.restoration",
+          "label": "Restoration",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_cormallen-honors-the-hobbits-after-the-ring-falls",
+      "title": "Cormallen Honors The Hobbits After The Ring Falls",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.cormallen",
+        "validToAnchor": "lotr.rotk.king-elessar",
+        "sortKeyFrom": 2800,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Cormallen Honors The Hobbits After The Ring Falls",
+        "arcId": "lotr.rotk.arc.aftermath",
+        "arc": "Aftermath And Return Home",
+        "phaseId": "lotr.rotk.phase.postwar",
+        "phase": "Postwar Return"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Cormallen",
+          "Frodo Baggins"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:cormallen",
+          "middle-earth:frodo-baggins"
+        ]
+      },
+      "tags": [
+        "location:cormallen",
+        "character:frodo-baggins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Cormallen",
+            "Frodo Baggins"
+          ],
+          "matchTags": [
+            "location:cormallen",
+            "character:frodo-baggins"
+          ]
+        }
+      },
+      "content": {
+        "fact": "At Cormallen, Frodo and Sam move from secret burden to public honor among allies.",
+        "injection": "At Cormallen, Frodo and Sam move from secret burden to public honor among allies. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Steward and the King / Many Partings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_scouring_shire_book_aftermath",
+      "title": "Scouring Of The Shire Is Book Aftermath",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.scouring-shire",
+        "validToAnchor": "lotr.rotk.grey-havens",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Scouring of the Shire through Grey Havens",
+        "arcId": "lotr.rotk.arc.aftermath",
+        "arc": "Aftermath And Return Home",
+        "phaseId": "lotr.rotk.phase.postwar",
+        "phase": "Postwar Return"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Meriadoc Brandybuck",
+          "Peregrin Took",
+          "Saruman"
+        ],
+        "locations": [
+          "The Shire"
+        ],
+        "topics": [
+          "Scouring of the Shire",
+          "Sharkey",
+          "homecoming changed",
+          "Shire",
+          "Saruman"
+        ],
+        "factions": [
+          "Shire",
+          "Saruman’s ruffians"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:saruman",
+          "middle-earth:shire",
+          "middle-earth:scouring-shire"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "event:scouring-shire",
+        "region:shire",
+        "character:saruman"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Saruman"
+          ],
+          "locationsAny": [
+            "The Shire"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Scouring of the Shire",
+            "Sharkey",
+            "homecoming changed",
+            "Shire",
+            "Saruman"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "event:scouring-shire",
+            "region:shire",
+            "character:saruman"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In the novel, the Hobbits return to find the Shire damaged and controlled by Sharkey’s ruffians, forcing them to lead its liberation.",
+        "injection": "For book-continuity postwar scenes, include the Scouring of the Shire unless the user explicitly selects film continuity or an AU that omits it.",
+        "constraints": [
+          "This is post-Ring destruction aftermath, not an early Shire condition."
+        ],
+        "antiLore": [
+          "Do not import the film omission as default for this book-continuity deck."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Scouring of the Shire"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.shire",
+          "label": "Return and Scouring of the Shire",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:saruman",
+          "middle-earth:gandalf",
+          "middle-earth:theoden",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_the_scouring_shows_the_hobbits_have_grown",
+      "title": "The Scouring Shows The Hobbits Have Grown",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.scouring-shire",
+        "validToAnchor": "lotr.rotk.battle-of-bywater",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3120,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Scouring Shows The Hobbits Have Grown"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [
+          "The Shire"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Scouring of the Shire",
+          "Hobbit maturation"
+        ],
+        "people": [
+          "Hobbits"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:hobbits",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:shire"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:frodo-baggins",
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "character:samwise-gamgee",
+        "event:scouring-shire",
+        "people:hobbits",
+        "region:shire"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "locationsAny": [
+            "The Shire"
+          ],
+          "topicsAny": [
+            "Scouring of the Shire",
+            "Hobbit maturation"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "event:scouring-shire",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:meriadoc-brandybuck",
+            "character:peregrin-took",
+            "region:shire",
+            "people:hobbits"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The returning Hobbits confront the Shire’s occupation with maturity, leadership, and courage gained from war.",
+        "injection": "Scouring scenes should show the Hobbits as changed actors, not helpless villagers.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Scouring of the Shire",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.shire",
+          "label": "Scouring and Shire",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_the_grey_havens_close_the_third_age_for_the_ring_bearers",
+      "title": "The Grey Havens Close The Third Age For The Ring-bearers",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.grey-havens",
+        "validToAnchor": "lotr.rotk.keepers-depart",
+        "sortKeyFrom": 3200,
+        "sortKeyTo": 3220,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Grey Havens Close The Third Age For The Ring-bearers"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Bilbo Baggins",
+          "Gandalf",
+          "Elrond",
+          "Galadriel",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Grey Havens"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Ring-bearers depart",
+          "end of Third Age"
+        ],
+        "entityIds": [
+          "middle-earth:bilbo-baggins",
+          "middle-earth:elrond",
+          "middle-earth:frodo-baggins",
+          "middle-earth:galadriel",
+          "middle-earth:gandalf",
+          "middle-earth:grey-havens",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:bilbo-baggins",
+        "character:elrond",
+        "character:frodo-baggins",
+        "character:galadriel",
+        "character:gandalf",
+        "character:samwise-gamgee",
+        "event:grey-havens",
+        "location:grey-havens",
+        "theme:fading-age"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Bilbo Baggins",
+            "Gandalf",
+            "Elrond",
+            "Galadriel",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Grey Havens"
+          ],
+          "topicsAny": [
+            "Ring-bearers depart",
+            "end of Third Age"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "event:grey-havens",
+            "theme:fading-age",
+            "character:frodo-baggins",
+            "character:bilbo-baggins",
+            "character:gandalf",
+            "character:elrond",
+            "character:galadriel",
+            "character:samwise-gamgee",
+            "location:grey-havens"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Grey Havens departure removes Frodo, Bilbo, Gandalf, Elrond, Galadriel, and the Ring-bearers’ burden from ordinary Middle-earth.",
+        "injection": "The Grey Havens should feel like sorrowful healing departure and age-ending transition, not simple happy ending.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Grey Havens",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.grey-havens",
+          "label": "Grey Havens",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

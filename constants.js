@@ -5,9 +5,9 @@
  */
 
 import {
-    DEFAULT_HP_LOREDECK_CONTEXTS,
+    DEFAULT_BUNDLED_LOREDECK_CONTEXTS,
+    DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS,
     DEFAULT_HP_LOREDECK_ID,
-    DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
     DEFAULT_HP_LOREDECK_STACK,
 } from './loredeck-defaults.js';
 
@@ -162,7 +162,7 @@ export const DEFAULT_SETTINGS = {
     emptyLoredeckStackDefaultsMigrated20260605: true,
     loredeckLibrary: {
         schemaVersion: 1,
-        packs: DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
+        packs: DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS,
         activeStack: DEFAULT_HP_LOREDECK_STACK,
     },
     loredeckCreatorProjects: {
@@ -573,9 +573,9 @@ export function getDefaultState() {
         hpDefaultLoredeckStackCleared20260605: true,
         loredeckRegistry: {
             schemaVersion: 1,
-            packs: DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
+            packs: DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS,
         },
-        loredeckContexts: Object.fromEntries(Object.entries(DEFAULT_HP_LOREDECK_CONTEXTS).map(([id, context]) => [id, { ...context }])),
+        loredeckContexts: Object.fromEntries(Object.entries(DEFAULT_BUNDLED_LOREDECK_CONTEXTS).map(([id, context]) => [id, { ...context }])),
 
         loreGeneration: {
             lastAttemptedFor: '',

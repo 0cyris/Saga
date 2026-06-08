@@ -1,0 +1,2035 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-07",
+  "sourcePackId": "middle-earth-fellowship-of-the-ring",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_bag-end-is-home-and-threshold",
+      "title": "Bag End Is Home And Threshold",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.bilbo-party",
+        "validToAnchor": "lotr.fotr.frodo-leaves-shire",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Bag End Is Home And Threshold",
+        "arcId": "lotr.fotr.arc.shire",
+        "arc": "Shire Departure",
+        "phaseId": "lotr.fotr.phase.pre-fellowship",
+        "phase": "Before The Fellowship"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Bag End",
+          "Shire"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:bag-end",
+          "middle-earth:shire",
+          "middle-earth:frodo-baggins"
+        ]
+      },
+      "tags": [
+        "location:bag-end",
+        "region:shire"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Bag End",
+            "Shire"
+          ],
+          "matchTags": [
+            "location:bag-end",
+            "region:shire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Bag End begins as comfortable Hobbit home but becomes the threshold where the Ring’s peril enters Frodo’s life.",
+        "injection": "In this location and Context window, use the location state to constrain danger, movement, tone, and plausible choices: Bag End begins as comfortable Hobbit home but becomes the threshold where the Ring’s peril enters Frodo’s life.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "A Long-expected Party"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_buckland_is_the_shire_edge_of_secrecy",
+      "title": "Buckland Is The Shire Edge Of Secrecy",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.farmer-maggot",
+        "validToAnchor": "lotr.fotr.crickhollow",
+        "sortKeyFrom": 1230,
+        "sortKeyTo": 1250,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Buckland Is The Shire Edge Of Secrecy"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Buckland",
+          "Crickhollow",
+          "The Shire"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Buckland",
+          "Crickhollow secrecy"
+        ],
+        "people": [
+          "Hobbits"
+        ],
+        "entityIds": [
+          "middle-earth:buckland",
+          "middle-earth:crickhollow",
+          "middle-earth:hobbits",
+          "middle-earth:shire"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "location:crickhollow",
+        "people:hobbits",
+        "region:buckland",
+        "region:shire"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Buckland",
+            "Crickhollow",
+            "The Shire"
+          ],
+          "topicsAny": [
+            "Buckland",
+            "Crickhollow secrecy"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "region:buckland",
+            "location:crickhollow",
+            "region:shire",
+            "people:hobbits"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Buckland is culturally and geographically on the Shire’s edge, suited to secrecy, river escape, and Old Forest unease.",
+        "injection": "Use Buckland as a liminal Shire space: familiar enough for planning, close enough for danger to press in.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "A Conspiracy Unmasked",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_old_forest_barrow_dangers",
+      "title": "Old Forest And Barrow-downs Are Local Dangers",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 70,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.old-forest",
+        "validToAnchor": "lotr.fotr.bree",
+        "sortKeyFrom": 1300,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Old Forest and Barrow-downs passage",
+        "arcId": "lotr.fotr.arc.flight",
+        "arc": "Flight To Rivendell",
+        "phaseId": "lotr.fotr.phase.pre-fellowship",
+        "phase": "Before The Fellowship"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [
+          "Old Forest",
+          "Barrow-downs"
+        ],
+        "topics": [
+          "ancient danger",
+          "willow",
+          "barrow-wights",
+          "Old Forest",
+          "Barrow Downs",
+          "Eriador"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:old-forest",
+          "middle-earth:barrow-downs",
+          "middle-earth:barrow-wights",
+          "middle-earth:eriador"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "location:old-forest",
+        "location:barrow-downs",
+        "region:eriador"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "locationsAny": [
+            "Old Forest",
+            "Barrow-downs"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "ancient danger",
+            "willow",
+            "barrow-wights",
+            "Old Forest",
+            "Barrow Downs",
+            "Eriador"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "location:old-forest",
+            "location:barrow-downs",
+            "region:eriador"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Old Forest and Barrow-downs are not safe countryside; they contain older, stranger dangers separate from Mordor's direct pursuit.",
+        "injection": "During the Old Forest and Barrow-downs passage, treat the danger as ancient, local, and uncanny rather than merely an extension of the Black Riders.",
+        "constraints": [
+          "The threat can feel mythic and disorienting.",
+          "These dangers should not require Sauron's immediate command to matter."
+        ],
+        "antiLore": [
+          "Do not turn the Old Forest into ordinary woodland.",
+          "Do not make every danger in Eriador a direct Mordor agent."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Old Forest / In the House of Tom Bombadil"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_the_old_forest_resists_hobbit_certainty",
+      "title": "The Old Forest Resists Hobbit Certainty",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.old-forest",
+        "validToAnchor": "lotr.fotr.tom-bombadil-house",
+        "sortKeyFrom": 1300,
+        "sortKeyTo": 1320,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Old Forest Resists Hobbit Certainty"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Old Forest"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Old Forest",
+          "disorientation",
+          "hostile landscape"
+        ],
+        "people": [
+          "Hobbits"
+        ],
+        "entityIds": [
+          "middle-earth:hobbits",
+          "middle-earth:old-forest"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "location:old-forest",
+        "people:hobbits",
+        "topic:wild-lands"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Old Forest"
+          ],
+          "topicsAny": [
+            "Old Forest",
+            "disorientation",
+            "hostile landscape"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "topic:wild-lands",
+            "location:old-forest",
+            "people:hobbits"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Old Forest is hostile, watchful, disorienting, and shaped by non-Hobbit powers and moods.",
+        "injection": "Forest scenes should feel spatially unreliable and pressuring.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "The Old Forest",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_the_barrow_downs_are_ancient_spiritual_danger",
+      "title": "The Barrow-downs Are Ancient Spiritual Danger",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.barrow-wight",
+        "validToAnchor": "lotr.fotr.bree",
+        "sortKeyFrom": 1330,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Barrow-downs Are Ancient Spiritual Danger"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Barrow-downs"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Barrow-downs",
+          "barrow-wight",
+          "ancient terror"
+        ],
+        "people": [
+          "Hobbits"
+        ],
+        "entityIds": [
+          "middle-earth:barrow-downs",
+          "middle-earth:hobbits"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "location:barrow-downs",
+        "people:hobbits",
+        "topic:ancient-ruins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Barrow-downs"
+          ],
+          "topicsAny": [
+            "Barrow-downs",
+            "barrow-wight",
+            "ancient terror"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "topic:ancient-ruins",
+            "location:barrow-downs",
+            "people:hobbits"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Barrow-downs hold ancient burial danger and fear beyond ordinary wilderness peril.",
+        "injection": "Barrow-down scenes should feel cold, old, ritualized, and spiritually threatening.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "Fog on the Barrow-downs",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_bree_dangerous_neutral_ground",
+      "title": "Bree Is Dangerous Neutral Ground",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.bree",
+        "validToAnchor": "lotr.fotr.weathertop",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 1500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Bree and the Prancing Pony",
+        "arcId": "lotr.fotr.arc.flight",
+        "arc": "Flight To Rivendell",
+        "phaseId": "lotr.fotr.phase.pre-fellowship",
+        "phase": "Before The Fellowship"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Aragorn",
+          "Nazgul"
+        ],
+        "locations": [
+          "Bree",
+          "The Prancing Pony"
+        ],
+        "topics": [
+          "suspicion",
+          "rumor",
+          "Rangers",
+          "Black Riders",
+          "Bree",
+          "Bree Land",
+          "Aragorn",
+          "Nazgul"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:aragorn",
+          "middle-earth:nazgul",
+          "middle-earth:bree",
+          "middle-earth:bree-land"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "location:bree",
+        "region:bree-land",
+        "character:aragorn",
+        "people:nazgul"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Aragorn",
+            "Nazgul"
+          ],
+          "locationsAny": [
+            "Bree",
+            "The Prancing Pony"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "suspicion",
+            "rumor",
+            "Rangers",
+            "Black Riders",
+            "Bree",
+            "Bree Land",
+            "Aragorn",
+            "Nazgul"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "location:bree",
+            "region:bree-land",
+            "character:aragorn",
+            "people:nazgul"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Bree is a mixed borderland settlement where travelers, rumor, suspicion, and danger can intersect without clear authority protecting Frodo.",
+        "injection": "In Bree scenes, keep the atmosphere socially plausible but unsafe: strangers notice things, rumors spread, and Strider's rough appearance makes trust difficult.",
+        "constraints": [
+          "Bree-folk do not need to understand the Ring to create risk.",
+          "The inn can be lively and ordinary while still dangerous."
+        ],
+        "antiLore": [
+          "Do not make Bree a secure refuge like Rivendell.",
+          "Do not make everyone in Bree know Strider's full identity."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "At the Sign of the Prancing Pony / Strider"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_the_prancing_pony_is_public_and_unsafe",
+      "title": "The Prancing Pony Is Public And Unsafe",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.bree",
+        "validToAnchor": "lotr.fotr.bree-bed-attack",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 1430,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Prancing Pony Is Public And Unsafe"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Prancing Pony",
+          "Bree"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "public inn",
+          "rumor danger"
+        ],
+        "people": [
+          "Hobbits",
+          "Men"
+        ],
+        "entityIds": [
+          "middle-earth:bree",
+          "middle-earth:hobbits",
+          "middle-earth:men",
+          "middle-earth:prancing-pony"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "knowledge:rumor",
+        "location:bree",
+        "location:prancing-pony",
+        "people:hobbits",
+        "people:men"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Prancing Pony",
+            "Bree"
+          ],
+          "topicsAny": [
+            "public inn",
+            "rumor danger"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "knowledge:rumor",
+            "location:prancing-pony",
+            "location:bree",
+            "people:hobbits",
+            "people:men"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Prancing Pony is a crossroads of talk, strangers, curiosity, and danger, not a private safe house.",
+        "injection": "Bree inn scenes should be socially crowded and leaky; overheard names and mistakes can matter.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "At the Sign of the Prancing Pony",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_prancing-pony-mixes-public-noise-and-private-danger",
+      "title": "Prancing Pony Mixes Public Noise And Private Danger",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.bree",
+        "validToAnchor": "lotr.fotr.weathertop",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 1500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Prancing Pony Mixes Public Noise And Private Danger",
+        "arcId": "lotr.fotr.arc.flight",
+        "arc": "Flight To Rivendell",
+        "phaseId": "lotr.fotr.phase.pre-fellowship",
+        "phase": "Before The Fellowship"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Prancing Pony",
+          "Bree Land"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:prancing-pony",
+          "middle-earth:bree-land",
+          "middle-earth:frodo-baggins",
+          "middle-earth:aragorn",
+          "middle-earth:bree"
+        ]
+      },
+      "tags": [
+        "location:prancing-pony",
+        "region:bree-land"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Prancing Pony",
+            "Bree Land"
+          ],
+          "matchTags": [
+            "location:prancing-pony",
+            "region:bree-land"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Prancing Pony is public and noisy, making Frodo’s secrecy fragile and Strider’s protection ambiguous.",
+        "injection": "In this location and Context window, use the location state to constrain danger, movement, tone, and plausible choices: The Prancing Pony is public and noisy, making Frodo’s secrecy fragile and Strider’s protection ambiguous.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "At the Sign of the Prancing Pony / Strider"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_ford-of-bruinen-ends-the-first-nazgul-pursuit",
+      "title": "Ford Of Bruinen Ends The First Nazgul Pursuit",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.weathertop",
+        "validToAnchor": "lotr.fotr.rivendell",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ford Of Bruinen Ends The First Nazgul Pursuit",
+        "arcId": "lotr.fotr.arc.flight",
+        "arc": "Flight To Rivendell",
+        "phaseId": "lotr.fotr.phase.pre-fellowship",
+        "phase": "Before The Fellowship"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Ford Of Bruinen",
+          "Glorfindel"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:ford-of-bruinen",
+          "middle-earth:glorfindel",
+          "middle-earth:nazgul",
+          "middle-earth:rivendell"
+        ]
+      },
+      "tags": [
+        "location:ford-of-bruinen",
+        "character:glorfindel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Ford Of Bruinen",
+            "Glorfindel"
+          ],
+          "matchTags": [
+            "location:ford-of-bruinen",
+            "character:glorfindel"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Ford of Bruinen marks the desperate end of the first flight from the Nazgul into Rivendell’s protection.",
+        "injection": "In this location and Context window, use the location state to constrain danger, movement, tone, and plausible choices: The Ford of Bruinen marks the desperate end of the first flight from the Nazgul into Rivendell’s protection.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "A Knife in the Dark / Flight to the Ford"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_weathertop-is-an-exposed-ancient-ruin",
+      "title": "Weathertop Is An Exposed Ancient Ruin",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.weathertop",
+        "validToAnchor": "lotr.fotr.rivendell",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Weathertop Is An Exposed Ancient Ruin",
+        "arcId": "lotr.fotr.arc.flight",
+        "arc": "Flight To Rivendell",
+        "phaseId": "lotr.fotr.phase.pre-fellowship",
+        "phase": "Before The Fellowship"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Weathertop",
+          "Nazgul"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:weathertop",
+          "middle-earth:nazgul"
+        ]
+      },
+      "tags": [
+        "location:weathertop",
+        "people:nazgul"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Weathertop",
+            "Nazgul"
+          ],
+          "matchTags": [
+            "location:weathertop",
+            "people:nazgul"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Weathertop is an exposed ruin where ancient history and immediate Nazgul pursuit converge.",
+        "injection": "In this location and Context window, use the location state to constrain danger, movement, tone, and plausible choices: Weathertop is an exposed ruin where ancient history and immediate Nazgul pursuit converge.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "A Knife in the Dark / Flight to the Ford"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v6_ford_of_bruinen_marks_wraith_threshold",
+      "title": "Ford Of Bruinen Marks Frodo’s Wraith Threshold",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.flight-to-ford",
+        "validToAnchor": "lotr.fotr.rivendell",
+        "sortKeyFrom": 1550,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Frodo near the wraith-world before Rivendell",
+        "arcId": "lotr.fotr.arc.flight",
+        "arc": "Flight To Rivendell",
+        "phaseId": "lotr.fotr.phase.pre-fellowship",
+        "phase": "Before The Fellowship"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Glorfindel",
+          "Nazgul"
+        ],
+        "locations": [
+          "Ford of Bruinen",
+          "Rivendell"
+        ],
+        "topics": [
+          "Morgul wound",
+          "wraith-world",
+          "Elven aid",
+          "Frodo Baggins",
+          "Flight To The Ford",
+          "Ford Of Bruinen",
+          "Nazgul"
+        ],
+        "factions": [
+          "Free Peoples"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:glorfindel",
+          "middle-earth:nazgul",
+          "middle-earth:ford-of-bruinen",
+          "middle-earth:rivendell",
+          "middle-earth:free-peoples",
+          "middle-earth:flight-to-ford"
+        ]
+      },
+      "tags": [
+        "character:frodo-baggins",
+        "event:flight-to-ford",
+        "location:ford-of-bruinen",
+        "people:nazgul"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Glorfindel",
+            "Nazgul"
+          ],
+          "locationsAny": [
+            "Ford of Bruinen",
+            "Rivendell"
+          ],
+          "topicsAny": [
+            "Morgul wound",
+            "wraith-world",
+            "Elven aid",
+            "Frodo Baggins",
+            "Flight To The Ford",
+            "Ford Of Bruinen",
+            "Nazgul"
+          ],
+          "factionsAny": [
+            "Free Peoples"
+          ],
+          "matchTags": [
+            "character:frodo-baggins",
+            "event:flight-to-ford",
+            "location:ford-of-bruinen",
+            "people:nazgul"
+          ]
+        }
+      },
+      "content": {
+        "fact": "By the Ford of Bruinen, Frodo’s Morgul wound has nearly drawn him into the wraith-world, making Rivendell’s healing urgent rather than optional.",
+        "injection": "Near the Ford, portray Frodo as physically and spiritually near collapse from the Morgul wound. The chase is a threshold crisis ending only through Elven aid and Rivendell’s protection.",
+        "constraints": [
+          "The wound is not ordinary injury.",
+          "Frodo can show resistance while still being dangerously weakened."
+        ],
+        "antiLore": [
+          "Do not treat the Ford chase as a simple riding action scene with no spiritual stakes."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Many Meetings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_caradhras_defeats_the_company_without_a_simple_villain",
+      "title": "Caradhras Defeats The Company Without A Simple Villain",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.hollin-caradhras",
+        "validToAnchor": "lotr.fotr.caradhras-fails",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 1920,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Caradhras Defeats The Company Without A Simple Villain"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Caradhras"
+        ],
+        "objects": [],
+        "factions": [
+          "Fellowship"
+        ],
+        "topics": [
+          "mountain weather",
+          "route failure"
+        ],
+        "entityIds": [
+          "middle-earth:caradhras",
+          "middle-earth:fellowship"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "faction:fellowship",
+        "location:caradhras",
+        "topic:terrain-strategy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Caradhras"
+          ],
+          "factionsAny": [
+            "Fellowship"
+          ],
+          "topicsAny": [
+            "mountain weather",
+            "route failure"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "topic:terrain-strategy",
+            "location:caradhras",
+            "faction:fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Caradhras shows weather, mountain hostility, exposure, and uncertainty defeating the Company.",
+        "injection": "Make Caradhras a genuine environmental crisis, not a minor delay or obvious enemy ambush.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "The Ring Goes South",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_hollin-feels-exposed-and-watched",
+      "title": "Hollin Feels Exposed And Watched",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.hollin-caradhras",
+        "validToAnchor": "lotr.fotr.moria",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hollin Feels Exposed And Watched",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring",
+        "phaseId": "lotr.fotr.phase.fellowship-active",
+        "phase": "Fellowship Active"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Hollin",
+          "Eriador"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:hollin",
+          "middle-earth:eriador",
+          "middle-earth:fellowship"
+        ]
+      },
+      "tags": [
+        "location:hollin",
+        "region:eriador"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Hollin",
+            "Eriador"
+          ],
+          "matchTags": [
+            "location:hollin",
+            "region:eriador"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hollin carries old Elven memory but feels exposed and watched during the Fellowship’s passage.",
+        "injection": "In this location and Context window, use the location state to constrain danger, movement, tone, and plausible choices: Hollin carries old Elven memory but feels exposed and watched during the Fellowship’s passage.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "A Journey in the Dark / The Bridge of Khazad-dûm"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v6_watcher_in_water_seals_moria_route",
+      "title": "Watcher In The Water Seals The Moria Route",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.watcher-in-water",
+        "validToAnchor": "lotr.fotr.moria",
+        "sortKeyFrom": 1990,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "event",
+        "label": "Watcher at the West-gate before the Moria passage",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring",
+        "phaseId": "lotr.fotr.phase.fellowship-active",
+        "phase": "Fellowship Active"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Gandalf",
+          "Aragorn"
+        ],
+        "locations": [
+          "Moria"
+        ],
+        "topics": [
+          "Watcher in the Water",
+          "West-gate",
+          "route pressure",
+          "Moria",
+          "Fellowship"
+        ],
+        "factions": [
+          "Fellowship"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:moria",
+          "middle-earth:fellowship",
+          "middle-earth:watcher-in-water"
+        ]
+      },
+      "tags": [
+        "event:watcher-in-water",
+        "location:moria",
+        "faction:fellowship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Gandalf",
+            "Aragorn"
+          ],
+          "locationsAny": [
+            "Moria"
+          ],
+          "topicsAny": [
+            "Watcher in the Water",
+            "West-gate",
+            "route pressure",
+            "Moria",
+            "Fellowship"
+          ],
+          "factionsAny": [
+            "Fellowship"
+          ],
+          "matchTags": [
+            "event:watcher-in-water",
+            "location:moria",
+            "faction:fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "At the West-gate of Moria, the Watcher in the Water attacks and helps cut off easy retreat, committing the Fellowship to the dark passage through Moria.",
+        "injection": "During the West-gate scene, use the Watcher as route pressure: once the gate is reached and attacked, Moria becomes a trap-like commitment rather than a casual travel choice.",
+        "constraints": [
+          "The Watcher should increase urgency and limit retreat.",
+          "The danger is local to the Moria entrance, not a general aquatic monster encounter."
+        ],
+        "antiLore": [
+          "Do not let the Fellowship simply reconsider and leave safely after this beat."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Lothlórien / The Mirror of Galadriel"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_lothlorien_is_refuge_and_test",
+      "title": "Lothlorien Is Refuge And Test",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.lothlorien",
+        "validToAnchor": "lotr.fotr.lorien-gifts",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 2240,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Lothlorien Is Refuge And Test"
+      },
+      "scope": {
+        "characters": [
+          "Galadriel",
+          "Frodo Baggins"
+        ],
+        "locations": [
+          "Lothlorien"
+        ],
+        "objects": [],
+        "factions": [
+          "Fellowship"
+        ],
+        "topics": [
+          "refuge",
+          "spiritual test",
+          "grief and beauty"
+        ],
+        "entityIds": [
+          "middle-earth:fellowship",
+          "middle-earth:frodo-baggins",
+          "middle-earth:galadriel",
+          "middle-earth:lothlorien"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "character:frodo-baggins",
+        "character:galadriel",
+        "faction:fellowship",
+        "region:lothlorien"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Galadriel",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "Lothlorien"
+          ],
+          "factionsAny": [
+            "Fellowship"
+          ],
+          "topicsAny": [
+            "refuge",
+            "spiritual test",
+            "grief and beauty"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "character:galadriel",
+            "character:frodo-baggins",
+            "region:lothlorien",
+            "faction:fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Lothlorien shelters the grieving Fellowship while testing trust, desire, memory, and burden.",
+        "injection": "Lorien scenes should be healing and unsettling at once: beauty, old power, grief, and inward testing.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "Lothlorien / The Mirror of Galadriel",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_lothlorien_shelters_tests_fellowship",
+      "title": "Lothlorien Shelters And Tests The Fellowship",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.lothlorien",
+        "validToAnchor": "lotr.fotr.anduin",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Lothlorien refuge after Moria",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring",
+        "phaseId": "lotr.fotr.phase.fellowship-active",
+        "phase": "Fellowship Active"
+      },
+      "scope": {
+        "characters": [
+          "Galadriel",
+          "Celeborn",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Aragorn",
+          "Gimli",
+          "Legolas"
+        ],
+        "locations": [
+          "Lothlorien"
+        ],
+        "topics": [
+          "refuge",
+          "testing",
+          "grief",
+          "Elven power",
+          "Lothlorien",
+          "Galadriel",
+          "Elves",
+          "Fellowship"
+        ],
+        "entityIds": [
+          "middle-earth:galadriel",
+          "middle-earth:celeborn",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:aragorn",
+          "middle-earth:gimli",
+          "middle-earth:legolas",
+          "middle-earth:lothlorien",
+          "middle-earth:elves",
+          "middle-earth:fellowship",
+          "middle-earth:moria"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "location:lothlorien",
+        "character:galadriel",
+        "people:elves",
+        "faction:fellowship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Galadriel",
+            "Celeborn",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Aragorn",
+            "Gimli",
+            "Legolas"
+          ],
+          "locationsAny": [
+            "Lothlorien"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "refuge",
+            "testing",
+            "grief",
+            "Elven power",
+            "Lothlorien",
+            "Galadriel",
+            "Elves",
+            "Fellowship"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "location:lothlorien",
+            "character:galadriel",
+            "people:elves",
+            "faction:fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Lothlorien gives the Fellowship refuge after Moria, but its Elven power and Galadriel's insight also test motives, grief, and temptation.",
+        "injection": "In Lothlorien scenes, combine sanctuary with unease: the Fellowship is protected and healed, but also spiritually examined and confronted with what they carry.",
+        "constraints": [
+          "Gimli's response to Galadriel can begin shifting his view of Elves.",
+          "The refuge should not feel mundane or politically neutral."
+        ],
+        "antiLore": [
+          "Do not make Lothlorien a generic safe inn.",
+          "Do not omit the sense that Galadriel perceives more than ordinary hosts."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Farewell to Lórien / The Great River"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

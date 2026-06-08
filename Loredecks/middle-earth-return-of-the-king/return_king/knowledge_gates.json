@@ -1,0 +1,2355 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_frodo_leaves_middle_earth_hidden",
+      "title": "Frodo’s Departure Must Not Leak Early",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.isengard-aftermath",
+        "validToAnchor": "lotr.rotk.grey-havens",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 3200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Frodo departs at the Grey Havens"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Bilbo Baggins",
+          "Gandalf"
+        ],
+        "locations": [
+          "Grey Havens",
+          "The Shire"
+        ],
+        "topics": [
+          "Ring trauma",
+          "departure",
+          "Undying Lands",
+          "Frodo Baggins",
+          "Grey Havens",
+          "Frodo Departure"
+        ],
+        "factions": [
+          "Hobbits",
+          "Elves"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:bilbo-baggins",
+          "middle-earth:gandalf",
+          "middle-earth:grey-havens",
+          "middle-earth:shire"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:frodo-baggins",
+        "location:grey-havens",
+        "secret:frodo-departure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Bilbo Baggins",
+            "Gandalf"
+          ],
+          "locationsAny": [
+            "Grey Havens",
+            "The Shire"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Ring trauma",
+            "departure",
+            "Undying Lands",
+            "Frodo Baggins",
+            "Grey Havens",
+            "Frodo Departure"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:frodo-baggins",
+            "location:grey-havens",
+            "secret:frodo-departure"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Frodo’s eventual departure from Middle-earth is a late aftermath outcome tied to wounds that do not fully heal in the Shire.",
+        "injection": "Before the Grey Havens context, do not have characters treat Frodo’s departure from Middle-earth as known or settled. Preserve it as late aftermath.",
+        "constraints": [
+          "Frodo’s trauma can foreshadow difficulty healing without naming the final departure early."
+        ],
+        "antiLore": [
+          "Do not announce the Grey Havens outcome in pre-Mount Doom or early postwar scenes."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Minas Tirith"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.shire",
+          "label": "Return and Scouring of the Shire",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.grey-havens",
+          "label": "Grey Havens Departure",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:saruman"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_gollum_final_role_hidden",
+      "title": "Gollum’s Final Role Must Stay Hidden",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 94,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.isengard-aftermath",
+        "validToAnchor": "lotr.rotk.mount-doom",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 2600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Gollum’s final intervention"
+      },
+      "scope": {
+        "characters": [
+          "Gollum",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Mount Doom",
+          "Mordor"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "final intervention",
+          "pity",
+          "fate",
+          "Ring destruction",
+          "Gollum",
+          "Gollum Final Role",
+          "One Ring"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gollum",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:mount-doom",
+          "middle-earth:mordor-faction",
+          "middle-earth:one-ring",
+          "middle-earth:ring-destruction"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:gollum",
+        "secret:gollum-final-role",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gollum",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Mount Doom",
+            "Mordor"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "final intervention",
+            "pity",
+            "fate",
+            "Ring destruction",
+            "Gollum",
+            "Gollum Final Role",
+            "One Ring"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:gollum",
+            "secret:gollum-final-role",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gollum’s final intervention at Mount Doom is not known or predictable to the characters before it happens.",
+        "injection": "Before Mount Doom, do not hint as certain that Gollum will be the mechanism of the Ring’s destruction. Characters may mistrust, pity, or fear him without knowing his final role.",
+        "constraints": [
+          "This card protects the climax from premature leakage."
+        ],
+        "antiLore": [
+          "Do not have Gandalf, Frodo, Sam, or Sauron state that Gollum will certainly destroy the Ring."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Minas Tirith"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [],
+        "audience": "future spoiler",
+        "notes": "Future outcome guard; no ordinary character should know this as settled fact before the relevant reveal.",
+        "hiddenFrom": [
+          "all characters before the relevant reveal unless the story is explicitly AU or prophetic"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_denethor_palantir_misleads",
+      "title": "Denethor’s Palantir Knowledge Is Distorted",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.pippin-minas-tirith",
+        "validToAnchor": "lotr.rotk.denethor-pyre",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 1700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Denethor before his death",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Denethor",
+          "Sauron",
+          "Gandalf"
+        ],
+        "locations": [
+          "Minas Tirith"
+        ],
+        "objects": [
+          "Palantir"
+        ],
+        "topics": [
+          "palantir",
+          "despair",
+          "partial truth",
+          "Sauron deception",
+          "Denethor",
+          "Palantir Vision"
+        ],
+        "factions": [
+          "Gondor",
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:denethor",
+          "middle-earth:sauron",
+          "middle-earth:gandalf",
+          "middle-earth:minas-tirith",
+          "middle-earth:palantir",
+          "middle-earth:gondor",
+          "middle-earth:mordor-faction"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:denethor",
+        "artifact:palantir",
+        "power:palantir-vision"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Denethor",
+            "Sauron",
+            "Gandalf"
+          ],
+          "locationsAny": [
+            "Minas Tirith"
+          ],
+          "objectsAny": [
+            "Palantir"
+          ],
+          "topicsAny": [
+            "palantir",
+            "despair",
+            "partial truth",
+            "Sauron deception",
+            "Denethor",
+            "Palantir Vision"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:denethor",
+            "artifact:palantir",
+            "power:palantir-vision"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Denethor’s use of a palantir gives him real but distorted knowledge that feeds despair and makes Sauron’s strength appear inevitable.",
+        "injection": "When Denethor’s knowledge is relevant, treat it as dangerous partial truth: he sees enough to be formidable and despairing, but not enough to judge hope rightly.",
+        "constraints": [
+          "This should not become simple mind control."
+        ],
+        "antiLore": [
+          "Do not portray Denethor as ignorant of the war situation, and do not portray palantir influence as total possession."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Minas Tirith"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:denethor",
+          "middle-earth:gandalf",
+          "middle-earth:peregrin-took",
+          "middle-earth:sauron",
+          "middle-earth:aragorn"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_denethors_palantir_knowledge_is_partial_and_corrupting",
+      "title": "Denethor’s Palantir Knowledge Is Partial And Corrupting",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.denethor-questions-pippin",
+        "validToAnchor": "lotr.rotk.denethor-pyre",
+        "sortKeyFrom": 1110,
+        "sortKeyTo": 1700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Denethor’s Palantir Knowledge Is Partial And Corrupting"
+      },
+      "scope": {
+        "characters": [
+          "Denethor",
+          "Sauron",
+          "Gandalf"
+        ],
+        "locations": [],
+        "objects": [
+          "Palantir"
+        ],
+        "factions": [],
+        "topics": [
+          "partial truth",
+          "despair manipulation"
+        ],
+        "entityIds": [
+          "middle-earth:denethor",
+          "middle-earth:gandalf",
+          "middle-earth:palantir",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "artifact:palantir",
+        "book:return-of-the-king",
+        "character:denethor",
+        "character:gandalf",
+        "character:sauron"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Denethor",
+            "Sauron",
+            "Gandalf"
+          ],
+          "objectsAny": [
+            "Palantir"
+          ],
+          "topicsAny": [
+            "partial truth",
+            "despair manipulation"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:denethor",
+            "character:sauron",
+            "character:gandalf",
+            "artifact:palantir"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Denethor has seen true but selected things through the palantir, under Sauron’s pressure and his own despair.",
+        "injection": "Denethor should know more than others while still misreading hope under hostile pressure.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "Minas Tirith / The Pyre of Denethor",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_sauron_misreads_aragorn_as_the_ring_claimant",
+      "title": "Sauron Misreads Aragorn As The Ring-claimant",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.aragorn-palantir",
+        "validToAnchor": "lotr.rotk.ring-destroyed",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 2700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sauron Misreads Aragorn As The Ring-claimant"
+      },
+      "scope": {
+        "characters": [
+          "Sauron",
+          "Aragorn",
+          "Frodo Baggins"
+        ],
+        "locations": [],
+        "objects": [
+          "The One Ring",
+          "Palantir"
+        ],
+        "factions": [],
+        "topics": [
+          "Sauron misreads Aragorn",
+          "strategic deception"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:frodo-baggins",
+          "middle-earth:one-ring",
+          "middle-earth:palantir",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "artifact:one-ring",
+        "artifact:palantir",
+        "book:return-of-the-king",
+        "character:aragorn",
+        "character:frodo-baggins",
+        "character:sauron"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Sauron",
+            "Aragorn",
+            "Frodo Baggins"
+          ],
+          "objectsAny": [
+            "The One Ring",
+            "Palantir"
+          ],
+          "topicsAny": [
+            "Sauron misreads Aragorn",
+            "strategic deception"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:sauron",
+            "character:aragorn",
+            "character:frodo-baggins",
+            "artifact:one-ring",
+            "artifact:palantir"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sauron is drawn to believe Aragorn may be using or claiming the Ring, helping the diversion work.",
+        "injection": "Preserve Sauron’s strategic misreading; Aragorn’s challenge should focus attention away from Frodo and Sam.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Passing of the Grey Company / The Last Debate",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_witch_king_death_hidden",
+      "title": "Witch-king’s Death By Eowyn And Merry Must Stay Hidden",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 93,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.rohan-musters",
+        "validToAnchor": "lotr.rotk.witch-king-falls",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 1900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before the Witch-king falls",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Eowyn",
+          "Meriadoc Brandybuck",
+          "Witch-king"
+        ],
+        "locations": [
+          "Pelennor Fields"
+        ],
+        "topics": [
+          "prophecy",
+          "no living man",
+          "hidden victory",
+          "Eowyn",
+          "Meriadoc Brandybuck",
+          "Nazgul",
+          "Witch-king Death"
+        ],
+        "factions": [
+          "Rohan",
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:eowyn",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:witch-king",
+          "middle-earth:pelennor-fields",
+          "middle-earth:rohan",
+          "middle-earth:mordor-faction",
+          "middle-earth:nazgul",
+          "middle-earth:pelennor"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:eowyn",
+        "character:meriadoc-brandybuck",
+        "people:nazgul",
+        "secret:witch-king-death"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eowyn",
+            "Meriadoc Brandybuck",
+            "Witch-king"
+          ],
+          "locationsAny": [
+            "Pelennor Fields"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "prophecy",
+            "no living man",
+            "hidden victory",
+            "Eowyn",
+            "Meriadoc Brandybuck",
+            "Nazgul",
+            "Witch-king Death"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:eowyn",
+            "character:meriadoc-brandybuck",
+            "people:nazgul",
+            "secret:witch-king-death"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Witch-king’s fall through Eowyn and Merry is a major hidden outcome and should not leak before the Pelennor confrontation.",
+        "injection": "Before the Pelennor confrontation, do not have characters know or casually predict that Eowyn and Merry will defeat the Witch-king. Preserve the reveal and danger.",
+        "constraints": [
+          "Characters may know the Witch-king is terrifying and seemingly beyond ordinary men."
+        ],
+        "antiLore": [
+          "Do not use the prophecy as a spoiler punchline before the event."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Muster of Rohan"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [],
+        "audience": "future spoiler",
+        "notes": "Future outcome guard; no ordinary character should know this as settled fact before the relevant reveal.",
+        "hiddenFrom": [
+          "all characters before the relevant reveal unless the story is explicitly AU or prophetic"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_aragorn_kingship_becomes_public",
+      "title": "Aragorn’s Kingship Becomes Public After Victory",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.houses-of-healing",
+        "validToAnchor": "lotr.rotk.king-elessar",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Aragorn’s recognition through coronation"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn",
+          "Faramir",
+          "Gandalf",
+          "Eomer"
+        ],
+        "locations": [
+          "Minas Tirith"
+        ],
+        "topics": [
+          "kingship",
+          "recognition",
+          "coronation",
+          "King Elessar",
+          "Aragorn",
+          "Gondor"
+        ],
+        "factions": [
+          "Gondor",
+          "Rohan"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:faramir",
+          "middle-earth:gandalf",
+          "middle-earth:eomer",
+          "middle-earth:minas-tirith",
+          "middle-earth:gondor",
+          "middle-earth:rohan",
+          "middle-earth:king-elessar"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:aragorn",
+        "event:king-elessar",
+        "faction:gondor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn",
+            "Faramir",
+            "Gandalf",
+            "Eomer"
+          ],
+          "locationsAny": [
+            "Minas Tirith"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "kingship",
+            "recognition",
+            "coronation",
+            "King Elessar",
+            "Aragorn",
+            "Gondor"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:aragorn",
+            "event:king-elessar",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn’s claim moves from hidden or contested weight toward public recognition through victory, healing, humility, and coronation as King Elessar.",
+        "injection": "After the Houses of Healing and coronation arc, characters in Gondor can plausibly recognize Aragorn as King Elessar; before that, keep acceptance contextual.",
+        "constraints": [
+          "Recognition grows through deeds and ritual, not only revelation of lineage."
+        ],
+        "antiLore": [
+          "Do not make Aragorn universally treated as king before the relevant Return of the King context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Last Debate"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.restoration",
+          "label": "Post-war Restoration",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:gandalf",
+          "middle-earth:arwen"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_sauron_does_not_expect_ring_destruction",
+      "title": "Sauron Does Not Expect Ring Destruction",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.last-debate",
+        "validToAnchor": "lotr.rotk.ring-destroyed",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 2700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Final gambit before the Ring is destroyed",
+        "phaseId": "lotr.rotk.phase.final-gambit",
+        "phase": "Black Gate And Mount Doom"
+      },
+      "scope": {
+        "characters": [
+          "Sauron",
+          "Aragorn",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Black Gate",
+          "Mordor",
+          "Mount Doom"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "Sauron’s assumptions",
+          "diversion",
+          "Ring destruction",
+          "Sauron",
+          "One Ring"
+        ],
+        "factions": [
+          "Mordor",
+          "Free Peoples"
+        ],
+        "entityIds": [
+          "middle-earth:sauron",
+          "middle-earth:aragorn",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:black-gate",
+          "middle-earth:mordor-faction",
+          "middle-earth:mount-doom",
+          "middle-earth:one-ring",
+          "middle-earth:free-peoples",
+          "middle-earth:ring-destruction"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:sauron",
+        "artifact:one-ring",
+        "event:ring-destruction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Sauron",
+            "Aragorn",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Black Gate",
+            "Mordor",
+            "Mount Doom"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Sauron’s assumptions",
+            "diversion",
+            "Ring destruction",
+            "Sauron",
+            "One Ring"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:sauron",
+            "artifact:one-ring",
+            "event:ring-destruction"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sauron expects enemies to desire or use the Ring, not to destroy it, which allows the final diversion at the Black Gate to misdirect him.",
+        "injection": "Before the Ring is destroyed, Sauron should not casually infer that Frodo and Sam are trying to destroy it. His own nature biases him toward expecting possession and use.",
+        "constraints": [
+          "This is a major strategic knowledge gate."
+        ],
+        "antiLore": [
+          "Do not make Sauron omniscient about Frodo’s final intent."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Last Debate"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.black-gate",
+          "label": "Black Gate Diversion",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:bilbo-baggins"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_the_mouth_of_sauron_weaponizes_false_proof",
+      "title": "The Mouth Of Sauron Weaponizes False Proof",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.mouth-sauron",
+        "validToAnchor": "lotr.rotk.black-gate-battle-begins",
+        "sortKeyFrom": 2310,
+        "sortKeyTo": 2320,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Mouth Of Sauron Weaponizes False Proof"
+      },
+      "scope": {
+        "characters": [
+          "Mouth of Sauron",
+          "Aragorn",
+          "Gandalf",
+          "Frodo Baggins"
+        ],
+        "locations": [
+          "Black Gate"
+        ],
+        "objects": [
+          "mithril-coat"
+        ],
+        "factions": [],
+        "topics": [
+          "false proof",
+          "psychological warfare"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:black-gate",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gandalf",
+          "middle-earth:mithril-coat",
+          "middle-earth:mouth-of-sauron"
+        ]
+      },
+      "tags": [
+        "artifact:mithril-coat",
+        "book:return-of-the-king",
+        "character:aragorn",
+        "character:frodo-baggins",
+        "character:gandalf",
+        "character:mouth-of-sauron",
+        "knowledge:hidden",
+        "location:black-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mouth of Sauron",
+            "Aragorn",
+            "Gandalf",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "Black Gate"
+          ],
+          "objectsAny": [
+            "mithril-coat"
+          ],
+          "topicsAny": [
+            "false proof",
+            "psychological warfare"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "knowledge:hidden",
+            "character:mouth-of-sauron",
+            "character:aragorn",
+            "character:gandalf",
+            "character:frodo-baggins",
+            "location:black-gate",
+            "artifact:mithril-coat"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Mouth of Sauron uses Frodo’s captured gear to imply defeat without giving complete truth.",
+        "injection": "At the Black Gate parley, enemy proof should be psychologically dangerous but incomplete.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Black Gate Opens",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.black-gate",
+          "label": "Black Gate Diversion",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v6_mouth_of_sauron_does_not_confirm_frodo_dead",
+      "title": "Mouth Of Sauron Does Not Confirm Frodo Dead",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 85,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.mouth-sauron",
+        "validToAnchor": "lotr.rotk.black-gate",
+        "sortKeyFrom": 2310,
+        "sortKeyTo": 2320,
+        "precision": "anchor_window",
+        "windowKind": "event",
+        "label": "Mouth of Sauron parley before the Black Gate battle",
+        "phaseId": "lotr.rotk.phase.final-gambit",
+        "phase": "Black Gate And Mount Doom"
+      },
+      "scope": {
+        "characters": [
+          "Mouth of Sauron",
+          "Gandalf",
+          "Aragorn",
+          "Frodo Baggins"
+        ],
+        "locations": [
+          "Black Gate"
+        ],
+        "topics": [
+          "despair tactic",
+          "uncertainty",
+          "Frodo tokens",
+          "Mouth Of Sauron",
+          "Mouth Of Sauron Bluff",
+          "Black Gate",
+          "Ring-bearer Secret"
+        ],
+        "factions": [
+          "Mordor",
+          "Free Peoples"
+        ],
+        "entityIds": [
+          "middle-earth:mouth-of-sauron",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:frodo-baggins",
+          "middle-earth:black-gate",
+          "middle-earth:mordor-faction",
+          "middle-earth:free-peoples",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "character:mouth-of-sauron",
+        "secret:mouth-of-sauron-bluff",
+        "location:black-gate",
+        "secret:ringbearer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mouth of Sauron",
+            "Gandalf",
+            "Aragorn",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "Black Gate"
+          ],
+          "topicsAny": [
+            "despair tactic",
+            "uncertainty",
+            "Frodo tokens",
+            "Mouth Of Sauron",
+            "Mouth Of Sauron Bluff",
+            "Black Gate",
+            "Ring-bearer Secret"
+          ],
+          "factionsAny": [
+            "Mordor",
+            "Free Peoples"
+          ],
+          "matchTags": [
+            "character:mouth-of-sauron",
+            "secret:mouth-of-sauron-bluff",
+            "location:black-gate",
+            "secret:ringbearer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "At the Black Gate, the Mouth of Sauron uses Frodo’s captured gear to weaponize despair, but this does not prove Frodo is dead or that Sauron has the Ring.",
+        "injection": "During the parley, treat the tokens as psychological warfare and incomplete evidence. The Host of the West can be shaken without receiving reliable confirmation of Frodo’s fate.",
+        "constraints": [
+          "This protects the uncertainty that makes the diversion meaningful.",
+          "Sauron still does not understand the destruction plan."
+        ],
+        "antiLore": [
+          "Do not let the Mouth of Sauron truthfully reveal the full state of Frodo, Sam, and the Ring."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Black Gate Opens"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.black-gate",
+          "label": "Black Gate Diversion",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:bilbo-baggins"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_frodo-s-trauma-persists-after-victory",
+      "title": "Frodo’s Trauma Persists After Victory",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.ring-destroyed",
+        "validToAnchor": "lotr.rotk.grey-havens",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 3200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Frodo’s Trauma Persists After Victory"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Frodo Baggins",
+          "Aftermath"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:shire"
+        ]
+      },
+      "tags": [
+        "character:frodo-baggins",
+        "theme:aftermath"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Frodo Baggins",
+            "Aftermath"
+          ],
+          "matchTags": [
+            "character:frodo-baggins",
+            "theme:aftermath"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Frodo’s wounds and trauma persist after victory, preventing simple restoration to ordinary Shire life.",
+        "injection": "Frodo’s wounds and trauma persist after victory, preventing simple restoration to ordinary Shire life. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Field of Cormallen"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.restoration",
+          "label": "Post-war Restoration",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.shire",
+          "label": "Return and Scouring of the Shire",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:saruman"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_scouring-is-not-known-until-the-hobbits-return",
+      "title": "Scouring Is Not Known Until The Hobbits Return",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.ring-destroyed",
+        "validToAnchor": "lotr.rotk.scouring-shire",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 3100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Scouring Is Not Known Until The Hobbits Return"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Scouring Shire",
+          "Sharkey",
+          "Scouring of the Shire"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:scouring-shire",
+          "middle-earth:saruman",
+          "middle-earth:shire"
+        ]
+      },
+      "tags": [
+        "event:scouring-shire",
+        "secret:sharkey"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Scouring Shire",
+            "Sharkey",
+            "Scouring of the Shire"
+          ],
+          "matchTags": [
+            "event:scouring-shire",
+            "secret:sharkey"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Hobbits do not know the full state of the Shire under Sharkey until they return home.",
+        "injection": "The Hobbits do not know the full state of the Shire under Sharkey until they return home. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Field of Cormallen"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.shire",
+          "label": "Return and Scouring of the Shire",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:saruman",
+          "middle-earth:gandalf",
+          "middle-earth:theoden",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_sharkey-identity-is-gated-until-scouring",
+      "title": "Sharkey Identity Is Gated Until Scouring",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.ring-destroyed",
+        "validToAnchor": "lotr.rotk.scouring-shire",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 3100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sharkey Identity Is Gated Until Scouring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Saruman",
+          "Sharkey"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:saruman",
+          "middle-earth:shire"
+        ]
+      },
+      "tags": [
+        "character:saruman",
+        "secret:sharkey"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Saruman",
+            "Sharkey"
+          ],
+          "matchTags": [
+            "character:saruman",
+            "secret:sharkey"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Saruman’s role as Sharkey in the Shire is late hidden knowledge until the Scouring reveals it.",
+        "injection": "Saruman’s role as Sharkey in the Shire is late hidden knowledge until the Scouring reveals it. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Field of Cormallen"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.shire",
+          "label": "Return and Scouring of the Shire",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:saruman",
+          "middle-earth:gandalf",
+          "middle-earth:theoden",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_sharkey_is_saruman_in_diminished_form",
+      "title": "Sharkey Is Saruman In Diminished Form",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.scouring-shire",
+        "validToAnchor": "lotr.rotk.saruman-death",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3130,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sharkey Is Saruman In Diminished Form"
+      },
+      "scope": {
+        "characters": [
+          "Saruman",
+          "Frodo Baggins",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [
+          "The Shire"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sharkey identity",
+          "Saruman in Shire"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:saruman",
+          "middle-earth:shire"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:frodo-baggins",
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "character:saruman",
+        "region:shire",
+        "secret:sharkey-identity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Saruman",
+            "Frodo Baggins",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "locationsAny": [
+            "The Shire"
+          ],
+          "topicsAny": [
+            "Sharkey identity",
+            "Saruman in Shire"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "secret:sharkey-identity",
+            "character:saruman",
+            "character:frodo-baggins",
+            "character:meriadoc-brandybuck",
+            "character:peregrin-took",
+            "region:shire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sharkey is Saruman reduced to petty domination in the Shire after his greater schemes fail.",
+        "injection": "Before the reveal, keep Sharkey’s identity hidden from ordinary Shire knowledge.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Scouring of the Shire",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.shire",
+          "label": "Scouring and Shire",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v6_saruman_death_closes_shire_corruption_arc",
+      "title": "Saruman Death Closes The Shire Corruption Arc",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.saruman-death",
+        "validToAnchor": "lotr.rotk.grey-havens",
+        "sortKeyFrom": 3130,
+        "sortKeyTo": 3200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Saruman dies in the Shire",
+        "arcId": "lotr.rotk.arc.aftermath",
+        "arc": "Aftermath And Return Home",
+        "phaseId": "lotr.rotk.phase.postwar",
+        "phase": "Postwar Return"
+      },
+      "scope": {
+        "characters": [
+          "Saruman",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "The Shire",
+          "Bywater"
+        ],
+        "topics": [
+          "Sharkey",
+          "Scouring aftermath",
+          "corruption ending",
+          "Saruman",
+          "Saruman’s Death",
+          "Scouring of the Shire"
+        ],
+        "factions": [
+          "Shire"
+        ],
+        "entityIds": [
+          "middle-earth:saruman",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:shire",
+          "middle-earth:bywater",
+          "middle-earth:saruman-death",
+          "middle-earth:scouring-shire"
+        ]
+      },
+      "tags": [
+        "character:saruman",
+        "event:saruman-death",
+        "event:scouring-shire",
+        "secret:sharkey"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Saruman",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "The Shire",
+            "Bywater"
+          ],
+          "topicsAny": [
+            "Sharkey",
+            "Scouring aftermath",
+            "corruption ending",
+            "Saruman",
+            "Saruman’s Death",
+            "Scouring of the Shire"
+          ],
+          "factionsAny": [
+            "Shire"
+          ],
+          "matchTags": [
+            "character:saruman",
+            "event:saruman-death",
+            "event:scouring-shire",
+            "secret:sharkey"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Saruman’s death in the Shire closes his fallen-power arc locally, after Frodo offers mercy and the Hobbits have already broken Sharkey’s control.",
+        "injection": "In Scouring aftermath, keep Saruman’s end small, bitter, and local rather than a grand wizard duel. Frodo’s mercy and the Hobbits’ self-liberation should frame the moment.",
+        "constraints": [
+          "Saruman is diminished but still spiritually dangerous.",
+          "The scene belongs only after Sharkey is revealed."
+        ],
+        "antiLore": [
+          "Do not resolve Saruman’s book arc at Orthanc if the Scouring is active."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Scouring of the Shire"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.shire",
+          "label": "Return and Scouring of the Shire",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:saruman",
+          "middle-earth:gandalf",
+          "middle-earth:theoden",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    }
+  ]
+}

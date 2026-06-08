@@ -1,0 +1,2214 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "middle-earth:frodo-baggins": {
+      "type": "character",
+      "label": "Frodo Baggins",
+      "aliases": [
+        "Frodo",
+        "Ring-bearer"
+      ],
+      "canonicalNames": [
+        "Frodo Baggins",
+        "Frodo",
+        "Ring-bearer"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "artifact:one-ring"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:samwise-gamgee": {
+      "type": "character",
+      "label": "Samwise Gamgee",
+      "aliases": [
+        "Sam",
+        "Sam Gamgee"
+      ],
+      "canonicalNames": [
+        "Samwise Gamgee",
+        "Sam",
+        "Sam Gamgee"
+      ],
+      "tags": [
+        "character:samwise-gamgee"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:meriadoc-brandybuck": {
+      "type": "character",
+      "label": "Meriadoc Brandybuck",
+      "aliases": [
+        "Merry"
+      ],
+      "canonicalNames": [
+        "Meriadoc Brandybuck",
+        "Merry"
+      ],
+      "tags": [
+        "character:meriadoc-brandybuck"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:peregrin-took": {
+      "type": "character",
+      "label": "Peregrin Took",
+      "aliases": [
+        "Pippin"
+      ],
+      "canonicalNames": [
+        "Peregrin Took",
+        "Pippin"
+      ],
+      "tags": [
+        "character:peregrin-took"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:aragorn": {
+      "type": "character",
+      "label": "Aragorn",
+      "aliases": [
+        "Strider",
+        "Elessar",
+        "King Elessar",
+        "Heir of Isildur"
+      ],
+      "canonicalNames": [
+        "Aragorn",
+        "Strider",
+        "Elessar",
+        "King Elessar",
+        "Heir of Isildur"
+      ],
+      "tags": [
+        "character:aragorn",
+        "secret:aragorn-lineage"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:gandalf": {
+      "type": "character",
+      "label": "Gandalf",
+      "aliases": [
+        "Mithrandir",
+        "Gandalf the White"
+      ],
+      "canonicalNames": [
+        "Gandalf",
+        "Mithrandir",
+        "Gandalf the White"
+      ],
+      "tags": [
+        "character:gandalf",
+        "people:istari"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:sauron": {
+      "type": "character",
+      "label": "Sauron",
+      "aliases": [
+        "Dark Lord",
+        "Enemy"
+      ],
+      "canonicalNames": [
+        "Sauron",
+        "Dark Lord",
+        "Enemy"
+      ],
+      "tags": [
+        "character:sauron",
+        "faction:mordor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:saruman": {
+      "type": "character",
+      "label": "Saruman",
+      "aliases": [
+        "Sharkey",
+        "Saruman the White"
+      ],
+      "canonicalNames": [
+        "Saruman",
+        "Sharkey",
+        "Saruman the White"
+      ],
+      "tags": [
+        "character:saruman"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:denethor": {
+      "type": "character",
+      "label": "Denethor",
+      "aliases": [
+        "Denethor II",
+        "Steward of Gondor"
+      ],
+      "canonicalNames": [
+        "Denethor",
+        "Denethor II",
+        "Steward of Gondor"
+      ],
+      "tags": [
+        "character:denethor",
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:faramir": {
+      "type": "character",
+      "label": "Faramir",
+      "aliases": [
+        "Captain of Gondor"
+      ],
+      "canonicalNames": [
+        "Faramir",
+        "Captain of Gondor"
+      ],
+      "tags": [
+        "character:faramir",
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:boromir": {
+      "type": "character",
+      "label": "Boromir",
+      "aliases": [
+        "Son of Denethor"
+      ],
+      "canonicalNames": [
+        "Boromir",
+        "Son of Denethor"
+      ],
+      "tags": [
+        "character:boromir",
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:eowyn": {
+      "type": "character",
+      "label": "Eowyn",
+      "aliases": [
+        "Dernhelm"
+      ],
+      "canonicalNames": [
+        "Eowyn",
+        "Dernhelm"
+      ],
+      "tags": [
+        "character:eowyn",
+        "secret:dernhlem",
+        "region:rohan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:eomer": {
+      "type": "character",
+      "label": "Eomer",
+      "aliases": [],
+      "canonicalNames": [
+        "Eomer"
+      ],
+      "tags": [
+        "character:eomer",
+        "region:rohan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:theoden": {
+      "type": "character",
+      "label": "Theoden",
+      "aliases": [
+        "King Theoden"
+      ],
+      "canonicalNames": [
+        "Theoden",
+        "King Theoden"
+      ],
+      "tags": [
+        "character:theoden",
+        "region:rohan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:gollum": {
+      "type": "character",
+      "label": "Gollum",
+      "aliases": [
+        "Smeagol"
+      ],
+      "canonicalNames": [
+        "Gollum",
+        "Smeagol"
+      ],
+      "tags": [
+        "character:gollum",
+        "artifact:one-ring"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:witch-king": {
+      "type": "character",
+      "label": "Witch-king",
+      "aliases": [
+        "Lord of the Nazgul"
+      ],
+      "canonicalNames": [
+        "Witch-king",
+        "Lord of the Nazgul"
+      ],
+      "tags": [
+        "people:nazgul",
+        "character:witch-king"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:beregond": {
+      "type": "character",
+      "label": "Beregond",
+      "aliases": [],
+      "canonicalNames": [
+        "Beregond"
+      ],
+      "tags": [
+        "character:beregond",
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:bilbo-baggins": {
+      "type": "character",
+      "label": "Bilbo Baggins",
+      "aliases": [
+        "Bilbo"
+      ],
+      "canonicalNames": [
+        "Bilbo Baggins",
+        "Bilbo"
+      ],
+      "tags": [
+        "character:bilbo-baggins"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:arwen": {
+      "type": "character",
+      "label": "Arwen",
+      "aliases": [],
+      "canonicalNames": [
+        "Arwen"
+      ],
+      "tags": [
+        "character:arwen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:legolas": {
+      "type": "character",
+      "label": "Legolas",
+      "aliases": [
+        "Legolas Greenleaf"
+      ],
+      "canonicalNames": [
+        "Legolas",
+        "Legolas Greenleaf"
+      ],
+      "tags": [
+        "character:legolas"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:gimli": {
+      "type": "character",
+      "label": "Gimli",
+      "aliases": [
+        "Son of Gloin"
+      ],
+      "canonicalNames": [
+        "Gimli",
+        "Son of Gloin"
+      ],
+      "tags": [
+        "character:gimli"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:one-ring": {
+      "type": "item",
+      "label": "The One Ring",
+      "aliases": [
+        "Ruling Ring",
+        "Isildur’s Bane"
+      ],
+      "canonicalNames": [
+        "The One Ring",
+        "Ruling Ring",
+        "Isildur’s Bane"
+      ],
+      "tags": [
+        "artifact:one-ring"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:palantir": {
+      "type": "item",
+      "label": "Palantir",
+      "aliases": [
+        "Seeing-stone"
+      ],
+      "canonicalNames": [
+        "Palantir",
+        "Seeing-stone"
+      ],
+      "tags": [
+        "artifact:palantir"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:anduril": {
+      "type": "item",
+      "label": "Anduril",
+      "aliases": [
+        "Flame of the West",
+        "Sword Reforged"
+      ],
+      "canonicalNames": [
+        "Anduril",
+        "Flame of the West",
+        "Sword Reforged"
+      ],
+      "tags": [
+        "artifact:narsil-anduril"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:minas-tirith": {
+      "type": "location",
+      "label": "Minas Tirith",
+      "aliases": [
+        "City of Gondor"
+      ],
+      "canonicalNames": [
+        "Minas Tirith",
+        "City of Gondor"
+      ],
+      "tags": [
+        "location:minas-tirith",
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:pelennor-fields": {
+      "type": "location",
+      "label": "Pelennor Fields",
+      "aliases": [
+        "Pelennor"
+      ],
+      "canonicalNames": [
+        "Pelennor Fields",
+        "Pelennor"
+      ],
+      "tags": [
+        "location:pelennor-fields",
+        "event:pelennor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:paths-of-the-dead": {
+      "type": "location",
+      "label": "Paths of the Dead",
+      "aliases": [
+        "Haunted Mountain road"
+      ],
+      "canonicalNames": [
+        "Paths of the Dead",
+        "Haunted Mountain road"
+      ],
+      "tags": [
+        "location:paths-of-the-dead",
+        "people:dead-men-of-dunharrow"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:mordor": {
+      "type": "location",
+      "label": "Mordor",
+      "aliases": [
+        "Land of Shadow"
+      ],
+      "canonicalNames": [
+        "Mordor",
+        "Land of Shadow"
+      ],
+      "tags": [
+        "region:mordor",
+        "faction:mordor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:mount-doom": {
+      "type": "location",
+      "label": "Mount Doom",
+      "aliases": [
+        "Orodruin",
+        "Sammath Naur",
+        "Crack of Doom"
+      ],
+      "canonicalNames": [
+        "Mount Doom",
+        "Orodruin",
+        "Sammath Naur",
+        "Crack of Doom"
+      ],
+      "tags": [
+        "location:mount-doom",
+        "artifact:one-ring"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:black-gate": {
+      "type": "location",
+      "label": "Black Gate",
+      "aliases": [
+        "Morannon"
+      ],
+      "canonicalNames": [
+        "Black Gate",
+        "Morannon"
+      ],
+      "tags": [
+        "location:black-gate",
+        "region:mordor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:shire": {
+      "type": "location",
+      "label": "The Shire",
+      "aliases": [
+        "Hobbit homeland"
+      ],
+      "canonicalNames": [
+        "The Shire",
+        "Hobbit homeland"
+      ],
+      "tags": [
+        "region:shire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:grey-havens": {
+      "type": "location",
+      "label": "Grey Havens",
+      "aliases": [
+        "Mithlond"
+      ],
+      "canonicalNames": [
+        "Grey Havens",
+        "Mithlond"
+      ],
+      "tags": [
+        "location:grey-havens"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:gondor": {
+      "type": "faction",
+      "label": "Gondor",
+      "aliases": [
+        "South-kingdom"
+      ],
+      "canonicalNames": [
+        "Gondor",
+        "South-kingdom"
+      ],
+      "tags": [
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:rohan": {
+      "type": "faction",
+      "label": "Rohan",
+      "aliases": [
+        "Riddermark"
+      ],
+      "canonicalNames": [
+        "Rohan",
+        "Riddermark"
+      ],
+      "tags": [
+        "faction:rohan",
+        "region:rohan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:mordor-faction": {
+      "type": "faction",
+      "label": "Mordor",
+      "aliases": [
+        "Sauron’s forces"
+      ],
+      "canonicalNames": [
+        "Mordor",
+        "Sauron’s forces"
+      ],
+      "tags": [
+        "faction:mordor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:dead-men-dunharrow": {
+      "type": "faction",
+      "label": "Dead Men of Dunharrow",
+      "aliases": [
+        "Oathbreakers",
+        "Army of the Dead"
+      ],
+      "canonicalNames": [
+        "Dead Men of Dunharrow",
+        "Oathbreakers",
+        "Army of the Dead"
+      ],
+      "tags": [
+        "people:dead-men-of-dunharrow"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:bergil": {
+      "type": "character",
+      "label": "Bergil",
+      "aliases": [
+        "Bergil son of Beregond"
+      ],
+      "canonicalNames": [
+        "Bergil",
+        "Bergil son of Beregond"
+      ],
+      "tags": [
+        "character:bergil",
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        }
+      }
+    },
+    "middle-earth:ghan-buri-ghan": {
+      "type": "character",
+      "label": "Ghan-buri-Ghan",
+      "aliases": [
+        "Ghan-buri-Ghan"
+      ],
+      "canonicalNames": [
+        "Ghan-buri-Ghan"
+      ],
+      "tags": [
+        "character:ghan-buri-ghan",
+        "people:druedain"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        }
+      }
+    },
+    "middle-earth:dradan-forest": {
+      "type": "location",
+      "label": "Dradan Forest",
+      "aliases": [
+        "Druadan Forest"
+      ],
+      "canonicalNames": [
+        "Dradan Forest",
+        "Druadan Forest"
+      ],
+      "tags": [
+        "location:dradan-forest",
+        "region:rohan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        }
+      }
+    },
+    "middle-earth:bywater": {
+      "type": "location",
+      "label": "Bywater",
+      "aliases": [
+        "Battle of Bywater"
+      ],
+      "canonicalNames": [
+        "Bywater",
+        "Battle of Bywater"
+      ],
+      "tags": [
+        "location:bywater",
+        "region:shire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        }
+      }
+    },
+    "middle-earth:narsil-anduril": {
+      "type": "item",
+      "label": "Narsil / Anduril",
+      "aliases": [],
+      "canonicalNames": [
+        "Narsil / Anduril"
+      ],
+      "tags": [
+        "artifact:narsil-anduril"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:denethor-pyre": {
+      "type": "event",
+      "label": "Denethor Pyre",
+      "aliases": [],
+      "canonicalNames": [
+        "Denethor Pyre"
+      ],
+      "tags": [
+        "event:denethor-pyre"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:king-elessar": {
+      "type": "event",
+      "label": "King Elessar",
+      "aliases": [],
+      "canonicalNames": [
+        "King Elessar"
+      ],
+      "tags": [
+        "event:king-elessar"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:last-debate": {
+      "type": "event",
+      "label": "Last Debate",
+      "aliases": [],
+      "canonicalNames": [
+        "Last Debate"
+      ],
+      "tags": [
+        "event:last-debate"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:pelennor": {
+      "type": "event",
+      "label": "Pelennor",
+      "aliases": [],
+      "canonicalNames": [
+        "Pelennor"
+      ],
+      "tags": [
+        "event:pelennor"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:ring-destruction": {
+      "type": "event",
+      "label": "Ring Destruction",
+      "aliases": [],
+      "canonicalNames": [
+        "Ring Destruction"
+      ],
+      "tags": [
+        "event:ring-destruction"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:sauron-fall": {
+      "type": "event",
+      "label": "Sauron Fall",
+      "aliases": [],
+      "canonicalNames": [
+        "Sauron Fall"
+      ],
+      "tags": [
+        "event:sauron-fall"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:scouring-shire": {
+      "type": "event",
+      "label": "Scouring of the Shire",
+      "aliases": [],
+      "canonicalNames": [
+        "Scouring of the Shire"
+      ],
+      "tags": [
+        "event:scouring-shire"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:free-peoples": {
+      "type": "faction",
+      "label": "Free Peoples",
+      "aliases": [],
+      "canonicalNames": [
+        "Free Peoples"
+      ],
+      "tags": [
+        "faction:free-peoples"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:cirith-ungol": {
+      "type": "location",
+      "label": "Cirith Ungol",
+      "aliases": [],
+      "canonicalNames": [
+        "Cirith Ungol"
+      ],
+      "tags": [
+        "location:cirith-ungol"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:cormallen": {
+      "type": "location",
+      "label": "Cormallen",
+      "aliases": [],
+      "canonicalNames": [
+        "Cormallen"
+      ],
+      "tags": [
+        "location:cormallen"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:houses-of-healing": {
+      "type": "location",
+      "label": "Houses Of Healing",
+      "aliases": [],
+      "canonicalNames": [
+        "Houses Of Healing"
+      ],
+      "tags": [
+        "location:houses-of-healing"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:osgiliath": {
+      "type": "location",
+      "label": "Osgiliath",
+      "aliases": [],
+      "canonicalNames": [
+        "Osgiliath"
+      ],
+      "tags": [
+        "location:osgiliath"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:dead-men-of-dunharrow": {
+      "type": "species",
+      "label": "Dead Men of Dunharrow",
+      "aliases": [],
+      "canonicalNames": [
+        "Dead Men of Dunharrow"
+      ],
+      "tags": [
+        "people:dead-men-of-dunharrow"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:nazgul": {
+      "type": "species",
+      "label": "Nazgul",
+      "aliases": [],
+      "canonicalNames": [
+        "Nazgul"
+      ],
+      "tags": [
+        "people:nazgul"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:rangers-of-the-north": {
+      "type": "faction",
+      "label": "Rangers Of The North",
+      "aliases": [],
+      "canonicalNames": [
+        "Rangers Of The North"
+      ],
+      "tags": [
+        "faction:rangers-of-the-north"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:corsairs-defeated": {
+      "type": "event",
+      "label": "Corsairs Defeated",
+      "aliases": [],
+      "canonicalNames": [
+        "Corsairs Defeated"
+      ],
+      "tags": [
+        "event:corsairs-defeated"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:mouth-of-sauron": {
+      "type": "character",
+      "label": "Mouth Of Sauron",
+      "aliases": [],
+      "canonicalNames": [
+        "Mouth Of Sauron"
+      ],
+      "tags": [
+        "character:mouth-of-sauron"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:white-tree": {
+      "type": "item",
+      "label": "White Tree",
+      "aliases": [],
+      "canonicalNames": [
+        "White Tree"
+      ],
+      "tags": [
+        "artifact:white-tree"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:red-book": {
+      "type": "item",
+      "label": "Red Book",
+      "aliases": [],
+      "canonicalNames": [
+        "Red Book"
+      ],
+      "tags": [
+        "artifact:red-book"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:druedain": {
+      "type": "species",
+      "label": "Druedain",
+      "aliases": [],
+      "canonicalNames": [
+        "Druedain"
+      ],
+      "tags": [
+        "people:druedain"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:ride-of-rohirrim": {
+      "type": "event",
+      "label": "Ride Of The Rohirrim",
+      "aliases": [],
+      "canonicalNames": [
+        "Ride Of The Rohirrim"
+      ],
+      "tags": [
+        "event:ride-of-rohirrim"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:battle-of-bywater": {
+      "type": "event",
+      "label": "Battle Of Bywater",
+      "aliases": [],
+      "canonicalNames": [
+        "Battle Of Bywater"
+      ],
+      "tags": [
+        "event:battle-of-bywater"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:saruman-death": {
+      "type": "event",
+      "label": "Saruman’s Death",
+      "aliases": [],
+      "canonicalNames": [
+        "Saruman’s Death"
+      ],
+      "tags": [
+        "event:saruman-death"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:white-tree-found": {
+      "type": "event",
+      "label": "White Tree Found",
+      "aliases": [],
+      "canonicalNames": [
+        "White Tree Found"
+      ],
+      "tags": [
+        "event:white-tree-found"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:mallorn-box": {
+      "type": "item",
+      "label": "Mallorn Box",
+      "aliases": [],
+      "canonicalNames": [
+        "Mallorn Box"
+      ],
+      "tags": [
+        "artifact:mallorn-box"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:prince-imrahil": {
+      "type": "character",
+      "label": "Prince Imrahil",
+      "aliases": [],
+      "canonicalNames": [
+        "Prince Imrahil"
+      ],
+      "tags": [
+        "character:prince-imrahil"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:rohirrim": {
+      "type": "species",
+      "label": "Rohirrim",
+      "aliases": [],
+      "canonicalNames": [
+        "Rohirrim"
+      ],
+      "tags": [
+        "people:rohirrim"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:druadan-forest": {
+      "type": "location",
+      "label": "Druadan Forest",
+      "aliases": [],
+      "canonicalNames": [
+        "Druadan Forest"
+      ],
+      "tags": [
+        "location:druadan-forest"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:barrow-blades": {
+      "type": "item",
+      "label": "Barrow-blades",
+      "aliases": [],
+      "canonicalNames": [
+        "Barrow-blades"
+      ],
+      "tags": [
+        "artifact:barrow-blades"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:anduin": {
+      "type": "location",
+      "label": "Anduin",
+      "aliases": [],
+      "canonicalNames": [
+        "Anduin"
+      ],
+      "tags": [
+        "region:anduin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:mithril-coat": {
+      "type": "item",
+      "label": "mithril-coat",
+      "aliases": [],
+      "canonicalNames": [
+        "mithril-coat"
+      ],
+      "tags": [
+        "artifact:mithril-coat"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:rivendell": {
+      "type": "location",
+      "label": "Rivendell",
+      "aliases": [],
+      "canonicalNames": [
+        "Rivendell"
+      ],
+      "tags": [
+        "location:rivendell"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:hobbits": {
+      "type": "species",
+      "label": "Hobbits",
+      "aliases": [],
+      "canonicalNames": [
+        "Hobbits"
+      ],
+      "tags": [
+        "people:hobbits"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:elrond": {
+      "type": "character",
+      "label": "Elrond",
+      "aliases": [],
+      "canonicalNames": [
+        "Elrond"
+      ],
+      "tags": [
+        "character:elrond"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:galadriel": {
+      "type": "character",
+      "label": "Galadriel",
+      "aliases": [],
+      "canonicalNames": [
+        "Galadriel"
+      ],
+      "tags": [
+        "character:galadriel"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    }
+  }
+}

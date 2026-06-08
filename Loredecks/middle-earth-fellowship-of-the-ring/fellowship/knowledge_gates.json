@@ -1,0 +1,2369 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-07",
+  "sourcePackId": "middle-earth-fellowship-of-the-ring",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_faramir-is-not-yet-active-in-fellowship",
+      "title": "Faramir Is Not Yet Active In Fellowship",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.bilbo-party",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Faramir Is Not Yet Active In Fellowship"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Faramir",
+          "Gondor"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:gondor",
+          "middle-earth:boromir",
+          "middle-earth:fellowship"
+        ]
+      },
+      "tags": [
+        "character:faramir",
+        "faction:gondor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Faramir",
+            "Gondor"
+          ],
+          "matchTags": [
+            "character:faramir",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Faramir exists as Boromir’s brother in Gondor but should not intrude as a Ring-quest participant in Fellowship.",
+        "injection": "Faramir exists as Boromir’s brother in Gondor but should not intrude as a Ring-quest participant in Fellowship. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "A Long-expected Party"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:boromir",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:faramir"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_gandalf_confirms_ring_true_nature",
+      "title": "Gandalf Confirms The Ring’s True Nature",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.gandalf-confirms-ring",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Gandalf confirms the Ring"
+      },
+      "scope": {
+        "characters": [
+          "Gandalf",
+          "Frodo Baggins"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "Ring identity",
+          "Sauron",
+          "Isildur's Bane",
+          "One Ring",
+          "Ring True Nature",
+          "Gandalf",
+          "Frodo Baggins",
+          "Ringbearer"
+        ],
+        "locations": [
+          "The Shire"
+        ],
+        "entityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:frodo-baggins",
+          "middle-earth:shire",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "artifact:one-ring",
+        "knowledge:ring-true-nature",
+        "character:gandalf",
+        "character:frodo-baggins",
+        "secret:ringbearer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gandalf",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "The Shire"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Ring identity",
+            "Sauron",
+            "Isildur's Bane",
+            "One Ring",
+            "Ring True Nature",
+            "Gandalf",
+            "Frodo Baggins",
+            "Ringbearer"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "artifact:one-ring",
+            "knowledge:ring-true-nature",
+            "character:gandalf",
+            "character:frodo-baggins",
+            "secret:ringbearer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gandalf confirms that Frodo's inherited ring is the One Ring, bound to Sauron and unsafe to keep in the Shire.",
+        "injection": "After Gandalf confirms the Ring, Frodo and Gandalf should understand that the ring is the One Ring and that staying in the Shire exposes Frodo and others to danger.",
+        "constraints": [
+          "Before this anchor, Frodo may suspect little or know only that the ring is unusual.",
+          "The knowledge should remain tightly held."
+        ],
+        "antiLore": [
+          "Do not let the broader Shire learn the Ring's identity.",
+          "Do not make Frodo fully informed before Gandalf's confirmation scene."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Shadow of the Past"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:bilbo-baggins",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:boromir"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_gildor_warns_without_taking_over_the_quest",
+      "title": "Gildor Warns Without Taking Over The Quest",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.gildor-meeting",
+        "validToAnchor": "lotr.fotr.crickhollow",
+        "sortKeyFrom": 1220,
+        "sortKeyTo": 1250,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gildor Warns Without Taking Over The Quest"
+      },
+      "scope": {
+        "characters": [
+          "Gildor",
+          "Frodo Baggins"
+        ],
+        "locations": [
+          "The Shire"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gildor warning",
+          "partial counsel"
+        ],
+        "people": [
+          "Elves",
+          "Hobbits"
+        ],
+        "entityIds": [
+          "middle-earth:elves",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gildor",
+          "middle-earth:hobbits",
+          "middle-earth:shire"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "character:frodo-baggins",
+        "character:gildor",
+        "people:elves",
+        "people:hobbits",
+        "region:shire"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gildor",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "The Shire"
+          ],
+          "topicsAny": [
+            "Gildor warning",
+            "partial counsel"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "character:gildor",
+            "character:frodo-baggins",
+            "region:shire",
+            "people:elves",
+            "people:hobbits"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gildor’s company gives warning and shelter, but does not take command of the Ring or solve the journey.",
+        "injection": "Gildor’s Elves may be wise and helpful, but the Hobbits remain responsible for reaching safety.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "Three Is Company",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_the_hobbit_conspiracy_protects_frodo",
+      "title": "The Hobbit Conspiracy Protects Frodo",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.crickhollow",
+        "validToAnchor": "lotr.fotr.old-forest",
+        "sortKeyFrom": 1250,
+        "sortKeyTo": 1300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Hobbit Conspiracy Protects Frodo"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [
+          "Crickhollow"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Hobbit conspiracy",
+          "friend loyalty"
+        ],
+        "people": [
+          "Hobbits"
+        ],
+        "entityIds": [
+          "middle-earth:crickhollow",
+          "middle-earth:frodo-baggins",
+          "middle-earth:hobbits",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "character:frodo-baggins",
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "character:samwise-gamgee",
+        "location:crickhollow",
+        "people:hobbits",
+        "relationship:hobbit-friends"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "locationsAny": [
+            "Crickhollow"
+          ],
+          "topicsAny": [
+            "Hobbit conspiracy",
+            "friend loyalty"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "relationship:hobbit-friends",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:meriadoc-brandybuck",
+            "character:peregrin-took",
+            "location:crickhollow",
+            "people:hobbits"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Frodo’s friends know more about his departure than he expected and have prepared to help.",
+        "injection": "At Crickhollow, Frodo should learn his companions chose risk and secrecy with him.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "A Conspiracy Unmasked",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.shire-departure",
+          "label": "Shire Departure",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v6_fatty_bolger_stays_as_decoy_at_crickhollow",
+      "title": "Fatty Bolger Stays As Crickhollow Decoy",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.crickhollow",
+        "validToAnchor": "lotr.fotr.bree",
+        "sortKeyFrom": 1250,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Crickhollow decoy before Bree",
+        "arcId": "lotr.fotr.arc.flight",
+        "arc": "Flight To Rivendell",
+        "phaseId": "lotr.fotr.phase.pre-fellowship",
+        "phase": "Before The Fellowship"
+      },
+      "scope": {
+        "characters": [
+          "Fredegar Bolger",
+          "Frodo Baggins"
+        ],
+        "locations": [
+          "Crickhollow",
+          "The Shire"
+        ],
+        "topics": [
+          "decoy",
+          "secrecy",
+          "departure cover",
+          "Fredegar Bolger",
+          "Crickhollow",
+          "Frodo Leaves Shire"
+        ],
+        "factions": [
+          "Shire"
+        ],
+        "entityIds": [
+          "middle-earth:fredegar-bolger",
+          "middle-earth:frodo-baggins",
+          "middle-earth:crickhollow",
+          "middle-earth:shire",
+          "middle-earth:frodo-leaves-shire",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took"
+        ]
+      },
+      "tags": [
+        "character:fredegar-bolger",
+        "location:crickhollow",
+        "theme:secrecy",
+        "event:frodo-leaves-shire"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Fredegar Bolger",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "Crickhollow",
+            "The Shire"
+          ],
+          "topicsAny": [
+            "decoy",
+            "secrecy",
+            "departure cover",
+            "Fredegar Bolger",
+            "Crickhollow",
+            "Frodo Leaves Shire"
+          ],
+          "factionsAny": [
+            "Shire"
+          ],
+          "matchTags": [
+            "character:fredegar-bolger",
+            "location:crickhollow",
+            "theme:secrecy",
+            "event:frodo-leaves-shire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Fredegar Bolger stays behind at Crickhollow to maintain Frodo’s cover while Frodo, Sam, Merry, and Pippin leave the Shire.",
+        "injection": "During the Shire departure window, use Fredegar as the local decoy who helps preserve the appearance that Frodo is still near Crickhollow.",
+        "constraints": [
+          "This is local Shire secrecy, not a Fellowship role.",
+          "Fredegar does not continue with the main quest."
+        ],
+        "antiLore": [
+          "Do not put Fatty Bolger on the road to Rivendell or Mordor in book continuity."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "A Conspiracy Unmasked"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v6_conspiracy_unmasked_sets_hobbit_knowledge",
+      "title": "Conspiracy Unmasked Changes Hobbit Knowledge",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.conspiracy-unmasked",
+        "validToAnchor": "lotr.fotr.bree",
+        "sortKeyFrom": 1260,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After the Hobbit conspiracy is unmasked, before Bree",
+        "arcId": "lotr.fotr.arc.flight",
+        "arc": "Flight To Rivendell",
+        "phaseId": "lotr.fotr.phase.pre-fellowship",
+        "phase": "Before The Fellowship"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Meriadoc Brandybuck",
+          "Peregrin Took",
+          "Fredegar Bolger"
+        ],
+        "locations": [
+          "Crickhollow",
+          "The Shire"
+        ],
+        "topics": [
+          "secrecy",
+          "Hobbit conspiracy",
+          "Ring quest knowledge",
+          "Conspiracy Unmasked",
+          "Hobbit Friends",
+          "Ringbearer"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "factions": [
+          "Shire"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:fredegar-bolger",
+          "middle-earth:crickhollow",
+          "middle-earth:shire",
+          "middle-earth:one-ring",
+          "middle-earth:conspiracy-unmasked"
+        ]
+      },
+      "tags": [
+        "event:conspiracy-unmasked",
+        "relationship:hobbit-friends",
+        "theme:secrecy",
+        "secret:ringbearer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Fredegar Bolger"
+          ],
+          "locationsAny": [
+            "Crickhollow",
+            "The Shire"
+          ],
+          "topicsAny": [
+            "secrecy",
+            "Hobbit conspiracy",
+            "Ring quest knowledge",
+            "Conspiracy Unmasked",
+            "Hobbit Friends",
+            "Ringbearer"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "factionsAny": [
+            "Shire"
+          ],
+          "matchTags": [
+            "event:conspiracy-unmasked",
+            "relationship:hobbit-friends",
+            "theme:secrecy",
+            "secret:ringbearer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "At Crickhollow, Merry, Pippin, Sam, and Fredegar reveal that they know more about Frodo’s danger and departure than Frodo expected, though they still do not know the full truth of the One Ring.",
+        "injection": "After the conspiracy is unmasked, treat the Hobbit companions as active participants in Frodo’s escape, not accidental followers. Still gate the full Ring-lore: their loyalty exceeds their knowledge.",
+        "constraints": [
+          "The conspiracy should increase loyalty and agency for Merry and Pippin.",
+          "Fredegar’s role remains local to the Shire deception rather than the wider quest."
+        ],
+        "antiLore": [
+          "Do not portray Merry and Pippin as ignorant stowaways after Crickhollow.",
+          "Do not give the Hobbits complete Council-level Ring knowledge here."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "A Conspiracy Unmasked"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:bilbo-baggins"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_bree_folk_distrust_rangers_without_understanding_them",
+      "title": "Bree-folk Distrust Rangers Without Understanding Them",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.bree",
+        "validToAnchor": "lotr.fotr.rivendell",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Bree-folk Distrust Rangers Without Understanding Them"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn"
+        ],
+        "locations": [
+          "Bree"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Bree distrust",
+          "Rangers reputation"
+        ],
+        "people": [
+          "Rangers"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:bree",
+          "middle-earth:rangers"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "character:aragorn",
+        "location:bree",
+        "people:rangers"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn"
+          ],
+          "locationsAny": [
+            "Bree"
+          ],
+          "topicsAny": [
+            "Bree distrust",
+            "Rangers reputation"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "character:aragorn",
+            "location:bree",
+            "people:rangers"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Many Bree-folk see Rangers as strange and suspicious without knowing what dangers they prevent.",
+        "injection": "Bree characters should not automatically respect Strider; suspicion of Rangers is normal.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "Strider",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_aragorn-is-not-yet-crowned-in-fellowship",
+      "title": "Aragorn Is Not Yet Crowned In Fellowship",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.bree",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Aragorn Is Not Yet Crowned In Fellowship"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Aragorn",
+          "Aragorn Lineage"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:fellowship"
+        ]
+      },
+      "tags": [
+        "character:aragorn",
+        "secret:aragorn-lineage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Aragorn",
+            "Aragorn Lineage"
+          ],
+          "matchTags": [
+            "character:aragorn",
+            "secret:aragorn-lineage"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn’s claim exists in Fellowship, but he is not yet publicly established as King Elessar.",
+        "injection": "Aragorn’s claim exists in Fellowship, but he is not yet publicly established as King Elessar. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "At the Sign of the Prancing Pony / Strider"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:gandalf",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:boromir"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_gandalfs_delayed_letter_is_a_trust_pivot",
+      "title": "Gandalf’s Delayed Letter Is A Trust Pivot",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.butterbur-letter-delay",
+        "validToAnchor": "lotr.fotr.strider-letter-trust",
+        "sortKeyFrom": 1410,
+        "sortKeyTo": 1420,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gandalf’s Delayed Letter Is A Trust Pivot"
+      },
+      "scope": {
+        "characters": [
+          "Gandalf",
+          "Aragorn",
+          "Frodo Baggins"
+        ],
+        "locations": [
+          "Bree",
+          "Prancing Pony"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gandalf letter",
+          "trust evidence"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:bree",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gandalf",
+          "middle-earth:prancing-pony"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "character:aragorn",
+        "character:frodo-baggins",
+        "character:gandalf",
+        "location:bree",
+        "location:prancing-pony"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gandalf",
+            "Aragorn",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "Bree",
+            "Prancing Pony"
+          ],
+          "topicsAny": [
+            "Gandalf letter",
+            "trust evidence"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "character:gandalf",
+            "character:aragorn",
+            "character:frodo-baggins",
+            "location:bree",
+            "location:prancing-pony"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Butterbur’s delayed letter from Gandalf becomes crucial evidence for trusting Strider.",
+        "injection": "Use Gandalf’s letter as concrete trust evidence; Strider should not be trusted just because he is mysterious.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "Strider",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_glorfindel_replaces_film_arwen_at_the_ford",
+      "title": "Glorfindel Replaces Film-Arwen At The Ford",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.flight-to-ford",
+        "validToAnchor": "lotr.fotr.ford-of-bruinen",
+        "sortKeyFrom": 1550,
+        "sortKeyTo": 1560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Glorfindel Replaces Film-Arwen At The Ford"
+      },
+      "scope": {
+        "characters": [
+          "Glorfindel",
+          "Arwen",
+          "Frodo Baggins"
+        ],
+        "locations": [
+          "Ford of Bruinen",
+          "Rivendell"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "book continuity",
+          "Ford rescue"
+        ],
+        "entityIds": [
+          "middle-earth:arwen",
+          "middle-earth:ford-of-bruinen",
+          "middle-earth:frodo-baggins",
+          "middle-earth:glorfindel",
+          "middle-earth:rivendell"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "character:arwen",
+        "character:frodo-baggins",
+        "character:glorfindel",
+        "continuity:book-not-film",
+        "location:ford-of-bruinen",
+        "location:rivendell"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Glorfindel",
+            "Arwen",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "Ford of Bruinen",
+            "Rivendell"
+          ],
+          "topicsAny": [
+            "book continuity",
+            "Ford rescue"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "continuity:book-not-film",
+            "character:glorfindel",
+            "character:arwen",
+            "character:frodo-baggins",
+            "location:ford-of-bruinen",
+            "location:rivendell"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In book continuity, Glorfindel aids the flight to the Ford; Arwen does not replace him in this rescue.",
+        "injection": "Use Glorfindel for the Ford rescue in book-continuity scenes unless an AU/film deck changes it.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "Flight to the Ford",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v6_glorfindel_rescue_guards_book_continuity",
+      "title": "Glorfindel Rescue Guards Book Continuity",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 83,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.flight-to-ford",
+        "validToAnchor": "lotr.fotr.rivendell",
+        "sortKeyFrom": 1550,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Flight to the Ford before Rivendell",
+        "arcId": "lotr.fotr.arc.flight",
+        "arc": "Flight To Rivendell",
+        "phaseId": "lotr.fotr.phase.pre-fellowship",
+        "phase": "Before The Fellowship"
+      },
+      "scope": {
+        "characters": [
+          "Glorfindel",
+          "Frodo Baggins",
+          "Aragorn"
+        ],
+        "locations": [
+          "Ford of Bruinen",
+          "Rivendell"
+        ],
+        "topics": [
+          "book continuity",
+          "rescue",
+          "Nazgul pursuit",
+          "Glorfindel",
+          "Flight To The Ford",
+          "Ford Of Bruinen"
+        ],
+        "factions": [
+          "Free Peoples"
+        ],
+        "entityIds": [
+          "middle-earth:glorfindel",
+          "middle-earth:frodo-baggins",
+          "middle-earth:aragorn",
+          "middle-earth:ford-of-bruinen",
+          "middle-earth:rivendell",
+          "middle-earth:free-peoples",
+          "middle-earth:flight-to-ford"
+        ]
+      },
+      "tags": [
+        "character:glorfindel",
+        "event:flight-to-ford",
+        "location:ford-of-bruinen",
+        "continuity:lotr-books"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Glorfindel",
+            "Frodo Baggins",
+            "Aragorn"
+          ],
+          "locationsAny": [
+            "Ford of Bruinen",
+            "Rivendell"
+          ],
+          "topicsAny": [
+            "book continuity",
+            "rescue",
+            "Nazgul pursuit",
+            "Glorfindel",
+            "Flight To The Ford",
+            "Ford Of Bruinen"
+          ],
+          "factionsAny": [
+            "Free Peoples"
+          ],
+          "matchTags": [
+            "character:glorfindel",
+            "event:flight-to-ford",
+            "location:ford-of-bruinen",
+            "continuity:lotr-books"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In book continuity, Glorfindel plays the key rescue role on the final approach to Rivendell during the Flight to the Ford.",
+        "injection": "For book-canon scenes near the Ford, use Glorfindel as the major Elven rescuer and do not silently substitute the film-only Arwen rescue sequence.",
+        "constraints": [
+          "This protects the declared novel continuity.",
+          "A film-continuity overlay can override this if explicitly loaded."
+        ],
+        "antiLore": [
+          "Do not import the film Flight to the Ford by default."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Many Meetings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:aragorn"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_dwarven_moria_hope_carries_balin_grief",
+      "title": "Dwarven Moria Hope Carries Balin Grief",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.council-of-elrond",
+        "validToAnchor": "lotr.fotr.balin-tomb",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 2020,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dwarven Moria Hope Carries Balin Grief"
+      },
+      "scope": {
+        "characters": [
+          "Gimli",
+          "Balin"
+        ],
+        "locations": [
+          "Moria"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Balin colony",
+          "Moria hope"
+        ],
+        "people": [
+          "Dwarves"
+        ],
+        "entityIds": [
+          "middle-earth:balin",
+          "middle-earth:dwarves",
+          "middle-earth:gimli",
+          "middle-earth:moria"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "character:balin",
+        "character:gimli",
+        "location:moria",
+        "people:dwarves",
+        "secret:balin-colony-fate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gimli",
+            "Balin"
+          ],
+          "locationsAny": [
+            "Moria"
+          ],
+          "topicsAny": [
+            "Balin colony",
+            "Moria hope"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "secret:balin-colony-fate",
+            "character:gimli",
+            "character:balin",
+            "location:moria",
+            "people:dwarves"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gimli and the Dwarves carry hope and concern about Balin’s colony before the Company learns its fate.",
+        "injection": "Before Balin’s tomb, preserve Dwarven hope and unease; do not reveal the colony’s destruction early.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "The Council of Elrond / A Journey in the Dark",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_council-rejects-using-the-ring",
+      "title": "Council Rejects Using The Ring",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.council-of-elrond",
+        "validToAnchor": "lotr.fotr.fellowship-forms",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Council Rejects Using The Ring",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Council Of Elrond",
+          "One Ring"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:council-of-elrond",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "event:council-of-elrond",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Council Of Elrond",
+            "One Ring"
+          ],
+          "matchTags": [
+            "event:council-of-elrond",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Council rejects wielding, hiding, or sending away the Ring and chooses destruction as the only safe course.",
+        "injection": "The Council rejects wielding, hiding, or sending away the Ring and chooses destruction as the only safe course. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Council of Elrond"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:bilbo-baggins"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_balin-s-fate-is-hidden-until-moria",
+      "title": "Balin’s Fate Is Hidden Until Moria",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.hollin-caradhras",
+        "validToAnchor": "lotr.fotr.moria",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Balin’s Fate Is Hidden Until Moria",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring",
+        "phaseId": "lotr.fotr.phase.fellowship-active",
+        "phase": "Fellowship Active"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Balin Colony",
+          "Moria"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:balin-colony",
+          "middle-earth:moria",
+          "middle-earth:fellowship"
+        ]
+      },
+      "tags": [
+        "event:balin-colony",
+        "location:moria"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Balin Colony",
+            "Moria"
+          ],
+          "matchTags": [
+            "event:balin-colony",
+            "location:moria"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the tomb records in Moria, the Fellowship does not know the full fate of Balin’s colony.",
+        "injection": "Before the tomb records in Moria, the Fellowship does not know the full fate of Balin’s colony. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "A Journey in the Dark / The Bridge of Khazad-dûm"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:boromir",
+          "middle-earth:elrond",
+          "middle-earth:galadriel"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_balin_colony_has_fallen",
+      "title": "Balin’s Colony Has Fallen",
+      "kind": "knowledge_gate",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.moria",
+        "validToAnchor": "lotr.fotr.gandalf-falls",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Inside Moria before the bridge",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring",
+        "phaseId": "lotr.fotr.phase.fellowship-active",
+        "phase": "Fellowship Active"
+      },
+      "scope": {
+        "characters": [
+          "Gimli",
+          "Gandalf",
+          "Frodo Baggins"
+        ],
+        "locations": [
+          "Moria",
+          "Chamber of Mazarbul"
+        ],
+        "topics": [
+          "Balin",
+          "Dwarven colony",
+          "Moria danger",
+          "Moria",
+          "Gimli",
+          "Hidden"
+        ],
+        "entityIds": [
+          "middle-earth:gimli",
+          "middle-earth:gandalf",
+          "middle-earth:frodo-baggins",
+          "middle-earth:moria",
+          "middle-earth:fellowship"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "location:moria",
+        "character:gimli",
+        "knowledge:hidden"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gimli",
+            "Gandalf",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "Moria",
+            "Chamber of Mazarbul"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Balin",
+            "Dwarven colony",
+            "Moria danger",
+            "Moria",
+            "Gimli",
+            "Hidden"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "location:moria",
+            "character:gimli",
+            "knowledge:hidden"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Inside Moria, the Fellowship discovers that Balin's Dwarven colony has fallen and that the halls are occupied by deadly enemies.",
+        "injection": "Within Moria after the discovery, treat Gimli's hope as broken by evidence that Balin's colony failed and that the Fellowship is deep in hostile ruins.",
+        "constraints": [
+          "This knowledge should not be assumed before the party reaches the evidence in Moria.",
+          "The discovery should alter mood and urgency."
+        ],
+        "antiLore": [
+          "Do not let characters outside relevant knowledge already know every detail of Balin's fate.",
+          "Do not make Moria feel safe after the discovery."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Lothlórien / The Mirror of Galadriel"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:boromir",
+          "middle-earth:elrond",
+          "middle-earth:galadriel"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_gandalf-s-fall-is-not-public-knowledge",
+      "title": "Gandalf’s Fall Is Not Public Knowledge",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.gandalf-falls",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gandalf’s Fall Is Not Public Knowledge",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring",
+        "phaseId": "lotr.fotr.phase.fellowship-active",
+        "phase": "Fellowship Active"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Gandalf",
+          "Gandalf Falls"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:gandalf-falls",
+          "middle-earth:fellowship"
+        ]
+      },
+      "tags": [
+        "character:gandalf",
+        "event:gandalf-falls"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Gandalf",
+            "Gandalf Falls"
+          ],
+          "matchTags": [
+            "character:gandalf",
+            "event:gandalf-falls"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gandalf’s fall is known locally to the Fellowship and those told, not instantly across Middle-earth.",
+        "injection": "Gandalf’s fall is known locally to the Fellowship and those told, not instantly across Middle-earth. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Lothlórien / The Mirror of Galadriel"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:boromir",
+          "middle-earth:elrond",
+          "middle-earth:galadriel"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_frodo-s-solo-departure-is-hidden-at-first",
+      "title": "Frodo’s Solo Departure Is Hidden At First",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.amon-hen",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Frodo’s Solo Departure Is Hidden At First",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring",
+        "phaseId": "lotr.fotr.phase.fellowship-active",
+        "phase": "Fellowship Active"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Breaking Fellowship",
+          "Ringbearer"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:breaking-fellowship",
+          "middle-earth:frodo-baggins"
+        ]
+      },
+      "tags": [
+        "event:breaking-fellowship",
+        "secret:ringbearer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Breaking Fellowship",
+            "Ringbearer"
+          ],
+          "matchTags": [
+            "event:breaking-fellowship",
+            "secret:ringbearer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Frodo chooses to leave secretly; Sam discovers and joins him while others initially lack the full picture.",
+        "injection": "Frodo chooses to leave secretly; Sam discovers and joins him while others initially lack the full picture. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Breaking of the Fellowship"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.anduin-breaking",
+          "label": "Anduin and Breaking of the Fellowship",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:bilbo-baggins",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:boromir"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    }
+  ]
+}

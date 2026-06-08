@@ -1,0 +1,1150 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_pippins_service_to_denethor_creates_binding_obligation",
+      "title": "Pippin’s Service To Denethor Creates Binding Obligation",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.denethor-questions-pippin",
+        "validToAnchor": "lotr.rotk.denethor-pyre",
+        "sortKeyFrom": 1110,
+        "sortKeyTo": 1700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Pippin’s Service To Denethor Creates Binding Obligation"
+      },
+      "scope": {
+        "characters": [
+          "Peregrin Took",
+          "Denethor"
+        ],
+        "locations": [
+          "Minas Tirith"
+        ],
+        "objects": [],
+        "factions": [
+          "Gondor faction"
+        ],
+        "topics": [
+          "Pippin service",
+          "Denethor oath"
+        ],
+        "entityIds": [
+          "middle-earth:denethor",
+          "middle-earth:gondor",
+          "middle-earth:minas-tirith",
+          "middle-earth:peregrin-took"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:denethor",
+        "character:peregrin-took",
+        "faction:gondor",
+        "location:minas-tirith"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Peregrin Took",
+            "Denethor"
+          ],
+          "locationsAny": [
+            "Minas Tirith"
+          ],
+          "factionsAny": [
+            "Gondor faction"
+          ],
+          "topicsAny": [
+            "Pippin service",
+            "Denethor oath"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:peregrin-took",
+            "character:denethor",
+            "location:minas-tirith",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Pippin’s sworn service to Denethor is a serious Gondorian obligation, not a comic uniform change.",
+        "injection": "After Pippin swears service, his actions should be shaped by duty, fear, and limits of station.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "Minas Tirith",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_eowyn_despair_and_glory",
+      "title": "Eowyn’s Despair Drives Her Search For Glory",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.rohan-musters",
+        "validToAnchor": "lotr.rotk.houses-of-healing",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Eowyn before and after Pelennor",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Eowyn",
+          "Theoden",
+          "Aragorn",
+          "Meriadoc Brandybuck"
+        ],
+        "locations": [
+          "Rohan",
+          "Pelennor Fields",
+          "Houses of Healing"
+        ],
+        "topics": [
+          "despair",
+          "glory",
+          "confinement",
+          "death wish",
+          "Eowyn",
+          "Rohan",
+          "Eowyn Aragorn"
+        ],
+        "factions": [
+          "Rohan"
+        ],
+        "entityIds": [
+          "middle-earth:eowyn",
+          "middle-earth:theoden",
+          "middle-earth:aragorn",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:rohan",
+          "middle-earth:pelennor-fields",
+          "middle-earth:houses-of-healing"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:eowyn",
+        "region:rohan",
+        "relationship:eowyn-aragorn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Eowyn",
+            "Theoden",
+            "Aragorn",
+            "Meriadoc Brandybuck"
+          ],
+          "locationsAny": [
+            "Rohan",
+            "Pelennor Fields",
+            "Houses of Healing"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "despair",
+            "glory",
+            "confinement",
+            "death wish",
+            "Eowyn",
+            "Rohan",
+            "Eowyn Aragorn"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:eowyn",
+            "region:rohan",
+            "relationship:eowyn-aragorn"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Eowyn’s desire to ride to war is bound up with courage, confinement, despair, and a longing for glory rather than simple recklessness.",
+        "injection": "When writing Eowyn in Return of the King, treat her battlefield choice as courageous and despairing, shaped by frustration with confinement and fear of a cage.",
+        "constraints": [
+          "Her feelings toward Aragorn may matter but should not reduce her arc to romance alone."
+        ],
+        "antiLore": [
+          "Do not flatten Eowyn into either passive princess or simple battle-hungry warrior."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Muster of Rohan"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_merry_and_eowyn_shared_deed",
+      "title": "Merry And Eowyn Share The Witch-king Deed",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.witch-king-falls",
+        "validToAnchor": "lotr.rotk.houses-of-healing",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After the Witch-king falls",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor",
+        "phaseId": "lotr.rotk.phase.siege-and-pelennor",
+        "phase": "Siege And Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Meriadoc Brandybuck",
+          "Eowyn",
+          "Witch-king"
+        ],
+        "locations": [
+          "Pelennor Fields",
+          "Houses of Healing"
+        ],
+        "topics": [
+          "shared deed",
+          "courage",
+          "wounding",
+          "Witch-king",
+          "Meriadoc Brandybuck",
+          "Eowyn",
+          "Merry Eowyn"
+        ],
+        "factions": [
+          "Rohan"
+        ],
+        "entityIds": [
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:eowyn",
+          "middle-earth:witch-king",
+          "middle-earth:pelennor-fields",
+          "middle-earth:houses-of-healing",
+          "middle-earth:rohan"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:meriadoc-brandybuck",
+        "character:eowyn",
+        "relationship:merry-eowyn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Meriadoc Brandybuck",
+            "Eowyn",
+            "Witch-king"
+          ],
+          "locationsAny": [
+            "Pelennor Fields",
+            "Houses of Healing"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "shared deed",
+            "courage",
+            "wounding",
+            "Witch-king",
+            "Meriadoc Brandybuck",
+            "Eowyn",
+            "Merry Eowyn"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:meriadoc-brandybuck",
+            "character:eowyn",
+            "relationship:merry-eowyn"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Merry and Eowyn’s shared courage brings down the Witch-king, leaving both wounded and linked by that deed.",
+        "injection": "After the Witch-king falls, treat Merry and Eowyn as both participants in the deed, not as one erasing the other. Both suffer consequences.",
+        "constraints": [
+          "Their wounds matter after the battle."
+        ],
+        "antiLore": [
+          "Do not credit the Witch-king’s defeat to Eowyn alone or Merry alone when following book continuity."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Battle of the Pelennor Fields"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_faramir_eowyn_healing_bond",
+      "title": "Faramir And Eowyn Form A Healing Bond",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.houses-of-healing",
+        "validToAnchor": "lotr.rotk.grey-havens",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 3200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Faramir and Eowyn after Houses of Healing"
+      },
+      "scope": {
+        "characters": [
+          "Faramir",
+          "Eowyn"
+        ],
+        "locations": [
+          "Houses of Healing",
+          "Minas Tirith"
+        ],
+        "topics": [
+          "healing",
+          "postwar future",
+          "stewardship",
+          "choice of life",
+          "Faramir",
+          "Eowyn",
+          "Faramir Eowyn"
+        ],
+        "factions": [
+          "Gondor",
+          "Rohan"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:eowyn",
+          "middle-earth:houses-of-healing",
+          "middle-earth:minas-tirith",
+          "middle-earth:gondor",
+          "middle-earth:rohan"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:faramir",
+        "character:eowyn",
+        "relationship:faramir-eowyn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Faramir",
+            "Eowyn"
+          ],
+          "locationsAny": [
+            "Houses of Healing",
+            "Minas Tirith"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "healing",
+            "postwar future",
+            "stewardship",
+            "choice of life",
+            "Faramir",
+            "Eowyn",
+            "Faramir Eowyn"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:faramir",
+            "character:eowyn",
+            "relationship:faramir-eowyn"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After their wounds and despair, Faramir and Eowyn form a bond in the Houses of Healing that turns toward life, recovery, and postwar future.",
+        "injection": "After the Houses of Healing, Faramir and Eowyn scenes can lean into mutual understanding, grief, recovery, and choosing life after war.",
+        "constraints": [
+          "This relationship should not appear fully formed before their Houses of Healing context."
+        ],
+        "antiLore": [
+          "Do not make them romantically established before they meet in the healing aftermath unless AU."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Last Debate"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_faramir_and_eowyn_bond_through_recovery",
+      "title": "Faramir And Eowyn Bond Through Recovery",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.faramir-eowyn-meet",
+        "validToAnchor": "lotr.rotk.king-elessar",
+        "sortKeyFrom": 2120,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Faramir And Eowyn Bond Through Recovery"
+      },
+      "scope": {
+        "characters": [
+          "Faramir",
+          "Eowyn"
+        ],
+        "locations": [
+          "Houses of Healing",
+          "Minas Tirith"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "healing bond",
+          "life after despair"
+        ],
+        "entityIds": [
+          "middle-earth:eowyn",
+          "middle-earth:faramir",
+          "middle-earth:houses-of-healing",
+          "middle-earth:minas-tirith"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:eowyn",
+        "character:faramir",
+        "location:houses-of-healing",
+        "location:minas-tirith",
+        "relationship:faramir-eowyn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Faramir",
+            "Eowyn"
+          ],
+          "locationsAny": [
+            "Houses of Healing",
+            "Minas Tirith"
+          ],
+          "topicsAny": [
+            "healing bond",
+            "life after despair"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "relationship:faramir-eowyn",
+            "character:faramir",
+            "character:eowyn",
+            "location:houses-of-healing",
+            "location:minas-tirith"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Faramir and Eowyn bond through shared recovery, candid sorrow, and a turn from death-seeking valor toward life.",
+        "injection": "Their bond should develop quietly in healing and conversation, not as instant battlefield romance.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Steward and the King",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_frodo_sam_gollum_final_triangle",
+      "title": "Frodo Sam And Gollum Form The Final Ring Triangle",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.cirith-ungol-escape",
+        "validToAnchor": "lotr.rotk.ring-destroyed",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Final Mordor relationship triangle",
+        "arcId": "lotr.rotk.arc.mordor",
+        "arc": "Mordor And Mount Doom",
+        "phaseId": "lotr.rotk.phase.final-gambit",
+        "phase": "Black Gate And Mount Doom"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Mordor",
+          "Mount Doom"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "pity",
+          "mistrust",
+          "obsession",
+          "final temptation",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum",
+          "One Ring"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:mordor-faction",
+          "middle-earth:mount-doom",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "character:gollum",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Mordor",
+            "Mount Doom"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "pity",
+            "mistrust",
+            "obsession",
+            "final temptation",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum",
+            "One Ring"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:gollum",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The final Mordor arc is shaped by Frodo’s burden, Sam’s loyalty and mistrust, and Gollum’s obsessive pursuit of the Ring.",
+        "injection": "In final Mordor scenes involving Frodo, Sam, and Gollum, keep all three forces active: Frodo’s burden, Sam’s protective suspicion, and Gollum’s fixation.",
+        "constraints": [
+          "Pity, betrayal, exhaustion, and obsession all matter."
+        ],
+        "antiLore": [
+          "Do not make Gollum a clean ally or Sam a neutral observer near the climax."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Tower of Cirith Ungol"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_aragorn-and-arwen-union-is-late-public-resolution",
+      "title": "Aragorn And Arwen Union Is Late Public Resolution",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.king-elessar",
+        "validToAnchor": "lotr.rotk.grey-havens",
+        "sortKeyFrom": 2900,
+        "sortKeyTo": 3200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Aragorn And Arwen Union Is Late Public Resolution",
+        "arcId": "lotr.rotk.arc.aftermath",
+        "arc": "Aftermath And Return Home",
+        "phaseId": "lotr.rotk.phase.postwar",
+        "phase": "Postwar Return"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Aragorn Arwen",
+          "Arwen"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:arwen",
+          "middle-earth:aragorn"
+        ]
+      },
+      "tags": [
+        "relationship:aragorn-arwen",
+        "character:arwen"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Aragorn Arwen",
+            "Arwen"
+          ],
+          "matchTags": [
+            "relationship:aragorn-arwen",
+            "character:arwen"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn and Arwen’s union belongs to the late restoration context after kingship is established.",
+        "injection": "Apply this relationship state: Aragorn and Arwen’s union belongs to the late restoration context after kingship is established.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Steward and the King / Many Partings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.restoration",
+          "label": "Post-war Restoration",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_sam-and-rosie-mark-return-to-ordinary-life",
+      "title": "Sam And Rosie Mark Return To Ordinary Life",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.scouring-shire",
+        "validToAnchor": "lotr.rotk.grey-havens",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sam And Rosie Mark Return To Ordinary Life",
+        "arcId": "lotr.rotk.arc.aftermath",
+        "arc": "Aftermath And Return Home",
+        "phaseId": "lotr.rotk.phase.postwar",
+        "phase": "Postwar Return"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Sam Rosie",
+          "Shire"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:shire"
+        ]
+      },
+      "tags": [
+        "relationship:sam-rosie",
+        "region:shire"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Sam Rosie",
+            "Shire"
+          ],
+          "matchTags": [
+            "relationship:sam-rosie",
+            "region:shire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sam’s return to Rosie and family life marks restoration of ordinary Hobbit life after extraordinary burden.",
+        "injection": "Apply this relationship state: Sam’s return to Rosie and family life marks restoration of ordinary Hobbit life after extraordinary burden.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Scouring of the Shire"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.restoration",
+          "label": "Post-war Restoration",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.shire",
+          "label": "Return and Scouring of the Shire",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

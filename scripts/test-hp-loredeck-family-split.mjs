@@ -72,7 +72,8 @@ function getCategoryCounts(entries) {
 
 const index = readJson(path.join(ROOT, 'index.json'));
 const bundledIds = (index.bundled || []).map(record => record.packId || record.id);
-assert.deepEqual(bundledIds, SPLIT_DECK_IDS, 'Bundled HP index should expose only the split deck family in order.');
+const bundledHpIds = bundledIds.filter(deckId => deckId === 'hp-core' || deckId.startsWith('hp-year-') || deckId === 'hp-epilogue-post-war');
+assert.deepEqual(bundledHpIds, SPLIT_DECK_IDS, 'Bundled HP index should expose the split deck family in order.');
 assert.equal(bundledIds.includes(LEGACY_DECK_ID), false, 'Bundled HP index must not expose the legacy monolithic deck.');
 
 let totalEntries = 0;

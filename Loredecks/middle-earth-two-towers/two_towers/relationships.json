@@ -1,0 +1,1289 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_merry_and_pippin_retain_agency_in_captivity",
+      "title": "Merry And Pippin Retain Agency In Captivity",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.orc-captivity",
+        "validToAnchor": "lotr.ttt.hobbits-escape-fangorn",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 1310,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Merry And Pippin Retain Agency In Captivity"
+      },
+      "scope": {
+        "characters": [
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "captive agency",
+          "escape planning"
+        ],
+        "people": [
+          "Orcs"
+        ],
+        "entityIds": [
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:orcs",
+          "middle-earth:peregrin-took"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "people:orcs"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "topicsAny": [
+            "captive agency",
+            "escape planning"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:meriadoc-brandybuck",
+            "character:peregrin-took",
+            "people:orcs"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Merry and Pippin observe, plan, preserve clues, and exploit confusion while captive.",
+        "injection": "Give Merry and Pippin constrained agency: listening, signaling, dropping clues, and seizing openings.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Uruk-hai",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_gimli_legolas_competitive_bond_grows",
+      "title": "Gimli And Legolas Develop Competitive Friendship",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.three-hunters",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gimli and Legolas after the Fellowship split"
+      },
+      "scope": {
+        "characters": [
+          "Gimli",
+          "Legolas"
+        ],
+        "topics": [
+          "friendship",
+          "competition",
+          "Elf Dwarf reconciliation",
+          "Gimli",
+          "Legolas",
+          "Gimli Legolas",
+          "Fellowship"
+        ],
+        "factions": [
+          "Fellowship"
+        ],
+        "entityIds": [
+          "middle-earth:gimli",
+          "middle-earth:legolas",
+          "middle-earth:fellowship"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:gimli",
+        "character:legolas",
+        "relationship:gimli-legolas",
+        "faction:fellowship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gimli",
+            "Legolas"
+          ],
+          "locationsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "friendship",
+            "competition",
+            "Elf Dwarf reconciliation",
+            "Gimli",
+            "Legolas",
+            "Gimli Legolas",
+            "Fellowship"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:gimli",
+            "character:legolas",
+            "relationship:gimli-legolas",
+            "faction:fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gimli and Legolas develop a competitive, respectful friendship that counters older Elf-Dwarf suspicion.",
+        "injection": "In Two Towers scenes with Gimli and Legolas, show their banter and contest as growing friendship, not hostility. Their bond is still sharpened by cultural contrast.",
+        "constraints": [
+          "Their competition can be humorous without becoming slapstick."
+        ],
+        "antiLore": [
+          "Do not keep them in Fellowship-start distrust forever after they have fought together."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Riders of Rohan"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_aragorn-and-eomer-test-each-other-into-respect",
+      "title": "Aragorn And Eomer Test Each Other Into Respect",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.three-hunters",
+        "validToAnchor": "lotr.ttt.theoden-restored",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Aragorn And Eomer Test Each Other Into Respect",
+        "arcId": "lotr.ttt.arc.rohan",
+        "arc": "Rohan And Helm's Deep"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Aragorn",
+          "Eomer"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:eomer"
+        ]
+      },
+      "tags": [
+        "character:aragorn",
+        "character:eomer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Aragorn",
+            "Eomer"
+          ],
+          "matchTags": [
+            "character:aragorn",
+            "character:eomer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn and Eomer’s first dealings combine challenge, suspicion, nobility, and rapid mutual respect.",
+        "injection": "Apply this relationship state: Aragorn and Eomer’s first dealings combine challenge, suspicion, nobility, and rapid mutual respect.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Riders of Rohan"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_theoden-and-eowyn-carry-family-duty-strain",
+      "title": "Theoden And Eowyn Carry Family Duty Strain",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.rohan-edoras",
+        "validToAnchor": "lotr.ttt.helms-deep",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Theoden And Eowyn Carry Family Duty Strain",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents",
+        "phaseId": "lotr.ttt.phase.open-war",
+        "phase": "Rohan And Isengard Open War"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Theoden",
+          "Eowyn"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:theoden",
+          "middle-earth:eowyn"
+        ]
+      },
+      "tags": [
+        "character:theoden",
+        "character:eowyn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Theoden",
+            "Eowyn"
+          ],
+          "matchTags": [
+            "character:theoden",
+            "character:eowyn"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Eowyn’s duty to Theoden binds her to care, grief, and political limitation.",
+        "injection": "Apply this relationship state: Eowyn’s duty to Theoden binds her to care, grief, and political limitation.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The King of the Golden Hall"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_frodo_pities_gollum",
+      "title": "Frodo Pities Gollum Cautiously",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gollum-guide",
+        "validToAnchor": "lotr.ttt.shelob",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Frodo and Gollum during the Mordor road",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Gollum",
+          "Samwise Gamgee"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "pity",
+          "trust",
+          "corruption",
+          "mercy",
+          "Frodo Baggins",
+          "Gollum",
+          "Frodo Gollum",
+          "One Ring"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:gollum",
+        "relationship:frodo-gollum",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Gollum",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "pity",
+            "trust",
+            "corruption",
+            "mercy",
+            "Frodo Baggins",
+            "Gollum",
+            "Frodo Gollum",
+            "One Ring"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:frodo-baggins",
+            "character:gollum",
+            "relationship:frodo-gollum",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Frodo pities Gollum because he sees what Ring-possession can do and recognizes a possible mirror of his own fate.",
+        "injection": "When Frodo deals with Gollum, portray mercy and caution together: Frodo sees Gollum as dangerous, but also as a warning and a suffering creature bound to the Ring.",
+        "constraints": [
+          "Frodo's pity should not erase the practical danger Gollum poses."
+        ],
+        "antiLore": [
+          "Do not make Frodo trust Gollum naively without burdened awareness."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Passage of the Marshes"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_frodos_pity_gives_smeagol_a_narrow_possibility",
+      "title": "Frodo’s Pity Gives Smeagol A Narrow Possibility",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gollum-guide",
+        "validToAnchor": "lotr.ttt.gollum-near-repentance",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2720,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Frodo’s Pity Gives Smeagol A Narrow Possibility"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Gollum",
+          "Samwise Gamgee"
+        ],
+        "locations": [],
+        "objects": [
+          "The One Ring"
+        ],
+        "factions": [],
+        "topics": [
+          "Frodo pity",
+          "mercy pressure"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum",
+          "middle-earth:one-ring",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "artifact:one-ring",
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:gollum",
+        "character:samwise-gamgee",
+        "theme:pity-and-mercy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Gollum",
+            "Samwise Gamgee"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Frodo pity",
+            "mercy pressure"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "theme:pity-and-mercy",
+            "character:frodo-baggins",
+            "character:gollum",
+            "character:samwise-gamgee",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Frodo’s pity and recognition of Smeagol create a narrow possibility of obedience or repentance.",
+        "injection": "Let Frodo’s mercy affect Gollum; the possibility is fragile, not sentimental certainty.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Taming of Smeagol / The Stairs of Cirith Ungol",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_gollum_guides_under_oath_to_the_precious",
+      "title": "Gollum Guides Under Oath To The Precious",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gollum-guide",
+        "validToAnchor": "lotr.ttt.cirith-ungol",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gollum Guides Under Oath To The Precious"
+      },
+      "scope": {
+        "characters": [
+          "Gollum",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [],
+        "objects": [
+          "The One Ring"
+        ],
+        "factions": [],
+        "topics": [
+          "Gollum oath",
+          "guide tension"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum",
+          "middle-earth:one-ring",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "artifact:one-ring",
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:gollum",
+        "character:samwise-gamgee",
+        "relationship:frodo-gollum"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gollum",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Gollum oath",
+            "guide tension"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "relationship:frodo-gollum",
+            "character:gollum",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gollum guides under an oath sworn by the Precious, binding obedience, fear, cunning, and loopholes.",
+        "injection": "Gollum’s guidance should be useful but unstable; his oath constrains him without making him trustworthy.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Taming of Smeagol",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_sam_distrusts_gollum",
+      "title": "Sam Distrusts Gollum’s Guidance",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gollum-guide",
+        "validToAnchor": "lotr.ttt.shelob",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sam and Gollum during the Mordor road",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Samwise Gamgee",
+          "Gollum",
+          "Frodo Baggins"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "distrust",
+          "loyalty",
+          "guide",
+          "betrayal",
+          "Samwise Gamgee",
+          "Gollum",
+          "Sam Gollum",
+          "One Ring"
+        ],
+        "entityIds": [
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:frodo-baggins",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:samwise-gamgee",
+        "character:gollum",
+        "relationship:sam-gollum",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Samwise Gamgee",
+            "Gollum",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "distrust",
+            "loyalty",
+            "guide",
+            "betrayal",
+            "Samwise Gamgee",
+            "Gollum",
+            "Sam Gollum",
+            "One Ring"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:samwise-gamgee",
+            "character:gollum",
+            "relationship:sam-gollum",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sam distrusts Gollum because he sees the danger in Gollum's obsession and prioritizes Frodo's safety over pity.",
+        "injection": "When Sam and Gollum interact, preserve Sam's suspicion, sharpness, and protective hostility, even when Frodo tries to show Gollum mercy.",
+        "constraints": [
+          "Sam can be morally right about danger while still failing to understand Frodo's pity."
+        ],
+        "antiLore": [
+          "Do not make Sam casually friendly with Gollum during this route."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Passage of the Marshes"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_sams_distrust_intensifies_around_gollum",
+      "title": "Sam’s Distrust Intensifies Around Gollum",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gollum-guide",
+        "validToAnchor": "lotr.ttt.shelob",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sam’s Distrust Intensifies Around Gollum"
+      },
+      "scope": {
+        "characters": [
+          "Samwise Gamgee",
+          "Gollum",
+          "Frodo Baggins"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sam distrusts Gollum",
+          "relationship triangle"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:gollum",
+        "character:samwise-gamgee",
+        "relationship:sam-gollum"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Samwise Gamgee",
+            "Gollum",
+            "Frodo Baggins"
+          ],
+          "topicsAny": [
+            "Sam distrusts Gollum",
+            "relationship triangle"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "relationship:sam-gollum",
+            "character:samwise-gamgee",
+            "character:gollum",
+            "character:frodo-baggins"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sam sees Gollum’s danger more harshly than Frodo, and his protective distrust deepens.",
+        "injection": "Scenes with Sam and Gollum should carry friction: protective, perceptive, and sometimes damaging.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Taming of Smeagol / The Stairs of Cirith Ungol",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_gollum_nearly_repents_before_shelob",
+      "title": "Gollum Nearly Repents Before Shelob",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gollum-near-repentance",
+        "validToAnchor": "lotr.ttt.shelob",
+        "sortKeyFrom": 2720,
+        "sortKeyTo": 2800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gollum Nearly Repents Before Shelob"
+      },
+      "scope": {
+        "characters": [
+          "Gollum",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Stairs of Cirith Ungol"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gollum near repentance",
+          "fragile mercy"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:stairs-of-cirith-ungol"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:gollum",
+        "character:samwise-gamgee",
+        "location:stairs-of-cirith-ungol",
+        "relationship:sam-gollum",
+        "theme:pity-and-mercy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gollum",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Stairs of Cirith Ungol"
+          ],
+          "topicsAny": [
+            "Gollum near repentance",
+            "fragile mercy"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "relationship:sam-gollum",
+            "theme:pity-and-mercy",
+            "character:gollum",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "location:stairs-of-cirith-ungol"
+          ]
+        }
+      },
+      "content": {
+        "fact": "On the stairs, Gollum comes close to repentance before Sam’s harshness and Gollum’s corruption close the moment.",
+        "injection": "Preserve the near-repentance as fragile tragedy; do not lock Gollum into pure treachery too early.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Stairs of Cirith Ungol",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

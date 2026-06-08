@@ -1,0 +1,663 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-07",
+  "sourcePackId": "middle-earth-fellowship-of-the-ring",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_black_riders_hunt_through_questions_and_fear",
+      "title": "Black Riders Hunt Through Questions And Fear",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.frodo-leaves-shire",
+        "validToAnchor": "lotr.fotr.ford-of-bruinen",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 1560,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Black Riders Hunt Through Questions And Fear"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "The Shire",
+          "Bree",
+          "Weathertop"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "pursuit methods",
+          "fear and inquiry"
+        ],
+        "people": [
+          "Nazgul"
+        ],
+        "entityIds": [
+          "middle-earth:bree",
+          "middle-earth:nazgul",
+          "middle-earth:shire",
+          "middle-earth:weathertop"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "location:bree",
+        "location:weathertop",
+        "people:nazgul",
+        "region:shire"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "locationsAny": [
+            "The Shire",
+            "Bree",
+            "Weathertop"
+          ],
+          "topicsAny": [
+            "pursuit methods",
+            "fear and inquiry"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "region:shire",
+            "location:bree",
+            "location:weathertop",
+            "people:nazgul"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Black Riders search by pressure, questions, fear, bribery, tracking, and terror before open violence.",
+        "injection": "Nazgul pursuit should create dread and inquiry as much as chase scenes.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "Three Is Company / A Knife in the Dark",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-i",
+          "label": "Book I: The Ring Sets Out",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.flight-to-rivendell",
+          "label": "Flight to Rivendell",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_the_council_holds_competing_obligations",
+      "title": "The Council Holds Competing Obligations",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.council-of-elrond",
+        "validToAnchor": "lotr.fotr.fellowship-forms",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Council Holds Competing Obligations"
+      },
+      "scope": {
+        "characters": [
+          "Elrond",
+          "Gandalf",
+          "Boromir",
+          "Frodo Baggins",
+          "Gimli"
+        ],
+        "locations": [
+          "Rivendell"
+        ],
+        "objects": [],
+        "factions": [
+          "Gondor faction",
+          "Free Peoples"
+        ],
+        "topics": [
+          "Council politics",
+          "competing obligations"
+        ],
+        "entityIds": [
+          "middle-earth:boromir",
+          "middle-earth:elrond",
+          "middle-earth:free-peoples",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gandalf",
+          "middle-earth:gimli",
+          "middle-earth:gondor",
+          "middle-earth:rivendell"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "character:boromir",
+        "character:elrond",
+        "character:frodo-baggins",
+        "character:gandalf",
+        "character:gimli",
+        "event:council-of-elrond",
+        "faction:free-peoples",
+        "faction:gondor",
+        "location:rivendell"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Elrond",
+            "Gandalf",
+            "Boromir",
+            "Frodo Baggins",
+            "Gimli"
+          ],
+          "locationsAny": [
+            "Rivendell"
+          ],
+          "factionsAny": [
+            "Gondor faction",
+            "Free Peoples"
+          ],
+          "topicsAny": [
+            "Council politics",
+            "competing obligations"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "event:council-of-elrond",
+            "character:elrond",
+            "character:gandalf",
+            "character:boromir",
+            "character:frodo-baggins",
+            "character:gimli",
+            "location:rivendell",
+            "faction:gondor",
+            "faction:free-peoples"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Council gathers factions with different fears: Gondor’s war, Dwarven losses, Elven withdrawal, and Hobbit vulnerability.",
+        "injection": "Council scenes should be deliberative and tense; participants bring legitimate but conflicting obligations.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.88,
+        "chapter": "The Council of Elrond",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_dwarf-elf-tension-exists-at-the-council",
+      "title": "Dwarf-Elf Tension Exists At The Council",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.council-of-elrond",
+        "validToAnchor": "lotr.fotr.lothlorien",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 2200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dwarf-Elf Tension Exists At The Council",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Dwarves",
+          "Elves"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:dwarves",
+          "middle-earth:elves"
+        ]
+      },
+      "tags": [
+        "people:dwarves",
+        "people:elves"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Dwarves",
+            "Elves"
+          ],
+          "matchTags": [
+            "people:dwarves",
+            "people:elves"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Elves and Dwarves can cooperate against Sauron while still carrying old mistrust and cultural distance.",
+        "injection": "Apply this political or military state: Elves and Dwarves can cooperate against Sauron while still carrying old mistrust and cultural distance. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Council of Elrond"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_fotr_fellowship_forms_as_nine_walkers",
+      "title": "The Fellowship Forms As Nine Walkers",
+      "kind": "event_anchor",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.fellowship-forms",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 1800,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Fellowship is active",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring",
+        "phaseId": "lotr.fotr.phase.fellowship-active",
+        "phase": "Fellowship Active"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Meriadoc Brandybuck",
+          "Peregrin Took",
+          "Gandalf",
+          "Aragorn",
+          "Legolas",
+          "Gimli",
+          "Boromir"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "Fellowship",
+          "Nine Walkers",
+          "Company of the Ring",
+          "Fellowship Formed",
+          "One Ring"
+        ],
+        "locations": [
+          "Rivendell"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:boromir",
+          "middle-earth:rivendell",
+          "middle-earth:one-ring",
+          "middle-earth:fellowship",
+          "middle-earth:fellowship-formed"
+        ]
+      },
+      "tags": [
+        "book:fellowship-of-the-ring",
+        "event:fellowship-formed",
+        "faction:fellowship",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Gandalf",
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Boromir"
+          ],
+          "locationsAny": [
+            "Rivendell"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Fellowship",
+            "Nine Walkers",
+            "Company of the Ring",
+            "Fellowship Formed",
+            "One Ring"
+          ],
+          "matchTags": [
+            "book:fellowship-of-the-ring",
+            "event:fellowship-formed",
+            "faction:fellowship",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Fellowship is formed in Rivendell as nine walkers representing different peoples and commitments to the Ring quest.",
+        "injection": "When the Fellowship is active, treat it as a secret, fragile company of nine with different loyalties, cultures, and pressures, unified by the Ring quest.",
+        "constraints": [
+          "The Fellowship contains internal tension, not perfect uniformity.",
+          "Its secrecy and small size are strategic."
+        ],
+        "antiLore": [
+          "Do not make the Fellowship a large army or public delegation.",
+          "Do not erase cultural tension among its members."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Ring Goes South"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_fotr_v5_the-fellowship-cannot-stay-intact-under-pressure",
+      "title": "The Fellowship Cannot Stay Intact Under Pressure",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.fotr.fellowship-forms",
+        "validToAnchor": "lotr.fotr.breaking-fellowship",
+        "sortKeyFrom": 1800,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Fellowship Cannot Stay Intact Under Pressure",
+        "arcId": "lotr.fotr.arc.company",
+        "arc": "Company Of The Ring",
+        "phaseId": "lotr.fotr.phase.fellowship-active",
+        "phase": "Fellowship Active"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Fellowship",
+          "Breaking Fellowship"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:fellowship",
+          "middle-earth:breaking-fellowship",
+          "middle-earth:boromir"
+        ]
+      },
+      "tags": [
+        "faction:fellowship",
+        "event:breaking-fellowship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Fellowship",
+            "Breaking Fellowship"
+          ],
+          "matchTags": [
+            "faction:fellowship",
+            "event:breaking-fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Fellowship’s unity is strained by grief, route conflict, pursuit, Boromir’s desperation, and the Ring.",
+        "injection": "Apply this political or military state: The Fellowship’s unity is strained by grief, route conflict, pursuit, Boromir’s desperation, and the Ring. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Ring Goes South"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.company-of-the-ring",
+          "label": "Company of the Ring",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-ii",
+          "label": "Book II: The Ring Goes South",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

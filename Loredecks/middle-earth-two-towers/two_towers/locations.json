@@ -1,0 +1,2240 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_fangorn_ancient_suspicious",
+      "title": "Fangorn Is Ancient And Suspicious",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.fangorn",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1300,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Fangorn and the Ents",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents"
+      },
+      "scope": {
+        "characters": [
+          "Treebeard",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [
+          "Fangorn"
+        ],
+        "topics": [
+          "Ents",
+          "ancient forest",
+          "suspicion",
+          "slowness",
+          "Fangorn"
+        ],
+        "factions": [
+          "Ents"
+        ],
+        "entityIds": [
+          "middle-earth:treebeard",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:fangorn",
+          "middle-earth:ents"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "region:fangorn",
+        "people:ents"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Treebeard",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "locationsAny": [
+            "Fangorn"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Ents",
+            "ancient forest",
+            "suspicion",
+            "slowness",
+            "Fangorn"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "region:fangorn",
+            "people:ents"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Fangorn is an ancient forest whose Ents are slow to act, suspicious of outsiders, and dangerous when roused.",
+        "injection": "In Fangorn scenes, make the forest feel old, watchful, and resistant to haste. Ents should deliberate slowly but become formidable once moved.",
+        "constraints": [
+          "Ent slowness is not stupidity; it reflects age, grief, and scale."
+        ],
+        "antiLore": [
+          "Do not make Ents impulsive soldiers who immediately follow Hobbit orders."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Treebeard"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_helms_deep_is_a_defensive_geography_trap",
+      "title": "Helm’s Deep Is A Defensive Geography Trap",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.helms-deep",
+        "validToAnchor": "lotr.ttt.deeping-wall-breached",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 1710,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Helm’s Deep Is A Defensive Geography Trap"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Helm's Deep"
+        ],
+        "objects": [],
+        "factions": [
+          "Rohan faction",
+          "Isengard faction"
+        ],
+        "topics": [
+          "fortress defense",
+          "battle terrain"
+        ],
+        "entityIds": [
+          "middle-earth:helms-deep",
+          "middle-earth:isengard",
+          "middle-earth:rohan"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "faction:isengard",
+        "faction:rohan",
+        "location:helms-deep",
+        "topic:military-geography"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Helm's Deep"
+          ],
+          "factionsAny": [
+            "Rohan faction",
+            "Isengard faction"
+          ],
+          "topicsAny": [
+            "fortress defense",
+            "battle terrain"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "topic:military-geography",
+            "location:helms-deep",
+            "faction:rohan",
+            "faction:isengard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Helm’s Deep’s walls, culvert, Hornburg, caves, and mountain setting shape battle pressure.",
+        "injection": "Battle scenes at Helm’s Deep should use the fortress geography; wall, gate, culvert, and retreat options matter.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "Helm’s Deep",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_helms_deep_refuge_fortress",
+      "title": "Helm’s Deep Is Rohan’s Refuge Fortress",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.helms-deep",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Helm's Deep battle context",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents",
+        "phaseId": "lotr.ttt.phase.open-war",
+        "phase": "Rohan And Isengard Open War"
+      },
+      "scope": {
+        "characters": [
+          "Theoden",
+          "Aragorn",
+          "Legolas",
+          "Gimli"
+        ],
+        "locations": [
+          "Helm's Deep",
+          "Rohan"
+        ],
+        "topics": [
+          "siege",
+          "refuge",
+          "defense",
+          "Helms Deep",
+          "Rohan"
+        ],
+        "factions": [
+          "Rohan",
+          "Isengard"
+        ],
+        "entityIds": [
+          "middle-earth:theoden",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:helms-deep",
+          "middle-earth:rohan",
+          "middle-earth:isengard",
+          "middle-earth:saruman"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "location:helms-deep",
+        "region:rohan",
+        "event:helms-deep"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Theoden",
+            "Aragorn",
+            "Legolas",
+            "Gimli"
+          ],
+          "locationsAny": [
+            "Helm's Deep",
+            "Rohan"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "siege",
+            "refuge",
+            "defense",
+            "Helms Deep",
+            "Rohan"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "location:helms-deep",
+            "region:rohan",
+            "event:helms-deep"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Helm's Deep is Rohan's fortress refuge during Saruman's assault, forcing a defensive siege under desperate conditions.",
+        "injection": "At Helm's Deep, frame scenes around refuge, siege pressure, limited defenders, night assault, and the need to endure until relief or reversal.",
+        "constraints": [
+          "The fortress is strong but the defenders are under severe pressure."
+        ],
+        "antiLore": [
+          "Do not turn Helm's Deep into an easy field battle for Rohan."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Helm's Deep"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_huorns_make_helms_deep_aftermath_uncanny",
+      "title": "Huorns Make Helm’s Deep Aftermath Uncanny",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.huorns-helms-deep",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1730,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Huorns Make Helm’s Deep Aftermath Uncanny"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Helm's Deep",
+          "Fangorn"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Huorns",
+          "uncanny forest"
+        ],
+        "people": [
+          "Huorns",
+          "Orcs"
+        ],
+        "entityIds": [
+          "middle-earth:fangorn",
+          "middle-earth:helms-deep",
+          "middle-earth:huorns",
+          "middle-earth:orcs"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "location:helms-deep",
+        "people:huorns",
+        "people:orcs",
+        "region:fangorn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Helm's Deep",
+            "Fangorn"
+          ],
+          "topicsAny": [
+            "Huorns",
+            "uncanny forest"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "location:helms-deep",
+            "region:fangorn",
+            "people:huorns",
+            "people:orcs"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Huorns at Helm’s Deep create an uncanny forest aftermath that terrifies and consumes fleeing Orcs.",
+        "injection": "After Helm’s Deep, the sudden wood should feel eerie and dangerous, not just reinforcements.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "Helm’s Deep / The Road to Isengard",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_dead_marshes_are_spiritual_hazard",
+      "title": "The Dead Marshes Are A Spiritual Hazard",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.dead-marshes",
+        "validToAnchor": "lotr.ttt.black-gate",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Dead Marshes crossing",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Dead Marshes"
+        ],
+        "topics": [
+          "marsh lights",
+          "ancient dead",
+          "danger",
+          "Dead Marshes",
+          "Mordor"
+        ],
+        "factions": [
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:dead-marshes",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "location:dead-marshes",
+        "region:mordor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Dead Marshes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "marsh lights",
+            "ancient dead",
+            "danger",
+            "Dead Marshes",
+            "Mordor"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "location:dead-marshes",
+            "region:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Dead Marshes are a haunted, treacherous approach to Mordor where corpse-lights and ancient dead threaten exhausted travelers.",
+        "injection": "When scenes occur in the Dead Marshes, portray the landscape as physically and spiritually dangerous: deceptive lights, stagnant water, exhaustion, and the memory of old war.",
+        "constraints": [
+          "The danger should be uncanny and environmental, not a conventional battlefield."
+        ],
+        "antiLore": [
+          "Do not make the Dead Marshes a safe shortcut or ordinary wetland."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Black Gate is Closed"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_the_dead_marshes_are_historical_moral_horror",
+      "title": "The Dead Marshes Are Historical Moral Horror",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.dead-marshes",
+        "validToAnchor": "lotr.ttt.black-gate",
+        "sortKeyFrom": 2200,
+        "sortKeyTo": 2300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Dead Marshes Are Historical Moral Horror"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Dead Marshes"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "haunted battlefield",
+          "moral horror"
+        ],
+        "entityIds": [
+          "middle-earth:dead-marshes",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:gollum",
+        "character:samwise-gamgee",
+        "location:dead-marshes",
+        "topic:ancient-war-memory"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Dead Marshes"
+          ],
+          "topicsAny": [
+            "haunted battlefield",
+            "moral horror"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "topic:ancient-war-memory",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:gollum",
+            "location:dead-marshes"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Dead Marshes preserve haunted memory of old battle and corruption, making the route psychologically dangerous.",
+        "injection": "Dead Marshes scenes should feel morally and historically haunted, not merely swampy.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Passage of the Marshes",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_black_gate_closed",
+      "title": "The Black Gate Cannot Be Entered Openly",
+      "kind": "rule_constraint",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.black-gate",
+        "validToAnchor": "lotr.ttt.ithilien",
+        "sortKeyFrom": 2300,
+        "sortKeyTo": 2400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "At the Black Gate",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Black Gate",
+          "Mordor"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "entry to Mordor",
+          "impossible approach",
+          "stealth",
+          "Black Gate",
+          "Mordor",
+          "One Ring"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:black-gate",
+          "middle-earth:mordor",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "location:black-gate",
+        "region:mordor",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Black Gate",
+            "Mordor"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "entry to Mordor",
+            "impossible approach",
+            "stealth",
+            "Black Gate",
+            "Mordor",
+            "One Ring"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "location:black-gate",
+            "region:mordor",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Black Gate is too guarded for Frodo and Sam to enter Mordor openly, forcing them toward Gollum's hidden route.",
+        "injection": "At the Black Gate, do not allow Frodo and Sam to simply walk into Mordor. The closed gate should force debate over stealth, despair, and alternative routes.",
+        "constraints": [
+          "This constraint is part of why Gollum's guidance becomes narratively powerful."
+        ],
+        "antiLore": [
+          "Do not make the Morannon an easy infiltration point for two Hobbits."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Of Herbs and Stewed Rabbit / The Window on the West"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_ithilien_contested_borderland",
+      "title": "Ithilien Is A Contested Borderland",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ithilien",
+        "validToAnchor": "lotr.ttt.crossroads",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ithilien route",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Faramir",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Ithilien",
+          "Henneth Annun"
+        ],
+        "topics": [
+          "borderland",
+          "ambush",
+          "Gondor rangers",
+          "Mordor approach",
+          "Ithilien",
+          "Gondor",
+          "Mordor"
+        ],
+        "factions": [
+          "Gondor",
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:ithilien",
+          "middle-earth:henneth-annun",
+          "middle-earth:gondor",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "region:ithilien",
+        "faction:gondor",
+        "region:mordor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Faramir",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Ithilien",
+            "Henneth Annun"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "borderland",
+            "ambush",
+            "Gondor rangers",
+            "Mordor approach",
+            "Ithilien",
+            "Gondor",
+            "Mordor"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "region:ithilien",
+            "faction:gondor",
+            "region:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ithilien is a beautiful but contested borderland where Gondor's Rangers operate under Mordor's shadow.",
+        "injection": "In Ithilien scenes, combine ruined beauty, military danger, secrecy, Ranger patrols, and proximity to Mordor.",
+        "constraints": [
+          "It should not feel like safe Gondorian heartland."
+        ],
+        "antiLore": [
+          "Do not portray Ithilien as unoccupied, peaceful territory during the War of the Ring."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Forbidden Pool"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_ithilien_is_beautiful_but_hunted",
+      "title": "Ithilien Is Beautiful But Hunted",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ithilien",
+        "validToAnchor": "lotr.ttt.henneth-annun",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ithilien Is Beautiful But Hunted"
+      },
+      "scope": {
+        "characters": [
+          "Faramir"
+        ],
+        "locations": [
+          "Ithilien",
+          "Henneth Annun"
+        ],
+        "objects": [],
+        "factions": [
+          "Gondor faction",
+          "Mordor faction"
+        ],
+        "topics": [
+          "Ithilien beauty",
+          "Ranger secrecy"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:gondor",
+          "middle-earth:henneth-annun",
+          "middle-earth:ithilien",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:faramir",
+        "faction:gondor",
+        "faction:mordor",
+        "location:henneth-annun",
+        "region:ithilien"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Faramir"
+          ],
+          "locationsAny": [
+            "Ithilien",
+            "Henneth Annun"
+          ],
+          "factionsAny": [
+            "Gondor faction",
+            "Mordor faction"
+          ],
+          "topicsAny": [
+            "Ithilien beauty",
+            "Ranger secrecy"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:faramir",
+            "region:ithilien",
+            "location:henneth-annun",
+            "faction:gondor",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ithilien remains beautiful and green, but it is watched, contested, and militarized.",
+        "injection": "Ithilien scenes should mix beauty, concealment, ambush risk, and occupation pressure.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "Of Herbs and Stewed Rabbit / The Window on the West",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_ithilien-is-beauty-under-occupation",
+      "title": "Ithilien Is Beauty Under Occupation",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ithilien",
+        "validToAnchor": "lotr.ttt.crossroads",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ithilien Is Beauty Under Occupation",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Ithilien",
+          "Gondor",
+          "Ithilien Beauty Occupation"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:ithilien",
+          "middle-earth:gondor",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "region:ithilien",
+        "faction:gondor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Ithilien",
+            "Gondor",
+            "Ithilien Beauty Occupation"
+          ],
+          "matchTags": [
+            "region:ithilien",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ithilien retains beauty and old Gondorian memory while lying under the shadow and pressure of Mordor.",
+        "injection": "In this location and Context window, use the location state to constrain danger, movement, tone, and plausible choices: Ithilien retains beauty and old Gondorian memory while lying under the shadow and pressure of Mordor.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Forbidden Pool"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_henneth_annun_must_stay_secret",
+      "title": "Henneth Annun Must Stay Secret",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.henneth-annun",
+        "validToAnchor": "lotr.ttt.faramir-releases-frodo",
+        "sortKeyFrom": 2500,
+        "sortKeyTo": 2530,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Henneth Annun Must Stay Secret"
+      },
+      "scope": {
+        "characters": [
+          "Faramir"
+        ],
+        "locations": [
+          "Henneth Annun",
+          "Ithilien"
+        ],
+        "objects": [],
+        "factions": [
+          "Gondor faction"
+        ],
+        "topics": [
+          "hidden refuge",
+          "Ranger secrecy"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:gondor",
+          "middle-earth:henneth-annun",
+          "middle-earth:ithilien"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:faramir",
+        "faction:gondor",
+        "location:henneth-annun",
+        "region:ithilien"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Faramir"
+          ],
+          "locationsAny": [
+            "Henneth Annun",
+            "Ithilien"
+          ],
+          "factionsAny": [
+            "Gondor faction"
+          ],
+          "topicsAny": [
+            "hidden refuge",
+            "Ranger secrecy"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:faramir",
+            "location:henneth-annun",
+            "region:ithilien",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Henneth Annun is a hidden Gondorian refuge in Ithilien whose secrecy is militarily vital.",
+        "injection": "At Henneth Annun, secrecy is law and survival; guests and prisoners are managed under strict caution.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Window on the West",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_henneth-annun-is-a-hidden-gondorian-refuge",
+      "title": "Henneth Annun Is A Hidden Gondorian Refuge",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.henneth-annun",
+        "validToAnchor": "lotr.ttt.crossroads",
+        "sortKeyFrom": 2500,
+        "sortKeyTo": 2600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Henneth Annun Is A Hidden Gondorian Refuge",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Henneth Annun",
+          "Faramir"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:henneth-annun",
+          "middle-earth:faramir"
+        ]
+      },
+      "tags": [
+        "location:henneth-annun",
+        "character:faramir"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Henneth Annun",
+            "Faramir"
+          ],
+          "matchTags": [
+            "location:henneth-annun",
+            "character:faramir"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Henneth Annun is a hidden refuge of Faramir’s Rangers, combining secrecy, military necessity, and courtesy.",
+        "injection": "Henneth Annun is a hidden refuge of Faramir’s Rangers, combining secrecy, military necessity, and courtesy. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Journey to the Cross-roads"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:faramir",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v6_minas_morgul_host_raises_stakes",
+      "title": "Minas Morgul Host Raises The Stakes",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.minas-morgul-host",
+        "validToAnchor": "lotr.ttt.cirith-ungol",
+        "sortKeyFrom": 2620,
+        "sortKeyTo": 2700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After the Morgul host passes before the Cirith Ungol stairs",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Minas Morgul",
+          "Cirith Ungol"
+        ],
+        "topics": [
+          "Morgul host",
+          "enemy movement",
+          "route danger",
+          "Minas Morgul Host",
+          "Minas Morgul",
+          "Mordor"
+        ],
+        "factions": [
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:minas-morgul",
+          "middle-earth:cirith-ungol",
+          "middle-earth:mordor",
+          "middle-earth:minas-morgul-host"
+        ]
+      },
+      "tags": [
+        "event:minas-morgul-host",
+        "location:minas-morgul",
+        "region:mordor",
+        "faction:mordor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Minas Morgul",
+            "Cirith Ungol"
+          ],
+          "topicsAny": [
+            "Morgul host",
+            "enemy movement",
+            "route danger",
+            "Minas Morgul Host",
+            "Minas Morgul",
+            "Mordor"
+          ],
+          "factionsAny": [
+            "Mordor"
+          ],
+          "matchTags": [
+            "event:minas-morgul-host",
+            "location:minas-morgul",
+            "region:mordor",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the stairs of Cirith Ungol, Frodo and Sam witness the host of Minas Morgul going to war, heightening the danger of the road and the scale of Mordor’s movement.",
+        "injection": "At the Morgul road, use the passing host to make Mordor’s war machine immediate while keeping Frodo and Sam hidden, exhausted, and nearly overwhelmed.",
+        "constraints": [
+          "The host should intensify stealth pressure.",
+          "This precedes the Shelob route and should not imply Frodo is captured yet."
+        ],
+        "antiLore": [
+          "Do not make the Mordor road quiet or strategically empty at this point."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Stairs of Cirith Ungol"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_cirith_ungol_hidden_dangerous_route",
+      "title": "Cirith Ungol Is A Hidden Dangerous Route",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.cirith-ungol",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Cirith Ungol route",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum",
+          "Shelob"
+        ],
+        "locations": [
+          "Cirith Ungol",
+          "Mordor"
+        ],
+        "topics": [
+          "hidden route",
+          "stairs",
+          "betrayal",
+          "Mordor entry",
+          "Cirith Ungol",
+          "Mordor",
+          "Gollum"
+        ],
+        "factions": [
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:shelob",
+          "middle-earth:cirith-ungol",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "location:cirith-ungol",
+        "region:mordor",
+        "character:gollum"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum",
+            "Shelob"
+          ],
+          "locationsAny": [
+            "Cirith Ungol",
+            "Mordor"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "hidden route",
+            "stairs",
+            "betrayal",
+            "Mordor entry",
+            "Cirith Ungol",
+            "Mordor",
+            "Gollum"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "location:cirith-ungol",
+            "region:mordor",
+            "character:gollum"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Cirith Ungol offers a hidden path toward Mordor, but it is perilous, associated with Shelob, and selected through Gollum's treacherous guidance.",
+        "injection": "When Cirith Ungol is the selected route, treat it as a desperate hidden path, not a safe secret entrance. The route carries betrayal, exhaustion, and monstrous danger.",
+        "constraints": [
+          "Its danger should build before Shelob is revealed."
+        ],
+        "antiLore": [
+          "Do not make Cirith Ungol a clean tactical shortcut."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Shelob's Lair"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gollum",
+          "middle-earth:shelob"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "Frodo and Sam before the lair",
+          "uninformed characters"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_cirith-ungol-route-is-a-betrayal-path",
+      "title": "Cirith Ungol Route Is A Betrayal Path",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.cirith-ungol",
+        "validToAnchor": "lotr.ttt.shelob",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 2800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Cirith Ungol Route Is A Betrayal Path",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Cirith Ungol",
+          "Gollum Betrayal"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:cirith-ungol",
+          "middle-earth:gollum",
+          "middle-earth:shelob"
+        ]
+      },
+      "tags": [
+        "location:cirith-ungol",
+        "secret:gollum-betrayal"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Cirith Ungol",
+            "Gollum Betrayal"
+          ],
+          "matchTags": [
+            "location:cirith-ungol",
+            "secret:gollum-betrayal"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Cirith Ungol route is presented as a secret way, but Gollum intends to use Shelob as a trap.",
+        "injection": "The Cirith Ungol route is presented as a secret way, but Gollum intends to use Shelob as a trap. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Shelob's Lair"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gollum",
+          "middle-earth:shelob"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "Frodo and Sam before the lair",
+          "uninformed characters"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_the_stairs_of_cirith_ungol_exhaust_the_ringbearers",
+      "title": "The Stairs Of Cirith Ungol Exhaust The Ringbearers",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.stairs-of-cirith-ungol",
+        "validToAnchor": "lotr.ttt.shelob",
+        "sortKeyFrom": 2710,
+        "sortKeyTo": 2800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Stairs Of Cirith Ungol Exhaust The Ringbearers"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Cirith Ungol"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "exhaustion",
+          "vertical danger"
+        ],
+        "entityIds": [
+          "middle-earth:cirith-ungol",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:gollum",
+        "character:samwise-gamgee",
+        "location:cirith-ungol",
+        "topic:wilderness-travel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Cirith Ungol"
+          ],
+          "topicsAny": [
+            "exhaustion",
+            "vertical danger"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "topic:wilderness-travel",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:gollum",
+            "location:cirith-ungol"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The stairs impose physical exhaustion, darkness, thirst, dread, and dependence on Gollum’s guidance.",
+        "injection": "Cirith Ungol approach scenes should be slow, vertical, hungry, and oppressive.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Stairs of Cirith Ungol",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

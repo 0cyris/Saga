@@ -1,0 +1,2131 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "middle-earth:frodo-baggins": {
+      "type": "character",
+      "label": "Frodo Baggins",
+      "aliases": [
+        "Frodo",
+        "Ring-bearer"
+      ],
+      "canonicalNames": [
+        "Frodo Baggins",
+        "Frodo",
+        "Ring-bearer"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "people:hobbits"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:samwise-gamgee": {
+      "type": "character",
+      "label": "Samwise Gamgee",
+      "aliases": [
+        "Sam",
+        "Sam Gamgee"
+      ],
+      "canonicalNames": [
+        "Samwise Gamgee",
+        "Sam",
+        "Sam Gamgee"
+      ],
+      "tags": [
+        "character:samwise-gamgee",
+        "people:hobbits"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:meriadoc-brandybuck": {
+      "type": "character",
+      "label": "Meriadoc Brandybuck",
+      "aliases": [
+        "Merry"
+      ],
+      "canonicalNames": [
+        "Meriadoc Brandybuck",
+        "Merry"
+      ],
+      "tags": [
+        "character:meriadoc-brandybuck",
+        "people:hobbits"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:peregrin-took": {
+      "type": "character",
+      "label": "Peregrin Took",
+      "aliases": [
+        "Pippin"
+      ],
+      "canonicalNames": [
+        "Peregrin Took",
+        "Pippin"
+      ],
+      "tags": [
+        "character:peregrin-took",
+        "people:hobbits"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:bilbo-baggins": {
+      "type": "character",
+      "label": "Bilbo Baggins",
+      "aliases": [
+        "Bilbo"
+      ],
+      "canonicalNames": [
+        "Bilbo Baggins",
+        "Bilbo"
+      ],
+      "tags": [
+        "character:bilbo-baggins",
+        "people:hobbits"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:gandalf": {
+      "type": "character",
+      "label": "Gandalf",
+      "aliases": [
+        "Mithrandir",
+        "Gandalf the Grey",
+        "Grey Pilgrim"
+      ],
+      "canonicalNames": [
+        "Gandalf",
+        "Mithrandir",
+        "Gandalf the Grey",
+        "Grey Pilgrim"
+      ],
+      "tags": [
+        "character:gandalf",
+        "people:istari"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:aragorn": {
+      "type": "character",
+      "label": "Aragorn",
+      "aliases": [
+        "Strider",
+        "Elessar",
+        "Heir of Isildur"
+      ],
+      "canonicalNames": [
+        "Aragorn",
+        "Strider",
+        "Elessar",
+        "Heir of Isildur"
+      ],
+      "tags": [
+        "character:aragorn",
+        "secret:aragorn-lineage"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:legolas": {
+      "type": "character",
+      "label": "Legolas",
+      "aliases": [
+        "Legolas Greenleaf"
+      ],
+      "canonicalNames": [
+        "Legolas",
+        "Legolas Greenleaf"
+      ],
+      "tags": [
+        "character:legolas",
+        "people:elves"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:gimli": {
+      "type": "character",
+      "label": "Gimli",
+      "aliases": [
+        "Gimli son of Gloin"
+      ],
+      "canonicalNames": [
+        "Gimli",
+        "Gimli son of Gloin"
+      ],
+      "tags": [
+        "character:gimli",
+        "people:dwarves"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:boromir": {
+      "type": "character",
+      "label": "Boromir",
+      "aliases": [
+        "Son of Denethor"
+      ],
+      "canonicalNames": [
+        "Boromir",
+        "Son of Denethor"
+      ],
+      "tags": [
+        "character:boromir",
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:elrond": {
+      "type": "character",
+      "label": "Elrond",
+      "aliases": [
+        "Lord of Rivendell"
+      ],
+      "canonicalNames": [
+        "Elrond",
+        "Lord of Rivendell"
+      ],
+      "tags": [
+        "character:elrond",
+        "people:elves"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:galadriel": {
+      "type": "character",
+      "label": "Galadriel",
+      "aliases": [
+        "Lady of Lorien"
+      ],
+      "canonicalNames": [
+        "Galadriel",
+        "Lady of Lorien"
+      ],
+      "tags": [
+        "character:galadriel",
+        "people:elves"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:celeborn": {
+      "type": "character",
+      "label": "Celeborn",
+      "aliases": [
+        "Lord of Lorien"
+      ],
+      "canonicalNames": [
+        "Celeborn",
+        "Lord of Lorien"
+      ],
+      "tags": [
+        "character:celeborn",
+        "people:elves"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:nazgul": {
+      "type": "faction",
+      "label": "Nazgul",
+      "aliases": [
+        "Ringwraiths",
+        "Black Riders"
+      ],
+      "canonicalNames": [
+        "Nazgul",
+        "Ringwraiths",
+        "Black Riders"
+      ],
+      "tags": [
+        "people:nazgul",
+        "faction:mordor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:one-ring": {
+      "type": "item",
+      "label": "The One Ring",
+      "aliases": [
+        "Ruling Ring",
+        "Isildur's Bane"
+      ],
+      "canonicalNames": [
+        "The One Ring",
+        "Ruling Ring",
+        "Isildur's Bane"
+      ],
+      "tags": [
+        "artifact:one-ring",
+        "power:ring-corruption"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:fellowship": {
+      "type": "faction",
+      "label": "The Fellowship",
+      "aliases": [
+        "Company of the Ring",
+        "Nine Walkers"
+      ],
+      "canonicalNames": [
+        "The Fellowship",
+        "Company of the Ring",
+        "Nine Walkers"
+      ],
+      "tags": [
+        "faction:fellowship"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:shire": {
+      "type": "location",
+      "label": "The Shire",
+      "aliases": [
+        "Shire"
+      ],
+      "canonicalNames": [
+        "The Shire",
+        "Shire"
+      ],
+      "tags": [
+        "region:shire"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:bree": {
+      "type": "location",
+      "label": "Bree",
+      "aliases": [
+        "Bree-land",
+        "The Prancing Pony"
+      ],
+      "canonicalNames": [
+        "Bree",
+        "Bree-land",
+        "The Prancing Pony"
+      ],
+      "tags": [
+        "location:bree",
+        "region:bree-land"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:weathertop": {
+      "type": "location",
+      "label": "Weathertop",
+      "aliases": [
+        "Amon Sul"
+      ],
+      "canonicalNames": [
+        "Weathertop",
+        "Amon Sul"
+      ],
+      "tags": [
+        "location:weathertop"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:rivendell": {
+      "type": "location",
+      "label": "Rivendell",
+      "aliases": [
+        "Imladris"
+      ],
+      "canonicalNames": [
+        "Rivendell",
+        "Imladris"
+      ],
+      "tags": [
+        "location:rivendell"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:moria": {
+      "type": "location",
+      "label": "Moria",
+      "aliases": [
+        "Khazad-dum",
+        "Mines of Moria"
+      ],
+      "canonicalNames": [
+        "Moria",
+        "Khazad-dum",
+        "Mines of Moria"
+      ],
+      "tags": [
+        "location:moria"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:lothlorien": {
+      "type": "location",
+      "label": "Lothlorien",
+      "aliases": [
+        "Lorien"
+      ],
+      "canonicalNames": [
+        "Lothlorien",
+        "Lorien"
+      ],
+      "tags": [
+        "location:lothlorien",
+        "region:lothlorien"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:amon-hen": {
+      "type": "location",
+      "label": "Amon Hen",
+      "aliases": [
+        "Seat of Seeing"
+      ],
+      "canonicalNames": [
+        "Amon Hen",
+        "Seat of Seeing"
+      ],
+      "tags": [
+        "location:amon-hen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:fredegar-bolger": {
+      "type": "character",
+      "label": "Fredegar Bolger",
+      "aliases": [
+        "Fatty Bolger",
+        "Fatty"
+      ],
+      "canonicalNames": [
+        "Fredegar Bolger",
+        "Fatty Bolger",
+        "Fatty"
+      ],
+      "tags": [
+        "character:fredegar-bolger",
+        "people:hobbits"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        }
+      }
+    },
+    "middle-earth:bilbo-party": {
+      "type": "event",
+      "label": "Bilbo Party",
+      "aliases": [],
+      "canonicalNames": [
+        "Bilbo Party"
+      ],
+      "tags": [
+        "event:bilbo-party"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:breaking-fellowship": {
+      "type": "event",
+      "label": "Breaking Fellowship",
+      "aliases": [],
+      "canonicalNames": [
+        "Breaking Fellowship"
+      ],
+      "tags": [
+        "event:breaking-fellowship"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:council-of-elrond": {
+      "type": "event",
+      "label": "Council Of Elrond",
+      "aliases": [],
+      "canonicalNames": [
+        "Council Of Elrond"
+      ],
+      "tags": [
+        "event:council-of-elrond"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:fellowship-formed": {
+      "type": "event",
+      "label": "Fellowship Formed",
+      "aliases": [],
+      "canonicalNames": [
+        "Fellowship Formed"
+      ],
+      "tags": [
+        "event:fellowship-formed"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:frodo-leaves-shire": {
+      "type": "event",
+      "label": "Frodo Leaves Shire",
+      "aliases": [],
+      "canonicalNames": [
+        "Frodo Leaves Shire"
+      ],
+      "tags": [
+        "event:frodo-leaves-shire"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:gandalf-falls": {
+      "type": "event",
+      "label": "Gandalf Falls",
+      "aliases": [],
+      "canonicalNames": [
+        "Gandalf Falls"
+      ],
+      "tags": [
+        "event:gandalf-falls"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:free-peoples": {
+      "type": "faction",
+      "label": "Free Peoples",
+      "aliases": [],
+      "canonicalNames": [
+        "Free Peoples"
+      ],
+      "tags": [
+        "faction:free-peoples"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:gondor": {
+      "type": "faction",
+      "label": "Gondor",
+      "aliases": [],
+      "canonicalNames": [
+        "Gondor"
+      ],
+      "tags": [
+        "faction:gondor"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:anduin": {
+      "type": "location",
+      "label": "Anduin",
+      "aliases": [],
+      "canonicalNames": [
+        "Anduin"
+      ],
+      "tags": [
+        "location:anduin",
+        "region:anduin"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:barrow-downs": {
+      "type": "location",
+      "label": "Barrow Downs",
+      "aliases": [],
+      "canonicalNames": [
+        "Barrow Downs"
+      ],
+      "tags": [
+        "location:barrow-downs"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:caradhras": {
+      "type": "location",
+      "label": "Caradhras",
+      "aliases": [],
+      "canonicalNames": [
+        "Caradhras"
+      ],
+      "tags": [
+        "location:caradhras"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:old-forest": {
+      "type": "location",
+      "label": "Old Forest",
+      "aliases": [],
+      "canonicalNames": [
+        "Old Forest"
+      ],
+      "tags": [
+        "location:old-forest"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:dwarves": {
+      "type": "species",
+      "label": "Dwarves",
+      "aliases": [],
+      "canonicalNames": [
+        "Dwarves"
+      ],
+      "tags": [
+        "people:dwarves"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:elves": {
+      "type": "species",
+      "label": "Elves",
+      "aliases": [],
+      "canonicalNames": [
+        "Elves"
+      ],
+      "tags": [
+        "people:elves"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:hobbits": {
+      "type": "species",
+      "label": "Hobbits",
+      "aliases": [],
+      "canonicalNames": [
+        "Hobbits"
+      ],
+      "tags": [
+        "people:hobbits"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:men": {
+      "type": "species",
+      "label": "Men",
+      "aliases": [],
+      "canonicalNames": [
+        "Men"
+      ],
+      "tags": [
+        "people:men"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:orcs": {
+      "type": "species",
+      "label": "Orcs",
+      "aliases": [],
+      "canonicalNames": [
+        "Orcs"
+      ],
+      "tags": [
+        "people:orcs"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:bree-land": {
+      "type": "location",
+      "label": "Bree Land",
+      "aliases": [],
+      "canonicalNames": [
+        "Bree Land"
+      ],
+      "tags": [
+        "region:bree-land"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:eriador": {
+      "type": "location",
+      "label": "Eriador",
+      "aliases": [],
+      "canonicalNames": [
+        "Eriador"
+      ],
+      "tags": [
+        "region:eriador"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:tom-bombadil": {
+      "type": "character",
+      "label": "Tom Bombadil",
+      "aliases": [],
+      "canonicalNames": [
+        "Tom Bombadil"
+      ],
+      "tags": [
+        "character:tom-bombadil"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:barrow-wights": {
+      "type": "species",
+      "label": "Barrow Wights",
+      "aliases": [],
+      "canonicalNames": [
+        "Barrow Wights"
+      ],
+      "tags": [
+        "people:barrow-wights"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:crebain": {
+      "type": "event",
+      "label": "Crebain",
+      "aliases": [],
+      "canonicalNames": [
+        "Crebain"
+      ],
+      "tags": [
+        "event:crebain"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:isengard": {
+      "type": "faction",
+      "label": "Isengard",
+      "aliases": [],
+      "canonicalNames": [
+        "Isengard"
+      ],
+      "tags": [
+        "faction:isengard"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:bag-end": {
+      "type": "location",
+      "label": "Bag End",
+      "aliases": [],
+      "canonicalNames": [
+        "Bag End"
+      ],
+      "tags": [
+        "location:bag-end"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:prancing-pony": {
+      "type": "location",
+      "label": "Prancing Pony",
+      "aliases": [],
+      "canonicalNames": [
+        "Prancing Pony"
+      ],
+      "tags": [
+        "location:prancing-pony"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:glorfindel": {
+      "type": "character",
+      "label": "Glorfindel",
+      "aliases": [],
+      "canonicalNames": [
+        "Glorfindel"
+      ],
+      "tags": [
+        "character:glorfindel"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:ford-of-bruinen": {
+      "type": "location",
+      "label": "Ford Of Bruinen",
+      "aliases": [],
+      "canonicalNames": [
+        "Ford Of Bruinen"
+      ],
+      "tags": [
+        "location:ford-of-bruinen"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:hollin": {
+      "type": "location",
+      "label": "Hollin",
+      "aliases": [],
+      "canonicalNames": [
+        "Hollin"
+      ],
+      "tags": [
+        "location:hollin"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:barliman-butterbur": {
+      "type": "character",
+      "label": "Barliman Butterbur",
+      "aliases": [],
+      "canonicalNames": [
+        "Barliman Butterbur"
+      ],
+      "tags": [
+        "character:barliman-butterbur"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:balin-colony": {
+      "type": "event",
+      "label": "Balin Colony",
+      "aliases": [],
+      "canonicalNames": [
+        "Balin Colony"
+      ],
+      "tags": [
+        "event:balin-colony"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:faramir": {
+      "type": "character",
+      "label": "Faramir",
+      "aliases": [],
+      "canonicalNames": [
+        "Faramir"
+      ],
+      "tags": [
+        "character:faramir"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:barrow-blades": {
+      "type": "item",
+      "label": "Barrow Blades",
+      "aliases": [],
+      "canonicalNames": [
+        "Barrow Blades"
+      ],
+      "tags": [
+        "artifact:barrow-blades"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:mithril-coat": {
+      "type": "item",
+      "label": "Mithril Coat",
+      "aliases": [],
+      "canonicalNames": [
+        "Mithril Coat"
+      ],
+      "tags": [
+        "artifact:mithril-coat"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:lembas": {
+      "type": "item",
+      "label": "Lembas",
+      "aliases": [],
+      "canonicalNames": [
+        "Lembas"
+      ],
+      "tags": [
+        "artifact:lembas"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:phial-of-galadriel": {
+      "type": "item",
+      "label": "Phial Of Galadriel",
+      "aliases": [],
+      "canonicalNames": [
+        "Phial Of Galadriel"
+      ],
+      "tags": [
+        "artifact:phial-of-galadriel"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:sting": {
+      "type": "item",
+      "label": "Sting",
+      "aliases": [],
+      "canonicalNames": [
+        "Sting"
+      ],
+      "tags": [
+        "artifact:sting"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:conspiracy-unmasked": {
+      "type": "event",
+      "label": "Conspiracy Unmasked",
+      "aliases": [],
+      "canonicalNames": [
+        "Conspiracy Unmasked"
+      ],
+      "tags": [
+        "event:conspiracy-unmasked"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:watcher-in-water": {
+      "type": "event",
+      "label": "Watcher In The Water",
+      "aliases": [],
+      "canonicalNames": [
+        "Watcher In The Water"
+      ],
+      "tags": [
+        "event:watcher-in-water"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:flight-to-ford": {
+      "type": "event",
+      "label": "Flight To The Ford",
+      "aliases": [],
+      "canonicalNames": [
+        "Flight To The Ford"
+      ],
+      "tags": [
+        "event:flight-to-ford"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:crickhollow": {
+      "type": "location",
+      "label": "Crickhollow",
+      "aliases": [],
+      "canonicalNames": [
+        "Crickhollow"
+      ],
+      "tags": [
+        "location:crickhollow"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:lorien-gifts": {
+      "type": "event",
+      "label": "Lorien Gifts",
+      "aliases": [],
+      "canonicalNames": [
+        "Lorien Gifts"
+      ],
+      "tags": [
+        "event:lorien-gifts"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:gildor": {
+      "type": "character",
+      "label": "Gildor",
+      "aliases": [],
+      "canonicalNames": [
+        "Gildor"
+      ],
+      "tags": [
+        "character:gildor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:farmer-maggot": {
+      "type": "character",
+      "label": "Farmer Maggot",
+      "aliases": [],
+      "canonicalNames": [
+        "Farmer Maggot"
+      ],
+      "tags": [
+        "character:farmer-maggot"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:buckland": {
+      "type": "location",
+      "label": "Buckland",
+      "aliases": [],
+      "canonicalNames": [
+        "Buckland"
+      ],
+      "tags": [
+        "region:buckland"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:rangers": {
+      "type": "species",
+      "label": "Rangers",
+      "aliases": [],
+      "canonicalNames": [
+        "Rangers"
+      ],
+      "tags": [
+        "people:rangers"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:morgul-blade": {
+      "type": "item",
+      "label": "Morgul blade",
+      "aliases": [],
+      "canonicalNames": [
+        "Morgul blade"
+      ],
+      "tags": [
+        "artifact:morgul-blade"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:arwen": {
+      "type": "character",
+      "label": "Arwen",
+      "aliases": [],
+      "canonicalNames": [
+        "Arwen"
+      ],
+      "tags": [
+        "character:arwen"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:balin": {
+      "type": "character",
+      "label": "Balin",
+      "aliases": [],
+      "canonicalNames": [
+        "Balin"
+      ],
+      "tags": [
+        "character:balin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:mount-doom": {
+      "type": "location",
+      "label": "Mount Doom",
+      "aliases": [],
+      "canonicalNames": [
+        "Mount Doom"
+      ],
+      "tags": [
+        "location:mount-doom"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:elven-cloaks": {
+      "type": "item",
+      "label": "Elven cloaks",
+      "aliases": [],
+      "canonicalNames": [
+        "Elven cloaks"
+      ],
+      "tags": [
+        "artifact:elven-cloaks"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    }
+  }
+}

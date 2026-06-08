@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 2,
+  "gateTypes": {
+    "rule_constraint": {
+      "label": "Rule Constraint",
+      "description": "Constrains how a setting rule, artifact, power, or system behaves.",
+      "defaultPriority": 90,
+      "injectionRole": "rule_constraint"
+    },
+    "knowledge_gate": {
+      "label": "Knowledge Gate",
+      "description": "Controls who knows a fact and when.",
+      "defaultPriority": 90,
+      "injectionRole": "knowledge_constraint"
+    },
+    "status_change": {
+      "label": "Status Change",
+      "description": "Defines a character, object, faction, or location state after a story change.",
+      "defaultPriority": 85,
+      "injectionRole": "state_constraint"
+    },
+    "relationship_state": {
+      "label": "Relationship State",
+      "description": "Defines an active relationship state that affects behavior.",
+      "defaultPriority": 80,
+      "injectionRole": "relationship_constraint"
+    },
+    "behavior_constraint": {
+      "label": "Behavior Constraint",
+      "description": "Constrains characterization, faction behavior, or scene behavior.",
+      "defaultPriority": 78,
+      "injectionRole": "behavior_constraint"
+    },
+    "event_anchor": {
+      "label": "Event Anchor",
+      "description": "Marks a major story event that changes Context or state.",
+      "defaultPriority": 85,
+      "injectionRole": "event_constraint"
+    },
+    "objective": {
+      "label": "Objective",
+      "description": "Defines an active character or faction goal.",
+      "defaultPriority": 82,
+      "injectionRole": "objective_constraint"
+    },
+    "location_state": {
+      "label": "Location State",
+      "description": "Defines a location condition during a Context window.",
+      "defaultPriority": 76,
+      "injectionRole": "location_constraint"
+    },
+    "faction_state": {
+      "label": "Faction State",
+      "description": "Defines a faction, realm, or organization state during a Context window.",
+      "defaultPriority": 78,
+      "injectionRole": "faction_constraint"
+    },
+    "item_state": {
+      "label": "Item State",
+      "description": "Item State gate type.",
+      "defaultPriority": 80,
+      "injectionRole": "item_state"
+    },
+    "ability_gate": {
+      "label": "Ability Gate",
+      "description": "Ability Gate gate type.",
+      "defaultPriority": 80,
+      "injectionRole": "ability_gate"
+    }
+  }
+}

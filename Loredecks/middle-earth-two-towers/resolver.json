@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to The Two Towers book Context.",
+  "preferredFields": [
+    "book",
+    "arc",
+    "beforeAfter",
+    "majorEvent",
+    "location"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer Two Towers book anchors and windows over invented dates. Do not import Peter Jackson film-only beats unless explicitly requested.",
+  "localPatterns": [
+    {
+      "pattern": "after fellowship breaks",
+      "result": {
+        "anchorFrom": "lotr.ttt.fellowship-split",
+        "label": "After the Fellowship splits"
+      }
+    },
+    {
+      "pattern": "gandalf the white",
+      "result": {
+        "anchorFrom": "lotr.ttt.gandalf-white",
+        "label": "After Gandalf returns as the White"
+      }
+    },
+    {
+      "pattern": "helms deep",
+      "result": {
+        "anchorId": "lotr.ttt.helms-deep",
+        "label": "Helm's Deep"
+      }
+    },
+    {
+      "pattern": "ithilien",
+      "result": {
+        "anchorId": "lotr.ttt.ithilien",
+        "label": "Ithilien and Faramir"
+      }
+    },
+    {
+      "pattern": "cirith ungol",
+      "result": {
+        "anchorId": "lotr.ttt.cirith-ungol",
+        "label": "Cirith Ungol path"
+      }
+    },
+    {
+      "pattern": "shelob",
+      "result": {
+        "anchorId": "lotr.ttt.shelob",
+        "label": "Shelob's Lair"
+      }
+    },
+    {
+      "pattern": "before shelob",
+      "result": {
+        "anchorTo": "lotr.ttt.shelob",
+        "label": "Before Shelob"
+      }
+    },
+    {
+      "pattern": "forbidden pool",
+      "result": {
+        "anchorId": "lotr.ttt.forbidden-pool",
+        "label": "Forbidden Pool"
+      }
+    },
+    {
+      "pattern": "minas morgul host",
+      "result": {
+        "anchorId": "lotr.ttt.minas-morgul-host",
+        "label": "Minas Morgul host passes"
+      }
+    },
+    {
+      "pattern": "after pippin looks into the palantir",
+      "result": {
+        "anchorFrom": "lotr.ttt.pippin-looks-palantir",
+        "label": "After Pippin looks into the palantir"
+      }
+    },
+    {
+      "pattern": "during merry and pippin captivity",
+      "result": {
+        "anchorFrom": "lotr.ttt.orc-captivity",
+        "anchorTo": "lotr.ttt.hobbits-escape-fangorn",
+        "label": "Merry and Pippin captivity"
+      }
+    },
+    {
+      "pattern": "before theoden is restored",
+      "result": {
+        "anchorFrom": "lotr.ttt.rohan-edoras",
+        "anchorTo": "lotr.ttt.theoden-restored",
+        "label": "Rohan before Theoden restored"
+      }
+    },
+    {
+      "pattern": "during helm deep",
+      "result": {
+        "anchorFrom": "lotr.ttt.helms-deep",
+        "anchorTo": "lotr.ttt.huorns-helms-deep",
+        "label": "Helm’s Deep"
+      }
+    },
+    {
+      "pattern": "during henneth annun",
+      "result": {
+        "anchorFrom": "lotr.ttt.henneth-annun",
+        "anchorTo": "lotr.ttt.faramir-releases-frodo",
+        "label": "Henneth Annun and Faramir"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

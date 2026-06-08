@@ -1,0 +1,1557 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "anchor_window",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "lotr.fotr.bilbo-party",
+      "label": "Bilbo's Farewell Party",
+      "sortKey": 1000,
+      "aliases": [
+        "Bilbo party",
+        "Long-expected party",
+        "Bilbo leaves the Shire"
+      ],
+      "tags": [
+        "event:bilbo-party",
+        "book:fellowship-of-the-ring"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.party-preparations",
+      "label": "Party Preparations",
+      "sortKey": 1005,
+      "aliases": [
+        "party preparations",
+        "before Bilbo party"
+      ],
+      "tags": [
+        "event:bilbo-party"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.bilbo-vanishes",
+      "label": "Bilbo Vanishes At The Party",
+      "sortKey": 1010,
+      "aliases": [
+        "Bilbo vanishes",
+        "disappearing at party"
+      ],
+      "tags": [
+        "event:bilbo-party"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.ring-left-to-frodo",
+      "label": "The Ring Is Left To Frodo",
+      "sortKey": 1020,
+      "aliases": [
+        "Ring left to Frodo",
+        "Bilbo leaves the Ring"
+      ],
+      "tags": [
+        "artifact:one-ring",
+        "character:frodo-baggins"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.gandalf-research-years",
+      "label": "Gandalf’s Research Years",
+      "sortKey": 1050,
+      "aliases": [
+        "Gandalf researches the ring",
+        "years of uncertainty"
+      ],
+      "tags": [
+        "character:gandalf",
+        "knowledge:ring-true-nature"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.gandalf-confirms-ring",
+      "label": "Gandalf Confirms The Ring",
+      "sortKey": 1100,
+      "aliases": [
+        "Gandalf returns",
+        "Shadow of the Past",
+        "the ring is confirmed"
+      ],
+      "tags": [
+        "artifact:one-ring",
+        "knowledge:ring-true-nature"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.gandalf-warns-frodo",
+      "label": "Gandalf Warns Frodo",
+      "sortKey": 1120,
+      "aliases": [
+        "Gandalf warns Frodo",
+        "Shadow of the Past"
+      ],
+      "tags": [
+        "character:gandalf",
+        "character:frodo-baggins"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.ring-tested-in-fire",
+      "label": "Ring Tested In Fire",
+      "sortKey": 1130,
+      "aliases": [
+        "fire letters",
+        "ring verse appears"
+      ],
+      "tags": [
+        "artifact:one-ring",
+        "knowledge:ring-true-nature"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.frodo-leaves-shire",
+      "label": "Frodo Leaves The Shire",
+      "sortKey": 1200,
+      "aliases": [
+        "Frodo leaves Bag End",
+        "leaving the Shire"
+      ],
+      "tags": [
+        "event:frodo-leaves-shire",
+        "region:shire"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.frodo-sells-bag-end",
+      "label": "Frodo Sells Bag End",
+      "sortKey": 1210,
+      "aliases": [
+        "Frodo sells Bag End",
+        "Bag End sale"
+      ],
+      "tags": [
+        "location:bag-end",
+        "event:frodo-leaves-shire"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.gildor-meeting",
+      "label": "Gildor’s Company Meets The Hobbits",
+      "sortKey": 1220,
+      "aliases": [
+        "Gildor",
+        "Elves in the Shire road"
+      ],
+      "tags": [
+        "people:elves",
+        "region:shire"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.farmer-maggot",
+      "label": "Farmer Maggot Helps The Hobbits",
+      "sortKey": 1230,
+      "aliases": [
+        "Farmer Maggot",
+        "Maggot"
+      ],
+      "tags": [
+        "region:shire",
+        "people:hobbits"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.bucklebury-ferry",
+      "label": "Bucklebury Ferry Escape",
+      "sortKey": 1240,
+      "aliases": [
+        "Bucklebury Ferry",
+        "ferry escape"
+      ],
+      "tags": [
+        "region:shire",
+        "people:nazgul"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.crickhollow",
+      "label": "Crickhollow",
+      "sortKey": 1250,
+      "aliases": [
+        "Crickhollow",
+        "Frodo move to Crickhollow"
+      ],
+      "tags": [
+        "location:crickhollow",
+        "event:frodo-leaves-shire"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.conspiracy-unmasked",
+      "label": "The Hobbit Conspiracy Is Unmasked",
+      "sortKey": 1260,
+      "aliases": [
+        "conspiracy unmasked",
+        "Merry reveals the conspiracy"
+      ],
+      "tags": [
+        "event:conspiracy-unmasked",
+        "relationship:hobbit-friends"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.old-forest",
+      "label": "Old Forest And Barrow-downs",
+      "sortKey": 1300,
+      "aliases": [
+        "Old Forest",
+        "Barrow-downs",
+        "Tom Bombadil passage"
+      ],
+      "tags": [
+        "location:old-forest",
+        "location:barrow-downs"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.withywindle",
+      "label": "Withywindle And Old Man Willow",
+      "sortKey": 1310,
+      "aliases": [
+        "Withywindle",
+        "Old Man Willow"
+      ],
+      "tags": [
+        "location:old-forest"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.tom-bombadil-house",
+      "label": "House Of Tom Bombadil",
+      "sortKey": 1320,
+      "aliases": [
+        "Tom Bombadil house",
+        "Goldberry"
+      ],
+      "tags": [
+        "character:tom-bombadil",
+        "location:old-forest"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.barrow-wight",
+      "label": "Barrow-wight Trap",
+      "sortKey": 1330,
+      "aliases": [
+        "Barrow-wight",
+        "Fog on the Barrow-downs"
+      ],
+      "tags": [
+        "location:barrow-downs",
+        "people:barrow-wights"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.bree",
+      "label": "Bree And The Prancing Pony",
+      "sortKey": 1400,
+      "aliases": [
+        "Bree",
+        "Prancing Pony",
+        "meeting Strider"
+      ],
+      "tags": [
+        "location:bree",
+        "character:aragorn"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.butterbur-letter-delay",
+      "label": "Butterbur’s Delayed Letter",
+      "sortKey": 1410,
+      "aliases": [
+        "Butterbur letter",
+        "Gandalf letter delay"
+      ],
+      "tags": [
+        "character:barliman-butterbur",
+        "location:bree"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.strider-letter-trust",
+      "label": "Strider Gains Trust Through Gandalf’s Letter",
+      "sortKey": 1420,
+      "aliases": [
+        "Strider letter",
+        "Gandalf letter"
+      ],
+      "tags": [
+        "character:aragorn",
+        "relationship:strider-hobbits"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.bree-bed-attack",
+      "label": "Black Riders Attack The Empty Beds",
+      "sortKey": 1430,
+      "aliases": [
+        "Bree bed attack",
+        "Prancing Pony attack"
+      ],
+      "tags": [
+        "people:nazgul",
+        "location:prancing-pony"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.weathertop",
+      "label": "Weathertop Attack",
+      "sortKey": 1500,
+      "aliases": [
+        "Weathertop",
+        "Amon Sul",
+        "Frodo is stabbed"
+      ],
+      "tags": [
+        "location:weathertop",
+        "people:nazgul"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.aragorn-treats-morgul-wound",
+      "label": "Aragorn Treats The Morgul Wound",
+      "sortKey": 1510,
+      "aliases": [
+        "Aragorn heals Frodo",
+        "athelas at Weathertop"
+      ],
+      "tags": [
+        "character:aragorn",
+        "location:weathertop"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.flight-to-ford",
+      "label": "Flight To The Ford",
+      "sortKey": 1550,
+      "aliases": [
+        "Flight to the Ford",
+        "Glorfindel rescue"
+      ],
+      "tags": [
+        "event:flight-to-ford",
+        "character:glorfindel"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.ford-of-bruinen",
+      "label": "Ford Of Bruinen",
+      "sortKey": 1560,
+      "aliases": [
+        "Bruinen flood",
+        "Ford of Bruinen"
+      ],
+      "tags": [
+        "location:ford-of-bruinen",
+        "people:nazgul"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.rivendell",
+      "label": "Rivendell Refuge",
+      "sortKey": 1600,
+      "aliases": [
+        "Rivendell",
+        "Imladris",
+        "Frodo wakes in Rivendell"
+      ],
+      "tags": [
+        "location:rivendell"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.many-meetings",
+      "label": "Many Meetings In Rivendell",
+      "sortKey": 1610,
+      "aliases": [
+        "Many Meetings",
+        "Frodo wakes in Rivendell"
+      ],
+      "tags": [
+        "location:rivendell"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.council-of-elrond",
+      "label": "Council Of Elrond",
+      "sortKey": 1700,
+      "aliases": [
+        "Council of Elrond",
+        "Rivendell council"
+      ],
+      "tags": [
+        "event:council-of-elrond",
+        "artifact:one-ring"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.ring-history-recounted",
+      "label": "Ring History Recounted",
+      "sortKey": 1710,
+      "aliases": [
+        "Isildur history",
+        "Ring history"
+      ],
+      "tags": [
+        "artifact:one-ring",
+        "event:council-of-elrond"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.fellowship-forms",
+      "label": "The Fellowship Forms",
+      "sortKey": 1800,
+      "aliases": [
+        "Nine Walkers",
+        "Company of the Ring",
+        "Fellowship formed"
+      ],
+      "tags": [
+        "event:fellowship-formed",
+        "faction:fellowship"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.fellowship-selected",
+      "label": "The Fellowship Members Are Selected",
+      "sortKey": 1810,
+      "aliases": [
+        "Fellowship selected",
+        "Nine Walkers chosen"
+      ],
+      "tags": [
+        "faction:fellowship"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.fellowship-departs-rivendell",
+      "label": "The Fellowship Departs Rivendell",
+      "sortKey": 1820,
+      "aliases": [
+        "Fellowship leaves Rivendell"
+      ],
+      "tags": [
+        "faction:fellowship",
+        "location:rivendell"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.hollin-caradhras",
+      "label": "Hollin And Caradhras",
+      "sortKey": 1900,
+      "aliases": [
+        "Hollin",
+        "Caradhras",
+        "Redhorn Pass"
+      ],
+      "tags": [
+        "location:caradhras"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.crebain-in-hollin",
+      "label": "Crebain Watch Hollin",
+      "sortKey": 1910,
+      "aliases": [
+        "crebain",
+        "spies in Hollin"
+      ],
+      "tags": [
+        "event:crebain",
+        "location:hollin"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.caradhras-fails",
+      "label": "Caradhras Defeats The Pass",
+      "sortKey": 1920,
+      "aliases": [
+        "Caradhras fails",
+        "Redhorn Pass fails"
+      ],
+      "tags": [
+        "location:caradhras"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.west-gate-moria",
+      "label": "West-gate Of Moria",
+      "sortKey": 1980,
+      "aliases": [
+        "Doors of Durin",
+        "West-gate"
+      ],
+      "tags": [
+        "location:moria"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.watcher-in-water",
+      "label": "Watcher In The Water",
+      "sortKey": 1990,
+      "aliases": [
+        "Watcher in the Water",
+        "tentacles at Moria"
+      ],
+      "tags": [
+        "event:watcher-in-water",
+        "location:moria"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.moria",
+      "label": "Moria",
+      "sortKey": 2000,
+      "aliases": [
+        "Moria",
+        "Khazad-dum",
+        "Mines of Moria"
+      ],
+      "tags": [
+        "location:moria"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.balin-tomb",
+      "label": "Balin’s Tomb",
+      "sortKey": 2020,
+      "aliases": [
+        "Balin tomb",
+        "Book of Mazarbul"
+      ],
+      "tags": [
+        "event:balin-colony",
+        "location:moria"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.moria-orc-attack",
+      "label": "Orc Attack In Moria",
+      "sortKey": 2030,
+      "aliases": [
+        "Moria orc attack",
+        "Chamber of Mazarbul attack"
+      ],
+      "tags": [
+        "location:moria",
+        "people:orcs"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.gandalf-falls",
+      "label": "Gandalf Falls In Moria",
+      "sortKey": 2100,
+      "aliases": [
+        "Bridge of Khazad-dum",
+        "Gandalf falls",
+        "Durin's Bane"
+      ],
+      "tags": [
+        "event:gandalf-falls",
+        "location:moria"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.fellowship-grieves-gandalf",
+      "label": "Fellowship Grieves Gandalf",
+      "sortKey": 2110,
+      "aliases": [
+        "after Gandalf falls",
+        "grief after Moria"
+      ],
+      "tags": [
+        "event:gandalf-falls",
+        "faction:fellowship"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.lothlorien",
+      "label": "Lothlorien",
+      "sortKey": 2200,
+      "aliases": [
+        "Lothlorien",
+        "Lorien",
+        "Galadriel"
+      ],
+      "tags": [
+        "location:lothlorien",
+        "character:galadriel"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.cerin-amroth",
+      "label": "Cerin Amroth",
+      "sortKey": 2210,
+      "aliases": [
+        "Cerin Amroth",
+        "heart of Elvendom"
+      ],
+      "tags": [
+        "location:lothlorien",
+        "people:elves"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.mirror-of-galadriel",
+      "label": "Mirror Of Galadriel",
+      "sortKey": 2220,
+      "aliases": [
+        "Mirror of Galadriel",
+        "Sam sees the Shire"
+      ],
+      "tags": [
+        "character:galadriel",
+        "location:lothlorien"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.galadriel-refuses-ring",
+      "label": "Galadriel Refuses The Ring",
+      "sortKey": 2230,
+      "aliases": [
+        "Galadriel refuses",
+        "Galadriel temptation"
+      ],
+      "tags": [
+        "character:galadriel",
+        "artifact:one-ring"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.lorien-gifts",
+      "label": "Gifts Of Lorien",
+      "sortKey": 2240,
+      "aliases": [
+        "Lorien gifts",
+        "Galadriel gifts"
+      ],
+      "tags": [
+        "event:lorien-gifts",
+        "artifact:phial-of-galadriel"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.anduin",
+      "label": "Down The Anduin",
+      "sortKey": 2300,
+      "aliases": [
+        "Anduin",
+        "River journey",
+        "Argonath"
+      ],
+      "tags": [
+        "location:anduin"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.argonath",
+      "label": "The Argonath",
+      "sortKey": 2310,
+      "aliases": [
+        "Argonath",
+        "Pillars of the Kings"
+      ],
+      "tags": [
+        "location:anduin"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.amon-hen",
+      "label": "Amon Hen",
+      "sortKey": 2400,
+      "aliases": [
+        "Amon Hen",
+        "Seat of Seeing",
+        "Boromir temptation"
+      ],
+      "tags": [
+        "location:amon-hen",
+        "character:boromir"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.fotr.boromir-frodo-confrontation",
+      "label": "Boromir Confronts Frodo",
+      "sortKey": 2410,
+      "aliases": [
+        "Boromir confronts Frodo",
+        "Boromir tries to take the Ring"
+      ],
+      "tags": [
+        "character:boromir",
+        "location:amon-hen"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.frodo-uses-ring-amon-hen",
+      "label": "Frodo Uses The Ring At Amon Hen",
+      "sortKey": 2420,
+      "aliases": [
+        "Seat of Seeing",
+        "Frodo uses the Ring at Amon Hen"
+      ],
+      "tags": [
+        "artifact:one-ring",
+        "location:amon-hen"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.sam-follows-frodo",
+      "label": "Sam Follows Frodo Across The River",
+      "sortKey": 2460,
+      "aliases": [
+        "Sam follows Frodo",
+        "Frodo and Sam leave"
+      ],
+      "tags": [
+        "relationship:frodo-sam",
+        "event:breaking-fellowship"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.orcs-take-merry-pippin",
+      "label": "Orcs Take Merry And Pippin",
+      "sortKey": 2490,
+      "aliases": [
+        "Merry and Pippin captured",
+        "Orcs take the hobbits"
+      ],
+      "tags": [
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "people:orcs"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.breaking-fellowship",
+      "label": "Breaking Of The Fellowship",
+      "sortKey": 2500,
+      "aliases": [
+        "Breaking of the Fellowship",
+        "Fellowship breaks",
+        "end of Fellowship of the Ring"
+      ],
+      "tags": [
+        "event:breaking-fellowship",
+        "faction:fellowship"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring"
+      },
+      "extensions": {}
+    }
+  ],
+  "windows": [
+    {
+      "id": "lotr.fotr.window.book-i",
+      "label": "Book I: The Ring Sets Out",
+      "anchorFrom": "lotr.fotr.bilbo-party",
+      "anchorTo": "lotr.fotr.rivendell",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1600,
+      "aliases": [
+        "Book I: The Ring Sets Out"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.window.full-book",
+      "label": "The Fellowship of the Ring",
+      "anchorFrom": "lotr.fotr.bilbo-party",
+      "anchorTo": "lotr.fotr.breaking-fellowship",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 2500,
+      "aliases": [
+        "FOTR",
+        "Fellowship of the Ring",
+        "book one"
+      ],
+      "tags": [
+        "book:fellowship-of-the-ring"
+      ]
+    },
+    {
+      "id": "lotr.fotr.window.shire-to-rivendell",
+      "label": "From The Shire To Rivendell",
+      "anchorFrom": "lotr.fotr.gandalf-confirms-ring",
+      "anchorTo": "lotr.fotr.rivendell",
+      "sortKeyFrom": 1100,
+      "sortKeyTo": 1600,
+      "aliases": [
+        "Shire to Rivendell",
+        "flight to the ford"
+      ],
+      "tags": [
+        "region:shire",
+        "location:rivendell"
+      ]
+    },
+    {
+      "id": "lotr.fotr.window.crickhollow-to-bree",
+      "label": "Crickhollow To Bree",
+      "anchorFrom": "lotr.fotr.crickhollow",
+      "anchorTo": "lotr.fotr.bree",
+      "sortKeyFrom": 1250,
+      "sortKeyTo": 1400,
+      "aliases": [
+        "Crickhollow To Bree"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.window.book-ii",
+      "label": "Book II: The Ring Goes South",
+      "anchorFrom": "lotr.fotr.council-of-elrond",
+      "anchorTo": "lotr.fotr.breaking-fellowship",
+      "sortKeyFrom": 1700,
+      "sortKeyTo": 2500,
+      "aliases": [
+        "Book II: The Ring Goes South"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.window.fellowship-journey",
+      "label": "The Fellowship Journey",
+      "anchorFrom": "lotr.fotr.fellowship-forms",
+      "anchorTo": "lotr.fotr.breaking-fellowship",
+      "sortKeyFrom": 1800,
+      "sortKeyTo": 2500,
+      "aliases": [
+        "Fellowship journey",
+        "Nine Walkers"
+      ],
+      "tags": [
+        "faction:fellowship"
+      ]
+    },
+    {
+      "id": "lotr.fotr.window.moria-crisis",
+      "label": "Moria Crisis",
+      "anchorFrom": "lotr.fotr.west-gate-moria",
+      "anchorTo": "lotr.fotr.gandalf-falls",
+      "sortKeyFrom": 1980,
+      "sortKeyTo": 2100,
+      "aliases": [
+        "Moria Crisis"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.window.lorien-to-amon-hen",
+      "label": "Lorien To Amon Hen",
+      "anchorFrom": "lotr.fotr.lothlorien",
+      "anchorTo": "lotr.fotr.breaking-fellowship",
+      "sortKeyFrom": 2200,
+      "sortKeyTo": 2500,
+      "aliases": [
+        "Lorien To Amon Hen"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.fotr.window.shire-to-bree",
+      "label": "Shire Departure Through Bree",
+      "anchorFrom": "lotr.fotr.frodo-leaves-shire",
+      "anchorTo": "lotr.fotr.bree-bed-attack",
+      "sortKeyFrom": 1200,
+      "sortKeyTo": 1430,
+      "aliases": [
+        "from Shire to Bree",
+        "early Hobbit flight"
+      ],
+      "tags": [
+        "region:shire",
+        "location:bree"
+      ]
+    },
+    {
+      "id": "lotr.fotr.window.rivendell-council",
+      "label": "Rivendell Council And Fellowship Formation",
+      "anchorFrom": "lotr.fotr.rivendell",
+      "anchorTo": "lotr.fotr.fellowship-departs-rivendell",
+      "sortKeyFrom": 1600,
+      "sortKeyTo": 1820,
+      "aliases": [
+        "Rivendell and Council"
+      ],
+      "tags": [
+        "location:rivendell",
+        "event:council-of-elrond"
+      ]
+    },
+    {
+      "id": "lotr.fotr.window.lorien-to-breaking",
+      "label": "Lorien To Breaking Of The Fellowship",
+      "anchorFrom": "lotr.fotr.lothlorien",
+      "anchorTo": "lotr.fotr.breaking-fellowship",
+      "sortKeyFrom": 2200,
+      "sortKeyTo": 2500,
+      "aliases": [
+        "after Lorien before Amon Hen"
+      ],
+      "tags": [
+        "region:lothlorien",
+        "event:breaking-fellowship"
+      ]
+    }
+  ],
+  "arcs": [
+    {
+      "id": "lotr.fotr.arc.shire",
+      "label": "Shire Departure",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1250,
+      "aliases": [
+        "Shire opening"
+      ],
+      "tags": [
+        "region:shire"
+      ]
+    },
+    {
+      "id": "lotr.fotr.arc.flight",
+      "label": "Flight To Rivendell",
+      "sortKeyFrom": 1250,
+      "sortKeyTo": 1600,
+      "aliases": [
+        "flight to the ford"
+      ],
+      "tags": [
+        "people:nazgul"
+      ]
+    },
+    {
+      "id": "lotr.fotr.arc.company",
+      "label": "Company Of The Ring",
+      "sortKeyFrom": 1700,
+      "sortKeyTo": 2500,
+      "aliases": [
+        "Company of the Ring"
+      ],
+      "tags": [
+        "faction:fellowship"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "lotr.fotr.phase.pre-fellowship",
+      "label": "Before The Fellowship",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1700,
+      "aliases": [
+        "pre-Fellowship"
+      ],
+      "tags": [
+        "book:fellowship-of-the-ring"
+      ]
+    },
+    {
+      "id": "lotr.fotr.phase.fellowship-active",
+      "label": "Fellowship Active",
+      "sortKeyFrom": 1800,
+      "sortKeyTo": 2500,
+      "aliases": [
+        "Fellowship active"
+      ],
+      "tags": [
+        "faction:fellowship"
+      ]
+    }
+  ],
+  "axes": [
+    {
+      "id": "lotr.axis.route",
+      "label": "Route",
+      "description": "Major route or company state in The Fellowship of the Ring."
+    },
+    {
+      "id": "lotr.axis.book",
+      "label": "Book Section",
+      "description": "Book I and Book II progression within The Fellowship of the Ring."
+    }
+  ],
+  "coordinates": [
+    {
+      "axis": "route",
+      "id": "lotr.route.shire-departure",
+      "label": "Shire Departure",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "route",
+      "id": "lotr.route.flight-to-rivendell",
+      "label": "Flight to Rivendell",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "route",
+      "id": "lotr.route.company-of-the-ring",
+      "label": "Company of the Ring",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "route",
+      "id": "lotr.route.anduin-breaking",
+      "label": "Anduin and Breaking of the Fellowship",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "book",
+      "id": "lotr.book-i",
+      "label": "Book I: The Ring Sets Out",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "book",
+      "id": "lotr.book-ii",
+      "label": "Book II: The Ring Goes South",
+      "requiredByDefault": false
+    }
+  ],
+  "extensions": {
+    "sagaRevision": {
+      "qualityPass": "v7_retrieval_import_hardening",
+      "updatedAt": "2026-06-08"
+    }
+  }
+}

@@ -1,0 +1,2269 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "middle-earth:frodo-baggins": {
+      "type": "character",
+      "label": "Frodo Baggins",
+      "aliases": [
+        "Frodo",
+        "Mr. Frodo",
+        "Ring-bearer"
+      ],
+      "canonicalNames": [
+        "Frodo Baggins",
+        "Frodo"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "secret:ringbearer"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:samwise-gamgee": {
+      "type": "character",
+      "label": "Samwise Gamgee",
+      "aliases": [
+        "Sam",
+        "Sam Gamgee",
+        "Samwise"
+      ],
+      "canonicalNames": [
+        "Samwise Gamgee",
+        "Sam"
+      ],
+      "tags": [
+        "character:samwise-gamgee",
+        "relationship:frodo-sam"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:meriadoc-brandybuck": {
+      "type": "character",
+      "label": "Meriadoc Brandybuck",
+      "aliases": [
+        "Merry"
+      ],
+      "canonicalNames": [
+        "Meriadoc Brandybuck",
+        "Merry"
+      ],
+      "tags": [
+        "character:meriadoc-brandybuck"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:peregrin-took": {
+      "type": "character",
+      "label": "Peregrin Took",
+      "aliases": [
+        "Pippin"
+      ],
+      "canonicalNames": [
+        "Peregrin Took",
+        "Pippin"
+      ],
+      "tags": [
+        "character:peregrin-took"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:gandalf": {
+      "type": "character",
+      "label": "Gandalf",
+      "aliases": [
+        "Mithrandir",
+        "Gandalf the Grey",
+        "Gandalf the White",
+        "Grey Pilgrim"
+      ],
+      "canonicalNames": [
+        "Gandalf",
+        "Mithrandir"
+      ],
+      "tags": [
+        "character:gandalf",
+        "people:istari"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:aragorn": {
+      "type": "character",
+      "label": "Aragorn",
+      "aliases": [
+        "Strider",
+        "Elessar",
+        "Heir of Isildur"
+      ],
+      "canonicalNames": [
+        "Aragorn",
+        "Strider"
+      ],
+      "tags": [
+        "character:aragorn",
+        "secret:aragorn-lineage"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:legolas": {
+      "type": "character",
+      "label": "Legolas",
+      "aliases": [
+        "Legolas Greenleaf"
+      ],
+      "canonicalNames": [
+        "Legolas",
+        "Legolas Greenleaf"
+      ],
+      "tags": [
+        "character:legolas",
+        "people:elves"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:gimli": {
+      "type": "character",
+      "label": "Gimli",
+      "aliases": [
+        "Son of Gloin"
+      ],
+      "canonicalNames": [
+        "Gimli",
+        "Son of Gloin"
+      ],
+      "tags": [
+        "character:gimli",
+        "people:dwarves"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:boromir": {
+      "type": "character",
+      "label": "Boromir",
+      "aliases": [
+        "Son of Denethor"
+      ],
+      "canonicalNames": [
+        "Boromir",
+        "Son of Denethor"
+      ],
+      "tags": [
+        "character:boromir",
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:gollum": {
+      "type": "character",
+      "label": "Gollum",
+      "aliases": [
+        "Smeagol",
+        "Sméagol"
+      ],
+      "canonicalNames": [
+        "Gollum",
+        "Smeagol"
+      ],
+      "tags": [
+        "character:gollum",
+        "secret:gollum-ring-connection"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:sauron": {
+      "type": "character",
+      "label": "Sauron",
+      "aliases": [
+        "Dark Lord",
+        "The Enemy"
+      ],
+      "canonicalNames": [
+        "Sauron",
+        "Dark Lord"
+      ],
+      "tags": [
+        "character:sauron",
+        "faction:mordor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:saruman": {
+      "type": "character",
+      "label": "Saruman",
+      "aliases": [
+        "Saruman the White",
+        "Sharkey"
+      ],
+      "canonicalNames": [
+        "Saruman",
+        "Saruman the White"
+      ],
+      "tags": [
+        "character:saruman",
+        "faction:isengard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:one-ring": {
+      "type": "item",
+      "label": "The One Ring",
+      "aliases": [
+        "Ruling Ring",
+        "Isildur's Bane",
+        "the Ring"
+      ],
+      "canonicalNames": [
+        "The One Ring",
+        "Ruling Ring"
+      ],
+      "tags": [
+        "artifact:one-ring",
+        "power:ring-corruption"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:fellowship": {
+      "type": "faction",
+      "label": "The Fellowship",
+      "aliases": [
+        "Company of the Ring"
+      ],
+      "canonicalNames": [
+        "The Fellowship",
+        "Company of the Ring"
+      ],
+      "tags": [
+        "faction:fellowship"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:mordor": {
+      "type": "location",
+      "label": "Mordor",
+      "aliases": [
+        "Land of Shadow"
+      ],
+      "canonicalNames": [
+        "Mordor",
+        "Land of Shadow"
+      ],
+      "tags": [
+        "region:mordor",
+        "faction:mordor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:gondor": {
+      "type": "location",
+      "label": "Gondor",
+      "aliases": [
+        "South-kingdom"
+      ],
+      "canonicalNames": [
+        "Gondor",
+        "South-kingdom"
+      ],
+      "tags": [
+        "region:gondor",
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:rohan": {
+      "type": "location",
+      "label": "Rohan",
+      "aliases": [
+        "Riddermark"
+      ],
+      "canonicalNames": [
+        "Rohan",
+        "Riddermark"
+      ],
+      "tags": [
+        "region:rohan",
+        "faction:rohan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:shire": {
+      "type": "location",
+      "label": "The Shire",
+      "aliases": [
+        "Shire",
+        "Hobbiton"
+      ],
+      "canonicalNames": [
+        "The Shire",
+        "Shire"
+      ],
+      "tags": [
+        "region:shire",
+        "people:hobbits"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.85
+      },
+      "extensions": {}
+    },
+    "middle-earth:mithril-coat": {
+      "type": "item",
+      "label": "Mithril Coat",
+      "aliases": [],
+      "canonicalNames": [
+        "Mithril Coat"
+      ],
+      "tags": [
+        "artifact:mithril-coat"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:narsil-anduril": {
+      "type": "item",
+      "label": "Narsil Anduril",
+      "aliases": [],
+      "canonicalNames": [
+        "Narsil Anduril"
+      ],
+      "tags": [
+        "artifact:narsil-anduril"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:palantir": {
+      "type": "item",
+      "label": "Palantir",
+      "aliases": [],
+      "canonicalNames": [
+        "Palantir"
+      ],
+      "tags": [
+        "artifact:palantir"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:arwen": {
+      "type": "character",
+      "label": "Arwen",
+      "aliases": [],
+      "canonicalNames": [
+        "Arwen"
+      ],
+      "tags": [
+        "character:arwen"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:bilbo-baggins": {
+      "type": "character",
+      "label": "Bilbo Baggins",
+      "aliases": [],
+      "canonicalNames": [
+        "Bilbo Baggins"
+      ],
+      "tags": [
+        "character:bilbo-baggins"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:denethor": {
+      "type": "character",
+      "label": "Denethor",
+      "aliases": [],
+      "canonicalNames": [
+        "Denethor"
+      ],
+      "tags": [
+        "character:denethor"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:elrond": {
+      "type": "character",
+      "label": "Elrond",
+      "aliases": [],
+      "canonicalNames": [
+        "Elrond"
+      ],
+      "tags": [
+        "character:elrond"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:eomer": {
+      "type": "character",
+      "label": "Eomer",
+      "aliases": [],
+      "canonicalNames": [
+        "Eomer"
+      ],
+      "tags": [
+        "character:eomer"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:eowyn": {
+      "type": "character",
+      "label": "Eowyn",
+      "aliases": [],
+      "canonicalNames": [
+        "Eowyn"
+      ],
+      "tags": [
+        "character:eowyn"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:faramir": {
+      "type": "character",
+      "label": "Faramir",
+      "aliases": [],
+      "canonicalNames": [
+        "Faramir"
+      ],
+      "tags": [
+        "character:faramir"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:galadriel": {
+      "type": "character",
+      "label": "Galadriel",
+      "aliases": [],
+      "canonicalNames": [
+        "Galadriel"
+      ],
+      "tags": [
+        "character:galadriel"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:theoden": {
+      "type": "character",
+      "label": "Theoden",
+      "aliases": [],
+      "canonicalNames": [
+        "Theoden"
+      ],
+      "tags": [
+        "character:theoden"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:bilbo-party": {
+      "type": "event",
+      "label": "Bilbo Party",
+      "aliases": [],
+      "canonicalNames": [
+        "Bilbo Party"
+      ],
+      "tags": [
+        "event:bilbo-party"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:breaking-fellowship": {
+      "type": "event",
+      "label": "Breaking Fellowship",
+      "aliases": [],
+      "canonicalNames": [
+        "Breaking Fellowship"
+      ],
+      "tags": [
+        "event:breaking-fellowship"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:council-of-elrond": {
+      "type": "event",
+      "label": "Council Of Elrond",
+      "aliases": [],
+      "canonicalNames": [
+        "Council Of Elrond"
+      ],
+      "tags": [
+        "event:council-of-elrond"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:fellowship-formed": {
+      "type": "event",
+      "label": "Fellowship Formed",
+      "aliases": [],
+      "canonicalNames": [
+        "Fellowship Formed"
+      ],
+      "tags": [
+        "event:fellowship-formed"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:gandalf-falls": {
+      "type": "event",
+      "label": "Gandalf Falls",
+      "aliases": [],
+      "canonicalNames": [
+        "Gandalf Falls"
+      ],
+      "tags": [
+        "event:gandalf-falls"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:ring-destruction": {
+      "type": "event",
+      "label": "Ring Destruction",
+      "aliases": [],
+      "canonicalNames": [
+        "Ring Destruction"
+      ],
+      "tags": [
+        "event:ring-destruction"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:sauron-fall": {
+      "type": "event",
+      "label": "Sauron Fall",
+      "aliases": [],
+      "canonicalNames": [
+        "Sauron Fall"
+      ],
+      "tags": [
+        "event:sauron-fall"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:war-of-the-ring": {
+      "type": "event",
+      "label": "War Of The Ring",
+      "aliases": [],
+      "canonicalNames": [
+        "War Of The Ring"
+      ],
+      "tags": [
+        "event:war-of-the-ring"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:free-peoples": {
+      "type": "faction",
+      "label": "Free Peoples",
+      "aliases": [],
+      "canonicalNames": [
+        "Free Peoples"
+      ],
+      "tags": [
+        "faction:free-peoples"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:isengard": {
+      "type": "faction",
+      "label": "Isengard",
+      "aliases": [],
+      "canonicalNames": [
+        "Isengard"
+      ],
+      "tags": [
+        "faction:isengard",
+        "region:isengard"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:white-council": {
+      "type": "faction",
+      "label": "White Council",
+      "aliases": [],
+      "canonicalNames": [
+        "White Council"
+      ],
+      "tags": [
+        "faction:white-council"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:bag-end": {
+      "type": "location",
+      "label": "Bag End",
+      "aliases": [],
+      "canonicalNames": [
+        "Bag End"
+      ],
+      "tags": [
+        "location:bag-end"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:bree": {
+      "type": "location",
+      "label": "Bree",
+      "aliases": [],
+      "canonicalNames": [
+        "Bree"
+      ],
+      "tags": [
+        "location:bree"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:minas-tirith": {
+      "type": "location",
+      "label": "Minas Tirith",
+      "aliases": [],
+      "canonicalNames": [
+        "Minas Tirith"
+      ],
+      "tags": [
+        "location:minas-tirith"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:moria": {
+      "type": "location",
+      "label": "Moria",
+      "aliases": [],
+      "canonicalNames": [
+        "Moria"
+      ],
+      "tags": [
+        "location:moria",
+        "region:moria"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:mount-doom": {
+      "type": "location",
+      "label": "Mount Doom",
+      "aliases": [],
+      "canonicalNames": [
+        "Mount Doom"
+      ],
+      "tags": [
+        "location:mount-doom"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:rivendell": {
+      "type": "location",
+      "label": "Rivendell",
+      "aliases": [],
+      "canonicalNames": [
+        "Rivendell"
+      ],
+      "tags": [
+        "location:rivendell",
+        "region:rivendell"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:weathertop": {
+      "type": "location",
+      "label": "Weathertop",
+      "aliases": [],
+      "canonicalNames": [
+        "Weathertop"
+      ],
+      "tags": [
+        "location:weathertop"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:dead-men-of-dunharrow": {
+      "type": "species",
+      "label": "Dead Men Of Dunharrow",
+      "aliases": [],
+      "canonicalNames": [
+        "Dead Men Of Dunharrow"
+      ],
+      "tags": [
+        "people:dead-men-of-dunharrow"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:dwarves": {
+      "type": "species",
+      "label": "Dwarves",
+      "aliases": [],
+      "canonicalNames": [
+        "Dwarves"
+      ],
+      "tags": [
+        "people:dwarves"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:elves": {
+      "type": "species",
+      "label": "Elves",
+      "aliases": [],
+      "canonicalNames": [
+        "Elves"
+      ],
+      "tags": [
+        "people:elves"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:ents": {
+      "type": "species",
+      "label": "Ents",
+      "aliases": [],
+      "canonicalNames": [
+        "Ents"
+      ],
+      "tags": [
+        "people:ents"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:hobbits": {
+      "type": "species",
+      "label": "Hobbits",
+      "aliases": [],
+      "canonicalNames": [
+        "Hobbits"
+      ],
+      "tags": [
+        "people:hobbits"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:istari": {
+      "type": "species",
+      "label": "Istari",
+      "aliases": [],
+      "canonicalNames": [
+        "Istari"
+      ],
+      "tags": [
+        "people:istari"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:men": {
+      "type": "species",
+      "label": "Men",
+      "aliases": [],
+      "canonicalNames": [
+        "Men"
+      ],
+      "tags": [
+        "people:men"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:nazgul": {
+      "type": "species",
+      "label": "Nazgul",
+      "aliases": [],
+      "canonicalNames": [
+        "Nazgul"
+      ],
+      "tags": [
+        "people:nazgul"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:orcs": {
+      "type": "species",
+      "label": "Orcs",
+      "aliases": [],
+      "canonicalNames": [
+        "Orcs"
+      ],
+      "tags": [
+        "people:orcs"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:bree-land": {
+      "type": "location",
+      "label": "Bree Land",
+      "aliases": [],
+      "canonicalNames": [
+        "Bree Land"
+      ],
+      "tags": [
+        "region:bree-land"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:eriador": {
+      "type": "location",
+      "label": "Eriador",
+      "aliases": [],
+      "canonicalNames": [
+        "Eriador"
+      ],
+      "tags": [
+        "region:eriador",
+        "location:eriador"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:fangorn": {
+      "type": "location",
+      "label": "Fangorn",
+      "aliases": [],
+      "canonicalNames": [
+        "Fangorn"
+      ],
+      "tags": [
+        "region:fangorn"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:ithilien": {
+      "type": "location",
+      "label": "Ithilien",
+      "aliases": [],
+      "canonicalNames": [
+        "Ithilien"
+      ],
+      "tags": [
+        "region:ithilien"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:lothlorien": {
+      "type": "location",
+      "label": "Lothlorien",
+      "aliases": [],
+      "canonicalNames": [
+        "Lothlorien"
+      ],
+      "tags": [
+        "region:lothlorien",
+        "location:lothlorien"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:eagles": {
+      "type": "species",
+      "label": "Eagles",
+      "aliases": [],
+      "canonicalNames": [
+        "Eagles"
+      ],
+      "tags": [
+        "people:eagles"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:rangers-of-the-north": {
+      "type": "faction",
+      "label": "Rangers Of The North",
+      "aliases": [],
+      "canonicalNames": [
+        "Rangers Of The North"
+      ],
+      "tags": [
+        "faction:rangers-of-the-north"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:king-elessar": {
+      "type": "event",
+      "label": "King Elessar",
+      "aliases": [],
+      "canonicalNames": [
+        "King Elessar"
+      ],
+      "tags": [
+        "event:king-elessar"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:witch-king": {
+      "type": "character",
+      "label": "Witch King",
+      "aliases": [],
+      "canonicalNames": [
+        "Witch King"
+      ],
+      "tags": [
+        "character:witch-king"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:scouring-shire": {
+      "type": "event",
+      "label": "Scouring Shire",
+      "aliases": [],
+      "canonicalNames": [
+        "Scouring Shire"
+      ],
+      "tags": [
+        "event:scouring-shire"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:balin-colony": {
+      "type": "event",
+      "label": "Balin Colony",
+      "aliases": [],
+      "canonicalNames": [
+        "Balin Colony"
+      ],
+      "tags": [
+        "event:balin-colony"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:misty-mountains": {
+      "type": "location",
+      "label": "Misty Mountains",
+      "aliases": [],
+      "canonicalNames": [
+        "Misty Mountains"
+      ],
+      "tags": [
+        "location:misty-mountains"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:anduin": {
+      "type": "location",
+      "label": "Anduin",
+      "aliases": [],
+      "canonicalNames": [
+        "Anduin"
+      ],
+      "tags": [
+        "region:anduin"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:dead-marshes": {
+      "type": "location",
+      "label": "Dead Marshes",
+      "aliases": [],
+      "canonicalNames": [
+        "Dead Marshes"
+      ],
+      "tags": [
+        "location:dead-marshes"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:rangers": {
+      "type": "species",
+      "label": "Rangers",
+      "aliases": [],
+      "canonicalNames": [
+        "Rangers"
+      ],
+      "tags": [
+        "people:rangers"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:rohirrim": {
+      "type": "species",
+      "label": "Rohirrim",
+      "aliases": [],
+      "canonicalNames": [
+        "Rohirrim"
+      ],
+      "tags": [
+        "people:rohirrim"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:dunedain": {
+      "type": "species",
+      "label": "Dunedain",
+      "aliases": [],
+      "canonicalNames": [
+        "Dunedain"
+      ],
+      "tags": [
+        "people:dunedain"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:edoras": {
+      "type": "location",
+      "label": "Edoras",
+      "aliases": [],
+      "canonicalNames": [
+        "Edoras"
+      ],
+      "tags": [
+        "location:edoras"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:barrow-downs": {
+      "type": "location",
+      "label": "Barrow-downs",
+      "aliases": [],
+      "canonicalNames": [
+        "Barrow-downs"
+      ],
+      "tags": [
+        "location:barrow-downs"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:old-forest": {
+      "type": "location",
+      "label": "Old Forest",
+      "aliases": [],
+      "canonicalNames": [
+        "Old Forest"
+      ],
+      "tags": [
+        "location:old-forest"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    }
+  }
+}

@@ -26,12 +26,13 @@ import { normalizeLoreTimeline, captureLoreTimelineState, recordLoreTimelineEven
 import { normalizeLoredeckLibraryIndex, normalizePackLibraryMetadata } from './loredeck-library-index.js';
 import { GENERATION_RUN_STATUSES, GENERATION_UNIT_STATUSES } from './generation-job-runner.js';
 import {
-    DEFAULT_HP_LOREDECK_CONTEXTS,
+    DEFAULT_BUNDLED_LOREDECK_CONTEXTS,
+    DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS,
     DEFAULT_HP_LOREDECK_FOLDER_ID,
     DEFAULT_HP_LOREDECK_ID,
-    DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
     DEFAULT_HP_LOREDECK_STACK,
     HP_LEGACY_LOREDECK_ID,
+    getDefaultLoredeckContextType,
     isDefaultHarryPotterLoredeckId,
 } from './loredeck-defaults.js';
 
@@ -251,7 +252,7 @@ function migrateLegacyHpLoredeckRegistry(value) {
     const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     const packs = { ...(input.packs || {}) };
     delete packs[HP_LEGACY_LOREDECK_ID];
-    for (const [packId, pack] of Object.entries(DEFAULT_HP_LOREDECK_LIBRARY_PACKS)) {
+    for (const [packId, pack] of Object.entries(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS)) {
         if (!packs[packId]) packs[packId] = pack;
     }
     return {
@@ -268,7 +269,7 @@ function migrateLegacyHpLoredeckRegistry(value) {
 function migrateLegacyHpLoredeckContexts(value) {
     const input = value && typeof value === 'object' && !Array.isArray(value) ? { ...value } : {};
     delete input[HP_LEGACY_LOREDECK_ID];
-    for (const [packId, context] of Object.entries(DEFAULT_HP_LOREDECK_CONTEXTS)) {
+    for (const [packId, context] of Object.entries(DEFAULT_BUNDLED_LOREDECK_CONTEXTS)) {
         if (!input[packId]) input[packId] = { ...context };
     }
     return input;
@@ -446,7 +447,7 @@ function buildDefaultLoredeckContext(packId = '', legacyContext = {}) {
     return {
         schemaVersion: 1,
         packId: id,
-        contextType: id === HP_LEGACY_LOREDECK_ID || isDefaultHarryPotterLoredeckId(id) ? 'calendar' : 'custom',
+        contextType: getDefaultLoredeckContextType(id, id === HP_LEGACY_LOREDECK_ID || isDefaultHarryPotterLoredeckId(id) ? 'calendar' : 'custom'),
         label: canonBoundary || sceneDate || '',
         sceneDate,
         subjectiveDate: cleanContextString(legacyContext?.subjectiveDate, 80),

@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "anchor_window",
+  "sortKeyScale": "pack_local",
+  "summary": "Middle-earth: Core Context anchors and broad phase windows for Saga's War of the Ring deck family.",
+  "axes": [
+    {
+      "id": "era",
+      "type": "phase",
+      "label": "Era"
+    },
+    {
+      "id": "book",
+      "type": "anchor",
+      "label": "Book"
+    },
+    {
+      "id": "arc",
+      "type": "arc",
+      "label": "Story Arc"
+    },
+    {
+      "id": "journeyState",
+      "type": "phase",
+      "label": "Journey State"
+    },
+    {
+      "id": "lotr.axis.era",
+      "label": "Era",
+      "description": "Broad Middle-earth era or story period."
+    },
+    {
+      "id": "lotr.axis.route",
+      "label": "Route",
+      "description": "Major journey route when a scene follows one thread."
+    },
+    {
+      "id": "lotr.axis.front",
+      "label": "War Front",
+      "description": "Military or political front active in the scene."
+    }
+  ],
+  "anchors": [
+    {
+      "id": "middle-earth.third-age.late",
+      "label": "Late Third Age",
+      "contextType": "phase",
+      "sortKey": 1000,
+      "aliases": [
+        "late third age",
+        "before the war of the ring"
+      ],
+      "tags": [
+        "era:late-third-age"
+      ]
+    },
+    {
+      "id": "middle-earth.wotr.before-fellowship",
+      "label": "Before the Fellowship Forms",
+      "contextType": "anchor",
+      "sortKey": 2000,
+      "aliases": [
+        "before the fellowship",
+        "before rivendell council"
+      ],
+      "tags": [
+        "era:war-of-the-ring"
+      ]
+    },
+    {
+      "id": "middle-earth.wotr.fellowship-active",
+      "label": "Fellowship Active",
+      "contextType": "phase",
+      "sortKey": 3000,
+      "aliases": [
+        "fellowship journey",
+        "the fellowship travels together"
+      ],
+      "tags": [
+        "faction:fellowship",
+        "era:war-of-the-ring"
+      ]
+    },
+    {
+      "id": "middle-earth.wotr.fellowship-broken",
+      "label": "After the Breaking of the Fellowship",
+      "contextType": "anchor",
+      "sortKey": 4000,
+      "aliases": [
+        "after the fellowship breaks",
+        "after amon hen"
+      ],
+      "tags": [
+        "event:breaking-fellowship"
+      ]
+    },
+    {
+      "id": "middle-earth.wotr.open-war",
+      "label": "Open War in Rohan and Gondor",
+      "contextType": "phase",
+      "sortKey": 5000,
+      "aliases": [
+        "war in rohan",
+        "war in gondor",
+        "the war escalates"
+      ],
+      "tags": [
+        "event:war-of-the-ring"
+      ]
+    },
+    {
+      "id": "middle-earth.wotr.after-sauron-fall",
+      "label": "After Sauron Falls",
+      "contextType": "anchor",
+      "sortKey": 6000,
+      "aliases": [
+        "after the ring is destroyed",
+        "after sauron's fall"
+      ],
+      "tags": [
+        "event:ring-destruction",
+        "event:sauron-fall"
+      ]
+    },
+    {
+      "id": "middle-earth.fourth-age.early",
+      "label": "Early Fourth Age",
+      "contextType": "phase",
+      "sortKey": 7000,
+      "aliases": [
+        "early fourth age",
+        "after the war of the ring"
+      ],
+      "tags": [
+        "era:fourth-age"
+      ]
+    }
+  ],
+  "windows": [
+    {
+      "id": "middle-earth.window.wotr.full",
+      "label": "War of the Ring",
+      "anchorFrom": "middle-earth.wotr.before-fellowship",
+      "anchorTo": "middle-earth.wotr.after-sauron-fall",
+      "sortKeyFrom": 2000,
+      "sortKeyTo": 6000,
+      "aliases": [
+        "war of the ring",
+        "lotr main story"
+      ],
+      "tags": [
+        "era:war-of-the-ring"
+      ]
+    },
+    {
+      "id": "middle-earth.window.fellowship-era",
+      "label": "Fellowship Era",
+      "anchorFrom": "middle-earth.wotr.fellowship-active",
+      "anchorTo": "middle-earth.wotr.fellowship-broken",
+      "sortKeyFrom": 3000,
+      "sortKeyTo": 4000,
+      "aliases": [
+        "fellowship era",
+        "while the fellowship is together"
+      ],
+      "tags": [
+        "faction:fellowship"
+      ]
+    },
+    {
+      "id": "middle-earth.window.post-war-transition",
+      "label": "Post-War Transition",
+      "anchorFrom": "middle-earth.wotr.after-sauron-fall",
+      "anchorTo": "middle-earth.fourth-age.early",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 7000,
+      "aliases": [
+        "post-war transition",
+        "after the fall of sauron"
+      ],
+      "tags": [
+        "era:fourth-age"
+      ]
+    }
+  ],
+  "arcs": [],
+  "phases": [
+    {
+      "id": "middle-earth.phase.war-of-the-ring",
+      "label": "War of the Ring",
+      "sortKeyFrom": 2000,
+      "sortKeyTo": 6000,
+      "aliases": [
+        "main lord of the rings story"
+      ],
+      "tags": [
+        "era:war-of-the-ring"
+      ]
+    },
+    {
+      "id": "middle-earth.phase.early-fourth-age",
+      "label": "Early Fourth Age",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 7000,
+      "aliases": [
+        "after the war"
+      ],
+      "tags": [
+        "era:fourth-age"
+      ]
+    }
+  ],
+  "coordinates": [
+    {
+      "axis": "era",
+      "id": "lotr.era.war-of-the-ring",
+      "label": "War of the Ring",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "era",
+      "id": "lotr.era.early-fourth-age",
+      "label": "Early Fourth Age",
+      "requiredByDefault": false
+    }
+  ],
+  "extensions": {
+    "sagaRevision": {
+      "qualityPass": "v7_retrieval_import_hardening",
+      "updatedAt": "2026-06-08"
+    }
+  }
+}

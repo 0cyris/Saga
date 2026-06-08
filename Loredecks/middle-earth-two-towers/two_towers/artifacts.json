@@ -1,0 +1,692 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_sarumans_voice_remains_dangerous_after_defeat",
+      "title": "Saruman’s Voice Remains Dangerous After Defeat",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.voice-of-saruman",
+        "validToAnchor": "lotr.ttt.palantir-recovered",
+        "sortKeyFrom": 1820,
+        "sortKeyTo": 1900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Saruman’s Voice Remains Dangerous After Defeat"
+      },
+      "scope": {
+        "characters": [
+          "Saruman",
+          "Gandalf",
+          "Theoden",
+          "Aragorn"
+        ],
+        "locations": [
+          "Isengard"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Saruman voice",
+          "persuasion power"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:gandalf",
+          "middle-earth:isengard",
+          "middle-earth:saruman",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:aragorn",
+        "character:gandalf",
+        "character:saruman",
+        "character:theoden",
+        "power:voice-of-saruman",
+        "region:isengard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Saruman",
+            "Gandalf",
+            "Theoden",
+            "Aragorn"
+          ],
+          "locationsAny": [
+            "Isengard"
+          ],
+          "topicsAny": [
+            "Saruman voice",
+            "persuasion power"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "power:voice-of-saruman",
+            "character:saruman",
+            "character:gandalf",
+            "character:theoden",
+            "character:aragorn",
+            "region:isengard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Even after Isengard falls, Saruman’s voice remains persuasive and dangerous.",
+        "injection": "At Orthanc, Saruman should still be verbally dangerous; defeat does not make him harmless.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Voice of Saruman",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_palantir_dangerous_seeing_stone",
+      "title": "The Palantir Is A Dangerous Seeing Stone",
+      "kind": "rule_constraint",
+      "category": "item",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.palantir-recovered",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Orthanc palantir is recovered"
+      },
+      "scope": {
+        "characters": [
+          "Peregrin Took",
+          "Gandalf",
+          "Sauron",
+          "Saruman"
+        ],
+        "objects": [
+          "Palantir"
+        ],
+        "topics": [
+          "seeing stone",
+          "Sauron",
+          "vision",
+          "misdirection",
+          "Palantir",
+          "Peregrin Took",
+          "Gandalf"
+        ],
+        "locations": [
+          "Isengard"
+        ],
+        "entityIds": [
+          "middle-earth:peregrin-took",
+          "middle-earth:gandalf",
+          "middle-earth:sauron",
+          "middle-earth:saruman",
+          "middle-earth:isengard",
+          "middle-earth:palantir",
+          "middle-earth:palantir-orthanc",
+          "middle-earth:orthanc"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "artifact:palantir",
+        "character:peregrin-took",
+        "character:gandalf",
+        "character:sauron"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Peregrin Took",
+            "Gandalf",
+            "Sauron",
+            "Saruman"
+          ],
+          "locationsAny": [
+            "Isengard"
+          ],
+          "objectsAny": [
+            "Palantir"
+          ],
+          "topicsAny": [
+            "seeing stone",
+            "Sauron",
+            "vision",
+            "misdirection",
+            "Palantir",
+            "Peregrin Took",
+            "Gandalf"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "artifact:palantir",
+            "character:peregrin-took",
+            "character:gandalf",
+            "character:sauron"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Orthanc palantir is a seeing stone that can reveal distant things but is dangerous because Sauron can use such contact to dominate, mislead, or infer.",
+        "injection": "After the Orthanc palantir appears, treat it as dangerous information technology: powerful for seeing, but hazardous under Sauron's pressure.",
+        "constraints": [
+          "Use of the palantir can create strategic consequences even without full mutual understanding."
+        ],
+        "antiLore": [
+          "Do not treat the palantir as a harmless crystal ball.",
+          "Do not let any untrained character use it safely without risk."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Voice of Saruman / The Palantír"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:peregrin-took",
+          "middle-earth:sauron",
+          "middle-earth:aragorn"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_shelob_is_ancient_independent_evil",
+      "title": "Shelob Is Ancient Independent Evil",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.shelob",
+        "validToAnchor": "lotr.ttt.sam-fights-shelob",
+        "sortKeyFrom": 2800,
+        "sortKeyTo": 2820,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Shelob Is Ancient Independent Evil"
+      },
+      "scope": {
+        "characters": [
+          "Shelob",
+          "Gollum"
+        ],
+        "locations": [
+          "Shelob's Lair"
+        ],
+        "objects": [],
+        "factions": [
+          "Mordor faction"
+        ],
+        "topics": [
+          "Shelob",
+          "ancient predator"
+        ],
+        "entityIds": [
+          "middle-earth:gollum",
+          "middle-earth:mordor",
+          "middle-earth:shelob",
+          "middle-earth:shelobs-lair"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:gollum",
+        "character:shelob",
+        "faction:mordor",
+        "location:shelobs-lair"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Shelob",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Shelob's Lair"
+          ],
+          "factionsAny": [
+            "Mordor faction"
+          ],
+          "topicsAny": [
+            "Shelob",
+            "ancient predator"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:shelob",
+            "character:gollum",
+            "location:shelobs-lair",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Shelob is an ancient predatory evil with her own appetite and lair, not an obedient Orc commander.",
+        "injection": "Write Shelob as alien, hungry, old, and territorial; her terror differs from Mordor’s military evil.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "Shelob’s Lair",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_phial-becomes-crucial-against-shelob",
+      "title": "Phial Becomes Crucial Against Shelob",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.shelob",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 2800,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Phial Becomes Crucial Against Shelob",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Phial Of Galadriel",
+          "Shelob"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:phial-of-galadriel",
+          "middle-earth:shelob"
+        ]
+      },
+      "tags": [
+        "artifact:phial-of-galadriel",
+        "secret:shelob"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Phial Of Galadriel",
+            "Shelob"
+          ],
+          "matchTags": [
+            "artifact:phial-of-galadriel",
+            "secret:shelob"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Phial of Galadriel becomes crucial as light against Shelob’s darkness.",
+        "injection": "Use this as a concrete runtime constraint when the scoped entities or topics are relevant: The Phial of Galadriel becomes crucial as light against Shelob’s darkness.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Choices of Master Samwise"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gollum",
+          "middle-earth:shelob"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "Frodo and Sam before the lair",
+          "uninformed characters"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_sting-matters-in-shelob-s-lair",
+      "title": "Sting Matters In Shelob’s Lair",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.shelob",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 2800,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sting Matters In Shelob’s Lair",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Sting",
+          "Shelob"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:sting",
+          "middle-earth:shelob"
+        ]
+      },
+      "tags": [
+        "artifact:sting",
+        "secret:shelob"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Sting",
+            "Shelob"
+          ],
+          "matchTags": [
+            "artifact:sting",
+            "secret:shelob"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sting serves as a meaningful Elven blade in Shelob’s Lair, especially in Sam’s hands.",
+        "injection": "Use this as a concrete runtime constraint when the scoped entities or topics are relevant: Sting serves as a meaningful Elven blade in Shelob’s Lair, especially in Sam’s hands.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Choices of Master Samwise"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gollum",
+          "middle-earth:shelob"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "Frodo and Sam before the lair",
+          "uninformed characters"
+        ]
+      }
+    }
+  ]
+}

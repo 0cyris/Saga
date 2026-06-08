@@ -1,0 +1,1550 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_gondor_under_steward_before_king",
+      "title": "Gondor Remains Under The Steward Before Elessar",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.pippin-minas-tirith",
+        "validToAnchor": "lotr.rotk.king-elessar",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gondor before Aragorn’s coronation"
+      },
+      "scope": {
+        "characters": [
+          "Denethor",
+          "Faramir",
+          "Aragorn"
+        ],
+        "locations": [
+          "Minas Tirith",
+          "Gondor"
+        ],
+        "topics": [
+          "Stewardship",
+          "kingless realm",
+          "political legitimacy",
+          "Gondor",
+          "Denethor",
+          "Aragorn"
+        ],
+        "factions": [
+          "Gondor"
+        ],
+        "entityIds": [
+          "middle-earth:denethor",
+          "middle-earth:faramir",
+          "middle-earth:aragorn",
+          "middle-earth:minas-tirith",
+          "middle-earth:gondor"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "faction:gondor",
+        "character:denethor",
+        "character:aragorn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Denethor",
+            "Faramir",
+            "Aragorn"
+          ],
+          "locationsAny": [
+            "Minas Tirith",
+            "Gondor"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Stewardship",
+            "kingless realm",
+            "political legitimacy",
+            "Gondor",
+            "Denethor",
+            "Aragorn"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "faction:gondor",
+            "character:denethor",
+            "character:aragorn"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Aragorn’s coronation, Gondor is governed by the Stewardship, with the return of the king still politically and ritually unresolved.",
+        "injection": "Before King Elessar’s recognition, write Gondor as a Steward-governed realm under crisis, not as a monarchy already functioning under Aragorn.",
+        "constraints": [
+          "Faramir’s later recognition of Aragorn is important to the transition."
+        ],
+        "antiLore": [
+          "Do not have Aragorn issuing routine royal commands in Minas Tirith before the relevant recognition context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Minas Tirith"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.restoration",
+          "label": "Post-war Restoration",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_army_dead_bound_to_aragorn",
+      "title": "Army Of The Dead Is Bound To Aragorn’s Claim",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.paths-of-dead",
+        "validToAnchor": "lotr.rotk.aragorn-arrives",
+        "sortKeyFrom": 1300,
+        "sortKeyTo": 2000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Oathbreakers before release",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn"
+        ],
+        "locations": [
+          "Paths of the Dead",
+          "Pelargir"
+        ],
+        "topics": [
+          "oathbreakers",
+          "Isildur’s heir",
+          "summons",
+          "release",
+          "Dead Men of Dunharrow",
+          "Aragorn",
+          "Aragorn Lineage"
+        ],
+        "factions": [
+          "Dead Men of Dunharrow"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:paths-of-the-dead",
+          "middle-earth:dead-men-of-dunharrow",
+          "middle-earth:dead-men-dunharrow"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "people:dead-men-of-dunharrow",
+        "character:aragorn",
+        "secret:aragorn-lineage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn"
+          ],
+          "locationsAny": [
+            "Paths of the Dead",
+            "Pelargir"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "oathbreakers",
+            "Isildur’s heir",
+            "summons",
+            "release",
+            "Dead Men of Dunharrow",
+            "Aragorn",
+            "Aragorn Lineage"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "people:dead-men-of-dunharrow",
+            "character:aragorn",
+            "secret:aragorn-lineage"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Dead Men of Dunharrow are bound by an ancient oath and can be summoned by Aragorn as Isildur’s heir to fulfill it.",
+        "injection": "When the Army of the Dead is relevant, frame them as oath-bound and tied to Aragorn’s legitimate claim, not as a generic necromantic army.",
+        "constraints": [
+          "Their service is specific and leads to release from the oath."
+        ],
+        "antiLore": [
+          "Do not portray Aragorn as freely commanding undead forces indefinitely."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Passing of the Grey Company"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:gandalf",
+          "middle-earth:arwen"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_rohan_fulfills_alliance",
+      "title": "Rohan Fulfills Its Alliance With Gondor",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.rohan-musters",
+        "validToAnchor": "lotr.rotk.pelennor",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Rohan mustering and riding to Gondor",
+        "arcId": "lotr.rotk.arc.gondor",
+        "arc": "Gondor, Siege, And Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Theoden",
+          "Eomer",
+          "Eowyn",
+          "Meriadoc Brandybuck"
+        ],
+        "locations": [
+          "Rohan",
+          "Pelennor Fields",
+          "Minas Tirith"
+        ],
+        "topics": [
+          "alliance",
+          "oath",
+          "ride to Gondor",
+          "Rohan",
+          "Gondor",
+          "Pelennor"
+        ],
+        "factions": [
+          "Rohan",
+          "Gondor"
+        ],
+        "entityIds": [
+          "middle-earth:theoden",
+          "middle-earth:eomer",
+          "middle-earth:eowyn",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:rohan",
+          "middle-earth:pelennor-fields",
+          "middle-earth:minas-tirith",
+          "middle-earth:gondor",
+          "middle-earth:pelennor"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "faction:rohan",
+        "faction:gondor",
+        "event:pelennor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Theoden",
+            "Eomer",
+            "Eowyn",
+            "Meriadoc Brandybuck"
+          ],
+          "locationsAny": [
+            "Rohan",
+            "Pelennor Fields",
+            "Minas Tirith"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "alliance",
+            "oath",
+            "ride to Gondor",
+            "Rohan",
+            "Gondor",
+            "Pelennor"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "faction:rohan",
+            "faction:gondor",
+            "event:pelennor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Rohan rides to Gondor’s aid under Theoden, fulfilling alliance and oath despite danger and likely death.",
+        "injection": "When Rohan musters for Gondor, emphasize oath, courage, fatalism, and the scale of the ride rather than treating it as simple military convenience.",
+        "constraints": [
+          "Theoden’s leadership and the Rohirrim’s culture matter here."
+        ],
+        "antiLore": [
+          "Do not portray Rohan’s arrival as accidental or detached from obligation."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Muster of Rohan"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_rohans_muster_is_costly_oath_keeping",
+      "title": "Rohan’s Muster Is Costly Oath-keeping",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.rohan-musters",
+        "validToAnchor": "lotr.rotk.rohirrim-ride-to-gondor",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 1430,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Rohan’s Muster Is Costly Oath-keeping"
+      },
+      "scope": {
+        "characters": [
+          "Theoden",
+          "Eomer",
+          "Eowyn"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Rohan faction",
+          "Gondor faction"
+        ],
+        "topics": [
+          "Rohan muster",
+          "costly alliance"
+        ],
+        "people": [
+          "Rohirrim"
+        ],
+        "entityIds": [
+          "middle-earth:eomer",
+          "middle-earth:eowyn",
+          "middle-earth:gondor",
+          "middle-earth:rohan",
+          "middle-earth:rohirrim",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:eomer",
+        "character:eowyn",
+        "character:theoden",
+        "faction:gondor",
+        "faction:rohan",
+        "people:rohirrim"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Theoden",
+            "Eomer",
+            "Eowyn"
+          ],
+          "factionsAny": [
+            "Rohan faction",
+            "Gondor faction"
+          ],
+          "topicsAny": [
+            "Rohan muster",
+            "costly alliance"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:theoden",
+            "character:eomer",
+            "character:eowyn",
+            "faction:rohan",
+            "faction:gondor",
+            "people:rohirrim"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Rohan’s ride to Gondor is a costly fulfillment of alliance and oath under fear of arriving too late.",
+        "injection": "The muster should carry sacrifice and uncertainty, not a guaranteed cavalry button.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Muster of Rohan",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_faramirs_wounding_triggers_stewardship_crisis",
+      "title": "Faramir’s Wounding Triggers Stewardship Crisis",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.faramir-fever",
+        "validToAnchor": "lotr.rotk.denethor-pyre",
+        "sortKeyFrom": 1520,
+        "sortKeyTo": 1700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Faramir’s Wounding Triggers Stewardship Crisis"
+      },
+      "scope": {
+        "characters": [
+          "Faramir",
+          "Denethor",
+          "Gandalf"
+        ],
+        "locations": [
+          "Minas Tirith"
+        ],
+        "objects": [],
+        "factions": [
+          "Gondor faction"
+        ],
+        "topics": [
+          "stewardship crisis",
+          "Denethor despair"
+        ],
+        "entityIds": [
+          "middle-earth:denethor",
+          "middle-earth:faramir",
+          "middle-earth:gandalf",
+          "middle-earth:gondor",
+          "middle-earth:minas-tirith"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:denethor",
+        "character:faramir",
+        "character:gandalf",
+        "faction:gondor",
+        "location:minas-tirith"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Faramir",
+            "Denethor",
+            "Gandalf"
+          ],
+          "locationsAny": [
+            "Minas Tirith"
+          ],
+          "factionsAny": [
+            "Gondor faction"
+          ],
+          "topicsAny": [
+            "stewardship crisis",
+            "Denethor despair"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:faramir",
+            "character:denethor",
+            "character:gandalf",
+            "location:minas-tirith",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Faramir’s near-fatal wounding removes Denethor’s remaining heir from active command and accelerates despair.",
+        "injection": "After Faramir is wounded, Gondor’s command state should feel politically and emotionally unstable.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Siege of Gondor / The Pyre of Denethor",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_prince_imrahil_adds_gondor_noble_support",
+      "title": "Prince Imrahil Adds Gondor Noble Support",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.siege-minas-tirith",
+        "validToAnchor": "lotr.rotk.king-elessar",
+        "sortKeyFrom": 1600,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Prince Imrahil Adds Gondor Noble Support"
+      },
+      "scope": {
+        "characters": [
+          "Prince Imrahil",
+          "Aragorn",
+          "Denethor"
+        ],
+        "locations": [
+          "Minas Tirith",
+          "Pelennor Fields"
+        ],
+        "objects": [],
+        "factions": [
+          "Gondor faction"
+        ],
+        "topics": [
+          "Dol Amroth",
+          "Gondor nobility"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:denethor",
+          "middle-earth:gondor",
+          "middle-earth:minas-tirith",
+          "middle-earth:pelennor-fields",
+          "middle-earth:prince-imrahil"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:aragorn",
+        "character:denethor",
+        "character:prince-imrahil",
+        "faction:gondor",
+        "location:minas-tirith",
+        "location:pelennor-fields"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Prince Imrahil",
+            "Aragorn",
+            "Denethor"
+          ],
+          "locationsAny": [
+            "Minas Tirith",
+            "Pelennor Fields"
+          ],
+          "factionsAny": [
+            "Gondor faction"
+          ],
+          "topicsAny": [
+            "Dol Amroth",
+            "Gondor nobility"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "character:prince-imrahil",
+            "character:aragorn",
+            "character:denethor",
+            "location:minas-tirith",
+            "location:pelennor-fields",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Prince Imrahil and Dol Amroth add noble, military, and political texture beyond Denethor and Minas Tirith.",
+        "injection": "Use Imrahil as credible Gondorian noble commander and stabilizing witness.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "The Siege of Gondor / The Houses of Healing",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_gondor-and-rohan-victory-seals-alliance",
+      "title": "Gondor And Rohan Victory Seals Alliance",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.pelennor",
+        "validToAnchor": "lotr.rotk.king-elessar",
+        "sortKeyFrom": 1800,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gondor And Rohan Victory Seals Alliance"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Gondor",
+          "Rohan"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gondor",
+          "middle-earth:rohan",
+          "middle-earth:pelennor"
+        ]
+      },
+      "tags": [
+        "faction:gondor",
+        "faction:rohan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Gondor",
+            "Rohan"
+          ],
+          "matchTags": [
+            "faction:gondor",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The shared cost at Pelennor renews the alliance between Gondor and Rohan.",
+        "injection": "Apply this political or military state: The shared cost at Pelennor renews the alliance between Gondor and Rohan. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Battle of the Pelennor Fields"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.gondor-citadel",
+          "label": "Minas Tirith and Gondor Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.gondor",
+          "label": "Gondor Front",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.rohirrim",
+          "label": "Rohirrim Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_mouth-of-sauron-uses-despair-as-a-weapon",
+      "title": "Mouth Of Sauron Uses Despair As A Weapon",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.black-gate",
+        "validToAnchor": "lotr.rotk.ring-destroyed",
+        "sortKeyFrom": 2300,
+        "sortKeyTo": 2700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Mouth Of Sauron Uses Despair As A Weapon",
+        "phaseId": "lotr.rotk.phase.final-gambit",
+        "phase": "Black Gate And Mount Doom"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Mouth Of Sauron",
+          "Black Gate"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:mouth-of-sauron",
+          "middle-earth:black-gate",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "character:mouth-of-sauron",
+        "location:black-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Mouth Of Sauron",
+            "Black Gate"
+          ],
+          "matchTags": [
+            "character:mouth-of-sauron",
+            "location:black-gate"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Mouth of Sauron weaponizes despair and uncertainty against the Host of the West.",
+        "injection": "Apply this political or military state: The Mouth of Sauron weaponizes despair and uncertainty against the Host of the West. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Black Gate Opens"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "front",
+          "id": "lotr.front.black-gate",
+          "label": "Black Gate Diversion",
+          "required": false
+        },
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.grey-havens",
+          "label": "Grey Havens Departure",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-v",
+          "label": "Book V: The War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_mordor_collapses_after_ring",
+      "title": "Mordor Collapses After The Ring Falls",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.ring-destroyed",
+        "validToAnchor": "lotr.rotk.grey-havens",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 3200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Mordor after Sauron falls"
+      },
+      "scope": {
+        "characters": [
+          "Sauron"
+        ],
+        "locations": [
+          "Mordor",
+          "Black Gate"
+        ],
+        "topics": [
+          "collapse",
+          "Sauron’s will",
+          "end of command",
+          "Mordor",
+          "Sauron Fall",
+          "Ring Destruction"
+        ],
+        "factions": [
+          "Mordor",
+          "Free Peoples"
+        ],
+        "entityIds": [
+          "middle-earth:sauron",
+          "middle-earth:mordor-faction",
+          "middle-earth:black-gate",
+          "middle-earth:free-peoples",
+          "middle-earth:sauron-fall",
+          "middle-earth:ring-destruction",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "faction:mordor",
+        "event:sauron-fall",
+        "event:ring-destruction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Sauron"
+          ],
+          "locationsAny": [
+            "Mordor",
+            "Black Gate"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "collapse",
+            "Sauron’s will",
+            "end of command",
+            "Mordor",
+            "Sauron Fall",
+            "Ring Destruction"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "faction:mordor",
+            "event:sauron-fall",
+            "event:ring-destruction"
+          ]
+        }
+      },
+      "content": {
+        "fact": "When the Ring is destroyed, Sauron’s will and centralized command collapse, breaking Mordor’s assault and terrifying its forces.",
+        "injection": "After Sauron falls, portray Mordor’s forces as broken, leaderless, fleeing, or collapsing in morale rather than continuing as a perfectly coordinated empire.",
+        "constraints": [
+          "Some survivors or remnants may remain, but the Dark Lord’s command is gone."
+        ],
+        "antiLore": [
+          "Do not keep the Black Gate battle operating normally after the Ring’s destruction."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Field of Cormallen"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.aragorn-kingship",
+          "label": "Aragorn Kingship Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.black-gate",
+          "label": "Black Gate Diversion",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_rotk_barad_durs_collapse_ends_centralized_enemy_will",
+      "title": "Barad-dur’s Collapse Ends Centralized Enemy Will",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.sauron-collapses",
+        "validToAnchor": "lotr.rotk.cormallen",
+        "sortKeyFrom": 2710,
+        "sortKeyTo": 2800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Barad-dur’s Collapse Ends Centralized Enemy Will"
+      },
+      "scope": {
+        "characters": [
+          "Sauron"
+        ],
+        "locations": [
+          "Mordor",
+          "Black Gate"
+        ],
+        "objects": [],
+        "factions": [
+          "Mordor faction"
+        ],
+        "topics": [
+          "Sauron collapse",
+          "enemy will"
+        ],
+        "entityIds": [
+          "middle-earth:black-gate",
+          "middle-earth:mordor",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "book:return-of-the-king",
+        "character:sauron",
+        "event:sauron-fall",
+        "faction:mordor",
+        "location:black-gate",
+        "region:mordor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Sauron"
+          ],
+          "locationsAny": [
+            "Mordor",
+            "Black Gate"
+          ],
+          "factionsAny": [
+            "Mordor faction"
+          ],
+          "topicsAny": [
+            "Sauron collapse",
+            "enemy will"
+          ],
+          "matchTags": [
+            "book:return-of-the-king",
+            "event:sauron-fall",
+            "character:sauron",
+            "region:mordor",
+            "location:black-gate",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After the Ring is destroyed, Sauron’s centralized will collapses and his armies lose coherence.",
+        "injection": "After Sauron’s fall, enemy forces should break or scatter rather than continue as a unified Mordor state.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Return of the King novel within The Lord of the Rings, including the book aftermath and Scouring of the Shire.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only omissions or additions as default canon."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.88,
+        "chapter": "Mount Doom / The Field of Cormallen",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo and Sam in Mordor",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor",
+          "label": "Mordor Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_rotk_v5_hobbits-liberate-the-shire-themselves",
+      "title": "Hobbits Liberate The Shire Themselves",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.rotk.scouring-shire",
+        "validToAnchor": "lotr.rotk.grey-havens",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hobbits Liberate The Shire Themselves",
+        "arcId": "lotr.rotk.arc.aftermath",
+        "arc": "Aftermath And Return Home",
+        "phaseId": "lotr.rotk.phase.postwar",
+        "phase": "Postwar Return"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Shire",
+          "Scouring Shire",
+          "Scouring of the Shire"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:shire",
+          "middle-earth:scouring-shire"
+        ]
+      },
+      "tags": [
+        "region:shire",
+        "event:scouring-shire"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Shire",
+            "Scouring Shire",
+            "Scouring of the Shire"
+          ],
+          "matchTags": [
+            "region:shire",
+            "event:scouring-shire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In the Scouring, the Hobbits use the growth earned during the quest to organize and liberate their own home.",
+        "injection": "Apply this political or military state: In the Scouring, the Hobbits use the growth earned during the quest to organize and liberate their own home. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Scouring of the Shire"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "aftermath",
+          "id": "lotr.aftermath.shire",
+          "label": "Return and Scouring of the Shire",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-vi",
+          "label": "Book VI: The End of the Third Age",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

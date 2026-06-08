@@ -1,0 +1,2502 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_fellowship_split_parallel_threads",
+      "title": "Fellowship Split Defines Three Parallel Threads",
+      "kind": "status_change",
+      "category": "timeline",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.fellowship-split",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After the Fellowship splits"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Meriadoc Brandybuck",
+          "Peregrin Took",
+          "Aragorn",
+          "Legolas",
+          "Gimli"
+        ],
+        "topics": [
+          "split Fellowship",
+          "parallel routes",
+          "Breaking Fellowship",
+          "Fellowship"
+        ],
+        "factions": [
+          "Fellowship"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:fellowship",
+          "middle-earth:breaking-fellowship"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "event:breaking-fellowship",
+        "faction:fellowship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Legolas",
+            "Gimli"
+          ],
+          "locationsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "split Fellowship",
+            "parallel routes",
+            "War of the Ring",
+            "Breaking Fellowship",
+            "Fellowship"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "event:breaking-fellowship",
+            "faction:fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Amon Hen, the Fellowship no longer travels as one company; the story splits between Frodo and Sam, Merry and Pippin, and the Three Hunters.",
+        "injection": "After the Fellowship breaks, do not keep the original nine-member company together. Track the separate Frodo/Sam, Merry/Pippin, and Aragorn/Legolas/Gimli paths.",
+        "constraints": [
+          "This state begins after Amon Hen and lasts through the Two Towers arc."
+        ],
+        "antiLore": [
+          "Do not place Boromir, Gandalf the Grey, and the full Fellowship together after the split unless the story is AU."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Departure of Boromir"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.parallel-roads",
+          "label": "Split Fellowship Parallel Roads",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_eomer-destroys-the-orc-band-before-meeting-the-hunters",
+      "title": "Eomer Destroys The Orc Band Before Meeting The Hunters",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.orc-captivity",
+        "validToAnchor": "lotr.ttt.three-hunters",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 1200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Eomer Destroys The Orc Band Before Meeting The Hunters",
+        "arcId": "lotr.ttt.arc.rohan",
+        "arc": "Rohan And Helm's Deep",
+        "phaseId": "lotr.ttt.phase.split-fellowship",
+        "phase": "Fellowship Split"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Eomer",
+          "Rohan"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:eomer",
+          "middle-earth:rohan",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took"
+        ]
+      },
+      "tags": [
+        "character:eomer",
+        "faction:rohan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Eomer",
+            "Rohan"
+          ],
+          "matchTags": [
+            "character:eomer",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Eomer’s Riders destroy the Orc band, leaving the Three Hunters uncertain whether Merry and Pippin survived.",
+        "injection": "Eomer’s Riders destroy the Orc band, leaving the Three Hunters uncertain whether Merry and Pippin survived. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Riders of Rohan"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_orc-captors-fracture-between-mordor-and-isengard",
+      "title": "Orc Captors Fracture Between Mordor And Isengard",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.orc-captivity",
+        "validToAnchor": "lotr.ttt.fangorn",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 1300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orc Captors Fracture Between Mordor And Isengard",
+        "arcId": "lotr.ttt.arc.rohan",
+        "arc": "Rohan And Helm's Deep",
+        "phaseId": "lotr.ttt.phase.split-fellowship",
+        "phase": "Fellowship Split"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Isengard",
+          "Mordor"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:isengard",
+          "middle-earth:mordor",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took"
+        ]
+      },
+      "tags": [
+        "faction:isengard",
+        "faction:mordor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Isengard",
+            "Mordor"
+          ],
+          "matchTags": [
+            "faction:isengard",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Orc company carrying Merry and Pippin is divided by competing orders between Isengard and Mordor.",
+        "injection": "The Orc company carrying Merry and Pippin is divided by competing orders between Isengard and Mordor. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Riders of Rohan"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v6_ugluk_grishnakh_orders_split_orcs",
+      "title": "Ugluk And Grishnakh Split Orc Orders",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ugluk-grishnakh-orders",
+        "validToAnchor": "lotr.ttt.fangorn",
+        "sortKeyFrom": 1110,
+        "sortKeyTo": 1300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orc-captor command conflict before Fangorn",
+        "arcId": "lotr.ttt.arc.rohan",
+        "arc": "Rohan And Helm's Deep",
+        "phaseId": "lotr.ttt.phase.split-fellowship",
+        "phase": "Fellowship Split"
+      },
+      "scope": {
+        "characters": [
+          "Ugluk",
+          "Grishnakh",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [
+          "Rohan",
+          "Fangorn"
+        ],
+        "topics": [
+          "competing orders",
+          "orc captors",
+          "Mordor and Isengard split",
+          "Ugluk",
+          "Grishnakh",
+          "Orc Order Conflict",
+          "Isengard",
+          "Mordor"
+        ],
+        "factions": [
+          "Isengard",
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:ugluk",
+          "middle-earth:grishnakh",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:rohan",
+          "middle-earth:fangorn",
+          "middle-earth:isengard",
+          "middle-earth:mordor",
+          "middle-earth:orc-order-conflict"
+        ]
+      },
+      "tags": [
+        "character:ugluk",
+        "character:grishnakh",
+        "event:orc-order-conflict",
+        "faction:isengard",
+        "faction:mordor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ugluk",
+            "Grishnakh",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "locationsAny": [
+            "Rohan",
+            "Fangorn"
+          ],
+          "topicsAny": [
+            "competing orders",
+            "orc captors",
+            "Mordor and Isengard split",
+            "Ugluk",
+            "Grishnakh",
+            "Orc Order Conflict",
+            "Isengard",
+            "Mordor"
+          ],
+          "factionsAny": [
+            "Isengard",
+            "Mordor"
+          ],
+          "matchTags": [
+            "character:ugluk",
+            "character:grishnakh",
+            "event:orc-order-conflict",
+            "faction:isengard",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Orc company carrying Merry and Pippin is divided by competing commands and loyalties between Isengard and Mordor.",
+        "injection": "During the captivity route, use Orc faction conflict to create instability and escape opportunities. The captors are not a single disciplined bloc with one clear chain of command.",
+        "constraints": [
+          "Ugluk and Grishnakh represent different hostile priorities.",
+          "The Hobbits can exploit confusion and conflict without being safe."
+        ],
+        "antiLore": [
+          "Do not portray the Orc band as unified, orderly, and strategically coherent."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Riders of Rohan"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_ents-decide-after-slow-council",
+      "title": "Ents Decide After Slow Council",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.fangorn",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1300,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ents Decide After Slow Council",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Ents",
+          "Entmoot"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:ents",
+          "middle-earth:entmoot",
+          "middle-earth:saruman"
+        ]
+      },
+      "tags": [
+        "people:ents",
+        "event:entmoot"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Ents",
+            "Entmoot"
+          ],
+          "matchTags": [
+            "people:ents",
+            "event:entmoot"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Ents move from slow deliberation to devastating action after confronting Saruman’s destruction of trees.",
+        "injection": "The Ents move from slow deliberation to devastating action after confronting Saruman’s destruction of trees. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Treebeard"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_entmoot_deliberates_at_entish_speed",
+      "title": "Entmoot Deliberates At Entish Speed",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.entmoot-begins",
+        "validToAnchor": "lotr.ttt.ents-see-isengard-destruction",
+        "sortKeyFrom": 1330,
+        "sortKeyTo": 1340,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Entmoot Deliberates At Entish Speed"
+      },
+      "scope": {
+        "characters": [
+          "Treebeard",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [
+          "Fangorn"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Entmoot",
+          "slow deliberation"
+        ],
+        "people": [
+          "Ents"
+        ],
+        "entityIds": [
+          "middle-earth:ents",
+          "middle-earth:fangorn",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:treebeard"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "character:treebeard",
+        "event:entmoot",
+        "people:ents",
+        "region:fangorn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Treebeard",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "locationsAny": [
+            "Fangorn"
+          ],
+          "topicsAny": [
+            "Entmoot",
+            "slow deliberation"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "event:entmoot",
+            "character:treebeard",
+            "character:meriadoc-brandybuck",
+            "character:peregrin-took",
+            "region:fangorn",
+            "people:ents"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Entmoot is slow, formal, and rooted in Entish timescales before deciding on war.",
+        "injection": "Entmoot scenes should resist urgency while Entish judgment gathers weight.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "Treebeard",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_the_ents_attacking_isengard_is_extraordinary",
+      "title": "The Ents Attacking Isengard Is Extraordinary",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ents-see-isengard-destruction",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1340,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Ents Attacking Isengard Is Extraordinary"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Isengard",
+          "Fangorn"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Ent attack",
+          "Isengard fall"
+        ],
+        "people": [
+          "Ents"
+        ],
+        "entityIds": [
+          "middle-earth:ents",
+          "middle-earth:fangorn",
+          "middle-earth:isengard"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "event:isengard-falls",
+        "people:ents",
+        "region:fangorn",
+        "region:isengard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "locationsAny": [
+            "Isengard",
+            "Fangorn"
+          ],
+          "topicsAny": [
+            "Ent attack",
+            "Isengard fall"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "event:isengard-falls",
+            "region:isengard",
+            "region:fangorn",
+            "people:ents"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Ents’ march on Isengard is an exceptional rousing of old forest power.",
+        "injection": "Treat the attack on Isengard as rare, ancient wrath, not a reusable strategic option.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "Treebeard / Flotsam and Jetsam",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_helms_deep_morale_worsens_before_dawn",
+      "title": "Helm’s Deep Morale Worsens Before Dawn",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.helms-deep",
+        "validToAnchor": "lotr.ttt.theoden-final-ride",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 1720,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Helm’s Deep Morale Worsens Before Dawn"
+      },
+      "scope": {
+        "characters": [
+          "Theoden",
+          "Aragorn",
+          "Gimli",
+          "Legolas"
+        ],
+        "locations": [
+          "Helm's Deep"
+        ],
+        "objects": [],
+        "factions": [
+          "Rohan faction",
+          "Isengard faction"
+        ],
+        "topics": [
+          "siege pressure",
+          "desperate defense"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:gimli",
+          "middle-earth:helms-deep",
+          "middle-earth:isengard",
+          "middle-earth:legolas",
+          "middle-earth:rohan",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:aragorn",
+        "character:gimli",
+        "character:legolas",
+        "character:theoden",
+        "event:helms-deep",
+        "faction:isengard",
+        "faction:rohan",
+        "location:helms-deep"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Theoden",
+            "Aragorn",
+            "Gimli",
+            "Legolas"
+          ],
+          "locationsAny": [
+            "Helm's Deep"
+          ],
+          "factionsAny": [
+            "Rohan faction",
+            "Isengard faction"
+          ],
+          "topicsAny": [
+            "siege pressure",
+            "desperate defense"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "event:helms-deep",
+            "character:theoden",
+            "character:aragorn",
+            "character:gimli",
+            "character:legolas",
+            "location:helms-deep",
+            "faction:rohan",
+            "faction:isengard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The defense deteriorates through darkness, numbers, breach, exhaustion, and despair before the dawn turn.",
+        "injection": "Before dawn relief, keep Helm’s Deep desperate; courage exists under worsening odds.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "Helm’s Deep",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_helm-s-deep-is-a-defensive-last-stand",
+      "title": "Helm’s Deep Is A Defensive Last Stand",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.helms-deep",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Helm’s Deep Is A Defensive Last Stand",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents",
+        "phaseId": "lotr.ttt.phase.open-war",
+        "phase": "Rohan And Isengard Open War"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Helms Deep",
+          "Rohan"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:helms-deep",
+          "middle-earth:rohan",
+          "middle-earth:saruman"
+        ]
+      },
+      "tags": [
+        "event:helms-deep",
+        "faction:rohan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Helms Deep",
+            "Rohan"
+          ],
+          "matchTags": [
+            "event:helms-deep",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Helm’s Deep is a defensive crisis for Rohan against Saruman’s forces, not an easy offensive victory.",
+        "injection": "Helm’s Deep is a defensive crisis for Rohan against Saruman’s forces, not an easy offensive victory. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Helm's Deep"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_gandalf_and_erkenbrand_turn_helms_deep",
+      "title": "Gandalf And Erkenbrand Turn Helm’s Deep",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.theoden-final-ride",
+        "validToAnchor": "lotr.ttt.huorns-helms-deep",
+        "sortKeyFrom": 1720,
+        "sortKeyTo": 1730,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gandalf And Erkenbrand Turn Helm’s Deep"
+      },
+      "scope": {
+        "characters": [
+          "Gandalf",
+          "Theoden",
+          "Erkenbrand"
+        ],
+        "locations": [
+          "Helm's Deep"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Helm’s Deep relief",
+          "Gandalf arrival"
+        ],
+        "people": [
+          "Huorns"
+        ],
+        "entityIds": [
+          "middle-earth:erkenbrand",
+          "middle-earth:gandalf",
+          "middle-earth:helms-deep",
+          "middle-earth:huorns",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:erkenbrand",
+        "character:gandalf",
+        "character:theoden",
+        "location:helms-deep",
+        "people:huorns"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gandalf",
+            "Theoden",
+            "Erkenbrand"
+          ],
+          "locationsAny": [
+            "Helm's Deep"
+          ],
+          "topicsAny": [
+            "Helm’s Deep relief",
+            "Gandalf arrival"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:gandalf",
+            "character:theoden",
+            "character:erkenbrand",
+            "location:helms-deep",
+            "people:huorns"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The turn comes through Theoden’s ride, Gandalf’s arrival, Erkenbrand’s force, and Huorns.",
+        "injection": "Do not end Helm’s Deep by defender superiority alone; relief, timing, and landscape intervention matter.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "Helm’s Deep",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v6_huorns_change_helms_deep_aftermath",
+      "title": "Huorns Change Helm’s Deep Aftermath",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.huorns-helms-deep",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1730,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Huorns after Helm’s Deep before Isengard aftermath",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents",
+        "phaseId": "lotr.ttt.phase.open-war",
+        "phase": "Rohan And Isengard Open War"
+      },
+      "scope": {
+        "characters": [
+          "Theoden",
+          "Gandalf"
+        ],
+        "locations": [
+          "Helm’s Deep",
+          "Fangorn"
+        ],
+        "topics": [
+          "Huorns",
+          "Helm’s Deep aftermath",
+          "Rohan victory",
+          "Huorns At Helm’s Deep",
+          "Helms Deep",
+          "Fangorn"
+        ],
+        "factions": [
+          "Rohan",
+          "Isengard"
+        ],
+        "entityIds": [
+          "middle-earth:theoden",
+          "middle-earth:gandalf",
+          "middle-earth:helms-deep",
+          "middle-earth:fangorn",
+          "middle-earth:rohan",
+          "middle-earth:isengard",
+          "middle-earth:huorns",
+          "middle-earth:huorns-helms-deep",
+          "middle-earth:saruman"
+        ]
+      },
+      "tags": [
+        "event:huorns-helms-deep",
+        "people:huorns",
+        "event:helms-deep",
+        "region:fangorn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Theoden",
+            "Gandalf"
+          ],
+          "locationsAny": [
+            "Helm’s Deep",
+            "Fangorn"
+          ],
+          "topicsAny": [
+            "Huorns",
+            "Helm’s Deep aftermath",
+            "Rohan victory",
+            "Huorns At Helm’s Deep",
+            "Helms Deep",
+            "Fangorn"
+          ],
+          "factionsAny": [
+            "Rohan",
+            "Isengard"
+          ],
+          "matchTags": [
+            "event:huorns-helms-deep",
+            "people:huorns",
+            "event:helms-deep",
+            "region:fangorn"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Helm’s Deep, the sudden presence of Huorns changes the battle’s aftermath and helps erase Saruman’s defeated forces.",
+        "injection": "In Helm’s Deep aftermath, include the uncanny forest as an active consequence of Fangorn’s awakening, not merely battlefield scenery.",
+        "constraints": [
+          "The Huorns should feel dangerous and ancient.",
+          "Their role connects the Rohan and Ent/Isengard fronts."
+        ],
+        "antiLore": [
+          "Do not reduce Helm’s Deep’s resolution to only conventional cavalry tactics."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Road to Isengard / Flotsam and Jetsam"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_ents_attack_isengard_after_roused",
+      "title": "Ents Attack Isengard After Being Roused",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.isengard-falls",
+        "validToAnchor": "lotr.ttt.palantir-recovered",
+        "sortKeyFrom": 1800,
+        "sortKeyTo": 1900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After the Ent attack on Isengard",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents",
+        "phaseId": "lotr.ttt.phase.open-war",
+        "phase": "Rohan And Isengard Open War"
+      },
+      "scope": {
+        "characters": [
+          "Treebeard",
+          "Saruman",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [
+          "Isengard",
+          "Fangorn"
+        ],
+        "topics": [
+          "Entmoot",
+          "attack",
+          "flooding Isengard",
+          "Ents",
+          "Isengard",
+          "Isengard Falls"
+        ],
+        "factions": [
+          "Ents",
+          "Isengard"
+        ],
+        "entityIds": [
+          "middle-earth:treebeard",
+          "middle-earth:saruman",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:isengard",
+          "middle-earth:fangorn",
+          "middle-earth:ents",
+          "middle-earth:entmoot",
+          "middle-earth:isengard-falls"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "people:ents",
+        "region:isengard",
+        "event:isengard-falls"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Treebeard",
+            "Saruman",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "locationsAny": [
+            "Isengard",
+            "Fangorn"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Entmoot",
+            "attack",
+            "flooding Isengard",
+            "Ents",
+            "Isengard",
+            "Isengard Falls"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "people:ents",
+            "region:isengard",
+            "event:isengard-falls"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After being roused, the Ents attack Isengard and ruin Saruman's war-making base.",
+        "injection": "After Isengard falls, treat Saruman's military base as broken by the Ents, with Isengard flooded or ruined and Saruman confined to Orthanc.",
+        "constraints": [
+          "This should follow Ent deliberation and discovery of Saruman's destruction."
+        ],
+        "antiLore": [
+          "Do not have Isengard remain fully operational after the Ent attack in canon context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Road to Isengard / Flotsam and Jetsam"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_orthanc-aftermath-introduces-palantir-danger",
+      "title": "Orthanc Aftermath Introduces Palantir Danger",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.isengard-falls",
+        "validToAnchor": "lotr.ttt.palantir-recovered",
+        "sortKeyFrom": 1800,
+        "sortKeyTo": 1900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Orthanc Aftermath Introduces Palantir Danger",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents",
+        "phaseId": "lotr.ttt.phase.open-war",
+        "phase": "Rohan And Isengard Open War"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Palantir",
+          "Orthanc"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:palantir",
+          "middle-earth:orthanc",
+          "middle-earth:isengard",
+          "middle-earth:isengard-falls"
+        ]
+      },
+      "tags": [
+        "artifact:palantir",
+        "location:orthanc"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Palantir",
+            "Orthanc"
+          ],
+          "matchTags": [
+            "artifact:palantir",
+            "location:orthanc"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Isengard falls, the recovered palantir creates new danger rather than functioning as harmless loot.",
+        "injection": "After Isengard falls, the recovered palantir creates new danger rather than functioning as harmless loot. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Road to Isengard / Flotsam and Jetsam"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_the_black_gate_cannot_be_entered_directly",
+      "title": "The Black Gate Cannot Be Entered Directly",
+      "kind": "objective",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.black-gate",
+        "validToAnchor": "lotr.ttt.ithilien",
+        "sortKeyFrom": 2300,
+        "sortKeyTo": 2400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Black Gate Cannot Be Entered Directly"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Black Gate",
+          "Mordor"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Black Gate impossible",
+          "Mordor entry"
+        ],
+        "entityIds": [
+          "middle-earth:black-gate",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum",
+          "middle-earth:mordor",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:gollum",
+        "character:samwise-gamgee",
+        "location:black-gate",
+        "region:mordor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Black Gate",
+            "Mordor"
+          ],
+          "topicsAny": [
+            "Black Gate impossible",
+            "Mordor entry"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:gollum",
+            "location:black-gate",
+            "region:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Black Gate is militarily impossible for stealth entry, forcing a darker hidden route.",
+        "injection": "At the Black Gate, direct entry should be impossible for the Ring-bearers.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Black Gate Is Closed",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_the_forbidden_pool_tests_mercy_and_law",
+      "title": "The Forbidden Pool Tests Mercy And Law",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.forbidden-pool",
+        "validToAnchor": "lotr.ttt.faramir-releases-frodo",
+        "sortKeyFrom": 2510,
+        "sortKeyTo": 2530,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "The Forbidden Pool Tests Mercy And Law"
+      },
+      "scope": {
+        "characters": [
+          "Faramir",
+          "Frodo Baggins",
+          "Gollum"
+        ],
+        "locations": [
+          "Forbidden Pool",
+          "Henneth Annun"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "mercy and law",
+          "Gollum capture"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:forbidden-pool",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum",
+          "middle-earth:henneth-annun"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:faramir",
+        "character:frodo-baggins",
+        "character:gollum",
+        "location:forbidden-pool",
+        "location:henneth-annun",
+        "theme:pity-and-mercy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Faramir",
+            "Frodo Baggins",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Forbidden Pool",
+            "Henneth Annun"
+          ],
+          "topicsAny": [
+            "mercy and law",
+            "Gollum capture"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "theme:pity-and-mercy",
+            "character:faramir",
+            "character:frodo-baggins",
+            "character:gollum",
+            "location:forbidden-pool",
+            "location:henneth-annun"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gollum’s capture at the Forbidden Pool tests Faramir’s law, Frodo’s mercy, and Gollum’s trust.",
+        "injection": "At the Forbidden Pool, make the stakes legal, emotional, and strategic.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Forbidden Pool",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_minas_morguls_host_forces_concealment",
+      "title": "Minas Morgul’s Host Forces Concealment",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.minas-morgul-host",
+        "validToAnchor": "lotr.ttt.cirith-ungol",
+        "sortKeyFrom": 2620,
+        "sortKeyTo": 2700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Minas Morgul’s Host Forces Concealment"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Minas Morgul",
+          "Cirith Ungol"
+        ],
+        "objects": [],
+        "factions": [
+          "Mordor faction"
+        ],
+        "topics": [
+          "enemy army movement",
+          "concealment"
+        ],
+        "entityIds": [
+          "middle-earth:cirith-ungol",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum",
+          "middle-earth:minas-morgul",
+          "middle-earth:mordor",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:gollum",
+        "character:samwise-gamgee",
+        "faction:mordor",
+        "location:cirith-ungol",
+        "location:minas-morgul"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Minas Morgul",
+            "Cirith Ungol"
+          ],
+          "factionsAny": [
+            "Mordor faction"
+          ],
+          "topicsAny": [
+            "enemy army movement",
+            "concealment"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:gollum",
+            "location:minas-morgul",
+            "location:cirith-ungol",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The host leaving Minas Morgul shows war moving while Frodo and Sam must hide and endure terror.",
+        "injection": "Near Minas Morgul, keep the Ring-bearers hidden and unable to intervene in the army’s march.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Stairs of Cirith Ungol",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_shelob_ambushes_frodo",
+      "title": "Shelob Ambushes Frodo Near Cirith Ungol",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.shelob",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 2800,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Shelob and Cirith Ungol climax",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Shelob",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Shelob's Lair",
+          "Cirith Ungol"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "ambush",
+          "betrayal",
+          "spider",
+          "capture",
+          "Shelob",
+          "Shelobs Lair",
+          "Cirith Ungol",
+          "Gollum"
+        ],
+        "entityIds": [
+          "middle-earth:shelob",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:cirith-ungol",
+          "middle-earth:one-ring",
+          "middle-earth:shelobs-lair"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:shelob",
+        "location:shelobs-lair",
+        "location:cirith-ungol",
+        "character:gollum"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Shelob",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Shelob's Lair",
+            "Cirith Ungol"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "ambush",
+            "betrayal",
+            "spider",
+            "capture",
+            "Shelob",
+            "Shelobs Lair",
+            "Cirith Ungol",
+            "Gollum"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:shelob",
+            "location:shelobs-lair",
+            "location:cirith-ungol",
+            "character:gollum"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Shelob ambushes Frodo near Cirith Ungol after Gollum leads the Hobbits into her path.",
+        "injection": "At Shelob's Lair, treat Gollum's guidance as betrayal and Shelob as an ancient predatory threat. Frodo is incapacitated, and Sam becomes the immediate defender.",
+        "constraints": [
+          "This should occur only at the Cirith Ungol/Shelob context unless the story diverges."
+        ],
+        "antiLore": [
+          "Do not reveal this betrayal before the proper route context.",
+          "Do not make Shelob a Mordor soldier or ordinary animal."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Choices of Master Samwise"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gollum",
+          "middle-earth:shelob"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "Frodo and Sam before the lair",
+          "uninformed characters"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_frodo-s-capture-leaves-sam-with-the-ring",
+      "title": "Frodo’s Capture Leaves Sam With The Ring",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.shelob",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 2800,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Frodo’s Capture Leaves Sam With The Ring",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Samwise Gamgee",
+          "One Ring"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:samwise-gamgee",
+          "middle-earth:one-ring",
+          "middle-earth:frodo-baggins"
+        ]
+      },
+      "tags": [
+        "character:samwise-gamgee",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Samwise Gamgee",
+            "One Ring"
+          ],
+          "matchTags": [
+            "character:samwise-gamgee",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "At the end of Two Towers, Frodo is captured and Sam temporarily carries the Ring under desperate circumstances.",
+        "injection": "At the end of Two Towers, Frodo is captured and Sam temporarily carries the Ring under desperate circumstances. Before this anchor, do not assume its consequences have already happened.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Choices of Master Samwise"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

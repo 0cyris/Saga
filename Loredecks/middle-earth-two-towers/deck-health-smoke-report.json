@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "qualityPass": "v8_volume_density_pass",
+  "generatedAt": "2026-06-08",
+  "status": "good",
+  "summary": {
+    "entries": 100,
+    "anchors": 55,
+    "windows": 12,
+    "coordinates": 9,
+    "entities": 65,
+    "entryFiles": 7,
+    "addedInV8": 39,
+    "categoryCounts": {
+      "character": 29,
+      "event": 18,
+      "faction": 10,
+      "item": 1,
+      "knowledge": 9,
+      "location": 15,
+      "relationship": 11,
+      "rule": 5,
+      "secret": 1,
+      "timeline": 1
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,911 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "artifact:one-ring": {
+      "label": "One Ring",
+      "description": "Artifact-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "artifact:palantir": {
+      "label": "Palantir",
+      "description": "Artifact-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "book:two-towers": {
+      "label": "Two Towers",
+      "description": "Source book or book-specific context.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:aragorn": {
+      "label": "Aragorn",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:eomer": {
+      "label": "Eomer",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:eowyn": {
+      "label": "Eowyn",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:faramir": {
+      "label": "Faramir",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:frodo-baggins": {
+      "label": "Frodo Baggins",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gandalf": {
+      "label": "Gandalf",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gimli": {
+      "label": "Gimli",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gollum": {
+      "label": "Gollum",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:grima-wormtongue": {
+      "label": "Grima Wormtongue",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:legolas": {
+      "label": "Legolas",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:meriadoc-brandybuck": {
+      "label": "Meriadoc Brandybuck",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:peregrin-took": {
+      "label": "Peregrin Took",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:samwise-gamgee": {
+      "label": "Samwise Gamgee",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:saruman": {
+      "label": "Saruman",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:sauron": {
+      "label": "Sauron",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shelob": {
+      "label": "Shelob",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:theoden": {
+      "label": "Theoden",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:treebeard": {
+      "label": "Treebeard",
+      "description": "Character-related lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:lotr-books": {
+      "label": "Lotr Books",
+      "description": "Continuity/source-boundary metadata.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:breaking-fellowship": {
+      "label": "Breaking Fellowship",
+      "description": "Major event or story anchor.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:gandalf-returns": {
+      "label": "Gandalf Returns",
+      "description": "Major event or story anchor.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:helms-deep": {
+      "label": "Helms Deep",
+      "description": "Major event or story anchor.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:isengard-falls": {
+      "label": "Isengard Falls",
+      "description": "Major event or story anchor.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:theoden-restored": {
+      "label": "Theoden Restored",
+      "description": "Major event or story anchor.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:fellowship": {
+      "label": "Fellowship",
+      "description": "Faction, group, or political force.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:gondor": {
+      "label": "Gondor",
+      "description": "Faction, group, or political force.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:isengard": {
+      "label": "Isengard",
+      "description": "Faction, group, or political force.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:mordor": {
+      "label": "Mordor",
+      "description": "Faction, group, or political force.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:rohan": {
+      "label": "Rohan",
+      "description": "Faction, group, or political force.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "knowledge:hidden": {
+      "label": "Hidden",
+      "description": "Knowledge-state or secrecy metadata.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:black-gate": {
+      "label": "Black Gate",
+      "description": "Specific location.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:cirith-ungol": {
+      "label": "Cirith Ungol",
+      "description": "Specific location.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:cross-roads": {
+      "label": "Cross Roads",
+      "description": "Specific location.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:dead-marshes": {
+      "label": "Dead Marshes",
+      "description": "Specific location.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:helms-deep": {
+      "label": "Helms Deep",
+      "description": "Specific location.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:henneth-annun": {
+      "label": "Henneth Annun",
+      "description": "Specific location.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:shelobs-lair": {
+      "label": "Shelobs Lair",
+      "description": "Specific location.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:ents": {
+      "label": "Ents",
+      "description": "People, species, or cultural group.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:istari": {
+      "label": "Istari",
+      "description": "People, species, or cultural group.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:fangorn": {
+      "label": "Fangorn",
+      "description": "Broad region or realm.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:isengard": {
+      "label": "Isengard",
+      "description": "Broad region or realm.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:ithilien": {
+      "label": "Ithilien",
+      "description": "Broad region or realm.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:mordor": {
+      "label": "Mordor",
+      "description": "Broad region or realm.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:rohan": {
+      "label": "Rohan",
+      "description": "Broad region or realm.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:eowyn-aragorn": {
+      "label": "Eowyn Aragorn",
+      "description": "Relationship or interpersonal-state lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:frodo-gollum": {
+      "label": "Frodo Gollum",
+      "description": "Relationship or interpersonal-state lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:gimli-legolas": {
+      "label": "Gimli Legolas",
+      "description": "Relationship or interpersonal-state lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:sam-gollum": {
+      "label": "Sam Gollum",
+      "description": "Relationship or interpersonal-state lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:aragorn-lineage": {
+      "label": "Aragorn Lineage",
+      "description": "Hidden, spoiler, or gated-knowledge lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:ringbearer": {
+      "label": "Ringbearer",
+      "description": "Hidden, spoiler, or gated-knowledge lore.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:parallel-threads": {
+      "label": "Parallel Threads",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:entmoot": {
+      "label": "Entmoot",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:orthanc": {
+      "label": "Orthanc",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:gandalf-return": {
+      "label": "Gandalf Return",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:corruption": {
+      "label": "Corruption",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:ancient-memory": {
+      "label": "Ancient Memory",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:gollum-betrayal": {
+      "label": "Gollum Betrayal",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:shelob": {
+      "label": "Shelob",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:sauron-blind-spot": {
+      "label": "Sauron Blind Spot",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:boromir": {
+      "label": "Boromir",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "power:saruman-voice": {
+      "label": "Saruman Voice",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:oath-and-honor": {
+      "label": "Oath And Honor",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:harad": {
+      "label": "Harad",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "artifact:phial-of-galadriel": {
+      "label": "Phial Of Galadriel",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "artifact:sting": {
+      "label": "Sting",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "density:hp-reference-band": {
+      "label": "Hp Reference Band",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:war-of-the-ring": {
+      "label": "War Of The Ring",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:middle-earth": {
+      "label": "Middle Earth",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft": {
+      "label": "Draft",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ugluk": {
+      "label": "Ugluk",
+      "description": "Added during LOTR v6 quality and Context revision pass.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:grishnakh": {
+      "label": "Grishnakh",
+      "description": "Added during LOTR v6 quality and Context revision pass.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:orc-order-conflict": {
+      "label": "Orc Order Conflict",
+      "description": "Added during LOTR v6 quality and Context revision pass.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:forbidden-pool": {
+      "label": "Forbidden Pool",
+      "description": "Added during LOTR v6 quality and Context revision pass.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:minas-morgul-host": {
+      "label": "Minas Morgul Host",
+      "description": "Added during LOTR v6 quality and Context revision pass.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:gollum-near-repentance": {
+      "label": "Gollum Near Repentance",
+      "description": "Added during LOTR v6 quality and Context revision pass.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:huorns-helms-deep": {
+      "label": "Huorns At Helm’s Deep",
+      "description": "Added during LOTR v6 quality and Context revision pass.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:minas-morgul": {
+      "label": "Minas Morgul",
+      "description": "Added during LOTR v6 quality and Context revision pass.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:huorns": {
+      "label": "Huorns",
+      "description": "Added during LOTR v6 quality and Context revision pass.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:reviewed-draft": {
+      "label": "Reviewed Draft",
+      "description": "Added during LOTR v6 quality and Context revision pass.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:orcs": {
+      "label": "Orcs",
+      "color": "#334155",
+      "textColor": "#f8fafc",
+      "description": "Orcs and Uruk-hai in Two Towers scenes.",
+      "aliases": [
+        "Orc",
+        "Uruk-hai",
+        "Uruks"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:hobbits": {
+      "label": "Hobbits",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:edoras": {
+      "label": "Edoras",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:rohirrim": {
+      "label": "Rohirrim",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "culture:rohirrim": {
+      "label": "Rohirrim",
+      "description": "Middle-earth bundled Loredeck culture tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:military-geography": {
+      "label": "Military Geography",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:erkenbrand": {
+      "label": "Erkenbrand",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "power:voice-of-saruman": {
+      "label": "Voice Of Saruman",
+      "description": "Middle-earth bundled Loredeck power tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ancient-war-memory": {
+      "label": "Ancient War Memory",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:pity-and-mercy": {
+      "label": "Pity And Mercy",
+      "description": "Middle-earth bundled Loredeck theme tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:haradrim": {
+      "label": "Haradrim",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:men": {
+      "label": "Men",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:wider-war": {
+      "label": "Wider War",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:osgiliath": {
+      "label": "Osgiliath",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:book-not-film": {
+      "label": "Book Not Film",
+      "description": "Middle-earth bundled Loredeck continuity tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:forbidden-pool": {
+      "label": "Forbidden Pool",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:stairs-of-cirith-ungol": {
+      "label": "Stairs Of Cirith Ungol",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:wilderness-travel": {
+      "label": "Wilderness Travel",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

@@ -1,0 +1,1899 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "middle-earth:frodo-baggins": {
+      "type": "character",
+      "label": "Frodo Baggins",
+      "aliases": [
+        "Frodo",
+        "Ring-bearer"
+      ],
+      "canonicalNames": [
+        "Frodo Baggins",
+        "Frodo",
+        "Ring-bearer"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "artifact:one-ring"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:samwise-gamgee": {
+      "type": "character",
+      "label": "Samwise Gamgee",
+      "aliases": [
+        "Sam",
+        "Sam Gamgee"
+      ],
+      "canonicalNames": [
+        "Samwise Gamgee",
+        "Sam",
+        "Sam Gamgee"
+      ],
+      "tags": [
+        "character:samwise-gamgee"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:meriadoc-brandybuck": {
+      "type": "character",
+      "label": "Meriadoc Brandybuck",
+      "aliases": [
+        "Merry"
+      ],
+      "canonicalNames": [
+        "Meriadoc Brandybuck",
+        "Merry"
+      ],
+      "tags": [
+        "character:meriadoc-brandybuck"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:peregrin-took": {
+      "type": "character",
+      "label": "Peregrin Took",
+      "aliases": [
+        "Pippin"
+      ],
+      "canonicalNames": [
+        "Peregrin Took",
+        "Pippin"
+      ],
+      "tags": [
+        "character:peregrin-took"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:aragorn": {
+      "type": "character",
+      "label": "Aragorn",
+      "aliases": [
+        "Strider",
+        "Heir of Isildur"
+      ],
+      "canonicalNames": [
+        "Aragorn",
+        "Strider",
+        "Heir of Isildur"
+      ],
+      "tags": [
+        "character:aragorn",
+        "secret:aragorn-lineage"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:legolas": {
+      "type": "character",
+      "label": "Legolas",
+      "aliases": [
+        "Legolas Greenleaf"
+      ],
+      "canonicalNames": [
+        "Legolas",
+        "Legolas Greenleaf"
+      ],
+      "tags": [
+        "character:legolas"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:gimli": {
+      "type": "character",
+      "label": "Gimli",
+      "aliases": [
+        "Son of Gloin"
+      ],
+      "canonicalNames": [
+        "Gimli",
+        "Son of Gloin"
+      ],
+      "tags": [
+        "character:gimli"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:gandalf": {
+      "type": "character",
+      "label": "Gandalf",
+      "aliases": [
+        "Gandalf the White",
+        "Mithrandir",
+        "White Rider"
+      ],
+      "canonicalNames": [
+        "Gandalf",
+        "Gandalf the White",
+        "Mithrandir",
+        "White Rider"
+      ],
+      "tags": [
+        "character:gandalf",
+        "people:istari"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:gollum": {
+      "type": "character",
+      "label": "Gollum",
+      "aliases": [
+        "Smeagol"
+      ],
+      "canonicalNames": [
+        "Gollum",
+        "Smeagol"
+      ],
+      "tags": [
+        "character:gollum",
+        "artifact:one-ring"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:saruman": {
+      "type": "character",
+      "label": "Saruman",
+      "aliases": [
+        "Saruman the White"
+      ],
+      "canonicalNames": [
+        "Saruman",
+        "Saruman the White"
+      ],
+      "tags": [
+        "character:saruman",
+        "faction:isengard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:theoden": {
+      "type": "character",
+      "label": "Theoden",
+      "aliases": [
+        "King Theoden"
+      ],
+      "canonicalNames": [
+        "Theoden",
+        "King Theoden"
+      ],
+      "tags": [
+        "character:theoden",
+        "region:rohan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:eomer": {
+      "type": "character",
+      "label": "Eomer",
+      "aliases": [],
+      "canonicalNames": [
+        "Eomer"
+      ],
+      "tags": [
+        "character:eomer",
+        "region:rohan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:eowyn": {
+      "type": "character",
+      "label": "Eowyn",
+      "aliases": [],
+      "canonicalNames": [
+        "Eowyn"
+      ],
+      "tags": [
+        "character:eowyn",
+        "region:rohan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:grima-wormtongue": {
+      "type": "character",
+      "label": "Grima Wormtongue",
+      "aliases": [
+        "Wormtongue"
+      ],
+      "canonicalNames": [
+        "Grima Wormtongue",
+        "Wormtongue"
+      ],
+      "tags": [
+        "character:grima-wormtongue",
+        "faction:isengard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:faramir": {
+      "type": "character",
+      "label": "Faramir",
+      "aliases": [
+        "Captain of Gondor"
+      ],
+      "canonicalNames": [
+        "Faramir",
+        "Captain of Gondor"
+      ],
+      "tags": [
+        "character:faramir",
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:treebeard": {
+      "type": "character",
+      "label": "Treebeard",
+      "aliases": [
+        "Fangorn"
+      ],
+      "canonicalNames": [
+        "Treebeard",
+        "Fangorn"
+      ],
+      "tags": [
+        "character:treebeard",
+        "people:ents"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:shelob": {
+      "type": "character",
+      "label": "Shelob",
+      "aliases": [],
+      "canonicalNames": [
+        "Shelob"
+      ],
+      "tags": [
+        "character:shelob",
+        "location:shelobs-lair"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:sauron": {
+      "type": "character",
+      "label": "Sauron",
+      "aliases": [
+        "Dark Lord",
+        "Enemy"
+      ],
+      "canonicalNames": [
+        "Sauron",
+        "Dark Lord",
+        "Enemy"
+      ],
+      "tags": [
+        "character:sauron",
+        "faction:mordor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:one-ring": {
+      "type": "item",
+      "label": "The One Ring",
+      "aliases": [
+        "Ruling Ring",
+        "Isildur's Bane"
+      ],
+      "canonicalNames": [
+        "The One Ring",
+        "Ruling Ring",
+        "Isildur's Bane"
+      ],
+      "tags": [
+        "artifact:one-ring"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:palantir-orthanc": {
+      "type": "item",
+      "label": "Orthanc Palantir",
+      "aliases": [
+        "Seeing-stone of Orthanc"
+      ],
+      "canonicalNames": [
+        "Orthanc Palantir",
+        "Seeing-stone of Orthanc"
+      ],
+      "tags": [
+        "artifact:palantir"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:rohan": {
+      "type": "location",
+      "label": "Rohan",
+      "aliases": [
+        "Riddermark"
+      ],
+      "canonicalNames": [
+        "Rohan",
+        "Riddermark"
+      ],
+      "tags": [
+        "region:rohan",
+        "faction:rohan"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:isengard": {
+      "type": "location",
+      "label": "Isengard",
+      "aliases": [
+        "Orthanc"
+      ],
+      "canonicalNames": [
+        "Isengard",
+        "Orthanc"
+      ],
+      "tags": [
+        "region:isengard",
+        "faction:isengard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:fangorn": {
+      "type": "location",
+      "label": "Fangorn Forest",
+      "aliases": [
+        "Fangorn"
+      ],
+      "canonicalNames": [
+        "Fangorn Forest",
+        "Fangorn"
+      ],
+      "tags": [
+        "region:fangorn",
+        "people:ents"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:helms-deep": {
+      "type": "location",
+      "label": "Helm's Deep",
+      "aliases": [
+        "Hornburg"
+      ],
+      "canonicalNames": [
+        "Helm's Deep",
+        "Hornburg"
+      ],
+      "tags": [
+        "location:helms-deep",
+        "region:rohan",
+        "event:helms-deep"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:ithilien": {
+      "type": "location",
+      "label": "Ithilien",
+      "aliases": [],
+      "canonicalNames": [
+        "Ithilien"
+      ],
+      "tags": [
+        "region:ithilien",
+        "faction:gondor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:cirith-ungol": {
+      "type": "location",
+      "label": "Cirith Ungol",
+      "aliases": [],
+      "canonicalNames": [
+        "Cirith Ungol"
+      ],
+      "tags": [
+        "location:cirith-ungol",
+        "region:mordor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.9
+      },
+      "extensions": {}
+    },
+    "middle-earth:ugluk": {
+      "type": "character",
+      "label": "Ugluk",
+      "aliases": [
+        "Ugluk"
+      ],
+      "canonicalNames": [
+        "Ugluk"
+      ],
+      "tags": [
+        "character:ugluk",
+        "people:orcs",
+        "faction:isengard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        }
+      }
+    },
+    "middle-earth:grishnakh": {
+      "type": "character",
+      "label": "Grishnakh",
+      "aliases": [
+        "Grishnakh"
+      ],
+      "canonicalNames": [
+        "Grishnakh"
+      ],
+      "tags": [
+        "character:grishnakh",
+        "people:orcs",
+        "faction:mordor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        }
+      }
+    },
+    "middle-earth:minas-morgul": {
+      "type": "location",
+      "label": "Minas Morgul",
+      "aliases": [
+        "Morgul Vale",
+        "Tower of Sorcery"
+      ],
+      "canonicalNames": [
+        "Minas Morgul",
+        "Morgul Vale",
+        "Tower of Sorcery"
+      ],
+      "tags": [
+        "location:minas-morgul",
+        "region:mordor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.88
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        }
+      }
+    },
+    "middle-earth:palantir": {
+      "type": "item",
+      "label": "Palantir",
+      "aliases": [],
+      "canonicalNames": [
+        "Palantir"
+      ],
+      "tags": [
+        "artifact:palantir"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:breaking-fellowship": {
+      "type": "event",
+      "label": "Breaking Fellowship",
+      "aliases": [],
+      "canonicalNames": [
+        "Breaking Fellowship"
+      ],
+      "tags": [
+        "event:breaking-fellowship"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:gandalf-returns": {
+      "type": "event",
+      "label": "Gandalf Returns",
+      "aliases": [],
+      "canonicalNames": [
+        "Gandalf Returns"
+      ],
+      "tags": [
+        "event:gandalf-returns"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:isengard-falls": {
+      "type": "event",
+      "label": "Isengard Falls",
+      "aliases": [],
+      "canonicalNames": [
+        "Isengard Falls"
+      ],
+      "tags": [
+        "event:isengard-falls"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:theoden-restored": {
+      "type": "event",
+      "label": "Theoden Restored",
+      "aliases": [],
+      "canonicalNames": [
+        "Theoden Restored"
+      ],
+      "tags": [
+        "event:theoden-restored"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:fellowship": {
+      "type": "faction",
+      "label": "Fellowship",
+      "aliases": [],
+      "canonicalNames": [
+        "Fellowship"
+      ],
+      "tags": [
+        "faction:fellowship"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:gondor": {
+      "type": "faction",
+      "label": "Gondor",
+      "aliases": [],
+      "canonicalNames": [
+        "Gondor"
+      ],
+      "tags": [
+        "faction:gondor"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:mordor": {
+      "type": "faction",
+      "label": "Mordor",
+      "aliases": [],
+      "canonicalNames": [
+        "Mordor"
+      ],
+      "tags": [
+        "faction:mordor",
+        "region:mordor"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:black-gate": {
+      "type": "location",
+      "label": "Black Gate",
+      "aliases": [],
+      "canonicalNames": [
+        "Black Gate"
+      ],
+      "tags": [
+        "location:black-gate"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:cross-roads": {
+      "type": "location",
+      "label": "Cross Roads",
+      "aliases": [],
+      "canonicalNames": [
+        "Cross Roads"
+      ],
+      "tags": [
+        "location:cross-roads"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:dead-marshes": {
+      "type": "location",
+      "label": "Dead Marshes",
+      "aliases": [],
+      "canonicalNames": [
+        "Dead Marshes"
+      ],
+      "tags": [
+        "location:dead-marshes"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:henneth-annun": {
+      "type": "location",
+      "label": "Henneth Annun",
+      "aliases": [],
+      "canonicalNames": [
+        "Henneth Annun"
+      ],
+      "tags": [
+        "location:henneth-annun"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:shelobs-lair": {
+      "type": "location",
+      "label": "Shelobs Lair",
+      "aliases": [],
+      "canonicalNames": [
+        "Shelobs Lair"
+      ],
+      "tags": [
+        "location:shelobs-lair"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:ents": {
+      "type": "species",
+      "label": "Ents",
+      "aliases": [],
+      "canonicalNames": [
+        "Ents"
+      ],
+      "tags": [
+        "people:ents"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:istari": {
+      "type": "species",
+      "label": "Istari",
+      "aliases": [],
+      "canonicalNames": [
+        "Istari"
+      ],
+      "tags": [
+        "people:istari"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:entmoot": {
+      "type": "event",
+      "label": "Entmoot",
+      "aliases": [],
+      "canonicalNames": [
+        "Entmoot"
+      ],
+      "tags": [
+        "event:entmoot"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:orthanc": {
+      "type": "location",
+      "label": "Orthanc",
+      "aliases": [],
+      "canonicalNames": [
+        "Orthanc"
+      ],
+      "tags": [
+        "location:orthanc"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:boromir": {
+      "type": "character",
+      "label": "Boromir",
+      "aliases": [],
+      "canonicalNames": [
+        "Boromir"
+      ],
+      "tags": [
+        "character:boromir"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:harad": {
+      "type": "faction",
+      "label": "Harad",
+      "aliases": [],
+      "canonicalNames": [
+        "Harad"
+      ],
+      "tags": [
+        "faction:harad"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:phial-of-galadriel": {
+      "type": "item",
+      "label": "Phial Of Galadriel",
+      "aliases": [],
+      "canonicalNames": [
+        "Phial Of Galadriel"
+      ],
+      "tags": [
+        "artifact:phial-of-galadriel"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:sting": {
+      "type": "item",
+      "label": "Sting",
+      "aliases": [],
+      "canonicalNames": [
+        "Sting"
+      ],
+      "tags": [
+        "artifact:sting"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:orc-order-conflict": {
+      "type": "event",
+      "label": "Orc Order Conflict",
+      "aliases": [],
+      "canonicalNames": [
+        "Orc Order Conflict"
+      ],
+      "tags": [
+        "event:orc-order-conflict"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:forbidden-pool": {
+      "type": "event",
+      "label": "Forbidden Pool",
+      "aliases": [],
+      "canonicalNames": [
+        "Forbidden Pool"
+      ],
+      "tags": [
+        "event:forbidden-pool",
+        "location:forbidden-pool"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:minas-morgul-host": {
+      "type": "event",
+      "label": "Minas Morgul Host",
+      "aliases": [],
+      "canonicalNames": [
+        "Minas Morgul Host"
+      ],
+      "tags": [
+        "event:minas-morgul-host"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:gollum-near-repentance": {
+      "type": "event",
+      "label": "Gollum Near Repentance",
+      "aliases": [],
+      "canonicalNames": [
+        "Gollum Near Repentance"
+      ],
+      "tags": [
+        "event:gollum-near-repentance"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:huorns-helms-deep": {
+      "type": "event",
+      "label": "Huorns At Helm’s Deep",
+      "aliases": [],
+      "canonicalNames": [
+        "Huorns At Helm’s Deep"
+      ],
+      "tags": [
+        "event:huorns-helms-deep"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:huorns": {
+      "type": "species",
+      "label": "Huorns",
+      "aliases": [],
+      "canonicalNames": [
+        "Huorns"
+      ],
+      "tags": [
+        "people:huorns"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:orcs": {
+      "type": "species",
+      "label": "Orcs",
+      "aliases": [
+        "Orc",
+        "Uruk-hai",
+        "Uruks"
+      ],
+      "canonicalNames": [
+        "Orcs"
+      ],
+      "tags": [
+        "people:orcs"
+      ],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.75,
+        "notes": "Generated from stable tag registry during v7 entity-enrichment pass; review before reference release."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review"
+        }
+      }
+    },
+    "middle-earth:hobbits": {
+      "type": "species",
+      "label": "Hobbits",
+      "aliases": [],
+      "canonicalNames": [
+        "Hobbits"
+      ],
+      "tags": [
+        "people:hobbits"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:edoras": {
+      "type": "location",
+      "label": "Edoras",
+      "aliases": [],
+      "canonicalNames": [
+        "Edoras"
+      ],
+      "tags": [
+        "location:edoras"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:rohirrim": {
+      "type": "species",
+      "label": "Rohirrim",
+      "aliases": [],
+      "canonicalNames": [
+        "Rohirrim"
+      ],
+      "tags": [
+        "people:rohirrim"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:erkenbrand": {
+      "type": "character",
+      "label": "Erkenbrand",
+      "aliases": [],
+      "canonicalNames": [
+        "Erkenbrand"
+      ],
+      "tags": [
+        "character:erkenbrand"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:haradrim": {
+      "type": "species",
+      "label": "Haradrim",
+      "aliases": [],
+      "canonicalNames": [
+        "Haradrim"
+      ],
+      "tags": [
+        "people:haradrim"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:men": {
+      "type": "species",
+      "label": "Men",
+      "aliases": [],
+      "canonicalNames": [
+        "Men"
+      ],
+      "tags": [
+        "people:men"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:osgiliath": {
+      "type": "location",
+      "label": "Osgiliath",
+      "aliases": [],
+      "canonicalNames": [
+        "Osgiliath"
+      ],
+      "tags": [
+        "location:osgiliath"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    },
+    "middle-earth:stairs-of-cirith-ungol": {
+      "type": "location",
+      "label": "Stairs of Cirith Ungol",
+      "aliases": [],
+      "canonicalNames": [
+        "Stairs of Cirith Ungol"
+      ],
+      "tags": [
+        "location:stairs-of-cirith-ungol"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "confidence": 0.8
+      },
+      "extensions": {}
+    }
+  }
+}

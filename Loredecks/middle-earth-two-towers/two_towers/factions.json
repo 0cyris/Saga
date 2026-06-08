@@ -1,0 +1,1397 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_isengard_industrial_war_machine",
+      "title": "Isengard Builds An Industrial War Machine",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.fellowship-split",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Isengard before Ent attack"
+      },
+      "scope": {
+        "characters": [
+          "Saruman"
+        ],
+        "locations": [
+          "Isengard"
+        ],
+        "topics": [
+          "industry",
+          "orc breeding",
+          "war machine",
+          "deforestation",
+          "Isengard",
+          "Saruman"
+        ],
+        "factions": [
+          "Isengard",
+          "Rohan"
+        ],
+        "entityIds": [
+          "middle-earth:saruman",
+          "middle-earth:isengard",
+          "middle-earth:rohan"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "region:isengard",
+        "character:saruman",
+        "faction:isengard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Saruman"
+          ],
+          "locationsAny": [
+            "Isengard"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "industry",
+            "orc breeding",
+            "war machine",
+            "deforestation",
+            "Isengard",
+            "Saruman"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "region:isengard",
+            "character:saruman",
+            "faction:isengard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Under Saruman, Isengard becomes an industrialized war power that cuts, burns, breeds, arms, and sends forces against Rohan.",
+        "injection": "Before Isengard falls, portray Saruman's power through machinery, pits, Orcs, deforestation, and organized military production.",
+        "constraints": [
+          "This industrial violence is part of why the Ents are roused."
+        ],
+        "antiLore": [
+          "Do not portray Isengard as merely a wizard's tower with no military-industrial reach."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Departure of Boromir"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_isengard_and_mordor_orcs_have_conflicting_orders",
+      "title": "Isengard And Mordor Orcs Have Conflicting Orders",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.orc-captivity",
+        "validToAnchor": "lotr.ttt.orc-pyre",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 1220,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Isengard And Mordor Orcs Have Conflicting Orders"
+      },
+      "scope": {
+        "characters": [
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Isengard faction",
+          "Mordor faction"
+        ],
+        "topics": [
+          "orc faction conflict",
+          "prisoner orders"
+        ],
+        "people": [
+          "Orcs"
+        ],
+        "entityIds": [
+          "middle-earth:isengard",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:mordor",
+          "middle-earth:orcs",
+          "middle-earth:peregrin-took"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "faction:isengard",
+        "faction:mordor",
+        "people:orcs"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "factionsAny": [
+            "Isengard faction",
+            "Mordor faction"
+          ],
+          "topicsAny": [
+            "orc faction conflict",
+            "prisoner orders"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:meriadoc-brandybuck",
+            "character:peregrin-took",
+            "faction:isengard",
+            "faction:mordor",
+            "people:orcs"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Orc-band carrying Merry and Pippin is divided between Isengard and Mordor interests.",
+        "injection": "Orc captivity scenes should include factional tension; evil allies are not smoothly cooperative.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Uruk-hai",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_rohan_under_saruman_pressure",
+      "title": "Rohan Is Under Saruman’s Pressure",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.rohan-edoras",
+        "validToAnchor": "lotr.ttt.helms-deep",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Rohan before Helm's Deep",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents",
+        "phaseId": "lotr.ttt.phase.open-war",
+        "phase": "Rohan And Isengard Open War"
+      },
+      "scope": {
+        "characters": [
+          "Theoden",
+          "Grima Wormtongue",
+          "Saruman"
+        ],
+        "locations": [
+          "Rohan",
+          "Edoras",
+          "Helm's Deep"
+        ],
+        "topics": [
+          "war pressure",
+          "political weakness",
+          "Isengard",
+          "Rohan",
+          "Saruman"
+        ],
+        "factions": [
+          "Rohan",
+          "Isengard"
+        ],
+        "entityIds": [
+          "middle-earth:theoden",
+          "middle-earth:grima-wormtongue",
+          "middle-earth:saruman",
+          "middle-earth:rohan",
+          "middle-earth:helms-deep",
+          "middle-earth:isengard"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "region:rohan",
+        "faction:isengard",
+        "character:saruman"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Theoden",
+            "Grima Wormtongue",
+            "Saruman"
+          ],
+          "locationsAny": [
+            "Rohan",
+            "Edoras",
+            "Helm's Deep"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "war pressure",
+            "political weakness",
+            "Isengard",
+            "Rohan",
+            "Saruman"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "region:rohan",
+            "faction:isengard",
+            "character:saruman"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Rohan is pressured by Saruman through raiding, military buildup, Grima's counsel, and Theoden's weakened rule.",
+        "injection": "Before and during the Helm's Deep arc, treat Rohan as a kingdom under severe internal and external pressure from Saruman.",
+        "constraints": [
+          "Rohan has courage and martial strength but begins politically weakened."
+        ],
+        "antiLore": [
+          "Do not portray Rohan as fully stable, prepared, and unified from the beginning of The Two Towers."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The King of the Golden Hall"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_rohirrim_are_not_generic_medieval_knights",
+      "title": "Rohirrim Are Horse-Lords Not Generic Knights",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "low",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.rohan-edoras",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Rohan cultural behavior in The Two Towers"
+      },
+      "scope": {
+        "characters": [
+          "Theoden",
+          "Eomer",
+          "Eowyn"
+        ],
+        "locations": [
+          "Rohan"
+        ],
+        "topics": [
+          "horse-lords",
+          "honor",
+          "oaths",
+          "mead-hall",
+          "Rohan"
+        ],
+        "factions": [
+          "Rohan"
+        ],
+        "entityIds": [
+          "middle-earth:theoden",
+          "middle-earth:eomer",
+          "middle-earth:eowyn",
+          "middle-earth:rohan"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "region:rohan",
+        "faction:rohan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Theoden",
+            "Eomer",
+            "Eowyn"
+          ],
+          "locationsAny": [
+            "Rohan"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "horse-lords",
+            "honor",
+            "oaths",
+            "mead-hall",
+            "Rohan"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "region:rohan",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Rohirrim are horse-lords of the Riddermark with a culture of oath, hall, lineage, riding, plain speech, and martial loyalty.",
+        "injection": "When writing Rohan scenes, use horse-lord culture, hall politics, oath-bound loyalty, and martial plainness rather than generic castle-knight fantasy.",
+        "constraints": [
+          "This is cultural guidance, not a full ethnography."
+        ],
+        "antiLore": [
+          "Do not make Rohan indistinguishable from Gondor or generic medieval court fantasy."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The King of the Golden Hall"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_rohirrim_culture_centers_horses_oath_and_hall",
+      "title": "Rohirrim Culture Centers Horses Oath And Hall",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.rohan-edoras",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Rohirrim Culture Centers Horses Oath And Hall"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Edoras",
+          "Helm's Deep"
+        ],
+        "objects": [],
+        "factions": [
+          "Rohan faction"
+        ],
+        "topics": [
+          "horses",
+          "oaths",
+          "hall honor"
+        ],
+        "people": [
+          "Rohirrim"
+        ],
+        "entityIds": [
+          "middle-earth:edoras",
+          "middle-earth:helms-deep",
+          "middle-earth:rohan",
+          "middle-earth:rohirrim"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "culture:rohirrim",
+        "faction:rohan",
+        "location:edoras",
+        "location:helms-deep",
+        "people:rohirrim"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Edoras",
+            "Helm's Deep"
+          ],
+          "factionsAny": [
+            "Rohan faction"
+          ],
+          "topicsAny": [
+            "horses",
+            "oaths",
+            "hall honor"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "culture:rohirrim",
+            "location:edoras",
+            "location:helms-deep",
+            "faction:rohan",
+            "people:rohirrim"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Rohirrim culture emphasizes horses, halls, oaths, personal courage, lineage, and public honor.",
+        "injection": "Rohan dialogue and choices should carry hall-culture, mounted warfare, oath, shame, and visible courage.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The King of the Golden Hall / Helm’s Deep",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_theodreds_death_weakens_rohan_before_gandalf_arrives",
+      "title": "Theodred’s Death Weakens Rohan Before Gandalf Arrives",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.rohan-edoras",
+        "validToAnchor": "lotr.ttt.theoden-restored",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Theodred’s Death Weakens Rohan Before Gandalf Arrives"
+      },
+      "scope": {
+        "characters": [
+          "Theoden",
+          "Eomer",
+          "Eowyn",
+          "Grima Wormtongue"
+        ],
+        "locations": [
+          "Edoras"
+        ],
+        "objects": [],
+        "factions": [
+          "Rohan faction"
+        ],
+        "topics": [
+          "Theodred death",
+          "Rohan vulnerability"
+        ],
+        "entityIds": [
+          "middle-earth:edoras",
+          "middle-earth:eomer",
+          "middle-earth:eowyn",
+          "middle-earth:grima-wormtongue",
+          "middle-earth:rohan",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:eomer",
+        "character:eowyn",
+        "character:grima-wormtongue",
+        "character:theoden",
+        "faction:rohan",
+        "location:edoras"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Theoden",
+            "Eomer",
+            "Eowyn",
+            "Grima Wormtongue"
+          ],
+          "locationsAny": [
+            "Edoras"
+          ],
+          "factionsAny": [
+            "Rohan faction"
+          ],
+          "topicsAny": [
+            "Theodred death",
+            "Rohan vulnerability"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:theoden",
+            "character:eomer",
+            "character:eowyn",
+            "character:grima-wormtongue",
+            "location:edoras",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Theodred’s death leaves Rohan militarily and dynastically weakened while Grima keeps Theoden passive.",
+        "injection": "Before Theoden’s restoration, Rohan should feel leaderless, grieving, and exposed.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The King of the Golden Hall",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_saruman-s-voice-is-a-weapon",
+      "title": "Saruman’s Voice Is A Weapon",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.isengard-falls",
+        "validToAnchor": "lotr.ttt.palantir-recovered",
+        "sortKeyFrom": 1800,
+        "sortKeyTo": 1900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Saruman’s Voice Is A Weapon",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents",
+        "phaseId": "lotr.ttt.phase.open-war",
+        "phase": "Rohan And Isengard Open War"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Saruman",
+          "Saruman Voice"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:saruman"
+        ]
+      },
+      "tags": [
+        "character:saruman",
+        "power:saruman-voice"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Saruman",
+            "Saruman Voice"
+          ],
+          "matchTags": [
+            "character:saruman",
+            "power:saruman-voice"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Saruman’s voice remains a serious persuasive danger even after his military defeat.",
+        "injection": "Apply this political or military state: Saruman’s voice remains a serious persuasive danger even after his military defeat. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Road to Isengard / Flotsam and Jetsam"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_mordor_pressure_extends_to_gondor",
+      "title": "Mordor’s War Pressure Extends To Gondor",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 78,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ithilien",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gondor border war pressure",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Faramir"
+        ],
+        "locations": [
+          "Ithilien",
+          "Gondor",
+          "Mordor"
+        ],
+        "topics": [
+          "border war",
+          "Rangers",
+          "Mordor pressure",
+          "Gondor",
+          "Mordor",
+          "Ithilien"
+        ],
+        "factions": [
+          "Gondor",
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:ithilien",
+          "middle-earth:gondor",
+          "middle-earth:mordor",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "faction:gondor",
+        "faction:mordor",
+        "region:ithilien"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Faramir"
+          ],
+          "locationsAny": [
+            "Ithilien",
+            "Gondor",
+            "Mordor"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "border war",
+            "Rangers",
+            "Mordor pressure",
+            "Gondor",
+            "Mordor",
+            "Ithilien"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "faction:gondor",
+            "faction:mordor",
+            "region:ithilien"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gondor is already under pressure from Mordor during the Ithilien arc, with Rangers operating in contested territory near the Enemy.",
+        "injection": "In Ithilien/Gondor-adjacent scenes, maintain the sense that Gondor is strained by a long defensive war against Mordor.",
+        "constraints": [
+          "The pressure is military and strategic even before the Siege of Gondor deck."
+        ],
+        "antiLore": [
+          "Do not portray Gondor as untouched by Mordor until Return of the King."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Forbidden Pool"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_haradrim-are-enemy-soldiers-seen-through-gondor-s-war",
+      "title": "Haradrim Are Enemy Soldiers Seen Through Gondor’s War",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ithilien",
+        "validToAnchor": "lotr.ttt.henneth-annun",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Haradrim Are Enemy Soldiers Seen Through Gondor’s War",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Harad",
+          "Mordor"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:harad",
+          "middle-earth:mordor",
+          "middle-earth:sauron",
+          "middle-earth:gondor"
+        ]
+      },
+      "tags": [
+        "faction:harad",
+        "faction:mordor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Harad",
+            "Mordor"
+          ],
+          "matchTags": [
+            "faction:harad",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Haradrim appear as allied troops of Mordor, but individual mortality and pity can still register.",
+        "injection": "Apply this political or military state: Haradrim appear as allied troops of Mordor, but individual mortality and pity can still register. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Forbidden Pool"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_haradrim_reveal_the_wider_war_without_caricature",
+      "title": "Haradrim Reveal The Wider War Without Caricature",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.oliphaunt-haradrim",
+        "validToAnchor": "lotr.ttt.henneth-annun",
+        "sortKeyFrom": 2410,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Haradrim Reveal The Wider War Without Caricature"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "Ithilien"
+        ],
+        "objects": [],
+        "factions": [
+          "Mordor faction"
+        ],
+        "topics": [
+          "wider war",
+          "Southrons"
+        ],
+        "people": [
+          "Haradrim",
+          "Men"
+        ],
+        "entityIds": [
+          "middle-earth:haradrim",
+          "middle-earth:ithilien",
+          "middle-earth:men",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "faction:mordor",
+        "people:haradrim",
+        "people:men",
+        "region:ithilien",
+        "topic:wider-war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "Ithilien"
+          ],
+          "factionsAny": [
+            "Mordor faction"
+          ],
+          "topicsAny": [
+            "wider war",
+            "Southrons"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "topic:wider-war",
+            "region:ithilien",
+            "faction:mordor",
+            "people:haradrim",
+            "people:men"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Southrons in Ithilien show Sauron’s war drawing in distant peoples and armies beyond Orcs.",
+        "injection": "Use Haradrim presence to widen the war’s scale without reducing them to exotic spectacle.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "Of Herbs and Stewed Rabbit",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

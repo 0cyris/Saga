@@ -1,0 +1,1546 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_gandalf_return_must_not_leak_before_fangorn",
+      "title": "Gandalf’s Return Must Not Leak Before Fangorn",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.fellowship-split",
+        "validToAnchor": "lotr.ttt.gandalf-white",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Before Gandalf is revealed in Fangorn"
+      },
+      "scope": {
+        "characters": [
+          "Gandalf",
+          "Aragorn",
+          "Legolas",
+          "Gimli"
+        ],
+        "locations": [
+          "Fangorn"
+        ],
+        "topics": [
+          "Gandalf return",
+          "spoiler guard",
+          "White Rider",
+          "Gandalf",
+          "Gandalf Returns",
+          "Hidden"
+        ],
+        "entityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:fangorn",
+          "middle-earth:gandalf-returns"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:gandalf",
+        "event:gandalf-returns",
+        "knowledge:hidden"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gandalf",
+            "Aragorn",
+            "Legolas",
+            "Gimli"
+          ],
+          "locationsAny": [
+            "Fangorn"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Gandalf return",
+            "spoiler guard",
+            "White Rider",
+            "Gandalf",
+            "Gandalf Returns",
+            "Hidden"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:gandalf",
+            "event:gandalf-returns",
+            "knowledge:hidden"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before the Fangorn reveal, Aragorn, Legolas, Gimli, and the reader-facing scene should not know that Gandalf has returned as the White.",
+        "injection": "Before the Fangorn reveal, preserve the belief that Gandalf fell in Moria. Do not leak Gandalf the White into dialogue, narration, or character knowledge unless the story has introduced him.",
+        "constraints": [
+          "This is a temporal spoiler guard."
+        ],
+        "antiLore": [
+          "Do not mention Gandalf the White in pre-Fangorn scenes as if known."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Departure of Boromir"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:gandalf",
+          "middle-earth:legolas",
+          "middle-earth:gimli"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_parallel_roads_do_not_share_knowledge_automatically",
+      "title": "Parallel Roads Do Not Share Knowledge Automatically",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.fellowship-split",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Parallel Roads Do Not Share Knowledge Automatically"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Aragorn",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Fellowship"
+        ],
+        "topics": [
+          "parallel routes",
+          "knowledge separation"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:fellowship",
+          "middle-earth:frodo-baggins",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:aragorn",
+        "character:frodo-baggins",
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "character:samwise-gamgee",
+        "faction:fellowship",
+        "knowledge:hidden"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Aragorn",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "factionsAny": [
+            "Fellowship"
+          ],
+          "topicsAny": [
+            "parallel routes",
+            "knowledge separation"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "knowledge:hidden",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:aragorn",
+            "character:meriadoc-brandybuck",
+            "character:peregrin-took",
+            "faction:fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Rohan/Isengard route and Ring-bearer route develop in parallel with limited knowledge of one another.",
+        "injection": "Do not let separated groups know each other’s current events without a canon meeting or messenger.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Two Towers parallel structure",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.parallel-roads",
+          "label": "Parallel Roads",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_sauron_does_not_know_frodo_path",
+      "title": "Sauron Does Not Know Frodo’s Full Path",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.fellowship-split",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sauron lacks the full Ring-bearer path"
+      },
+      "scope": {
+        "characters": [
+          "Sauron",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "locations": [
+          "Mordor",
+          "Ithilien",
+          "Cirith Ungol"
+        ],
+        "topics": [
+          "hidden path",
+          "Sauron knowledge",
+          "Ring secrecy",
+          "Sauron",
+          "One Ring",
+          "Ringbearer",
+          "Hidden"
+        ],
+        "factions": [
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:sauron",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:mordor",
+          "middle-earth:ithilien",
+          "middle-earth:cirith-ungol",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:sauron",
+        "artifact:one-ring",
+        "secret:ringbearer",
+        "knowledge:hidden"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Sauron",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Mordor",
+            "Ithilien",
+            "Cirith Ungol"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "hidden path",
+            "Sauron knowledge",
+            "Ring secrecy",
+            "Sauron",
+            "One Ring",
+            "Ringbearer",
+            "Hidden"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:sauron",
+            "artifact:one-ring",
+            "secret:ringbearer",
+            "knowledge:hidden"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sauron does not know Frodo's full path or that the Ring-bearer is moving toward Mordor in the way Frodo actually travels.",
+        "injection": "During The Two Towers, preserve Sauron's incomplete knowledge. Mordor is dangerous and watchful, but Sauron should not automatically know Frodo's exact route or intent.",
+        "constraints": [
+          "Sauron can infer, pressure, and search without omniscience."
+        ],
+        "antiLore": [
+          "Do not make Sauron personally aware of every Frodo/Sam/Gollum scene by default."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Departure of Boromir"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_pippin-s-palantir-crisis-is-after-isengard",
+      "title": "Pippin’s Palantir Crisis Is After Isengard",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.fellowship-split",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Pippin’s Palantir Crisis Is After Isengard"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Peregrin Took",
+          "Palantir"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:peregrin-took",
+          "middle-earth:palantir",
+          "middle-earth:isengard",
+          "middle-earth:orthanc"
+        ]
+      },
+      "tags": [
+        "character:peregrin-took",
+        "artifact:palantir"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Peregrin Took",
+            "Palantir"
+          ],
+          "matchTags": [
+            "character:peregrin-took",
+            "artifact:palantir"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Pippin’s dangerous look into the palantir occurs only after the Orthanc stone is recovered.",
+        "injection": "Pippin’s dangerous look into the palantir occurs only after the Orthanc stone is recovered. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Departure of Boromir"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:peregrin-took",
+          "middle-earth:sauron",
+          "middle-earth:aragorn"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_sauron-does-not-yet-hold-frodo",
+      "title": "Sauron Does Not Yet Hold Frodo",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.fellowship-split",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sauron Does Not Yet Hold Frodo"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Sauron",
+          "Sauron Blind Spot"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:sauron",
+          "middle-earth:frodo-baggins",
+          "middle-earth:cirith-ungol"
+        ]
+      },
+      "tags": [
+        "character:sauron",
+        "secret:sauron-blind-spot"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Sauron",
+            "Sauron Blind Spot"
+          ],
+          "matchTags": [
+            "character:sauron",
+            "secret:sauron-blind-spot"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Frodo’s capture at Cirith Ungol, Sauron does not have Frodo or the Ring in custody.",
+        "injection": "Before Frodo’s capture at Cirith Ungol, Sauron does not have Frodo or the Ring in custody. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Departure of Boromir"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:sauron",
+          "middle-earth:frodo-baggins"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_gandalf_withholds_some_knowledge_for_strategic_need",
+      "title": "Gandalf Withholds Some Knowledge For Strategic Need",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gandalf-white",
+        "validToAnchor": "lotr.ttt.pippin-looks-palantir",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 1910,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gandalf Withholds Some Knowledge For Strategic Need"
+      },
+      "scope": {
+        "characters": [
+          "Gandalf",
+          "Aragorn",
+          "Theoden",
+          "Peregrin Took"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "strategic knowledge",
+          "selective counsel"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:gandalf",
+          "middle-earth:peregrin-took",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:aragorn",
+        "character:gandalf",
+        "character:peregrin-took",
+        "character:theoden",
+        "knowledge:hidden"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Gandalf",
+            "Aragorn",
+            "Theoden",
+            "Peregrin Took"
+          ],
+          "topicsAny": [
+            "strategic knowledge",
+            "selective counsel"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "knowledge:hidden",
+            "character:gandalf",
+            "character:aragorn",
+            "character:theoden",
+            "character:peregrin-took"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gandalf often gives urgent guidance without explaining every danger because timing and secrecy matter.",
+        "injection": "Gandalf can be candid and still selective; do not make him deliver complete exposition whenever he knows more.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The White Rider / The Palantir",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_book_no_osgiliath_detour_default",
+      "title": "Book Continuity Has No Forced Osgiliath Detour",
+      "kind": "knowledge_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ithilien",
+        "validToAnchor": "lotr.ttt.crossroads",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Book-continuity Faramir route",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Faramir",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Ithilien",
+          "Henneth Annun"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "book continuity",
+          "Osgiliath",
+          "adaptation difference",
+          "Faramir",
+          "One Ring"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:ithilien",
+          "middle-earth:henneth-annun",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "continuity:lotr-books",
+        "character:faramir",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Faramir",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Ithilien",
+            "Henneth Annun"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "book continuity",
+            "Osgiliath",
+            "adaptation difference",
+            "Faramir",
+            "One Ring"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "continuity:lotr-books",
+            "character:faramir",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In the novel continuity, Faramir does not force Frodo and Sam to take the Ring to Osgiliath as a default plot beat.",
+        "injection": "For book continuity, do not force Frodo and Sam to Osgiliath after Henneth Annun. Faramir’s choice is to release them toward the Cross-roads and Cirith Ungol route.",
+        "constraints": [
+          "This card is an adaptation guard against film-route bleed.",
+          "Use only with the book-continuity deck unless the user selects a film overlay."
+        ],
+        "antiLore": [
+          "Do not add the film-only forced Osgiliath detour by default."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Forbidden Pool"
+      },
+      "extensions": {
+        "sagaReview": {
+          "curatedIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_frodo_conceals_the_ring_from_faramir_at_first",
+      "title": "Frodo Conceals The Ring From Faramir At First",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ithilien",
+        "validToAnchor": "lotr.ttt.faramir-learns-ring",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2520,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Frodo Conceals The Ring From Faramir At First"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Faramir"
+        ],
+        "locations": [],
+        "objects": [
+          "The One Ring"
+        ],
+        "factions": [],
+        "topics": [
+          "Ring secrecy",
+          "Faramir learns gradually"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:frodo-baggins",
+          "middle-earth:one-ring",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "artifact:one-ring",
+        "book:two-towers",
+        "character:faramir",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "secret:ringbearer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Faramir"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Ring secrecy",
+            "Faramir learns gradually"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "secret:ringbearer",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:faramir",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Frodo and Sam do not immediately reveal the Ring’s full nature to Faramir.",
+        "injection": "Before Faramir learns the truth, keep Frodo guarded and Sam protective.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Window on the West",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_faramir-does-not-know-boromir-s-full-fall-at-first",
+      "title": "Faramir Does Not Know Boromir’s Full Fall At First",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ithilien",
+        "validToAnchor": "lotr.ttt.henneth-annun",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Faramir Does Not Know Boromir’s Full Fall At First",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Faramir",
+          "Boromir"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:boromir"
+        ]
+      },
+      "tags": [
+        "character:faramir",
+        "character:boromir"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Faramir",
+            "Boromir"
+          ],
+          "matchTags": [
+            "character:faramir",
+            "character:boromir"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Faramir initially lacks the full truth of Boromir’s death and Ring temptation.",
+        "injection": "Faramir initially lacks the full truth of Boromir’s death and Ring temptation. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Forbidden Pool"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:faramir",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_faramir_refuses_the_film_continuity_osgiliath_detour",
+      "title": "Faramir Refuses The Film-continuity Osgiliath Detour",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.henneth-annun",
+        "validToAnchor": "lotr.ttt.faramir-releases-frodo",
+        "sortKeyFrom": 2500,
+        "sortKeyTo": 2530,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Faramir Refuses The Film-continuity Osgiliath Detour"
+      },
+      "scope": {
+        "characters": [
+          "Faramir",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Henneth Annun",
+          "Osgiliath"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "factions": [],
+        "topics": [
+          "book Faramir",
+          "no Osgiliath detour"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:frodo-baggins",
+          "middle-earth:henneth-annun",
+          "middle-earth:one-ring",
+          "middle-earth:osgiliath",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "artifact:one-ring",
+        "book:two-towers",
+        "character:faramir",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "continuity:book-not-film",
+        "location:henneth-annun",
+        "location:osgiliath"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Faramir",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Henneth Annun",
+            "Osgiliath"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "book Faramir",
+            "no Osgiliath detour"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "continuity:book-not-film",
+            "character:faramir",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "location:henneth-annun",
+            "location:osgiliath",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In book continuity, Faramir does not drag Frodo, Sam, and the Ring to Osgiliath.",
+        "injection": "Keep Faramir’s book behavior clear: disciplined interrogation, moral test, and release.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Window on the West / The Forbidden Pool",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_shelob-remains-hidden-until-her-lair",
+      "title": "Shelob Remains Hidden Until Her Lair",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.cirith-ungol",
+        "validToAnchor": "lotr.ttt.shelob",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 2800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Shelob Remains Hidden Until Her Lair",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Shelob",
+          "Cirith Ungol"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:shelob",
+          "middle-earth:cirith-ungol",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum"
+        ]
+      },
+      "tags": [
+        "secret:shelob",
+        "location:cirith-ungol"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "topicsAny": [
+            "Shelob",
+            "Cirith Ungol"
+          ],
+          "matchTags": [
+            "secret:shelob",
+            "location:cirith-ungol"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Shelob’s presence and Gollum’s intent should not be revealed to Frodo and Sam before the lair.",
+        "injection": "Shelob’s presence and Gollum’s intent should not be revealed to Frodo and Sam before the lair. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Shelob's Lair"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gollum",
+          "middle-earth:shelob"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "Frodo and Sam before the lair",
+          "uninformed characters"
+        ]
+      }
+    }
+  ]
+}

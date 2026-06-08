@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to a Middle-earth: The Fellowship of the Ring Context.",
+  "preferredFields": [
+    "book",
+    "chapter",
+    "arc",
+    "majorEvent",
+    "beforeAfter",
+    "location"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer named Fellowship of the Ring anchors, arcs, and before/after events over invented exact dates.",
+  "localPatterns": [
+    {
+      "pattern": "before the council of elrond",
+      "result": {
+        "anchorTo": "lotr.fotr.council-of-elrond",
+        "label": "Before the Council of Elrond"
+      }
+    },
+    {
+      "pattern": "after moria",
+      "result": {
+        "anchorFrom": "lotr.fotr.gandalf-falls",
+        "label": "After Moria"
+      }
+    },
+    {
+      "pattern": "in bree",
+      "result": {
+        "anchorId": "lotr.fotr.bree",
+        "label": "Bree and the Prancing Pony"
+      }
+    },
+    {
+      "pattern": "after the fellowship forms",
+      "result": {
+        "anchorFrom": "lotr.fotr.fellowship-forms",
+        "label": "After the Fellowship forms"
+      }
+    },
+    {
+      "pattern": "breaking of the fellowship",
+      "result": {
+        "anchorId": "lotr.fotr.breaking-fellowship",
+        "label": "Breaking of the Fellowship"
+      }
+    },
+    {
+      "pattern": "after the conspiracy is unmasked",
+      "result": {
+        "anchorFrom": "lotr.fotr.conspiracy-unmasked",
+        "label": "After the Hobbit conspiracy is unmasked"
+      }
+    },
+    {
+      "pattern": "flight to the ford",
+      "result": {
+        "anchorId": "lotr.fotr.flight-to-ford",
+        "label": "Flight to the Ford"
+      }
+    },
+    {
+      "pattern": "watcher in the water",
+      "result": {
+        "anchorId": "lotr.fotr.watcher-in-water",
+        "label": "Watcher in the Water at Moria"
+      }
+    },
+    {
+      "pattern": "during the old forest",
+      "result": {
+        "anchorFrom": "lotr.fotr.old-forest",
+        "anchorTo": "lotr.fotr.tom-bombadil-house",
+        "label": "Old Forest"
+      }
+    },
+    {
+      "pattern": "during the council of elrond",
+      "result": {
+        "anchorId": "lotr.fotr.council-of-elrond",
+        "label": "Council of Elrond"
+      }
+    },
+    {
+      "pattern": "after lorien before amon hen",
+      "result": {
+        "anchorFrom": "lotr.fotr.lothlorien",
+        "anchorTo": "lotr.fotr.amon-hen",
+        "label": "After Lorien before Amon Hen"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "arc": "string",
+    "phase": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

@@ -1,4 +1,4 @@
-import { DEFAULT_HP_LOREDECK_LIBRARY_RECORDS } from './loredeck-defaults.js';
+import { DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORDS } from './loredeck-defaults.js';
 import { fetchJson } from './loredeck-loader.js';
 import {
     addTooltip,
@@ -137,7 +137,7 @@ const LOREDECK_COVER_MAX_DIMENSION = 768;
 const LOREDECK_COVER_OUTPUT_QUALITY = 0.86;
 const LOREDECK_COVER_INPUT_MAX_BYTES = 12 * 1024 * 1024;
 const LOREDECK_COVER_OUTPUT_MAX_CHARS = 1200000;
-const BUNDLED_LOREDECK_LIBRARY = DEFAULT_HP_LOREDECK_LIBRARY_RECORDS;
+const BUNDLED_LOREDECK_LIBRARY = DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORDS;
 
 const LOREDECK_LIBRARY_SPECIAL_VIEWS = Object.freeze([
     { id: 'all', title: 'All Loredecks', tooltip: 'Show every Loredeck in the Library.' },

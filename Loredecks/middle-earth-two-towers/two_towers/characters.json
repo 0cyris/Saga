@@ -1,0 +1,4276 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_frodo_sam_travel_alone",
+      "title": "Frodo And Sam Travel Alone Toward Mordor",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.fellowship-split",
+        "validToAnchor": "lotr.ttt.gollum-guide",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Frodo and Sam before Gollum guides them"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "road to Mordor",
+          "isolation",
+          "Ring-bearer",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "One Ring"
+        ],
+        "locations": [
+          "Emyn Muil"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:one-ring",
+          "middle-earth:gollum",
+          "middle-earth:fellowship",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Emyn Muil"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "road to Mordor",
+            "isolation",
+            "Ring-bearer",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "One Ring"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After leaving the Fellowship, Frodo and Sam continue toward Mordor alone until Gollum becomes their guide.",
+        "injection": "In the early Two Towers Frodo/Sam route, keep Frodo and Sam isolated, burdened, and physically uncertain on the road toward Mordor.",
+        "constraints": [
+          "Their secrecy and vulnerability increase because no larger company protects them."
+        ],
+        "antiLore": [
+          "Do not include Aragorn, Legolas, Gimli, Merry, or Pippin traveling with them during this route unless the story diverges."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Departure of Boromir"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_merry_pippin_orc_captivity",
+      "title": "Merry And Pippin Are Taken By Orcs",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.orc-captivity",
+        "validToAnchor": "lotr.ttt.fangorn",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 1300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Merry and Pippin captivity before Fangorn",
+        "arcId": "lotr.ttt.arc.rohan",
+        "arc": "Rohan And Helm's Deep",
+        "phaseId": "lotr.ttt.phase.split-fellowship",
+        "phase": "Fellowship Split"
+      },
+      "scope": {
+        "characters": [
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "topics": [
+          "orc captivity",
+          "Isengard orders",
+          "escape",
+          "Meriadoc Brandybuck",
+          "Peregrin Took",
+          "Isengard"
+        ],
+        "factions": [
+          "Isengard",
+          "Mordor"
+        ],
+        "entityIds": [
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:isengard",
+          "middle-earth:mordor",
+          "middle-earth:fellowship",
+          "middle-earth:orcs"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "faction:isengard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "locationsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "orc captivity",
+            "Isengard orders",
+            "escape",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Isengard"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:meriadoc-brandybuck",
+            "character:peregrin-took",
+            "faction:isengard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Merry and Pippin are carried by Orcs after the Fellowship breaks, with rival Orc bands under pressure to deliver captives.",
+        "injection": "During the early Two Towers arc, Merry and Pippin should be captives among Orcs until their escape near Fangorn.",
+        "constraints": [
+          "Their captors are dangerous but internally divided by allegiance, discipline, and competing orders."
+        ],
+        "antiLore": [
+          "Do not have Merry and Pippin safely with Aragorn during this span."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Riders of Rohan"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_ugluk_uses_discipline_while_grishnakh_uses_suspicion",
+      "title": "Ugluk Uses Discipline While Grishnakh Uses Suspicion",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ugluk-grishnakh-orders",
+        "validToAnchor": "lotr.ttt.orc-pyre",
+        "sortKeyFrom": 1110,
+        "sortKeyTo": 1220,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ugluk Uses Discipline While Grishnakh Uses Suspicion"
+      },
+      "scope": {
+        "characters": [
+          "Ugluk",
+          "Grishnakh",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Orc command tension",
+          "Isengard vs Mordor"
+        ],
+        "people": [
+          "Orcs"
+        ],
+        "entityIds": [
+          "middle-earth:grishnakh",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:orcs",
+          "middle-earth:peregrin-took",
+          "middle-earth:ugluk"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:grishnakh",
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "character:ugluk",
+        "people:orcs"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ugluk",
+            "Grishnakh",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "topicsAny": [
+            "Orc command tension",
+            "Isengard vs Mordor"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:ugluk",
+            "character:grishnakh",
+            "character:meriadoc-brandybuck",
+            "character:peregrin-took",
+            "people:orcs"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Ugluk enforces Isengard discipline while Grishnakh probes suspiciously for hidden value.",
+        "injection": "Keep Ugluk and Grishnakh behavior distinct: one controls the march, the other seeks opportunity.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Uruk-hai",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_aragorn_leads_without_kingship_openly_settled",
+      "title": "Aragorn Leads Before Kingship Is Settled",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.three-hunters",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Aragorn leadership during The Two Towers"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn",
+          "Legolas",
+          "Gimli",
+          "Theoden",
+          "Eomer"
+        ],
+        "locations": [
+          "Rohan"
+        ],
+        "topics": [
+          "leadership",
+          "kingship",
+          "Ranger",
+          "honor",
+          "Aragorn",
+          "Aragorn Lineage",
+          "Rohan"
+        ],
+        "factions": [
+          "Fellowship",
+          "Rohan"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:theoden",
+          "middle-earth:eomer",
+          "middle-earth:rohan",
+          "middle-earth:fellowship"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:aragorn",
+        "secret:aragorn-lineage",
+        "region:rohan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Theoden",
+            "Eomer"
+          ],
+          "locationsAny": [
+            "Rohan"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "leadership",
+            "kingship",
+            "Ranger",
+            "honor",
+            "Aragorn",
+            "Aragorn Lineage",
+            "Rohan"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:aragorn",
+            "secret:aragorn-lineage",
+            "region:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn leads through skill, judgment, lineage, and personal authority before his kingship is publicly settled.",
+        "injection": "In The Two Towers, portray Aragorn as a leader with deep authority and hidden royal weight, but not yet as an enthroned king whose claim is universally settled.",
+        "constraints": [
+          "Rohan may respect him through deeds and bearing without fully centering Gondor's kingship politics."
+        ],
+        "antiLore": [
+          "Do not make Aragorn politically king of Gondor during The Two Towers."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Riders of Rohan"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:gandalf"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_three_hunters_pursue_hobbits",
+      "title": "The Three Hunters Pursue Merry And Pippin",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.three-hunters",
+        "validToAnchor": "lotr.ttt.gandalf-white",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Three Hunters pursuit before Gandalf returns",
+        "arcId": "lotr.ttt.arc.rohan",
+        "arc": "Rohan And Helm's Deep"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn",
+          "Legolas",
+          "Gimli",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "topics": [
+          "pursuit",
+          "tracking",
+          "rescue",
+          "Aragorn",
+          "Legolas",
+          "Gimli",
+          "Rohan"
+        ],
+        "locations": [
+          "Rohan"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:rohan",
+          "middle-earth:orcs"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:aragorn",
+        "character:legolas",
+        "character:gimli",
+        "region:rohan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "locationsAny": [
+            "Rohan"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "pursuit",
+            "tracking",
+            "rescue",
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Rohan"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:aragorn",
+            "character:legolas",
+            "character:gimli",
+            "region:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn, Legolas, and Gimli pursue the Orcs to rescue Merry and Pippin, reading signs and driving themselves past ordinary endurance.",
+        "injection": "Before meeting Gandalf the White, Aragorn, Legolas, and Gimli should be focused on pursuing the Orcs and rescuing Merry and Pippin.",
+        "constraints": [
+          "Aragorn leads through tracking skill and duty rather than certainty."
+        ],
+        "antiLore": [
+          "Do not send the Three Hunters directly to Helm's Deep without the Fangorn/Gandalf transition unless the story diverges."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Riders of Rohan"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_eomers_exile_tests_loyalty_to_rohan",
+      "title": "Eomer’s Exile Tests Loyalty To Rohan",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.eomer-meets-hunters",
+        "validToAnchor": "lotr.ttt.theoden-restored",
+        "sortKeyFrom": 1210,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Eomer’s Exile Tests Loyalty To Rohan"
+      },
+      "scope": {
+        "characters": [
+          "Eomer",
+          "Theoden",
+          "Grima Wormtongue"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Rohan faction"
+        ],
+        "topics": [
+          "Eomer exile",
+          "loyalty tension"
+        ],
+        "entityIds": [
+          "middle-earth:eomer",
+          "middle-earth:grima-wormtongue",
+          "middle-earth:rohan",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:eomer",
+        "character:grima-wormtongue",
+        "character:theoden",
+        "faction:rohan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Eomer",
+            "Theoden",
+            "Grima Wormtongue"
+          ],
+          "factionsAny": [
+            "Rohan faction"
+          ],
+          "topicsAny": [
+            "Eomer exile",
+            "loyalty tension"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:eomer",
+            "character:theoden",
+            "character:grima-wormtongue",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Eomer’s exile shows loyalty to Rohan in conflict with corrupted court authority under Grima.",
+        "injection": "Eomer should not read as rebel against Rohan itself; his tension is loyalty against compromised command.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Riders of Rohan",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_merry-and-pippin-learn-scale-from-treebeard",
+      "title": "Merry And Pippin Learn Scale From Treebeard",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.fangorn",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1300,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Merry And Pippin Learn Scale From Treebeard",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Treebeard",
+          "Ents"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:treebeard",
+          "middle-earth:ents",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:fangorn"
+        ]
+      },
+      "tags": [
+        "character:treebeard",
+        "people:ents"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Treebeard",
+            "Ents"
+          ],
+          "matchTags": [
+            "character:treebeard",
+            "people:ents"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Merry and Pippin gain a larger historical perspective through Treebeard and Fangorn.",
+        "injection": "Merry and Pippin gain a larger historical perspective through Treebeard and Fangorn.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Treebeard"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_ent_draughts_physically_change_the_hobbits",
+      "title": "Ent-draughts Physically Change The Hobbits",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.treebeard-meets-hobbits",
+        "validToAnchor": "lotr.ttt.isengard-falls",
+        "sortKeyFrom": 1320,
+        "sortKeyTo": 1800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Ent-draughts Physically Change The Hobbits"
+      },
+      "scope": {
+        "characters": [
+          "Treebeard",
+          "Meriadoc Brandybuck",
+          "Peregrin Took"
+        ],
+        "locations": [
+          "Fangorn"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Ent-draughts",
+          "Hobbit growth"
+        ],
+        "people": [
+          "Ents",
+          "Hobbits"
+        ],
+        "entityIds": [
+          "middle-earth:ents",
+          "middle-earth:fangorn",
+          "middle-earth:hobbits",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:treebeard"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "character:treebeard",
+        "people:ents",
+        "people:hobbits",
+        "region:fangorn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Treebeard",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "locationsAny": [
+            "Fangorn"
+          ],
+          "topicsAny": [
+            "Ent-draughts",
+            "Hobbit growth"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:treebeard",
+            "character:meriadoc-brandybuck",
+            "character:peregrin-took",
+            "region:fangorn",
+            "people:ents",
+            "people:hobbits"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Treebeard’s Ent-draughts refresh Merry and Pippin and contribute to their unusual growth.",
+        "injection": "After Ent-draughts, Merry and Pippin may seem heartened and changed, but not superheroic.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "Treebeard",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_treebeard_is_cautious_before_wrath",
+      "title": "Treebeard Is Cautious Before Wrath",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.treebeard-meets-hobbits",
+        "validToAnchor": "lotr.ttt.ents-see-isengard-destruction",
+        "sortKeyFrom": 1320,
+        "sortKeyTo": 1340,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Treebeard Is Cautious Before Wrath"
+      },
+      "scope": {
+        "characters": [
+          "Treebeard"
+        ],
+        "locations": [
+          "Fangorn",
+          "Isengard"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Treebeard caution",
+          "slow wrath"
+        ],
+        "people": [
+          "Ents"
+        ],
+        "entityIds": [
+          "middle-earth:ents",
+          "middle-earth:fangorn",
+          "middle-earth:isengard",
+          "middle-earth:treebeard"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:treebeard",
+        "people:ents",
+        "region:fangorn",
+        "region:isengard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Treebeard"
+          ],
+          "locationsAny": [
+            "Fangorn",
+            "Isengard"
+          ],
+          "topicsAny": [
+            "Treebeard caution",
+            "slow wrath"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:treebeard",
+            "region:fangorn",
+            "region:isengard",
+            "people:ents"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Treebeard is ancient, slow to decide, careful with names, and not immediately a war leader.",
+        "injection": "Treebeard’s movement from caution to wrath should be gradual and evidence-driven.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "Treebeard",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_gandalf_returns_as_white",
+      "title": "Gandalf Returns As The White",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 93,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gandalf-white",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Gandalf returns as the White"
+      },
+      "scope": {
+        "characters": [
+          "Gandalf",
+          "Aragorn",
+          "Legolas",
+          "Gimli"
+        ],
+        "topics": [
+          "Gandalf the White",
+          "return",
+          "Istari",
+          "Gandalf",
+          "Gandalf Returns"
+        ],
+        "locations": [
+          "Fangorn",
+          "Rohan"
+        ],
+        "entityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:fangorn",
+          "middle-earth:rohan",
+          "middle-earth:istari",
+          "middle-earth:gandalf-returns"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:gandalf",
+        "people:istari",
+        "event:gandalf-returns"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gandalf",
+            "Aragorn",
+            "Legolas",
+            "Gimli"
+          ],
+          "locationsAny": [
+            "Fangorn",
+            "Rohan"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Gandalf the White",
+            "return",
+            "Istari",
+            "Gandalf",
+            "Gandalf Returns"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:gandalf",
+            "people:istari",
+            "event:gandalf-returns"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After falling in Moria, Gandalf returns as Gandalf the White and resumes the struggle with greater authority.",
+        "injection": "After the Fangorn reveal, portray Gandalf as returned and changed into Gandalf the White. Before that context, do not leak his survival.",
+        "constraints": [
+          "His return changes the balance of the Rohan and Isengard fronts."
+        ],
+        "antiLore": [
+          "Do not call him Gandalf the White before the Fangorn reveal unless the story diverges.",
+          "Do not keep him dead after this point in canon-context scenes."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The White Rider"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_gandalf-the-white-has-changed-authority",
+      "title": "Gandalf The White Has Changed Authority",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gandalf-white",
+        "validToAnchor": "lotr.ttt.palantir-recovered",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 1900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gandalf The White Has Changed Authority",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents",
+        "phaseId": "lotr.ttt.phase.open-war",
+        "phase": "Rohan And Isengard Open War"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Gandalf",
+          "Gandalf Return"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:gandalf-returns"
+        ]
+      },
+      "tags": [
+        "character:gandalf",
+        "secret:gandalf-return"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Gandalf",
+            "Gandalf Return"
+          ],
+          "matchTags": [
+            "character:gandalf",
+            "secret:gandalf-return"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gandalf returns changed as Gandalf the White, carrying greater authority and urgency.",
+        "injection": "Gandalf returns changed as Gandalf the White, carrying greater authority and urgency.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The White Rider"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_eowyn_wants_renown_and_release",
+      "title": "Eowyn Wants Renown And Release",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.rohan-edoras",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Eowyn during the Rohan war front"
+      },
+      "scope": {
+        "characters": [
+          "Eowyn",
+          "Theoden",
+          "Eomer",
+          "Aragorn"
+        ],
+        "locations": [
+          "Rohan",
+          "Edoras"
+        ],
+        "topics": [
+          "duty",
+          "confinement",
+          "renown",
+          "despair",
+          "Eowyn",
+          "Rohan",
+          "Eowyn Aragorn"
+        ],
+        "factions": [
+          "Rohan"
+        ],
+        "entityIds": [
+          "middle-earth:eowyn",
+          "middle-earth:theoden",
+          "middle-earth:eomer",
+          "middle-earth:aragorn",
+          "middle-earth:rohan"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:eowyn",
+        "region:rohan",
+        "relationship:eowyn-aragorn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Eowyn",
+            "Theoden",
+            "Eomer",
+            "Aragorn"
+          ],
+          "locationsAny": [
+            "Rohan",
+            "Edoras"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "duty",
+            "confinement",
+            "renown",
+            "despair",
+            "Eowyn",
+            "Rohan",
+            "Eowyn Aragorn"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:eowyn",
+            "region:rohan",
+            "relationship:eowyn-aragorn"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Eowyn is trapped between duty, despair, and desire for valor; she longs for meaningful action rather than being left behind as a caretaker.",
+        "injection": "When Eowyn is relevant in Rohan scenes, portray her restraint and courtesy over a deeper hunger for honor, agency, and escape from a narrowing life.",
+        "constraints": [
+          "Her admiration for Aragorn should connect to hope and imagined release, not simple flirtation."
+        ],
+        "antiLore": [
+          "Do not reduce Eowyn to passive court decoration."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The King of the Golden Hall"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_eowyns_despair_is_present_before_pelennor",
+      "title": "Eowyn’s Despair Is Present Before Pelennor",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.rohan-edoras",
+        "validToAnchor": "lotr.ttt.eowyn-left-at-edoras",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1620,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Eowyn’s Despair Is Present Before Pelennor"
+      },
+      "scope": {
+        "characters": [
+          "Eowyn",
+          "Theoden",
+          "Aragorn"
+        ],
+        "locations": [
+          "Edoras"
+        ],
+        "objects": [],
+        "factions": [
+          "Rohan faction"
+        ],
+        "topics": [
+          "Eowyn despair",
+          "duty confinement"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:edoras",
+          "middle-earth:eowyn",
+          "middle-earth:rohan",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:aragorn",
+        "character:eowyn",
+        "character:theoden",
+        "faction:rohan",
+        "location:edoras"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Eowyn",
+            "Theoden",
+            "Aragorn"
+          ],
+          "locationsAny": [
+            "Edoras"
+          ],
+          "factionsAny": [
+            "Rohan faction"
+          ],
+          "topicsAny": [
+            "Eowyn despair",
+            "duty confinement"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:eowyn",
+            "character:theoden",
+            "character:aragorn",
+            "location:edoras",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Eowyn’s despair, confinement, and hunger for valor are already present in Rohan.",
+        "injection": "In Rohan scenes, Eowyn should carry controlled frustration and fear of a cage.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The King of the Golden Hall",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_grima_isolates_theoden_through_counsel",
+      "title": "Grima Isolates Theoden Through Counsel",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.rohan-edoras",
+        "validToAnchor": "lotr.ttt.gandalf-confronts-grima",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1510,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Grima Isolates Theoden Through Counsel"
+      },
+      "scope": {
+        "characters": [
+          "Grima Wormtongue",
+          "Theoden",
+          "Eowyn",
+          "Eomer"
+        ],
+        "locations": [
+          "Edoras"
+        ],
+        "objects": [],
+        "factions": [
+          "Rohan faction",
+          "Isengard faction"
+        ],
+        "topics": [
+          "Grima counsel",
+          "political corruption"
+        ],
+        "entityIds": [
+          "middle-earth:edoras",
+          "middle-earth:eomer",
+          "middle-earth:eowyn",
+          "middle-earth:grima-wormtongue",
+          "middle-earth:isengard",
+          "middle-earth:rohan",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:eomer",
+        "character:eowyn",
+        "character:grima-wormtongue",
+        "character:theoden",
+        "faction:isengard",
+        "faction:rohan",
+        "location:edoras"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Grima Wormtongue",
+            "Theoden",
+            "Eowyn",
+            "Eomer"
+          ],
+          "locationsAny": [
+            "Edoras"
+          ],
+          "factionsAny": [
+            "Rohan faction",
+            "Isengard faction"
+          ],
+          "topicsAny": [
+            "Grima counsel",
+            "political corruption"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:grima-wormtongue",
+            "character:theoden",
+            "character:eowyn",
+            "character:eomer",
+            "location:edoras",
+            "faction:rohan",
+            "faction:isengard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Grima weakens Rohan by isolating Theoden, discouraging action, manipulating access, and sowing suspicion.",
+        "injection": "Grima’s threat should be political and psychological before it is physical.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The King of the Golden Hall",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_grima_poisons_rohan_counsel",
+      "title": "Grima Poisons Rohan’s Counsel",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.rohan-edoras",
+        "validToAnchor": "lotr.ttt.theoden-restored",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Rohan before Theoden is restored",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents",
+        "phaseId": "lotr.ttt.phase.open-war",
+        "phase": "Rohan And Isengard Open War"
+      },
+      "scope": {
+        "characters": [
+          "Grima Wormtongue",
+          "Theoden",
+          "Eowyn",
+          "Eomer",
+          "Saruman"
+        ],
+        "locations": [
+          "Edoras",
+          "Rohan"
+        ],
+        "topics": [
+          "manipulation",
+          "counsel",
+          "weakness",
+          "Grima Wormtongue",
+          "Theoden",
+          "Rohan",
+          "Isengard"
+        ],
+        "factions": [
+          "Rohan",
+          "Isengard"
+        ],
+        "entityIds": [
+          "middle-earth:grima-wormtongue",
+          "middle-earth:theoden",
+          "middle-earth:eowyn",
+          "middle-earth:eomer",
+          "middle-earth:saruman",
+          "middle-earth:rohan",
+          "middle-earth:isengard"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:grima-wormtongue",
+        "character:theoden",
+        "region:rohan",
+        "faction:isengard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Grima Wormtongue",
+            "Theoden",
+            "Eowyn",
+            "Eomer",
+            "Saruman"
+          ],
+          "locationsAny": [
+            "Edoras",
+            "Rohan"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "manipulation",
+            "counsel",
+            "weakness",
+            "Grima Wormtongue",
+            "Theoden",
+            "Rohan",
+            "Isengard"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:grima-wormtongue",
+            "character:theoden",
+            "region:rohan",
+            "faction:isengard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Before Theoden's restoration, Grima Wormtongue weakens Rohan through poisonous counsel that serves Saruman's interests.",
+        "injection": "In pre-restoration Rohan scenes, Grima should act as corrosive counsel around Theoden, delaying action, isolating loyal voices, and serving Saruman indirectly.",
+        "constraints": [
+          "His power is political and psychological, not open military command."
+        ],
+        "antiLore": [
+          "Do not portray Rohan as fully alert and unified while Grima controls access to Theoden."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The King of the Golden Hall"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.merry-pippin",
+          "label": "Merry and Pippin Route",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.isengard",
+          "label": "Isengard Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:saruman",
+          "middle-earth:gandalf",
+          "middle-earth:grima-wormtongue",
+          "middle-earth:theoden"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_eowyn-is-constrained-by-duty-and-desire",
+      "title": "Eowyn Is Constrained By Duty And Desire",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.rohan-edoras",
+        "validToAnchor": "lotr.ttt.helms-deep",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Eowyn Is Constrained By Duty And Desire",
+        "arcId": "lotr.ttt.arc.isengard",
+        "arc": "Isengard And Ents",
+        "phaseId": "lotr.ttt.phase.open-war",
+        "phase": "Rohan And Isengard Open War"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Eowyn",
+          "Rohan"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:eowyn",
+          "middle-earth:rohan",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "character:eowyn",
+        "faction:rohan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Eowyn",
+            "Rohan"
+          ],
+          "matchTags": [
+            "character:eowyn",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Eowyn is constrained by duty and care for Theoden while desiring deeds, honor, and escape from living death.",
+        "injection": "Eowyn is constrained by duty and care for Theoden while desiring deeds, honor, and escape from living death.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The King of the Golden Hall"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_theoden_restored",
+      "title": "Theoden Is Restored From Grima’s Influence",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.theoden-restored",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 1600,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "After Theoden is restored"
+      },
+      "scope": {
+        "characters": [
+          "Theoden",
+          "Gandalf",
+          "Grima Wormtongue",
+          "Eowyn",
+          "Eomer"
+        ],
+        "locations": [
+          "Edoras",
+          "Rohan"
+        ],
+        "topics": [
+          "restoration",
+          "kingship",
+          "Rohan command",
+          "Theoden",
+          "Grima Wormtongue",
+          "Rohan",
+          "Theoden Restored"
+        ],
+        "factions": [
+          "Rohan",
+          "Isengard"
+        ],
+        "entityIds": [
+          "middle-earth:theoden",
+          "middle-earth:gandalf",
+          "middle-earth:grima-wormtongue",
+          "middle-earth:eowyn",
+          "middle-earth:eomer",
+          "middle-earth:rohan",
+          "middle-earth:isengard",
+          "middle-earth:theoden-restored"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:theoden",
+        "character:grima-wormtongue",
+        "region:rohan",
+        "event:theoden-restored"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Theoden",
+            "Gandalf",
+            "Grima Wormtongue",
+            "Eowyn",
+            "Eomer"
+          ],
+          "locationsAny": [
+            "Edoras",
+            "Rohan"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "restoration",
+            "kingship",
+            "Rohan command",
+            "Theoden",
+            "Grima Wormtongue",
+            "Rohan",
+            "Theoden Restored"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:theoden",
+            "character:grima-wormtongue",
+            "region:rohan",
+            "event:theoden-restored"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gandalf breaks Grima's hold over Theoden, restoring the King of Rohan to active judgment and command.",
+        "injection": "After Theoden is restored, portray him as reawakened into kingship, grief, and military responsibility. Before this context, he should be weakened by Grima's counsel.",
+        "constraints": [
+          "Theoden's restoration shifts Rohan from paralysis toward war footing."
+        ],
+        "antiLore": [
+          "Do not keep Theoden helpless after Meduseld.",
+          "Do not make Grima openly trusted after his exposure."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Helm's Deep"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.three-hunters",
+          "label": "Three Hunters Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III: Rohan and Isengard",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_theoden_restored_is_aged_but_resolute",
+      "title": "Theoden Restored Is Aged But Resolute",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.theoden-restored",
+        "validToAnchor": "lotr.ttt.helms-deep",
+        "sortKeyFrom": 1600,
+        "sortKeyTo": 1700,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Theoden Restored Is Aged But Resolute"
+      },
+      "scope": {
+        "characters": [
+          "Theoden",
+          "Gandalf",
+          "Eowyn",
+          "Eomer"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Rohan faction"
+        ],
+        "topics": [
+          "Theoden restored",
+          "aged kingship"
+        ],
+        "entityIds": [
+          "middle-earth:eomer",
+          "middle-earth:eowyn",
+          "middle-earth:gandalf",
+          "middle-earth:rohan",
+          "middle-earth:theoden"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:eomer",
+        "character:eowyn",
+        "character:gandalf",
+        "character:theoden",
+        "faction:rohan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Theoden",
+            "Gandalf",
+            "Eowyn",
+            "Eomer"
+          ],
+          "factionsAny": [
+            "Rohan faction"
+          ],
+          "topicsAny": [
+            "Theoden restored",
+            "aged kingship"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:theoden",
+            "character:gandalf",
+            "character:eowyn",
+            "character:eomer",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Theoden’s restoration returns judgment and courage, but not youth or freedom from grief and age.",
+        "injection": "After restoration, Theoden should be active and kingly while still aged and aware of Rohan’s peril.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The King of the Golden Hall",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_pippins_palantir_look_forces_strategic_separation",
+      "title": "Pippin’s Palantir Look Forces Strategic Separation",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "lotr.ttt.pippin-looks-palantir",
+        "sortKeyFrom": 1910,
+        "sortKeyTo": 1910,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Pippin’s Palantir Look Forces Strategic Separation"
+      },
+      "scope": {
+        "characters": [
+          "Peregrin Took",
+          "Gandalf",
+          "Sauron"
+        ],
+        "locations": [
+          "Isengard"
+        ],
+        "objects": [
+          "Palantir"
+        ],
+        "factions": [],
+        "topics": [
+          "Pippin palantir",
+          "Sauron contact"
+        ],
+        "entityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:isengard",
+          "middle-earth:palantir",
+          "middle-earth:peregrin-took",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "artifact:palantir",
+        "book:two-towers",
+        "character:gandalf",
+        "character:peregrin-took",
+        "character:sauron",
+        "region:isengard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Peregrin Took",
+            "Gandalf",
+            "Sauron"
+          ],
+          "locationsAny": [
+            "Isengard"
+          ],
+          "objectsAny": [
+            "Palantir"
+          ],
+          "topicsAny": [
+            "Pippin palantir",
+            "Sauron contact"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:peregrin-took",
+            "character:gandalf",
+            "character:sauron",
+            "region:isengard",
+            "artifact:palantir"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Pippin’s look into the Orthanc-stone exposes him to Sauron and forces Gandalf to remove him.",
+        "injection": "After the palantir incident, Pippin should be shaken and strategically dangerous to keep near Orthanc.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Palantir",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iii",
+          "label": "Book III",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.rohan",
+          "label": "Rohan Front",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_gollum_becomes_guide",
+      "title": "Gollum Becomes Frodo And Sam’s Guide",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gollum-guide",
+        "validToAnchor": "lotr.ttt.shelob",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gollum guides Frodo and Sam",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Gollum",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "guide",
+          "trust",
+          "betrayal",
+          "pity",
+          "Gollum",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "One Ring",
+          "Frodo Gollum"
+        ],
+        "locations": [
+          "Dead Marshes",
+          "Black Gate",
+          "Ithilien",
+          "Cirith Ungol"
+        ],
+        "entityIds": [
+          "middle-earth:gollum",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:dead-marshes",
+          "middle-earth:black-gate",
+          "middle-earth:ithilien",
+          "middle-earth:cirith-ungol",
+          "middle-earth:one-ring",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:gollum",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "artifact:one-ring",
+        "relationship:frodo-gollum"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gollum",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Dead Marshes",
+            "Black Gate",
+            "Ithilien",
+            "Cirith Ungol"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "guide",
+            "trust",
+            "betrayal",
+            "pity",
+            "Gollum",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "One Ring",
+            "Frodo Gollum"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:gollum",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "artifact:one-ring",
+            "relationship:frodo-gollum"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gollum becomes Frodo and Sam's guide toward Mordor after being captured and bound by oath, but his service remains unstable and Ring-centered.",
+        "injection": "After Gollum becomes guide, treat him as useful, fearful, cunning, pitiable, and dangerous. Frodo may extend pity and cautious trust; Sam remains suspicious.",
+        "constraints": [
+          "Gollum's guidance is practical but morally unsafe.",
+          "His loyalty is compromised by obsession with the Ring."
+        ],
+        "antiLore": [
+          "Do not make Gollum a straightforward loyal companion.",
+          "Do not let Sam fully trust Gollum without tension."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Passage of the Marshes"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_frodo-both-pities-and-uses-gollum",
+      "title": "Frodo Both Pities And Uses Gollum",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gollum-guide",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Frodo Both Pities And Uses Gollum",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Frodo Baggins",
+          "Gollum"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:gollum"
+        ]
+      },
+      "tags": [
+        "character:frodo-baggins",
+        "character:gollum"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Frodo Baggins",
+            "Gollum"
+          ],
+          "matchTags": [
+            "character:frodo-baggins",
+            "character:gollum"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Frodo’s treatment of Gollum mixes pity, recognition, need, command through the Ring, and dangerous trust.",
+        "injection": "Frodo’s treatment of Gollum mixes pity, recognition, need, command through the Ring, and dangerous trust.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Passage of the Marshes"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_gollum-and-smeagol-split-is-unstable",
+      "title": "Gollum And Smeagol Split Is Unstable",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gollum-guide",
+        "validToAnchor": "lotr.ttt.shelob",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gollum And Smeagol Split Is Unstable",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Gollum",
+          "Corruption"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gollum"
+        ]
+      },
+      "tags": [
+        "character:gollum",
+        "theme:corruption"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Gollum",
+            "Corruption"
+          ],
+          "matchTags": [
+            "character:gollum",
+            "theme:corruption"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gollum’s divided self shows conflict between dependence, possible softness, fear, malice, and Ring obsession.",
+        "injection": "When Gollum guides Frodo and Sam, keep the Smeagol/Gollum division unstable. He can show real vulnerability and service while still being pulled toward fear, resentment, hunger, and betrayal.",
+        "constraints": [
+          "Frodo’s pity can strengthen Smeagol without making him safe.",
+          "Sam’s suspicion can be justified without making him cruel."
+        ],
+        "antiLore": [
+          "Do not make the split a clean good/evil switch with reliable control."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Passage of the Marshes"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "curatedIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v5_sam-names-gollum-s-threat-plainly",
+      "title": "Sam Names Gollum’s Threat Plainly",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gollum-guide",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 2100,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sam Names Gollum’s Threat Plainly",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:frodo-baggins"
+        ]
+      },
+      "tags": [
+        "character:samwise-gamgee",
+        "character:gollum"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "topicsAny": [
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "matchTags": [
+            "character:samwise-gamgee",
+            "character:gollum"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sam consistently mistrusts Gollum and often sees danger more plainly than Frodo wants to admit.",
+        "injection": "Sam consistently mistrusts Gollum and often sees danger more plainly than Frodo wants to admit.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Passage of the Marshes"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_faramir_interrogates_with_discipline_not_cruelty",
+      "title": "Faramir Interrogates With Discipline Not Cruelty",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ithilien",
+        "validToAnchor": "lotr.ttt.faramir-releases-frodo",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2530,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Faramir Interrogates With Discipline Not Cruelty"
+      },
+      "scope": {
+        "characters": [
+          "Faramir",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Ithilien",
+          "Henneth Annun"
+        ],
+        "objects": [],
+        "factions": [
+          "Gondor faction"
+        ],
+        "topics": [
+          "Faramir interrogation",
+          "restraint"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:frodo-baggins",
+          "middle-earth:gondor",
+          "middle-earth:henneth-annun",
+          "middle-earth:ithilien",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:faramir",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "faction:gondor",
+        "location:henneth-annun",
+        "region:ithilien"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Faramir",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Ithilien",
+            "Henneth Annun"
+          ],
+          "factionsAny": [
+            "Gondor faction"
+          ],
+          "topicsAny": [
+            "Faramir interrogation",
+            "restraint"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:faramir",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "region:ithilien",
+            "location:henneth-annun",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Faramir questions Frodo and Sam shrewdly and under military necessity, but not with casual cruelty.",
+        "injection": "Write Faramir as disciplined, perceptive, and pressured by war; his restraint is active strength.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Window on the West",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_faramir_resists_ring_temptation",
+      "title": "Faramir Resists The Ring’s Temptation",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.ithilien",
+        "validToAnchor": "lotr.ttt.henneth-annun",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2500,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Faramir and the Ring in Ithilien",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Faramir",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "locations": [
+          "Ithilien",
+          "Henneth Annun"
+        ],
+        "topics": [
+          "temptation",
+          "Gondor",
+          "wisdom",
+          "mercy",
+          "Faramir",
+          "One Ring",
+          "Ithilien"
+        ],
+        "factions": [
+          "Gondor"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:ithilien",
+          "middle-earth:henneth-annun",
+          "middle-earth:one-ring",
+          "middle-earth:gondor"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:faramir",
+        "artifact:one-ring",
+        "region:ithilien",
+        "faction:gondor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Faramir",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Ithilien",
+            "Henneth Annun"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "temptation",
+            "Gondor",
+            "wisdom",
+            "mercy",
+            "Faramir",
+            "One Ring",
+            "Ithilien"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:faramir",
+            "artifact:one-ring",
+            "region:ithilien",
+            "faction:gondor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Faramir learns enough to understand that Frodo carries a perilous weapon, yet he rejects taking it for Gondor.",
+        "injection": "In Ithilien/Henneth Annun scenes, Faramir should be perceptive and dangerous as a captor, but ultimately wiser than Boromir in refusing the Ring.",
+        "constraints": [
+          "He can interrogate and test Frodo without becoming a Ring-seizing antagonist."
+        ],
+        "antiLore": [
+          "Do not make book-continuity Faramir drag Frodo to Osgiliath as a default.",
+          "Do not portray him as ignorant or foolish about the danger once he understands enough."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Forbidden Pool"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v6_faramir_releases_frodo_after_testing",
+      "title": "Faramir Releases Frodo After Testing Him",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.faramir-learns-ring",
+        "validToAnchor": "lotr.ttt.crossroads",
+        "sortKeyFrom": 2520,
+        "sortKeyTo": 2600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Faramir after learning of the Ring before the Cross-roads",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Faramir",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gollum"
+        ],
+        "locations": [
+          "Henneth Annun",
+          "Ithilien"
+        ],
+        "topics": [
+          "Ring temptation",
+          "release",
+          "book continuity",
+          "Faramir",
+          "One Ring",
+          "Henneth Annun"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "factions": [
+          "Gondor"
+        ],
+        "entityIds": [
+          "middle-earth:faramir",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gollum",
+          "middle-earth:henneth-annun",
+          "middle-earth:ithilien",
+          "middle-earth:one-ring",
+          "middle-earth:gondor"
+        ]
+      },
+      "tags": [
+        "character:faramir",
+        "artifact:one-ring",
+        "location:henneth-annun",
+        "continuity:lotr-books"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Faramir",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "locationsAny": [
+            "Henneth Annun",
+            "Ithilien"
+          ],
+          "topicsAny": [
+            "Ring temptation",
+            "release",
+            "book continuity",
+            "Faramir",
+            "One Ring",
+            "Henneth Annun"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "factionsAny": [
+            "Gondor"
+          ],
+          "matchTags": [
+            "character:faramir",
+            "artifact:one-ring",
+            "location:henneth-annun",
+            "continuity:lotr-books"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After testing Frodo and learning enough to understand the danger, Faramir releases Frodo and Sam rather than claiming the Ring for Gondor.",
+        "injection": "In book-continuity Ithilien scenes, Faramir’s wisdom culminates in release under pressure. He is cautious and searching, but he does not drag the Ring to Osgiliath by default.",
+        "constraints": [
+          "Faramir can be stern without being Boromir repeated.",
+          "His choice should increase the moral contrast with using the Ring."
+        ],
+        "antiLore": [
+          "Do not make Faramir default to seizing the Ring in this deck."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Journey to the Cross-roads"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_ttt_v6_gollum_nearly_repents_before_shelob",
+      "title": "Gollum Nearly Repents Before Shelob",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.gollum-near-repentance",
+        "validToAnchor": "lotr.ttt.shelob",
+        "sortKeyFrom": 2720,
+        "sortKeyTo": 2800,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Gollum’s near-repentance before Shelob",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Gollum",
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Cirith Ungol",
+          "Shelob’s Lair"
+        ],
+        "topics": [
+          "near repentance",
+          "betrayal",
+          "pity",
+          "trust",
+          "Gollum",
+          "Gollum Near Repentance",
+          "Frodo Gollum",
+          "Gollum Betrayal"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "entityIds": [
+          "middle-earth:gollum",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:cirith-ungol",
+          "middle-earth:one-ring",
+          "middle-earth:gollum-near-repentance",
+          "middle-earth:shelob"
+        ]
+      },
+      "tags": [
+        "character:gollum",
+        "event:gollum-near-repentance",
+        "relationship:frodo-gollum",
+        "secret:gollum-betrayal"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gollum",
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Cirith Ungol",
+            "Shelob’s Lair"
+          ],
+          "topicsAny": [
+            "near repentance",
+            "betrayal",
+            "pity",
+            "trust",
+            "Gollum",
+            "Gollum Near Repentance",
+            "Frodo Gollum",
+            "Gollum Betrayal"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "matchTags": [
+            "character:gollum",
+            "event:gollum-near-repentance",
+            "relationship:frodo-gollum",
+            "secret:gollum-betrayal"
+          ]
+        }
+      },
+      "content": {
+        "fact": "On the stairs before Shelob, Gollum comes near a softer impulse while Frodo and Sam sleep, but the moment fails and his betrayal path continues.",
+        "injection": "Before Shelob, allow Gollum a genuine unstable moment near repentance. Keep it fragile: Sam’s suspicion, Gollum’s shame, and the Ring’s pull can collapse it without making either Sam or Frodo foolish.",
+        "constraints": [
+          "This should deepen the tragedy of the betrayal.",
+          "The near-repentance should not reveal the full trap to Frodo and Sam."
+        ],
+        "antiLore": [
+          "Do not make Gollum’s betrayal a flat mustache-twirling plan with no inner conflict."
+        ],
+        "notes": "Added during LOTR v6 quality pass."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Schema-shaped revision-pass card; requires human canon review before reference release. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Shelob's Lair"
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gollum",
+          "middle-earth:shelob"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "Frodo and Sam before the lair",
+          "uninformed characters"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_sam_takes_the_ring_under_a_false_death_assumption",
+      "title": "Sam Takes The Ring Under A False Death Assumption",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.sam-fights-shelob",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 2820,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Sam Takes The Ring Under A False Death Assumption"
+      },
+      "scope": {
+        "characters": [
+          "Samwise Gamgee",
+          "Frodo Baggins"
+        ],
+        "locations": [
+          "Shelob's Lair",
+          "Cirith Ungol"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "factions": [],
+        "topics": [
+          "false death",
+          "duty under grief"
+        ],
+        "entityIds": [
+          "middle-earth:cirith-ungol",
+          "middle-earth:frodo-baggins",
+          "middle-earth:one-ring",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:shelobs-lair"
+        ]
+      },
+      "tags": [
+        "artifact:one-ring",
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "location:cirith-ungol",
+        "location:shelobs-lair",
+        "secret:ringbearer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Samwise Gamgee",
+            "Frodo Baggins"
+          ],
+          "locationsAny": [
+            "Shelob's Lair",
+            "Cirith Ungol"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "false death",
+            "duty under grief"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "secret:ringbearer",
+            "character:samwise-gamgee",
+            "character:frodo-baggins",
+            "location:shelobs-lair",
+            "location:cirith-ungol",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sam briefly takes the Ring because he believes Frodo dead and the quest otherwise lost.",
+        "injection": "Sam’s Ring-bearing should come from grief, duty, and mistaken necessity, not ambition.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Choices of Master Samwise",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_frodo_captured_cirith_ungol",
+      "title": "Frodo Is Captured At Cirith Ungol",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "do_not_reveal",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.frodo-captured",
+        "validToAnchor": "lotr.ttt.frodo-captured",
+        "sortKeyFrom": 2900,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "event",
+        "label": "Frodo captured at Cirith Ungol",
+        "arcId": "lotr.ttt.arc.mordor-road",
+        "arc": "Road To Mordor",
+        "phaseId": "lotr.ttt.phase.mordor-approach",
+        "phase": "Approach To Mordor"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Cirith Ungol"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "capture",
+          "separation",
+          "Mordor",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Cirith Ungol"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:cirith-ungol",
+          "middle-earth:one-ring",
+          "middle-earth:mordor",
+          "middle-earth:shelob",
+          "middle-earth:orcs"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "location:cirith-ungol"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Cirith Ungol"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "capture",
+            "separation",
+            "Mordor",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Cirith Ungol"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "location:cirith-ungol"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Shelob wounds Frodo, Orcs take Frodo captive to Cirith Ungol while Sam is separated and temporarily bears the Ring.",
+        "injection": "At the end of The Two Towers route, Frodo should be captured at Cirith Ungol after Shelob; Sam is separated and forced into a desperate rescue posture.",
+        "constraints": [
+          "This is a late Two Towers cliffhanger state."
+        ],
+        "antiLore": [
+          "Do not have Frodo remain safely with Sam after Shelob in this context.",
+          "Do not reveal Sam's later rescue before the proper Return of the King context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.9,
+        "notes": "Generated as a Saga bundled-deck draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "The Choices of Master Samwise"
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Frodo, Sam, and Gollum Route",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "lotr.front.mordor-approach",
+          "label": "Mordor Approach",
+          "required": false
+        },
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV: Frodo and Sam to Cirith Ungol",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gollum",
+          "middle-earth:shelob"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "Frodo and Sam before the lair",
+          "uninformed characters"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_ttt_frodos_capture_creates_a_false_death_state",
+      "title": "Frodo’s Capture Creates A False Death State",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "lotr.ttt.frodo-captured",
+        "validToAnchor": "lotr.ttt.orcs-take-frodo",
+        "sortKeyFrom": 2900,
+        "sortKeyTo": 2910,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Frodo’s Capture Creates A False Death State"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "Cirith Ungol"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Frodo captured",
+          "false death state"
+        ],
+        "people": [
+          "Orcs"
+        ],
+        "entityIds": [
+          "middle-earth:cirith-ungol",
+          "middle-earth:frodo-baggins",
+          "middle-earth:orcs",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "book:two-towers",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "location:cirith-ungol",
+        "people:orcs"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "locationsAny": [
+            "Cirith Ungol"
+          ],
+          "topicsAny": [
+            "Frodo captured",
+            "false death state"
+          ],
+          "matchTags": [
+            "book:two-towers",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "location:cirith-ungol",
+            "people:orcs"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Frodo is not dead after Shelob; Orcs take his living body to the Tower of Cirith Ungol.",
+        "injection": "Preserve the distinction: Sam believes Frodo dead, then learns Frodo is alive and captive.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Two Towers novel within The Lord of the Rings.",
+        "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers",
+        "confidence": 0.88,
+        "chapter": "The Choices of Master Samwise",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "book",
+          "id": "lotr.book-iv",
+          "label": "Book IV",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "lotr.route.ringbearer",
+          "label": "Ringbearer Route",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

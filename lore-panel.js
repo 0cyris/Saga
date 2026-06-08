@@ -7,7 +7,7 @@
  */
 
 import { getPanelLoreState, getInjectableLoreEntries, getLoreRelevanceCounts, normalizeLoreMatrix, normalizeLoreEntry, normalizeLoreTag, LORE_LIFECYCLE_STATUSES } from './lore-matrix.js';
-import { LORE_RELEVANCE_TIERS, LORE_RELEVANCE_LABELS, normalizeLoreRelevance, LORE_CATEGORY_VALUES, LORE_PURPOSE_LABELS, normalizeLorePurpose } from './lore-relevance.js';
+import { LORE_RELEVANCE_TIERS, LORE_RELEVANCE_LABELS, normalizeLoreRelevance, LORE_CATEGORY_VALUES, LORE_PURPOSE_LABELS } from './lore-relevance.js';
 import {
     getDefaultState,
     DEFAULT_SETTINGS,
@@ -112,7 +112,7 @@ import {
 import {
     DEFAULT_HP_LOREDECK_ID,
     HP_LEGACY_LOREDECK_ID,
-    isDefaultHarryPotterLoredeckId,
+    getDefaultLoredeckContextType,
 } from './loredeck-defaults.js';
 import {
     addTooltip,
@@ -126,9 +126,7 @@ import {
     createSectionHeader,
     createStatusPill,
     createToggleCard,
-    formatLoreScope,
     formatStructuredValue,
-    getLoreScopeSpecificity,
     hasDisplayableScope,
     hideFloatingTooltip,
     humanizeScopeKey,
@@ -259,9 +257,19 @@ import {
     createNewLoreSelect,
     createPendingLoreBulkControls,
     createPendingLoreReviewCard,
+    appendEntrySourceAndContextBadges,
+    getAcceptedSelectionSet,
+    getFilteredLoreEntries,
+    getLoreSourceBucket,
     openNewLoreDialog,
+    refreshAcceptedLoreCategoryTabs,
+    refreshAcceptedLoreFilterResults,
+    refreshAcceptedLoreList,
     renderAcceptedLoreEntryList,
     renderLorecardsTab,
+    scheduleAcceptedLoreListRender,
+    scoreSearchEntry,
+    toggleAcceptedLoreSelection,
 } from './lorecards-panel.js';
 import {
     createActiveThemePanel,
@@ -898,35 +906,26 @@ configureLorecardsPanel({
     refreshLoreTimeline,
     refreshHeader,
     toast,
-    createLorePurposeBadge,
-    appendEntrySourceAndContextBadges,
-    createSpellMetadataBadges,
     getLoreDisplayLabel,
+    getLoredeckDisplayName,
     getLoreRegistryMeta,
     applyLoreRegistryStyle,
     getCategoryCount,
     getCategoryTooltip,
     setPanelState,
-    refreshAcceptedLoreCategoryTabs,
-    refreshAcceptedLoreFilterResults,
-    scheduleAcceptedLoreListRender,
-    getAcceptedSelectionSet,
-    getFilteredAcceptedLoreIds,
-    setAcceptedLoreSelection,
-    toggleAcceptedLoreSelection,
+    getPanelRoot: () => panelRoot,
+    scheduleAcceptedLoreLayoutUpdate,
+    getSearchRenderDebounceMs: () => SEARCH_RENDER_DEBOUNCE_MS,
     bulkUpdateAcceptedLore,
     bulkSetAcceptedPinned,
     bulkSetAcceptedMuted,
     bulkAddTagToAcceptedLore,
     bulkDeleteAcceptedLore,
-    refreshAcceptedLoreRow,
     scheduleStateSave,
     getLoreRegistryValues,
     getLorePriorityValues: () => LORE_PRIORITY_VALUES,
     getAcceptedLoreInitialVisibleLimit: () => ACCEPTED_LORE_INITIAL_VISIBLE_LIMIT,
     getAcceptedLorePageIncrement: () => ACCEPTED_LORE_PAGE_INCREMENT,
-    getFilteredLoreEntries,
-    refreshAcceptedLoreList,
     refreshAcceptedLoreBulkToolbar,
 });
 
@@ -6959,7 +6958,7 @@ function seedLoredeckContextFromRuntimeContext(packId, context = {}) {
     const runtimeContext = current?.loreContext || {};
     const resolverContext = buildResolverContextFromState(current);
     commitLoredeckContextPatch(packId, {
-        contextType: isDefaultHarryPotterLoredeckId(packId) ? 'calendar' : context.contextType || 'custom',
+        contextType: getDefaultLoredeckContextType(packId, context.contextType || 'custom'),
         sceneDate: resolverContext.sceneDate || runtimeContext.sceneDate || '',
         subjectiveDate: resolverContext.subjectiveDate || runtimeContext.subjectiveDate || '',
         label: resolverContext.label || resolverContext.summary || resolverContext.canonBoundary || resolverContext.sceneDate || context.label || '',
@@ -21172,34 +21171,6 @@ function dismissSelectedPendingLore() {
 
 // Accepted lore bulk selection and editing --------------------------------------
 
-function getAcceptedSelectionSet(state = getState()) {
-    const ids = Array.isArray(state?.lorePanel?.acceptedSelectedIds) ? state.lorePanel.acceptedSelectedIds : [];
-    const acceptedIds = new Set(normalizeLoreMatrix(state?.loreMatrix || []).map(entry => entry.id));
-    return new Set(ids.filter(id => acceptedIds.has(id)));
-}
-
-function setAcceptedLoreSelection(ids = [], options = {}) {
-    const state = getState();
-    if (!state.lorePanel) state.lorePanel = getDefaultState().lorePanel;
-    const acceptedIds = new Set(normalizeLoreMatrix(state.loreMatrix || []).map(entry => entry.id));
-    state.lorePanel.acceptedSelectedIds = Array.from(new Set((ids || []).filter(id => acceptedIds.has(id))));
-    if (options.deferSave) scheduleStateSave(state);
-    else saveState(state);
-}
-
-function toggleAcceptedLoreSelection(entryId, selected) {
-    const state = getState();
-    const selection = getAcceptedSelectionSet(state);
-    if (selected) selection.add(entryId);
-    else selection.delete(entryId);
-    state.lorePanel.acceptedSelectedIds = Array.from(selection);
-    scheduleStateSave(state);
-}
-
-function getFilteredAcceptedLoreIds(state = getState()) {
-    return getFilteredLoreEntries(state).map(entry => entry.id);
-}
-
 function refreshAcceptedLoreBulkToolbar() {
     if (!panelRoot) return;
     const mount = panelRoot.querySelector('.wandlight-lore-bulk-toolbar');
@@ -21345,64 +21316,6 @@ function bulkDeleteAcceptedLore(ids) {
     refreshHeader();
     refreshLoreWorkbench();
     toast(`Deleted ${deleted} accepted lore entr${deleted === 1 ? 'y' : 'ies'}.`, 'success');
-}
-
-// Lorecards tab ---------------------------------------------------------------
-
-function scheduleAcceptedLoreListRender(container) {
-    if (searchRenderTimer) clearTimeout(searchRenderTimer);
-    searchRenderTimer = setTimeout(() => {
-        const root = container || panelRoot;
-        const list = root?.querySelector?.('.wandlight-lore-entry-list');
-        if (list) renderAcceptedLoreEntryList(list, getState());
-        refreshAcceptedLoreBulkToolbar();
-        scheduleAcceptedLoreLayoutUpdate();
-    }, SEARCH_RENDER_DEBOUNCE_MS);
-}
-
-function refreshAcceptedLoreList(options = {}) {
-    if (!panelRoot) return;
-    const list = panelRoot.querySelector('.wandlight-lore-entry-list');
-    if (!list) return;
-    const scrollTop = options.preserveScroll ? list.scrollTop : 0;
-    renderAcceptedLoreEntryList(list, getState());
-    scheduleAcceptedLoreLayoutUpdate();
-    if (options.preserveScroll) list.scrollTop = scrollTop;
-}
-
-function refreshAcceptedLoreCategoryTabs(activeCategory) {
-    if (!panelRoot) return;
-    panelRoot.querySelectorAll('.wandlight-lore-tabs .wandlight-lore-tab').forEach(tab => {
-        tab.classList.toggle('wandlight-lore-tab-active', tab.dataset.category === activeCategory);
-    });
-}
-
-function refreshAcceptedLoreFilterResults(options = {}) {
-    if (!panelRoot) return;
-    const section = panelRoot.querySelector('.wandlight-accepted-lore-section');
-    const list = section?.querySelector?.('.wandlight-lore-entry-list');
-    if (!list) return;
-    renderAcceptedLoreEntryList(list, getState());
-    if (options.resetListScroll !== false) list.scrollTop = 0;
-    refreshAcceptedLoreBulkToolbar();
-    scheduleAcceptedLoreLayoutUpdate();
-    if (loreWorkbenchOpen && loreWorkbenchMode === 'accepted') refreshLoreWorkbench();
-}
-
-function refreshAcceptedLoreRow(entryId) {
-    if (!panelRoot || !entryId) return false;
-    const list = panelRoot.querySelector('.wandlight-lore-entry-list');
-    const existing = list?.querySelector?.(`[data-entry-id="${cssEscape(entryId)}"]`);
-    if (!existing) return false;
-    const state = getState();
-    const entry = getFilteredLoreEntries(state).find(item => item.id === entryId);
-    if (!entry) {
-        existing.remove();
-        return true;
-    }
-    existing.replaceWith(createEntryCard(entry, state));
-    scheduleAcceptedLoreLayoutUpdate();
-    return true;
 }
 
 let acceptedLoreLayoutFrame = 0;
@@ -21561,12 +21474,6 @@ function getLifecycleStatus(entry) {
     return normalizeLoreRelevance(entry.relevance || entry.lifecycleStatus || entry.lifecycle?.status || entry.lifecycle?.computedStatus || 'normal');
 }
 
-function createLorePurposeBadge(entry) {
-    const purpose = normalizeLorePurpose(entry?.lorePurpose || entry?.purpose, entry) || 'unspecified';
-    const label = LORE_PURPOSE_LABELS[purpose] || String(purpose || 'unspecified').replace(/[_-]+/g, ' ').replace(/\b\w/g, ch => ch.toUpperCase());
-    return createBadge(`Purpose: ${label}`, 'Lore purpose explains why this is specific Saga lore rather than a generic reference fact.');
-}
-
 function createSpellMetadataBadges(entry) {
     const row = document.createDocumentFragment();
     const spells = Array.from(new Set([
@@ -21585,219 +21492,6 @@ function createSpellMetadataBadges(entry) {
     }
 
     return row;
-}
-
-function cleanLoreChipText(value, maxLength = 160) {
-    return truncateText(String(value ?? '').trim(), maxLength);
-}
-
-function getEntrySagaLoredeckMeta(entry = {}) {
-    const raw = isPlainObjectValue(entry.extensions?.sagaLoredeck) ? entry.extensions.sagaLoredeck : {};
-    const sourceInfo = isPlainObjectValue(entry.sourceInfo) ? entry.sourceInfo : {};
-    const packId = cleanLoreChipText(raw.packId || entry.packId || entry.loredeckId || sourceInfo.packId, 120);
-    const fallbackTitle = packId ? getLoredeckDisplayName(packId) : '';
-    return {
-        packId,
-        packType: cleanLoreChipText(raw.packType, 40),
-        packTitle: cleanLoreChipText(raw.packTitle || fallbackTitle, 180),
-        file: cleanLoreChipText(raw.file || entry.sagaLoredeckSourceFile, 240),
-        stackPriority: Number.isFinite(Number(raw.stackPriority)) ? Number(raw.stackPriority) : null,
-        stackIndex: Number.isFinite(Number(raw.stackIndex)) ? Number(raw.stackIndex) : null,
-    };
-}
-
-function getReadableEntrySource(entry = {}) {
-    const loredeck = getEntrySagaLoredeckMeta(entry);
-    const sourceInfo = isPlainObjectValue(entry.sourceInfo) ? entry.sourceInfo : {};
-    const source = cleanLoreChipText(entry.source, 180);
-    const generation = isPlainObjectValue(entry.extensions?.wandlightGeneration) ? entry.extensions.wandlightGeneration : {};
-    const work = cleanLoreChipText(sourceInfo.work, 120);
-    const book = cleanLoreChipText(sourceInfo.book, 120);
-    const chapter = cleanLoreChipText(sourceInfo.chapter, 120);
-
-    if (loredeck.packTitle || loredeck.packId) {
-        const title = loredeck.packTitle || loredeck.packId;
-        return {
-            label: `Pack: ${truncateText(title, 34)}`,
-            tooltip: [
-                `Loredeck: ${title}`,
-                loredeck.packId ? `Deck ID: ${loredeck.packId}` : '',
-                loredeck.packType ? `Type: ${humanizeScopeKey(loredeck.packType)}` : '',
-                loredeck.file ? `File: ${loredeck.file}` : '',
-                loredeck.stackPriority !== null ? `Stack priority: ${loredeck.stackPriority}` : '',
-            ].filter(Boolean).join(' | '),
-            detailLabel: [book, chapter].filter(Boolean).join(' / ') || (work && work !== title ? work : ''),
-            detailTooltip: [work, book, chapter].filter(Boolean).join(' | '),
-        };
-    }
-
-    if (work || book || chapter) {
-        const label = work || book || chapter;
-        return {
-            label: `Source: ${truncateText(label, 32)}`,
-            tooltip: [work, book, chapter].filter(Boolean).join(' | '),
-            detailLabel: work && (book || chapter) ? [book, chapter].filter(Boolean).join(' / ') : '',
-            detailTooltip: [work, book, chapter].filter(Boolean).join(' | '),
-        };
-    }
-
-    if (source.includes('canon-lore-db')) {
-        return {
-            label: 'Source: Canon DB',
-            tooltip: 'Suggested from Saga canon Loredeck retrieval.',
-            detailLabel: '',
-            detailTooltip: '',
-        };
-    }
-
-    if (generation.mode || generation.batchId || generation.chunkId) {
-        return {
-            label: 'Source: Story Scan',
-            tooltip: generation.batchId ? `Generated by story-lore scan batch ${generation.batchId}.` : 'Generated by story-lore scan.',
-            detailLabel: '',
-            detailTooltip: '',
-        };
-    }
-
-    if (source && !['wandlight', 'model-generated', 'unknown'].includes(source.toLowerCase())) {
-        return {
-            label: `Source: ${truncateText(source, 32)}`,
-            tooltip: source,
-            detailLabel: '',
-            detailTooltip: '',
-        };
-    }
-
-    return null;
-}
-
-function createSagaMetadataBadge(label, tooltip, classes = []) {
-    const badge = createBadge(label, tooltip);
-    badge.classList.add('wandlight-lore-badge-saga-meta');
-    for (const className of classes) {
-        if (className) badge.classList.add(className);
-    }
-    return badge;
-}
-
-function createEntrySourceBadges(entry = {}) {
-    const fragment = document.createDocumentFragment();
-    const source = getReadableEntrySource(entry);
-    if (!source?.label) return fragment;
-
-    fragment.appendChild(createSagaMetadataBadge(source.label, source.tooltip || 'Lore source metadata.', ['wandlight-lore-badge-source']));
-    if (source.detailLabel) {
-        fragment.appendChild(createSagaMetadataBadge(`Ref: ${truncateText(source.detailLabel, 32)}`, source.detailTooltip || source.tooltip, ['wandlight-lore-badge-source-detail']));
-    }
-    return fragment;
-}
-
-function getEntryContextGateMeta(entry = {}) {
-    const gate = isPlainObjectValue(entry.extensions?.sagaContextGate) ? entry.extensions.sagaContextGate : {};
-    const preview = isPlainObjectValue(entry.extensions?.canonPreview) ? entry.extensions.canonPreview : {};
-    const pack = getEntrySagaLoredeckMeta(entry);
-    const status = cleanLoreChipText(gate.status || preview.contextGateStatus, 40);
-    const matchedBy = cleanLoreChipText(gate.matchedBy || preview.matchedBy, 60);
-    const reason = cleanLoreChipText(gate.reason || preview.contextGateReason, 240);
-    return {
-        status,
-        hasGate: gate.hasGate === true || (!!status && status !== 'no_gate'),
-        eligible: gate.eligible === undefined ? null : gate.eligible === true,
-        matchedBy,
-        reason,
-        packId: cleanLoreChipText(gate.packId || pack.packId, 120),
-    };
-}
-
-function getContextGateChipLabel(gate = {}) {
-    const matchedBy = String(gate.matchedBy || '').trim();
-    if (matchedBy === 'date_context') return 'Gate: date + Context';
-    if (matchedBy === 'context') return 'Gate: Context';
-    if (matchedBy === 'date_unresolved_context') return 'Gate: date fallback';
-    if (matchedBy === 'date') return 'Gate: date';
-    if (matchedBy === 'unresolved_context') return 'Gate: unresolved';
-    if (matchedBy === 'context_mismatch' || gate.status === 'mismatch') return 'Gate: blocked';
-    if (matchedBy === 'date_contradicts_context') return 'Gate: date conflict';
-    if (gate.status === 'match') return 'Gate: Context';
-    if (gate.status === 'unresolved') return 'Gate: unresolved';
-    if (gate.status === 'no_gate') return '';
-    return matchedBy ? `Gate: ${matchedBy.replace(/_/g, ' ')}` : '';
-}
-
-function getContextGateClass(gate = {}) {
-    const matchedBy = String(gate.matchedBy || '');
-    if (gate.status === 'mismatch' || matchedBy.includes('mismatch') || matchedBy.includes('conflict')) return 'wandlight-lore-badge-context-blocked';
-    if (gate.status === 'unresolved' || matchedBy.includes('unresolved')) return 'wandlight-lore-badge-context-unresolved';
-    if (gate.status === 'match' || matchedBy.includes('context')) return 'wandlight-lore-badge-context-match';
-    if (matchedBy === 'date') return 'wandlight-lore-badge-date-gate';
-    return 'wandlight-lore-badge-context';
-}
-
-function hasEntryContextMetadata(entry = {}) {
-    const contextGate = isPlainObjectValue(entry.context) ? entry.context : {};
-    const contextHasValue = Object.entries(contextGate).some(([key, value]) => {
-        if (key === 'approximate') return value === true;
-        if (value === null || value === undefined || value === '') return false;
-        return Number.isFinite(Number(value)) || String(value || '').trim() !== '';
-    });
-    const coordinates = Array.isArray(entry.coordinates) ? entry.coordinates : [];
-    return contextHasValue || coordinates.some(item => isPlainObjectValue(item)
-        && [item.axis, item.id, item.label, item.from, item.to].some(value => String(value || '').trim()));
-}
-
-function formatEntryContextSummary(entry = {}) {
-    if (!hasEntryContextMetadata(entry)) return '';
-    const contextGate = isPlainObjectValue(entry.context) ? entry.context : {};
-    const parts = [];
-    if (contextGate.scope) parts.push(`Scope: ${contextGate.scope}`);
-    if (contextGate.label) parts.push(contextGate.label);
-    if (contextGate.anchorId) parts.push(`Anchor: ${contextGate.anchorId}`);
-    if (contextGate.validFromAnchor || contextGate.validToAnchor) parts.push(`Window: ${contextGate.validFromAnchor || 'start'} -> ${contextGate.validToAnchor || 'open'}`);
-    if (contextGate.arc) parts.push(`Arc: ${contextGate.arc}`);
-    if (contextGate.phase) parts.push(`Phase: ${contextGate.phase}`);
-    if (contextGate.season || contextGate.episode) parts.push(`S${contextGate.season || '?'} E${contextGate.episode || '?'}`);
-    if (contextGate.chapter) parts.push(`Chapter: ${contextGate.chapter}`);
-    if (contextGate.issue) parts.push(`Issue: ${contextGate.issue}`);
-    if (contextGate.quest) parts.push(`Quest: ${contextGate.quest}`);
-    if (contextGate.gameStage) parts.push(`Game: ${contextGate.gameStage}`);
-    if (contextGate.stardateFrom || contextGate.stardateTo) parts.push(`Stardate: ${contextGate.stardateFrom || 'start'} -> ${contextGate.stardateTo || 'open'}`);
-    if (contextGate.windowKind) parts.push(`Kind: ${contextGate.windowKind}`);
-    if ((Number.isFinite(Number(contextGate.sortKeyFrom)) || Number.isFinite(Number(contextGate.sortKeyTo))) && !parts.some(part => part.startsWith('Window:'))) {
-        parts.push(`Sort: ${contextGate.sortKeyFrom ?? 'start'} -> ${contextGate.sortKeyTo ?? 'open'}`);
-    }
-    const coordinates = (Array.isArray(entry.coordinates) ? entry.coordinates : [])
-        .filter(isPlainObjectValue)
-        .map(coordinate => coordinate.label || [coordinate.axis, coordinate.id || coordinate.from || coordinate.to].filter(Boolean).join(': '))
-        .filter(Boolean)
-        .slice(0, 2);
-    if (coordinates.length) parts.push(`Axis: ${coordinates.join(', ')}`);
-    return parts.join(' | ');
-}
-
-function createEntryContextBadges(entry = {}) {
-    const fragment = document.createDocumentFragment();
-    const gate = getEntryContextGateMeta(entry);
-    const gateLabel = getContextGateChipLabel(gate);
-    if (gateLabel) {
-        const tooltip = [
-            `Context retrieval: ${gate.matchedBy || gate.status || 'unknown'}`,
-            gate.packId ? `Deck ID: ${gate.packId}` : '',
-            gate.reason,
-        ].filter(Boolean).join(' | ');
-        fragment.appendChild(createSagaMetadataBadge(gateLabel, tooltip, ['wandlight-lore-badge-context', getContextGateClass(gate)]));
-    }
-
-    const summary = formatEntryContextSummary(entry);
-    if (summary) {
-        fragment.appendChild(createSagaMetadataBadge(`Ctx: ${truncateText(summary, 36)}`, summary, ['wandlight-lore-badge-context']));
-    }
-    return fragment;
-}
-
-function appendEntrySourceAndContextBadges(meta, entry = {}) {
-    if (!meta) return;
-    meta.appendChild(createEntrySourceBadges(entry));
-    meta.appendChild(createEntryContextBadges(entry));
 }
 
 function scoreSearchEntry(entry, query) {

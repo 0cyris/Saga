@@ -1,0 +1,1436 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "artifact:mithril-coat": {
+      "label": "Mithril Coat",
+      "description": "Middle-earth bundled Loredeck artifact tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "artifact:narsil-anduril": {
+      "label": "Narsil Anduril",
+      "description": "Middle-earth bundled Loredeck artifact tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "artifact:one-ring": {
+      "label": "One Ring",
+      "description": "Middle-earth bundled Loredeck artifact tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "artifact:palantir": {
+      "label": "Palantir",
+      "description": "Middle-earth bundled Loredeck artifact tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:aragorn": {
+      "label": "Aragorn",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:arwen": {
+      "label": "Arwen",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:bilbo-baggins": {
+      "label": "Bilbo Baggins",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:boromir": {
+      "label": "Boromir",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:denethor": {
+      "label": "Denethor",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:elrond": {
+      "label": "Elrond",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:eomer": {
+      "label": "Eomer",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:eowyn": {
+      "label": "Eowyn",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:faramir": {
+      "label": "Faramir",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:frodo-baggins": {
+      "label": "Frodo Baggins",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:galadriel": {
+      "label": "Galadriel",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gandalf": {
+      "label": "Gandalf",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gimli": {
+      "label": "Gimli",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gollum": {
+      "label": "Gollum",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:legolas": {
+      "label": "Legolas",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:meriadoc-brandybuck": {
+      "label": "Meriadoc Brandybuck",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:peregrin-took": {
+      "label": "Peregrin Took",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:samwise-gamgee": {
+      "label": "Samwise Gamgee",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:saruman": {
+      "label": "Saruman",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:sauron": {
+      "label": "Sauron",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:theoden": {
+      "label": "Theoden",
+      "description": "Middle-earth bundled Loredeck character tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:lotr-books": {
+      "label": "Lotr Books",
+      "description": "Middle-earth bundled Loredeck continuity tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:fourth-age": {
+      "label": "Fourth Age",
+      "description": "Middle-earth bundled Loredeck era tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:late-third-age": {
+      "label": "Late Third Age",
+      "description": "Middle-earth bundled Loredeck era tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "era:war-of-the-ring": {
+      "label": "War Of The Ring",
+      "description": "Middle-earth bundled Loredeck era tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:bilbo-party": {
+      "label": "Bilbo Party",
+      "description": "Middle-earth bundled Loredeck event tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:breaking-fellowship": {
+      "label": "Breaking Fellowship",
+      "description": "Middle-earth bundled Loredeck event tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:council-of-elrond": {
+      "label": "Council Of Elrond",
+      "description": "Middle-earth bundled Loredeck event tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:fellowship-formed": {
+      "label": "Fellowship Formed",
+      "description": "Middle-earth bundled Loredeck event tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:gandalf-falls": {
+      "label": "Gandalf Falls",
+      "description": "Middle-earth bundled Loredeck event tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:ring-destruction": {
+      "label": "Ring Destruction",
+      "description": "Middle-earth bundled Loredeck event tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:sauron-fall": {
+      "label": "Sauron Fall",
+      "description": "Middle-earth bundled Loredeck event tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:war-of-the-ring": {
+      "label": "War Of The Ring",
+      "description": "Middle-earth bundled Loredeck event tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:fellowship": {
+      "label": "Fellowship",
+      "description": "Middle-earth bundled Loredeck faction tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:free-peoples": {
+      "label": "Free Peoples",
+      "description": "Middle-earth bundled Loredeck faction tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:gondor": {
+      "label": "Gondor",
+      "description": "Middle-earth bundled Loredeck faction tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:isengard": {
+      "label": "Isengard",
+      "description": "Middle-earth bundled Loredeck faction tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:mordor": {
+      "label": "Mordor",
+      "description": "Middle-earth bundled Loredeck faction tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:rohan": {
+      "label": "Rohan",
+      "description": "Middle-earth bundled Loredeck faction tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:white-council": {
+      "label": "White Council",
+      "description": "Middle-earth bundled Loredeck faction tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:middle-earth": {
+      "label": "Middle Earth",
+      "description": "Middle-earth bundled Loredeck fandom tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "knowledge:hidden": {
+      "label": "Hidden",
+      "description": "Middle-earth bundled Loredeck knowledge tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:bag-end": {
+      "label": "Bag End",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:bree": {
+      "label": "Bree",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:minas-tirith": {
+      "label": "Minas Tirith",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:moria": {
+      "label": "Moria",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:mount-doom": {
+      "label": "Mount Doom",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:rivendell": {
+      "label": "Rivendell",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:weathertop": {
+      "label": "Weathertop",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:dead-men-of-dunharrow": {
+      "label": "Dead Men Of Dunharrow",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:dwarves": {
+      "label": "Dwarves",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:elves": {
+      "label": "Elves",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:ents": {
+      "label": "Ents",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:hobbits": {
+      "label": "Hobbits",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:istari": {
+      "label": "Istari",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:men": {
+      "label": "Men",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:nazgul": {
+      "label": "Nazgul",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:orcs": {
+      "label": "Orcs",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "power:palantir-vision": {
+      "label": "Palantir Vision",
+      "description": "Middle-earth bundled Loredeck power tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "power:ring-corruption": {
+      "label": "Ring Corruption",
+      "description": "Middle-earth bundled Loredeck power tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "power:ring-invisibility": {
+      "label": "Ring Invisibility",
+      "description": "Middle-earth bundled Loredeck power tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft-review": {
+      "label": "Draft Review",
+      "description": "Middle-earth bundled Loredeck quality tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:bree-land": {
+      "label": "Bree Land",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:eriador": {
+      "label": "Eriador",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:fangorn": {
+      "label": "Fangorn",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:gondor": {
+      "label": "Gondor",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:isengard": {
+      "label": "Isengard",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:ithilien": {
+      "label": "Ithilien",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:lothlorien": {
+      "label": "Lothlorien",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:mordor": {
+      "label": "Mordor",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:moria": {
+      "label": "Moria",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:rivendell": {
+      "label": "Rivendell",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:rohan": {
+      "label": "Rohan",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:shire": {
+      "label": "Shire",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:frodo-sam": {
+      "label": "Frodo Sam",
+      "description": "Middle-earth bundled Loredeck relationship tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "scope:core": {
+      "label": "Core",
+      "description": "Middle-earth bundled Loredeck scope tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:aragorn-lineage": {
+      "label": "Aragorn Lineage",
+      "description": "Middle-earth bundled Loredeck secret tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:gollum-ring-connection": {
+      "label": "Gollum Ring Connection",
+      "description": "Middle-earth bundled Loredeck secret tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:istari-nature": {
+      "label": "Istari Nature",
+      "description": "Middle-earth bundled Loredeck secret tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:ringbearer": {
+      "label": "Ringbearer",
+      "description": "Middle-earth bundled Loredeck secret tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "structure:split-loredeck": {
+      "label": "Split Loredeck",
+      "description": "Middle-earth bundled Loredeck structure tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:fading-age": {
+      "label": "Fading Age",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft": {
+      "label": "Draft",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "power:subtle-magic": {
+      "label": "Subtle Magic",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:travel-hardship": {
+      "label": "Travel Hardship",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:eagles": {
+      "label": "Eagles",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:quest-constraint": {
+      "label": "Quest Constraint",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:pity-and-mercy": {
+      "label": "Pity And Mercy",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:oath-and-honor": {
+      "label": "Oath And Honor",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "knowledge:ambiguous": {
+      "label": "Ambiguous",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:foresight": {
+      "label": "Foresight",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:home": {
+      "label": "Home",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:heirloom": {
+      "label": "Heirloom",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:song-and-memory": {
+      "label": "Song And Memory",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:hospitality": {
+      "label": "Hospitality",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:corruption": {
+      "label": "Corruption",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:burden": {
+      "label": "Burden",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:identity-aliases": {
+      "label": "Identity Aliases",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:sauron-blind-spot": {
+      "label": "Sauron Blind Spot",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:ordinary-courage": {
+      "label": "Ordinary Courage",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:growth": {
+      "label": "Growth",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "power:elven-perception": {
+      "label": "Elven Perception",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:aragorn-arwen": {
+      "label": "Aragorn Arwen",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:rangers-of-the-north": {
+      "label": "Rangers Of The North",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:hidden-protection": {
+      "label": "Hidden Protection",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:fractured-alliance": {
+      "label": "Fractured Alliance",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:industrial-corruption": {
+      "label": "Industrial Corruption",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:saruman-betrayal": {
+      "label": "Saruman Betrayal",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:gandalf-return": {
+      "label": "Gandalf Return",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:king-elessar": {
+      "label": "King Elessar",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:gollum-final-role": {
+      "label": "Gollum Final Role",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:witch-king": {
+      "label": "Witch King",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:witch-king-death": {
+      "label": "Witch King Death",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:scouring-shire": {
+      "label": "Scouring Shire",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:sharkey": {
+      "label": "Sharkey",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:sheltered-home": {
+      "label": "Sheltered Home",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:lothlorien": {
+      "label": "Lothlorien",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:balin-colony": {
+      "label": "Balin Colony",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "power:nazgul-terror": {
+      "label": "Nazgul Terror",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "density:hp-reference-band": {
+      "label": "Hp Reference Band",
+      "description": "Auto-added during LOTR v5 density pass. Review and refine before reference release.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:reviewed-draft": {
+      "label": "Reviewed Draft",
+      "description": "Added during LOTR v6 quality and Context revision pass.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:subtle-magic": {
+      "label": "Subtle Magic",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:misty-mountains": {
+      "label": "Misty Mountains",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "region:anduin": {
+      "label": "Anduin",
+      "description": "Middle-earth bundled Loredeck region tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:dead-marshes": {
+      "label": "Dead Marshes",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:wilderness-travel": {
+      "label": "Wilderness Travel",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:terrain-strategy": {
+      "label": "Terrain Strategy",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "culture:memory-and-song": {
+      "label": "Memory And Song",
+      "description": "Middle-earth bundled Loredeck culture tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:lineage-legitimacy": {
+      "label": "Lineage Legitimacy",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "culture:shire-hobbits": {
+      "label": "Shire Hobbits",
+      "description": "Middle-earth bundled Loredeck culture tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:eriador": {
+      "label": "Eriador",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:rangers": {
+      "label": "Rangers",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:rohirrim": {
+      "label": "Rohirrim",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:dunedain": {
+      "label": "Dunedain",
+      "description": "Middle-earth bundled Loredeck people tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "culture:realm-difference": {
+      "label": "Realm Difference",
+      "description": "Middle-earth bundled Loredeck culture tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "culture:dwarven-honor": {
+      "label": "Dwarven Honor",
+      "description": "Middle-earth bundled Loredeck culture tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:enemy-misjudgment": {
+      "label": "Enemy Misjudgment",
+      "description": "Middle-earth bundled Loredeck theme tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:oaths-and-promises": {
+      "label": "Oaths And Promises",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:edoras": {
+      "label": "Edoras",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hospitality": {
+      "label": "Hospitality",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:barrow-downs": {
+      "label": "Barrow Downs",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ancient-ruins": {
+      "label": "Ancient Ruins",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "knowledge:rumor": {
+      "label": "Rumor",
+      "description": "Middle-earth bundled Loredeck knowledge tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:news-travel": {
+      "label": "News Travel",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:kingship-legitimacy": {
+      "label": "Kingship Legitimacy",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:power-refusal": {
+      "label": "Power Refusal",
+      "description": "Middle-earth bundled Loredeck theme tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:alliance-friction": {
+      "label": "Alliance Friction",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:civilian-war-cost": {
+      "label": "Civilian War Cost",
+      "description": "Middle-earth bundled Loredeck theme tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:cultural-misreading": {
+      "label": "Cultural Misreading",
+      "description": "Middle-earth bundled Loredeck theme tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:small-comforts": {
+      "label": "Small Comforts",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:old-forest": {
+      "label": "Old Forest",
+      "description": "Middle-earth bundled Loredeck location tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:wild-lands": {
+      "label": "Wild Lands",
+      "description": "Middle-earth bundled Loredeck topic tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:corruption-strategy": {
+      "label": "Corruption Strategy",
+      "description": "Middle-earth bundled Loredeck theme tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:hope-and-endurance": {
+      "label": "Hope And Endurance",
+      "description": "Middle-earth bundled Loredeck theme tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:aftermath-trauma": {
+      "label": "Aftermath Trauma",
+      "description": "Middle-earth bundled Loredeck theme tag.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

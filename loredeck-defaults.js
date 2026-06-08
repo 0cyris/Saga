@@ -7,9 +7,12 @@ export const HP_LEGACY_LOREDECK_ID = 'hp-golden-trio';
 export const DEFAULT_HP_LOREDECK_ID = 'hp-core';
 export const DEFAULT_HP_LOREDECK_FOLDER_ID = 'folder_harry-potter__golden-trio';
 export const DEFAULT_HP_LOREDECK_UPDATED_AT = 1780617600000;
+export const DEFAULT_LOTR_LOREDECK_UPDATED_AT = 1780876800000;
 
 const HP_LIBRARY_PATH = Object.freeze(['Harry Potter', 'Golden Trio']);
+const LOTR_LIBRARY_PATH = Object.freeze(['Lord of The Rings', 'War of the Ring']);
 const HP_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
+const LOTR_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
 
 const HP_SPLIT_LOREDECKS = Object.freeze([
     {
@@ -140,41 +143,170 @@ const HP_SPLIT_LOREDECKS = Object.freeze([
     },
 ]);
 
-function buildHpLoredeckRecord(deck) {
+const LOTR_SPLIT_LOREDECKS = Object.freeze([
+    {
+        packId: 'middle-earth-core',
+        title: 'Middle-earth: Core',
+        description: 'Core peoples, places, factions, artifacts, world rules, and spoiler-safe constraints for War of the Ring roleplay and fanfiction.',
+        era: 'War of the Ring Core',
+        familyOrder: 10,
+        tags: ['fandom:middle-earth', 'era:war-of-the-ring', 'continuity:lotr-books', 'structure:split-loredeck', 'quality:draft-review', 'scope:core', 'density:hp-reference-band', 'quality:reviewed-draft', 'density:volume-reference-candidate', 'quality:v8-density-pass'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck Cover for Middle-earth: Core',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner for Middle-earth: Core',
+            },
+        },
+        stats: {
+            entryCount: 81,
+            categoryCounts: { character: 17, faction: 15, item: 3, knowledge: 9, location: 2, relationship: 1, rule: 34 },
+            timelineAnchorCount: 7,
+            timelineWindowCount: 5,
+        },
+    },
+    {
+        packId: 'middle-earth-fellowship-of-the-ring',
+        title: 'Middle-earth: The Fellowship of the Ring',
+        description: 'Book-specific Context, spoiler gates, status changes, and journey-state Lorecards for The Fellowship of the Ring in Tolkien book continuity.',
+        era: 'The Fellowship of the Ring',
+        familyOrder: 20,
+        tags: ['fandom:middle-earth', 'era:war-of-the-ring', 'book:fellowship-of-the-ring', 'continuity:lotr-books', 'density:hp-reference-band', 'quality:reviewed-draft', 'density:volume-reference-candidate', 'quality:v8-density-pass'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck Cover for Middle-earth: The Fellowship of the Ring',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner for Middle-earth: The Fellowship of the Ring',
+            },
+        },
+        stats: {
+            entryCount: 95,
+            categoryCounts: { character: 22, event: 19, faction: 5, item: 4, knowledge: 15, location: 15, relationship: 6, rule: 8, timeline: 1 },
+            timelineAnchorCount: 57,
+            timelineWindowCount: 16,
+        },
+    },
+    {
+        packId: 'middle-earth-two-towers',
+        title: 'Middle-earth: The Two Towers',
+        description: "Context-gated War of the Ring lore for The Two Towers book arc, including Rohan, Isengard, Fangorn, Ithilien, Gollum, Faramir, Helm's Deep, and Cirith Ungol.",
+        era: 'The Two Towers',
+        familyOrder: 30,
+        tags: ['fandom:middle-earth', 'era:war-of-the-ring', 'book:two-towers', 'continuity:lotr-books', 'density:hp-reference-band', 'quality:reviewed-draft', 'density:volume-reference-candidate', 'quality:v8-density-pass'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Middle-earth: The Two Towers',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner for Middle-earth: The Two Towers',
+            },
+        },
+        stats: {
+            entryCount: 100,
+            categoryCounts: { character: 29, event: 18, faction: 10, item: 1, knowledge: 9, location: 15, relationship: 11, rule: 5, secret: 1, timeline: 1 },
+            timelineAnchorCount: 55,
+            timelineWindowCount: 18,
+        },
+    },
+    {
+        packId: 'middle-earth-return-of-the-king',
+        title: 'Middle-earth: The Return of the King',
+        description: 'Context-gated War of the Ring lore for The Return of the King book arc, including Gondor, Rohan, Pelennor, Mordor, Mount Doom, Sauron’s fall, Scouring of the Shire, and the Grey Havens.',
+        era: 'The Return of the King',
+        familyOrder: 40,
+        tags: ['fandom:middle-earth', 'era:war-of-the-ring', 'book:return-of-the-king', 'continuity:lotr-books', 'density:hp-reference-band', 'quality:reviewed-draft', 'density:volume-reference-candidate', 'quality:v8-density-pass'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Middle-earth: The Return of the King',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner for Middle-earth: The Return of the King',
+            },
+        },
+        stats: {
+            entryCount: 105,
+            categoryCounts: { character: 25, event: 27, faction: 11, item: 4, knowledge: 11, location: 10, relationship: 10, rule: 4, secret: 3 },
+            timelineAnchorCount: 69,
+            timelineWindowCount: 19,
+        },
+    },
+]);
+
+function buildBundledLoredeckRecord(deck, options = {}) {
+    const libraryPath = options.libraryPath || [];
+    const updatedAt = Number.isFinite(Number(options.updatedAt)) ? Number(options.updatedAt) : 0;
     return Object.freeze({
         packId: deck.packId,
         type: 'bundled',
         title: deck.title,
         description: deck.description,
-        fandom: 'Harry Potter',
+        fandom: options.fandom || '',
         era: deck.era,
         author: 'Saga',
-        version: '0.1.0',
+        version: options.version || '0.1.0',
         entrySchemaVersion: 3,
         manifest: `Loredecks/${deck.packId}/loredeck.json`,
-        source: HP_SOURCE,
+        source: options.source || { kind: 'bundled', url: '' },
         tags: deck.tags,
         library: {
-            suggestedPath: HP_LIBRARY_PATH,
+            suggestedPath: libraryPath,
             familyOrder: deck.familyOrder,
         },
-        assets: {
+        assets: deck.assets || {
             cover: {
                 path: 'assets/cover.png',
                 alt: `${deck.title} Loredeck cover`,
             },
         },
         stats: deck.stats,
-        installedAt: DEFAULT_HP_LOREDECK_UPDATED_AT,
+        installedAt: updatedAt,
+        updatedAt,
+    });
+}
+
+function buildHpLoredeckRecord(deck) {
+    return buildBundledLoredeckRecord(deck, {
+        fandom: 'Harry Potter',
+        version: '0.1.0',
+        source: HP_SOURCE,
+        libraryPath: HP_LIBRARY_PATH,
         updatedAt: DEFAULT_HP_LOREDECK_UPDATED_AT,
     });
 }
 
-function buildHpLoredeckContext(deck) {
+function buildLotrLoredeckRecord(deck) {
+    return buildBundledLoredeckRecord(deck, {
+        fandom: 'Middle-earth',
+        version: '0.8.0',
+        source: LOTR_SOURCE,
+        libraryPath: LOTR_LIBRARY_PATH,
+        updatedAt: DEFAULT_LOTR_LOREDECK_UPDATED_AT,
+    });
+}
+
+function buildLoredeckContext(deck, contextType = 'custom') {
     return Object.freeze({
         schemaVersion: 1,
         packId: deck.packId,
-        contextType: 'calendar',
+        contextType,
         label: '',
         sceneDate: '',
         subjectiveDate: '',
@@ -202,6 +334,14 @@ function buildHpLoredeckContext(deck) {
     });
 }
 
+function buildHpLoredeckContext(deck) {
+    return buildLoredeckContext(deck, 'calendar');
+}
+
+function buildLotrLoredeckContext(deck) {
+    return buildLoredeckContext(deck, 'anchor_window');
+}
+
 export const DEFAULT_HP_LOREDECK_LIBRARY_RECORDS = Object.freeze(HP_SPLIT_LOREDECKS.map(buildHpLoredeckRecord));
 export const DEFAULT_HP_LOREDECK_LIBRARY_PACKS = Object.freeze(Object.fromEntries(
     DEFAULT_HP_LOREDECK_LIBRARY_RECORDS.map(record => [record.packId, record])
@@ -211,7 +351,48 @@ export const DEFAULT_HP_LOREDECK_CONTEXTS = Object.freeze(Object.fromEntries(
 ));
 export const DEFAULT_HP_LOREDECK_STACK = Object.freeze([]);
 export const DEFAULT_HP_LOREDECK_IDS = Object.freeze(HP_SPLIT_LOREDECKS.map(deck => deck.packId));
+export const DEFAULT_LOTR_LOREDECK_LIBRARY_RECORDS = Object.freeze(LOTR_SPLIT_LOREDECKS.map(buildLotrLoredeckRecord));
+export const DEFAULT_LOTR_LOREDECK_LIBRARY_PACKS = Object.freeze(Object.fromEntries(
+    DEFAULT_LOTR_LOREDECK_LIBRARY_RECORDS.map(record => [record.packId, record])
+));
+export const DEFAULT_LOTR_LOREDECK_CONTEXTS = Object.freeze(Object.fromEntries(
+    LOTR_SPLIT_LOREDECKS.map(deck => [deck.packId, buildLotrLoredeckContext(deck)])
+));
+export const DEFAULT_LOTR_LOREDECK_IDS = Object.freeze(LOTR_SPLIT_LOREDECKS.map(deck => deck.packId));
+export const DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORDS = Object.freeze([
+    ...DEFAULT_HP_LOREDECK_LIBRARY_RECORDS,
+    ...DEFAULT_LOTR_LOREDECK_LIBRARY_RECORDS,
+]);
+export const DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS = Object.freeze({
+    ...DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
+    ...DEFAULT_LOTR_LOREDECK_LIBRARY_PACKS,
+});
+export const DEFAULT_BUNDLED_LOREDECK_CONTEXTS = Object.freeze({
+    ...DEFAULT_HP_LOREDECK_CONTEXTS,
+    ...DEFAULT_LOTR_LOREDECK_CONTEXTS,
+});
+export const DEFAULT_BUNDLED_LOREDECK_IDS = Object.freeze([
+    ...DEFAULT_HP_LOREDECK_IDS,
+    ...DEFAULT_LOTR_LOREDECK_IDS,
+]);
+
+const DEFAULT_LOREDECK_CONTEXT_TYPES = Object.freeze({
+    ...Object.fromEntries(DEFAULT_HP_LOREDECK_IDS.map(id => [id, 'calendar'])),
+    ...Object.fromEntries(DEFAULT_LOTR_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
+});
 
 export function isDefaultHarryPotterLoredeckId(packId = '') {
     return DEFAULT_HP_LOREDECK_IDS.includes(String(packId || '').trim());
+}
+
+export function isDefaultLordOfTheRingsLoredeckId(packId = '') {
+    return DEFAULT_LOTR_LOREDECK_IDS.includes(String(packId || '').trim());
+}
+
+export function isDefaultBundledLoredeckId(packId = '') {
+    return DEFAULT_BUNDLED_LOREDECK_IDS.includes(String(packId || '').trim());
+}
+
+export function getDefaultLoredeckContextType(packId = '', fallback = 'custom') {
+    return DEFAULT_LOREDECK_CONTEXT_TYPES[String(packId || '').trim()] || fallback;
 }

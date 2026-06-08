@@ -376,10 +376,16 @@ export function mergeLoredeckTimelineRegistries(sourceRegistry = null, customReg
     const hasCustom = Object.keys(custom).length > 0;
     if (!hasSource && !hasCustom) return null;
 
+    const sourceBase = clonePlainObject(source) || {};
+    delete sourceBase.anchors;
+    delete sourceBase.windows;
+    delete sourceBase.arcs;
+    delete sourceBase.phases;
+
     const disabledAnchorIds = normalizeHealthIdList(custom.disabledAnchorIds || custom.disabledAnchors || []);
     const disabledWindowIds = normalizeHealthIdList(custom.disabledWindowIds || custom.disabledWindows || []);
     const merged = {
-        ...clonePlainObject(source),
+        ...sourceBase,
         schemaVersion: cleanHealthNumber(custom.schemaVersion) || cleanHealthNumber(source.schemaVersion) || 1,
         timelineMode: cleanHealthString(custom.timelineMode || source.timelineMode || 'hybrid', 80),
         defaultContextType: cleanHealthString(custom.defaultContextType || source.defaultContextType || '', 80),

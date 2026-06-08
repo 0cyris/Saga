@@ -1,0 +1,1899 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "anchor_window",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "lotr.rotk.isengard-aftermath",
+      "label": "After Isengard And The Palantir",
+      "sortKey": 1000,
+      "aliases": [
+        "after Isengard",
+        "Pippin and the palantir",
+        "Orthanc aftermath"
+      ],
+      "tags": [
+        "book:return-of-the-king",
+        "artifact:palantir"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.pippin-palantir-look",
+      "label": "Pippin Looks Into The Palantir",
+      "sortKey": 1005,
+      "aliases": [
+        "Pippin palantir look"
+      ],
+      "tags": [
+        "artifact:palantir",
+        "character:peregrin-took"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.gandalf-rides-minas-tirith",
+      "label": "Gandalf Rides To Minas Tirith",
+      "sortKey": 1010,
+      "aliases": [
+        "Gandalf rides to Minas Tirith"
+      ],
+      "tags": [
+        "character:gandalf",
+        "location:minas-tirith"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.pippin-minas-tirith",
+      "label": "Pippin Arrives In Minas Tirith",
+      "sortKey": 1100,
+      "aliases": [
+        "Pippin in Minas Tirith",
+        "Gandalf and Pippin ride to Gondor"
+      ],
+      "tags": [
+        "character:peregrin-took",
+        "location:minas-tirith",
+        "faction:gondor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.denethor-questions-pippin",
+      "label": "Denethor Questions Pippin",
+      "sortKey": 1110,
+      "aliases": [
+        "Denethor questions Pippin"
+      ],
+      "tags": [
+        "character:denethor",
+        "character:peregrin-took"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.pippin-meets-beregond-bergil",
+      "label": "Pippin Meets Beregond And Bergil",
+      "sortKey": 1120,
+      "aliases": [
+        "Beregond and Bergil",
+        "Pippin in Minas Tirith"
+      ],
+      "tags": [
+        "character:beregond",
+        "character:bergil"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.aragorn-palantir",
+      "label": "Aragorn Reveals Himself Through The Palantir",
+      "sortKey": 1200,
+      "aliases": [
+        "Aragorn uses palantir",
+        "Aragorn reveals himself to Sauron"
+      ],
+      "tags": [
+        "character:aragorn",
+        "artifact:palantir"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.grey-company-arrives",
+      "label": "The Grey Company Arrives",
+      "sortKey": 1210,
+      "aliases": [
+        "Grey Company arrives"
+      ],
+      "tags": [
+        "faction:rangers-of-the-north",
+        "character:aragorn"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.aragorn-palantir-challenge",
+      "label": "Aragorn Challenges Sauron Through The Palantir",
+      "sortKey": 1220,
+      "aliases": [
+        "Aragorn palantir challenge"
+      ],
+      "tags": [
+        "character:aragorn",
+        "artifact:palantir"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.paths-of-dead",
+      "label": "The Paths Of The Dead",
+      "sortKey": 1300,
+      "aliases": [
+        "Paths of the Dead",
+        "Stone of Erech",
+        "Oathbreakers"
+      ],
+      "tags": [
+        "location:paths-of-the-dead",
+        "people:dead-men-of-dunharrow",
+        "character:aragorn"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.stone-of-erech",
+      "label": "Stone Of Erech",
+      "sortKey": 1310,
+      "aliases": [
+        "Stone of Erech"
+      ],
+      "tags": [
+        "location:paths-of-the-dead",
+        "people:dead-men-of-dunharrow"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.dead-fulfill-oath",
+      "label": "The Dead Fulfill Their Oath",
+      "sortKey": 1320,
+      "aliases": [
+        "Dead fulfill oath",
+        "Corsairs defeated"
+      ],
+      "tags": [
+        "people:dead-men-of-dunharrow",
+        "event:corsairs-defeated"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.rohan-musters",
+      "label": "Rohan Musters For Gondor",
+      "sortKey": 1400,
+      "aliases": [
+        "Rohan musters",
+        "Riders of Rohan",
+        "Ride to Gondor"
+      ],
+      "tags": [
+        "region:rohan",
+        "faction:rohan",
+        "faction:gondor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.red-arrow",
+      "label": "The Red Arrow Calls Rohan",
+      "sortKey": 1410,
+      "aliases": [
+        "Red Arrow",
+        "Hirgon"
+      ],
+      "tags": [
+        "faction:rohan",
+        "faction:gondor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.druedain-road",
+      "label": "Druedain Road Around Ambush",
+      "sortKey": 1420,
+      "aliases": [
+        "Druedain road",
+        "Ghan-buri-Ghan"
+      ],
+      "tags": [
+        "people:druedain",
+        "location:dradan-forest"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.rohirrim-ride-to-gondor",
+      "label": "Rohirrim Ride Toward Gondor",
+      "sortKey": 1430,
+      "aliases": [
+        "ride of the Rohirrim"
+      ],
+      "tags": [
+        "event:ride-of-rohirrim",
+        "faction:rohan"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.faramir-osgiliath",
+      "label": "Faramir Wounded After Osgiliath",
+      "sortKey": 1500,
+      "aliases": [
+        "Faramir wounded",
+        "Osgiliath retreat"
+      ],
+      "tags": [
+        "character:faramir",
+        "location:osgiliath",
+        "faction:gondor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.faramir-retreats",
+      "label": "Faramir Retreats From Osgiliath",
+      "sortKey": 1510,
+      "aliases": [
+        "Faramir retreats",
+        "Osgiliath retreat"
+      ],
+      "tags": [
+        "character:faramir",
+        "location:osgiliath"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.faramir-fever",
+      "label": "Faramir Lies In Fever",
+      "sortKey": 1520,
+      "aliases": [
+        "Faramir fever"
+      ],
+      "tags": [
+        "character:faramir",
+        "event:denethor-pyre"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.siege-minas-tirith",
+      "label": "Siege Of Minas Tirith",
+      "sortKey": 1600,
+      "aliases": [
+        "Siege of Gondor",
+        "Siege of Minas Tirith"
+      ],
+      "tags": [
+        "location:minas-tirith",
+        "faction:gondor",
+        "faction:mordor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.rammas-breached",
+      "label": "Rammas Echor Breached",
+      "sortKey": 1610,
+      "aliases": [
+        "Rammas breached",
+        "siege breaks outer wall"
+      ],
+      "tags": [
+        "location:minas-tirith",
+        "faction:mordor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.grond-assault",
+      "label": "Grond Breaks The Gate",
+      "sortKey": 1620,
+      "aliases": [
+        "Grond",
+        "Gate of Minas Tirith"
+      ],
+      "tags": [
+        "location:minas-tirith",
+        "people:nazgul"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.denethor-pyre",
+      "label": "Denethor Builds The Funeral Pyre",
+      "sortKey": 1700,
+      "aliases": [
+        "Denethor pyre",
+        "House of Stewards",
+        "Faramir pyre"
+      ],
+      "tags": [
+        "character:denethor",
+        "character:faramir",
+        "location:minas-tirith"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.beregond-treason",
+      "label": "Beregond Risks Treason",
+      "sortKey": 1710,
+      "aliases": [
+        "Beregond risks treason",
+        "Beregond saves Faramir"
+      ],
+      "tags": [
+        "character:beregond",
+        "character:faramir"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.pelennor",
+      "label": "Battle Of Pelennor Fields",
+      "sortKey": 1800,
+      "aliases": [
+        "Pelennor",
+        "Battle of Pelennor Fields"
+      ],
+      "tags": [
+        "event:pelennor",
+        "location:pelennor-fields",
+        "faction:gondor",
+        "faction:rohan"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.rohirrim-arrive",
+      "label": "Rohirrim Arrive At Dawn",
+      "sortKey": 1810,
+      "aliases": [
+        "Rohirrim arrive",
+        "Rohan at Pelennor"
+      ],
+      "tags": [
+        "event:ride-of-rohirrim",
+        "event:pelennor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.theoden-charges",
+      "label": "Theoden Charges On Pelennor",
+      "sortKey": 1820,
+      "aliases": [
+        "Theoden charges"
+      ],
+      "tags": [
+        "character:theoden",
+        "event:pelennor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.witch-king-falls",
+      "label": "The Witch-king Falls",
+      "sortKey": 1900,
+      "aliases": [
+        "Witch-king falls",
+        "Eowyn and Merry",
+        "Dernhelm"
+      ],
+      "tags": [
+        "character:eowyn",
+        "character:meriadoc-brandybuck",
+        "people:nazgul"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.dernhlem-revealed",
+      "label": "Dernhelm Revealed As Eowyn",
+      "sortKey": 1910,
+      "aliases": [
+        "Dernhelm revealed",
+        "Eowyn revealed"
+      ],
+      "tags": [
+        "character:eowyn",
+        "secret:dernhlem"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.merry-wounds-witchking",
+      "label": "Merry Wounds The Witch-king",
+      "sortKey": 1920,
+      "aliases": [
+        "Merry wounds Witch-king"
+      ],
+      "tags": [
+        "character:meriadoc-brandybuck",
+        "secret:witch-king-death"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.aragorn-arrives",
+      "label": "Aragorn Arrives With Southern Forces",
+      "sortKey": 2000,
+      "aliases": [
+        "Aragorn arrives",
+        "black ships",
+        "Corsairs defeated"
+      ],
+      "tags": [
+        "character:aragorn",
+        "event:pelennor",
+        "faction:gondor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.corsair-ships-repurposed",
+      "label": "Corsair Ships Repurposed",
+      "sortKey": 2010,
+      "aliases": [
+        "black ships",
+        "Corsair ships"
+      ],
+      "tags": [
+        "event:corsairs-defeated",
+        "character:aragorn"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.houses-of-healing",
+      "label": "Houses Of Healing",
+      "sortKey": 2100,
+      "aliases": [
+        "Houses of Healing",
+        "the hands of the king"
+      ],
+      "tags": [
+        "location:houses-of-healing",
+        "character:aragorn",
+        "character:faramir",
+        "character:eowyn"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.aragorn-heals-faramir",
+      "label": "Aragorn Heals Faramir",
+      "sortKey": 2110,
+      "aliases": [
+        "Aragorn heals Faramir"
+      ],
+      "tags": [
+        "character:aragorn",
+        "character:faramir"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.faramir-eowyn-meet",
+      "label": "Faramir And Eowyn Meet In Healing",
+      "sortKey": 2120,
+      "aliases": [
+        "Faramir and Eowyn meet"
+      ],
+      "tags": [
+        "relationship:faramir-eowyn",
+        "location:houses-of-healing"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.last-debate",
+      "label": "The Last Debate",
+      "sortKey": 2200,
+      "aliases": [
+        "Last Debate",
+        "march to the Black Gate"
+      ],
+      "tags": [
+        "event:last-debate",
+        "location:minas-tirith"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.west-chooses-diversion",
+      "label": "The West Chooses Diversion",
+      "sortKey": 2210,
+      "aliases": [
+        "Last Debate diversion"
+      ],
+      "tags": [
+        "event:last-debate",
+        "faction:free-peoples"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.black-gate",
+      "label": "The Host At The Black Gate",
+      "sortKey": 2300,
+      "aliases": [
+        "Black Gate",
+        "Morannon",
+        "Mouth of Sauron"
+      ],
+      "tags": [
+        "location:black-gate",
+        "faction:mordor",
+        "faction:free-peoples"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.mouth-sauron",
+      "label": "The Mouth Of Sauron Parleys",
+      "sortKey": 2310,
+      "aliases": [
+        "Mouth of Sauron",
+        "Frodo tokens"
+      ],
+      "tags": [
+        "character:mouth-of-sauron",
+        "location:black-gate"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.black-gate-battle-begins",
+      "label": "Black Gate Battle Begins",
+      "sortKey": 2320,
+      "aliases": [
+        "Black Gate battle"
+      ],
+      "tags": [
+        "location:black-gate",
+        "faction:free-peoples"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.cirith-ungol-escape",
+      "label": "Sam Rescues Frodo From Cirith Ungol",
+      "sortKey": 2400,
+      "aliases": [
+        "Cirith Ungol escape",
+        "Sam rescues Frodo"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "location:cirith-ungol"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.sam-finds-frodo",
+      "label": "Sam Finds Frodo In The Tower",
+      "sortKey": 2410,
+      "aliases": [
+        "Sam finds Frodo",
+        "Frodo rescued"
+      ],
+      "tags": [
+        "character:samwise-gamgee",
+        "location:cirith-ungol"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.orc-confusion-cirith-ungol",
+      "label": "Orc Confusion At Cirith Ungol",
+      "sortKey": 2420,
+      "aliases": [
+        "Orc fighting Cirith Ungol"
+      ],
+      "tags": [
+        "location:cirith-ungol",
+        "faction:mordor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.mordor-road",
+      "label": "Frodo And Sam Cross Mordor",
+      "sortKey": 2500,
+      "aliases": [
+        "road through Mordor",
+        "crossing Mordor"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "region:mordor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.sam-frodo-forced-march",
+      "label": "Sam And Frodo Forced March With Orcs",
+      "sortKey": 2510,
+      "aliases": [
+        "forced march in Mordor"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "character:samwise-gamgee"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.sam-carries-frodo",
+      "label": "Sam Carries Frodo",
+      "sortKey": 2520,
+      "aliases": [
+        "I can carry you",
+        "Sam carries Frodo"
+      ],
+      "tags": [
+        "relationship:frodo-sam",
+        "location:mount-doom"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.mount-doom",
+      "label": "Mount Doom And The Crack Of Doom",
+      "sortKey": 2600,
+      "aliases": [
+        "Mount Doom",
+        "Crack of Doom",
+        "Sammath Naur"
+      ],
+      "tags": [
+        "location:mount-doom",
+        "artifact:one-ring"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.gollum-reappears-doom",
+      "label": "Gollum Reappears At Mount Doom",
+      "sortKey": 2610,
+      "aliases": [
+        "Gollum at Mount Doom"
+      ],
+      "tags": [
+        "character:gollum",
+        "location:mount-doom"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.frodo-claims-ring",
+      "label": "Frodo Claims The Ring",
+      "sortKey": 2620,
+      "aliases": [
+        "Frodo claims the Ring"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "artifact:one-ring"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.ring-destroyed",
+      "label": "The Ring Is Destroyed",
+      "sortKey": 2700,
+      "aliases": [
+        "Ring destroyed",
+        "Sauron falls"
+      ],
+      "tags": [
+        "event:ring-destruction",
+        "event:sauron-fall",
+        "artifact:one-ring"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.sauron-collapses",
+      "label": "Sauron’s Power Collapses",
+      "sortKey": 2710,
+      "aliases": [
+        "Sauron collapses",
+        "Barad-dur falls"
+      ],
+      "tags": [
+        "event:sauron-fall",
+        "faction:mordor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.eagles-rescue-hobbits",
+      "label": "Eagles Rescue Frodo And Sam",
+      "sortKey": 2720,
+      "aliases": [
+        "Eagles rescue hobbits"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "character:samwise-gamgee"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.cormallen",
+      "label": "Field Of Cormallen",
+      "sortKey": 2800,
+      "aliases": [
+        "Cormallen",
+        "Frodo and Sam honored"
+      ],
+      "tags": [
+        "location:cormallen",
+        "character:frodo-baggins",
+        "character:samwise-gamgee"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.frodo-sam-awake-cormallen",
+      "label": "Frodo And Sam Awake At Cormallen",
+      "sortKey": 2810,
+      "aliases": [
+        "Frodo Sam awake",
+        "Cormallen celebration"
+      ],
+      "tags": [
+        "location:cormallen",
+        "character:frodo-baggins"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.king-elessar",
+      "label": "Aragorn Crowned King Elessar",
+      "sortKey": 2900,
+      "aliases": [
+        "King Elessar",
+        "Aragorn crowned",
+        "Return of the King"
+      ],
+      "tags": [
+        "character:aragorn",
+        "faction:gondor",
+        "event:king-elessar"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.coronation-elessar",
+      "label": "Coronation Of King Elessar",
+      "sortKey": 2910,
+      "aliases": [
+        "Aragorn coronation",
+        "King Elessar crowned"
+      ],
+      "tags": [
+        "event:king-elessar",
+        "character:aragorn"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.arwen-arrives",
+      "label": "Arwen Arrives In Minas Tirith",
+      "sortKey": 2920,
+      "aliases": [
+        "Arwen arrives",
+        "Aragorn and Arwen"
+      ],
+      "tags": [
+        "character:arwen",
+        "relationship:aragorn-arwen"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.white-tree-found",
+      "label": "White Tree Found",
+      "sortKey": 2930,
+      "aliases": [
+        "White Tree found",
+        "sapling of the White Tree"
+      ],
+      "tags": [
+        "artifact:white-tree",
+        "event:white-tree-found"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.return-journey",
+      "label": "Return Journey North",
+      "sortKey": 3000,
+      "aliases": [
+        "return journey",
+        "leaving Gondor",
+        "homeward road"
+      ],
+      "tags": [
+        "book:return-of-the-king"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.many-partings",
+      "label": "Many Partings",
+      "sortKey": 3010,
+      "aliases": [
+        "Many Partings",
+        "leaving Gondor"
+      ],
+      "tags": [
+        "theme:fading-age"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.saruman-spared-road",
+      "label": "Saruman Is Spared On The Road",
+      "sortKey": 3020,
+      "aliases": [
+        "Saruman spared",
+        "road north Saruman"
+      ],
+      "tags": [
+        "character:saruman"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.scouring-shire",
+      "label": "Scouring Of The Shire",
+      "sortKey": 3100,
+      "aliases": [
+        "Scouring of the Shire",
+        "Sharkey",
+        "Saruman in the Shire"
+      ],
+      "tags": [
+        "region:shire",
+        "event:scouring-shire",
+        "character:saruman"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.hobbits-reach-shire",
+      "label": "Hobbits Return To The Shire",
+      "sortKey": 3110,
+      "aliases": [
+        "Hobbits return to Shire"
+      ],
+      "tags": [
+        "region:shire",
+        "event:scouring-shire"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.battle-of-bywater",
+      "label": "Battle Of Bywater",
+      "sortKey": 3120,
+      "aliases": [
+        "Battle of Bywater"
+      ],
+      "tags": [
+        "event:battle-of-bywater",
+        "location:bywater"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.saruman-death",
+      "label": "Saruman Dies In The Shire",
+      "sortKey": 3130,
+      "aliases": [
+        "Saruman death",
+        "Sharkey dies"
+      ],
+      "tags": [
+        "character:saruman",
+        "event:saruman-death"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.sam-restores-shire",
+      "label": "Sam Restores The Shire",
+      "sortKey": 3140,
+      "aliases": [
+        "Sam restores the Shire",
+        "mallorn tree"
+      ],
+      "tags": [
+        "character:samwise-gamgee",
+        "artifact:mallorn-box"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.grey-havens",
+      "label": "The Grey Havens",
+      "sortKey": 3200,
+      "aliases": [
+        "Grey Havens",
+        "Frodo leaves Middle-earth"
+      ],
+      "tags": [
+        "location:grey-havens",
+        "character:frodo-baggins",
+        "era:fourth-age"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Return of the King"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.rotk.frodo-last-ride",
+      "label": "Frodo’s Last Ride To The Havens",
+      "sortKey": 3210,
+      "aliases": [
+        "Frodo last ride",
+        "going to Grey Havens"
+      ],
+      "tags": [
+        "secret:frodo-departure",
+        "location:grey-havens"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.keepers-depart",
+      "label": "The Keepers Depart",
+      "sortKey": 3220,
+      "aliases": [
+        "Keepers depart",
+        "Ring-bearers depart"
+      ],
+      "tags": [
+        "location:grey-havens",
+        "secret:frodo-departure"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "lotr.rotk.window.book-v",
+      "label": "Book V: The War Of The Ring",
+      "anchorFrom": "lotr.rotk.isengard-aftermath",
+      "anchorTo": "lotr.rotk.black-gate",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 2300,
+      "aliases": [
+        "Book V: The War Of The Ring"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.window.full-book",
+      "label": "The Return of the King",
+      "anchorFrom": "lotr.rotk.isengard-aftermath",
+      "anchorTo": "lotr.rotk.grey-havens",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 3200,
+      "aliases": [
+        "ROTK",
+        "Return of the King",
+        "book three"
+      ],
+      "tags": [
+        "book:return-of-the-king"
+      ]
+    },
+    {
+      "id": "lotr.rotk.window.minas-tirith-siege",
+      "label": "Minas Tirith Siege",
+      "anchorFrom": "lotr.rotk.pippin-minas-tirith",
+      "anchorTo": "lotr.rotk.denethor-pyre",
+      "sortKeyFrom": 1100,
+      "sortKeyTo": 1700,
+      "aliases": [
+        "Minas Tirith Siege"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.window.gondor-war",
+      "label": "Gondor And Rohan War Front",
+      "anchorFrom": "lotr.rotk.pippin-minas-tirith",
+      "anchorTo": "lotr.rotk.black-gate",
+      "sortKeyFrom": 1100,
+      "sortKeyTo": 2300,
+      "aliases": [
+        "Gondor war",
+        "Minas Tirith arc",
+        "Pelennor arc"
+      ],
+      "tags": [
+        "faction:gondor",
+        "faction:rohan",
+        "event:pelennor"
+      ]
+    },
+    {
+      "id": "lotr.rotk.window.pelennor-turning-point",
+      "label": "Pelennor Turning Point",
+      "anchorFrom": "lotr.rotk.pelennor",
+      "anchorTo": "lotr.rotk.houses-of-healing",
+      "sortKeyFrom": 1800,
+      "sortKeyTo": 2100,
+      "aliases": [
+        "Pelennor Turning Point"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.window.mordor-final-road",
+      "label": "Frodo And Sam In Mordor",
+      "anchorFrom": "lotr.rotk.cirith-ungol-escape",
+      "anchorTo": "lotr.rotk.ring-destroyed",
+      "sortKeyFrom": 2400,
+      "sortKeyTo": 2700,
+      "aliases": [
+        "Mordor road",
+        "Mount Doom arc"
+      ],
+      "tags": [
+        "region:mordor",
+        "artifact:one-ring"
+      ]
+    },
+    {
+      "id": "lotr.rotk.window.book-vi",
+      "label": "Book VI: The End Of The Third Age",
+      "anchorFrom": "lotr.rotk.cirith-ungol-escape",
+      "anchorTo": "lotr.rotk.grey-havens",
+      "sortKeyFrom": 2400,
+      "sortKeyTo": 3200,
+      "aliases": [
+        "Book VI: The End Of The Third Age"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.window.post-ring",
+      "label": "After The Ring Is Destroyed",
+      "anchorFrom": "lotr.rotk.ring-destroyed",
+      "anchorTo": "lotr.rotk.grey-havens",
+      "sortKeyFrom": 2700,
+      "sortKeyTo": 3200,
+      "aliases": [
+        "post Ring destruction",
+        "post war"
+      ],
+      "tags": [
+        "event:ring-destruction",
+        "era:fourth-age"
+      ]
+    },
+    {
+      "id": "lotr.rotk.window.scouring-and-restoration",
+      "label": "Scouring And Shire Restoration",
+      "anchorFrom": "lotr.rotk.scouring-shire",
+      "anchorTo": "lotr.rotk.grey-havens",
+      "sortKeyFrom": 3100,
+      "sortKeyTo": 3200,
+      "aliases": [
+        "Scouring And Shire Restoration"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.rotk.window.pelennor-houses",
+      "label": "Pelennor To Houses Of Healing",
+      "anchorFrom": "lotr.rotk.pelennor",
+      "anchorTo": "lotr.rotk.houses-of-healing",
+      "sortKeyFrom": 1800,
+      "sortKeyTo": 2100,
+      "aliases": [
+        "after Pelennor"
+      ],
+      "tags": []
+    },
+    {
+      "id": "lotr.rotk.window.black-gate-diversion",
+      "label": "Last Debate Through Black Gate",
+      "anchorFrom": "lotr.rotk.last-debate",
+      "anchorTo": "lotr.rotk.black-gate-battle-begins",
+      "sortKeyFrom": 2200,
+      "sortKeyTo": 2320,
+      "aliases": [
+        "Black Gate diversion"
+      ],
+      "tags": []
+    },
+    {
+      "id": "lotr.rotk.window.scouring-to-grey-havens",
+      "label": "Scouring Of The Shire Through Grey Havens",
+      "anchorFrom": "lotr.rotk.scouring-shire",
+      "anchorTo": "lotr.rotk.keepers-depart",
+      "sortKeyFrom": 3100,
+      "sortKeyTo": 3220,
+      "aliases": [
+        "Scouring through Grey Havens"
+      ],
+      "tags": []
+    }
+  ],
+  "arcs": [
+    {
+      "id": "lotr.rotk.arc.gondor",
+      "label": "Gondor, Siege, And Pelennor",
+      "sortKeyFrom": 1100,
+      "sortKeyTo": 2100,
+      "aliases": [
+        "Gondor arc"
+      ],
+      "tags": [
+        "faction:gondor",
+        "event:pelennor"
+      ]
+    },
+    {
+      "id": "lotr.rotk.arc.mordor",
+      "label": "Mordor And Mount Doom",
+      "sortKeyFrom": 2400,
+      "sortKeyTo": 2700,
+      "aliases": [
+        "Mordor arc"
+      ],
+      "tags": [
+        "region:mordor",
+        "artifact:one-ring"
+      ]
+    },
+    {
+      "id": "lotr.rotk.arc.aftermath",
+      "label": "Aftermath And Return Home",
+      "sortKeyFrom": 2800,
+      "sortKeyTo": 3200,
+      "aliases": [
+        "aftermath arc"
+      ],
+      "tags": [
+        "era:fourth-age",
+        "event:scouring-shire"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "lotr.rotk.phase.pre-siege",
+      "label": "Before The Siege Peaks",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1500,
+      "aliases": [
+        "pre siege"
+      ],
+      "tags": [
+        "book:return-of-the-king"
+      ]
+    },
+    {
+      "id": "lotr.rotk.phase.siege-and-pelennor",
+      "label": "Siege And Pelennor",
+      "sortKeyFrom": 1600,
+      "sortKeyTo": 2100,
+      "aliases": [
+        "battle of Pelennor phase"
+      ],
+      "tags": [
+        "event:pelennor"
+      ]
+    },
+    {
+      "id": "lotr.rotk.phase.final-gambit",
+      "label": "Black Gate And Mount Doom",
+      "sortKeyFrom": 2200,
+      "sortKeyTo": 2700,
+      "aliases": [
+        "final gambit"
+      ],
+      "tags": [
+        "location:black-gate",
+        "location:mount-doom"
+      ]
+    },
+    {
+      "id": "lotr.rotk.phase.postwar",
+      "label": "Postwar Return",
+      "sortKeyFrom": 2800,
+      "sortKeyTo": 3200,
+      "aliases": [
+        "postwar"
+      ],
+      "tags": [
+        "era:fourth-age"
+      ]
+    }
+  ],
+  "axes": [
+    {
+      "id": "lotr.axis.route",
+      "label": "Route",
+      "description": "Parallel Return of the King route thread."
+    },
+    {
+      "id": "lotr.axis.front",
+      "label": "War Front",
+      "description": "Gondor, Rohan, Black Gate, or Mordor front state."
+    },
+    {
+      "id": "lotr.axis.aftermath",
+      "label": "Aftermath",
+      "description": "Post-war return, restoration, Scouring, and departure state."
+    },
+    {
+      "id": "lotr.axis.book",
+      "label": "Book Section",
+      "description": "Book V and Book VI progression within The Return of the King."
+    }
+  ],
+  "coordinates": [
+    {
+      "axis": "route",
+      "id": "lotr.route.gondor-citadel",
+      "label": "Minas Tirith and Gondor Route",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "route",
+      "id": "lotr.route.aragorn-kingship",
+      "label": "Aragorn Kingship Route",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "route",
+      "id": "lotr.route.rohirrim",
+      "label": "Rohirrim Route",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "route",
+      "id": "lotr.route.ringbearer",
+      "label": "Frodo and Sam in Mordor",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "front",
+      "id": "lotr.front.gondor",
+      "label": "Gondor Front",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "front",
+      "id": "lotr.front.rohan",
+      "label": "Rohan Front",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "front",
+      "id": "lotr.front.black-gate",
+      "label": "Black Gate Diversion",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "front",
+      "id": "lotr.front.mordor",
+      "label": "Mordor Front",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "aftermath",
+      "id": "lotr.aftermath.restoration",
+      "label": "Post-war Restoration",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "aftermath",
+      "id": "lotr.aftermath.shire",
+      "label": "Return and Scouring of the Shire",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "aftermath",
+      "id": "lotr.aftermath.grey-havens",
+      "label": "Grey Havens Departure",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "book",
+      "id": "lotr.book-v",
+      "label": "Book V: The War of the Ring",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "book",
+      "id": "lotr.book-vi",
+      "label": "Book VI: The End of the Third Age",
+      "requiredByDefault": false
+    }
+  ],
+  "extensions": {
+    "sagaRevision": {
+      "qualityPass": "v7_retrieval_import_hardening",
+      "updatedAt": "2026-06-08"
+    }
+  }
+}

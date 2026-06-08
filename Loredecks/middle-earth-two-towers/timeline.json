@@ -1,0 +1,1539 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "defaultContextType": "anchor_window",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "lotr.ttt.fellowship-split",
+      "label": "Fellowship Split Into Three Roads",
+      "sortKey": 1000,
+      "aliases": [
+        "Fellowship split",
+        "after Amon Hen",
+        "three roads"
+      ],
+      "tags": [
+        "book:two-towers",
+        "event:breaking-fellowship"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.boromir-funeral",
+      "label": "Boromir’s Funeral Boat",
+      "sortKey": 1005,
+      "aliases": [
+        "Boromir funeral",
+        "Departure of Boromir"
+      ],
+      "tags": [
+        "character:boromir",
+        "event:breaking-fellowship"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.orc-captivity",
+      "label": "Merry And Pippin Captured By Orcs",
+      "sortKey": 1100,
+      "aliases": [
+        "Merry and Pippin captured",
+        "orc captivity"
+      ],
+      "tags": [
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "faction:isengard"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.ugluk-grishnakh-orders",
+      "label": "Ugluk And Grishnakh Split Orders",
+      "sortKey": 1110,
+      "aliases": [
+        "Ugluk",
+        "Grishnakh",
+        "orc order conflict"
+      ],
+      "tags": [
+        "event:orc-order-conflict",
+        "character:ugluk",
+        "character:grishnakh"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.pippin-drops-brooch",
+      "label": "Pippin Drops The Brooch",
+      "sortKey": 1120,
+      "aliases": [
+        "Pippin brooch",
+        "hobbit trail clue"
+      ],
+      "tags": [
+        "character:peregrin-took"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.three-hunters",
+      "label": "The Three Hunters Pursue The Orcs",
+      "sortKey": 1200,
+      "aliases": [
+        "Three Hunters",
+        "Aragorn Legolas Gimli pursuit"
+      ],
+      "tags": [
+        "character:aragorn",
+        "character:legolas",
+        "character:gimli"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.eomer-meets-hunters",
+      "label": "Eomer Meets The Three Hunters",
+      "sortKey": 1210,
+      "aliases": [
+        "Eomer meets Aragorn",
+        "Riders of Rohan"
+      ],
+      "tags": [
+        "character:eomer",
+        "character:aragorn"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.orc-pyre",
+      "label": "Orc Pyre After The Rohirrim Attack",
+      "sortKey": 1220,
+      "aliases": [
+        "orc pyre",
+        "burned orcs"
+      ],
+      "tags": [
+        "people:orcs",
+        "faction:rohan"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.fangorn",
+      "label": "Fangorn Forest",
+      "sortKey": 1300,
+      "aliases": [
+        "Fangorn",
+        "Treebeard",
+        "Ents"
+      ],
+      "tags": [
+        "region:fangorn",
+        "people:ents"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.hobbits-escape-fangorn",
+      "label": "Hobbits Escape Into Fangorn",
+      "sortKey": 1310,
+      "aliases": [
+        "Merry and Pippin escape",
+        "escape into Fangorn"
+      ],
+      "tags": [
+        "region:fangorn",
+        "character:treebeard"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.treebeard-meets-hobbits",
+      "label": "Treebeard Meets Merry And Pippin",
+      "sortKey": 1320,
+      "aliases": [
+        "Treebeard meets hobbits"
+      ],
+      "tags": [
+        "character:treebeard",
+        "people:ents"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.entmoot-begins",
+      "label": "Entmoot Begins",
+      "sortKey": 1330,
+      "aliases": [
+        "Entmoot begins",
+        "Ent council"
+      ],
+      "tags": [
+        "event:entmoot",
+        "people:ents"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.ents-see-isengard-destruction",
+      "label": "Ents See Isengard’s Destruction",
+      "sortKey": 1340,
+      "aliases": [
+        "Ents see felled trees",
+        "Saruman destroys trees"
+      ],
+      "tags": [
+        "people:ents",
+        "region:isengard"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.gandalf-white",
+      "label": "Gandalf Returns As The White",
+      "sortKey": 1400,
+      "aliases": [
+        "Gandalf the White",
+        "Gandalf returns",
+        "White Rider"
+      ],
+      "tags": [
+        "character:gandalf",
+        "event:gandalf-returns"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.white-rider-reveals",
+      "label": "The White Rider Reveals Himself",
+      "sortKey": 1410,
+      "aliases": [
+        "White Rider reveals",
+        "Gandalf reveals himself"
+      ],
+      "tags": [
+        "event:gandalf-returns",
+        "character:gandalf"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.rohan-edoras",
+      "label": "Edoras Under Grima’s Counsel",
+      "sortKey": 1500,
+      "aliases": [
+        "Edoras",
+        "Grima",
+        "Theoden under Wormtongue"
+      ],
+      "tags": [
+        "region:rohan",
+        "character:theoden",
+        "character:grima-wormtongue"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.gandalf-confronts-grima",
+      "label": "Gandalf Confronts Grima In Meduseld",
+      "sortKey": 1510,
+      "aliases": [
+        "Gandalf confronts Grima",
+        "Meduseld"
+      ],
+      "tags": [
+        "character:gandalf",
+        "character:grima-wormtongue"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.theoden-restored",
+      "label": "Theoden Restored",
+      "sortKey": 1600,
+      "aliases": [
+        "Theoden restored",
+        "Meduseld",
+        "Gandalf frees Theoden"
+      ],
+      "tags": [
+        "character:theoden",
+        "event:theoden-restored"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.theoden-rides-to-war",
+      "label": "Theoden Rides To War",
+      "sortKey": 1610,
+      "aliases": [
+        "Theoden rides to war",
+        "Rohan rides"
+      ],
+      "tags": [
+        "character:theoden",
+        "faction:rohan"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.eowyn-left-at-edoras",
+      "label": "Eowyn Is Left With Civil Duty",
+      "sortKey": 1620,
+      "aliases": [
+        "Eowyn left behind",
+        "Eowyn in Edoras"
+      ],
+      "tags": [
+        "character:eowyn",
+        "region:rohan"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.helms-deep",
+      "label": "Helm’s Deep",
+      "sortKey": 1700,
+      "aliases": [
+        "Helm's Deep",
+        "Hornburg",
+        "battle of Helm's Deep"
+      ],
+      "tags": [
+        "location:helms-deep",
+        "event:helms-deep"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.deeping-wall-breached",
+      "label": "Deeping Wall Breached",
+      "sortKey": 1710,
+      "aliases": [
+        "Deeping Wall",
+        "wall breached"
+      ],
+      "tags": [
+        "event:helms-deep",
+        "location:helms-deep"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.theoden-final-ride",
+      "label": "Theoden’s Desperate Ride At Helm’s Deep",
+      "sortKey": 1720,
+      "aliases": [
+        "Theoden rides out",
+        "Helm’s Deep dawn ride"
+      ],
+      "tags": [
+        "character:theoden",
+        "event:helms-deep"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.huorns-helms-deep",
+      "label": "Huorns Change Helm’s Deep Aftermath",
+      "sortKey": 1730,
+      "aliases": [
+        "Huorns at Helm’s Deep",
+        "forest at Helm’s Deep"
+      ],
+      "tags": [
+        "event:huorns-helms-deep",
+        "people:huorns"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.isengard-falls",
+      "label": "Isengard Falls To The Ents",
+      "sortKey": 1800,
+      "aliases": [
+        "Isengard falls",
+        "Ents attack Isengard"
+      ],
+      "tags": [
+        "region:isengard",
+        "people:ents",
+        "event:isengard-falls"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.flotsam-jetsam",
+      "label": "Flotsam And Jetsam At Isengard",
+      "sortKey": 1810,
+      "aliases": [
+        "Flotsam and Jetsam",
+        "Merry and Pippin at Isengard"
+      ],
+      "tags": [
+        "event:isengard-falls",
+        "region:isengard"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.voice-of-saruman",
+      "label": "The Voice Of Saruman",
+      "sortKey": 1820,
+      "aliases": [
+        "Voice of Saruman",
+        "Saruman parley"
+      ],
+      "tags": [
+        "character:saruman",
+        "power:saruman-voice"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.palantir-recovered",
+      "label": "Orthanc Palantir Recovered",
+      "sortKey": 1900,
+      "aliases": [
+        "palantir recovered",
+        "Pippin looks in the stone"
+      ],
+      "tags": [
+        "artifact:palantir",
+        "region:isengard"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.pippin-looks-palantir",
+      "label": "Pippin Looks Into The Palantir",
+      "sortKey": 1910,
+      "aliases": [
+        "Pippin palantir",
+        "Pippin looks into the stone"
+      ],
+      "tags": [
+        "artifact:palantir",
+        "character:peregrin-took"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.emyn-muil",
+      "label": "Frodo And Sam In The Emyn Muil",
+      "sortKey": 2000,
+      "aliases": [
+        "Emyn Muil",
+        "Frodo and Sam lost"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "character:samwise-gamgee"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.emyn-muil-descent",
+      "label": "Emyn Muil Descent",
+      "sortKey": 2010,
+      "aliases": [
+        "Emyn Muil descent",
+        "Frodo Sam lost"
+      ],
+      "tags": [
+        "region:mordor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.gollum-guide",
+      "label": "Gollum Becomes Guide",
+      "sortKey": 2100,
+      "aliases": [
+        "Gollum guides Frodo",
+        "Smeagol swears",
+        "guide to Mordor"
+      ],
+      "tags": [
+        "character:gollum",
+        "artifact:one-ring"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.smeagol-swears",
+      "label": "Smeagol Swears By The Precious",
+      "sortKey": 2110,
+      "aliases": [
+        "Smeagol swears",
+        "Gollum oath"
+      ],
+      "tags": [
+        "character:gollum",
+        "artifact:one-ring"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.rope-and-fish",
+      "label": "Rope And Fish On The Road",
+      "sortKey": 2120,
+      "aliases": [
+        "Elven rope",
+        "Gollum catches fish"
+      ],
+      "tags": [
+        "character:gollum",
+        "character:samwise-gamgee"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.dead-marshes",
+      "label": "The Dead Marshes",
+      "sortKey": 2200,
+      "aliases": [
+        "Dead Marshes",
+        "corpse lights"
+      ],
+      "tags": [
+        "location:dead-marshes"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.gollum-leads-marshes",
+      "label": "Gollum Leads Through The Dead Marshes",
+      "sortKey": 2210,
+      "aliases": [
+        "Gollum leads through marshes"
+      ],
+      "tags": [
+        "location:dead-marshes",
+        "character:gollum"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.black-gate",
+      "label": "The Black Gate Is Closed",
+      "sortKey": 2300,
+      "aliases": [
+        "Black Gate",
+        "Morannon"
+      ],
+      "tags": [
+        "location:black-gate",
+        "region:mordor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.black-gate-observed",
+      "label": "Black Gate Observed",
+      "sortKey": 2310,
+      "aliases": [
+        "Morannon observed",
+        "Black Gate watched"
+      ],
+      "tags": [
+        "location:black-gate"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.ithilien",
+      "label": "Ithilien And Faramir",
+      "sortKey": 2400,
+      "aliases": [
+        "Ithilien",
+        "Faramir",
+        "Rangers of Ithilien"
+      ],
+      "tags": [
+        "region:ithilien",
+        "character:faramir",
+        "faction:gondor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.oliphaunt-haradrim",
+      "label": "Oliphaunt And Haradrim In Ithilien",
+      "sortKey": 2410,
+      "aliases": [
+        "oliphaunt",
+        "Haradrim in Ithilien"
+      ],
+      "tags": [
+        "faction:harad",
+        "region:ithilien"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.henneth-annun",
+      "label": "Henneth Annun",
+      "sortKey": 2500,
+      "aliases": [
+        "Henneth Annun",
+        "Faramir's refuge"
+      ],
+      "tags": [
+        "location:henneth-annun",
+        "character:faramir"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.forbidden-pool",
+      "label": "Forbidden Pool",
+      "sortKey": 2510,
+      "aliases": [
+        "Forbidden Pool",
+        "Gollum at the pool"
+      ],
+      "tags": [
+        "event:forbidden-pool",
+        "location:henneth-annun"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.faramir-learns-ring",
+      "label": "Faramir Learns Of The Ring",
+      "sortKey": 2520,
+      "aliases": [
+        "Faramir learns of the Ring"
+      ],
+      "tags": [
+        "character:faramir",
+        "artifact:one-ring"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.faramir-releases-frodo",
+      "label": "Faramir Releases Frodo",
+      "sortKey": 2530,
+      "aliases": [
+        "Faramir releases Frodo"
+      ],
+      "tags": [
+        "character:faramir",
+        "character:frodo-baggins"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.crossroads",
+      "label": "Cross-roads Toward Morgul",
+      "sortKey": 2600,
+      "aliases": [
+        "Cross-roads",
+        "Morgul road"
+      ],
+      "tags": [
+        "location:cross-roads"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.broken-king-statue",
+      "label": "Broken King Statue At The Cross-roads",
+      "sortKey": 2610,
+      "aliases": [
+        "broken king statue",
+        "crown of flowers"
+      ],
+      "tags": [
+        "location:cross-roads",
+        "theme:ancient-memory"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.minas-morgul-host",
+      "label": "Minas Morgul Host Rides Out",
+      "sortKey": 2620,
+      "aliases": [
+        "Minas Morgul host",
+        "Morgul army leaves"
+      ],
+      "tags": [
+        "event:minas-morgul-host",
+        "location:minas-morgul"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.cirith-ungol",
+      "label": "Cirith Ungol Path",
+      "sortKey": 2700,
+      "aliases": [
+        "Cirith Ungol",
+        "stairs of Cirith Ungol"
+      ],
+      "tags": [
+        "location:cirith-ungol",
+        "region:mordor"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.stairs-of-cirith-ungol",
+      "label": "Stairs Of Cirith Ungol",
+      "sortKey": 2710,
+      "aliases": [
+        "stairs of Cirith Ungol"
+      ],
+      "tags": [
+        "location:cirith-ungol"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.gollum-near-repentance",
+      "label": "Gollum Nearly Repents",
+      "sortKey": 2720,
+      "aliases": [
+        "Gollum nearly repents",
+        "sleeping Frodo and Sam"
+      ],
+      "tags": [
+        "event:gollum-near-repentance",
+        "character:gollum"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.shelob",
+      "label": "Shelob’s Lair",
+      "sortKey": 2800,
+      "aliases": [
+        "Shelob",
+        "Shelob's lair"
+      ],
+      "tags": [
+        "character:shelob",
+        "location:shelobs-lair"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.shelob-attacks",
+      "label": "Shelob Attacks",
+      "sortKey": 2810,
+      "aliases": [
+        "Shelob attacks Frodo"
+      ],
+      "tags": [
+        "character:shelob",
+        "location:shelobs-lair"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.sam-fights-shelob",
+      "label": "Sam Fights Shelob",
+      "sortKey": 2820,
+      "aliases": [
+        "Sam fights Shelob"
+      ],
+      "tags": [
+        "character:samwise-gamgee",
+        "character:shelob"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.frodo-captured",
+      "label": "Frodo Captured At Cirith Ungol",
+      "sortKey": 2900,
+      "aliases": [
+        "Frodo captured",
+        "tower of Cirith Ungol"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "location:cirith-ungol"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Two Towers"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "lotr.ttt.orcs-take-frodo",
+      "label": "Orcs Take Frodo To The Tower",
+      "sortKey": 2910,
+      "aliases": [
+        "Orcs take Frodo",
+        "Tower of Cirith Ungol"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "people:orcs"
+      ],
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "confidence": 0.9
+      },
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "lotr.ttt.window.book-iii",
+      "label": "Book III: Rohan And Isengard",
+      "anchorFrom": "lotr.ttt.fellowship-split",
+      "anchorTo": "lotr.ttt.palantir-recovered",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1900,
+      "aliases": [
+        "Book III: Rohan And Isengard"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.window.full-book",
+      "label": "The Two Towers",
+      "anchorFrom": "lotr.ttt.fellowship-split",
+      "anchorTo": "lotr.ttt.frodo-captured",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 2900,
+      "aliases": [
+        "TTT",
+        "Two Towers",
+        "book two"
+      ],
+      "tags": [
+        "book:two-towers"
+      ]
+    },
+    {
+      "id": "lotr.ttt.window.rohan-isengard",
+      "label": "Rohan And Isengard War Front",
+      "anchorFrom": "lotr.ttt.orc-captivity",
+      "anchorTo": "lotr.ttt.palantir-recovered",
+      "sortKeyFrom": 1100,
+      "sortKeyTo": 1900,
+      "aliases": [
+        "Rohan arc",
+        "Isengard arc",
+        "Helm's Deep arc"
+      ],
+      "tags": [
+        "region:rohan",
+        "region:isengard"
+      ]
+    },
+    {
+      "id": "lotr.ttt.window.rohan-meduseld-to-helms-deep",
+      "label": "Meduseld To Helm’s Deep",
+      "anchorFrom": "lotr.ttt.rohan-edoras",
+      "anchorTo": "lotr.ttt.helms-deep",
+      "sortKeyFrom": 1500,
+      "sortKeyTo": 1700,
+      "aliases": [
+        "Meduseld To Helm’s Deep"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.window.book-iv",
+      "label": "Book IV: Frodo And Sam To Cirith Ungol",
+      "anchorFrom": "lotr.ttt.emyn-muil",
+      "anchorTo": "lotr.ttt.frodo-captured",
+      "sortKeyFrom": 2000,
+      "sortKeyTo": 2900,
+      "aliases": [
+        "Book IV: Frodo And Sam To Cirith Ungol"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.window.frodo-sam-road",
+      "label": "Frodo And Sam Road To Mordor",
+      "anchorFrom": "lotr.ttt.emyn-muil",
+      "anchorTo": "lotr.ttt.frodo-captured",
+      "sortKeyFrom": 2000,
+      "sortKeyTo": 2900,
+      "aliases": [
+        "Frodo Sam Gollum arc",
+        "road to Mordor"
+      ],
+      "tags": [
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "character:gollum"
+      ]
+    },
+    {
+      "id": "lotr.ttt.window.faramir-ithilien",
+      "label": "Faramir And Ithilien",
+      "anchorFrom": "lotr.ttt.ithilien",
+      "anchorTo": "lotr.ttt.crossroads",
+      "sortKeyFrom": 2400,
+      "sortKeyTo": 2600,
+      "aliases": [
+        "Faramir And Ithilien"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.window.cirith-ungol-betrayal",
+      "label": "Cirith Ungol Betrayal",
+      "anchorFrom": "lotr.ttt.cirith-ungol",
+      "anchorTo": "lotr.ttt.frodo-captured",
+      "sortKeyFrom": 2700,
+      "sortKeyTo": 2900,
+      "aliases": [
+        "Cirith Ungol Betrayal"
+      ],
+      "tags": [],
+      "extensions": {
+        "sagaReview": {
+          "addedIn": "middle-earth-v6-context-density-pass"
+        }
+      }
+    },
+    {
+      "id": "lotr.ttt.window.orc-captivity-fangorn",
+      "label": "Merry And Pippin Captivity To Fangorn",
+      "anchorFrom": "lotr.ttt.orc-captivity",
+      "anchorTo": "lotr.ttt.treebeard-meets-hobbits",
+      "sortKeyFrom": 1100,
+      "sortKeyTo": 1320,
+      "aliases": [
+        "Merry and Pippin captive"
+      ],
+      "tags": []
+    },
+    {
+      "id": "lotr.ttt.window.rohan-corruption-restoration",
+      "label": "Rohan Under Grima To Theoden Restored",
+      "anchorFrom": "lotr.ttt.rohan-edoras",
+      "anchorTo": "lotr.ttt.theoden-restored",
+      "sortKeyFrom": 1500,
+      "sortKeyTo": 1600,
+      "aliases": [
+        "before Theoden restored"
+      ],
+      "tags": []
+    },
+    {
+      "id": "lotr.ttt.window.helms-deep-full",
+      "label": "Helm’s Deep Battle And Aftermath",
+      "anchorFrom": "lotr.ttt.helms-deep",
+      "anchorTo": "lotr.ttt.huorns-helms-deep",
+      "sortKeyFrom": 1700,
+      "sortKeyTo": 1730,
+      "aliases": [
+        "during Helm’s Deep"
+      ],
+      "tags": []
+    },
+    {
+      "id": "lotr.ttt.window.ithilien-faramir",
+      "label": "Ithilien And Faramir",
+      "anchorFrom": "lotr.ttt.ithilien",
+      "anchorTo": "lotr.ttt.faramir-releases-frodo",
+      "sortKeyFrom": 2400,
+      "sortKeyTo": 2530,
+      "aliases": [
+        "Frodo with Faramir"
+      ],
+      "tags": []
+    }
+  ],
+  "arcs": [
+    {
+      "id": "lotr.ttt.arc.rohan",
+      "label": "Rohan And Helm's Deep",
+      "sortKeyFrom": 1100,
+      "sortKeyTo": 1800,
+      "aliases": [
+        "Rohan arc"
+      ],
+      "tags": [
+        "region:rohan",
+        "event:helms-deep"
+      ]
+    },
+    {
+      "id": "lotr.ttt.arc.isengard",
+      "label": "Isengard And Ents",
+      "sortKeyFrom": 1300,
+      "sortKeyTo": 1900,
+      "aliases": [
+        "Isengard arc"
+      ],
+      "tags": [
+        "region:isengard",
+        "people:ents"
+      ]
+    },
+    {
+      "id": "lotr.ttt.arc.mordor-road",
+      "label": "Road To Mordor",
+      "sortKeyFrom": 2000,
+      "sortKeyTo": 2900,
+      "aliases": [
+        "Frodo and Sam arc"
+      ],
+      "tags": [
+        "region:mordor",
+        "artifact:one-ring"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "lotr.ttt.phase.split-fellowship",
+      "label": "Fellowship Split",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1300,
+      "aliases": [
+        "after Fellowship breaks"
+      ],
+      "tags": [
+        "event:breaking-fellowship"
+      ]
+    },
+    {
+      "id": "lotr.ttt.phase.open-war",
+      "label": "Rohan And Isengard Open War",
+      "sortKeyFrom": 1400,
+      "sortKeyTo": 1900,
+      "aliases": [
+        "open war in Rohan"
+      ],
+      "tags": [
+        "region:rohan",
+        "region:isengard"
+      ]
+    },
+    {
+      "id": "lotr.ttt.phase.mordor-approach",
+      "label": "Approach To Mordor",
+      "sortKeyFrom": 2000,
+      "sortKeyTo": 2900,
+      "aliases": [
+        "approaching Mordor"
+      ],
+      "tags": [
+        "region:mordor"
+      ]
+    }
+  ],
+  "axes": [
+    {
+      "id": "lotr.axis.route",
+      "label": "Route",
+      "description": "Parallel Two Towers route thread."
+    },
+    {
+      "id": "lotr.axis.front",
+      "label": "War Front",
+      "description": "Rohan, Isengard, or Mordor front state."
+    },
+    {
+      "id": "lotr.axis.book",
+      "label": "Book Section",
+      "description": "Book III and Book IV progression within The Two Towers."
+    }
+  ],
+  "coordinates": [
+    {
+      "axis": "route",
+      "id": "lotr.route.parallel-roads",
+      "label": "Split Fellowship Parallel Roads",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "route",
+      "id": "lotr.route.merry-pippin",
+      "label": "Merry and Pippin Route",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "route",
+      "id": "lotr.route.three-hunters",
+      "label": "Three Hunters Route",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "route",
+      "id": "lotr.route.ringbearer",
+      "label": "Frodo, Sam, and Gollum Route",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "front",
+      "id": "lotr.front.rohan",
+      "label": "Rohan Front",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "front",
+      "id": "lotr.front.isengard",
+      "label": "Isengard Front",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "front",
+      "id": "lotr.front.mordor-approach",
+      "label": "Mordor Approach",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "book",
+      "id": "lotr.book-iii",
+      "label": "Book III: Rohan and Isengard",
+      "requiredByDefault": false
+    },
+    {
+      "axis": "book",
+      "id": "lotr.book-iv",
+      "label": "Book IV: Frodo and Sam to Cirith Ungol",
+      "requiredByDefault": false
+    }
+  ],
+  "extensions": {
+    "sagaRevision": {
+      "qualityPass": "v7_retrieval_import_hardening",
+      "updatedAt": "2026-06-08"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "categories": {
+    "character": {
+      "label": "Character",
+      "description": "Character identity, status, or behavior lore."
+    },
+    "event": {
+      "label": "Event",
+      "description": "Timeline events and story anchors."
+    },
+    "location": {
+      "label": "Location",
+      "description": "Places and location state."
+    },
+    "item": {
+      "label": "Item",
+      "description": "Artifacts, objects, and item rules."
+    },
+    "faction": {
+      "label": "Faction",
+      "description": "Organizations, realms, factions, and faction behavior."
+    },
+    "relationship": {
+      "label": "Relationship",
+      "description": "Relationship states and interpersonal dynamics."
+    },
+    "rule": {
+      "label": "Rule",
+      "description": "World rules and constraints."
+    },
+    "timeline": {
+      "label": "Timeline",
+      "description": "Chronology and Context anchors."
+    },
+    "knowledge": {
+      "label": "Knowledge",
+      "description": "Knowledge gates and information boundaries."
+    },
+    "secret": {
+      "label": "Secret",
+      "description": "Hidden or spoiler-sensitive lore."
+    },
+    "other": {
+      "label": "Other",
+      "description": "Miscellaneous lore."
+    }
+  },
+  "canonStatuses": {
+    "canon": {
+      "label": "Canon"
+    },
+    "au": {
+      "label": "AU"
+    }
+  },
+  "truthStatuses": {
+    "true": {
+      "label": "True"
+    },
+    "hidden": {
+      "label": "Hidden"
+    },
+    "rumor": {
+      "label": "Rumor"
+    },
+    "contested": {
+      "label": "Contested"
+    }
+  },
+  "revealPolicies": {
+    "public": {
+      "label": "Public"
+    },
+    "private": {
+      "label": "Private"
+    },
+    "do_not_reveal": {
+      "label": "Do Not Reveal"
+    }
+  }
+}

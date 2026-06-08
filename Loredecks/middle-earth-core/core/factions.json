@@ -1,0 +1,1660 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-07",
+  "sourcePackId": "middle-earth-core",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_gondor_and_rohan_have_distinct_assumptions",
+      "title": "Gondor And Rohan Have Distinct Assumptions",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Gondor And Rohan Have Distinct Assumptions"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Gondor faction",
+          "Rohan faction"
+        ],
+        "topics": [
+          "Gondor culture",
+          "Rohan culture"
+        ],
+        "people": [
+          "Rohirrim",
+          "Dunedain"
+        ],
+        "entityIds": [
+          "middle-earth:dunedain",
+          "middle-earth:gondor",
+          "middle-earth:rohan",
+          "middle-earth:rohirrim"
+        ]
+      },
+      "tags": [
+        "culture:realm-difference",
+        "era:war-of-the-ring",
+        "faction:gondor",
+        "faction:rohan",
+        "people:dunedain",
+        "people:rohirrim"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Gondor faction",
+            "Rohan faction"
+          ],
+          "topicsAny": [
+            "Gondor culture",
+            "Rohan culture"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "culture:realm-difference",
+            "faction:gondor",
+            "faction:rohan",
+            "people:rohirrim",
+            "people:dunedain"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gondor and Rohan are allied realms with different political cultures, military habits, histories, and social language.",
+        "injection": "Keep Gondor citadel, steward, lineage, and long-war oriented; keep Rohan hall, oath, horse, and honor oriented.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_orcs_serve_through_fear_not_fellowship",
+      "title": "Orcs Serve Through Fear Not Fellowship",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Orcs Serve Through Fear Not Fellowship"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Mordor faction",
+          "Isengard faction"
+        ],
+        "topics": [
+          "orc discipline",
+          "fear coercion"
+        ],
+        "people": [
+          "Orcs"
+        ],
+        "entityIds": [
+          "middle-earth:isengard",
+          "middle-earth:mordor",
+          "middle-earth:orcs"
+        ]
+      },
+      "tags": [
+        "era:war-of-the-ring",
+        "faction:isengard",
+        "faction:mordor",
+        "people:orcs"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Mordor faction",
+            "Isengard faction"
+          ],
+          "topicsAny": [
+            "orc discipline",
+            "fear coercion"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "faction:mordor",
+            "faction:isengard",
+            "people:orcs"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Orc forces are driven by fear, domination, cruelty, appetite, and factional coercion rather than loyal fellowship.",
+        "injection": "Orc groups can be dangerous without being cohesive; rivalry and fear of masters shape behavior.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_rangers_protect_lands_that_distrust_them",
+      "title": "Rangers Protect Lands That Distrust Them",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Rangers Protect Lands That Distrust Them"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn"
+        ],
+        "locations": [
+          "Eriador",
+          "Bree"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Rangers",
+          "public distrust",
+          "Eriador"
+        ],
+        "people": [
+          "Rangers"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:bree",
+          "middle-earth:eriador",
+          "middle-earth:rangers"
+        ]
+      },
+      "tags": [
+        "character:aragorn",
+        "era:war-of-the-ring",
+        "location:bree",
+        "location:eriador",
+        "people:rangers",
+        "region:eriador"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn"
+          ],
+          "locationsAny": [
+            "Eriador",
+            "Bree"
+          ],
+          "topicsAny": [
+            "Rangers",
+            "public distrust",
+            "Eriador"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "people:rangers",
+            "region:eriador",
+            "character:aragorn",
+            "location:eriador",
+            "location:bree"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Rangers guard Eriador from unseen dangers while many ordinary people mistrust or dismiss them.",
+        "injection": "Let Rangers carry quiet duty and poor public reputation together; protection does not guarantee gratitude.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_sauron_exploits_divided_loyalties",
+      "title": "Sauron Exploits Divided Loyalties",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Sauron Exploits Divided Loyalties"
+      },
+      "scope": {
+        "characters": [
+          "Sauron"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Mordor faction"
+        ],
+        "topics": [
+          "divided loyalties",
+          "despair",
+          "corruption strategy"
+        ],
+        "entityIds": [
+          "middle-earth:mordor",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "character:sauron",
+        "era:war-of-the-ring",
+        "faction:mordor",
+        "theme:corruption-strategy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Sauron"
+          ],
+          "factionsAny": [
+            "Mordor faction"
+          ],
+          "topicsAny": [
+            "divided loyalties",
+            "despair",
+            "corruption strategy"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "theme:corruption-strategy",
+            "character:sauron",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sauron’s power grows through fear, pride, despair, greed, and divided loyalties as much as armies.",
+        "injection": "Use corruption and despair as strategic tools where leaders or allies already distrust one another.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_the_free_peoples_lack_modern_coordination",
+      "title": "The Free Peoples Lack Modern Coordination",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "The Free Peoples Lack Modern Coordination"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Free Peoples",
+          "Gondor faction",
+          "Rohan faction"
+        ],
+        "topics": [
+          "alliance friction",
+          "communication limits"
+        ],
+        "people": [
+          "Elves",
+          "Dwarves",
+          "Hobbits",
+          "Men"
+        ],
+        "entityIds": [
+          "middle-earth:dwarves",
+          "middle-earth:elves",
+          "middle-earth:free-peoples",
+          "middle-earth:gondor",
+          "middle-earth:hobbits",
+          "middle-earth:men",
+          "middle-earth:rohan"
+        ]
+      },
+      "tags": [
+        "era:war-of-the-ring",
+        "faction:free-peoples",
+        "faction:gondor",
+        "faction:rohan",
+        "people:dwarves",
+        "people:elves",
+        "people:hobbits",
+        "people:men",
+        "topic:alliance-friction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Free Peoples",
+            "Gondor faction",
+            "Rohan faction"
+          ],
+          "topicsAny": [
+            "alliance friction",
+            "communication limits"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "faction:free-peoples",
+            "topic:alliance-friction",
+            "faction:gondor",
+            "faction:rohan",
+            "people:elves",
+            "people:dwarves",
+            "people:hobbits",
+            "people:men"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Free Peoples are divided by distance, history, fear, pride, and limited communication.",
+        "injection": "Councils, messengers, old alliances, and personal trust are needed; there is no centralized modern coalition.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_war_damages_civilians_beyond_battlefields",
+      "title": "War Damages Civilians Beyond Battlefields",
+      "kind": "rule_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "War Damages Civilians Beyond Battlefields"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [
+          "The Shire",
+          "Minas Tirith",
+          "Rohan"
+        ],
+        "objects": [],
+        "factions": [
+          "Gondor faction",
+          "Rohan faction"
+        ],
+        "topics": [
+          "civilian pressure",
+          "war aftermath"
+        ],
+        "entityIds": [
+          "middle-earth:gondor",
+          "middle-earth:minas-tirith",
+          "middle-earth:rohan",
+          "middle-earth:shire"
+        ]
+      },
+      "tags": [
+        "era:war-of-the-ring",
+        "faction:gondor",
+        "faction:rohan",
+        "location:minas-tirith",
+        "region:rohan",
+        "region:shire",
+        "theme:civilian-war-cost"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "locationsAny": [
+            "The Shire",
+            "Minas Tirith",
+            "Rohan"
+          ],
+          "factionsAny": [
+            "Gondor faction",
+            "Rohan faction"
+          ],
+          "topicsAny": [
+            "civilian pressure",
+            "war aftermath"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "theme:civilian-war-cost",
+            "region:shire",
+            "location:minas-tirith",
+            "region:rohan",
+            "faction:gondor",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "War affects civilians through fear, occupation, hunger, conscription, displacement, suspicion, and damaged local order.",
+        "injection": "Let war pressure reach farms, roads, halls, households, and healers, not just battle lines.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_mordor_fear_spies_servants",
+      "title": "Mordor Acts Through Fear Spies And Servants",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "canonStatus": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 78,
+      "status": "active",
+      "protected": false,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Mordor's reach during the War of the Ring",
+        "approximate": false,
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [
+          "Sauron",
+          "Nazgul"
+        ],
+        "locations": [
+          "Mordor",
+          "Gondor",
+          "The Shire",
+          "Bree",
+          "Rohan"
+        ],
+        "topics": [
+          "fear",
+          "spies",
+          "servants",
+          "war",
+          "surveillance",
+          "Mordor",
+          "Sauron",
+          "Nazgul"
+        ],
+        "factions": [
+          "Mordor",
+          "Free Peoples"
+        ],
+        "entityIds": [
+          "middle-earth:sauron",
+          "middle-earth:nazgul",
+          "middle-earth:mordor",
+          "middle-earth:gondor",
+          "middle-earth:shire",
+          "middle-earth:bree",
+          "middle-earth:rohan",
+          "middle-earth:free-peoples",
+          "middle-earth:war-of-the-ring"
+        ]
+      },
+      "tags": [
+        "faction:mordor",
+        "character:sauron",
+        "people:nazgul",
+        "era:war-of-the-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Sauron",
+            "Nazgul"
+          ],
+          "locationsAny": [
+            "Mordor",
+            "Gondor",
+            "The Shire",
+            "Bree",
+            "Rohan"
+          ],
+          "topicsAny": [
+            "spies",
+            "fear",
+            "servants of Mordor",
+            "Sauron's reach",
+            "servants",
+            "war",
+            "surveillance",
+            "Mordor",
+            "Sauron",
+            "Nazgul"
+          ],
+          "matchTags": [
+            "faction:mordor",
+            "character:sauron",
+            "people:nazgul",
+            "era:war-of-the-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Mordor's power reaches beyond its borders through fear, armies, spies, servants, rumors, and the will of Sauron.",
+        "injection": "Show its reach through fear, surveillance, servants, military pressure, and corruption rather than only through open armies.",
+        "constraints": [
+          "Mordor's reach should feel oppressive but not omniscient.",
+          "Sauron's servants can create suspicion even far from Mordor."
+        ],
+        "antiLore": [
+          "Do not make Sauron personally aware of every minor scene by default.",
+          "Do not reduce Mordor's influence to battlefield force only."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Faction behavior constraint. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_free-peoples-are-not-unified-by-default",
+      "title": "Free Peoples Are Not Unified By Default",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Free Peoples Are Not Unified By Default",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Free Peoples",
+          "Fractured Alliance"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:free-peoples",
+          "middle-earth:war-of-the-ring",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "faction:free-peoples",
+        "theme:fractured-alliance",
+        "era:war-of-the-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Free Peoples",
+            "Fractured Alliance"
+          ],
+          "matchTags": [
+            "faction:free-peoples",
+            "theme:fractured-alliance",
+            "era:war-of-the-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Free Peoples oppose Sauron but are divided by distance, mistrust, decline, local crises, and differing priorities.",
+        "injection": "Apply this political or military state: The Free Peoples oppose Sauron but are divided by distance, mistrust, decline, local crises, and differing priorities. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book rule; review against The Shadow of the Past and The Council of Elrond"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_gondor-and-rohan-alliance-requires-action",
+      "title": "Gondor And Rohan Alliance Requires Action",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Gondor And Rohan Alliance Requires Action",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Gondor",
+          "Rohan",
+          "Oath And Honor"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gondor",
+          "middle-earth:rohan"
+        ]
+      },
+      "tags": [
+        "faction:gondor",
+        "faction:rohan",
+        "theme:oath-and-honor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Gondor",
+            "Rohan",
+            "Oath And Honor"
+          ],
+          "matchTags": [
+            "faction:gondor",
+            "faction:rohan",
+            "theme:oath-and-honor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gondor and Rohan are allied, but aid still depends on messengers, beacons, leadership, oaths, and local crisis.",
+        "injection": "Apply this political or military state: Gondor and Rohan are allied, but aid still depends on messengers, beacons, leadership, oaths, and local crisis. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_gondor-is-ancient-but-strained",
+      "title": "Gondor Is Ancient But Strained",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Gondor Is Ancient But Strained",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Gondor",
+          "Fading Age"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gondor"
+        ]
+      },
+      "tags": [
+        "faction:gondor",
+        "region:gondor",
+        "theme:fading-age"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Gondor",
+            "Fading Age"
+          ],
+          "matchTags": [
+            "faction:gondor",
+            "region:gondor",
+            "theme:fading-age"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gondor is an ancient Numenorean realm under long strain, defending the West while diminished from its former strength.",
+        "injection": "Apply this political or military state: Gondor is an ancient Numenorean realm under long strain, defending the West while diminished from its former strength. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_isengard-represents-industrialized-corruption",
+      "title": "Isengard Represents Industrialized Corruption",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Isengard Represents Industrialized Corruption",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Isengard",
+          "Industrial Corruption",
+          "Saruman"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:isengard",
+          "middle-earth:saruman",
+          "middle-earth:mordor"
+        ]
+      },
+      "tags": [
+        "faction:isengard",
+        "theme:industrial-corruption",
+        "character:saruman"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Isengard",
+            "Industrial Corruption",
+            "Saruman"
+          ],
+          "matchTags": [
+            "faction:isengard",
+            "theme:industrial-corruption",
+            "character:saruman"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Isengard under Saruman represents ordered, tree-destroying, industrialized corruption distinct from Mordor’s terror.",
+        "injection": "Apply this political or military state: Isengard under Saruman represents ordered, tree-destroying, industrialized corruption distinct from Mordor’s terror. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_mordor-and-isengard-are-distinct-powers",
+      "title": "Mordor And Isengard Are Distinct Powers",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Mordor And Isengard Are Distinct Powers",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Mordor",
+          "Isengard",
+          "Saruman"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:mordor",
+          "middle-earth:isengard",
+          "middle-earth:saruman",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "faction:mordor",
+        "faction:isengard",
+        "character:saruman"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Mordor",
+            "Isengard",
+            "Saruman"
+          ],
+          "matchTags": [
+            "faction:mordor",
+            "faction:isengard",
+            "character:saruman"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Mordor and Isengard are both enemy powers, but Sauron and Saruman have distinct ambitions, methods, and centers of control.",
+        "injection": "Apply this political or military state: Mordor and Isengard are both enemy powers, but Sauron and Saruman have distinct ambitions, methods, and centers of control. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_rangers-guard-eriador-quietly",
+      "title": "Rangers Guard Eriador Quietly",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Rangers Guard Eriador Quietly",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Rangers Of The North",
+          "Eriador",
+          "Hidden Protection"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:rangers-of-the-north",
+          "middle-earth:eriador",
+          "middle-earth:shire"
+        ]
+      },
+      "tags": [
+        "faction:rangers-of-the-north",
+        "region:eriador",
+        "secret:hidden-protection"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Rangers Of The North",
+            "Eriador",
+            "Hidden Protection"
+          ],
+          "matchTags": [
+            "faction:rangers-of-the-north",
+            "region:eriador",
+            "secret:hidden-protection"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Rangers of the North quietly protect Eriador and the Shire from dangers most locals never understand.",
+        "injection": "Apply this political or military state: The Rangers of the North quietly protect Eriador and the Shire from dangers most locals never understand. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:saruman"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_rohan-values-oath-kinship-and-horses",
+      "title": "Rohan Values Oath Kinship And Horses",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Rohan Values Oath Kinship And Horses",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Rohan",
+          "Oath And Honor"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:rohan"
+        ]
+      },
+      "tags": [
+        "faction:rohan",
+        "region:rohan",
+        "theme:oath-and-honor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Rohan",
+            "Oath And Honor"
+          ],
+          "matchTags": [
+            "faction:rohan",
+            "region:rohan",
+            "theme:oath-and-honor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Rohan’s culture centers on horses, kinship, oaths, courage, song, and loyalty to lord and land.",
+        "injection": "Apply this political or military state: Rohan’s culture centers on horses, kinship, oaths, courage, song, and loyalty to lord and land. Keep its effects scoped to the current Context.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

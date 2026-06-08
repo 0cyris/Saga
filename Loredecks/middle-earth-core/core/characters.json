@@ -1,0 +1,2145 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-07",
+  "sourcePackId": "middle-earth-core",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_dwarven_honor_memory_and_craft_shape_conduct",
+      "title": "Dwarven Honor Memory And Craft Shape Conduct",
+      "kind": "rule_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Dwarven Honor Memory And Craft Shape Conduct"
+      },
+      "scope": {
+        "characters": [
+          "Gimli"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Dwarven honor",
+          "craft memory",
+          "kinship"
+        ],
+        "people": [
+          "Dwarves"
+        ],
+        "entityIds": [
+          "middle-earth:dwarves",
+          "middle-earth:gimli"
+        ]
+      },
+      "tags": [
+        "character:gimli",
+        "culture:dwarven-honor",
+        "era:war-of-the-ring",
+        "people:dwarves"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Gimli"
+          ],
+          "topicsAny": [
+            "Dwarven honor",
+            "craft memory",
+            "kinship"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "culture:dwarven-honor",
+            "character:gimli",
+            "people:dwarves"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Dwarven conduct is shaped by kinship, craft, old wrongs, treasured works, and durable loyalty once earned.",
+        "injection": "Use Dwarven pride and craft-memory as social forces, not simple stubbornness.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_elves_carry_fading_age_sorrow",
+      "title": "Elves Carry Fading-age Sorrow",
+      "kind": "rule_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Elves Carry Fading-age Sorrow"
+      },
+      "scope": {
+        "characters": [
+          "Elrond",
+          "Galadriel",
+          "Arwen"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Elven fading",
+          "long memory",
+          "departure"
+        ],
+        "people": [
+          "Elves"
+        ],
+        "entityIds": [
+          "middle-earth:arwen",
+          "middle-earth:elrond",
+          "middle-earth:elves",
+          "middle-earth:galadriel"
+        ]
+      },
+      "tags": [
+        "character:arwen",
+        "character:elrond",
+        "character:galadriel",
+        "era:war-of-the-ring",
+        "people:elves",
+        "theme:fading-age"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Elrond",
+            "Galadriel",
+            "Arwen"
+          ],
+          "topicsAny": [
+            "Elven fading",
+            "long memory",
+            "departure"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "theme:fading-age",
+            "character:elrond",
+            "character:galadriel",
+            "character:arwen",
+            "people:elves"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Elves possess long memory and beauty, but their power in Middle-earth is fading and many are preparing to depart.",
+        "injection": "Elven scenes should carry age, memory, restraint, and loss instead of endless intervention.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_hobbits_are_provincial_not_foolish",
+      "title": "Hobbits Are Provincial Not Foolish",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Hobbits Are Provincial Not Foolish"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hobbit culture",
+          "practical courage"
+        ],
+        "people": [
+          "Hobbits"
+        ],
+        "entityIds": [
+          "middle-earth:hobbits"
+        ]
+      },
+      "tags": [
+        "culture:shire-hobbits",
+        "era:war-of-the-ring",
+        "people:hobbits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "hobbit culture",
+            "practical courage"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "culture:shire-hobbits",
+            "people:hobbits"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hobbits are sheltered and provincial, but many are observant, resilient, practical, and morally courageous.",
+        "injection": "Write Hobbits as local, social, food-conscious, and cautious without making them stupid or helpless.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_hope_is_discipline_not_optimism",
+      "title": "Hope Is Discipline Not Optimism",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Hope Is Discipline Not Optimism"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Aragorn"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hope",
+          "endurance",
+          "duty"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "character:aragorn",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "era:war-of-the-ring",
+        "theme:hope-and-endurance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Aragorn"
+          ],
+          "topicsAny": [
+            "hope",
+            "endurance",
+            "duty"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "theme:hope-and-endurance",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:aragorn"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Hope is often an act of endurance and duty despite incomplete knowledge, not cheerful certainty.",
+        "injection": "Hopeful choices should feel disciplined and costly; characters may act rightly without expecting survival.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_aragorn_hidden_royal_claim",
+      "title": "Aragorn Carries A Hidden Royal Claim",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "canonStatus": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Aragorn's hidden claim before kingship is established",
+        "approximate": false,
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn",
+          "Strider",
+          "Elrond",
+          "Gandalf",
+          "Boromir"
+        ],
+        "locations": [
+          "Bree",
+          "Rivendell",
+          "Gondor"
+        ],
+        "topics": [
+          "kingship",
+          "lineage",
+          "Isildur",
+          "royal claim",
+          "Aragorn",
+          "Aragorn Lineage",
+          "Gondor",
+          "Narsil Anduril"
+        ],
+        "factions": [
+          "Gondor",
+          "Fellowship"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:elrond",
+          "middle-earth:gandalf",
+          "middle-earth:boromir",
+          "middle-earth:bree",
+          "middle-earth:rivendell",
+          "middle-earth:gondor",
+          "middle-earth:fellowship",
+          "middle-earth:narsil-anduril"
+        ]
+      },
+      "tags": [
+        "character:aragorn",
+        "secret:aragorn-lineage",
+        "faction:gondor",
+        "artifact:narsil-anduril"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn",
+            "Strider",
+            "Elrond",
+            "Gandalf",
+            "Boromir"
+          ],
+          "topicsAny": [
+            "Isildur",
+            "king",
+            "lineage",
+            "claim",
+            "Anduril",
+            "Narsil",
+            "kingship",
+            "royal claim",
+            "Aragorn",
+            "Aragorn Lineage"
+          ],
+          "matchTags": [
+            "character:aragorn",
+            "secret:aragorn-lineage",
+            "faction:gondor",
+            "artifact:narsil-anduril"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn is heir of Isildur and carries a royal claim, but that claim is revealed and accepted gradually rather than treated as common public fact.",
+        "injection": "Keep his royal claim weighty and context-dependent. He may act with hidden authority before others fully know or accept who he is.",
+        "constraints": [
+          "The claim has symbolic, political, and moral weight; it is not just a secret name.",
+          "Acceptance of the claim depends on audience, place, timing, and deeds."
+        ],
+        "antiLore": [
+          "Do not make every Gondorian, Rohirrim, or traveler automatically accept Aragorn as king early in the story.",
+          "Do not separate Aragorn's claim from his restraint, burden, and need to prove legitimacy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.9,
+        "notes": "Core identity and legitimacy gate. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core identity thread; review against Strider, The Council of Elrond, and The Steward and the King"
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:gandalf",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:arwen"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_frodo_ringbearer_after_bilbo",
+      "title": "Frodo Is The Ring-bearer After Bilbo",
+      "kind": "status_change",
+      "gateType": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "canonStatus": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 87,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Frodo carries the Ring during the War of the Ring",
+        "approximate": false,
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Bilbo Baggins",
+          "Gandalf"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "Ring-bearer",
+          "inheritance",
+          "burden",
+          "Frodo Baggins",
+          "Bilbo Baggins",
+          "One Ring",
+          "Ringbearer"
+        ],
+        "factions": [
+          "Shire",
+          "Fellowship"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:bilbo-baggins",
+          "middle-earth:gandalf",
+          "middle-earth:one-ring",
+          "middle-earth:shire",
+          "middle-earth:fellowship"
+        ]
+      },
+      "tags": [
+        "character:frodo-baggins",
+        "character:bilbo-baggins",
+        "artifact:one-ring",
+        "secret:ringbearer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Bilbo Baggins",
+            "Gandalf"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Ring-bearer",
+            "inheritance",
+            "Bag End",
+            "burden",
+            "Frodo Baggins",
+            "Bilbo Baggins",
+            "One Ring",
+            "Ringbearer"
+          ],
+          "matchTags": [
+            "character:frodo-baggins",
+            "character:bilbo-baggins",
+            "artifact:one-ring",
+            "secret:ringbearer"
+          ]
+        }
+      },
+      "content": {
+        "fact": "After Bilbo leaves the Shire, Frodo becomes the keeper of Bilbo's ring and later the Ring-bearer responsible for carrying the One Ring.",
+        "injection": "During the War of the Ring, treat Frodo as the Ring-bearer after Bilbo. His role is a private burden, not a public title most people understand.",
+        "constraints": [
+          "Frodo may initially understand the Ring incompletely before Gandalf confirms its nature.",
+          "His responsibility should feel isolating even when companions support him."
+        ],
+        "antiLore": [
+          "Do not leave Bilbo as the active Ring-bearer during the main War of the Ring journey.",
+          "Do not portray Frodo's role as public knowledge across Middle-earth."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.95,
+        "notes": "Core protagonist state. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book rule; review against The Shadow of the Past and The Council of Elrond"
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:bilbo-baggins",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:saruman"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_gandalf_guide_not_ruler",
+      "title": "Gandalf Operates As Guide Not Ruler",
+      "kind": "behavior_constraint",
+      "gateType": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "canonStatus": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 80,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Gandalf's role during the War of the Ring",
+        "approximate": false,
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [
+          "Gandalf"
+        ],
+        "topics": [
+          "Istari",
+          "guidance",
+          "restraint",
+          "counsel",
+          "Gandalf",
+          "Fellowship",
+          "Free Peoples"
+        ],
+        "factions": [
+          "Free Peoples",
+          "Fellowship",
+          "White Council"
+        ],
+        "entityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:free-peoples",
+          "middle-earth:fellowship",
+          "middle-earth:white-council",
+          "middle-earth:istari",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "character:gandalf",
+        "people:istari",
+        "faction:fellowship",
+        "faction:free-peoples"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Gandalf"
+          ],
+          "topicsAny": [
+            "wizard",
+            "counsel",
+            "guide",
+            "Istari",
+            "leadership",
+            "guidance",
+            "restraint",
+            "Gandalf",
+            "Fellowship",
+            "Free Peoples"
+          ],
+          "matchTags": [
+            "character:gandalf",
+            "people:istari",
+            "faction:fellowship",
+            "faction:free-peoples"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gandalf acts as a guide, counselor, and catalyst for resistance to Sauron rather than as a ruler who dominates the Free Peoples.",
+        "injection": "Portray him as wise, urgent, and forceful when needed, but not as someone who simply commands Middle-earth through raw power or political rule.",
+        "constraints": [
+          "Gandalf can lead in crisis, but his deeper role is to awaken courage, judgment, and resistance in others.",
+          "He refuses corrupting shortcuts such as wielding the One Ring."
+        ],
+        "antiLore": [
+          "Do not portray Gandalf as an all-powerful wizard who solves conflicts by direct magical domination.",
+          "Do not make him politically rule Gondor, Rohan, the Shire, or the Fellowship."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "notes": "Behavior constraint for Gandalf scenes. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core Istari thread; review against The Shadow of the Past, The White Rider, and The Siege of Gondor"
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_gollum_bound_to_ring",
+      "title": "Gollum Is Bound To The Ring By Possession",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "canonStatus": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 91,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 90,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Gollum's pursuit of the Ring during the War of the Ring",
+        "approximate": false,
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [
+          "Gollum",
+          "Smeagol",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Bilbo Baggins"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "obsession",
+          "possession",
+          "pity",
+          "pursuit",
+          "Gollum",
+          "Gollum Ring Connection",
+          "One Ring",
+          "Ring Corruption"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gollum",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:bilbo-baggins",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "character:gollum",
+        "secret:gollum-ring-connection",
+        "artifact:one-ring",
+        "power:ring-corruption"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Gollum",
+            "Smeagol",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Bilbo Baggins"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "my precious",
+            "obsession",
+            "pity",
+            "Ring possession",
+            "possession",
+            "pursuit",
+            "Gollum",
+            "Gollum Ring Connection",
+            "One Ring",
+            "Ring Corruption"
+          ],
+          "matchTags": [
+            "character:gollum",
+            "secret:gollum-ring-connection",
+            "artifact:one-ring",
+            "power:ring-corruption"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gollum is psychologically and spiritually bound to the One Ring after long possession, mixing hatred, need, cunning, fear, and dependence.",
+        "injection": "Portray his relationship to the Ring as obsessive and damaged. He may be pitiable, treacherous, cunning, servile, or desperate, but the Ring remains his central fixation.",
+        "constraints": [
+          "Gollum can show divided impulses through Smeagol/Gollum tension.",
+          "His fixation should affect trust, speech, choices, and risk-taking."
+        ],
+        "antiLore": [
+          "Do not make Gollum simply a loyal guide without danger.",
+          "Do not make him casually indifferent to the Ring or to Frodo carrying it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.95,
+        "notes": "Core Gollum behavior and Ring relationship. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core Gollum thread; review against The Shadow of the Past, The Taming of Smeagol, and Mount Doom"
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:bilbo-baggins",
+          "middle-earth:gollum"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_sam_loyal_companion",
+      "title": "Sam Is Frodo's Loyal Companion",
+      "kind": "relationship_state",
+      "gateType": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "canonStatus": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 85,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Sam accompanies Frodo during the War of the Ring",
+        "approximate": false,
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee"
+        ],
+        "locations": [
+          "The Shire",
+          "Mordor"
+        ],
+        "topics": [
+          "loyalty",
+          "companionship",
+          "service",
+          "friendship",
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Frodo Sam",
+          "Fellowship"
+        ],
+        "factions": [
+          "Fellowship",
+          "Shire"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:shire",
+          "middle-earth:mordor",
+          "middle-earth:fellowship"
+        ]
+      },
+      "tags": [
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "relationship:frodo-sam",
+        "faction:fellowship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "topicsAny": [
+            "loyalty",
+            "friendship",
+            "companion",
+            "servant",
+            "companionship",
+            "service",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Frodo Sam",
+            "Fellowship"
+          ],
+          "matchTags": [
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "relationship:frodo-sam",
+            "faction:fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Samwise Gamgee is Frodo's loyal companion, grounded by practical courage, emotional devotion, and a strong protective instinct.",
+        "injection": "In Frodo and Sam scenes, treat Sam's loyalty as active and practical: he protects, worries, serves, questions danger, and keeps Frodo moving when the burden becomes heavy.",
+        "constraints": [
+          "Sam's loyalty should not make him passive; he can challenge, doubt, or resist others when Frodo is at risk.",
+          "His perspective is grounded, plain-spoken, and morally steady."
+        ],
+        "antiLore": [
+          "Do not reduce Sam to comic relief or simple obedience.",
+          "Do not portray Sam as indifferent to the Ring's effect on Frodo."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.94,
+        "notes": "Core relationship state. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_arwen-s-presence-is-limited-but-weighty",
+      "title": "Arwen’s Presence Is Limited But Weighty",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Arwen’s Presence Is Limited But Weighty",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Arwen",
+          "Aragorn Arwen",
+          "Elves"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:arwen",
+          "middle-earth:elves"
+        ]
+      },
+      "tags": [
+        "character:arwen",
+        "relationship:aragorn-arwen",
+        "people:elves"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Arwen",
+            "Aragorn Arwen",
+            "Elves"
+          ],
+          "matchTags": [
+            "character:arwen",
+            "relationship:aragorn-arwen",
+            "people:elves"
+          ]
+        }
+      },
+      "content": {
+        "fact": "In book continuity Arwen appears sparingly but carries major dynastic, emotional, and fading-age weight.",
+        "injection": "In book continuity Arwen appears sparingly but carries major dynastic, emotional, and fading-age weight.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_boromir-is-honorable-and-desperate",
+      "title": "Boromir Is Honorable And Desperate",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Boromir Is Honorable And Desperate",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Boromir",
+          "Gondor",
+          "One Ring"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:boromir",
+          "middle-earth:gondor",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "character:boromir",
+        "faction:gondor",
+        "artifact:one-ring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Boromir",
+            "Gondor",
+            "One Ring"
+          ],
+          "matchTags": [
+            "character:boromir",
+            "faction:gondor",
+            "artifact:one-ring"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Boromir is brave and honorable but pressured by Gondor’s peril, making his Ring temptation tragic rather than simple villainy.",
+        "injection": "Boromir is brave and honorable but pressured by Gondor’s peril, making his Ring temptation tragic rather than simple villainy.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_frodo-s-courage-is-endurance-under-burden",
+      "title": "Frodo’s Courage Is Endurance Under Burden",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Frodo’s Courage Is Endurance Under Burden",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Frodo Baggins",
+          "One Ring",
+          "Ordinary Courage"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "character:frodo-baggins",
+        "artifact:one-ring",
+        "theme:ordinary-courage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Frodo Baggins",
+            "One Ring",
+            "Ordinary Courage"
+          ],
+          "matchTags": [
+            "character:frodo-baggins",
+            "artifact:one-ring",
+            "theme:ordinary-courage"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Frodo’s courage is endurance, pity, moral strain, and continued movement under damage, not conventional warrior dominance.",
+        "injection": "Frodo’s courage is endurance, pity, moral strain, and continued movement under damage, not conventional warrior dominance.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_gimli-carries-dwarven-memory-and-pride",
+      "title": "Gimli Carries Dwarven Memory And Pride",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Gimli Carries Dwarven Memory And Pride",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Gimli",
+          "Dwarves",
+          "Moria"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gimli",
+          "middle-earth:dwarves",
+          "middle-earth:moria"
+        ]
+      },
+      "tags": [
+        "character:gimli",
+        "people:dwarves",
+        "location:moria"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Gimli",
+            "Dwarves",
+            "Moria"
+          ],
+          "matchTags": [
+            "character:gimli",
+            "people:dwarves",
+            "location:moria"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gimli carries Dwarven pride, grief for lost halls, loyalty, and capacity for deep reverence.",
+        "injection": "Gimli carries Dwarven pride, grief for lost halls, loyalty, and capacity for deep reverence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_legolas-has-elven-perception-and-distance",
+      "title": "Legolas Has Elven Perception And Distance",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Legolas Has Elven Perception And Distance",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Legolas",
+          "Elves",
+          "Elven Perception"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:legolas",
+          "middle-earth:elves"
+        ]
+      },
+      "tags": [
+        "character:legolas",
+        "people:elves",
+        "power:elven-perception"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Legolas",
+            "Elves",
+            "Elven Perception"
+          ],
+          "matchTags": [
+            "character:legolas",
+            "people:elves",
+            "power:elven-perception"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Legolas brings Elven perception, woodland sensibility, age-distance, and skill without needing exaggerated film-action logic.",
+        "injection": "Legolas brings Elven perception, woodland sensibility, age-distance, and skill without needing exaggerated film-action logic.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_merry-and-pippin-grow-from-naivete",
+      "title": "Merry And Pippin Grow From Naivete",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 68,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Merry And Pippin Grow From Naivete",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Meriadoc Brandybuck",
+          "Peregrin Took",
+          "Growth"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took"
+        ]
+      },
+      "tags": [
+        "character:meriadoc-brandybuck",
+        "character:peregrin-took",
+        "theme:growth"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Growth"
+          ],
+          "matchTags": [
+            "character:meriadoc-brandybuck",
+            "character:peregrin-took",
+            "theme:growth"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Merry and Pippin begin as young Hobbit companions but grow through war, responsibility, and contact with greater peoples.",
+        "injection": "Merry and Pippin begin as young Hobbit companions but grow through war, responsibility, and contact with greater peoples.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_saruman-is-a-fallen-peer-not-a-minor-henchman",
+      "title": "Saruman Is A Fallen Peer Not A Minor Henchman",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Saruman Is A Fallen Peer Not A Minor Henchman",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Saruman",
+          "Isengard",
+          "Istari"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:saruman",
+          "middle-earth:isengard",
+          "middle-earth:istari",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "character:saruman",
+        "faction:isengard",
+        "people:istari"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Saruman",
+            "Isengard",
+            "Istari"
+          ],
+          "matchTags": [
+            "character:saruman",
+            "faction:isengard",
+            "people:istari"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Saruman is a fallen wizard with his own ambitions and methods, not merely Sauron’s local officer.",
+        "injection": "Saruman is a fallen wizard with his own ambitions and methods, not merely Sauron’s local officer.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_victory_does_not_erase_wounds",
+      "title": "Victory Does Not Erase Wounds",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.after-sauron-fall",
+        "validToAnchor": "middle-earth.fourth-age.early",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 7000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Victory Does Not Erase Wounds"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Aragorn"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "post-war wounds",
+          "trauma",
+          "aftermath"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee"
+        ]
+      },
+      "tags": [
+        "character:aragorn",
+        "character:frodo-baggins",
+        "character:samwise-gamgee",
+        "era:fourth-age",
+        "era:war-of-the-ring",
+        "theme:aftermath-trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Aragorn"
+          ],
+          "topicsAny": [
+            "post-war wounds",
+            "trauma",
+            "aftermath"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "theme:aftermath-trauma",
+            "era:fourth-age",
+            "character:frodo-baggins",
+            "character:samwise-gamgee",
+            "character:aragorn"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Even after Sauron’s fall, trauma, grief, changed homes, and fading powers remain part of the world.",
+        "injection": "Post-war scenes should preserve cost; celebration can coexist with permanent wounds and departures.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General post-war baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

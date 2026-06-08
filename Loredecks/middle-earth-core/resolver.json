@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to a Middle-earth: Core War of the Ring Context.",
+  "preferredFields": [
+    "era",
+    "book",
+    "beforeAfter",
+    "majorEvent",
+    "journeyState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer broad War of the Ring anchors and before/after story windows over invented exact calendar dates.",
+  "localPatterns": [
+    {
+      "pattern": "before the fellowship",
+      "result": {
+        "anchorTo": "middle-earth.wotr.fellowship-active",
+        "label": "Before the Fellowship forms"
+      }
+    },
+    {
+      "pattern": "fellowship era",
+      "result": {
+        "anchorFrom": "middle-earth.wotr.fellowship-active",
+        "anchorTo": "middle-earth.wotr.fellowship-broken",
+        "label": "Fellowship Era"
+      }
+    },
+    {
+      "pattern": "after the fellowship breaks",
+      "result": {
+        "anchorFrom": "middle-earth.wotr.fellowship-broken",
+        "label": "After the Breaking of the Fellowship"
+      }
+    },
+    {
+      "pattern": "after sauron falls",
+      "result": {
+        "anchorFrom": "middle-earth.wotr.after-sauron-fall",
+        "label": "After Sauron Falls"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

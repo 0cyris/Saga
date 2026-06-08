@@ -1,0 +1,1505 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-06-07",
+  "sourcePackId": "middle-earth-core",
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_news_travels_slowly_and_unevenly",
+      "title": "News Travels Slowly And Unevenly",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "News Travels Slowly And Unevenly"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Gondor faction",
+          "Rohan faction"
+        ],
+        "topics": [
+          "rumor",
+          "messengers",
+          "delayed news"
+        ],
+        "entityIds": [
+          "middle-earth:gondor",
+          "middle-earth:rohan"
+        ]
+      },
+      "tags": [
+        "era:war-of-the-ring",
+        "faction:gondor",
+        "faction:rohan",
+        "knowledge:rumor",
+        "topic:news-travel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Gondor faction",
+            "Rohan faction"
+          ],
+          "topicsAny": [
+            "rumor",
+            "messengers",
+            "delayed news"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "knowledge:rumor",
+            "topic:news-travel",
+            "faction:gondor",
+            "faction:rohan"
+          ]
+        }
+      },
+      "content": {
+        "fact": "News spreads by distance, rumor, messengers, refugees, scouts, and political channels, often late or distorted.",
+        "injection": "Limit character knowledge by geography and messenger flow; remote scenes should not share perfect updates.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "lotr_core_the_enemy_has_powerful_but_incomplete_knowledge",
+      "title": "The Enemy Has Powerful But Incomplete Knowledge",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "The Enemy Has Powerful But Incomplete Knowledge"
+      },
+      "scope": {
+        "characters": [
+          "Sauron"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Mordor faction"
+        ],
+        "topics": [
+          "Sauron knowledge gaps",
+          "enemy surveillance"
+        ],
+        "entityIds": [
+          "middle-earth:mordor",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "character:sauron",
+        "era:war-of-the-ring",
+        "faction:mordor",
+        "knowledge:hidden",
+        "theme:enemy-misjudgment"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Sauron"
+          ],
+          "factionsAny": [
+            "Mordor faction"
+          ],
+          "topicsAny": [
+            "Sauron knowledge gaps",
+            "enemy surveillance"
+          ],
+          "matchTags": [
+            "era:war-of-the-ring",
+            "knowledge:hidden",
+            "theme:enemy-misjudgment",
+            "character:sauron",
+            "faction:mordor"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Sauron and his servants have frightening reach, spies, fear, and perception, but not every hidden fact or route.",
+        "injection": "Preserve Sauron’s knowledge gaps; his power pressures scenes without making secrecy impossible.",
+        "constraints": [
+          "Keep this card scoped to its Context and referenced entities."
+        ],
+        "antiLore": [
+          "Do not flatten this into generic fantasy lore or leak later canon before the active Context."
+        ],
+        "notes": ""
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Lord of the Rings",
+        "confidence": 0.88,
+        "chapter": "General Middle-earth baseline",
+        "notes": "Added in v8 volume-density pass; verify during human canon review."
+      },
+      "extensions": {
+        "sagaRevision": {
+          "qualityPass": "v8_volume_density_pass",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ]
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_common_folk_do_not_know_ring",
+      "title": "Common Folk Do Not Know The Ring's True Nature",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "canonStatus": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "War of the Ring",
+        "approximate": false,
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Gandalf",
+          "Bilbo Baggins"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "hidden knowledge",
+          "ordinary people",
+          "Ring secrecy",
+          "One Ring",
+          "Ringbearer",
+          "Shire",
+          "Bree Land",
+          "Hidden"
+        ],
+        "locations": [
+          "The Shire",
+          "Bree-land"
+        ],
+        "factions": [
+          "Free Peoples"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:gandalf",
+          "middle-earth:bilbo-baggins",
+          "middle-earth:shire",
+          "middle-earth:bree-land",
+          "middle-earth:one-ring",
+          "middle-earth:free-peoples",
+          "middle-earth:sauron"
+        ]
+      },
+      "tags": [
+        "artifact:one-ring",
+        "secret:ringbearer",
+        "region:shire",
+        "region:bree-land",
+        "knowledge:hidden"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Bilbo Baggins",
+            "Gandalf"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "Ring secrecy",
+            "ordinary folk",
+            "who knows about the Ring",
+            "hidden knowledge",
+            "ordinary people",
+            "One Ring",
+            "Ringbearer",
+            "Shire",
+            "Bree Land",
+            "Hidden"
+          ],
+          "matchTags": [
+            "artifact:one-ring",
+            "secret:ringbearer",
+            "region:shire",
+            "region:bree-land",
+            "knowledge:hidden"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Most ordinary people in Middle-earth do not know that Bilbo's ring is the One Ring or understand its connection to Sauron.",
+        "injection": "Ordinary Hobbits, Bree-folk, soldiers, and civilians should not casually know the Ring's true identity unless the story has explicitly revealed it to them.",
+        "constraints": [
+          "Knowledge of the Ring's true nature should be limited to specific informed characters and councils.",
+          "Rumor, superstition, or curiosity can exist without accurate understanding."
+        ],
+        "antiLore": [
+          "Do not let random townsfolk, soldiers, or minor officials identify the One Ring on sight.",
+          "Do not treat the Ring's history as common public knowledge."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.9,
+        "notes": "Core secrecy gate. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book rule; review against The Shadow of the Past and The Council of Elrond"
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:bilbo-baggins",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:saruman"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_strider_identity_hidden",
+      "title": "Most Do Not Know Strider Is Aragorn",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "canonStatus": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 89,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "War of the Ring",
+        "approximate": false,
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [
+          "Aragorn",
+          "Strider"
+        ],
+        "locations": [
+          "Bree",
+          "Rivendell",
+          "Gondor"
+        ],
+        "topics": [
+          "hidden identity",
+          "royal lineage",
+          "Ranger identity",
+          "Aragorn",
+          "Aragorn Lineage",
+          "Eriador",
+          "Fellowship"
+        ],
+        "factions": [
+          "Fellowship",
+          "Gondor"
+        ],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:bree",
+          "middle-earth:rivendell",
+          "middle-earth:gondor",
+          "middle-earth:fellowship",
+          "middle-earth:eriador"
+        ]
+      },
+      "tags": [
+        "character:aragorn",
+        "secret:aragorn-lineage",
+        "region:eriador",
+        "faction:fellowship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Aragorn",
+            "Strider"
+          ],
+          "locationsAny": [
+            "Bree",
+            "Rivendell",
+            "Gondor"
+          ],
+          "topicsAny": [
+            "hidden king",
+            "Ranger",
+            "Heir of Isildur",
+            "royal claim",
+            "hidden identity",
+            "royal lineage",
+            "Ranger identity",
+            "Aragorn",
+            "Aragorn Lineage",
+            "Eriador"
+          ],
+          "matchTags": [
+            "character:aragorn",
+            "secret:aragorn-lineage",
+            "region:eriador",
+            "faction:fellowship"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Aragorn's identity as Isildur's heir and claimant to the kingship is not common knowledge; many know him only as Strider or as a Ranger.",
+        "injection": "Gate Aragorn’s identity by audience and Context. Before the proper reveal, most people know Strider as a Ranger, not as Isildur’s heir or a publicly accepted king.",
+        "constraints": [
+          "Elrond, Gandalf, and some allies know more than common travelers.",
+          "Public acceptance of the claim requires place, proof, and timing."
+        ],
+        "antiLore": [
+          "Do not have random Bree-folk, Rohirrim, or Gondorians casually call Strider the returning king early."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.9,
+        "notes": "Alias and hidden-identity gate. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core identity thread; review against Strider, The Council of Elrond, and The Steward and the King"
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "extensions": {
+        "sagaReview": {
+          "curatedIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:gandalf",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:arwen",
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:boromir"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_elessar-title-is-late-and-contextual",
+      "title": "Elessar Title Is Late And Contextual",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Elessar Title Is Late And Contextual",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Aragorn Lineage",
+          "Aragorn",
+          "King Elessar"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:king-elessar",
+          "middle-earth:one-ring",
+          "middle-earth:war-of-the-ring"
+        ]
+      },
+      "tags": [
+        "secret:aragorn-lineage",
+        "character:aragorn",
+        "event:king-elessar"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Aragorn Lineage",
+            "Aragorn",
+            "King Elessar"
+          ],
+          "matchTags": [
+            "secret:aragorn-lineage",
+            "character:aragorn",
+            "event:king-elessar"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Elessar is a late kingship-associated name and should not be common address in early War of the Ring scenes.",
+        "injection": "Elessar is a late kingship-associated name and should not be common address in early War of the Ring scenes. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core identity thread; review against Strider, The Council of Elrond, and The Steward and the King"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:aragorn",
+          "middle-earth:gandalf",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:arwen"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_gandalf-the-white-status-is-gated",
+      "title": "Gandalf The White Status Is Gated",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Gandalf The White Status Is Gated",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Gandalf Return",
+          "Gandalf",
+          "Istari"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:istari"
+        ]
+      },
+      "tags": [
+        "secret:gandalf-return",
+        "character:gandalf",
+        "people:istari"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Gandalf Return",
+            "Gandalf",
+            "Istari"
+          ],
+          "matchTags": [
+            "secret:gandalf-return",
+            "character:gandalf",
+            "people:istari"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gandalf’s return as Gandalf the White is a later reveal and must not leak into earlier contexts.",
+        "injection": "Gandalf’s return as Gandalf the White is a later reveal and must not leak into earlier contexts. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core Istari thread; review against The Shadow of the Past, The White Rider, and The Siege of Gondor"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_gollum-s-final-role-is-hidden",
+      "title": "Gollum’s Final Role Is Hidden",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Gollum’s Final Role Is Hidden",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Gollum Final Role",
+          "Gollum",
+          "Ring Destruction"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:gollum",
+          "middle-earth:ring-destruction",
+          "middle-earth:one-ring"
+        ]
+      },
+      "tags": [
+        "secret:gollum-final-role",
+        "character:gollum",
+        "event:ring-destruction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Gollum Final Role",
+            "Gollum",
+            "Ring Destruction"
+          ],
+          "matchTags": [
+            "secret:gollum-final-role",
+            "character:gollum",
+            "event:ring-destruction"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Gollum’s decisive final role in the Ring’s destruction is future knowledge and should not be predicted as certainty.",
+        "injection": "Gollum’s decisive final role in the Ring’s destruction is future knowledge and should not be predicted as certainty. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core Gollum thread; review against The Shadow of the Past, The Taming of Smeagol, and Mount Doom"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [],
+        "audience": "future spoiler",
+        "notes": "Future outcome guard; no ordinary character should know this as settled fact before the relevant reveal.",
+        "hiddenFrom": [
+          "all characters before the relevant reveal unless the story is explicitly AU or prophetic"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_saruman-s-betrayal-is-initially-hidden",
+      "title": "Saruman’s Betrayal Is Initially Hidden",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Saruman’s Betrayal Is Initially Hidden",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Saruman Betrayal",
+          "Saruman",
+          "Isengard"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:saruman",
+          "middle-earth:isengard",
+          "middle-earth:gandalf"
+        ]
+      },
+      "tags": [
+        "secret:saruman-betrayal",
+        "character:saruman",
+        "faction:isengard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Saruman Betrayal",
+            "Saruman",
+            "Isengard"
+          ],
+          "matchTags": [
+            "secret:saruman-betrayal",
+            "character:saruman",
+            "faction:isengard"
+          ]
+        }
+      },
+      "content": {
+        "fact": "Saruman’s betrayal is not common knowledge before Gandalf reveals it and the war exposes Isengard.",
+        "injection": "Saruman’s betrayal is not common knowledge before Gandalf reveals it and the war exposes Isengard. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core Istari thread; review against The Shadow of the Past, The White Rider, and The Siege of Gondor"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:saruman",
+          "middle-earth:gandalf",
+          "middle-earth:theoden"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_scouring-of-the-shire-is-late-hidden-knowledge",
+      "title": "Scouring Of The Shire Is Late Hidden Knowledge",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Scouring Of The Shire Is Late Hidden Knowledge",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Scouring Shire",
+          "Sharkey",
+          "Shire"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:scouring-shire",
+          "middle-earth:saruman",
+          "middle-earth:shire",
+          "middle-earth:hobbits"
+        ]
+      },
+      "tags": [
+        "event:scouring-shire",
+        "secret:sharkey",
+        "region:shire"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Scouring Shire",
+            "Sharkey",
+            "Shire"
+          ],
+          "matchTags": [
+            "event:scouring-shire",
+            "secret:sharkey",
+            "region:shire"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Shire’s late corruption under Sharkey/Saruman is not known to the Hobbits during the main quest.",
+        "injection": "The Shire’s late corruption under Sharkey/Saruman is not known to the Hobbits during the main quest. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book rule; review against The Shadow of the Past and The Council of Elrond"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:boromir",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:saruman",
+          "middle-earth:theoden"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_v5_witch-king-death-circumstances-are-spoiler-sensitive",
+      "title": "Witch-king Death Circumstances Are Spoiler-sensitive",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.before-fellowship",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Witch-king Death Circumstances Are Spoiler-sensitive",
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "topics": [
+          "Witch King Death",
+          "Witch King",
+          "Nazgul"
+        ],
+        "factions": [],
+        "entityIds": [
+          "middle-earth:witch-king",
+          "middle-earth:nazgul"
+        ]
+      },
+      "tags": [
+        "secret:witch-king-death",
+        "character:witch-king",
+        "people:nazgul"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Witch King Death",
+            "Witch King",
+            "Nazgul"
+          ],
+          "matchTags": [
+            "secret:witch-king-death",
+            "character:witch-king",
+            "people:nazgul"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The circumstances of the Witch-king’s fall are late-story spoiler material, not common tactical knowledge.",
+        "injection": "The circumstances of the Witch-king’s fall are late-story spoiler material, not common tactical knowledge. Keep this hidden from uninformed characters until the relevant reveal or direct evidence.",
+        "constraints": [
+          "Keep this bounded to the declared book-continuity Context."
+        ],
+        "antiLore": [
+          "Do not replace book-continuity logic with film-only compression unless a film overlay is active."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "War of the Ring Core",
+        "confidence": 0.86,
+        "notes": "Generated as a Saga bundled-deck v5 density draft; review before treating as reference canon. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "extensions": {
+        "sagaReview": {
+          "genericInjectionRewrittenIn": "middle-earth-v6",
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [],
+        "audience": "future spoiler",
+        "notes": "Future outcome guard; no ordinary character should know this as settled fact before the relevant reveal.",
+        "hiddenFrom": [
+          "all characters before the relevant reveal unless the story is explicitly AU or prophetic"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "middle_earth_core_fellowship_mission_secret",
+      "title": "The Fellowship's Mission Is Secret",
+      "kind": "knowledge_gate",
+      "gateType": "knowledge_gate",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "canonStatus": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 91,
+      "status": "active",
+      "protected": true,
+      "locked": false,
+      "userEditable": true,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "middle-earth.wotr.fellowship-active",
+        "validToAnchor": "middle-earth.wotr.after-sauron-fall",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 6000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Fellowship mission through the Ring's destruction",
+        "approximate": false,
+        "phaseId": "middle-earth.phase.war-of-the-ring",
+        "phase": "War of the Ring"
+      },
+      "scope": {
+        "characters": [
+          "Frodo Baggins",
+          "Samwise Gamgee",
+          "Gandalf",
+          "Aragorn",
+          "Boromir"
+        ],
+        "objects": [
+          "The One Ring"
+        ],
+        "topics": [
+          "secret mission",
+          "quest",
+          "Ring-bearer",
+          "Fellowship",
+          "One Ring",
+          "Ringbearer",
+          "Fellowship Formed"
+        ],
+        "factions": [
+          "Fellowship",
+          "Mordor",
+          "Free Peoples"
+        ],
+        "entityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:boromir",
+          "middle-earth:one-ring",
+          "middle-earth:fellowship",
+          "middle-earth:mordor",
+          "middle-earth:free-peoples",
+          "middle-earth:fellowship-formed"
+        ]
+      },
+      "tags": [
+        "faction:fellowship",
+        "artifact:one-ring",
+        "secret:ringbearer",
+        "event:fellowship-formed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gandalf",
+            "Aragorn"
+          ],
+          "objectsAny": [
+            "The One Ring"
+          ],
+          "topicsAny": [
+            "mission",
+            "quest",
+            "Ring-bearer",
+            "secret road",
+            "secret mission",
+            "Fellowship",
+            "One Ring",
+            "Ringbearer",
+            "Fellowship Formed"
+          ],
+          "matchTags": [
+            "faction:fellowship",
+            "artifact:one-ring",
+            "secret:ringbearer",
+            "event:fellowship-formed"
+          ]
+        }
+      },
+      "content": {
+        "fact": "The Fellowship's true mission is to bring the One Ring toward its destruction in Mordor, and that purpose must remain secret from most outsiders.",
+        "injection": "Keep the mission secret from outsiders unless the scene includes someone who canonically knows or the story has explicitly revealed it.",
+        "constraints": [
+          "The mission can be described vaguely as travel, errand, counsel, or urgent business when secrecy matters.",
+          "Enemies, spies, and uncertain allies create pressure to conceal Frodo's role."
+        ],
+        "antiLore": [
+          "Do not let the Fellowship announce the Ring quest casually in inns, courts, camps, or roads.",
+          "Do not let uninformed allies immediately know Frodo is carrying the One Ring."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "The Lord of the Rings",
+        "sourceType": "novel",
+        "title": "The Fellowship of the Ring",
+        "confidence": 0.92,
+        "notes": "Primary mission secrecy gate. Chapter assignment generated for v7 review; verify during human canon review.",
+        "chapter": "Core cross-book reference; review against The Lord of the Rings"
+      },
+      "continuity": {
+        "continuityId": "middle-earth-lotr-books",
+        "canonTier": "primary",
+        "adaptation": "book",
+        "medium": "novel",
+        "sourceBoundary": "The Lord of the Rings novels, with limited inherited Hobbit context only where required.",
+        "notes": "Does not include Peter Jackson film-only continuity, The Silmarillion, Unfinished Tales, Rings of Power, or game continuities."
+      },
+      "extensions": {
+        "sagaReview": {
+          "reviewedIn": "middle-earth-v6-quality-pass"
+        },
+        "sagaQuality": {
+          "reviewStatus": "needs_human_review"
+        },
+        "sagaRevision": {
+          "qualityPass": "v7_retrieval_import_hardening",
+          "reviewStatus": "generated_draft_pending_human_review",
+          "reviewedAt": "2026-06-08"
+        }
+      },
+      "coordinates": [
+        {
+          "axis": "era",
+          "id": "lotr.era.war-of-the-ring",
+          "label": "War of the Ring",
+          "required": false
+        }
+      ],
+      "visibility": {
+        "knownByEntityIds": [
+          "middle-earth:frodo-baggins",
+          "middle-earth:samwise-gamgee",
+          "middle-earth:gandalf",
+          "middle-earth:aragorn",
+          "middle-earth:elrond",
+          "middle-earth:galadriel",
+          "middle-earth:bilbo-baggins",
+          "middle-earth:meriadoc-brandybuck",
+          "middle-earth:peregrin-took",
+          "middle-earth:legolas",
+          "middle-earth:gimli",
+          "middle-earth:boromir"
+        ],
+        "audience": "contextual",
+        "notes": "Generated v7 visibility aid; verify against chapter-level canon review before marking as human-vetted.",
+        "hiddenFrom": [
+          "uninformed characters",
+          "ordinary civilians",
+          "enemy agents unless canonically informed"
+        ]
+      }
+    }
+  ]
+}

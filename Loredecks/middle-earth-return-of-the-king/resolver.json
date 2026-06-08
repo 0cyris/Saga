@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to The Return of the King book-continuity Context.",
+  "preferredFields": [
+    "book",
+    "arc",
+    "beforeAfter",
+    "majorEvent",
+    "location"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Return of the King anchors, especially Siege of Minas Tirith, Pelennor, Mordor road, Mount Doom, Scouring of the Shire, and Grey Havens. Do not apply film-only omissions unless the user selects film continuity.",
+  "localPatterns": [
+    {
+      "pattern": "siege of minas tirith",
+      "result": {
+        "anchorId": "lotr.rotk.siege-minas-tirith",
+        "label": "Siege of Minas Tirith"
+      }
+    },
+    {
+      "pattern": "pelennor",
+      "result": {
+        "anchorId": "lotr.rotk.pelennor",
+        "label": "Battle of Pelennor Fields"
+      }
+    },
+    {
+      "pattern": "mount doom",
+      "result": {
+        "anchorId": "lotr.rotk.mount-doom",
+        "label": "Mount Doom"
+      }
+    },
+    {
+      "pattern": "after the ring is destroyed",
+      "result": {
+        "anchorFrom": "lotr.rotk.ring-destroyed",
+        "label": "After the Ring is Destroyed"
+      }
+    },
+    {
+      "pattern": "scouring of the shire",
+      "result": {
+        "anchorId": "lotr.rotk.scouring-shire",
+        "label": "Scouring of the Shire"
+      }
+    },
+    {
+      "pattern": "grey havens",
+      "result": {
+        "anchorId": "lotr.rotk.grey-havens",
+        "label": "Grey Havens"
+      }
+    },
+    {
+      "pattern": "druedain road",
+      "result": {
+        "anchorId": "lotr.rotk.druedain-road",
+        "label": "Druedain road to Pelennor"
+      }
+    },
+    {
+      "pattern": "mouth of sauron",
+      "result": {
+        "anchorId": "lotr.rotk.mouth-sauron",
+        "label": "Mouth of Sauron parley"
+      }
+    },
+    {
+      "pattern": "after battle of bywater",
+      "result": {
+        "anchorFrom": "lotr.rotk.battle-of-bywater",
+        "label": "After the Battle of Bywater"
+      }
+    },
+    {
+      "pattern": "after saruman dies in the shire",
+      "result": {
+        "anchorFrom": "lotr.rotk.saruman-death",
+        "label": "After Saruman dies in the Shire"
+      }
+    },
+    {
+      "pattern": "during siege of minas tirith",
+      "result": {
+        "anchorFrom": "lotr.rotk.siege-minas-tirith",
+        "anchorTo": "lotr.rotk.denethor-pyre",
+        "label": "Siege of Minas Tirith"
+      }
+    },
+    {
+      "pattern": "during the black gate diversion",
+      "result": {
+        "anchorFrom": "lotr.rotk.last-debate",
+        "anchorTo": "lotr.rotk.black-gate-battle-begins",
+        "label": "Black Gate diversion"
+      }
+    },
+    {
+      "pattern": "during the scouring of the shire",
+      "result": {
+        "anchorFrom": "lotr.rotk.scouring-shire",
+        "anchorTo": "lotr.rotk.saruman-death",
+        "label": "Scouring of the Shire"
+      }
+    },
+    {
+      "pattern": "at the grey havens",
+      "result": {
+        "anchorFrom": "lotr.rotk.grey-havens",
+        "anchorTo": "lotr.rotk.keepers-depart",
+        "label": "Grey Havens"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

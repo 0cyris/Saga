@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "entrySchemaVersion": 3,
+  "id": "middle-earth-fellowship-of-the-ring",
+  "type": "bundled",
+  "title": "Middle-earth: The Fellowship of the Ring",
+  "description": "Book-specific Context, spoiler gates, status changes, and journey-state Lorecards for The Fellowship of the Ring in Tolkien book continuity.",
+  "fandom": "Middle-earth",
+  "era": "The Fellowship of the Ring",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.8.0",
+  "defaultLocale": "en",
+  "tags": [
+    "fandom:middle-earth",
+    "era:war-of-the-ring",
+    "book:fellowship-of-the-ring",
+    "continuity:lotr-books",
+    "density:hp-reference-band",
+    "quality:reviewed-draft",
+    "density:volume-reference-candidate",
+    "quality:v8-density-pass"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Deck Cover for Middle-earth: The Fellowship of the Ring",
+      "aspect": "3:4",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    "banner": {
+      "path": "assets/banner.png",
+      "alt": "Wide banner for Middle-earth: The Fellowship of the Ring"
+    }
+  },
+  "continuity": {
+    "continuityId": "middle-earth-lotr-books",
+    "canonTier": "primary",
+    "adaptation": "book",
+    "medium": "novel",
+    "sourceBoundary": "The Fellowship of the Ring novel within The Lord of the Rings.",
+    "notes": "Book continuity. Does not include Peter Jackson film-only additions."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "files": [
+    "fellowship/chronology.json",
+    "fellowship/characters.json",
+    "fellowship/knowledge_gates.json",
+    "fellowship/locations.json",
+    "fellowship/relationships.json",
+    "fellowship/artifacts.json",
+    "fellowship/factions.json"
+  ],
+  "dependencies": [
+    {
+      "packId": "middle-earth-core",
+      "versionMin": "0.7.0",
+      "versionMax": "",
+      "required": false,
+      "reason": "The Fellowship deck is designed to stack with Middle-earth: Core for broad world rules, Ring mechanics, peoples, geography, and shared entity/tag semantics."
+    }
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "stats": {
+    "entryCount": 95,
+    "categoryCounts": {
+      "character": 22,
+      "event": 19,
+      "faction": 5,
+      "item": 4,
+      "knowledge": 15,
+      "location": 15,
+      "relationship": 6,
+      "rule": 8,
+      "timeline": 1
+    },
+    "timelineAnchorCount": 57,
+    "timelineWindowCount": 16
+  },
+  "extensions": {
+    "sagaReview": {
+      "reviewedIn": "middle-earth-v6-quality-pass",
+      "reviewedAt": "2026-06-07T00:00:00-06:00",
+      "status": "reviewed_draft",
+      "notes": "Automated structural and editorial revision pass; still requires in-app Deck Health and human canon review before reference release."
+    },
+    "sagaRevision": {
+      "version": "v8_volume_density_pass",
+      "reviewStatus": "generated_draft_pending_human_review",
+      "notes": "Volume-density pass kept the three LOTR volume decks and added scene-state, culture, route, and knowledge-boundary Lorecards."
+    }
+  },
+  "health": {
+    "status": "needs_review",
+    "lastCheckedAt": "2026-06-08",
+    "notes": "Local v8 smoke validation passed; run in-app Saga Deck Health and human canon review before reference release."
+  },
+  "updatedAt": 1780876800000,
+  "library": {
+    "suggestedPath": [
+      "Lord of The Rings",
+      "War of the Ring"
+    ],
+    "familyOrder": 20
+  }
+}
