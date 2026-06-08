@@ -1003,7 +1003,6 @@ const ACCEPTED_LORE_PAGE_INCREMENT = 40;
 const SEARCH_RENDER_DEBOUNCE_MS = 160;
 const MINOR_STATE_SAVE_DEBOUNCE_MS = 350;
 const LORE_WORKBENCH_ROW_LIMIT = 500;
-let searchRenderTimer = null;
 let loreWorkbenchSearchTimer = null;
 let deferredStateSaveTimer = null;
 let deferredStateSaveRef = null;
@@ -21379,90 +21378,6 @@ if (typeof window !== 'undefined') {
     });
 }
 
-function cssEscape(value) {
-    if (window.CSS?.escape) return window.CSS.escape(String(value));
-    return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
-}
-
-function getFilteredLoreEntries(state) {
-    const panelState = state?.lorePanel || {
-        selectedCategory: 'all',
-        search: '',
-        selectedEntryId: '',
-    };
-
-    const { entries } = getPanelLoreState(state);
-    let filtered = entries.filter(entry => !entry.isPending);
-
-    if (panelState.selectedCategory === 'pending') {
-        filtered = [];
-    } else if (panelState.selectedCategory === 'active' || panelState.selectedCategory === 'high') {
-        filtered = filtered.filter(e => e.relevance === 'high');
-    } else if (panelState.selectedCategory === 'normal') {
-        filtered = filtered.filter(e => e.relevance === 'normal');
-    } else if (panelState.selectedCategory === 'low') {
-        filtered = filtered.filter(e => e.relevance === 'low');
-    } else if (panelState.selectedCategory === 'pinned') {
-        filtered = filtered.filter(e => e.isPinned);
-    } else if (panelState.selectedCategory === 'suppressed') {
-        filtered = filtered.filter(e => e.isSuppressed);
-    } else if (panelState.selectedCategory && panelState.selectedCategory !== 'all') {
-        filtered = filtered.filter(e => e.category === panelState.selectedCategory);
-    }
-
-    const sourceFilter = panelState.sourceFilter || 'all';
-    if (sourceFilter && sourceFilter !== 'all') {
-        filtered = filtered.filter(entry => getLoreSourceBucket(entry) === sourceFilter);
-    }
-
-    filtered = [...filtered].sort(sortLoreEntriesForPanel);
-
-    const query = String(panelState.search || '').trim().toLowerCase();
-    if (!query) return filtered;
-
-    return filtered
-        .map(entry => ({ entry, score: scoreSearchEntry(entry, query) }))
-        .filter(item => item.score > 0)
-        .sort((a, b) =>
-            b.score - a.score
-            || Number(b.entry.priority || 50) - Number(a.entry.priority || 50)
-            || String(a.entry.title || '').localeCompare(String(b.entry.title || ''))
-        )
-        .map(item => item.entry);
-}
-
-
-function getLoreSourceBucket(entry) {
-    const source = String(entry?.source || entry?.sourceInfo?.id || '').toLowerCase();
-    const id = String(entry?.id || '').toLowerCase();
-    const userEdited = !!entry?.userEdited;
-    if (source.includes('canon-lore-db') || source.includes('canon database') || id.startsWith('canon_db_') || id.includes('_canon_')) return 'canon-db';
-    if (source.includes('model-generated') || source.includes('story') || source.includes('lore-generator')) return 'story-generation';
-    if (userEdited || source === 'user' || source === 'manual') return 'manual';
-    return 'story-generation';
-}
-
-function sortLoreEntriesForPanel(a, b) {
-    const pinScore = Number(!!b.isPinned) - Number(!!a.isPinned);
-    if (pinScore) return pinScore;
-    const pendingScore = Number(!!b.isPending) - Number(!!a.isPending);
-    if (pendingScore) return pendingScore;
-    const categoryScore = getLoreCategoryRank(a.category) - getLoreCategoryRank(b.category);
-    if (categoryScore) return categoryScore;
-    const priorityScore = Number(b.priority || 50) - Number(a.priority || 50);
-    if (priorityScore) return priorityScore;
-    const scopeScore = getLoreScopeSpecificity(b) - getLoreScopeSpecificity(a);
-    if (scopeScore) return scopeScore;
-    return String(a.title || '').localeCompare(String(b.title || ''));
-}
-
-function getLoreCategoryRank(category) {
-    const order = ['event', 'timeline', 'character', 'relationship', 'location', 'faction', 'knowledge', 'secret', 'item', 'spell', 'rule', 'other'];
-    const idx = order.indexOf(category || '');
-    return idx >= 0 ? idx : 99;
-}
-
-
 const RELEVANCE_META = {
     high: { label: 'High', color: '#166534', textColor: '#dcfce7', tooltip: 'Current-scene or immediate story relevance. Injects in the High-Relevance lore group.' },
     normal: { label: 'Normal', color: '#1e3a8a', textColor: '#dbeafe', tooltip: 'Recent, branch-defining, or medium-range story relevance. Injects in the Normal-Relevance lore group.' },
@@ -21472,45 +21387,6 @@ const LIFECYCLE_META = RELEVANCE_META;
 
 function getLifecycleStatus(entry) {
     return normalizeLoreRelevance(entry.relevance || entry.lifecycleStatus || entry.lifecycle?.status || entry.lifecycle?.computedStatus || 'normal');
-}
-
-function createSpellMetadataBadges(entry) {
-    const row = document.createDocumentFragment();
-    const spells = Array.from(new Set([
-        ...((entry?.scope?.spells || []).map(v => String(v || '').trim()).filter(Boolean)),
-        ...((entry?.tags || []).filter(tag => /spell|patronus|expelliarmus|sectumsempra|occlumency|legilimency|apparition/i.test(String(tag || '')))),
-    ])).slice(0, 4);
-
-    if (!spells.length && (entry?.kind === 'spell_gate' || entry?.category === 'spell')) {
-        spells.push(entry?.title || 'Spell gate');
-    }
-
-    for (const spell of spells) {
-        const badge = createBadge(`Spell: ${spell}`, 'Spell metadata. This identifies spell knowledge, spell-learning gates, or magic-ability constraints attached to this lore entry.');
-        badge.classList.add('wandlight-lore-badge-spell');
-        row.appendChild(badge);
-    }
-
-    return row;
-}
-
-function scoreSearchEntry(entry, query) {
-    const title = String(entry.title || '').toLowerCase();
-    const tags = Array.isArray(entry.tags) ? entry.tags.map(t => String(t).toLowerCase()) : [];
-    const scope = formatLoreScope(entry.scope).toLowerCase();
-    const fact = String(entry.fact || '').toLowerCase();
-    const id = String(entry.id || '').toLowerCase();
-    const notes = String(entry.notes || '').toLowerCase();
-
-    if (title === query) return 100;
-    if (tags.some(t => t === query)) return 90;
-    if (title.includes(query)) return 80;
-    if (tags.some(t => t.includes(query))) return 70;
-    if (scope.includes(query)) return 55;
-    if (fact.includes(query)) return 40;
-    if (notes.includes(query)) return 30;
-    if (id.includes(query)) return 20;
-    return 0;
 }
 
 function scheduleStateSave(state, delay = MINOR_STATE_SAVE_DEBOUNCE_MS) {
