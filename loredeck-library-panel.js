@@ -161,6 +161,7 @@ let loredeckLibrarySelectedFolderId = 'all';
 let loredeckLibrarySelectedFolderDetailsId = '';
 let loredeckLibraryFolderCoverResizeObserver = null;
 let loredeckLibrarySelectionRefreshFrame = 0;
+let loredeckLibraryHierarchyRefreshFrame = 0;
 let bundledLoredeckIndexCache = null;
 let bundledLoredeckIndexLoading = false;
 let bundledLoredeckIndexLoadAttempted = false;
@@ -187,6 +188,10 @@ export function closeLoredeckLibraryWindow() {
         cancelAnimationFrame(loredeckLibrarySelectionRefreshFrame);
     }
     loredeckLibrarySelectionRefreshFrame = 0;
+    if (loredeckLibraryHierarchyRefreshFrame && typeof cancelAnimationFrame === 'function') {
+        cancelAnimationFrame(loredeckLibraryHierarchyRefreshFrame);
+    }
+    loredeckLibraryHierarchyRefreshFrame = 0;
     loredeckLibraryFolderCoverResizeObserver?.disconnect?.();
     loredeckLibraryFolderCoverResizeObserver = null;
     document.querySelector('.wandlight-loredeck-library-overlay')?.remove();
@@ -286,6 +291,10 @@ function restoreLoredeckLibraryScrollState(snapshot = null) {
 
 export function renderLoredeckLibraryOverlay(options = {}) {
     const scrollState = options.preserveScroll === false ? null : captureLoredeckLibraryScrollState();
+    if (loredeckLibraryHierarchyRefreshFrame && typeof cancelAnimationFrame === 'function') {
+        cancelAnimationFrame(loredeckLibraryHierarchyRefreshFrame);
+    }
+    loredeckLibraryHierarchyRefreshFrame = 0;
     loredeckLibraryFolderCoverResizeObserver?.disconnect?.();
     loredeckLibraryFolderCoverResizeObserver = null;
     document.querySelector('.wandlight-loredeck-library-overlay')?.remove();
@@ -555,6 +564,69 @@ function scheduleLoredeckLibrarySelectionSurfaceRefresh() {
     loredeckLibrarySelectionRefreshFrame = requestAnimationFrame(() => {
         loredeckLibrarySelectionRefreshFrame = 0;
         refreshLoredeckLibrarySelectionSurfaces();
+    });
+}
+
+function updateLoredeckLibraryFolderDisclosureDom(folderId = '', collapsed = false) {
+    const id = String(folderId || '').trim();
+    if (!id) return;
+    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+    const row = [...(overlay?.querySelectorAll('.wandlight-loredeck-library-inline-folder-row[data-folder-id]') || [])]
+        .find(item => String(item.dataset.folderId || '').trim() === id);
+    if (!row) return;
+    row.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    const disclosure = row.querySelector('.wandlight-loredeck-library-folder-disclosure');
+    if (disclosure) {
+        disclosure.textContent = collapsed ? '>' : 'v';
+        disclosure.setAttribute('aria-label', `${collapsed ? 'Expand' : 'Collapse'} folder`);
+        disclosure.dataset.wandlightTooltip = collapsed ? 'Expand folder.' : 'Collapse folder.';
+    }
+}
+
+function refreshLoredeckLibraryHierarchyList() {
+    loredeckLibraryHierarchyRefreshFrame = 0;
+    if (!loredeckLibraryOpen) return false;
+    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+    const currentList = overlay?.querySelector('.wandlight-loredeck-library-hierarchy-list');
+    if (!overlay || !currentList) return false;
+
+    const context = getLoredeckLibraryOverlayContext();
+    const top = currentList.scrollTop || 0;
+    const left = currentList.scrollLeft || 0;
+    const oldStrips = [...currentList.querySelectorAll('.wandlight-loredeck-library-folder-cover-strip')];
+    for (const strip of oldStrips) {
+        try {
+            loredeckLibraryFolderCoverResizeObserver?.unobserve?.(strip);
+        } catch (_) {
+            // Ignore detached resize-observer targets during fast hierarchy refreshes.
+        }
+    }
+    const nextList = createLoredeckLibraryHierarchyList(
+        context.filteredPacks,
+        context.stack,
+        context.canonDb,
+        context.health,
+        context.libraryIndex,
+        context.library,
+        context.scopedLibrary,
+    );
+    currentList.replaceWith(nextList);
+    nextList.scrollTop = top;
+    nextList.scrollLeft = left;
+    return true;
+}
+
+function scheduleLoredeckLibraryHierarchyRefresh() {
+    if (!loredeckLibraryOpen) return;
+    if (loredeckLibraryHierarchyRefreshFrame && typeof cancelAnimationFrame === 'function') {
+        cancelAnimationFrame(loredeckLibraryHierarchyRefreshFrame);
+    }
+    if (typeof requestAnimationFrame !== 'function') {
+        if (!refreshLoredeckLibraryHierarchyList()) renderLoredeckLibraryOverlay();
+        return;
+    }
+    loredeckLibraryHierarchyRefreshFrame = requestAnimationFrame(() => {
+        if (!refreshLoredeckLibraryHierarchyList()) renderLoredeckLibraryOverlay();
     });
 }
 
@@ -1406,10 +1478,10 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
             selectFolder();
         } else if (e.key === 'ArrowRight' && collapsed) {
             e.preventDefault();
-            toggleLoredeckLibraryFolderCollapsed(folderId, collapsed);
+            toggleLoredeckLibraryFolderCollapsed(folderId);
         } else if (e.key === 'ArrowLeft' && !collapsed) {
             e.preventDefault();
-            toggleLoredeckLibraryFolderCollapsed(folderId, collapsed);
+            toggleLoredeckLibraryFolderCollapsed(folderId);
         }
     });
 
@@ -1436,7 +1508,7 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     disclosure.addEventListener('click', e => {
         e.preventDefault();
         e.stopPropagation();
-        toggleLoredeckLibraryFolderCollapsed(folderId, collapsed);
+        toggleLoredeckLibraryFolderCollapsed(folderId);
     });
     row.appendChild(disclosure);
 
@@ -1488,7 +1560,8 @@ function toggleLoredeckLibraryFolderCollapsed(folderId = '', currentCollapsed = 
     }
     loredeckLibraryCollapsedFolderIds = collapsedIds;
     loredeckLibraryExpandedFolderIds = expandedIds;
-    renderLoredeckLibraryOverlay();
+    updateLoredeckLibraryFolderDisclosureDom(id, !collapsed);
+    scheduleLoredeckLibraryHierarchyRefresh();
 }
 
 function createLoredeckLibraryFolderCoverStrip(coverPacks = [], totalCoverableCount = 0) {

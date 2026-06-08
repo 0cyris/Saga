@@ -3810,7 +3810,7 @@
 
 .wandlight-loredeck-library-stack-grip span {
     width: 10px;
-    height: min(38px, max(11px, calc((var(--wandlight-grip-dot-rows, 6) * 6px) - 1px)));
+    height: min(44px, max(14px, calc(var(--wandlight-grip-dot-rows, 6) * 7px)));
     display: block;
     opacity: 0.74;
     background:
