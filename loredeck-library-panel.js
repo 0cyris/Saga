@@ -110,7 +110,7 @@ function deleteLoredeckLibraryPacksWithConfirm(packsOrIds) { return dep('deleteL
 function openDuplicateLoredeckDialog(pack) { return dep('openDuplicateLoredeckDialog', () => {})(pack); }
 function openLoredeckCreatorWorkbench(options) { return dep('openLoredeckCreatorWorkbench', () => {})(options); }
 function selectLoredeckForDetails(packId, options) { return dep('selectLoredeckForDetails', () => {})(packId, options); }
-function commitLoredeckStackMutation(message, mutator) { return dep('commitLoredeckStackMutation', () => false)(message, mutator); }
+function commitLoredeckStackMutation(mutator) { return dep('commitLoredeckStackMutation', () => false)(mutator); }
 function addLoredeckToStack(packId) { return dep('addLoredeckToStack', () => false)(packId); }
 function addLoredeckFolderToStack(folderId, libraryIndex) { return dep('addLoredeckFolderToStack', () => false)(folderId, libraryIndex); }
 function removeLoredecksFromStack(packIds) { return dep('removeLoredecksFromStack', () => false)(packIds); }
@@ -4315,7 +4315,7 @@ function removeLoredeckCoverImage(packId = '', button = null) {
 function addLoredecksToStack(packIds = []) {
     const ids = Array.from(new Set((packIds || []).map(id => String(id || '').trim()).filter(Boolean)));
     if (!ids.length) return false;
-    const changed = commitLoredeckStackMutation(`Added ${ids.length} Loredeck${ids.length === 1 ? '' : 's'} to stack`, stack => {
+    const changed = commitLoredeckStackMutation(stack => {
         for (const packId of ids) {
             const existing = stack.find(item => getLoredeckStackItemKey(item) === createLoredeckStackDeckKey(packId));
             if (existing) {
@@ -4337,7 +4337,7 @@ function addLoredecksToStack(packIds = []) {
 }
 
 function clearLoredeckStack() {
-    const changed = commitLoredeckStackMutation('Cleared Loredeck stack', stack => {
+    const changed = commitLoredeckStackMutation(stack => {
         stack.splice(0, stack.length);
     });
     if (changed) toast('Loredeck stack cleared.', 'success');
@@ -4554,7 +4554,7 @@ function applyLoredeckLibraryFolderRemoval(plan = {}, strategy = 'empty') {
     saveSettings(settings);
     const removedKeys = new Set(result.removedFolderIds.map(createLoredeckStackFolderKey));
     if (removedKeys.size) {
-        commitLoredeckStackMutation(`Deleted Library folder ${result.plan?.folder?.title || folderId}`, stack => {
+        commitLoredeckStackMutation(stack => {
             for (let index = stack.length - 1; index >= 0; index -= 1) {
                 if (removedKeys.has(getLoredeckStackItemKey(stack[index]))) stack.splice(index, 1);
             }
