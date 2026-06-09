@@ -435,9 +435,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Jedi Academy tag for Star Wars Legends New Republic deck.",
-      "aliases": [
-        "jedi academy"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -487,9 +485,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "New Republic tag for Star Wars Legends New Republic deck.",
-      "aliases": [
-        "new republic"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -526,9 +522,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Thrawn Campaign tag for Star Wars Legends New Republic deck.",
-      "aliases": [
-        "thrawn campaign"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -916,9 +910,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Centerpoint Station tag for Star Wars Legends New Republic deck.",
-      "aliases": [
-        "centerpoint station"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1358,9 +1350,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "New Republic Deck tag for Star Wars Legends New Republic deck.",
-      "aliases": [
-        "new republic"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1605,9 +1595,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Imperial Remnant tag for Star Wars Legends New Republic deck.",
-      "aliases": [
-        "imperial remnant"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1787,9 +1775,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Superweapon tag for Star Wars Legends New Republic deck.",
-      "aliases": [
-        "superweapon"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,

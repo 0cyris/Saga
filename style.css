@@ -2973,7 +2973,6 @@
         border-color 150ms ease,
         background 150ms ease,
         box-shadow 150ms ease,
-        min-height 180ms ease,
         transform 150ms ease;
 }
 
@@ -3047,7 +3046,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .wandlight-loredeck-library-folder-topline {
@@ -3056,6 +3055,7 @@
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
     gap: 8px;
+    overflow: hidden;
 }
 
 .wandlight-loredeck-library-folder-meta {
@@ -3067,16 +3067,13 @@
 .wandlight-loredeck-library-folder-cover-strip {
     position: relative;
     min-width: 0;
-    height: 30px;
+    height: 40px;
     display: flex;
     align-items: center;
     padding-left: 2px;
-    overflow: hidden;
+    overflow: visible;
     --wandlight-folder-cover-overlap: -12px;
-    --wandlight-folder-cover-size: 28px;
-    transition:
-        height 180ms ease,
-        padding 180ms ease;
+    --wandlight-folder-cover-size: 38px;
 }
 
 .wandlight-loredeck-library-folder-cover-tile {
@@ -3097,13 +3094,11 @@
     font-weight: 900;
     line-height: 1;
     overflow: hidden;
+    transform-origin: center bottom;
     box-shadow:
         0 0 0 1px var(--wandlight-gold-surface, rgba(215, 181, 109, 0.08)) inset,
         0 2px 8px rgba(0, 0, 0, 0.24);
     transition:
-        width 180ms ease,
-        height 180ms ease,
-        flex-basis 180ms ease,
         margin-left 180ms ease,
         transform 180ms ease,
         box-shadow 180ms ease;
@@ -3117,34 +3112,12 @@
     display: none;
 }
 
-.wandlight-loredeck-library-inline-folder-row:hover,
-.wandlight-loredeck-library-inline-folder-row:focus-within {
-    min-height: 112px;
-}
-
-.wandlight-loredeck-library-inline-folder-row:hover .wandlight-loredeck-library-folder-cover-strip,
-.wandlight-loredeck-library-inline-folder-row:focus-within .wandlight-loredeck-library-folder-cover-strip {
-    height: 70px;
-    align-items: flex-end;
-    padding-top: 18px;
-    padding-bottom: 2px;
-    overflow: visible;
-    --wandlight-folder-cover-overlap: -22px;
-    --wandlight-folder-cover-size: 56px;
-}
-
-.wandlight-loredeck-library-inline-folder-row:hover .wandlight-loredeck-library-folder-cover-tile,
-.wandlight-loredeck-library-inline-folder-row:focus-within .wandlight-loredeck-library-folder-cover-tile {
-    overflow: visible;
-    box-shadow:
-        0 0 0 1px var(--wandlight-gold-surface, rgba(255, 207, 105, 0.16)) inset,
-        0 8px 18px rgba(0, 0, 0, 0.32);
-}
-
-.wandlight-loredeck-library-inline-folder-row:hover .wandlight-loredeck-library-folder-cover-tile:hover,
-.wandlight-loredeck-library-inline-folder-row:focus-within .wandlight-loredeck-library-folder-cover-tile:hover {
+.wandlight-loredeck-library-folder-cover-tile:hover {
     z-index: 30;
-    transform: translateY(-8px) scale(1.06);
+    transform: translateY(-5px);
+    box-shadow:
+        0 0 0 1px var(--wandlight-gold-surface, rgba(255, 207, 105, 0.18)) inset,
+        0 8px 16px rgba(0, 0, 0, 0.32);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -11072,6 +11045,17 @@
     background: var(--wandlight-input, rgba(8, 10, 14, 0.32));
 }
 
+.wandlight-loredeck-workbench-timeline-form-slot {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.wandlight-loredeck-workbench-timeline-form {
+    border-color: var(--wandlight-gold-border, rgba(214, 169, 85, 0.38));
+    background: color-mix(in srgb, var(--wandlight-card, rgba(12, 14, 20, 0.42)) 80%, var(--wandlight-gold, #d6a955) 8%);
+}
+
 .wandlight-loredeck-workbench-registry-list {
     display: flex;
     flex-direction: column;
@@ -11094,6 +11078,10 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.wandlight-loredeck-workbench-registry-row > .wandlight-primary-actions {
+    justify-content: flex-end;
 }
 
 .wandlight-loredeck-workbench-registry-row-description,

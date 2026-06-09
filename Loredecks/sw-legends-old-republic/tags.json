@@ -422,9 +422,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Eternal Empire tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "eternal empire"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -461,9 +459,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Great Hyperspace War tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "great hyperspace war"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -474,9 +470,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Great Sith War tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "great sith war"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -617,9 +611,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Ruusan tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "ruusan"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -929,9 +921,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Hk 47 tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "hk 47"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1332,9 +1322,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Old Republic tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "old republic"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1436,9 +1424,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Ancient Sith tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "ancient sith"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1852,9 +1838,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Dark Wars tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "dark wars"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2021,9 +2005,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Eternal Empire tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "eternal empire"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2372,9 +2354,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Great Galactic War tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "great galactic war"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2385,9 +2365,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Great Sith War tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "great sith war"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2658,9 +2636,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Jedi Civil War tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "jedi civil war"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2736,9 +2712,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Jedi Order tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "jedi order"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2866,9 +2840,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Kolto tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "kolto"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2918,9 +2890,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Lightsaber tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "lightsaber"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3022,9 +2992,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Mandalorian Wars tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "mandalorian wars"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3061,9 +3029,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Mass Shadow Generator tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "mass shadow generator"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3204,9 +3170,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "New Sith Wars tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "new sith wars"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3243,9 +3207,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Old Republic tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "old republic"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3464,9 +3426,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Rakata tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "rakata"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3620,9 +3580,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Revan tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "revan"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": true,
       "deprecated": false,
@@ -3672,9 +3630,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Revanites tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "revanites"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": true,
       "deprecated": false,
@@ -3750,9 +3706,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Ruusan tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "ruusan"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3932,9 +3886,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Sith Empire tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "sith empire"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -4101,9 +4053,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Sith Triumvirate tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "sith triumvirate"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -4179,9 +4129,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Star Forge tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "star forge"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -4569,9 +4517,7 @@
       "color": "#3a2a14",
       "textColor": "#f5d58a",
       "description": "Zakuul tag for Star Wars Legends Old Republic deck.",
-      "aliases": [
-        "zakuul"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,

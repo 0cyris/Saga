@@ -413,7 +413,7 @@ Phase 4:
 - Tag registry editor.
 - Timeline/Context registry summary and basic editor routes.
 
-Implementation status: started. The first Phase 4 slice enables the `Registries` tab, adds registry summary chips, implements direct deck-owned tag registry add/update/delete, and shows a read-only deck-owned timeline/Context registry summary for anchors and windows. Tag registry changes save through the Loredeck Library mutation path and mark Deck Health stale. Full anchor/window editing, source-registry merge views, and Context Browser routes remain future Phase 4 slices.
+Implementation status: in progress. Phase 4 now enables the `Registries` tab, adds registry summary chips, implements direct deck-owned tag registry add/update/delete, and implements direct deck-owned timeline/Context anchor and window add/update/delete. Registry changes save through the Loredeck Library mutation path, support machine ID changes through upsert replacement, remove matching disabled registry IDs when an item is restored, and mark Deck Health stale. Source-registry merge views and Context Browser routes remain future Phase 4 slices.
 
 Phase 5:
 

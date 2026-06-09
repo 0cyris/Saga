@@ -137,6 +137,7 @@ const LOREDECK_COVER_MAX_DIMENSION = 768;
 const LOREDECK_COVER_OUTPUT_QUALITY = 0.86;
 const LOREDECK_COVER_INPUT_MAX_BYTES = 12 * 1024 * 1024;
 const LOREDECK_COVER_OUTPUT_MAX_CHARS = 1200000;
+const LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE = 15;
 const BUNDLED_LOREDECK_LIBRARY = DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORDS;
 
 const LOREDECK_LIBRARY_SPECIAL_VIEWS = Object.freeze([
@@ -1273,7 +1274,7 @@ function buildLoredeckLibraryFolderRenderModel(library = [], libraryIndex = {}, 
         }
         const nestedCovers = nestedPacks
             .filter(pack => !directCoverIds.has(pack.packId) && getLoredeckAssetRef(pack, 'cover'));
-        coverPacksByFolderId.set(folderId, [...directCovers, ...nestedCovers].slice(0, 20));
+        coverPacksByFolderId.set(folderId, [...directCovers, ...nestedCovers].slice(0, LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE));
     }
 
     return {
@@ -1474,7 +1475,7 @@ function getLoredeckLibraryFolderCoverPacks(folderId = '', library = [], library
         if (packFolderId === folderId) direct.push(pack);
         else if (isLoredeckLibraryFolderDescendant(packFolderId, folderId, libraryIndex)) nested.push(pack);
     }
-    return [...direct, ...nested].slice(0, 20);
+    return [...direct, ...nested].slice(0, LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE);
 }
 
 export function normalizeLoredeckLibraryInlineTitle(value = '', maxLength = 160) {
@@ -1746,7 +1747,7 @@ function toggleLoredeckLibraryFolderCollapsed(folderId = '', currentCollapsed = 
 function createLoredeckLibraryFolderCoverStrip(coverPacks = [], totalCoverableCount = 0) {
     const strip = document.createElement('div');
     strip.className = 'wandlight-loredeck-library-folder-cover-strip';
-    const packs = (coverPacks || []).filter(pack => getLoredeckAssetRef(pack, 'cover')).slice(0, 20);
+    const packs = (coverPacks || []).filter(pack => getLoredeckAssetRef(pack, 'cover')).slice(0, LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE);
     strip.dataset.totalCovers = String(Math.max(Number(totalCoverableCount) || 0, packs.length));
     if (!packs.length) {
         const fallback = document.createElement('span');
@@ -1814,11 +1815,12 @@ function updateLoredeckLibraryFolderCoverStrip(strip = null) {
 
     const total = Math.max(Number(strip.dataset.totalCovers) || 0, tiles.length);
     const available = Math.max(0, strip.clientWidth || strip.getBoundingClientRect?.().width || 0);
-    const tileWidth = 28;
-    const overlap = 12;
+    const style = typeof getComputedStyle === 'function' ? getComputedStyle(strip) : null;
+    const tileWidth = Math.max(1, Number.parseFloat(style?.getPropertyValue('--wandlight-folder-cover-size')) || 38);
+    const overlap = Math.max(0, Math.abs(Number.parseFloat(style?.getPropertyValue('--wandlight-folder-cover-overlap')) || 12));
     const step = Math.max(8, tileWidth - overlap);
     const moreWidth = 32;
-    const visibleCap = Math.min(20, tiles.length);
+    const visibleCap = Math.min(LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE, tiles.length);
 
     let visibleCount = visibleCap;
     if (available > 0) {
@@ -3378,7 +3380,7 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
     visual.className = 'wandlight-loredeck-library-detail-monogram wandlight-loredeck-library-folder-detail-visual';
     visual.appendChild(createLoredeckLibraryFolderCoverStrip(
         folderId === 'unfiled'
-            ? packs.filter(pack => getLoredeckAssetRef(pack, 'cover')).slice(0, 20)
+            ? packs.filter(pack => getLoredeckAssetRef(pack, 'cover')).slice(0, LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE)
             : getLoredeckLibraryFolderCoverPacks(folderId, library, libraryIndex),
         packs.filter(pack => getLoredeckAssetRef(pack, 'cover')).length
     ));
@@ -3750,11 +3752,10 @@ function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo =
             : 'Open the Library metadata editor for this Loredeck.',
         () => openLoredeckMetadataEditor(pack.packId)
     ));
-    const exportButton = createButton('Export', 'Validate and export this editable Loredeck as a .saga-loredeck.zip package.', async (btn) => {
+    const exportButton = createButton('Export', 'Export this Loredeck as a .saga-loredeck.zip package.', async (btn) => {
         await exportValidatedLoredeckDraft(pack, btn);
         renderLoredeckLibraryOverlay();
     });
-    exportButton.disabled = pack.type === 'bundled' || !canValidateLoredeckInEditor(pack);
     actions.appendChild(exportButton);
     return actions;
 }
@@ -3961,15 +3962,17 @@ function createLoredeckMetadataEditorCard(pack) {
         repairButton.disabled = !editorCanValidate;
         actions.appendChild(repairButton);
 
-        const exportButton = createButton('Export Package', 'Validate this Custom Loredeck record, then export it as a .saga-loredeck.zip package.', async (btn) => {
+        const exportButton = createButton('Export Package', 'Export this Loredeck record as a .saga-loredeck.zip package.', async (btn) => {
             await exportValidatedLoredeckDraft(pack, btn);
         });
-        exportButton.disabled = !editorCanValidate;
         actions.appendChild(exportButton);
     } else {
+        actions.appendChild(createButton('Export Package', 'Export this Bundled Loredeck as a .saga-loredeck.zip package.', async (btn) => {
+            await exportValidatedLoredeckDraft(pack, btn);
+        }));
         const note = document.createElement('div');
         note.className = 'wandlight-runtime-help';
-        note.textContent = 'Bundled Loredeck metadata is read-only. Use Duplicate to create an editable Custom copy.';
+        note.textContent = 'Bundled Loredeck metadata is read-only. You can still export the deck package.';
         actions.appendChild(note);
     }
     card.appendChild(actions);

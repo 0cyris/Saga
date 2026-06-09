@@ -500,9 +500,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Rebel Alliance.",
-      "aliases": [
-        "rebel alliance"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1631,9 +1629,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Arc Troopers.",
-      "aliases": [
-        "arc troopers"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1696,9 +1692,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Bacta.",
-      "aliases": [
-        "bacta"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1748,9 +1742,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Battle Of Coruscant.",
-      "aliases": [
-        "battle of coruscant"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1865,9 +1857,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Clone Armor.",
-      "aliases": [
-        "clone armor"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1878,9 +1868,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Clone Army.",
-      "aliases": [
-        "clone army"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1930,9 +1918,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Clone Commandos.",
-      "aliases": [
-        "clone commandos"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2203,9 +2189,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Cybernetics.",
-      "aliases": [
-        "cybernetics"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2398,9 +2382,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Droideka.",
-      "aliases": [
-        "droideka"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2528,9 +2510,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: First Battle Of Geonosis.",
-      "aliases": [
-        "first battle of geonosis"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2762,9 +2742,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Holonet.",
-      "aliases": [
-        "holonet"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2853,9 +2831,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Inquisitors.",
-      "aliases": [
-        "inquisitors"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2892,9 +2868,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Invisible Hand.",
-      "aliases": [
-        "invisible hand"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2931,9 +2905,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Jedi Archives.",
-      "aliases": [
-        "jedi archives"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3035,9 +3007,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Jedi Generals.",
-      "aliases": [
-        "jedi generals"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3113,9 +3083,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Jedi Purge.",
-      "aliases": [
-        "jedi purge"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": true,
       "deprecated": false,
@@ -3152,9 +3120,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Jedi Temple.",
-      "aliases": [
-        "jedi temple"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3191,9 +3157,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Laat Gunship.",
-      "aliases": [
-        "laat gunship"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3217,9 +3181,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Late Republic.",
-      "aliases": [
-        "late republic"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3724,9 +3686,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Order 66.",
-      "aliases": [
-        "order 66"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": true,
       "deprecated": false,
@@ -3750,9 +3710,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Order 66 Protocol.",
-      "aliases": [
-        "order 66 protocol"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": true,
       "deprecated": false,
@@ -3776,9 +3734,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Organa Family.",
-      "aliases": [
-        "organa family"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -4114,9 +4070,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Republic Navy.",
-      "aliases": [
-        "republic navy"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -4374,9 +4328,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Separatist Crisis.",
-      "aliases": [
-        "separatist crisis"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -4530,9 +4482,7 @@
       "color": "#6b4d1d",
       "textColor": "#fff7d6",
       "description": "Star Wars Legends Rise of Empire tag: Sifo Dyas.",
-      "aliases": [
-        "sifo dyas"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,

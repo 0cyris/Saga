@@ -1027,21 +1027,17 @@ function analyzeSchemaV3EntryHealth(health, entry = {}, fileRecord = {}) {
             || ['series', 'wide'].includes(cleanHealthString(contextGate.windowKind, 80))
             || (span !== null && span >= 365);
         if (wide) {
-            const expected = {
-                activation: 'topic_or_entity',
-                frequency: 'low',
-                contextBoost: 'low',
-            };
-            const mismatches = Object.entries(expected)
-                .filter(([field, value]) => cleanHealthString(retrieval[field], 80) !== value)
-                .map(([field, value]) => `${field}=${value}`);
-            if (mismatches.length) {
-                addSchemaV3HealthIssue(health, 'warning', 'schema_v3_wide_lore_retrieval', `Schema v3 wide entry ${label} should use conservative retrieval metadata: ${mismatches.join(', ')}.`, {
+            const expectedActivation = 'topic_or_entity';
+            const actualActivation = cleanHealthString(retrieval.activation, 80);
+            if (actualActivation !== expectedActivation) {
+                addSchemaV3HealthIssue(health, 'warning', 'schema_v3_wide_lore_retrieval', `Schema v3 wide entry ${label} should use topic/entity activation rather than broad automatic activation.`, {
                     entryIds,
                     file,
-                    expected,
+                    expected: {
+                        activation: expectedActivation,
+                    },
                     actual: {
-                        activation: cleanHealthString(retrieval.activation, 80),
+                        activation: actualActivation,
                         frequency: cleanHealthString(retrieval.frequency, 80),
                         contextBoost: cleanHealthString(retrieval.contextBoost, 80),
                     },

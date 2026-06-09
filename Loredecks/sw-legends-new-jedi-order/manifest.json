@@ -121,8 +121,8 @@
     "timelinePhaseCount": 8
   },
   "health": {
-    "status": "needs_review",
-    "summary": "Generated development deck. Lightweight structural validation passed; Saga Deck Health and human canon review still required."
+    "status": "good",
+    "summary": "Saga Deck Health passed after tag alias cleanup; human canon review is still recommended before reference release."
   },
   "updatedAt": 1780876800000,
   "generatedBy": {

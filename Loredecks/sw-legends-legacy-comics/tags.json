@@ -994,9 +994,7 @@
       "color": "#3b2f63",
       "textColor": "#f8f0ff",
       "description": "Star Wars Legends Legacy comics tag: Ag 37.",
-      "aliases": [
-        "ag 37"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1852,9 +1850,7 @@
       "color": "#3b2f63",
       "textColor": "#f8f0ff",
       "description": "Star Wars Legends Legacy comics tag: Faction.",
-      "aliases": [
-        "faction"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2346,9 +2342,7 @@
       "color": "#3b2f63",
       "textColor": "#f8f0ff",
       "description": "Star Wars Legends Legacy comics tag: Legacy Volume 2.",
-      "aliases": [
-        "legacy volume 2"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2671,9 +2665,7 @@
       "color": "#3b2f63",
       "textColor": "#f8f0ff",
       "description": "Star Wars Legends Legacy comics tag: Relationship.",
-      "aliases": [
-        "relationship"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2710,9 +2702,7 @@
       "color": "#3b2f63",
       "textColor": "#f8f0ff",
       "description": "Star Wars Legends Legacy comics tag: Resistance.",
-      "aliases": [
-        "resistance"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -2840,9 +2830,7 @@
       "color": "#3b2f63",
       "textColor": "#f8f0ff",
       "description": "Star Wars Legends Legacy comics tag: Secret.",
-      "aliases": [
-        "secret"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": true,
       "deprecated": false,
@@ -3217,9 +3205,7 @@
       "color": "#3b2f63",
       "textColor": "#f8f0ff",
       "description": "Star Wars Legends Legacy comics tag: Timeline.",
-      "aliases": [
-        "timeline"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -3321,9 +3307,7 @@
       "color": "#3b2f63",
       "textColor": "#f8f0ff",
       "description": "Star Wars Legends Legacy comics tag: Underworld.",
-      "aliases": [
-        "underworld"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,

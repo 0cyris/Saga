@@ -1462,9 +1462,7 @@
       "description": "Lightsaber. Recurring topic/retrieval tag.",
       "color": "#334155",
       "textColor": "#f8fafc",
-      "aliases": [
-        "lightsaber"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,
@@ -1670,9 +1668,7 @@
       "description": "Sith. Recurring topic/retrieval tag.",
       "color": "#334155",
       "textColor": "#f8fafc",
-      "aliases": [
-        "sith"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": true,
       "deprecated": false,
@@ -1852,9 +1848,7 @@
       "description": "Underworld. Recurring topic/retrieval tag.",
       "color": "#334155",
       "textColor": "#f8fafc",
-      "aliases": [
-        "underworld"
-      ],
+      "aliases": [],
       "parents": [],
       "sensitive": false,
       "deprecated": false,

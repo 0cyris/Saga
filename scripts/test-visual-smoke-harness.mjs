@@ -105,6 +105,9 @@ assert(!style.includes('border-color: rgba(190, 80, 80, 0.45) !important;'), 'Da
 assert(!style.includes('background: rgba(120, 30, 38, 0.22) !important;'), 'Danger buttons must not use hardcoded late-cascade red backgrounds.');
 assert(!style.includes('folder-cover-tile:nth-child(odd)'), 'Folder cover previews must not randomly tilt odd covers.');
 assert(!style.includes('folder-cover-tile:nth-child(even)'), 'Folder cover previews must not randomly tilt even covers.');
+assert(runtimePanelSource.includes('LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE = 15'), 'Folder cover previews must cap visible deck covers at 15 before the overflow tile.');
+assert(!read(libraryPanelPath).includes('slice(0, 20)'), 'Folder cover preview collection must not retain the old 20-cover cap.');
+assert(runtimePanelSource.includes("getPropertyValue('--wandlight-folder-cover-size')"), 'Folder cover layout must read the current CSS cover size.');
 assert(!runtimePanelSource.includes('LEGACY_ICONSET_ID'), 'Theme icon resolution must not reference the removed legacy icon set.');
 assert(!runtimePanelSource.includes('Images/runtime-icons'), 'Runtime icon resolution must not reference the discontinued runtime icon folder.');
 assert(!runtimePanelSource.includes('Drop support is queued'), 'Loredeck Library must not expose queued drop-support placeholder copy.');
@@ -322,7 +325,9 @@ assert(stateManager.includes('delete nextPack[key]'), 'Loredeck library upsert m
 assert(runtimePanelSource.includes('Finalize as Custom'), 'Generated Loredecks must expose reviewed Generated-to-Custom finalization.');
 assert(runtimePanelSource.includes('buildFinalizedCustomLoredeckRecordFromGenerated'), 'Generated-to-Custom finalization must use an explicit conversion builder.');
 assert(runtimePanelSource.includes('generated_finalized'), 'Finalized Custom Loredecks must retain generated-source provenance.');
-assert(runtimePanelSource.includes('Generated Loredeck is not export-ready'), 'Selected export must enforce Generated Loredeck readiness.');
+assert(runtimePanelSource.includes('Export is available now. Pending or drafted material is reported here'), 'Generated export readiness must inform without blocking export.');
+assert(!runtimePanelSource.includes('Generated Loredeck is not export-ready'), 'Selected export must not enforce Generated Loredeck readiness.');
+assert(runtimePanelSource.includes('Export this Bundled Loredeck as a .saga-loredeck.zip package.'), 'Bundled Loredecks must remain exportable.');
 assert(runtimePanelSource.includes('refreshLoredeckHealthAfterAcceptedPendingChanges'), 'Pending Review acceptance must rerun Deck Health after health-impact changes.');
 assert(runtimePanelSource.includes('and refreshed Deck Health'), 'Pending Review health rerun must report refreshed Deck Health to the user.');
 assert(runtimePanelSource.includes('hashLoredeckBundleJson'), 'Loredeck package import must use a canonical content hash.');

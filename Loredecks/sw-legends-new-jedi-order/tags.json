@@ -486,9 +486,7 @@
       "color": "#334155",
       "textColor": "#fff7ed",
       "description": "Yuuzhan Vong tag for Star Wars Legends NJO retrieval.",
-      "aliases": [
-        "yuuzhan vong"
-      ],
+      "aliases": [],
       "parents": [
         "fandom:star-wars"
       ],

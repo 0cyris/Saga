@@ -134,14 +134,80 @@ function restoreLoredeckHealthCenterScrollState(snapshot = null) {
 
 export function renderLoredeckHealthCenterOverlay(options = {}) {
     const scrollState = options.preserveScroll === false ? null : captureLoredeckHealthCenterScrollState();
-    document.querySelector('.wandlight-loredeck-health-center-overlay')?.remove();
-    if (!loredeckHealthCenterOpen) return;
-    const context = getLoredeckHealthCenterContext(loredeckHealthCenterPackId);
+    const previousOverlay = document.querySelector('.wandlight-loredeck-health-center-overlay');
+    if (!loredeckHealthCenterOpen) {
+        previousOverlay?.remove();
+        return;
+    }
 
+    let overlay = null;
+    try {
+        const context = getLoredeckHealthCenterContext(loredeckHealthCenterPackId);
+
+        overlay = document.createElement('div');
+        overlay.className = 'wandlight-lore-workbench-overlay wandlight-loredeck-health-center-overlay';
+        wireOverlayBackdropClose(overlay, closeLoredeckHealthCenter);
+
+        const shell = document.createElement('div');
+        shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-health-center-shell';
+        overlay.appendChild(shell);
+
+        const header = document.createElement('div');
+        header.className = 'wandlight-lore-workbench-header wandlight-loredeck-health-center-header';
+        const titleWrap = document.createElement('div');
+        titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+        const title = document.createElement('div');
+        title.className = 'wandlight-lore-workbench-title';
+        title.textContent = 'Deck Health Center';
+        titleWrap.appendChild(title);
+        const subtitle = document.createElement('div');
+        subtitle.className = 'wandlight-lore-workbench-subtitle';
+        subtitle.textContent = context.subtitle;
+        titleWrap.appendChild(subtitle);
+        header.appendChild(titleWrap);
+
+        const actions = document.createElement('div');
+        actions.className = 'wandlight-primary-actions wandlight-loredeck-health-center-actions';
+        actions.appendChild(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Deck Health report.' : 'Reload active Loredecks and recompute stack Deck Health.', async (btn) => {
+            await refreshLoredeckHealthCenterScan(context, btn);
+        }, 'wandlight-primary-button'));
+        const exportButton = createButton('Export Report', 'Download this Deck Health report as JSON.', () => exportLoredeckHealthCenterReport(context));
+        exportButton.disabled = !context.health;
+        actions.appendChild(exportButton);
+        actions.appendChild(createButton('Close', 'Close the Deck Health Center.', closeLoredeckHealthCenter));
+        header.appendChild(actions);
+        shell.appendChild(header);
+
+        const body = document.createElement('div');
+        body.className = 'wandlight-loredeck-health-center-body';
+        body.appendChild(createLoredeckHealthCenterTabs());
+        const content = document.createElement('div');
+        content.className = `wandlight-loredeck-health-center-content wandlight-loredeck-health-center-content-${loredeckHealthCenterTab}`;
+        if (loredeckHealthCenterTab === 'issues') content.appendChild(createLoredeckHealthIssuesView(context));
+        else if (loredeckHealthCenterTab === 'coverage') content.appendChild(createLoredeckHealthCoverageView(context));
+        else if (loredeckHealthCenterTab === 'files') content.appendChild(createLoredeckHealthFilesView(context));
+        else if (loredeckHealthCenterTab === 'advanced') content.appendChild(createLoredeckHealthAdvancedView(context));
+        else content.appendChild(createLoredeckHealthOverviewView(context));
+        body.appendChild(content);
+        shell.appendChild(body);
+    } catch (e) {
+        console.error('[Saga] Deck Health Center render failed:', e);
+        toast('Deck Health Center failed to render. Keeping the previous view open.', 'error');
+        if (!previousOverlay) {
+            document.body.appendChild(createLoredeckHealthCenterRenderErrorOverlay(e));
+        }
+        return;
+    }
+
+    previousOverlay?.remove();
+    document.body.appendChild(overlay);
+    restoreLoredeckHealthCenterScrollState(scrollState);
+}
+
+function createLoredeckHealthCenterRenderErrorOverlay(error = null) {
     const overlay = document.createElement('div');
     overlay.className = 'wandlight-lore-workbench-overlay wandlight-loredeck-health-center-overlay';
     wireOverlayBackdropClose(overlay, closeLoredeckHealthCenter);
-    document.body.appendChild(overlay);
 
     const shell = document.createElement('div');
     shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-health-center-shell';
@@ -157,35 +223,25 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
     subtitle.className = 'wandlight-lore-workbench-subtitle';
-    subtitle.textContent = context.subtitle;
+    subtitle.textContent = 'The report could not be rendered.';
     titleWrap.appendChild(subtitle);
     header.appendChild(titleWrap);
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions wandlight-loredeck-health-center-actions';
-    actions.appendChild(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Deck Health report.' : 'Reload active Loredecks and recompute stack Deck Health.', async (btn) => {
-        await refreshLoredeckHealthCenterScan(context, btn);
-    }, 'wandlight-primary-button'));
-    const exportButton = createButton('Export Report', 'Download this Deck Health report as JSON.', () => exportLoredeckHealthCenterReport(context));
-    exportButton.disabled = !context.health;
-    actions.appendChild(exportButton);
     actions.appendChild(createButton('Close', 'Close the Deck Health Center.', closeLoredeckHealthCenter));
     header.appendChild(actions);
     shell.appendChild(header);
 
     const body = document.createElement('div');
     body.className = 'wandlight-loredeck-health-center-body';
-    body.appendChild(createLoredeckHealthCenterTabs());
-    const content = document.createElement('div');
-    content.className = `wandlight-loredeck-health-center-content wandlight-loredeck-health-center-content-${loredeckHealthCenterTab}`;
-    if (loredeckHealthCenterTab === 'issues') content.appendChild(createLoredeckHealthIssuesView(context));
-    else if (loredeckHealthCenterTab === 'coverage') content.appendChild(createLoredeckHealthCoverageView(context));
-    else if (loredeckHealthCenterTab === 'files') content.appendChild(createLoredeckHealthFilesView(context));
-    else if (loredeckHealthCenterTab === 'advanced') content.appendChild(createLoredeckHealthAdvancedView(context));
-    else content.appendChild(createLoredeckHealthOverviewView(context));
-    body.appendChild(content);
+    body.appendChild(createEmptyMessage('Deck Health Center could not render this report. Close and reopen the Health Center after rerunning the scan.'));
+    const detail = document.createElement('div');
+    detail.className = 'wandlight-runtime-help';
+    detail.textContent = error?.message || 'Unknown render error.';
+    body.appendChild(detail);
     shell.appendChild(body);
-    restoreLoredeckHealthCenterScrollState(scrollState);
+    return overlay;
 }
 
 function createLoredeckHealthCenterTabs() {
@@ -1114,7 +1170,7 @@ function getLoredeckHealthIssueTitle(code = '') {
         schema_v3_missing_retrieval: 'Retrieval metadata is missing',
         schema_v3_incomplete_retrieval: 'Retrieval metadata is incomplete',
         schema_v3_missing_content: 'Lorecard content is incomplete',
-        schema_v3_wide_lore_retrieval: 'Wide lore retrieval should be conservative',
+        schema_v3_wide_lore_retrieval: 'Wide lore activation should be topic-gated',
         broken_anchor_reference: 'Context anchors are missing',
         invalid_context_window: 'Context window is invalid',
         unmatchable_context_gate: 'Context gate cannot match',
@@ -1180,10 +1236,10 @@ function getLoredeckHealthIssueAdvice(code = '', severity = 'suggestion') {
             fixShort: 'Add retrieval',
         },
         schema_v3_wide_lore_retrieval: {
-            summary: 'Wide lore should use conservative retrieval settings.',
-            why: 'High-value global lore is useful, but it can drown scenes if it activates too often.',
-            fix: 'Use topic-or-entity activation, low frequency, and low Context boost for wide/global entries.',
-            fixShort: 'Tune retrieval',
+            summary: 'Wide lore should activate from scene topics or entities.',
+            why: 'Global lore can be valid background material, but broad automatic activation can inject it into unrelated scenes.',
+            fix: 'Use topic-or-entity activation for wide/global entries. Frequency and Context boost can stay higher when the entry is intentionally common background lore.',
+            fixShort: 'Gate activation',
         },
         missing_entry_file: {
             summary: 'A declared entry file did not load.',
@@ -1300,6 +1356,20 @@ function getLoredeckHealthAffectedRows(group = {}) {
 
 export function suggestLoredeckMachineId(value = '') {
     return normalizeLoredeckTagId(value) || String(value || '').trim().toLowerCase().replace(/[^a-z0-9:._-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+}
+
+function normalizeLoredeckTagId(value = '') {
+    return String(value || '')
+        .trim()
+        .replace(/[\r\n]+/g, ' ')
+        .replace(/[^\p{L}\p{N} _:\-./]+/gu, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/:+/g, ':')
+        .replace(/^[\s:._/-]+|[\s:._/-]+$/g, '')
+        .toLowerCase()
+        .slice(0, 96)
+        .trim();
 }
 
 function formatLoredeckHealthGroupForCopy(group = {}) {

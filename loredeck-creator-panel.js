@@ -1283,7 +1283,7 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(readiness.ready ? 'Export ready' : 'Export blocked', 'Generated Loredeck export gate after staged Creator review.'));
+    summary.appendChild(createStatusPill(readiness.ready ? 'Finalize ready' : 'Needs review', 'Generated Loredeck finalization gate after staged Creator review.'));
     summary.appendChild(createStatusPill(pipeline.statusLabel || 'Pipeline check', 'Creator pipeline completeness based on the persisted staged job.'));
     summary.appendChild(createStatusPill(`${pipeline.titleBatchDraftedCount || 0}/${pipeline.titleBatchCount || 0} title sets`, 'Title sets drafted from the approved Story Outline.'));
     summary.appendChild(createStatusPill(`${pipeline.acceptedPlanningBatchCount || 0}/${pipeline.eligiblePlanningBatchCount || 0} Context sets accepted`, 'Context and Tag sets accepted from Pending Review into the Generated Loredeck.'));
@@ -1295,7 +1295,7 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
     help.className = 'wandlight-runtime-help';
     help.textContent = readiness.ready
         ? 'This Generated Loredeck has no unresolved draft or Pending Review state. Warnings may still describe intentionally partial Creator coverage.'
-        : 'Resolve the blockers below before exporting or sharing this Generated Loredeck.';
+        : 'Resolve the blockers below before finalizing this Generated Loredeck as Custom. Library export is still available.';
     wrap.appendChild(help);
 
     appendLoredeckCreatorReadinessItems(wrap, readiness.blockers, readiness.warnings);

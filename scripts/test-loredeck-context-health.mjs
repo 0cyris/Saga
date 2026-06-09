@@ -197,6 +197,37 @@ assert.equal(schemaHealth.summary.schemaV3EntryCount, 2);
 assert.equal(schemaHealth.summary.manifestStatsMismatchCount, 2);
 assert.equal(schemaHealth.status, 'has_errors');
 
+const broadGlobalHealth = createHealth('broad-global-pack');
+analyzeEntries(broadGlobalHealth, [{
+  file: 'common-background.json',
+  entries: [{
+    schemaVersion: 3,
+    id: 'global_common_foods_and_beverages',
+    title: 'Common Foods and Beverages',
+    category: 'rule',
+    context: {
+      scope: 'global',
+      sortKeyFrom: 1,
+      sortKeyTo: 9999,
+      precision: 'series_window',
+      windowKind: 'series',
+      label: 'All eras',
+    },
+    content: {
+      fact: 'Common foods and beverages can be available throughout the setting.',
+      injection: 'Use common foods and beverages as everyday background detail when relevant.',
+    },
+    retrieval: {
+      activation: 'topic_or_entity',
+      frequency: 'normal',
+      contextBoost: 'high',
+    },
+  }],
+}]);
+finalizeHealth(broadGlobalHealth);
+assert.equal(broadGlobalHealth.warnings.some(issue => issue.code === 'schema_v3_wide_lore_retrieval'), false);
+assert.equal(broadGlobalHealth.status, 'good');
+
 const manifestHealth = createHealth('manifest-pack');
 analyzeManifestFileListHealth(manifestHealth, {
   files: ['entries/a.json', 'entries/a.json'],

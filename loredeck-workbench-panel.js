@@ -545,15 +545,36 @@ function createLoredeckWorkbenchTimelineRegistryPanel(pack = {}, timelineRegistr
 
     const help = document.createElement('div');
     help.className = 'wandlight-loredeck-workbench-editor-hint';
-    help.textContent = 'This slice shows deck-owned Context registry structure. Full anchor/window editing is the next Phase 4 slice.';
+    help.textContent = 'Edit deck-owned Context anchors and windows used for story position gating. Source registry merge controls will come in a later slice.';
     panel.appendChild(help);
 
-    panel.appendChild(createLoredeckWorkbenchTimelinePreviewList('Anchors', timelineRegistry.anchors));
-    panel.appendChild(createLoredeckWorkbenchTimelinePreviewList('Windows', timelineRegistry.windows));
+    const controls = document.createElement('div');
+    controls.className = 'wandlight-loredeck-workbench-registry-controls';
+    const newAnchor = createButton('New Anchor', 'Create a deck-owned Context anchor.', () => {
+        replaceLoredeckWorkbenchTimelineForm(panel, pack, 'anchor', null);
+    }, isLoredeckWorkbenchEditablePack(pack) ? 'wandlight-primary-button' : '');
+    newAnchor.disabled = !isLoredeckWorkbenchEditablePack(pack);
+    controls.appendChild(newAnchor);
+    const newWindow = createButton('New Window', 'Create a deck-owned Context window between anchors or sort keys.', () => {
+        replaceLoredeckWorkbenchTimelineForm(panel, pack, 'window', null);
+    }, isLoredeckWorkbenchEditablePack(pack) ? 'wandlight-primary-button' : '');
+    newWindow.disabled = !isLoredeckWorkbenchEditablePack(pack);
+    controls.appendChild(newWindow);
+    panel.appendChild(controls);
+
+    const formSlot = document.createElement('div');
+    formSlot.className = 'wandlight-loredeck-workbench-timeline-form-slot';
+    formSlot.appendChild(createEmptyMessage(isLoredeckWorkbenchEditablePack(pack)
+        ? 'Choose New Anchor, New Window, or Edit a row to update this deck-owned timeline registry.'
+        : 'Bundled Loredeck registries are read-only. Duplicate the Loredeck before editing anchors or windows.'));
+    panel.appendChild(formSlot);
+
+    panel.appendChild(createLoredeckWorkbenchTimelinePreviewList('Anchors', timelineRegistry.anchors, pack, 'anchor'));
+    panel.appendChild(createLoredeckWorkbenchTimelinePreviewList('Windows', timelineRegistry.windows, pack, 'window'));
     return panel;
 }
 
-function createLoredeckWorkbenchTimelinePreviewList(titleText, items = []) {
+function createLoredeckWorkbenchTimelinePreviewList(titleText, items = [], pack = {}, kind = 'anchor') {
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-loredeck-workbench-timeline-preview';
     const title = document.createElement('div');
@@ -582,17 +603,267 @@ function createLoredeckWorkbenchTimelinePreviewList(titleText, items = []) {
         if (Number.isFinite(Number(item.sortKeyFrom)) || Number.isFinite(Number(item.sortKeyTo))) meta.appendChild(createStatusPill(`${item.sortKeyFrom ?? '?'} -> ${item.sortKeyTo ?? '?'}`, 'Window sort range.'));
         if (item.anchorFrom || item.anchorTo) meta.appendChild(createStatusPill(`${item.anchorFrom || '?'} -> ${item.anchorTo || '?'}`, 'Window anchor range.'));
         main.appendChild(meta);
+        if (item.notes) {
+            const notes = document.createElement('div');
+            notes.className = 'wandlight-loredeck-workbench-registry-row-description';
+            notes.textContent = item.notes;
+            main.appendChild(notes);
+        }
         row.appendChild(main);
+
+        const actions = document.createElement('div');
+        actions.className = 'wandlight-primary-actions';
+        actions.appendChild(createButton('Edit', `Load this ${kind} into the editor form.`, () => {
+            replaceLoredeckWorkbenchTimelineForm(row, pack, kind, item);
+        }));
+        if (isLoredeckWorkbenchEditablePack(pack)) {
+            const remove = createButton('Delete', `Delete this ${kind} after confirmation.`, async btn => {
+                await deleteLoredeckWorkbenchTimelineItem(pack, kind, item.id, btn);
+            }, 'wandlight-danger-button');
+            actions.appendChild(remove);
+        }
+        row.appendChild(actions);
         list.appendChild(row);
     }
     if (items.length > 16) {
         const more = document.createElement('div');
         more.className = 'wandlight-loredeck-workbench-editor-hint';
-        more.textContent = `Showing 16 of ${items.length}. Full timeline editing comes next.`;
+        more.textContent = `Showing 16 of ${items.length}.`;
         list.appendChild(more);
     }
     wrap.appendChild(list);
     return wrap;
+}
+
+function createLoredeckWorkbenchTimelineRegistryForm(pack = {}, kind = 'anchor', item = null) {
+    const normalizedKind = kind === 'window' ? 'window' : 'anchor';
+    const existing = item && typeof item === 'object' ? item : null;
+    const isWindow = normalizedKind === 'window';
+    const form = document.createElement('div');
+    form.className = 'wandlight-loredeck-workbench-registry-form wandlight-loredeck-workbench-timeline-form';
+    form.dataset.kind = normalizedKind;
+    form.dataset.originalId = existing?.id || '';
+
+    const suggestedId = existing?.id || suggestLoredeckWorkbenchTimelineItemId(pack, normalizedKind);
+    form.appendChild(createLoredeckWorkbenchInputField(isWindow ? 'Window ID' : 'Anchor ID', 'timelineId', suggestedId, 'Machine-safe Context registry ID.', { required: true }));
+    form.appendChild(createLoredeckWorkbenchInputField('Label', 'timelineLabel', existing?.label || '', 'Human-readable name shown in editors.', { required: true }));
+    form.appendChild(createLoredeckWorkbenchInputField('Context Type', 'timelineContextType', existing?.contextType || (isWindow ? 'anchor_window' : 'anchor'), 'Context type, such as anchor, episode, chapter, arc, or anchor_window.'));
+
+    if (isWindow) {
+        form.appendChild(createLoredeckWorkbenchInputField('From Anchor', 'timelineAnchorFrom', existing?.anchorFrom || '', 'Optional start anchor ID.'));
+        form.appendChild(createLoredeckWorkbenchInputField('To Anchor', 'timelineAnchorTo', existing?.anchorTo || '', 'Optional end anchor ID.'));
+        form.appendChild(createLoredeckWorkbenchInputField('Sort From', 'timelineSortKeyFrom', existing?.sortKeyFrom ?? '', 'Optional numeric start sort key.'));
+        form.appendChild(createLoredeckWorkbenchInputField('Sort To', 'timelineSortKeyTo', existing?.sortKeyTo ?? '', 'Optional numeric end sort key.'));
+    } else {
+        form.appendChild(createLoredeckWorkbenchInputField('Sort Key', 'timelineSortKey', existing?.sortKey ?? suggestLoredeckWorkbenchTimelineSortKey(pack), 'Numeric position within this Loredeck timeline.'));
+    }
+
+    form.appendChild(createLoredeckWorkbenchInputField('Aliases', 'timelineAliases', (existing?.aliases || []).join(', '), 'Comma-separated labels users might search for.'));
+    form.appendChild(createLoredeckWorkbenchInputField('Tags', 'timelineTags', (existing?.tags || []).join(', '), 'Comma-separated registry tags.'));
+    form.appendChild(createLoredeckWorkbenchTextareaField('Notes', 'timelineNotes', existing?.notes || '', 'Editor notes for this Context point.', { rows: 3 }));
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-loredeck-workbench-editor-actions';
+    const save = createButton(existing ? `Update ${isWindow ? 'Window' : 'Anchor'}` : `Add ${isWindow ? 'Window' : 'Anchor'}`, `Save this ${normalizedKind} directly to the Loredeck.`, async btn => {
+        await saveLoredeckWorkbenchTimelineItem(pack, normalizedKind, form, btn);
+    }, 'wandlight-primary-button');
+    save.disabled = !isLoredeckWorkbenchEditablePack(pack);
+    actions.appendChild(save);
+    if (existing?.id) {
+        const remove = createButton(`Delete ${isWindow ? 'Window' : 'Anchor'}`, `Delete this ${normalizedKind} after confirmation.`, async btn => {
+            await deleteLoredeckWorkbenchTimelineItem(pack, normalizedKind, existing.id, btn);
+        }, 'wandlight-danger-button');
+        remove.disabled = !isLoredeckWorkbenchEditablePack(pack);
+        actions.appendChild(remove);
+    }
+    actions.appendChild(createButton('Cancel', 'Close the timeline editor form.', () => {
+        const slot = form.closest('.wandlight-loredeck-workbench-timeline-form-slot');
+        slot?.replaceChildren(createEmptyMessage(isLoredeckWorkbenchEditablePack(pack)
+            ? 'Choose New Anchor, New Window, or Edit a row to update this deck-owned timeline registry.'
+            : 'Bundled Loredeck registries are read-only. Duplicate the Loredeck before editing anchors or windows.'));
+    }));
+    form.appendChild(actions);
+    return form;
+}
+
+function replaceLoredeckWorkbenchTimelineForm(source, pack = {}, kind = 'anchor', item = null) {
+    const panel = source?.closest?.('.wandlight-loredeck-workbench-registry-panel') || source;
+    const slot = panel?.querySelector?.('.wandlight-loredeck-workbench-timeline-form-slot');
+    if (!slot) return;
+    const form = createLoredeckWorkbenchTimelineRegistryForm(pack, kind, item);
+    slot.replaceChildren(form);
+    requestAnimationFrame(() => form.querySelector(item?.id ? '[name="timelineLabel"]' : '[name="timelineId"]')?.focus?.());
+}
+
+function collectLoredeckWorkbenchTimelineForm(kind = 'anchor', form = null) {
+    const normalizedKind = kind === 'window' ? 'window' : 'anchor';
+    const get = name => String(form?.querySelector(`[name="${name}"]`)?.value || '').trim();
+    const id = normalizeWorkbenchTimelineId(get('timelineId'));
+    const label = get('timelineLabel');
+    if (!id) {
+        toast(`${normalizedKind === 'window' ? 'Window' : 'Anchor'} ID is required.`, 'warning');
+        return null;
+    }
+    if (!label) {
+        toast(`${normalizedKind === 'window' ? 'Window' : 'Anchor'} label is required.`, 'warning');
+        return null;
+    }
+    const base = {
+        id,
+        label,
+        contextType: get('timelineContextType') || (normalizedKind === 'window' ? 'anchor_window' : 'anchor'),
+        aliases: parseWorkbenchTextList(get('timelineAliases'), 64),
+        tags: parseWorkbenchTextList(get('timelineTags'), 64),
+        notes: get('timelineNotes'),
+    };
+    if (normalizedKind === 'window') {
+        return normalizeWorkbenchTimelineWindow({
+            ...base,
+            anchorFrom: get('timelineAnchorFrom'),
+            anchorTo: get('timelineAnchorTo'),
+            sortKeyFrom: get('timelineSortKeyFrom'),
+            sortKeyTo: get('timelineSortKeyTo'),
+        });
+    }
+    return normalizeWorkbenchTimelineAnchor({
+        ...base,
+        sortKey: get('timelineSortKey'),
+    });
+}
+
+async function saveLoredeckWorkbenchTimelineItem(pack = {}, kind = 'anchor', form = null, button = null) {
+    if (!form || !isLoredeckWorkbenchEditablePack(pack)) return false;
+    const normalizedKind = kind === 'window' ? 'window' : 'anchor';
+    const item = collectLoredeckWorkbenchTimelineForm(normalizedKind, form);
+    if (!item) return false;
+    const originalId = normalizeWorkbenchTimelineId(form.dataset.originalId || '');
+    const original = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Saving...';
+    }
+    try {
+        const freshPack = getWorkbenchPack(pack.packId) || pack;
+        setLoredeckWorkbenchSaveState('saving', `Saving ${normalizedKind} ${item.id}...`);
+        const saved = persistLoredeckLibraryRecordMutation(freshPack, next => {
+            const registry = normalizeWorkbenchTimelineRegistry(next.timelineRegistry);
+            if (normalizedKind === 'window') {
+                registry.windows = upsertWorkbenchTimelineItem(registry.windows, item, originalId, 'window');
+                registry.disabledWindowIds = registry.disabledWindowIds.filter(id => ![item.id, originalId].includes(id));
+            } else {
+                registry.anchors = upsertWorkbenchTimelineItem(registry.anchors, item, originalId, 'anchor');
+                registry.disabledAnchorIds = registry.disabledAnchorIds.filter(id => ![item.id, originalId].includes(id));
+            }
+            next.timelineRegistry = registry;
+            next.healthStatus = 'stale';
+        }, '', {
+            errorMessage: 'Loredeck timeline registry save failed.',
+        });
+        if (!saved) {
+            setLoredeckWorkbenchSaveState('failed', `Could not save ${normalizedKind} ${item.id}.`);
+            return false;
+        }
+        setLoredeckWorkbenchSaveState('saved', `Saved ${normalizedKind} ${item.id}.`, { render: false, packId: freshPack.packId });
+        renderLoredeckWorkbench();
+        return true;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = original || 'Save';
+        }
+    }
+}
+
+async function deleteLoredeckWorkbenchTimelineItem(pack = {}, kind = 'anchor', itemId = '', button = null) {
+    const normalizedKind = kind === 'window' ? 'window' : 'anchor';
+    const id = normalizeWorkbenchTimelineId(itemId);
+    if (!id || !isLoredeckWorkbenchEditablePack(pack)) return false;
+    const confirmed = await confirmAction(`Delete ${normalizedKind === 'window' ? 'Window' : 'Anchor'}`, `Delete ${normalizedKind} ${id} from ${pack.title || pack.packId}? Lorecards keep their stored Context gates, but this deck-owned registry definition is removed. Continue?`);
+    if (!confirmed) return false;
+    const original = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Deleting...';
+    }
+    try {
+        const freshPack = getWorkbenchPack(pack.packId) || pack;
+        setLoredeckWorkbenchSaveState('saving', `Deleting ${normalizedKind} ${id}...`);
+        const saved = persistLoredeckLibraryRecordMutation(freshPack, next => {
+            const registry = normalizeWorkbenchTimelineRegistry(next.timelineRegistry);
+            if (normalizedKind === 'window') {
+                registry.windows = removeWorkbenchTimelineItem(registry.windows, id);
+                registry.disabledWindowIds = registry.disabledWindowIds.filter(disabledId => disabledId !== id);
+            } else {
+                registry.anchors = removeWorkbenchTimelineItem(registry.anchors, id);
+                registry.disabledAnchorIds = registry.disabledAnchorIds.filter(disabledId => disabledId !== id);
+            }
+            next.timelineRegistry = registry;
+            next.healthStatus = 'stale';
+        }, '', {
+            errorMessage: 'Loredeck timeline registry delete failed.',
+        });
+        if (!saved) {
+            setLoredeckWorkbenchSaveState('failed', `Could not delete ${normalizedKind} ${id}.`);
+            return false;
+        }
+        setLoredeckWorkbenchSaveState('saved', `Deleted ${normalizedKind} ${id}.`, { render: false, packId: freshPack.packId });
+        renderLoredeckWorkbench();
+        return true;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = original || 'Delete';
+        }
+    }
+}
+
+function suggestLoredeckWorkbenchTimelineItemId(pack = {}, kind = 'anchor') {
+    const registry = normalizeWorkbenchTimelineRegistry(pack?.timelineRegistry);
+    const list = kind === 'window' ? registry.windows : registry.anchors;
+    const prefix = kind === 'window' ? 'window' : 'anchor';
+    const existing = new Set((list || []).map(item => normalizeWorkbenchTimelineId(item?.id)).filter(Boolean));
+    for (let index = list.length + 1; index <= list.length + 999; index += 1) {
+        const id = `${prefix}:${index}`;
+        if (!existing.has(id)) return id;
+    }
+    return `${prefix}:${Date.now()}`;
+}
+
+function suggestLoredeckWorkbenchTimelineSortKey(pack = {}) {
+    const registry = normalizeWorkbenchTimelineRegistry(pack?.timelineRegistry);
+    const max = registry.anchors.reduce((highest, item) => {
+        const sortKey = normalizeWorkbenchTimelineNumber(item?.sortKey);
+        return sortKey === null ? highest : Math.max(highest, sortKey);
+    }, 0);
+    return max + 1;
+}
+
+function upsertWorkbenchTimelineItem(list = [], item = null, originalId = '', kind = 'anchor') {
+    if (!item?.id) return sortWorkbenchTimelineItems(list, kind);
+    const removeIds = new Set([normalizeWorkbenchTimelineId(item.id), normalizeWorkbenchTimelineId(originalId)].filter(Boolean));
+    return sortWorkbenchTimelineItems([
+        ...(Array.isArray(list) ? list : []).filter(existing => !removeIds.has(normalizeWorkbenchTimelineId(existing?.id))),
+        item,
+    ], kind);
+}
+
+function removeWorkbenchTimelineItem(list = [], itemId = '') {
+    const id = normalizeWorkbenchTimelineId(itemId);
+    return (Array.isArray(list) ? list : []).filter(item => normalizeWorkbenchTimelineId(item?.id) !== id);
+}
+
+function sortWorkbenchTimelineItems(list = [], kind = 'anchor') {
+    const normalizedKind = kind === 'window' ? 'window' : 'anchor';
+    return [...(Array.isArray(list) ? list : [])].sort((a, b) => {
+        const aSort = normalizedKind === 'window'
+            ? normalizeWorkbenchTimelineNumber(a?.sortKeyFrom) ?? normalizeWorkbenchTimelineNumber(a?.sortKeyTo) ?? Number.MAX_SAFE_INTEGER
+            : normalizeWorkbenchTimelineNumber(a?.sortKey) ?? Number.MAX_SAFE_INTEGER;
+        const bSort = normalizedKind === 'window'
+            ? normalizeWorkbenchTimelineNumber(b?.sortKeyFrom) ?? normalizeWorkbenchTimelineNumber(b?.sortKeyTo) ?? Number.MAX_SAFE_INTEGER
+            : normalizeWorkbenchTimelineNumber(b?.sortKey) ?? Number.MAX_SAFE_INTEGER;
+        if (aSort !== bSort) return aSort - bSort;
+        return String(a?.label || a?.id || '').localeCompare(String(b?.label || b?.id || ''));
+    });
 }
 
 function createLoredeckWorkbenchControls(pack = {}) {
@@ -2104,7 +2375,9 @@ function normalizeWorkbenchTimelineId(value = '') {
 }
 
 function normalizeWorkbenchTimelineNumber(value) {
-    const number = Number(String(value ?? '').trim());
+    const text = String(value ?? '').trim();
+    if (!text) return null;
+    const number = Number(text);
     return Number.isFinite(number) ? number : null;
 }
 

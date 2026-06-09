@@ -7834,13 +7834,6 @@ function buildLoredeckPackageIndexRecord(pack = {}, manifest = {}, deckFolderNam
 async function buildLoredeckZipPackageFilesForPack(pack = {}, registry = getLoredeckLibraryRegistry(getState())) {
     const fresh = getFreshLoredeckLibraryPack(pack.packId, pack) || pack;
     if (!fresh?.packId) throw new Error('Loredeck is missing packId.');
-    const cached = getCachedLoredeckHealthRecord(fresh.packId);
-    if (isGeneratedLoredeckPack(fresh)) {
-        const readiness = getGeneratedLoredeckExportReadiness(fresh, cached.health || null);
-        if (!readiness.ready) {
-            throw new Error(`Generated Loredeck is not export-ready: ${readiness.blockers[0] || 'resolve pending generated draft state first.'}`);
-        }
-    }
 
     const source = await loadLoredeckSourceById(fresh.packId, {
         registry,
@@ -8793,8 +8786,8 @@ function getGeneratedLoredeckExportReadiness(pack = {}, health = null, creatorJo
     const blockers = [];
     const warnings = [...pipeline.warnings];
     if (!acceptedEntries.length) blockers.push('Generated Loredeck needs at least one accepted Lorecard.');
-    if (pendingChanges.length) blockers.push('Pending Review must be accepted or rejected before export.');
-    if (draftChanges.length) blockers.push('Creator/Assistant Draft Batch must be queued, accepted, or dropped before export.');
+    if (pendingChanges.length) blockers.push('Pending Review must be accepted or rejected before finalizing as Custom.');
+    if (draftChanges.length) blockers.push('Creator/Assistant Draft Batch must be queued, accepted, or dropped before finalizing as Custom.');
     if (isLoredeckHealthStatusStale(pack)) warnings.push('Deck Health is stale; rerun validation before sharing.');
     if ((health?.errors || []).length) warnings.push('Latest Deck Health has errors.');
     if (!getLoredeckTimelineRegistryCount(pack.timelineRegistry)) warnings.push('No local timeline registry is saved yet.');
@@ -8810,6 +8803,13 @@ function getGeneratedLoredeckExportReadiness(pack = {}, health = null, creatorJo
     };
 }
 
+function formatGeneratedLoredeckExportNotice(message = '') {
+    if (message.includes('needs at least one accepted Lorecard')) return 'No accepted Lorecards are available for export yet.';
+    if (message.includes('Pending Review')) return 'Pending Review proposals are excluded from export until accepted.';
+    if (message.includes('Draft Batch')) return 'Creator/Assistant draft proposals are excluded from export until accepted.';
+    return message;
+}
+
 function createGeneratedLoredeckExportReadinessCard(pack = {}) {
     if (!isGeneratedLoredeckPack(pack)) return null;
     const cached = loredeckManifestPreviewCache.get(pack.packId);
@@ -8819,16 +8819,16 @@ function createGeneratedLoredeckExportReadinessCard(pack = {}) {
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
-    title.textContent = 'Generated Export Readiness';
+    title.textContent = 'Generated Export Snapshot';
     wrap.appendChild(title);
 
     const summary = document.createElement('div');
     summary.className = 'wandlight-loredeck-entry-summary';
-    summary.appendChild(createStatusPill(readiness.ready ? 'Ready' : 'Not ready', 'Generated Loredeck export readiness from accepted entries, pending review, and draft batch state.'));
+    summary.appendChild(createStatusPill(readiness.ready ? 'Clean' : 'Review state', 'Export is available; this summarizes accepted entries, pending review, and draft batch state.'));
     summary.appendChild(createStatusPill(readiness.pipeline?.statusLabel || 'Pipeline check', 'Creator pipeline status from staged generation metadata.'));
     summary.appendChild(createStatusPill(`${readiness.acceptedEntryCount} accepted`, 'Accepted generated Lorecards that will export and load at runtime.'));
-    summary.appendChild(createStatusPill(`${readiness.pendingChangeCount} pending`, 'Pending Review proposals must be resolved before export.'));
-    summary.appendChild(createStatusPill(`${readiness.draftChangeCount} drafted`, 'Creator/Assistant draft proposals must be resolved before export.'));
+    summary.appendChild(createStatusPill(`${readiness.pendingChangeCount} pending`, 'Pending Review proposals are excluded from export until accepted.'));
+    summary.appendChild(createStatusPill(`${readiness.draftChangeCount} drafted`, 'Creator/Assistant draft proposals are excluded from export until accepted.'));
     if (readiness.pipeline?.titleBatchCount) {
         summary.appendChild(createStatusPill(`${readiness.pipeline.titleBatchDraftedCount}/${readiness.pipeline.titleBatchCount} title sets`, 'Title sets drafted from the approved Story Outline.'));
     }
@@ -8846,10 +8846,13 @@ function createGeneratedLoredeckExportReadinessCard(pack = {}) {
     help.className = 'wandlight-runtime-help';
     help.textContent = readiness.ready
         ? 'Export will include accepted generated Lorecards, embedded manifest stats, local timeline/tag registries, and passive package assets.'
-        : 'Resolve blockers before export so the shared Generated Loredeck represents reviewed, accepted data only.';
+        : 'Export is available now. Pending or drafted material is reported here and will not be included until it is accepted into the deck.';
     wrap.appendChild(help);
 
-    appendLoredeckCreatorReadinessItems(wrap, readiness.blockers, readiness.warnings);
+    appendLoredeckCreatorReadinessItems(wrap, [], [
+        ...readiness.blockers.map(formatGeneratedLoredeckExportNotice),
+        ...readiness.warnings,
+    ]);
 
     return wrap;
 }
@@ -9281,7 +9284,7 @@ function createLoredeckPendingReviewCard(pack) {
     const help = document.createElement('div');
     help.className = 'wandlight-runtime-help';
     help.textContent = isLoredeckHealthStatusStale(pack)
-        ? 'Accepted changes have made the saved Deck Health status stale. Rerun validation before exporting, sharing, or treating this Loredeck as clean.'
+        ? 'Accepted changes have made the saved Deck Health status stale. Rerun validation before sharing or treating this Loredeck as clean.'
         : 'Pending changes do not affect runtime injection until accepted. This is the review path for manual edits, bulk edits, and Lore Assistant patches.';
     wrap.appendChild(help);
 
@@ -13014,18 +13017,12 @@ async function exportValidatedLoredeckDraft(pack, button = null) {
         button.textContent = 'Exporting...';
     }
     try {
-        const validation = await validateLoredeckForEditor(pack, null, { quiet: true, updateLibrary: true });
-        if (!validation.health) throw new Error(validation.error || 'Validation failed before export.');
-        const fresh = getFreshLoredeckLibraryPack(pack.packId, pack);
-        const readiness = getGeneratedLoredeckExportReadiness(fresh, validation.health);
-        if (!readiness.ready) {
-            throw new Error(`Generated Loredeck is not export-ready: ${readiness.blockers[0] || 'resolve pending generated draft state first.'}`);
-        }
+        const fresh = getFreshLoredeckLibraryPack(pack.packId, pack) || pack;
         const packageResult = await buildLoredeckZipPackageForExport([fresh]);
         downloadBytes(packageResult.zipBytes, packageResult.filename, 'application/zip');
-        toast(`Validated Loredeck package exported with ${packageResult.fileCount} file${packageResult.fileCount === 1 ? '' : 's'}.`, validation.health.errors?.length ? 'warning' : 'success');
+        toast(`Loredeck package exported with ${packageResult.fileCount} file${packageResult.fileCount === 1 ? '' : 's'}.`, 'success');
     } catch (e) {
-        toast(e?.message || 'Validated Loredeck export failed.', 'error');
+        toast(e?.message || 'Loredeck export failed.', 'error');
     } finally {
         if (button) {
             button.disabled = false;
