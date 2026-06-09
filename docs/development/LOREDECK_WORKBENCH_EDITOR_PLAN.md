@@ -1,7 +1,7 @@
 # Loredeck Workbench Editor Plan
 
-Status: design plan
-Last updated: 2026-06-08
+Status: implementation in progress
+Last updated: 2026-06-09
 
 ## Purpose
 
@@ -386,6 +386,8 @@ Phase 1:
 - Search and basic filters.
 - Selected Lorecard detail panel.
 
+Implementation status: complete.
+
 Phase 2:
 
 - Editable Custom/Generated deck fields.
@@ -393,6 +395,8 @@ Phase 2:
 - Dirty/saving/saved/failed state.
 - Mark Deck Health stale on edit.
 - Bundled read-only guard and `Duplicate to Edit`.
+
+Implementation status: started. The first Phase 2 slice adds direct inline editing for the selected Lorecard's title, category, relevance, canon status, tags, lore text, injection text, and notes. Text fields save on blur or Ctrl+Enter, selects save immediately, successful edits write through the Loredeck Library record mutation path, and edited decks are marked `healthStatus: stale`. New Lorecard creation and bulk actions are intentionally deferred until their direct-edit flows replace the older Pending Review dialog.
 
 Phase 3:
 
@@ -440,4 +444,3 @@ Phase 7:
 - Should generated-but-unfinalized Creator decks open through this workbench, or should they stay inside the Creator until finalized?
 - Should the Files tab allow moving entries between files in MVP, or only display file ownership until package export is fully stable?
 - Should AI diff previews reuse the Creator/Assistant diff card format, or do we need a simpler side-by-side field diff for normal users?
-

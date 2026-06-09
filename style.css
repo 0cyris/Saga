@@ -10977,6 +10977,54 @@
     align-items: flex-start;
 }
 
+.wandlight-loredeck-workbench-editor-detail {
+    overflow-y: auto;
+}
+
+.wandlight-loredeck-workbench-editor-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    min-height: 0;
+}
+
+.wandlight-loredeck-workbench-editor-field {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--wandlight-muted, #c8d1d8);
+    font-size: 0.78em;
+}
+
+.wandlight-loredeck-workbench-editor-field > span {
+    color: var(--wandlight-gold-soft, #d4c8a8);
+    font-weight: 650;
+}
+
+.wandlight-loredeck-workbench-editor-field-full {
+    grid-column: 1 / -1;
+}
+
+.wandlight-loredeck-workbench-editor-input,
+.wandlight-loredeck-workbench-editor-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 7px;
+}
+
+.wandlight-loredeck-workbench-editor-textarea {
+    min-height: 78px;
+    resize: vertical;
+    line-height: 1.42;
+}
+
+.wandlight-loredeck-workbench-editor-hint {
+    color: var(--wandlight-muted, rgba(210, 215, 220, 0.72));
+    font-size: 0.76em;
+    line-height: 1.35;
+}
+
 /* Context Workbench: timeline registry and runtime Context editor. */
 .wandlight-context-workbench-shell {
     width: min(1480px, calc(100vw - 28px));

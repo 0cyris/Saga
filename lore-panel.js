@@ -645,8 +645,8 @@ configureLoredeckWorkbenchPanel({
     getFreshLoredeckLibraryPack,
     getLoredeckTypeLabel,
     openDuplicateLoredeckDialog,
-    openLoredeckEntryOverrideDialog,
     openLoredeckHealthCenter,
+    persistLoredeckLibraryRecordMutation,
 });
 
 configureLoredeckCreatorPanel({
