@@ -571,6 +571,7 @@ configureLoredeckLibraryPanel({
     getDefaultState,
     getCanonLoreDatabaseSync,
     clearCanonLoreDatabaseCache,
+    clearCanonPreviewUiState: resetCanonPreviewUiState,
     loadCanonLoreDatabase,
     clearContextIndexCache,
     loadContextIndex,
@@ -1038,6 +1039,16 @@ let canonPreviewUiState = {
     selectedEntryIds: [],
     detailLevel: 'standard',
 };
+
+function resetCanonPreviewUiState(options = {}) {
+    canonPreviewUiState = {
+        contextKey: '',
+        preview: null,
+        selectedPackId: '',
+        selectedEntryIds: [],
+        detailLevel: options.preserveDetailLevel === false ? 'standard' : getCanonPreviewDetailLevel(),
+    };
+}
 
 function getLoreRegistry(registryName) {
     const taxonomy = getLoreTaxonomySync();
@@ -16218,6 +16229,8 @@ function createDangerZoneCard(state) {
         current.continuityScan = defaults.continuityScan;
         current.lastDelta = null;
         if (current.lorePanel) current.lorePanel.reviewSelectedIds = [];
+        resetCanonPreviewUiState();
+        clearCanonLoreDatabaseCache();
         saveState(current);
         refreshPanelBody({ preserveScroll: false });
         refreshHeader();
@@ -16251,6 +16264,9 @@ function createDangerZoneCard(state) {
                 activeTab: 'session',
             };
         }
+        resetCanonPreviewUiState({ preserveDetailLevel: false });
+        clearCanonLoreDatabaseCache();
+        clearContextIndexCache();
         saveState(defaults);
         refreshPanelBody({ preserveScroll: false });
         refreshHeader();
@@ -16659,13 +16675,49 @@ function createCanonSuggestionSettingsContent(state) {
     return content;
 }
 
-function getCanonPreviewContextKey(context = {}) {
+function getCanonPreviewContextKey(context = {}, state = getState()) {
+    const activeContextParts = getEnabledLoredeckStackPackIds(state).map(packId => {
+        const row = state?.loredeckContexts?.[packId] || {};
+        return [
+            packId,
+            row.sceneDate || '',
+            row.subjectiveDate || '',
+            row.stardate || '',
+            row.anchorId || '',
+            row.anchorFrom || '',
+            row.anchorTo || '',
+            row.arc || '',
+            row.phase || '',
+            row.season || '',
+            row.episode || '',
+            row.chapter || '',
+            row.issue || '',
+            row.quest || '',
+            row.gameStage || '',
+            row.contextSortKey ?? '',
+            row.contextSortKeyFrom ?? '',
+            row.contextSortKeyTo ?? '',
+        ].map(value => String(value || '').trim()).join(':');
+    });
     return [
         context.sceneDate || '',
         context.subjectiveDate || '',
         context.canonBoundary || '',
         context.branchId || '',
         context.timeTravelMode || '',
+        context.stardate || '',
+        context.anchorId || '',
+        context.anchorFrom || '',
+        context.anchorTo || '',
+        context.arc || '',
+        context.phase || '',
+        context.season || '',
+        context.episode || '',
+        context.chapter || '',
+        context.issue || '',
+        context.quest || '',
+        context.gameStage || '',
+        ...activeContextParts,
     ].map(value => String(value || '').trim()).join('|');
 }
 
@@ -16751,8 +16803,15 @@ function createCanonPreviewSection(state) {
     section.className = 'wandlight-canon-preview-section';
     markTourTarget(section, 'lore.canon.previewResults');
     const preview = canonPreviewUiState.preview;
-    const currentContextKey = getCanonPreviewContextKey(state?.loreContext || {});
+    const activeStackIds = getEnabledLoredeckStackPackIds(state);
+    const currentContext = getCanonSuggestionContext(state);
+    const currentContextKey = getCanonPreviewContextKey(currentContext, state);
     const isStale = !!(preview && canonPreviewUiState.contextKey && canonPreviewUiState.contextKey !== currentContextKey);
+
+    if (!activeStackIds.length) {
+        section.appendChild(createEmptyMessage('No active Loredecks are loaded. Open the Loredeck Library and add one or more decks to the active stack before previewing canon Lorecards.'));
+        return section;
+    }
 
     if (!preview) {
         section.appendChild(createEmptyMessage('No canon pack preview yet. Preview packs to choose entries before adding them to Pending Lore Review.'));
@@ -16767,6 +16826,10 @@ function createCanonPreviewSection(state) {
         section.appendChild(createEmptyMessage('No parseable Scene date. Detect or enter Context before previewing canon packs.'));
         return section;
     }
+    if (preview.status === 'no_context') {
+        section.appendChild(createEmptyMessage('No Context is available for the active Loredecks. Use the Context tab or Detect Context before previewing canon packs.'));
+        return section;
+    }
     if (!preview.entries?.length) {
         section.appendChild(createEmptyMessage('No canon database entries matched this Context.'));
         return section;
@@ -16775,7 +16838,8 @@ function createCanonPreviewSection(state) {
     const summary = document.createElement('div');
     summary.className = 'wandlight-canon-preview-summary';
     const yearText = preview.schoolYear ? `Year ${preview.schoolYear} | ` : '';
-    summary.textContent = `${yearText}${preview.sceneIso || 'unknown date'} | ${preview.matchedCount || preview.entries.length} matches | ${preview.newCount || 0} new | ${preview.duplicateCount || 0} already present`;
+    const contextLabel = preview.sceneIso || currentContext.canonBoundary || currentContext.label || currentContext.anchorId || currentContext.arc || currentContext.chapter || currentContext.stardate || 'active Context';
+    summary.textContent = `${yearText}${contextLabel} | ${preview.matchedCount || preview.entries.length} matches | ${preview.newCount || 0} new | ${preview.duplicateCount || 0} already present`;
     section.appendChild(summary);
     section.appendChild(markTourTarget(createCanonPreviewDetailControls(), 'lore.canon.detailFilter'));
 
@@ -17353,15 +17417,105 @@ function hasUsableStoryContext(context = {}) {
     ].map(value => String(value || '').trim()).find(Boolean);
 }
 
+function getEnabledLoredeckStackPackIds(state = getState()) {
+    const stack = Array.isArray(state?.loredeckStack) ? state.loredeckStack : [];
+    if (!stack.length) return [];
+    const registry = getLoredeckLibraryRegistry(state);
+    const resolved = registry && (Array.isArray(registry.folders) || Array.isArray(registry.deckPlacements))
+        ? resolveLoredeckStackItems(stack, registry, { packs: registry.packs || {} })?.stack || []
+        : stack;
+    const seen = new Set();
+    const ids = [];
+    for (const item of Array.isArray(resolved) ? resolved : []) {
+        const packId = String(item?.packId || item?.deckId || '').trim();
+        if (!packId || seen.has(packId) || item?.enabled === false) continue;
+        seen.add(packId);
+        ids.push(packId);
+    }
+    return ids;
+}
+
+function hasUsableLoredeckContext(context = {}) {
+    if (!context || typeof context !== 'object' || Array.isArray(context)) return false;
+    if (String(context.branchId || '').trim() && String(context.branchId || '').trim() !== 'main') return true;
+    if ([
+        context.sceneDate,
+        context.subjectiveDate,
+        context.stardate,
+        context.anchorId,
+        context.anchorFrom,
+        context.anchorTo,
+        context.arc,
+        context.phase,
+        context.season,
+        context.episode,
+        context.chapter,
+        context.issue,
+        context.quest,
+        context.gameStage,
+        context.alias,
+        context.label,
+    ].some(value => String(value || '').trim())) return true;
+    if (Number.isFinite(Number(context.contextSortKey))) return true;
+    if (Number.isFinite(Number(context.contextSortKeyFrom))) return true;
+    if (Number.isFinite(Number(context.contextSortKeyTo))) return true;
+    return Array.isArray(context.coordinates)
+        && context.coordinates.some(item => item && typeof item === 'object' && Object.values(item).some(value => String(value || '').trim()));
+}
+
+function getCanonSuggestionContext(state = getState()) {
+    const globalContext = state?.loreContext || {};
+    if (hasUsableStoryContext(globalContext)) return globalContext;
+    const activePackIds = getEnabledLoredeckStackPackIds(state);
+    for (const packId of activePackIds) {
+        const row = state?.loredeckContexts?.[packId] || getLoredeckContext(state, packId);
+        if (!hasUsableLoredeckContext(row)) continue;
+        return {
+            ...globalContext,
+            sceneDate: row.sceneDate || globalContext.sceneDate || '',
+            subjectiveDate: row.subjectiveDate || globalContext.subjectiveDate || '',
+            canonBoundary: row.alias || row.label || globalContext.canonBoundary || '',
+            branchId: row.branchId || globalContext.branchId || 'main',
+            timeTravelMode: globalContext.timeTravelMode || 'none',
+            stardate: row.stardate || '',
+            anchorId: row.anchorId || '',
+            anchorFrom: row.anchorFrom || '',
+            anchorTo: row.anchorTo || '',
+            arc: row.arc || '',
+            phase: row.phase || '',
+            season: row.season || '',
+            episode: row.episode || '',
+            chapter: row.chapter || '',
+            issue: row.issue || '',
+            quest: row.quest || '',
+            gameStage: row.gameStage || '',
+            coordinates: Array.isArray(row.coordinates) ? row.coordinates : [],
+            label: row.label || row.alias || '',
+        };
+    }
+    return globalContext;
+}
+
+function hasUsableCanonSuggestionContext(state = getState()) {
+    if (hasUsableStoryContext(state?.loreContext || {})) return true;
+    return getEnabledLoredeckStackPackIds(state).some(packId => hasUsableLoredeckContext(state?.loredeckContexts?.[packId] || getLoredeckContext(state, packId)));
+}
+
 async function ensureStoryContextForCanonAction(actionLabel = 'Canon lore') {
     let state = getState();
-    if (hasUsableStoryContext(state?.loreContext || {})) {
+    if (!getEnabledLoredeckStackPackIds(state).length) {
+        resetCanonPreviewUiState();
+        setFeatureProgress('canon', `${actionLabel} cancelled: no active Loredecks.`, 0);
+        toast('Load at least one Loredeck before previewing or suggesting canon Lorecards.', 'warning');
+        return null;
+    }
+    if (hasUsableCanonSuggestionContext(state)) {
         return state;
     }
 
     const proceed = await confirmAction(
         'No Context detected',
-        `${actionLabel} needs a usable global Context projection, usually a scene date or canon reference point. Run Detect Context now?`
+        `${actionLabel} needs a usable Context projection, such as a date, arc, chapter, episode, stardate, or canon reference point. Run Detect Context now?`
     );
     if (!proceed) {
         setFeatureProgress('canon', `${actionLabel} cancelled: no Context.`, 0);
@@ -17371,7 +17525,7 @@ async function ensureStoryContextForCanonAction(actionLabel = 'Canon lore') {
     setFeatureProgress('canon', 'Detecting Context before querying canon lore...', 5);
     const detected = await performStoryContextDetection({ stayOnTab: 'lore' });
     state = getState();
-    if (!detected || !hasUsableStoryContext(state?.loreContext || {})) {
+    if (!detected || !hasUsableCanonSuggestionContext(state)) {
         setFeatureProgress('canon', 'No Context available. Canon lore was not queried.', 100);
         toast('Canon lore needs Context before it can run.', 'warning');
         return null;
@@ -17383,18 +17537,19 @@ async function handlePreviewCanonLorePacks(btn) {
     await runBusyAction(btn, 'Previewing...', async () => {
         const state = await ensureStoryContextForCanonAction('Canon pack preview');
         if (!state) return;
+        const context = getCanonSuggestionContext(state);
 
         setFeatureProgress('canon', 'Previewing canon packs from local database...', 20);
-        const result = await previewCanonLoreForContext(state?.loreContext || {}, { maxCandidates: 500 });
+        const result = await previewCanonLoreForContext(context, { maxCandidates: 500 });
         canonPreviewUiState = {
-            contextKey: getCanonPreviewContextKey(getState()?.loreContext || {}),
+            contextKey: getCanonPreviewContextKey(context, getState()),
             preview: result,
             selectedPackId: (result?.packs || []).find(pack => pack.newCount > 0)?.id || result?.packs?.[0]?.id || '',
             selectedEntryIds: [],
             detailLevel: getCanonPreviewDetailLevel(),
         };
 
-        refreshPanelBody({ preserveScroll: false });
+        refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
 
         if (result?.status === 'preview') {
@@ -17404,6 +17559,9 @@ async function handlePreviewCanonLorePacks(btn) {
         } else if (result?.status === 'no_date') {
             setFeatureProgress('canon', 'No parseable Context date. Detect or enter a scene date first.', 100);
             toast('Canon pack preview needs a parseable Scene date first.', 'warning');
+        } else if (result?.status === 'no_context') {
+            setFeatureProgress('canon', 'No Context available. Canon packs were not previewed.', 100);
+            toast('Canon pack preview needs Context from the Context tab or Detect Context first.', 'warning');
         } else if (result?.status === 'disabled') {
             setFeatureProgress('canon', 'Canon database is disabled.', 100);
             toast('Canon database is disabled.', 'warning');
@@ -17425,9 +17583,10 @@ async function handleAddCanonPreviewEntries(btn, entryIds = []) {
     await runBusyAction(btn, 'Adding...', async () => {
         const state = await ensureStoryContextForCanonAction('Adding canon preview entries');
         if (!state) return;
+        const context = getCanonSuggestionContext(state);
 
         setFeatureProgress('canon', 'Adding selected canon entries to Pending Lore Review...', 35);
-        const result = await addCanonLorePreviewEntriesToPending(ids, state?.loreContext || {}, { maxCandidates: 500 });
+        const result = await addCanonLorePreviewEntriesToPending(ids, context, { maxCandidates: 500 });
         if (result?.status === 'proposed') {
             canonPreviewUiState = {
                 contextKey: '',
@@ -17438,7 +17597,7 @@ async function handleAddCanonPreviewEntries(btn, entryIds = []) {
             };
             openPendingLoreReviewSections();
             setPanelState({ activeTab: 'lore' }, { deferSave: true });
-            refreshPanelBody({ preserveScroll: false });
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             refreshHeader();
             setFeatureProgress('canon', `Added ${result.proposedCount || 0} canon entries to Pending Lore Review.`, 100);
             resetFeatureProgress('canon');
@@ -17454,6 +17613,9 @@ async function handleAddCanonPreviewEntries(btn, entryIds = []) {
         } else if (result?.status === 'no_date') {
             setFeatureProgress('canon', 'No parseable Context date. Canon entries were not added.', 100);
             toast('Canon entries need a parseable Scene date first.', 'warning');
+        } else if (result?.status === 'no_context') {
+            setFeatureProgress('canon', 'No Context available. Canon entries were not added.', 100);
+            toast('Canon entries need Context from the Context tab or Detect Context first.', 'warning');
         } else {
             setFeatureProgress('canon', 'No selected canon entries were added.', 100);
             resetFeatureProgress('canon');
@@ -17464,29 +17626,12 @@ async function handleAddCanonPreviewEntries(btn, entryIds = []) {
 
 async function handleSuggestCanonLore(btn) {
     await runBusyAction(btn, 'Suggesting...', async () => {
-        let state = getState();
-        if (!hasUsableStoryContext(state?.loreContext || {})) {
-            const proceed = await confirmAction(
-                'No Context detected',
-                'Canon lore suggestions need a usable global Context projection, usually a scene date or canon reference point. Run Detect Context now?'
-            );
-            if (!proceed) {
-                setFeatureProgress('canon', 'Canon suggestion cancelled: no Context.', 0);
-                return;
-            }
-            setFeatureProgress('canon', 'Detecting Context before suggesting canon lore...', 5);
-            const detected = await performStoryContextDetection({ stayOnTab: 'lore' });
-            if (!detected || !hasUsableStoryContext(getState()?.loreContext || {})) {
-                setFeatureProgress('canon', 'No Context available. Canon suggestions were not run.', 100);
-                toast('Canon suggestions need Context before they can run.', 'warning');
-                return;
-            }
-            setFeatureProgress('canon', 'Context detected. Continuing to canon suggestion...', 15);
-            state = getState();
-        }
+        const state = await ensureStoryContextForCanonAction('Canon lore suggestions');
+        if (!state) return;
+        const context = getCanonSuggestionContext(state);
 
         setFeatureProgress('canon', 'Suggesting canon lore from local database...', 20);
-        const result = await proposeCanonLoreForContext(state?.loreContext || {}, {
+        const result = await proposeCanonLoreForContext(context, {
             maxEntries: getSettings().canonLoreMaxEntries || 10,
             progress: (message, percent) => setFeatureProgress('canon', message, percent),
         });
@@ -17494,7 +17639,7 @@ async function handleSuggestCanonLore(btn) {
         if (result?.status === 'proposed') {
             openPendingLoreReviewSections();
             setPanelState({ activeTab: 'lore' }, { deferSave: true });
-            refreshPanelBody({ preserveScroll: false });
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             refreshHeader();
             setFeatureProgress('canon', `Suggested ${result.proposedCount || 0} canon lore entries.`, 100);
             resetFeatureProgress('canon');
@@ -17507,6 +17652,9 @@ async function handleSuggestCanonLore(btn) {
         } else if (result?.status === 'no_date') {
             setFeatureProgress('canon', 'No parseable Context date. Detect or enter a scene date first.', 100);
             toast('Canon suggestions need a parseable Scene date first.', 'warning');
+        } else if (result?.status === 'no_context') {
+            setFeatureProgress('canon', 'No Context available. Canon suggestions were not run.', 100);
+            toast('Canon suggestions need Context from the Context tab or Detect Context first.', 'warning');
         } else if (result?.status === 'disabled') {
             setFeatureProgress('canon', 'Canon database is disabled.', 100);
             toast('Canon database is disabled.', 'warning');
@@ -17701,13 +17849,16 @@ function createCanonLoreDatabaseCard(state) {
     actions.className = 'wandlight-primary-actions';
     actions.appendChild(createButton('Quick Add Top Matches', 'Uses the current Context fields to query local canon lore and propose the capped top matches into Pending Lore Review.', async (btn) => {
         await runBusyAction(btn, 'Querying...', async () => {
+            const state = await ensureStoryContextForCanonAction('Canon database quick add');
+            if (!state) return;
+            const context = getCanonSuggestionContext(state);
             setFeatureProgress('context', 'Querying local canon lore database...', 80);
-            const result = await proposeCanonLoreForContext(getState()?.loreContext || {}, {
+            const result = await proposeCanonLoreForContext(context, {
                 maxEntries: getSettings().canonLoreMaxEntries || 12,
                 progress: (message, percent) => setFeatureProgress('context', message, percent),
             });
             if (result?.status === 'proposed') {
-                refreshPanelBody({ preserveScroll: false });
+                refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
                 refreshHeader();
                 setFeatureProgress('context', `Canon database proposed ${result.proposedCount || 0} pending lore entries.`, 100);
                 resetFeatureProgress('context');
@@ -17721,6 +17872,8 @@ function createCanonLoreDatabaseCard(state) {
                 toast('Canon database matches were already present by id/title.', 'info');
             } else if (result?.status === 'no_date') {
                 toast('Canon database needs a parseable Scene date first.', 'warning');
+            } else if (result?.status === 'no_context') {
+                toast('Canon database needs Context from the Context tab or Detect Context first.', 'warning');
             } else if (result?.status === 'disabled') {
                 toast('Canon database is disabled.', 'warning');
             } else {

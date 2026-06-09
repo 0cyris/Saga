@@ -79,7 +79,7 @@ export const BASIC_EXPERIENCE_SETTINGS = Object.freeze({
     contextLocalApplyMinConfidence: 0.78,
     contextReasonerProposalMinConfidence: 0.55,
     canonLoreDatabaseEnabled: true,
-    canonLoreAutoPropose: true,
+    canonLoreAutoPropose: false,
     canonLoreMaxEntries: 10,
     loreBulkScanMode: 'recent',
     loreSourceMessageCount: 40,
@@ -260,7 +260,7 @@ export const DEFAULT_SETTINGS = {
 
     // Local canon lore database
     canonLoreDatabaseEnabled: true,
-    canonLoreAutoPropose: true,
+    canonLoreAutoPropose: false,
     canonLoreMaxEntries: 10,
 
     // Lore relevance / canon timing

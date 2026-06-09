@@ -67,6 +67,7 @@ function saveSettings() { return dep('saveSettings', () => {})(); }
 function getDefaultState() { return dep('getDefaultState', () => ({}))(); }
 function getCanonLoreDatabaseSync() { return dep('getCanonLoreDatabaseSync', () => null)(); }
 function clearCanonLoreDatabaseCache() { return dep('clearCanonLoreDatabaseCache', () => {})(); }
+function clearCanonPreviewUiState() { return dep('clearCanonPreviewUiState', () => {})(); }
 function loadCanonLoreDatabase() { return dep('loadCanonLoreDatabase', async () => null)(); }
 function clearContextIndexCache() { return dep('clearContextIndexCache', () => {})(); }
 function loadContextIndex() { return dep('loadContextIndex', async () => null)(); }
@@ -792,6 +793,7 @@ export async function refreshLoredeckLibraryWindowData(button = null) {
         bundledLoredeckIndexCache = null;
         bundledLoredeckIndexLoadAttempted = false;
         clearCanonLoreDatabaseCache();
+        clearCanonPreviewUiState();
         clearContextIndexCache();
         await loadCanonLoreDatabase();
         await loadContextIndex().catch(() => null);
@@ -817,7 +819,10 @@ export function refreshLoredeckSurfaces(options = {}) {
         clearContext = false,
         renderLibrary = true,
     } = options;
-    if (clearCanon) clearCanonLoreDatabaseCache();
+    if (clearCanon) {
+        clearCanonLoreDatabaseCache();
+        clearCanonPreviewUiState();
+    }
     if (clearContext) clearContextIndexCache();
     refreshPanelBody({ preserveScroll, preserveWindowScroll });
     refreshHeader();

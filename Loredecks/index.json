@@ -1330,6 +1330,17 @@
         ],
         "familyOrder": 10
       },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Star Wars Legends: Core",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
       "entrySchemaVersion": 3,
       "version": "1.1.0-dev",
       "author": "Saga",
@@ -1375,6 +1386,17 @@
           "Legends"
         ],
         "familyOrder": 20
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Star Wars Legends: Film Spine",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       },
       "entrySchemaVersion": 3,
       "version": "1.1.0-dev",
@@ -1422,6 +1444,17 @@
           "Legends"
         ],
         "familyOrder": 30
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Star Wars Legends: Old Republic",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       },
       "entrySchemaVersion": 3,
       "version": "1.1.0-dev",
@@ -1471,6 +1504,17 @@
         ],
         "familyOrder": 40
       },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Star Wars Legends: Rise of Empire",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
       "entrySchemaVersion": 3,
       "version": "1.1.0-dev",
       "author": "Saga",
@@ -1519,6 +1563,17 @@
         ],
         "familyOrder": 50
       },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Star Wars Legends: Rebellion Era",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
       "entrySchemaVersion": 3,
       "version": "1.1.0-dev",
       "author": "Saga",
@@ -1564,6 +1619,17 @@
           "Legends"
         ],
         "familyOrder": 60
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Star Wars Legends: New Republic",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       },
       "entrySchemaVersion": 3,
       "version": "1.1.0-dev",
@@ -1613,6 +1679,17 @@
         ],
         "familyOrder": 70
       },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Star Wars Legends: New Jedi Order",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
       "entrySchemaVersion": 3,
       "version": "1.1.0-dev",
       "author": "Saga",
@@ -1658,6 +1735,17 @@
           "Legends"
         ],
         "familyOrder": 80
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Star Wars Legends: Late Post-Endor",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       },
       "entrySchemaVersion": 3,
       "version": "1.1.0-dev",
@@ -1706,6 +1794,17 @@
           "Legends"
         ],
         "familyOrder": 90
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Star Wars Legends: Legacy Comics",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       },
       "entrySchemaVersion": 3,
       "version": "1.1.0-dev",

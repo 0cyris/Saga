@@ -486,7 +486,7 @@ for (const token of [
     'Theme Pack',
     'Installed Theme Packs',
     'Royal Chronicle',
-    'Grimoire Crimson',
+    'Void Reliquary',
     'Stellar Cartography',
     'Neon District',
     'Hero Campus',

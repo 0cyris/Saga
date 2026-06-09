@@ -245,6 +245,7 @@ export async function loadCanonLoreDatabase() {
         const state = getState();
         const sources = await loadLoredeckStackSources(state?.loredeckStack || [], {
             registry: getLoredeckLibraryRegistry(state),
+            allowEmptyStack: true,
         });
         const usableSources = sources.filter(source => source?.manifest && source?.baseUrl);
         const health = combineLoredeckHealth(sources);
@@ -1241,6 +1242,36 @@ function dedupeIds(ids = []) {
     return [...new Set(ids.filter(Boolean))];
 }
 
+function hasCanonContextSignal(context = {}, state = {}) {
+    const fields = [
+        context.sceneDate,
+        context.subjectiveDate,
+        context.canonBoundary,
+        context.stardate,
+        context.anchorId,
+        context.anchorFrom,
+        context.anchorTo,
+        context.arc,
+        context.phase,
+        context.season,
+        context.episode,
+        context.chapter,
+        context.issue,
+        context.quest,
+        context.gameStage,
+        context.label,
+        context.alias,
+    ];
+    if (String(context.branchId || '').trim() && String(context.branchId || '').trim() !== 'main') return true;
+    if (fields.some(value => String(value || '').trim())) return true;
+    if (Array.isArray(context.coordinates) && context.coordinates.some(item => item && typeof item === 'object' && Object.values(item).some(value => String(value || '').trim()))) return true;
+
+    const contexts = state?.loredeckContexts && typeof state.loredeckContexts === 'object' && !Array.isArray(state.loredeckContexts)
+        ? state.loredeckContexts
+        : {};
+    return Object.values(contexts).some(row => row && typeof row === 'object' && !Array.isArray(row) && hasCanonContextSignal(row, {}));
+}
+
 function buildCanonPreviewPacks(entries = [], { schoolYear = null, sceneIso = '', currentState = getState() } = {}) {
     const yearLabel = schoolYear ? `Year ${schoolYear}` : 'Current Story';
     const definitions = [
@@ -1342,7 +1373,8 @@ export async function queryCanonLoreDatabase(context = null, options = {}) {
         .filter(Boolean)
         .filter(item => item.score > 0);
     const selectedCandidates = selectPriorityAwareCanonCandidates(candidates, max);
-    const status = candidates.length ? 'matched' : sceneIso ? 'empty' : 'no_date';
+    const hasContextSignal = hasCanonContextSignal(effectiveContext, state);
+    const status = candidates.length ? 'matched' : hasContextSignal || sceneIso ? 'empty' : 'no_context';
     const audit = recordLoredeckRetrievalAudit(buildLoredeckRetrievalAudit({
         source: 'queryCanonLoreDatabase',
         status,
@@ -1398,7 +1430,7 @@ export async function previewCanonLoreForContext(context = null, options = {}) {
     const selectedCandidates = selectPriorityAwareCanonCandidates(candidateItems, Math.max(1, Math.min(200, Number(settings.canonLoreMaxEntries) || 10)));
     const audit = recordLoredeckRetrievalAudit(buildLoredeckRetrievalAudit({
         source: 'previewCanonLoreForContext',
-        status: candidateItems.length ? 'preview' : sceneIso ? 'empty' : 'no_date',
+        status: candidateItems.length ? 'preview' : hasCanonContextSignal(effectiveContext, currentState) || sceneIso ? 'empty' : 'no_context',
         databaseId: db.databaseId,
         sceneIso,
         context: effectiveContext,
@@ -1456,7 +1488,7 @@ export async function previewCanonLoreForContext(context = null, options = {}) {
     const newCount = entries.filter(entry => entry.extensions?.canonPreview?.duplicateStatus === 'new').length;
 
     return {
-        status: entries.length ? 'preview' : sceneIso ? 'empty' : 'no_date',
+        status: entries.length ? 'preview' : hasCanonContextSignal(effectiveContext, currentState) || sceneIso ? 'empty' : 'no_context',
         source: CANON_DB_SOURCE,
         entries,
         packs,
@@ -1577,7 +1609,9 @@ export async function proposeCanonLoreForContext(context = null, options = {}) {
             ? 'No canon database query: Context has no parseable date.'
             : query.status === 'disabled'
                 ? 'Canon lore database disabled.'
-                : 'No matching canon database entries for this date/context.';
+                : query.status === 'no_context'
+                    ? 'No canon database query: no active Context.'
+                    : 'No matching canon database entries for this Context.';
         state.canonLoreDatabase = dbState;
         saveState(state);
         return { ...query, proposedCount: 0 };

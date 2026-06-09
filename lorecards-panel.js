@@ -51,6 +51,7 @@ let loreWorkbenchMode = 'accepted';
 let loreWorkbenchSelectedId = '';
 let loreWorkbenchPendingQuery = '';
 let loreWorkbenchFocusSelector = '';
+const loreWorkbenchScrollState = { accepted: 0, pending: 0 };
 
 const AUTO_RELEVANCE_SETTING_KEYS = Object.freeze([
     'autoRelevanceEnabled',
@@ -74,6 +75,27 @@ const RELEVANCE_META = Object.freeze({
     normal: { label: 'Normal', color: '#1e3a8a', textColor: '#dbeafe', tooltip: 'Recent, branch-defining, or medium-range story relevance. Injects in the Normal-Relevance lore group.' },
     low: { label: 'Low', color: '#4b5563', textColor: '#f9fafb', tooltip: 'Long-term background or distant past/future lore. Injects in the Low-Relevance lore group if enabled.' },
 });
+
+const LORE_ENTRY_TYPE_FILTERS = Object.freeze([
+    ['all', 'Type: All'],
+    ['high', 'High Relevance'],
+    ['normal', 'Normal Relevance'],
+    ['low', 'Low Relevance'],
+    ['character', 'Character'],
+    ['event', 'Event'],
+    ['faction', 'Faction'],
+    ['relationship', 'Relationship'],
+    ['knowledge', 'Knowledge'],
+    ['future_guard', 'Future Guard'],
+    ['item', 'Item / Artifact'],
+    ['location', 'Location / Place'],
+    ['spell', 'Spell / Ability'],
+    ['rule', 'Rule / System'],
+    ['canon', 'Canon'],
+    ['au', 'AU'],
+    ['pinned', 'Pinned'],
+    ['muted', 'Muted'],
+]);
 
 export function configureLorecardsPanel(deps = {}) {
     lorecardsPanelDeps = { ...lorecardsPanelDeps, ...(deps || {}) };
@@ -210,6 +232,9 @@ function renderLoreWorkbench() {
         document.body.appendChild(overlay);
     }
 
+    const previousTable = overlay.querySelector?.('.wandlight-lore-workbench-table');
+    if (previousTable) loreWorkbenchScrollState[loreWorkbenchMode] = previousTable.scrollTop || 0;
+
     const focusSelector = loreWorkbenchFocusSelector;
     loreWorkbenchFocusSelector = '';
     overlay.replaceChildren(createLoreWorkbenchShell(state));
@@ -220,6 +245,8 @@ function renderLoreWorkbench() {
             const len = String(focusTarget.value || '').length;
             focusTarget.setSelectionRange(len, len);
         }
+        const table = overlay.querySelector?.('.wandlight-lore-workbench-table');
+        if (table) table.scrollTop = loreWorkbenchScrollState[loreWorkbenchMode] || 0;
     });
 }
 
@@ -366,6 +393,18 @@ function createAcceptedWorkbenchControls(state) {
     });
     controls.appendChild(source);
 
+    const acceptedPool = (loreState.entries || []).filter(entry => !entry.isPending);
+    controls.appendChild(createLoreTypeFilterSelect(
+        acceptedPool,
+        panelState.loreTypeFilter || 'all',
+        (value) => {
+            setPanelState({ loreTypeFilter: value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
+            refreshAcceptedLoreFilterResults({ resetListScroll: true });
+            refreshLoreWorkbench();
+        },
+        { className: 'wandlight-lore-workbench-select', tooltip: 'Filter accepted Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
+    ));
+
     const count = document.createElement('div');
     count.className = 'wandlight-lore-workbench-count';
     count.textContent = `${getFilteredLoreEntries(state).length} matching`;
@@ -505,13 +544,25 @@ function createPendingWorkbenchControls(state) {
     });
     controls.appendChild(search);
 
+    const pendingPool = normalizeLoreMatrix(state?.pendingLoreEntries || []);
+    controls.appendChild(createLoreTypeFilterSelect(
+        pendingPool,
+        getPendingReviewTypeFilter(state),
+        (value) => {
+            setPendingReviewTypeFilter(value);
+            loreWorkbenchSelectedId = '';
+            refreshLoreWorkbench();
+        },
+        { className: 'wandlight-lore-workbench-select', tooltip: 'Filter pending Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
+    ));
+
     const rows = getPendingWorkbenchRows(state);
     const count = document.createElement('div');
     count.className = 'wandlight-lore-workbench-count';
     count.textContent = `${rows.length} matching pending`;
     controls.appendChild(count);
 
-    const selectFiltered = createButton('Select Filtered', 'Select every pending entry matching the current Workbench search.', () => {
+    const selectFiltered = createButton('Select Filtered', 'Select every pending entry matching the current Workbench search and type filter.', () => {
         setPendingReviewSelection(rows.map(row => getLoreReviewId(row.entry)));
         refreshPanelBody({ preserveScroll: true });
         refreshLoreWorkbench();
@@ -606,14 +657,30 @@ function createPendingWorkbenchDetail(rows, state) {
 }
 
 function getPendingWorkbenchRows(state = getState()) {
-    const pending = normalizeLoreMatrix(state?.pendingLoreEntries || []);
+    const pending = getFilteredPendingLoreRows(state);
     const query = String(loreWorkbenchPendingQuery || '').trim().toLowerCase();
-    const rows = pending.map((entry, index) => ({ entry, index }));
+    const rows = pending;
     if (!query) return rows;
     return rows
         .map(row => ({ ...row, score: scoreSearchEntry(row.entry, query) }))
         .filter(row => row.score > 0)
         .sort((a, b) => b.score - a.score || String(a.entry.title || '').localeCompare(String(b.entry.title || '')));
+}
+
+function getPendingReviewTypeFilter(state = getState()) {
+    return String(state?.lorePanel?.pendingReviewTypeFilter || 'all');
+}
+
+function setPendingReviewTypeFilter(value = 'all') {
+    setPanelState({ pendingReviewTypeFilter: value || 'all', pendingReviewVisibleLimit: 10 }, { deferSave: true });
+}
+
+function getFilteredPendingLoreRows(state = getState()) {
+    const pending = normalizeLoreMatrix(state?.pendingLoreEntries || []);
+    const typeFilter = getPendingReviewTypeFilter(state);
+    return pending
+        .map((entry, index) => ({ entry, index }))
+        .filter(row => entryMatchesLoreTypeFilter(row.entry, typeFilter));
 }
 
 function createWorkbenchTextCell(primary, secondary = '') {
@@ -877,6 +944,68 @@ function createReadOnlyTags(tags) {
 
 function getLifecycleStatus(entry) {
     return normalizeLoreRelevance(entry.relevance || entry.lifecycleStatus || entry.lifecycle?.status || entry.lifecycle?.computedStatus || 'normal');
+}
+
+function getEntryCanonStatus(entry = {}) {
+    return String(entry.canon || entry.canonStatus || 'canon').trim().toLowerCase();
+}
+
+function getEntryCategoryText(entry = {}) {
+    return [
+        entry.category,
+        entry.kind,
+        entry.gateType,
+        entry.lorePurpose,
+        entry.purpose,
+    ].map(value => String(value || '').trim().toLowerCase()).join(' ');
+}
+
+function entryMatchesLoreTypeFilter(entry = {}, filter = 'all') {
+    const value = String(filter || 'all').trim().toLowerCase();
+    if (!value || value === 'all') return true;
+    if (value === 'high' || value === 'normal' || value === 'low') return getLifecycleStatus(entry) === value;
+    if (value === 'canon' || value === 'au') return getEntryCanonStatus(entry) === value;
+    if (value === 'pinned') return !!entry.isPinned;
+    if (value === 'muted') return !!entry.isSuppressed || !!entry.suppressed || !!entry.muted;
+
+    const categoryText = getEntryCategoryText(entry);
+    if (value === 'future_guard') {
+        return categoryText.includes('future_guard')
+            || categoryText.includes('future guard')
+            || categoryText.includes('leak')
+            || normalizeLorePurpose(entry.lorePurpose || entry.purpose, entry) === 'negative_constraint';
+    }
+    if (value === 'item') return ['item', 'artifact', 'object'].some(term => categoryText.includes(term));
+    if (value === 'location') return ['location', 'place', 'setting'].some(term => categoryText.includes(term));
+    if (value === 'spell') return ['spell', 'ability', 'skill'].some(term => categoryText.includes(term));
+    if (value === 'rule') return ['rule', 'system', 'constraint'].some(term => categoryText.includes(term));
+    return categoryText.split(/\s+/).includes(value) || categoryText.includes(value);
+}
+
+function getLoreEntryTypeFilterOptions(entries = []) {
+    const safeEntries = Array.isArray(entries) ? entries : [];
+    return LORE_ENTRY_TYPE_FILTERS.map(([value, label]) => [
+        value,
+        value === 'all'
+            ? `${label} (${safeEntries.length})`
+            : `${label} (${safeEntries.filter(entry => entryMatchesLoreTypeFilter(entry, value)).length})`,
+    ]);
+}
+
+function createLoreTypeFilterSelect(entries, value, onChange, options = {}) {
+    const select = document.createElement('select');
+    select.className = options.className || 'wandlight-lore-type-filter';
+    addTooltip(select, options.tooltip || 'Filter Lorecards by relevance tier, category, canon/AU status, or injection flag.');
+    const active = String(value || 'all');
+    for (const [filterValue, label] of getLoreEntryTypeFilterOptions(entries)) {
+        const opt = document.createElement('option');
+        opt.value = filterValue;
+        opt.textContent = label;
+        if (active === filterValue) opt.selected = true;
+        select.appendChild(opt);
+    }
+    select.addEventListener('change', () => onChange?.(select.value));
+    return select;
 }
 
 function getLoreFieldRegistry(field) {
@@ -1764,7 +1893,15 @@ export function createAutoRelevanceCard(state) {
             const result = await runAutoRelevance({ force: true });
             refreshPanelBody({ preserveScroll: true });
             refreshHeader();
-            toast(`Auto-Relevance ${result.status}: ${result.changed || 0} changed, ${result.suggested || 0} suggested, ${result.considered || 0} considered${result.modelStatus ? `, model ${result.modelStatus}` : ''}.`, 'info');
+            if (result.status === 'no_accepted_lore') {
+                toast('Auto-Relevance runs on accepted Lorecards. Preview Loredeck packs, add entries to Pending, then accept the cards you want before running it.', 'warning');
+            } else if (result.status === 'pending_only') {
+                toast(`Auto-Relevance found ${result.pendingCount || 0} pending Lorecards. Accept or dismiss pending cards before relevance scanning.`, 'warning');
+            } else if (result.status === 'no_lore') {
+                toast('Auto-Relevance needs accepted Lorecards before it can run.', 'warning');
+            } else {
+                toast(`Auto-Relevance ${result.status}: ${result.changed || 0} changed, ${result.suggested || 0} suggested, ${result.considered || 0} considered${result.modelStatus ? `, model ${result.modelStatus}` : ''}.`, 'info');
+            }
         } catch (e) {
             console.error(e);
             toast(`Auto-Relevance failed: ${e?.message || e}`, 'error');
@@ -2203,6 +2340,11 @@ export function getFilteredLoreEntries(state) {
     const sourceFilter = panelState.sourceFilter || 'all';
     if (sourceFilter && sourceFilter !== 'all') {
         filtered = filtered.filter(entry => getLoreSourceBucket(entry) === sourceFilter);
+    }
+
+    const typeFilter = panelState.loreTypeFilter || 'all';
+    if (typeFilter && typeFilter !== 'all') {
+        filtered = filtered.filter(entry => entryMatchesLoreTypeFilter(entry, typeFilter));
     }
 
     filtered = [...filtered].sort(sortLoreEntriesForPanel);
@@ -2950,6 +3092,7 @@ export function renderLorecardsTab(container, state) {
 
 export function createPendingLoreReviewSection(state) {
     const pendingLore = normalizeLoreMatrix(state?.pendingLoreEntries || []);
+    const filteredPendingRows = getFilteredPendingLoreRows(state);
     const section = document.createElement('div');
     section.className = 'wandlight-review-section wandlight-pending-lore-section';
 
@@ -2961,19 +3104,40 @@ export function createPendingLoreReviewSection(state) {
         batchInfo.textContent = getPendingLoreBatchLabel(state);
         section.appendChild(batchInfo);
 
+        const filterRow = document.createElement('div');
+        filterRow.className = 'wandlight-lore-filter-row wandlight-pending-lore-filter-row';
+        filterRow.appendChild(createLoreTypeFilterSelect(
+            pendingLore,
+            getPendingReviewTypeFilter(state),
+            (value) => {
+                setPendingReviewTypeFilter(value);
+                refreshPanelBody({ preserveScroll: true });
+                refreshLoreWorkbench();
+            },
+            { tooltip: 'Filter pending Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
+        ));
+        const filterCount = document.createElement('div');
+        filterCount.className = 'wandlight-lore-workbench-count';
+        filterCount.textContent = `${filteredPendingRows.length} matching`;
+        filterRow.appendChild(filterCount);
+        section.appendChild(filterRow);
+
         section.appendChild(markTourTarget(createPendingLoreBulkControls(pendingLore, state), 'lore.pending.bulk'));
 
         const visibleLimit = Math.max(5, Math.min(1000, Number(state?.lorePanel?.pendingReviewVisibleLimit) || 10));
         const list = document.createElement('div');
         list.className = 'wandlight-review-lore-list wandlight-pending-lore-list';
         markTourTarget(list, 'lore.pending.list');
-        pendingLore.slice(0, visibleLimit).forEach((entry, idx) => list.appendChild(createPendingLoreReviewCard(entry, idx, isPendingLoreSelected(state, entry))));
+        filteredPendingRows.slice(0, visibleLimit).forEach(row => list.appendChild(createPendingLoreReviewCard(row.entry, row.index, isPendingLoreSelected(state, row.entry))));
+        if (!filteredPendingRows.length) {
+            list.appendChild(createEmptyMessage('No pending Lorecards match the current type filter.'));
+        }
         section.appendChild(list);
 
-        if (pendingLore.length > visibleLimit) {
-            const more = createButton(`Show ${Math.min(25, pendingLore.length - visibleLimit)} more`, 'Renders more pending lore cards. Keeping this list paged prevents large canon batches from freezing the browser.', () => {
+        if (filteredPendingRows.length > visibleLimit) {
+            const more = createButton(`Show ${Math.min(25, filteredPendingRows.length - visibleLimit)} more`, 'Renders more pending lore cards. Keeping this list paged prevents large canon batches from freezing the browser.', () => {
                 const current = getState();
-                current.lorePanel.pendingReviewVisibleLimit = Math.min(pendingLore.length, visibleLimit + 25);
+                current.lorePanel.pendingReviewVisibleLimit = Math.min(filteredPendingRows.length, visibleLimit + 25);
                 saveState(current);
                 refreshPanelBody({ preserveScroll: true });
             });
@@ -3060,6 +3224,17 @@ export function createAcceptedLoreEntriesSection(state) {
         refreshAcceptedLoreFilterResults({ resetListScroll: true });
     });
     filterRow.appendChild(sourceSelect);
+
+    const acceptedPool = entries.filter(entry => !entry.isPending);
+    filterRow.appendChild(createLoreTypeFilterSelect(
+        acceptedPool,
+        panelState.loreTypeFilter || 'all',
+        (value) => {
+            setPanelState({ loreTypeFilter: value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
+            refreshAcceptedLoreFilterResults({ resetListScroll: true });
+        },
+        { tooltip: 'Filter accepted Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
+    ));
     controls.appendChild(filterRow);
 
     const pinHelp = document.createElement('div');

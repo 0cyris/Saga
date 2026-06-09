@@ -1876,7 +1876,9 @@ export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, optio
 function normalizeLoredeckStackInput(stack, options = {}) {
     const input = Array.isArray(stack) && stack.length
         ? stack
-        : [{ packId: DEFAULT_LOREDECK_ID, enabled: true, priority: 100, addedAt: 0 }];
+        : options.allowEmptyStack === true
+            ? []
+            : [{ packId: DEFAULT_LOREDECK_ID, enabled: true, priority: 100, addedAt: 0 }];
     const registry = options.registry && typeof options.registry === 'object' && !Array.isArray(options.registry)
         ? options.registry
         : null;

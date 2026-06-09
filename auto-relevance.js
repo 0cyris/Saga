@@ -313,7 +313,17 @@ async function runAutoRelevanceInternal(options = {}) {
     }
     const state = getState();
     const entries = normalizeLoreMatrix(state.loreMatrix || []);
-    if (!entries.length) return { status: 'no_lore' };
+    if (!entries.length) {
+        const pendingCount = normalizeLoreMatrix(state.pendingLoreEntries || []).length;
+        const activeStackCount = Array.isArray(state.loredeckStack)
+            ? state.loredeckStack.filter(item => item?.enabled !== false).length
+            : 0;
+        return {
+            status: pendingCount ? 'pending_only' : activeStackCount ? 'no_accepted_lore' : 'no_lore',
+            pendingCount,
+            activeStackCount,
+        };
+    }
 
     const suppressed = new Set(state?.loreSelection?.suppressedIds || []);
     const pinned = new Set(state?.loreSelection?.pinnedIds || []);

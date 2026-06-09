@@ -65,7 +65,7 @@ const LOREDECK_CONTEXT_SOURCES = Object.freeze([
 const BUNDLED_THEME_PACK_IDS = Object.freeze([
     'wandlight-default',
     'royal-chronicle',
-    'grimoire-crimson',
+    'void-reliquary',
     'stellar-cartography',
     'neon-district',
     'hero-campus',
@@ -2190,6 +2190,13 @@ export function getSettings() {
             merged.contextReasonerProposalMinConfidence = 0.55;
         }
         merged.contextAutomationDefaultsMigrated20260606 = true;
+    }
+
+    if (stored.canonLoreAutoProposeDefaultsMigrated20260608 !== true) {
+        if (stored.canonLoreAutoPropose === undefined || stored.canonLoreAutoPropose === true) {
+            merged.canonLoreAutoPropose = false;
+        }
+        merged.canonLoreAutoProposeDefaultsMigrated20260608 = true;
     }
 
     // One-time upgrade from the old conservative story-lore generation defaults.

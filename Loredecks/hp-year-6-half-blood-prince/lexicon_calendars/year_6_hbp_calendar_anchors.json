@@ -1458,12 +1458,12 @@
       "context": {
         "scope": "window",
         "validFromAnchor": "hp.y6.horcrux_memory_task_assigned",
-        "validToAnchor": "hp.y6.true_slughorn_memory_obtained",
+        "validToAnchor": "hp.y6.apparition_lessons_begin",
         "sortKeyFrom": 9871,
-        "sortKeyTo": 9971,
+        "sortKeyTo": 9893,
         "precision": "anchor_window",
         "windowKind": "bounded",
-        "label": "Altered Horcrux memory task before true memory",
+        "label": "Altered Horcrux memory task before Apparition lessons",
         "approximate": false
       },
       "scope": {
@@ -1529,7 +1529,7 @@
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
           "Use this card to suppress premature Hermione Horcrux expertise.",
-          "Apply only when Saga Context matches Altered Horcrux memory task before true memory; if the scene is earlier, withhold this fact or state.",
+          "Apply only when Saga Context matches the altered Horcrux memory task before Apparition lessons; if the scene is earlier or later, withhold this fact or state.",
           "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
         ],
         "antiLore": [

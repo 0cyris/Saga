@@ -698,6 +698,14 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         era: 'Legends Core',
         familyOrder: 10,
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:core', 'density:core-expanded'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Star Wars Legends: Core',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 108,
             categoryCounts: { character: 5, faction: 28, item: 13, knowledge: 13, location: 11, relationship: 2, rule: 32, secret: 4 },
@@ -715,6 +723,14 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         era: 'Film Spine: Episodes I-VI',
         familyOrder: 20,
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:film-spine'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Star Wars Legends: Film Spine',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 123,
             categoryCounts: { character: 18, event: 25, faction: 10, item: 5, knowledge: 12, location: 5, relationship: 10, rule: 9, secret: 26, timeline: 3 },
@@ -732,6 +748,14 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         era: 'Old Republic: ancient Sith through SWTOR and late pre-Ruusan transition',
         familyOrder: 30,
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:old-republic'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Star Wars Legends: Old Republic',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 106,
             categoryCounts: { character: 20, event: 14, faction: 16, item: 8, knowledge: 10, location: 14, relationship: 2, rule: 16, secret: 5, timeline: 1 },
@@ -749,6 +773,14 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         era: 'Rise of Empire: late Republic, Clone Wars, Order 66, and early Empire',
         familyOrder: 40,
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:rise-of-empire'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Star Wars Legends: Rise of Empire',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 155,
             categoryCounts: { character: 36, event: 8, faction: 30, item: 14, knowledge: 17, location: 15, relationship: 2, rule: 4, secret: 28, timeline: 1 },
@@ -766,6 +798,14 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         era: 'Rebellion Era: Original Trilogy',
         familyOrder: 50,
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Star Wars Legends: Rebellion Era',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 148,
             categoryCounts: { character: 46, event: 25, faction: 13, item: 16, knowledge: 16, location: 10, relationship: 10, rule: 4, secret: 8 },
@@ -783,6 +823,14 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         era: 'New Republic: Post-Endor through Hand of Thrawn',
         familyOrder: 60,
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:new-republic'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Star Wars Legends: New Republic',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 143,
             categoryCounts: { character: 31, event: 14, faction: 22, item: 18, knowledge: 12, location: 15, relationship: 9, rule: 16, secret: 5, timeline: 1 },
@@ -800,6 +848,14 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         era: 'New Jedi Order / Yuuzhan Vong War',
         familyOrder: 70,
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:njo'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Star Wars Legends: New Jedi Order',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 141,
             categoryCounts: { character: 20, event: 21, faction: 14, item: 16, knowledge: 39, location: 10, relationship: 8, rule: 13 },
@@ -817,6 +873,14 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         era: 'Late Post-Endor / Dark Nest to Crucible',
         familyOrder: 80,
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:late-post-endor'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Star Wars Legends: Late Post-Endor',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 139,
             categoryCounts: { character: 27, event: 31, faction: 14, item: 2, knowledge: 20, location: 6, relationship: 12, rule: 16, secret: 1, timeline: 10 },
@@ -834,6 +898,14 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         era: 'Legacy Comics / Far-Future Legends',
         familyOrder: 90,
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:legacy-comics'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Star Wars Legends: Legacy Comics',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 144,
             categoryCounts: { character: 30, event: 32, faction: 12, item: 6, knowledge: 29, location: 8, relationship: 10, rule: 9, secret: 2, timeline: 6 },
@@ -922,7 +994,6 @@ function buildStarWarsLegendsLoredeckRecord(deck) {
         source: STAR_WARS_LEGENDS_SOURCE,
         libraryPath: STAR_WARS_LEGENDS_LIBRARY_PATH,
         updatedAt: DEFAULT_STAR_WARS_LEGENDS_LOREDECK_UPDATED_AT,
-        defaultAssets: false,
     });
 }
 

@@ -435,9 +435,9 @@
       "context": {
         "scope": "window",
         "validFromAnchor": "hp.postwar.kingsley_caretaker_minister",
-        "validToAnchor": "hp.postwar.new_generation_kings_cross",
+        "validToAnchor": "hp.postwar.james_sirius_second_year",
         "sortKeyFrom": 10348,
-        "sortKeyTo": 17410,
+        "sortKeyTo": 17045,
         "precision": "postwar_window",
         "windowKind": "story_phase",
         "label": "Post-War Years: Before Epilogue Platform",

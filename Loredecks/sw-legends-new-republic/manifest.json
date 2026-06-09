@@ -31,6 +31,17 @@
     ],
     "familyOrder": 60
   },
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Deck cover for Star Wars Legends: New Republic",
+      "aspect": "1:1",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
   "tags": [
     "fandom:star-wars",
     "continuity:legends",

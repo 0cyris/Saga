@@ -34,6 +34,17 @@
     ],
     "familyOrder": 90
   },
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Deck cover for Star Wars Legends: Legacy Comics",
+      "aspect": "1:1",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
   "tags": [
     "fandom:star-wars",
     "continuity:legends",
