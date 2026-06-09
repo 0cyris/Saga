@@ -162,7 +162,6 @@ export function createInstalledThemePackGallery(themeLibrary = [], activePreset,
 
 function createThemePackGalleryCard(preset, activePreset, settings = {}, options = {}) {
     const colors = preset.id === settings.themePackId ? getActiveThemeColors(settings) : completeThemeColors(preset.colors || {});
-    const report = buildThemeAccessibilityReport(colors);
     const isActive = preset.id === activePreset?.id;
     const card = document.createElement('div');
     card.className = `wandlight-theme-pack-card${isActive ? ' wandlight-theme-pack-card-active' : ''}`;
@@ -179,10 +178,6 @@ function createThemePackGalleryCard(preset, activePreset, settings = {}, options
     chips.appendChild(createStatusPill(getThemeStyleLabel(preset), 'Theme style metadata.'));
     main.appendChild(chips);
     main.appendChild(createThemeSwatchStrip(colors));
-    const status = document.createElement('div');
-    status.className = `wandlight-theme-pack-accessibility ${report.failedCount ? 'wandlight-theme-pack-accessibility-warning' : ''}`;
-    status.textContent = `Accessibility: ${report.status}`;
-    main.appendChild(status);
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
     const apply = createButton(isActive ? 'Active' : 'Apply', isActive ? 'This Theme Pack is active.' : 'Apply this Theme Pack.', () => {

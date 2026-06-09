@@ -486,13 +486,6 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
         card.classList.toggle('wandlight-loredeck-library-deck-active', activeItem?.enabled === true);
         card.setAttribute('aria-pressed', bulkSelected ? 'true' : 'false');
         card.toggleAttribute('aria-current', selectedId === packId);
-        const side = card.querySelector('.wandlight-loredeck-library-deck-side');
-        if (side) {
-            const pack = context.library.find(item => item.packId === packId) || null;
-            const healthInfo = pack ? getLoredeckLibraryPackHealthInfo(pack, context.canonDb, context.health) : null;
-            const issueCount = pack ? getLoredeckLibraryDisplayIssueCount(pack, healthInfo) : 0;
-            side.textContent = bulkSelected ? '*' : (issueCount ? String(issueCount) : (activeItem?.enabled ? 'On' : '+'));
-        }
     }
 
     for (const card of overlay.querySelectorAll('.wandlight-loredeck-library-stack-card[data-pack-id]')) {
@@ -2003,7 +1996,6 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     const activeItem = stack.find(item => item.packId === pack.packId);
     const healthInfo = getLoredeckLibraryPackHealthInfo(pack, canonDb, health);
     const healthTone = getLoredeckLibraryDisplayHealthTone(pack, healthInfo);
-    const issueCount = getLoredeckLibraryDisplayIssueCount(pack, healthInfo);
     const stats = getLoredeckLibraryDeckStats(pack, canonDb, healthInfo);
     const card = document.createElement('div');
     card.className = 'wandlight-loredeck-library-deck-card';
@@ -2085,11 +2077,6 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     main.appendChild(statsLine);
     card.appendChild(main);
 
-    const side = document.createElement('div');
-    side.className = 'wandlight-loredeck-library-deck-side';
-    side.textContent = bulkSelected ? '*' : (issueCount ? String(issueCount) : (activeItem?.enabled ? 'On' : '+'));
-    addTooltip(side, bulkSelected ? 'Selected for bulk Library actions.' : (issueCount ? 'Open Deck Health for issue details.' : (activeItem?.enabled ? 'Enabled in stack.' : 'Available to add.')));
-    card.appendChild(side);
     return card;
 }
 
@@ -2664,6 +2651,7 @@ function startLoredeckLibraryDeckDrag(event, packId, visiblePacks = []) {
     ghost.classList.add('wandlight-loredeck-library-stack-ghost');
     ghost.style.width = `${rect.width}px`;
     ghost.style.height = `${rect.height}px`;
+    ghost.style.transform = `translate3d(${Math.round(rect.left)}px, ${Math.round(rect.top)}px, 0)`;
     document.body.appendChild(ghost);
 
     const selectedIds = getLoredeckLibraryBulkSelectedIds().filter(id => visiblePacks.some(pack => pack.packId === id));
@@ -2826,6 +2814,7 @@ function startLoredeckLibraryFolderDrag(event, folderId) {
     ghost.classList.add('wandlight-loredeck-library-stack-ghost', 'wandlight-loredeck-library-folder-ghost');
     ghost.style.width = `${rect.width}px`;
     ghost.style.height = `${rect.height}px`;
+    ghost.style.transform = `translate3d(${Math.round(rect.left)}px, ${Math.round(rect.top)}px, 0)`;
     document.body.appendChild(ghost);
 
     loredeckLibraryFolderDragState = {
@@ -2986,6 +2975,7 @@ function startLoredeckStackDrag(event, stackKey) {
     ghost.classList.add('wandlight-loredeck-library-stack-ghost');
     ghost.style.width = `${rect.width}px`;
     ghost.style.height = `${rect.height}px`;
+    ghost.style.transform = `translate3d(${Math.round(rect.left)}px, ${Math.round(rect.top)}px, 0)`;
     document.body.appendChild(ghost);
 
     loredeckStackDragState = {
@@ -3146,7 +3136,7 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
     if (selectedFolder) {
         return createLoredeckLibraryFolderDetailsPanel(selectedFolder, stack, canonDb, health, libraryIndex, library);
     }
-    if (!['overview', 'health', 'dependencies', 'files'].includes(loredeckLibraryDetailsTab)) {
+    if (!['overview', 'health'].includes(loredeckLibraryDetailsTab)) {
         loredeckLibraryDetailsTab = 'overview';
     }
     const panel = document.createElement('div');
@@ -3200,8 +3190,6 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
     const tab = document.createElement('div');
     tab.className = `wandlight-loredeck-library-detail-tab wandlight-loredeck-library-detail-tab-${loredeckLibraryDetailsTab}`;
     if (loredeckLibraryDetailsTab === 'health') tab.appendChild(createLoredeckLibraryHealthDetail(pack, healthInfo));
-    else if (loredeckLibraryDetailsTab === 'dependencies') tab.appendChild(createLoredeckLibraryDependenciesDetail(pack));
-    else if (loredeckLibraryDetailsTab === 'files') tab.appendChild(createLoredeckLibraryFilesDetail(pack, healthInfo));
     else tab.appendChild(createLoredeckLibraryOverviewDetail(pack, stackItem, stats, healthInfo));
     content.appendChild(tab);
     panel.appendChild(content);
@@ -3427,8 +3415,6 @@ function createLoredeckLibraryDetailTabs() {
     for (const [id, label, tooltip] of [
         ['overview', 'Overview', 'Description, stats, and common Loredeck actions.'],
         ['health', 'Health', 'Deck Health summary and top issue.'],
-        ['dependencies', 'Dependencies', 'Declared dependencies, conflicts, and companion notes.'],
-        ['files', 'Files', 'Manifest and source file list.'],
     ]) {
         const btn = document.createElement('button');
         btn.type = 'button';

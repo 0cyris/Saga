@@ -3919,6 +3919,9 @@
         0 0 0 1px rgba(245, 196, 91, 0.18) inset,
         0 0 24px rgba(215, 181, 109, 0.18);
     cursor: grabbing;
+    transform-origin: top left;
+    transition: none !important;
+    will-change: transform;
 }
 
 .wandlight-loredeck-library-drag-copy {

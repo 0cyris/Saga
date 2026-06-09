@@ -335,7 +335,6 @@ import {
     createActiveThemePanel,
     createInstalledThemePackGallery,
     createThemeAdvancedPanel,
-    createThemeAccessibilityCard,
     createThemeColorOverridesPanel,
     createThemeIconSetPanel,
 } from './theme-panel.js';
@@ -15607,7 +15606,7 @@ function renderSettingsTab(container, state) {
         getThemePreset(settings.themePackId)?.title || 'Theme',
         false,
         createThemeSettingsCard(settings),
-        { tooltip: 'Manage Theme Packs, icon sets, color overrides, and accessibility checks.' }
+        { tooltip: 'Manage Theme Packs, icon sets, and color overrides.' }
     ));
 }
 
@@ -15666,7 +15665,6 @@ function createThemeSettingsCard(settings = getSettings()) {
     const lowerGrid = document.createElement('div');
     lowerGrid.className = 'wandlight-theme-lower-grid';
     lowerGrid.appendChild(createThemeIconSetPanel(activePreset, settings, themePanelOptions));
-    lowerGrid.appendChild(createThemeAccessibilityCard(colors, { compact: true }));
     card.appendChild(lowerGrid);
 
     card.appendChild(createThemeAdvancedPanel(settings, activePreset, colors, themePanelOptions));
