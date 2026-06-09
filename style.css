@@ -11025,6 +11025,95 @@
     width: min(190px, 28vw);
 }
 
+.wandlight-loredeck-workbench-registries-view {
+    gap: 10px;
+}
+
+.wandlight-loredeck-workbench-registry-summary,
+.wandlight-loredeck-workbench-registry-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.wandlight-loredeck-workbench-registries-layout {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(360px, 1fr) minmax(360px, 1fr);
+    gap: 10px;
+}
+
+.wandlight-loredeck-workbench-registry-panel {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    border: 1px solid var(--wandlight-border-soft, rgba(126, 145, 165, 0.18));
+    border-radius: 7px;
+    background: var(--wandlight-card, rgba(12, 14, 20, 0.42));
+    overflow-y: auto;
+}
+
+.wandlight-loredeck-workbench-registry-search {
+    flex: 1 1 180px;
+}
+
+.wandlight-loredeck-workbench-registry-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid var(--wandlight-border-soft, rgba(126, 145, 165, 0.18));
+    border-radius: 7px;
+    background: var(--wandlight-input, rgba(8, 10, 14, 0.32));
+}
+
+.wandlight-loredeck-workbench-registry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.wandlight-loredeck-workbench-registry-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    padding: 8px;
+    border: 1px solid var(--wandlight-border-soft, rgba(126, 145, 165, 0.18));
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--wandlight-card, rgba(12, 14, 20, 0.42)) 70%, transparent);
+}
+
+.wandlight-loredeck-workbench-registry-row-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.wandlight-loredeck-workbench-registry-row-description,
+.wandlight-loredeck-workbench-registry-subtitle {
+    color: var(--wandlight-muted, rgba(210, 215, 220, 0.74));
+    font-size: 0.8em;
+    line-height: 1.35;
+}
+
+.wandlight-loredeck-workbench-registry-subtitle {
+    font-weight: 700;
+    color: var(--wandlight-gold-soft, #d4c8a8);
+}
+
+.wandlight-loredeck-workbench-timeline-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
 .wandlight-loredeck-workbench-detail {
     display: flex;
     flex-direction: column;

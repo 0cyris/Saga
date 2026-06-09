@@ -22,6 +22,8 @@ let loredeckWorkbenchQuery = '';
 let loredeckWorkbenchRelevanceFilter = 'all';
 let loredeckWorkbenchCategoryFilter = 'all';
 let loredeckWorkbenchStatusFilter = 'active';
+let loredeckWorkbenchActiveTab = 'lorecards';
+let loredeckWorkbenchRegistryQuery = '';
 let loredeckWorkbenchSelectedEntryId = '';
 let loredeckWorkbenchCache = {
     packId: '',
@@ -74,6 +76,8 @@ export function openLoredeckWorkbench(packId = '') {
     loredeckWorkbenchBulkSelection = new Set();
     loredeckWorkbenchLastSelectionId = '';
     loredeckWorkbenchStatusFilter = 'active';
+    loredeckWorkbenchActiveTab = 'lorecards';
+    loredeckWorkbenchRegistryQuery = '';
     loredeckWorkbenchSelectedEntryId = '';
     renderLoredeckWorkbench();
     void loadLoredeckWorkbenchRows(id, { force: loredeckWorkbenchCache.packId !== id || !loredeckWorkbenchCache.rows.length });
@@ -127,7 +131,7 @@ function createLoredeckWorkbenchShell(pack = null) {
         body.appendChild(createEmptyMessage('Select a Loredeck from the Library before opening the workbench.'));
     } else {
         body.appendChild(createLoredeckWorkbenchTabs());
-        body.appendChild(createLoredeckWorkbenchLorecardsView(pack));
+        body.appendChild(createLoredeckWorkbenchActiveView(pack));
     }
     shell.appendChild(body);
     return shell;
@@ -219,20 +223,31 @@ function createLoredeckWorkbenchTabs() {
     tabs.className = 'wandlight-lore-workbench-mode-tabs wandlight-loredeck-workbench-mode-tabs';
     for (const [id, label, count, tip] of [
         ['lorecards', 'Lorecards', loredeckWorkbenchCache.rows.length, 'Browse Lorecards inside this Loredeck.'],
-        ['registries', 'Registries', 0, 'Registry editing will be added after the Lorecard browser/editor foundation.'],
+        ['registries', 'Registries', getLoredeckWorkbenchRegistryCount(getWorkbenchPack()), 'Manage deck-owned tag and timeline registry metadata.'],
         ['health', 'Health', 0, 'Use Open Health for the full Health Center in this phase.'],
         ['files', 'Files', getSourceFileCount(loredeckWorkbenchCache.source), 'Package file inspection will be expanded after the browser foundation.'],
     ]) {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'wandlight-lore-workbench-mode-tab';
-        if (id === 'lorecards') btn.classList.add('wandlight-lore-workbench-mode-tab-active');
+        if (id === loredeckWorkbenchActiveTab) btn.classList.add('wandlight-lore-workbench-mode-tab-active');
         btn.textContent = count ? `${label} (${count})` : label;
-        btn.disabled = id !== 'lorecards';
+        btn.disabled = !['lorecards', 'registries'].includes(id);
+        if (!btn.disabled) {
+            btn.addEventListener('click', () => {
+                loredeckWorkbenchActiveTab = id;
+                renderLoredeckWorkbench();
+            });
+        }
         addTooltip(btn, tip);
         tabs.appendChild(btn);
     }
     return tabs;
+}
+
+function createLoredeckWorkbenchActiveView(pack = {}) {
+    if (loredeckWorkbenchActiveTab === 'registries') return createLoredeckWorkbenchRegistriesView(pack);
+    return createLoredeckWorkbenchLorecardsView(pack);
 }
 
 function createLoredeckWorkbenchLorecardsView(pack = {}) {
@@ -263,6 +278,321 @@ function createLoredeckWorkbenchLorecardsView(pack = {}) {
     main.appendChild(createLoredeckWorkbenchDetail(pack, rows));
     view.appendChild(main);
     return view;
+}
+
+function createLoredeckWorkbenchRegistriesView(pack = {}) {
+    const view = document.createElement('div');
+    view.className = 'wandlight-lore-workbench-view wandlight-loredeck-workbench-registries-view';
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-loredeck-workbench-registry-summary';
+    const tagRegistry = normalizeWorkbenchTagRegistry(pack.tagRegistry);
+    const timelineRegistry = normalizeWorkbenchTimelineRegistry(pack.timelineRegistry);
+    summary.appendChild(createStatusPill(`${Object.keys(tagRegistry.tags || {}).length} tags`, 'Deck-owned tag definitions saved on this Loredeck.'));
+    summary.appendChild(createStatusPill(`${timelineRegistry.anchors.length} anchors`, 'Deck-owned timeline anchors saved on this Loredeck.'));
+    summary.appendChild(createStatusPill(`${timelineRegistry.windows.length} windows`, 'Deck-owned timeline windows saved on this Loredeck.'));
+    if (timelineRegistry.disabledAnchorIds.length || timelineRegistry.disabledWindowIds.length) {
+        summary.appendChild(createStatusPill(`${timelineRegistry.disabledAnchorIds.length + timelineRegistry.disabledWindowIds.length} disabled timeline`, 'Suppressed source timeline definitions.'));
+    }
+    summary.appendChild(createStatusPill(pack.type === 'bundled' ? 'Read-only' : 'Editable', pack.type === 'bundled' ? 'Duplicate this Bundled Loredeck to edit registries.' : 'Registry changes save directly to this Loredeck record.'));
+    view.appendChild(summary);
+
+    const layout = document.createElement('div');
+    layout.className = 'wandlight-loredeck-workbench-registries-layout';
+    layout.appendChild(createLoredeckWorkbenchTagRegistryPanel(pack, tagRegistry));
+    layout.appendChild(createLoredeckWorkbenchTimelineRegistryPanel(pack, timelineRegistry));
+    view.appendChild(layout);
+    return view;
+}
+
+function getLoredeckWorkbenchRegistryCount(pack = {}) {
+    const tagRegistry = normalizeWorkbenchTagRegistry(pack?.tagRegistry);
+    const timelineRegistry = normalizeWorkbenchTimelineRegistry(pack?.timelineRegistry);
+    return Object.keys(tagRegistry.tags || {}).length
+        + timelineRegistry.anchors.length
+        + timelineRegistry.windows.length
+        + timelineRegistry.disabledAnchorIds.length
+        + timelineRegistry.disabledWindowIds.length;
+}
+
+function createLoredeckWorkbenchTagRegistryPanel(pack = {}, tagRegistry = normalizeWorkbenchTagRegistry()) {
+    const panel = document.createElement('div');
+    panel.className = 'wandlight-loredeck-workbench-registry-panel';
+
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Tag Registry';
+    panel.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-loredeck-workbench-editor-hint';
+    help.textContent = 'Define machine-safe tags used by Lorecards. These are deck metadata, not Lorecard tag assignments.';
+    panel.appendChild(help);
+
+    const controls = document.createElement('div');
+    controls.className = 'wandlight-loredeck-workbench-registry-controls';
+    const search = document.createElement('input');
+    search.type = 'search';
+    search.placeholder = 'Search tags...';
+    search.value = loredeckWorkbenchRegistryQuery;
+    search.className = 'wandlight-loredeck-workbench-registry-search';
+    addTooltip(search, 'Search tag IDs, labels, descriptions, aliases, and parents.');
+    search.addEventListener('input', () => {
+        loredeckWorkbenchRegistryQuery = search.value;
+        renderLoredeckWorkbench();
+        requestAnimationFrame(() => {
+            const next = document.querySelector(`#${LOREDECK_WORKBENCH_ID} .wandlight-loredeck-workbench-registry-search`);
+            next?.focus?.();
+            next?.setSelectionRange?.(next.value.length, next.value.length);
+        });
+    });
+    controls.appendChild(search);
+    controls.appendChild(createButton('New Tag', 'Prepare a blank tag definition form.', () => {
+        loredeckWorkbenchRegistryQuery = '';
+        renderLoredeckWorkbench();
+        requestAnimationFrame(() => document.querySelector(`#${LOREDECK_WORKBENCH_ID} [name="tagId"]`)?.focus?.());
+    }, pack.type === 'bundled' ? '' : 'wandlight-primary-button'));
+    panel.appendChild(controls);
+
+    panel.appendChild(createLoredeckWorkbenchTagRegistryForm(pack, null));
+
+    const entries = getFilteredWorkbenchTagRegistryEntries(tagRegistry);
+    if (!entries.length) {
+        panel.appendChild(createEmptyMessage(Object.keys(tagRegistry.tags || {}).length ? 'No matching tag definitions.' : 'No deck-owned tag definitions yet.'));
+        return panel;
+    }
+
+    const list = document.createElement('div');
+    list.className = 'wandlight-loredeck-workbench-registry-list';
+    for (const [id, def] of entries.slice(0, 80)) {
+        list.appendChild(createLoredeckWorkbenchTagRegistryRow(pack, id, def));
+    }
+    if (entries.length > 80) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-loredeck-workbench-editor-hint';
+        more.textContent = `Showing 80 of ${entries.length} matching tags. Search to narrow the list.`;
+        list.appendChild(more);
+    }
+    panel.appendChild(list);
+    return panel;
+}
+
+function createLoredeckWorkbenchTagRegistryForm(pack = {}, tag = null) {
+    const form = document.createElement('div');
+    form.className = 'wandlight-loredeck-workbench-registry-form';
+    const tagId = tag?.id || '';
+    form.appendChild(createLoredeckWorkbenchInputField('Tag ID', 'tagId', tagId, 'Machine-safe tag ID, e.g. faction:straw-hats.', { required: true }));
+    form.appendChild(createLoredeckWorkbenchInputField('Label', 'tagLabel', tag?.label || '', 'Human-readable label.'));
+    form.appendChild(createLoredeckWorkbenchInputField('Aliases', 'tagAliases', (tag?.aliases || []).join(', '), 'Comma-separated aliases.'));
+    form.appendChild(createLoredeckWorkbenchInputField('Parents', 'tagParents', (tag?.parents || []).join(', '), 'Comma-separated parent tag IDs.'));
+    form.appendChild(createLoredeckWorkbenchTextareaField('Description', 'tagDescription', tag?.description || '', 'What this tag means in this Loredeck.', { rows: 3 }));
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-loredeck-workbench-editor-actions';
+    const save = createButton(tagId ? 'Update Tag' : 'Add Tag', tagId ? 'Update this tag definition directly.' : 'Add this tag definition directly.', async btn => {
+        await saveLoredeckWorkbenchTagDefinition(pack, form, btn);
+    }, 'wandlight-primary-button');
+    save.disabled = pack.type === 'bundled';
+    actions.appendChild(save);
+    if (tagId) {
+        const remove = createButton('Delete Tag', 'Delete this tag definition directly after confirmation.', async btn => {
+            await deleteLoredeckWorkbenchTagDefinition(pack, tagId, btn);
+        }, 'wandlight-danger-button');
+        remove.disabled = pack.type === 'bundled';
+        actions.appendChild(remove);
+    }
+    form.appendChild(actions);
+    return form;
+}
+
+function createLoredeckWorkbenchTagRegistryRow(pack = {}, id = '', def = {}) {
+    const row = document.createElement('div');
+    row.className = 'wandlight-loredeck-workbench-registry-row';
+    const main = document.createElement('div');
+    main.className = 'wandlight-loredeck-workbench-registry-row-main';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = def.label || id;
+    main.appendChild(title);
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-loredeck-row-meta';
+    meta.appendChild(createStatusPill(id, 'Tag ID.'));
+    if (def.parents?.length) meta.appendChild(createStatusPill(`${def.parents.length} parents`, 'Parent tag count.'));
+    if (def.aliases?.length) meta.appendChild(createStatusPill(`${def.aliases.length} aliases`, 'Alias count.'));
+    if (def.deprecated) meta.appendChild(createStatusPill('Deprecated', 'This tag is marked deprecated.'));
+    main.appendChild(meta);
+    if (def.description) {
+        const description = document.createElement('div');
+        description.className = 'wandlight-loredeck-workbench-registry-row-description';
+        description.textContent = def.description;
+        main.appendChild(description);
+    }
+    row.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
+    actions.appendChild(createButton('Edit', 'Load this tag definition into the editor form.', () => {
+        replaceLoredeckWorkbenchRegistryForm(row, pack, { id, ...def });
+    }));
+    row.appendChild(actions);
+    return row;
+}
+
+function replaceLoredeckWorkbenchRegistryForm(row, pack, tag) {
+    const panel = row.closest('.wandlight-loredeck-workbench-registry-panel');
+    const oldForm = panel?.querySelector('.wandlight-loredeck-workbench-registry-form');
+    if (!panel || !oldForm) return;
+    const nextForm = createLoredeckWorkbenchTagRegistryForm(pack, tag);
+    oldForm.replaceWith(nextForm);
+    requestAnimationFrame(() => nextForm.querySelector('[name="tagLabel"]')?.focus?.());
+}
+
+async function saveLoredeckWorkbenchTagDefinition(pack = {}, form = null, button = null) {
+    if (!form || pack.type === 'bundled') return false;
+    const id = normalizeWorkbenchTagId(form.querySelector('[name="tagId"]')?.value || '');
+    if (!id) {
+        toast('Tag ID is required.', 'warning');
+        return false;
+    }
+    const def = normalizeWorkbenchTagDefinition({
+        label: form.querySelector('[name="tagLabel"]')?.value || id,
+        description: form.querySelector('[name="tagDescription"]')?.value || '',
+        aliases: parseWorkbenchTextList(form.querySelector('[name="tagAliases"]')?.value || ''),
+        parents: parseWorkbenchTextList(form.querySelector('[name="tagParents"]')?.value || '').map(normalizeWorkbenchTagId).filter(Boolean),
+    }, id);
+    const original = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Saving...';
+    }
+    try {
+        const freshPack = getWorkbenchPack(pack.packId) || pack;
+        setLoredeckWorkbenchSaveState('saving', `Saving tag ${id}...`);
+        const saved = persistLoredeckLibraryRecordMutation(freshPack, next => {
+            const registry = normalizeWorkbenchTagRegistry(next.tagRegistry);
+            registry.tags[id] = def;
+            next.tagRegistry = registry;
+            next.healthStatus = 'stale';
+        }, '', {
+            errorMessage: 'Loredeck tag registry save failed.',
+        });
+        if (!saved) {
+            setLoredeckWorkbenchSaveState('failed', `Could not save tag ${id}.`);
+            return false;
+        }
+        setLoredeckWorkbenchSaveState('saved', `Saved tag ${id}.`, { render: false, packId: freshPack.packId });
+        renderLoredeckWorkbench();
+        return true;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = original || 'Save Tag';
+        }
+    }
+}
+
+async function deleteLoredeckWorkbenchTagDefinition(pack = {}, tagId = '', button = null) {
+    const id = normalizeWorkbenchTagId(tagId);
+    if (!id || pack.type === 'bundled') return false;
+    const confirmed = await confirmAction('Delete Tag Definition', `Delete tag definition ${id} from ${pack.title || pack.packId}? Lorecards using this tag keep the tag string, but the definition is removed. Continue?`);
+    if (!confirmed) return false;
+    const original = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Deleting...';
+    }
+    try {
+        const freshPack = getWorkbenchPack(pack.packId) || pack;
+        setLoredeckWorkbenchSaveState('saving', `Deleting tag ${id}...`);
+        const saved = persistLoredeckLibraryRecordMutation(freshPack, next => {
+            const registry = normalizeWorkbenchTagRegistry(next.tagRegistry);
+            delete registry.tags[id];
+            next.tagRegistry = registry;
+            next.healthStatus = 'stale';
+        }, '', {
+            errorMessage: 'Loredeck tag registry delete failed.',
+        });
+        if (!saved) {
+            setLoredeckWorkbenchSaveState('failed', `Could not delete tag ${id}.`);
+            return false;
+        }
+        setLoredeckWorkbenchSaveState('saved', `Deleted tag ${id}.`, { render: false, packId: freshPack.packId });
+        renderLoredeckWorkbench();
+        return true;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = original || 'Delete Tag';
+        }
+    }
+}
+
+function createLoredeckWorkbenchTimelineRegistryPanel(pack = {}, timelineRegistry = normalizeWorkbenchTimelineRegistry()) {
+    const panel = document.createElement('div');
+    panel.className = 'wandlight-loredeck-workbench-registry-panel';
+    const title = document.createElement('div');
+    title.className = 'wandlight-runtime-card-title';
+    title.textContent = 'Timeline / Context Registry';
+    panel.appendChild(title);
+
+    const meta = document.createElement('div');
+    meta.className = 'wandlight-loredeck-row-meta';
+    meta.appendChild(createStatusPill(timelineRegistry.timelineMode || 'hybrid', 'Timeline mode.'));
+    meta.appendChild(createStatusPill(timelineRegistry.sortKeyScale || 'pack_local', 'Sort key scale.'));
+    meta.appendChild(createStatusPill(`${timelineRegistry.anchors.length} anchors`, 'Deck-owned anchors.'));
+    meta.appendChild(createStatusPill(`${timelineRegistry.windows.length} windows`, 'Deck-owned windows.'));
+    panel.appendChild(meta);
+
+    const help = document.createElement('div');
+    help.className = 'wandlight-loredeck-workbench-editor-hint';
+    help.textContent = 'This slice shows deck-owned Context registry structure. Full anchor/window editing is the next Phase 4 slice.';
+    panel.appendChild(help);
+
+    panel.appendChild(createLoredeckWorkbenchTimelinePreviewList('Anchors', timelineRegistry.anchors));
+    panel.appendChild(createLoredeckWorkbenchTimelinePreviewList('Windows', timelineRegistry.windows));
+    return panel;
+}
+
+function createLoredeckWorkbenchTimelinePreviewList(titleText, items = []) {
+    const wrap = document.createElement('div');
+    wrap.className = 'wandlight-loredeck-workbench-timeline-preview';
+    const title = document.createElement('div');
+    title.className = 'wandlight-loredeck-workbench-registry-subtitle';
+    title.textContent = `${titleText} (${items.length})`;
+    wrap.appendChild(title);
+    if (!items.length) {
+        wrap.appendChild(createEmptyMessage(`No deck-owned ${titleText.toLowerCase()} saved yet.`));
+        return wrap;
+    }
+    const list = document.createElement('div');
+    list.className = 'wandlight-loredeck-workbench-registry-list';
+    for (const item of items.slice(0, 16)) {
+        const row = document.createElement('div');
+        row.className = 'wandlight-loredeck-workbench-registry-row';
+        const main = document.createElement('div');
+        main.className = 'wandlight-loredeck-workbench-registry-row-main';
+        const label = document.createElement('div');
+        label.className = 'wandlight-runtime-card-title';
+        label.textContent = item.label || item.id;
+        main.appendChild(label);
+        const meta = document.createElement('div');
+        meta.className = 'wandlight-loredeck-row-meta';
+        meta.appendChild(createStatusPill(item.id, `${titleText} ID.`));
+        if (Number.isFinite(Number(item.sortKey))) meta.appendChild(createStatusPill(`sort ${item.sortKey}`, 'Anchor sort key.'));
+        if (Number.isFinite(Number(item.sortKeyFrom)) || Number.isFinite(Number(item.sortKeyTo))) meta.appendChild(createStatusPill(`${item.sortKeyFrom ?? '?'} -> ${item.sortKeyTo ?? '?'}`, 'Window sort range.'));
+        if (item.anchorFrom || item.anchorTo) meta.appendChild(createStatusPill(`${item.anchorFrom || '?'} -> ${item.anchorTo || '?'}`, 'Window anchor range.'));
+        main.appendChild(meta);
+        row.appendChild(main);
+        list.appendChild(row);
+    }
+    if (items.length > 16) {
+        const more = document.createElement('div');
+        more.className = 'wandlight-loredeck-workbench-editor-hint';
+        more.textContent = `Showing 16 of ${items.length}. Full timeline editing comes next.`;
+        list.appendChild(more);
+    }
+    wrap.appendChild(list);
+    return wrap;
 }
 
 function createLoredeckWorkbenchControls(pack = {}) {
@@ -1692,6 +2022,169 @@ function getStatusFilterOptions() {
         ['disabled', 'Disabled'],
         ['all', 'All States'],
     ];
+}
+
+function normalizeWorkbenchTagId(value = '') {
+    return String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/['"`]/g, '')
+        .replace(/[^a-z0-9._:-]+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^[._:-]+|[._:-]+$/g, '')
+        .slice(0, 180);
+}
+
+function parseWorkbenchTextList(value = '', limit = 64) {
+    const rawItems = Array.isArray(value) ? value : String(value || '').split(/[,;\n\r]+/);
+    const output = [];
+    const seen = new Set();
+    for (const raw of rawItems) {
+        const text = String(raw || '').trim().replace(/\s+/g, ' ').slice(0, 160);
+        const key = text.toLowerCase();
+        if (!text || seen.has(key)) continue;
+        seen.add(key);
+        output.push(text);
+        if (output.length >= limit) break;
+    }
+    return output;
+}
+
+function normalizeWorkbenchTagDefinition(raw = {}, id = '') {
+    const input = raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : {};
+    return {
+        label: String(input.label || input.name || id).trim().slice(0, 160),
+        description: String(input.description || '').trim().slice(0, 1000),
+        aliases: parseWorkbenchTextList(input.aliases || [], 64),
+        parents: parseWorkbenchTextList(input.parents || [], 64).map(normalizeWorkbenchTagId).filter(Boolean),
+        sensitive: input.sensitive === true,
+        deprecated: input.deprecated === true,
+        replacement: normalizeWorkbenchTagId(input.replacement || ''),
+    };
+}
+
+function normalizeWorkbenchTagRegistry(value = null) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const source = input.tags && typeof input.tags === 'object' && !Array.isArray(input.tags) ? input.tags : input;
+    const tags = {};
+    for (const [rawId, rawDef] of Object.entries(source || {})) {
+        if (!rawDef || typeof rawDef !== 'object' || Array.isArray(rawDef)) continue;
+        const id = normalizeWorkbenchTagId(rawDef.id || rawId);
+        if (!id) continue;
+        tags[id] = normalizeWorkbenchTagDefinition(rawDef, id);
+    }
+    return { schemaVersion: 1, tags };
+}
+
+function getFilteredWorkbenchTagRegistryEntries(tagRegistry = normalizeWorkbenchTagRegistry()) {
+    const query = String(loredeckWorkbenchRegistryQuery || '').trim().toLowerCase();
+    return Object.entries(tagRegistry.tags || {})
+        .filter(([id, def]) => {
+            if (!query) return true;
+            return [
+                id,
+                def.label,
+                def.description,
+                def.replacement,
+                ...(def.aliases || []),
+                ...(def.parents || []),
+            ].filter(Boolean).join(' ').toLowerCase().includes(query);
+        })
+        .sort(([aId, a], [bId, b]) => String(a.label || aId).localeCompare(String(b.label || bId)));
+}
+
+function normalizeWorkbenchTimelineId(value = '') {
+    return String(value || '')
+        .trim()
+        .replace(/[\r\n]+/g, ' ')
+        .replace(/[^\p{L}\p{N} _:\-./]+/gu, '')
+        .replace(/\s+/g, '_')
+        .slice(0, 180)
+        .trim();
+}
+
+function normalizeWorkbenchTimelineNumber(value) {
+    const number = Number(String(value ?? '').trim());
+    return Number.isFinite(number) ? number : null;
+}
+
+function normalizeWorkbenchTimelineTextList(value = '', limit = 64) {
+    return parseWorkbenchTextList(value, limit);
+}
+
+function normalizeWorkbenchTimelineAnchor(raw = {}, index = 0) {
+    const input = raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : {};
+    const id = normalizeWorkbenchTimelineId(input.id);
+    if (!id) return null;
+    return {
+        id,
+        label: String(input.label || input.title || id).trim().slice(0, 240),
+        contextType: String(input.contextType || input.type || 'anchor').trim().slice(0, 80),
+        sortKey: normalizeWorkbenchTimelineNumber(input.sortKey) ?? index + 1,
+        aliases: normalizeWorkbenchTimelineTextList(input.aliases || input.triggers, 64),
+        tags: normalizeWorkbenchTimelineTextList(input.tags, 64),
+        notes: String(input.notes || input.description || '').trim().slice(0, 1000),
+    };
+}
+
+function normalizeWorkbenchTimelineWindow(raw = {}, index = 0) {
+    const input = raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : {};
+    const id = normalizeWorkbenchTimelineId(input.id);
+    if (!id) return null;
+    return {
+        id,
+        label: String(input.label || input.title || id).trim().slice(0, 240),
+        contextType: String(input.contextType || input.type || 'anchor_window').trim().slice(0, 80),
+        anchorFrom: normalizeWorkbenchTimelineId(input.anchorFrom || input.from || input.validFromAnchor),
+        anchorTo: normalizeWorkbenchTimelineId(input.anchorTo || input.to || input.validToAnchor),
+        sortKeyFrom: normalizeWorkbenchTimelineNumber(input.sortKeyFrom),
+        sortKeyTo: normalizeWorkbenchTimelineNumber(input.sortKeyTo),
+        aliases: normalizeWorkbenchTimelineTextList(input.aliases || input.triggers, 64),
+        tags: normalizeWorkbenchTimelineTextList(input.tags, 64),
+        notes: String(input.notes || input.description || '').trim().slice(0, 1000),
+    };
+}
+
+function normalizeWorkbenchTimelineDisabledIds(value = []) {
+    const output = [];
+    const seen = new Set();
+    for (const raw of Array.isArray(value) ? value : []) {
+        const id = normalizeWorkbenchTimelineId(raw);
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        output.push(id);
+    }
+    return output;
+}
+
+function normalizeWorkbenchTimelineRegistry(value = null) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const anchors = [];
+    for (const [index, raw] of (Array.isArray(input.anchors) ? input.anchors : []).entries()) {
+        const anchor = normalizeWorkbenchTimelineAnchor(raw, index);
+        if (anchor) anchors.push(anchor);
+    }
+    const windows = [];
+    const rawWindows = [
+        ...(Array.isArray(input.windows) ? input.windows : []),
+        ...(Array.isArray(input.arcs) ? input.arcs : []),
+        ...(Array.isArray(input.phases) ? input.phases : []),
+    ];
+    for (const [index, raw] of rawWindows.entries()) {
+        const window = normalizeWorkbenchTimelineWindow(raw, index);
+        if (window) windows.push(window);
+    }
+    return {
+        schemaVersion: Number.isFinite(Number(input.schemaVersion)) ? Number(input.schemaVersion) : 1,
+        timelineMode: String(input.timelineMode || 'hybrid').trim().slice(0, 80),
+        defaultContextType: String(input.defaultContextType || '').trim().slice(0, 80),
+        sortKeyScale: String(input.sortKeyScale || 'pack_local').trim().slice(0, 160),
+        summary: String(input.summary || input.description || '').trim().slice(0, 1000),
+        anchors,
+        windows,
+        disabledAnchorIds: normalizeWorkbenchTimelineDisabledIds(input.disabledAnchorIds || input.disabledAnchors || []),
+        disabledWindowIds: normalizeWorkbenchTimelineDisabledIds(input.disabledWindowIds || input.disabledWindows || []),
+    };
 }
 
 function getEntryRelevance(entry = {}) {
