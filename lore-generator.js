@@ -876,7 +876,6 @@ async function maybeProposeCanonLoreFromContext(context, progress = null) {
         return await proposeCanonLoreForContext(context, {
             progress,
             maxEntries: settings.canonLoreMaxEntries || 12,
-            snapshot: false,
         });
     } catch (e) {
         console.warn(`${LOG_PREFIX} Local canon lore database query failed:`, e);
@@ -2197,7 +2196,6 @@ export async function runBulkLoreGeneration(options = {}) {
         let duplicateDrops = 0;
         let qualityDrops = 0;
         let routedSimilarCount = 0;
-        let snapshotTaken = false;
         let dirtyChunksSinceFullCheckpoint = 0;
         let lastFullCheckpointAt = Date.now();
         const summaries = [];
@@ -2282,12 +2280,9 @@ export async function runBulkLoreGeneration(options = {}) {
                     bulkChunkId: records.map(r => r.chunk?.chunkId).filter(Boolean).slice(-1)[0] || '',
                     bulk: true,
                 }, {
-                    snapshot: !snapshotTaken,
-                    snapshotLabel: 'Bulk Generate pending lore entries',
                     syncPrompt: false,
                     full: true,
                 });
-                snapshotTaken = true;
                 pendingEntryCount = append.pendingCount;
             }
 

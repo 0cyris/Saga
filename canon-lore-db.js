@@ -13,7 +13,7 @@
  */
 
 import { LOG_PREFIX } from './constants.js';
-import { getState, getSettings, saveState, pushStateSnapshot, MAX_PENDING_LORE_ENTRIES, getLoredeckLibraryRegistry } from './state-manager.js';
+import { getState, getSettings, saveState, MAX_PENDING_LORE_ENTRIES, getLoredeckLibraryRegistry } from './state-manager.js';
 import { normalizeLoreMatrix, buildLoreGenerationKey } from './lore-matrix.js';
 import { preprocessPendingLoreEntries } from './pending-lore-preprocessor.js';
 import { normalizeLorePurpose, computeSpecificityScore, isSpecificLorePurpose } from './lore-relevance.js';
@@ -1649,10 +1649,6 @@ export async function addCanonLorePreviewEntriesToPending(entryIds = [], context
         };
     }
 
-    if (options.snapshot !== false) {
-        pushStateSnapshot(currentState, 'Add selected canon lore preview to pending review', settings.maxSnapshots);
-    }
-
     const pending = Array.isArray(currentState.pendingLoreEntries) ? currentState.pendingLoreEntries : [];
     currentState.pendingLoreEntries = [...pending, ...entries].slice(-MAX_PENDING_LORE_ENTRIES);
     currentState.pendingLoreMeta = {
@@ -1733,10 +1729,6 @@ export async function proposeCanonLoreForContext(context = null, options = {}) {
         // so saving here persists the repair instead of serializing the old heavy data.
         saveState(state);
         return { ...query, status: 'duplicates_only', proposedCount: 0, dropped: filtered.dropped };
-    }
-
-    if (options.snapshot !== false) {
-        pushStateSnapshot(state, 'Propose canon lore from local database', settings.maxSnapshots);
     }
 
     const pending = Array.isArray(state.pendingLoreEntries) ? state.pendingLoreEntries : [];

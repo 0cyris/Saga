@@ -2046,7 +2046,7 @@ export function openNewLoreDialog() {
             summary: `Manual lore draft: ${entry.title}`,
             normalizedEntryCount: 1,
             rawEntryCount: 1,
-        }, { snapshot: false, snapshotLabel: 'Create manual lore draft' });
+        });
         recordLoreTimelineEvent(result.state, {
             type: 'manual_create_pending',
             source: 'manual',

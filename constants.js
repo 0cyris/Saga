@@ -127,7 +127,6 @@ export const DEFAULT_SETTINGS = {
     autoExtract: false,
     autoApplyDelta: false,
     extractionInterval: 1,
-    maxSnapshots: 20,
     debugMode: false,
     experienceMode: 'basic',
     advancedExperienceSettingsBackup: null,
@@ -770,8 +769,6 @@ export function getDefaultState() {
         relationships: [],
         threads: [],
         continuityFlags: [],
-        memoHistory: [],
-        stateHistory: [],
         lastDelta: null,
         _version: SCHEMA_VERSION,
     };

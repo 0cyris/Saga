@@ -161,6 +161,7 @@ let loredeckLibrarySelectedFolderDetailsId = '';
 let loredeckLibraryFolderCoverResizeObserver = null;
 let loredeckLibrarySelectionRefreshFrame = 0;
 let loredeckLibraryHierarchyRefreshFrame = 0;
+let loredeckLibraryOverlayRefreshFrame = 0;
 let bundledLoredeckIndexCache = null;
 let bundledLoredeckIndexLoading = false;
 let bundledLoredeckIndexLoadAttempted = false;
@@ -191,6 +192,10 @@ export function closeLoredeckLibraryWindow() {
         cancelAnimationFrame(loredeckLibraryHierarchyRefreshFrame);
     }
     loredeckLibraryHierarchyRefreshFrame = 0;
+    if (loredeckLibraryOverlayRefreshFrame && typeof cancelAnimationFrame === 'function') {
+        cancelAnimationFrame(loredeckLibraryOverlayRefreshFrame);
+    }
+    loredeckLibraryOverlayRefreshFrame = 0;
     loredeckLibraryFolderCoverResizeObserver?.disconnect?.();
     loredeckLibraryFolderCoverResizeObserver = null;
     document.querySelector('.wandlight-loredeck-library-overlay')?.remove();
@@ -289,6 +294,10 @@ function restoreLoredeckLibraryScrollState(snapshot = null) {
 }
 
 export function renderLoredeckLibraryOverlay(options = {}) {
+    if (loredeckLibraryOverlayRefreshFrame && typeof cancelAnimationFrame === 'function') {
+        cancelAnimationFrame(loredeckLibraryOverlayRefreshFrame);
+    }
+    loredeckLibraryOverlayRefreshFrame = 0;
     const scrollState = options.preserveScroll === false ? null : captureLoredeckLibraryScrollState();
     if (loredeckLibraryHierarchyRefreshFrame && typeof cancelAnimationFrame === 'function') {
         cancelAnimationFrame(loredeckLibraryHierarchyRefreshFrame);
@@ -406,6 +415,24 @@ export function renderLoredeckLibraryOverlay(options = {}) {
         console.error('[Saga] Loredeck Library body render failed:', error);
         shell.appendChild(createLoredeckLibraryRenderErrorCard(error));
     }
+}
+
+export function scheduleLoredeckLibraryOverlayRefresh(options = {}) {
+    if (!loredeckLibraryOpen) return;
+    if (loredeckLibraryOverlayRefreshFrame && typeof cancelAnimationFrame === 'function') {
+        cancelAnimationFrame(loredeckLibraryOverlayRefreshFrame);
+    }
+    const render = () => {
+        loredeckLibraryOverlayRefreshFrame = 0;
+        renderLoredeckLibraryOverlay(options);
+    };
+    if (typeof requestAnimationFrame !== 'function') {
+        render();
+        return;
+    }
+    loredeckLibraryOverlayRefreshFrame = requestAnimationFrame(() => {
+        loredeckLibraryOverlayRefreshFrame = requestAnimationFrame(render);
+    });
 }
 
 function getLoredeckLibraryOverlayContext() {
@@ -1717,7 +1744,7 @@ function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex =
 
     const moveButton = createButton('Move', selectedIds.length ? 'Move selected Loredecks to the chosen folder.' : 'Select Loredecks before moving them to a folder.', () => {
         if (!selectedIds.length) return;
-        if (moveLoredecksToLibraryFolder(selectedIds, moveSelect.value || 'unfiled')) renderLoredeckLibraryOverlay();
+        if (moveLoredecksToLibraryFolder(selectedIds, moveSelect.value || 'unfiled')) scheduleLoredeckLibraryOverlayRefresh();
     }, 'wandlight-loredeck-library-small-button');
     moveButton.disabled = !selectedIds.length;
     toolbar.appendChild(moveButton);
@@ -1785,7 +1812,6 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
     const add = createButton(actionIds.length > 1 ? `Add Selected (${actionIds.length}) >` : 'Add to Stack >', actionIds.length ? 'Add or enable the selected Loredeck selection in the active stack.' : 'Select one or more Loredecks before adding them to the stack.', () => {
         if (!actionIds.length) return;
         addLoredecksToStack(actionIds);
-        renderLoredeckLibraryOverlay();
     }, 'wandlight-primary-button wandlight-loredeck-library-transfer-button');
     add.disabled = !actionIds.length || actionIds.every(packId => resolvedStackIds.has(packId));
     flow.appendChild(add);
@@ -1793,14 +1819,12 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
     const remove = createButton(actionIds.length > 1 ? `< Remove Selected (${selectedStackItems.length})` : '< Remove from Stack', actionIds.length ? 'Remove selected Loredecks from the active stack.' : 'Select an active Loredeck before removing it.', () => {
         if (!actionIds.length) return;
         removeLoredecksFromStack(actionIds);
-        renderLoredeckLibraryOverlay();
     }, 'wandlight-loredeck-library-transfer-button');
     remove.disabled = !selectedStackItems.length;
     flow.appendChild(remove);
 
     const addAll = createButton('Add All Matching', 'Add every currently filtered Loredeck that is not already enabled.', () => {
         addLoredecksToStack(inactiveMatches.map(pack => pack.packId));
-        renderLoredeckLibraryOverlay();
     }, 'wandlight-loredeck-library-transfer-button');
     addAll.disabled = !inactiveMatches.length;
     flow.appendChild(addAll);
@@ -1810,7 +1834,6 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
     footer.className = 'wandlight-loredeck-library-transfer-footer';
     const clear = createButton('Clear Stack', 'Remove every Loredeck from the active session stack.', () => {
         clearLoredeckStack();
-        renderLoredeckLibraryOverlay();
     }, 'wandlight-danger-button wandlight-loredeck-library-transfer-button');
     clear.disabled = !stack.length;
     footer.appendChild(clear);
@@ -2002,7 +2025,6 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     card.addEventListener('dblclick', e => {
         e.stopPropagation();
         addLoredeckToStack(pack.packId);
-        renderLoredeckLibraryOverlay();
     });
 
     const grip = document.createElement('span');
@@ -2155,7 +2177,6 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
     toggle.addEventListener('click', e => {
         e.stopPropagation();
         setLoredeckStackItemEnabled(stackKey, item.enabled === false);
-        renderLoredeckLibraryOverlay();
     });
     controls.appendChild(toggle);
     void stackLength;
@@ -2273,7 +2294,6 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     toggle.addEventListener('click', e => {
         e.stopPropagation();
         setLoredeckStackItemEnabled(stackKey, item.enabled === false);
-        renderLoredeckLibraryOverlay();
     });
     controls.appendChild(toggle);
     void stackLength;
@@ -2762,12 +2782,10 @@ function finishLoredeckLibraryDeckDrag(commit = true) {
     if (!canCommit) return;
     if (dropKind === 'stack') {
         addLoredecksToStack(packIds);
-        renderLoredeckLibraryOverlay();
     } else if (dropKind === 'folder') {
-        if (moveLoredecksToLibraryFolder(packIds, dropFolderId)) renderLoredeckLibraryOverlay();
+        if (moveLoredecksToLibraryFolder(packIds, dropFolderId)) scheduleLoredeckLibraryOverlayRefresh();
     } else if (dropKind === 'library' && targetIndex !== originalIndex) {
-        reorderLoredeckInLibrary(packId, targetIndex, visiblePacks);
-        renderLoredeckLibraryOverlay();
+        if (reorderLoredeckInLibrary(packId, targetIndex, visiblePacks)) scheduleLoredeckLibraryOverlayRefresh();
     }
 }
 
@@ -2927,11 +2945,10 @@ function finishLoredeckLibraryFolderDrag(commit = true) {
     if (!canCommit) return;
     if (dropKind === 'stack') {
         addLoredeckFolderToStack(folderId, libraryIndex);
-        renderLoredeckLibraryOverlay();
     } else if (dropKind === 'folder' && dropFolderId && dropFolderId !== folderId && dropFolderId !== 'unfiled') {
-        if (moveLoredeckLibraryFolder(folderId, dropFolderId, null, libraryIndex)) renderLoredeckLibraryOverlay();
+        if (moveLoredeckLibraryFolder(folderId, dropFolderId, null, libraryIndex)) scheduleLoredeckLibraryOverlayRefresh();
     } else if (dropKind === 'library' && (reparentToRoot || targetIndex !== originalIndex)) {
-        if (moveLoredeckLibraryFolder(folderId, reparentToRoot ? '' : parentId, reparentToRoot ? null : targetIndex, libraryIndex)) renderLoredeckLibraryOverlay();
+        if (moveLoredeckLibraryFolder(folderId, reparentToRoot ? '' : parentId, reparentToRoot ? null : targetIndex, libraryIndex)) scheduleLoredeckLibraryOverlayRefresh();
     }
 }
 
@@ -3084,12 +3101,11 @@ function finishLoredeckStackDrag(commit = true) {
     if (canCommit && dropKind === 'library') {
         if (packIds.length) removeLoredecksFromStack(packIds);
         else removeLoredeckStackItem(stackKey);
-        renderLoredeckLibraryOverlay();
     } else if (canCommit && dropKind === 'folder') {
         if (packIds.length) {
-            if (moveLoredecksToLibraryFolder(packIds, dropFolderId)) renderLoredeckLibraryOverlay();
+            if (moveLoredecksToLibraryFolder(packIds, dropFolderId)) scheduleLoredeckLibraryOverlayRefresh();
         } else if (removeLoredeckStackItem(stackKey)) {
-            renderLoredeckLibraryOverlay();
+            scheduleLoredeckLibraryOverlayRefresh();
         }
     } else if (canCommit && targetIndex !== originalIndex) {
         reorderLoredeckStackItem(stackKey || createLoredeckStackDeckKey(packId), targetIndex);
@@ -3301,14 +3317,14 @@ function createLoredeckLibraryFolderActionBar(folder = {}, libraryIndex = {}, se
 
     const move = createButton(selectedIds.length ? `Move Selected Here (${selectedIds.length})` : 'Move Selected Here', selectedIds.length ? 'Move the selected Loredecks into this folder.' : 'Select one or more Loredecks before moving them into this folder.', () => {
         if (!selectedIds.length) return;
-        if (moveLoredecksToLibraryFolder(selectedIds, isUnfiled ? 'unfiled' : folderId)) renderLoredeckLibraryOverlay();
+        if (moveLoredecksToLibraryFolder(selectedIds, isUnfiled ? 'unfiled' : folderId)) scheduleLoredeckLibraryOverlayRefresh();
     }, 'wandlight-loredeck-library-small-button');
     move.disabled = !selectedIds.length;
     actions.appendChild(move);
 
     if (!isUnfiled) {
         actions.appendChild(createButton('Add Folder to Stack', 'Add this folder as a collapsible Stack Group in the active session stack.', () => {
-            if (addLoredeckFolderToStack(folderId, libraryIndex)) renderLoredeckLibraryOverlay();
+            addLoredeckFolderToStack(folderId, libraryIndex);
         }, 'wandlight-loredeck-library-small-button'));
 
         const currentParentId = String(folder.parentId || '').trim();
@@ -3325,7 +3341,7 @@ function createLoredeckLibraryFolderActionBar(folder = {}, libraryIndex = {}, se
 
         const moveFolder = createButton('Move Folder', 'Move this folder to the selected parent folder without changing its contents.', () => {
             if (parentSelect.value === currentParentId) return;
-            if (moveLoredeckLibraryFolder(folderId, parentSelect.value || '', null, libraryIndex)) renderLoredeckLibraryOverlay();
+            if (moveLoredeckLibraryFolder(folderId, parentSelect.value || '', null, libraryIndex)) scheduleLoredeckLibraryOverlayRefresh();
         }, 'wandlight-loredeck-library-small-button');
         const syncMoveState = () => {
             moveFolder.disabled = parentSelect.value === currentParentId;
@@ -3574,7 +3590,6 @@ function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo =
         if (inStack && stackItem.enabled) return;
         if (inStack) setLoredeckEnabled(pack.packId, true);
         else addLoredeckToStack(pack.packId);
-        renderLoredeckLibraryOverlay();
     }, inStack && stackItem.enabled ? '' : 'wandlight-primary-button');
     add.disabled = inStack && stackItem.enabled;
     actions.appendChild(add);
@@ -4299,7 +4314,7 @@ function removeLoredeckCoverImage(packId = '', button = null) {
 
 function addLoredecksToStack(packIds = []) {
     const ids = Array.from(new Set((packIds || []).map(id => String(id || '').trim()).filter(Boolean)));
-    if (!ids.length) return;
+    if (!ids.length) return false;
     const changed = commitLoredeckStackMutation(`Added ${ids.length} Loredeck${ids.length === 1 ? '' : 's'} to stack`, stack => {
         for (const packId of ids) {
             const existing = stack.find(item => getLoredeckStackItemKey(item) === createLoredeckStackDeckKey(packId));
@@ -4318,6 +4333,7 @@ function addLoredecksToStack(packIds = []) {
         }
     });
     if (changed) toast(`Added ${ids.length} Loredeck${ids.length === 1 ? '' : 's'} to the stack.`, 'success');
+    return changed;
 }
 
 function clearLoredeckStack() {
@@ -4325,6 +4341,7 @@ function clearLoredeckStack() {
         stack.splice(0, stack.length);
     });
     if (changed) toast('Loredeck stack cleared.', 'success');
+    return changed;
 }
 
 export function getMutableLoredeckLibraryRegistry() {

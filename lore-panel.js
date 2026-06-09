@@ -20,7 +20,6 @@ import {
     getSettings,
     saveSettings,
     saveState,
-    pushStateSnapshot,
     appendPendingLoreEntries,
     restoreLoreTimelineEntriesToPending,
     setLoreContext,
@@ -233,6 +232,7 @@ import {
     refreshLoredeckSurfaces,
     renderLoredeckLibraryOverlay,
     saveLoredeckLibraryFolderRecords,
+    scheduleLoredeckLibraryOverlayRefresh,
     setLoredeckLibraryBulkSelection,
     setLoredeckLibrarySelectedFolder,
 } from './loredeck-library-panel.js';
@@ -742,8 +742,6 @@ configureContextPanel({
     resetLoredeckContextFromPanel: async packId => {
         const ok = await confirmAction('Reset Context', `Clear Context for ${getLoredeckDisplayName(packId)}?`);
         if (!ok) return;
-        const current = getState();
-        pushStateSnapshot(current, `Reset Context: ${getLoredeckDisplayName(packId)}`, getSettings().maxSnapshots);
         resetLoredeckContext(packId);
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
@@ -812,13 +810,11 @@ configureContextWorkbenchPanel({
     resolveContextsFromContext: handleResolveContextsFromContext,
     modelResolveContexts: handleModelResolveContexts,
     setLoredeckContextManualLock: (packId, manualLock) => {
-        commitLoredeckContextPatch(packId, { manualLock: manualLock === true }, `Edit Context Manual Lock: ${getLoredeckDisplayName(packId)}`, { manual: false });
+        commitLoredeckContextPatch(packId, { manualLock: manualLock === true }, { manual: false });
     },
     resetLoredeckContextFromWorkbench: async packId => {
         const ok = await confirmAction('Reset Context', `Clear Context for ${getLoredeckDisplayName(packId)}?`);
         if (!ok) return;
-        const current = getState();
-        pushStateSnapshot(current, `Reset Context: ${getLoredeckDisplayName(packId)}`, getSettings().maxSnapshots);
         resetLoredeckContext(packId);
         refreshLoredeckSurfaces();
         toast('Context reset.', 'info');
@@ -6144,12 +6140,6 @@ function applyContextResolutionProposalSet(proposals = getContextResolutionPropo
     const selected = (Array.isArray(proposals) ? proposals : [])
         .filter(proposal => proposal?.packId && proposal?.patch && typeof proposal.patch === 'object');
     if (!selected.length) return 0;
-    const current = getState();
-    pushStateSnapshot(
-        current,
-        options.snapshotLabel || `Apply ${selected.length} Context proposal${selected.length === 1 ? '' : 's'}`,
-        getSettings().maxSnapshots,
-    );
     const applied = applyContextResolutionResults(selected.map(proposal => ({
         packId: proposal.packId,
         status: 'resolved',
@@ -6501,7 +6491,7 @@ function applyContextAnchor(packId, anchor = {}) {
         gameStage: anchor.gameStage || '',
         alias: anchor.aliases?.[0] || anchor.label || anchor.id || '',
         source: 'local_alias',
-    }, `Set Context anchor: ${getLoredeckDisplayName(packId)}`);
+    });
 }
 
 function seedLoredeckContextFromRuntimeContext(packId, context = {}) {
@@ -6526,7 +6516,7 @@ function seedLoredeckContextFromRuntimeContext(packId, context = {}) {
         gameStage: resolverContext.gameStage || context.gameStage || '',
         stardate: resolverContext.stardate || context.stardate || '',
         coordinates: resolverContext.coordinates && typeof resolverContext.coordinates === 'object' ? { ...resolverContext.coordinates } : (context.coordinates || {}),
-    }, `Seed Context from runtime context: ${getLoredeckDisplayName(packId)}`);
+    });
 }
 
 function buildContextResolutionSourceText(state = {}, resolverContext = {}) {
@@ -6657,7 +6647,7 @@ function createContextTextField(container, labelText, packId, key, value, toolti
     input.addEventListener('click', e => e.stopPropagation());
     input.addEventListener('mousedown', e => e.stopPropagation());
     input.addEventListener('change', () => {
-        commitLoredeckContextPatch(packId, { [key]: input.value.trim() }, `Edit Context ${labelText}: ${getLoredeckDisplayName(packId)}`, options);
+        commitLoredeckContextPatch(packId, { [key]: input.value.trim() }, options);
     });
     label.appendChild(input);
     container.appendChild(label);
@@ -6682,7 +6672,7 @@ function createContextSelectField(container, labelText, packId, key, value, opti
     }
     select.value = String(value || optionsList[0]?.[0] || '');
     select.addEventListener('change', () => {
-        commitLoredeckContextPatch(packId, { [key]: select.value }, `Edit Context ${labelText}: ${getLoredeckDisplayName(packId)}`, options);
+        commitLoredeckContextPatch(packId, { [key]: select.value }, options);
     });
     label.appendChild(select);
     container.appendChild(label);
@@ -6705,7 +6695,7 @@ function createContextNumberField(container, labelText, packId, key, value, tool
     input.step = '0.05';
     input.value = String(Number.isFinite(Number(value)) ? Number(value) : 0);
     input.addEventListener('change', () => {
-        commitLoredeckContextPatch(packId, { [key]: input.value }, `Edit Context ${labelText}: ${getLoredeckDisplayName(packId)}`, options);
+        commitLoredeckContextPatch(packId, { [key]: input.value }, options);
     });
     label.appendChild(input);
     container.appendChild(label);
@@ -6720,7 +6710,7 @@ function createContextCheckboxField(container, labelText, packId, key, value, to
     input.type = 'checkbox';
     input.checked = value === true;
     input.addEventListener('change', () => {
-        commitLoredeckContextPatch(packId, { [key]: input.checked }, `Edit Context ${labelText}: ${getLoredeckDisplayName(packId)}`, { manual: false });
+        commitLoredeckContextPatch(packId, { [key]: input.checked }, { manual: false });
     });
     label.appendChild(input);
     const span = document.createElement('span');
@@ -6753,9 +6743,7 @@ function appendContextManualFields(grid, packId, context = {}) {
     createContextTextField(grid, 'Notes', packId, 'notes', context.notes, 'Private notes for this pack-specific Context.', { multiline: true, full: true });
 }
 
-function commitLoredeckContextPatch(packId, patch = {}, summary = 'Edit Context', options = {}) {
-    const current = getState();
-    pushStateSnapshot(current, summary, getSettings().maxSnapshots);
+function commitLoredeckContextPatch(packId, patch = {}, options = {}) {
     const nextPatch = { ...(patch || {}) };
     if (options.manual !== false) {
         if (!Object.prototype.hasOwnProperty.call(nextPatch, 'source')) nextPatch.source = 'manual';
@@ -7329,7 +7317,7 @@ function applyContextTimelineItem(packId, item = {}) {
             contextSortKeyTo: normalizeLoredeckTimelineNumber(def.sortKeyTo),
             alias: def.aliases?.[0] || def.label || item.id || '',
             source: 'manual',
-        }, `Set Context window: ${getLoredeckDisplayName(packId)}`);
+        });
         return;
     }
     applyContextAnchor(packId, def);
@@ -7375,7 +7363,7 @@ function applyContextAnchorBoundary(packId, item = {}, mode = 'from') {
         patch.contextSortKeyTo = Number.isFinite(Number(context.contextSortKeyTo)) ? Number(context.contextSortKeyTo) : null;
         patch.label = context.anchorTo ? `${label} to ${context.anchorTo}` : `After ${label}`;
     }
-    commitLoredeckContextPatch(packId, patch, `Set Context ${mode === 'to' ? 'upper' : 'lower'} bound: ${getLoredeckDisplayName(packId)}`);
+    commitLoredeckContextPatch(packId, patch);
 }
 
 function resolveManifestUrlForFetch(manifestRef) {
@@ -15234,7 +15222,7 @@ async function deleteLoredeckLibraryPackWithConfirm(packOrId) {
     if (!proceed) return false;
 
     if (inStack) {
-        commitLoredeckStackMutation(`Deleted Loredeck ${title} from active stack`, stack => {
+        commitLoredeckStackMutation(stack => {
             const index = stack.findIndex(item => getLoredeckStackItemKey(item) === stackKey);
             if (index >= 0) stack.splice(index, 1);
         });
@@ -15326,7 +15314,7 @@ async function deleteLoredeckLibraryPacksWithConfirm(packsOrIds = []) {
 
     const deletableIds = new Set(deletable.map(pack => pack.packId));
     if (inStack.length) {
-        commitLoredeckStackMutation(`Deleted ${inStack.length} Loredeck${inStack.length === 1 ? '' : 's'} from active stack`, stackItems => {
+        commitLoredeckStackMutation(stackItems => {
             for (let index = stackItems.length - 1; index >= 0; index -= 1) {
                 if (deletableIds.has(getLoredeckStackItemPackId(stackItems[index]))) stackItems.splice(index, 1);
             }
@@ -15368,7 +15356,7 @@ function forgetLoredeckLibraryPack(packId) {
     void deleteLoredeckLibraryPackWithConfirm(packId);
 }
 
-function commitLoredeckStackMutation(summary, mutator) {
+function commitLoredeckStackMutation(mutator) {
     const state = getState();
     const current = getLoredeckStack(state);
     const next = current.map(item => ({ ...item }));
@@ -15376,12 +15364,12 @@ function commitLoredeckStackMutation(summary, mutator) {
     const normalized = normalizeLoredeckStackPriority(next);
     if (JSON.stringify(current) === JSON.stringify(normalized)) return false;
 
-    pushStateSnapshot(state, summary, getSettings().maxSnapshots);
     state.loredeckStack = normalized;
     clearCanonLoreDatabaseCache();
     clearContextIndexCache();
-    saveState(state);
-    refreshLoredeckSurfaces();
+    saveState(state, { sanitize: false });
+    refreshLoredeckSurfaces({ renderLibrary: false });
+    if (isLoredeckLibraryOpen()) scheduleLoredeckLibraryOverlayRefresh();
     return true;
 }
 
@@ -15416,7 +15404,7 @@ function normalizeLoredeckStackPriority(stack = []) {
 
 function addLoredeckToStack(packId) {
     const definition = getLoredeckDefinition(packId);
-    const changed = commitLoredeckStackMutation(`Added Loredeck ${getLoredeckDisplayName(packId)}`, stack => {
+    const changed = commitLoredeckStackMutation(stack => {
         const existing = stack.find(item => getLoredeckStackItemKey(item) === createLoredeckStackDeckKey(packId));
         if (existing) {
             existing.enabled = true;
@@ -15432,6 +15420,7 @@ function addLoredeckToStack(packId) {
         });
     });
     if (changed) toast(`${definition?.title || packId} added to Loredeck stack.`, 'success');
+    return changed;
 }
 
 function addLoredeckFolderToStack(folderId, libraryIndex = getLoredeckLibraryIndexForPacks()) {
@@ -15445,7 +15434,7 @@ function addLoredeckFolderToStack(folderId, libraryIndex = getLoredeckLibraryInd
         toast('That Library folder is no longer available.', 'warning');
         return false;
     }
-    const changed = commitLoredeckStackMutation(`Added folder ${folder.title || id} to Loredeck stack`, stack => {
+    const changed = commitLoredeckStackMutation(stack => {
         const key = createLoredeckStackFolderKey(id);
         const existing = stack.find(item => getLoredeckStackItemKey(item) === key);
         if (existing) {
@@ -15470,11 +15459,12 @@ function addLoredeckFolderToStack(folderId, libraryIndex = getLoredeckLibraryInd
 function setLoredeckEnabled(packId, enabled) {
     const changed = setLoredeckStackItemEnabled(createLoredeckStackDeckKey(packId), enabled);
     if (changed) toast(`${getLoredeckDisplayName(packId)} ${enabled ? 'enabled' : 'disabled'}.`, 'success');
+    return changed;
 }
 
 function setLoredeckStackItemEnabled(stackKey, enabled) {
     const key = String(stackKey || '').trim();
-    const changed = commitLoredeckStackMutation(`${enabled ? 'Enabled' : 'Disabled'} Loredeck stack item`, stack => {
+    const changed = commitLoredeckStackMutation(stack => {
         const item = stack.find(entry => getLoredeckStackItemKey(entry) === key);
         if (item) item.enabled = enabled !== false;
     });
@@ -15484,7 +15474,7 @@ function setLoredeckStackItemEnabled(stackKey, enabled) {
 function setLoredeckStackItemCollapsed(stackKey, collapsed) {
     const key = String(stackKey || '').trim();
     const next = collapsed === true;
-    const changed = commitLoredeckStackMutation(`${next ? 'Collapsed' : 'Expanded'} Loredeck stack item`, stack => {
+    const changed = commitLoredeckStackMutation(stack => {
         const item = stack.find(entry => getLoredeckStackItemKey(entry) === key);
         if (item && getLoredeckStackItemType(item) === 'folder') item.collapsed = next;
     });
@@ -15499,7 +15489,7 @@ function moveLoredeckInStack(packId, direction) {
 function moveLoredeckStackItem(stackKey, direction) {
     const key = String(stackKey || '').trim();
     const step = Number(direction) < 0 ? -1 : 1;
-    const changed = commitLoredeckStackMutation('Reordered Loredeck stack', stack => {
+    const changed = commitLoredeckStackMutation(stack => {
         const index = stack.findIndex(item => getLoredeckStackItemKey(item) === key);
         const nextIndex = index + step;
         if (index < 0 || nextIndex < 0 || nextIndex >= stack.length) return;
@@ -15507,6 +15497,7 @@ function moveLoredeckStackItem(stackKey, direction) {
         stack.splice(nextIndex, 0, item);
     });
     if (changed) toast('Loredeck stack order updated.', 'success');
+    return changed;
 }
 
 function reorderLoredeckInStack(packId, targetIndex) {
@@ -15515,7 +15506,7 @@ function reorderLoredeckInStack(packId, targetIndex) {
 
 function reorderLoredeckStackItem(stackKey, targetIndex) {
     const key = String(stackKey || '').trim();
-    const changed = commitLoredeckStackMutation('Reordered Loredeck stack', stack => {
+    const changed = commitLoredeckStackMutation(stack => {
         const index = stack.findIndex(item => getLoredeckStackItemKey(item) === key);
         if (index < 0) return;
         const nextIndex = Math.max(0, Math.min(stack.length - 1, Number(targetIndex)));
@@ -15524,19 +15515,21 @@ function reorderLoredeckStackItem(stackKey, targetIndex) {
         stack.splice(nextIndex, 0, item);
     });
     if (changed) toast('Loredeck stack order updated.', 'success');
+    return changed;
 }
 
 function removeLoredeckFromStack(packId) {
-    const changed = commitLoredeckStackMutation(`Removed Loredeck ${getLoredeckDisplayName(packId)}`, stack => {
+    const changed = commitLoredeckStackMutation(stack => {
         const index = stack.findIndex(item => getLoredeckStackItemKey(item) === createLoredeckStackDeckKey(packId));
         if (index >= 0) stack.splice(index, 1);
     });
     if (changed) toast(`${getLoredeckDisplayName(packId)} removed from Loredeck stack.`, 'success');
+    return changed;
 }
 
 function removeLoredeckStackItem(stackKey) {
     const key = String(stackKey || '').trim();
-    const changed = commitLoredeckStackMutation('Removed Loredeck stack item', stack => {
+    const changed = commitLoredeckStackMutation(stack => {
         const index = stack.findIndex(item => getLoredeckStackItemKey(item) === key);
         if (index >= 0) stack.splice(index, 1);
     });
@@ -15546,13 +15539,14 @@ function removeLoredeckStackItem(stackKey) {
 
 function removeLoredecksFromStack(packIds = []) {
     const ids = new Set((packIds || []).map(id => String(id || '').trim()).filter(Boolean));
-    if (!ids.size) return;
-    const changed = commitLoredeckStackMutation(`Removed ${ids.size} Loredeck${ids.size === 1 ? '' : 's'} from stack`, stack => {
+    if (!ids.size) return false;
+    const changed = commitLoredeckStackMutation(stack => {
         for (let index = stack.length - 1; index >= 0; index -= 1) {
             if (ids.has(getLoredeckStackItemPackId(stack[index]))) stack.splice(index, 1);
         }
     });
     if (changed) toast(`Removed ${ids.size} Loredeck${ids.size === 1 ? '' : 's'} from the stack.`, 'success');
+    return changed;
 }
 
 function renderSettingsTab(container, state) {
@@ -16293,8 +16287,6 @@ function createDangerZoneCard(state) {
         if (!proceed) return;
         const current = getState();
         const defaults = getDefaultState();
-        defaults.stateHistory = [];
-        defaults.memoHistory = [];
         if (current.lorePanel) {
             defaults.lorePanel = {
                 ...defaults.lorePanel,
@@ -16554,8 +16546,6 @@ function formatLoredeckContextUpdatedAt(context = {}) {
 }
 
 function toggleLoredeckContextManualLock(packId, locked) {
-    const current = getState();
-    pushStateSnapshot(current, `${locked ? 'Lock' : 'Unlock'} Context: ${getLoredeckDisplayName(packId)}`, getSettings().maxSnapshots);
     setLoredeckContext(packId, {
         manualLock: !!locked,
         source: 'manual',
@@ -18189,8 +18179,6 @@ function resetAllFeatureProgressNow() {
 }
 
 function updateLoreContextField(key, value) {
-    const current = getState();
-    pushStateSnapshot(current, `Edit context: ${key}`, getSettings().maxSnapshots);
     setLoreContext({ [key]: value, lastDetectedAt: Date.now() });
     refreshHeader();
 }
@@ -18615,7 +18603,6 @@ function createContinuitySectionToggleCard(state) {
 function createContinuityConfigToggle(key, label, tooltip, checked) {
     return createToggleCard(label, checked, tooltip, (nextChecked) => {
         const current = getState();
-        pushStateSnapshot(current, `Toggle continuity section: ${label}`, getSettings().maxSnapshots);
         current.continuityConfig = { ...(current.continuityConfig || {}), [key]: nextChecked };
         saveState(current);
         refreshPanelBody({ preserveScroll: true });
@@ -18923,7 +18910,6 @@ function createContinuitySectionPromptEditor(sectionKey, label) {
 function createContinuityTextField(label, value, section, field, tooltip) {
     return createTextSettingField(label, value, tooltip, (nextValue) => {
         const current = getState();
-        pushStateSnapshot(current, `Edit continuity: ${label}`, getSettings().maxSnapshots);
         current[section] = { ...(current[section] || {}), [field]: nextValue };
         saveState(current);
         refreshHeader();
@@ -18942,7 +18928,6 @@ function createArrayTextField(label, values, section, field, tooltip) {
     input.value = Array.isArray(values) ? values.join(', ') : '';
     input.addEventListener('change', () => {
         const current = getState();
-        pushStateSnapshot(current, `Edit continuity: ${label}`, getSettings().maxSnapshots);
         current[section] = { ...(current[section] || {}), [field]: input.value.split(',').map(x => x.trim()).filter(Boolean) };
         saveState(current);
         refreshHeader();
@@ -18978,7 +18963,6 @@ function createJsonEditorCard(titleText, helpText, path, value, embedded = false
         try {
             const parsed = JSON.parse(textarea.value || 'null');
             const current = getState();
-            pushStateSnapshot(current, `Edit continuity section: ${titleText}`, getSettings().maxSnapshots);
             setStatePath(current, path, parsed);
             saveState(current);
             refreshPanelBody({ preserveScroll: true });

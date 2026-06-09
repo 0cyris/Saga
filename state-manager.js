@@ -1,6 +1,6 @@
 /**
  * state-manager.js — Wandlight
- * State CRUD, settings I/O, migration, delta merging, snapshot history, and undo.
+ * State CRUD, settings I/O, migration, delta merging, export/import, and storage safety.
  * Reads reacquire from SillyTavern's context, with one-session migration caching so UI clicks do not repeatedly normalize the full lore matrix.
  *
  * Imports: constants.js
@@ -2608,10 +2608,8 @@ export function getState() {
     const beforeSize = safeJsonSize(state);
     state = migrateState(state);
     state = sanitizeLoreArraysForStorage(state);
-    // Ensure arrays exist post-migration
-    if (!Array.isArray(state.memoHistory)) state.memoHistory = [];
-    if (!Array.isArray(state.stateHistory)) state.stateHistory = [];
     if (state.lastDelta === undefined) state.lastDelta = null;
+    stripRetiredStateHistoryFields(state);
     chatMetadata[MODULE_KEY] = state;
     removeLegacyBuckets(chatMetadata);
 
@@ -2646,6 +2644,7 @@ export function saveState(state, options = {}) {
     if (sanitize !== false) {
         state = sanitizeLoreArraysForStorage(state);
     }
+    stripRetiredStateHistoryFields(state);
     chatMetadata[MODULE_KEY] = state;
     removeLegacyBuckets(chatMetadata);
     migratedStateRefs.add(state);
@@ -2656,132 +2655,6 @@ export function saveState(state, options = {}) {
         queuePromptInjectionSync();
     }
 }
-
-// ── Snapshot History (real state undo) ──────────────────────────────────────────
-
-/**
- * Pushes a full state snapshot onto stateHistory before a mutation.
- * The snapshot is stripped of its own stateHistory to avoid recursive nesting.
- * Also strips memoHistory to keep snapshots compact.
- *
- * @param {Object} state - Current WandlightState (before mutation)
- * @param {string} summary - One-line description of what change is about to occur
- * @param {number} maxSnapshots - Max snapshots to keep (default from settings)
- * @returns {Object} state with snapshot pushed (mutates in place)
- */
-export function pushStateSnapshot(state, summary, maxSnapshots) {
-    if (!state || typeof state !== 'object') return state;
-    if (!Array.isArray(state.stateHistory)) state.stateHistory = [];
-
-    const max = maxSnapshots || DEFAULT_SETTINGS.maxSnapshots;
-
-    // Use structuredClone for full deep copy; fall back to JSON roundtrip
-    let snapshotState;
-    if (typeof structuredClone === 'function') {
-        try {
-            snapshotState = structuredClone(state);
-        } catch (_e) {
-            snapshotState = JSON.parse(JSON.stringify(state));
-        }
-    } else {
-        snapshotState = JSON.parse(JSON.stringify(state));
-    }
-
-    // Strip the snapshot of its own history/meta fields to keep it compact.
-    // Pending canon database proposals can be large and should never be copied into undo history.
-    snapshotState.stateHistory = [];
-    snapshotState.memoHistory = [];
-    snapshotState.pendingLoreEntries = [];
-    snapshotState.pendingLoreMeta = null;
-    snapshotState.lastDelta = null;
-
-    const snapshot = {
-        timestamp: Date.now(),
-        summary: summary || 'Manual edit',
-        state: snapshotState,
-    };
-
-    state.stateHistory.push(snapshot);
-
-    // Trim to max snapshots
-    if (state.stateHistory.length > max) {
-        state.stateHistory = state.stateHistory.slice(-max);
-    }
-
-    return state;
-}
-
-/**
- * Restores the most recent state snapshot from stateHistory.
- * The snapshot's stored state becomes the new live state, and the snapshot
- * is removed from history (undo is destructive — one level per call).
- * Sets lastDelta to null since the change was undone.
- *
- * @param {Object} state - Current WandlightState
- * @returns {{ state: Object, undone: boolean }} New settings and whether undo occurred
- */
-export function undoLastChange(state) {
-    if (!state || !Array.isArray(state.stateHistory) || state.stateHistory.length === 0) {
-        return { state, undone: false };
-    }
-
-    // Pop the last snapshot
-    const snapshot = state.stateHistory[state.stateHistory.length - 1];
-    if (!snapshot || !snapshot.state || typeof snapshot.state !== 'object') {
-        // Corrupt snapshot — remove it
-        state.stateHistory.pop();
-        return { state, undone: false };
-    }
-
-    // Restore the snapshot's state
-    const restoredState = { ...snapshot.state };
-
-    // Preserve the remaining stateHistory (minus the one we just used)
-    restoredState.stateHistory = state.stateHistory.slice(0, -1);
-    // Preserve memoHistory from current state if it exists (memo history is independent)
-    restoredState.memoHistory = Array.isArray(state.memoHistory) ? [...state.memoHistory] : [];
-    restoredState.lastDelta = null;
-    restoredState._version = SCHEMA_VERSION;
-
-    // Re-migrate to ensure current schema
-    return { state: migrateState(restoredState), undone: true };
-}
-
-/**
- * Saves state and also pushes a memo snapshot to memoHistory (for display/debug).
- * NOTE: memoHistory is separate from stateHistory. memoHistory stores memo text
- * for inspection; stateHistory stores full state for undo.
- *
- * @param {Object} state - WandlightState
- * @param {number} maxSnapshots - Max memo snapshots to keep
- */
-export function saveStateWithSnapshot(state, maxSnapshots) {
-    const ctx = SillyTavern.getContext();
-    if (!ctx || !ctx.chatMetadata) return;
-    const { chatMetadata, saveMetadata } = ctx;
-    if (!state._version) state._version = SCHEMA_VERSION;
-    state = sanitizeLoreArraysForStorage(state);
-
-    // Build compact memo snapshot for display history
-    if (typeof globalThis._wandlightBuildMemo === 'function') {
-        const memo = globalThis._wandlightBuildMemo(state);
-        if (memo) {
-            if (!Array.isArray(state.memoHistory)) state.memoHistory = [];
-            state.memoHistory.push(memo);
-            const max = maxSnapshots || DEFAULT_SETTINGS.maxSnapshots;
-            if (state.memoHistory.length > max) {
-                state.memoHistory = state.memoHistory.slice(-max);
-            }
-        }
-    }
-
-    chatMetadata[MODULE_KEY] = state;
-    removeLegacyBuckets(chatMetadata);
-    if (typeof saveMetadata === 'function') {
-        saveMetadata();
-    }
-}
-
 
 // ── Storage safety / recovery helpers ─────────────────────────────────────────
 
@@ -2795,6 +2668,15 @@ function safeJsonSize(value) {
     } catch (_e) {
         return 0;
     }
+}
+
+const RETIRED_STORAGE_KEYS = ['memo' + 'History', 'state' + 'History'];
+
+function stripRetiredStateHistoryFields(state = {}) {
+    if (state && typeof state === 'object') {
+        for (const key of RETIRED_STORAGE_KEYS) delete state[key];
+    }
+    return state;
 }
 
 function prePruneStringArray(values, limit = 32, textLimit = 160) {
@@ -3289,23 +3171,7 @@ function sanitizeLoreArraysForStorage(state) {
         state.loreMatrix = [];
     }
 
-    if (Array.isArray(state.stateHistory)) {
-        state.stateHistory = state.stateHistory.slice(-Math.max(0, Number(getSettings().maxSnapshots) || DEFAULT_SETTINGS.maxSnapshots || 5)).map(snapshot => {
-            if (!snapshot || typeof snapshot !== 'object') return snapshot;
-            if (snapshot.state && typeof snapshot.state === 'object') {
-                snapshot.state.pendingLoreEntries = [];
-                if (Array.isArray(snapshot.state.loreMatrix) && snapshot.state.loreMatrix.length > 200) {
-                    snapshot.state.loreMatrix = snapshot.state.loreMatrix.slice(-200).map(entry => {
-                        const source = typeof entry?.source === 'string' ? entry.source : '';
-                        return source.includes('canon-lore-db') ? compactLoreEntryForStorage(entry) : entry;
-                    });
-                }
-                snapshot.state.stateHistory = [];
-                snapshot.state.memoHistory = [];
-            }
-            return snapshot;
-        });
-    }
+    stripRetiredStateHistoryFields(state);
 
     state.loreTimeline = normalizeLoreTimeline(state.loreTimeline || {});
 
@@ -3379,17 +3245,12 @@ export function migrateState(state) {
         if (!Array.isArray(state.relationships)) state.relationships = [];
         if (!Array.isArray(state.threads)) state.threads = [];
         if (!Array.isArray(state.continuityFlags)) state.continuityFlags = [];
-        if (!Array.isArray(state.memoHistory)) state.memoHistory = [];
-        if (!Array.isArray(state.stateHistory)) state.stateHistory = [];
         if (state.lastDelta === undefined) state.lastDelta = null;
 
         state._version = 1;
     }
 
-    // Future migration: ensure stateHistory always exists even in v1
-    if (!Array.isArray(state.stateHistory)) {
-        state.stateHistory = [];
-    }
+    stripRetiredStateHistoryFields(state);
 
     // ── Schema v1 → v2: Lore Matrix migration ───────────────────────────────
     if (state._version < 2) {
@@ -3573,7 +3434,7 @@ export function migrateState(state) {
         state._version = 16;
     }
 
-    // Schema v18: lore event timeline replaces visible full-state history for lore recovery
+    // Schema v18: lore event timeline owns lore recovery metadata.
     if (state._version < 18) {
         state.loreTimeline = normalizeLoreTimeline(state.loreTimeline || getDefaultState().loreTimeline);
         state._version = 18;
@@ -4271,8 +4132,6 @@ export function applyDelta(state, delta) {
         threads: [...(state.threads || [])],
         continuityFlags: [...(state.continuityFlags || [])],
         storyMilestones: { ...(state.storyMilestones || {}) },
-        memoHistory: [...(state.memoHistory || [])],
-        stateHistory: [...(state.stateHistory || [])],
         lastDelta: delta,
     };
 
@@ -4555,8 +4414,6 @@ export function importState(json) {
             relationships: Array.isArray(parsed.relationships) ? parsed.relationships : [],
             threads: Array.isArray(parsed.threads) ? parsed.threads : [],
             continuityFlags: Array.isArray(parsed.continuityFlags) ? parsed.continuityFlags : [],
-            memoHistory: Array.isArray(parsed.memoHistory) ? parsed.memoHistory : [],
-            stateHistory: Array.isArray(parsed.stateHistory) ? parsed.stateHistory : [],
             lastDelta: parsed.lastDelta || null,
             _version: SCHEMA_VERSION,
 
@@ -4630,7 +4487,7 @@ export function importState(json) {
  */
 export function exportState(state) {
     try {
-        return JSON.stringify(state, null, 2);
+        return JSON.stringify(stripRetiredStateHistoryFields({ ...(state || {}) }), null, 2);
     } catch (e) {
         console.error(`${LOG_PREFIX} Failed to export state:`, e);
         return '{}';
@@ -5070,20 +4927,16 @@ export function flushLoreBulkFullCheckpoint(batchId, patch = {}) {
  * Used by bulk lore scans so successful chunks commit partial progress immediately.
  * @param {Object[]} entries - Raw lore entries to append/merge
  * @param {Object} meta - Pending/batch metadata
- * @param {Object} options - { snapshot?: boolean, snapshotLabel?: string }
+ * @param {Object} options - { syncPrompt?: boolean, full?: boolean }
  * @returns {{ state: Object, changed: boolean, appendedCount: number, pendingCount: number }}
  */
 export function appendPendingLoreEntries(entries, meta = {}, options = {}) {
-    const { snapshot = false, snapshotLabel = 'Append bulk pending lore entries', syncPrompt = true, full = true } = options;
+    const { syncPrompt = true, full = true } = options;
     const state = getState();
     const settings = getSettings();
     const incoming = preprocessPendingLoreEntries(entries || [], state, settings);
     if (incoming.length === 0) {
         return { state, changed: false, appendedCount: 0, pendingCount: (state.pendingLoreEntries || []).length };
-    }
-
-    if (snapshot) {
-        pushStateSnapshot(state, snapshotLabel, settings.maxSnapshots);
     }
 
     const before = normalizeLoreMatrix(state.pendingLoreEntries || []);

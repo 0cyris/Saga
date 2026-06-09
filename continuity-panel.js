@@ -1,8 +1,6 @@
 import {
-    getSettings,
     getState,
     saveState,
-    pushStateSnapshot,
     applyDelta,
 } from './state-manager.js';
 import {
@@ -61,7 +59,6 @@ export function createDeltaReviewCard(delta) {
             refreshPanelBody({ preserveScroll: false });
             return;
         }
-        pushStateSnapshot(current, 'Apply pending continuity changes', getSettings().maxSnapshots);
         const next = applyDelta(current, current.lastDelta);
         next.lastDelta = null;
         saveState(next);

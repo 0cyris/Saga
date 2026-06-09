@@ -141,7 +141,6 @@ async function handleProposeLorecard(args = {}) {
         rawEntryCount: 1,
         normalizedEntryCount: 1,
     }, {
-        snapshot: false,
         syncPrompt: true,
         full: true,
     });

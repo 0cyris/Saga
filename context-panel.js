@@ -589,7 +589,6 @@ export function createContextResolutionProposalPanel(state = {}) {
         if (!ok) return;
         const applied = applyContextResolutionProposalSet(proposals, {
             clearAll: true,
-            snapshotLabel: `Apply ${proposals.length} Context proposal${proposals.length === 1 ? '' : 's'}`,
         });
         toast(`Applied ${applied} Context proposal${applied === 1 ? '' : 's'}.`, 'success');
     }));
@@ -674,7 +673,6 @@ export function createContextProposalReviewShell(state = {}) {
         if (!ok) return;
         const applied = applyContextResolutionProposalSet(proposals, {
             clearAll: true,
-            snapshotLabel: `Apply ${proposals.length} Context proposal${proposals.length === 1 ? '' : 's'}`,
         });
         toast(`Applied ${applied} Context proposal${applied === 1 ? '' : 's'}.`, 'success');
     }, 'wandlight-primary-button'));
@@ -740,9 +738,7 @@ function createContextProposalReviewRow(proposal = {}) {
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions wandlight-context-proposal-review-row-actions';
     actions.appendChild(createButton('Apply', 'Apply this Context proposal.', () => {
-        const applied = applyContextResolutionProposalSet([proposal], {
-            snapshotLabel: `Apply Context proposal: ${getLoredeckDisplayName(proposal.packId)}`,
-        });
+        const applied = applyContextResolutionProposalSet([proposal]);
         toast(`Applied ${applied} Context proposal${applied === 1 ? '' : 's'}.`, applied ? 'success' : 'warning');
     }, 'wandlight-primary-button'));
     actions.appendChild(createButton('Dismiss', 'Discard this Context proposal.', () => {

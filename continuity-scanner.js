@@ -11,7 +11,6 @@ import {
     getSettings,
     getState,
     saveState,
-    pushStateSnapshot,
     applyDelta,
     validateDelta,
 } from './state-manager.js';
@@ -1102,7 +1101,6 @@ function finalizeContinuityScanDelta({ batchId, delta, plan, settings, options =
 
     const currentState = getState();
     if (options.applyImmediately || settings.autoApplyDelta) {
-        pushStateSnapshot(currentState, `Continuity scan: ${delta.summary || 'state update'}`, settings.maxSnapshots);
         const next = applyDelta(currentState, delta);
         next.lastDelta = null;
         saveState(next, { syncPrompt: true });
@@ -1409,7 +1407,6 @@ async function runBulkContinuityScan(options = {}) {
 
         const currentState = getState();
         if (options.applyImmediately || settings.autoApplyDelta) {
-            pushStateSnapshot(currentState, `Continuity scan: ${delta.summary || 'state update'}`, settings.maxSnapshots);
             const next = applyDelta(currentState, delta);
             next.lastDelta = null;
             saveState(next, { syncPrompt: true });
