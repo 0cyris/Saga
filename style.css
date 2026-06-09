@@ -10937,6 +10937,10 @@
     grid-template-columns: minmax(260px, 2fr) minmax(90px, 0.7fr) minmax(86px, 0.55fr) minmax(160px, 1fr);
 }
 
+.wandlight-loredeck-workbench-selectable-table .wandlight-lore-workbench-row {
+    grid-template-columns: 34px minmax(240px, 2fr) minmax(90px, 0.7fr) minmax(86px, 0.55fr) minmax(150px, 1fr);
+}
+
 .wandlight-loredeck-workbench-entry-row {
     width: 100%;
     border-left: 0;
@@ -10945,6 +10949,66 @@
     text-align: left;
     background: transparent;
     color: inherit;
+}
+
+.wandlight-loredeck-workbench-row-selected {
+    background: color-mix(in srgb, var(--wandlight-gold, #f1b65a) 12%, transparent);
+}
+
+.wandlight-loredeck-workbench-draft-row {
+    border-color: var(--wandlight-border-strong, rgba(240, 178, 82, 0.55));
+    background: color-mix(in srgb, var(--wandlight-gold, #f1b65a) 10%, transparent);
+}
+
+.wandlight-loredeck-workbench-select-cell {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.wandlight-loredeck-workbench-select-box {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 1px solid var(--wandlight-border-soft, rgba(220, 190, 130, 0.35));
+    border-radius: 4px;
+    background: var(--wandlight-input, rgba(8, 10, 14, 0.55));
+    color: var(--wandlight-gold, #f1b65a);
+    font-size: 11px;
+    line-height: 1;
+}
+
+.wandlight-loredeck-workbench-select-box-checked {
+    border-color: var(--wandlight-border-strong, rgba(240, 178, 82, 0.72));
+    background: color-mix(in srgb, var(--wandlight-gold, #f1b65a) 18%, var(--wandlight-input, rgba(8, 10, 14, 0.55)));
+}
+
+.wandlight-loredeck-workbench-bulk-toolbar {
+    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    padding: 7px;
+    border: 1px solid var(--wandlight-border-soft, rgba(126, 145, 165, 0.18));
+    border-radius: 7px;
+    background: var(--wandlight-card, rgba(12, 14, 20, 0.42));
+}
+
+.wandlight-loredeck-workbench-bulk-summary {
+    min-width: 86px;
+    color: var(--wandlight-muted, rgba(210, 215, 220, 0.74));
+    font-size: 0.78em;
+    font-weight: 650;
+}
+
+.wandlight-loredeck-workbench-bulk-control {
+    width: min(150px, 24vw);
+    min-height: 26px;
 }
 
 .wandlight-loredeck-workbench-detail {
@@ -11023,6 +11087,11 @@
     color: var(--wandlight-muted, rgba(210, 215, 220, 0.72));
     font-size: 0.76em;
     line-height: 1.35;
+}
+
+.wandlight-loredeck-workbench-editor-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
 }
 
 /* Context Workbench: timeline registry and runtime Context editor. */

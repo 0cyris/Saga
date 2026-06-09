@@ -4,6 +4,7 @@ import {
 } from './loredeck-loader.js';
 import {
     addTooltip,
+    confirmAction,
     createButton,
     createEmptyMessage,
     createKeyValue,
@@ -35,6 +36,9 @@ let loredeckWorkbenchSaveState = {
     message: '',
     updatedAt: 0,
 };
+let loredeckWorkbenchDraftEntry = null;
+let loredeckWorkbenchBulkSelection = new Set();
+let loredeckWorkbenchLastSelectionId = '';
 
 export function configureLoredeckWorkbenchPanel(deps = {}) {
     loredeckWorkbenchDeps = { ...loredeckWorkbenchDeps, ...(deps || {}) };
@@ -65,6 +69,9 @@ export function openLoredeckWorkbench(packId = '') {
     }
     if (loredeckWorkbenchPackId !== id) resetLoredeckWorkbenchSaveState(id);
     loredeckWorkbenchPackId = id;
+    if (loredeckWorkbenchDraftEntry?.packId !== id) loredeckWorkbenchDraftEntry = null;
+    loredeckWorkbenchBulkSelection = new Set();
+    loredeckWorkbenchLastSelectionId = '';
     loredeckWorkbenchSelectedEntryId = '';
     renderLoredeckWorkbench();
     void loadLoredeckWorkbenchRows(id, { force: loredeckWorkbenchCache.packId !== id || !loredeckWorkbenchCache.rows.length });
@@ -170,6 +177,10 @@ function createLoredeckWorkbenchHeader(pack = null) {
             actions.appendChild(createButton('Duplicate to Edit', 'Create an editable Custom copy of this Bundled Loredeck.', () => {
                 openDuplicateLoredeckDialog(pack);
             }, 'wandlight-primary-button'));
+        } else {
+            actions.appendChild(createButton('New Lorecard', 'Create a new Lorecard directly in this editable Loredeck.', () => {
+                beginLoredeckWorkbenchNewEntry(pack);
+            }, 'wandlight-primary-button'));
         }
     }
     actions.appendChild(createButton('Close', 'Close the Loredeck Workbench.', closeLoredeckWorkbench, 'wandlight-small-button wandlight-lore-workbench-close'));
@@ -239,10 +250,14 @@ function createLoredeckWorkbenchLorecardsView(pack = {}) {
 
     const rows = getFilteredLoredeckWorkbenchRows();
     ensureLoredeckWorkbenchSelection(rows);
+    reconcileLoredeckWorkbenchBulkSelection();
+    if (isLoredeckWorkbenchEditablePack(pack)) {
+        view.appendChild(createLoredeckWorkbenchBulkToolbar(pack, rows));
+    }
 
     const main = document.createElement('div');
     main.className = 'wandlight-lore-workbench-main wandlight-loredeck-workbench-main';
-    main.appendChild(createLoredeckWorkbenchTable(rows));
+    main.appendChild(createLoredeckWorkbenchTable(rows, pack));
     main.appendChild(createLoredeckWorkbenchDetail(pack, rows));
     view.appendChild(main);
     return view;
@@ -302,12 +317,15 @@ function createWorkbenchSelect(labelText, value, options, onChange) {
     return select;
 }
 
-function createLoredeckWorkbenchTable(rows = []) {
+function createLoredeckWorkbenchTable(rows = [], pack = {}) {
+    const selectable = isLoredeckWorkbenchEditablePack(pack);
     const table = document.createElement('div');
     table.className = 'wandlight-lore-workbench-table wandlight-loredeck-workbench-table';
+    if (selectable) table.classList.add('wandlight-loredeck-workbench-selectable-table');
 
     const header = document.createElement('div');
     header.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-row-header';
+    if (selectable) header.appendChild(createLoredeckWorkbenchSelectHeaderCell(rows));
     header.appendChild(createWorkbenchCell('Lorecard'));
     header.appendChild(createWorkbenchCell('Type'));
     header.appendChild(createWorkbenchCell('Relevance'));
@@ -321,7 +339,7 @@ function createLoredeckWorkbenchTable(rows = []) {
 
     const visible = rows.slice(0, 500);
     for (const row of visible) {
-        table.appendChild(createLoredeckWorkbenchRow(row));
+        table.appendChild(createLoredeckWorkbenchRow(row, rows, selectable));
     }
     if (visible.length < rows.length) {
         const more = document.createElement('div');
@@ -332,17 +350,23 @@ function createLoredeckWorkbenchTable(rows = []) {
     return table;
 }
 
-function createLoredeckWorkbenchRow(row = {}) {
+function createLoredeckWorkbenchRow(row = {}, rows = [], selectable = false) {
     const entry = row.entry || {};
     const el = document.createElement('button');
     el.type = 'button';
     el.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-entry-row wandlight-loredeck-workbench-entry-row';
+    if (row.draft) el.classList.add('wandlight-loredeck-workbench-draft-row');
+    if (!row.draft && loredeckWorkbenchBulkSelection.has(row.id)) el.classList.add('wandlight-loredeck-workbench-row-selected');
     if (row.id === loredeckWorkbenchSelectedEntryId) el.classList.add('wandlight-lore-workbench-row-active');
     addTooltip(el, `Inspect ${entry.title || row.id}.`);
-    el.addEventListener('click', () => {
+    el.addEventListener('click', event => {
         loredeckWorkbenchSelectedEntryId = row.id;
+        if (selectable && !row.draft && (event.shiftKey || event.ctrlKey || event.metaKey)) {
+            toggleLoredeckWorkbenchBulkSelection(row.id, rows, { range: event.shiftKey, additive: event.ctrlKey || event.metaKey });
+        }
         renderLoredeckWorkbench();
     });
+    if (selectable) el.appendChild(createLoredeckWorkbenchSelectCell(row, rows));
     el.appendChild(createWorkbenchCell(entry.title || row.id, row.id));
     el.appendChild(createWorkbenchCell(getEntryCategory(entry)));
     el.appendChild(createWorkbenchCell(getEntryRelevance(entry)));
@@ -364,6 +388,332 @@ function createWorkbenchCell(text, subText = '') {
         cell.appendChild(sub);
     }
     return cell;
+}
+
+function createLoredeckWorkbenchSelectHeaderCell(rows = []) {
+    const cell = document.createElement('span');
+    cell.className = 'wandlight-loredeck-workbench-select-cell wandlight-loredeck-workbench-select-header-cell';
+    const visibleIds = getLoredeckWorkbenchSelectableRowIds(rows);
+    const selectedVisibleCount = visibleIds.filter(id => loredeckWorkbenchBulkSelection.has(id)).length;
+    const checked = !!visibleIds.length && selectedVisibleCount === visibleIds.length;
+    const box = document.createElement('span');
+    box.className = `wandlight-loredeck-workbench-select-box${checked ? ' wandlight-loredeck-workbench-select-box-checked' : ''}`;
+    box.textContent = checked ? '✓' : '';
+    box.setAttribute('role', 'checkbox');
+    box.setAttribute('aria-checked', checked ? 'true' : 'false');
+    addTooltip(box, checked ? 'Clear visible Lorecard selection.' : 'Select all visible Lorecards.');
+    box.addEventListener('click', event => {
+        event.stopPropagation();
+        if (checked) clearLoredeckWorkbenchBulkSelection(visibleIds);
+        else selectLoredeckWorkbenchVisibleRows(rows);
+    });
+    cell.appendChild(box);
+    return cell;
+}
+
+function createLoredeckWorkbenchSelectCell(row = {}, rows = []) {
+    const cell = document.createElement('span');
+    cell.className = 'wandlight-loredeck-workbench-select-cell';
+    if (row.draft) return cell;
+    const checked = loredeckWorkbenchBulkSelection.has(row.id);
+    const box = document.createElement('span');
+    box.className = `wandlight-loredeck-workbench-select-box${checked ? ' wandlight-loredeck-workbench-select-box-checked' : ''}`;
+    box.textContent = checked ? '✓' : '';
+    box.setAttribute('role', 'checkbox');
+    box.setAttribute('aria-checked', checked ? 'true' : 'false');
+    addTooltip(box, checked ? 'Remove this Lorecard from bulk selection.' : 'Add this Lorecard to bulk selection.');
+    box.addEventListener('click', event => {
+        event.stopPropagation();
+        toggleLoredeckWorkbenchBulkSelection(row.id, rows, { range: event.shiftKey, additive: true });
+        renderLoredeckWorkbench();
+    });
+    cell.appendChild(box);
+    return cell;
+}
+
+function createLoredeckWorkbenchBulkToolbar(pack = {}, rows = []) {
+    const toolbar = document.createElement('div');
+    toolbar.className = 'wandlight-loredeck-workbench-bulk-toolbar';
+    const selectedIds = getLoredeckWorkbenchSelectedIds();
+    const selectedCount = selectedIds.length;
+
+    const summary = document.createElement('div');
+    summary.className = 'wandlight-loredeck-workbench-bulk-summary';
+    summary.textContent = selectedCount ? `${selectedCount} selected` : 'No bulk selection';
+    addTooltip(summary, 'Bulk actions apply directly after confirmation.');
+    toolbar.appendChild(summary);
+
+    toolbar.appendChild(createButton('Select Visible', 'Select every visible Lorecard matching the current filters.', () => {
+        selectLoredeckWorkbenchVisibleRows(rows);
+    }));
+    toolbar.appendChild(createButton('Clear', 'Clear the current bulk selection.', () => {
+        clearLoredeckWorkbenchBulkSelection();
+    }));
+
+    const relevance = createLoredeckWorkbenchBulkSelect(getEntryRelevanceOptions(), 'normal', 'Bulk relevance tier.');
+    toolbar.appendChild(relevance);
+    toolbar.appendChild(createButton('Set Relevance', 'Set the selected Lorecards to this relevance tier.', async btn => {
+        await applyLoredeckWorkbenchBulkEntryEdit(pack, 'Set Relevance', selectedIds, fields => ({ ...fields, relevance: relevance.value }), btn);
+    }, selectedCount ? '' : 'wandlight-disabled-like'));
+
+    const category = createLoredeckWorkbenchBulkInput('Category', 'character', 'Bulk category/type value.');
+    toolbar.appendChild(category);
+    toolbar.appendChild(createButton('Set Category', 'Set the selected Lorecards to this category/type.', async btn => {
+        const value = String(category.value || '').trim();
+        await applyLoredeckWorkbenchBulkEntryEdit(pack, 'Set Category', selectedIds, fields => ({ ...fields, category: value || fields.category }), btn, { requireValue: value, requireValueLabel: 'category' });
+    }, selectedCount ? '' : 'wandlight-disabled-like'));
+
+    const tag = createLoredeckWorkbenchBulkInput('Tag', 'faction:straw-hats', 'Tag to add or remove.');
+    toolbar.appendChild(tag);
+    toolbar.appendChild(createButton('Add Tag', 'Add this tag to every selected Lorecard.', async btn => {
+        const value = String(tag.value || '').trim();
+        await applyLoredeckWorkbenchBulkEntryEdit(pack, 'Add Tag', selectedIds, fields => ({ ...fields, tags: mergeLoredeckWorkbenchTags(fields.tags, [value]) }), btn, { requireTag: value });
+    }, selectedCount ? '' : 'wandlight-disabled-like'));
+    toolbar.appendChild(createButton('Remove Tag', 'Remove this tag from every selected Lorecard.', async btn => {
+        const value = String(tag.value || '').trim();
+        await applyLoredeckWorkbenchBulkEntryEdit(pack, 'Remove Tag', selectedIds, fields => ({ ...fields, tags: (fields.tags || []).filter(item => item !== value) }), btn, { requireTag: value });
+    }, selectedCount ? '' : 'wandlight-disabled-like'));
+    toolbar.appendChild(createButton('Delete Selected', 'Delete selected Custom additions or suppress selected source Lorecards in this editable Loredeck.', async btn => {
+        await deleteLoredeckWorkbenchSelectedEntries(pack, selectedIds, btn);
+    }, selectedCount ? 'wandlight-danger-button' : 'wandlight-danger-button wandlight-disabled-like'));
+
+    toolbar.querySelectorAll('.wandlight-disabled-like').forEach(btn => {
+        btn.disabled = true;
+    });
+    return toolbar;
+}
+
+function createLoredeckWorkbenchBulkSelect(options = [], value = '', tip = '') {
+    const select = document.createElement('select');
+    select.className = 'wandlight-loredeck-workbench-bulk-control';
+    for (const [optionValue, optionLabel] of options) {
+        const option = document.createElement('option');
+        option.value = optionValue;
+        option.textContent = optionLabel;
+        select.appendChild(option);
+    }
+    select.value = options.some(([optionValue]) => optionValue === value) ? value : (options[0]?.[0] || '');
+    if (tip) addTooltip(select, tip);
+    return select;
+}
+
+function createLoredeckWorkbenchBulkInput(label, placeholder = '', tip = '') {
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'wandlight-loredeck-workbench-bulk-control';
+    input.placeholder = label;
+    input.value = '';
+    input.dataset.placeholderExample = placeholder;
+    if (tip) addTooltip(input, `${tip}${placeholder ? ` Example: ${placeholder}` : ''}`);
+    return input;
+}
+
+function getLoredeckWorkbenchSelectableRowIds(rows = getFilteredLoredeckWorkbenchRows()) {
+    return (rows || [])
+        .filter(row => row?.id && !row.draft)
+        .map(row => String(row.id || '').trim())
+        .filter(Boolean);
+}
+
+function getLoredeckWorkbenchSelectedIds() {
+    return [...loredeckWorkbenchBulkSelection].filter(Boolean);
+}
+
+function getLoredeckWorkbenchRowMap() {
+    const map = new Map();
+    for (const row of loredeckWorkbenchCache.rows || []) {
+        const id = String(row?.id || '').trim();
+        if (id) map.set(id, row);
+    }
+    return map;
+}
+
+function reconcileLoredeckWorkbenchBulkSelection() {
+    const valid = new Set(getLoredeckWorkbenchSelectableRowIds(loredeckWorkbenchCache.rows || []));
+    loredeckWorkbenchBulkSelection = new Set([...loredeckWorkbenchBulkSelection].filter(id => valid.has(id)));
+    if (loredeckWorkbenchLastSelectionId && !valid.has(loredeckWorkbenchLastSelectionId)) loredeckWorkbenchLastSelectionId = '';
+}
+
+function selectLoredeckWorkbenchVisibleRows(rows = getFilteredLoredeckWorkbenchRows()) {
+    const ids = getLoredeckWorkbenchSelectableRowIds(rows);
+    loredeckWorkbenchBulkSelection = new Set([...loredeckWorkbenchBulkSelection, ...ids]);
+    if (ids.length) loredeckWorkbenchLastSelectionId = ids[ids.length - 1];
+    renderLoredeckWorkbench();
+}
+
+function clearLoredeckWorkbenchBulkSelection(ids = null) {
+    if (Array.isArray(ids) && ids.length) {
+        for (const id of ids) loredeckWorkbenchBulkSelection.delete(id);
+    } else {
+        loredeckWorkbenchBulkSelection = new Set();
+        loredeckWorkbenchLastSelectionId = '';
+    }
+    renderLoredeckWorkbench();
+}
+
+function toggleLoredeckWorkbenchBulkSelection(id = '', rows = getFilteredLoredeckWorkbenchRows(), options = {}) {
+    const entryId = String(id || '').trim();
+    if (!entryId) return;
+    const visibleIds = getLoredeckWorkbenchSelectableRowIds(rows);
+    if (options.range && loredeckWorkbenchLastSelectionId && visibleIds.includes(loredeckWorkbenchLastSelectionId) && visibleIds.includes(entryId)) {
+        const from = visibleIds.indexOf(loredeckWorkbenchLastSelectionId);
+        const to = visibleIds.indexOf(entryId);
+        const [start, end] = from <= to ? [from, to] : [to, from];
+        for (const rangeId of visibleIds.slice(start, end + 1)) loredeckWorkbenchBulkSelection.add(rangeId);
+    } else if (loredeckWorkbenchBulkSelection.has(entryId)) {
+        loredeckWorkbenchBulkSelection.delete(entryId);
+    } else {
+        if (!options.additive) loredeckWorkbenchBulkSelection = new Set();
+        loredeckWorkbenchBulkSelection.add(entryId);
+    }
+    loredeckWorkbenchLastSelectionId = entryId;
+}
+
+function mergeLoredeckWorkbenchTags(current = [], additions = []) {
+    const seen = new Set();
+    const output = [];
+    for (const value of [...(current || []), ...(additions || [])]) {
+        const tag = String(value || '').trim();
+        if (!tag || seen.has(tag)) continue;
+        seen.add(tag);
+        output.push(tag);
+    }
+    return output;
+}
+
+async function applyLoredeckWorkbenchBulkEntryEdit(pack = {}, actionLabel = 'Bulk Edit', rawIds = [], updateFields, button = null, options = {}) {
+    const selectedIds = [...new Set((rawIds || []).map(id => String(id || '').trim()).filter(Boolean))];
+    if (!selectedIds.length) {
+        toast('Select one or more Lorecards first.', 'warning');
+        return false;
+    }
+    if (options.requireTag !== undefined && !String(options.requireTag || '').trim()) {
+        toast('Enter a tag before applying the bulk tag action.', 'warning');
+        return false;
+    }
+    if (options.requireValue !== undefined && !String(options.requireValue || '').trim()) {
+        toast(`Enter a ${options.requireValueLabel || 'value'} before applying this bulk action.`, 'warning');
+        return false;
+    }
+    if (typeof updateFields !== 'function') return false;
+    const confirmed = await confirmAction(actionLabel, `${actionLabel} will update ${selectedIds.length} Lorecard${selectedIds.length === 1 ? '' : 's'} in ${pack.title || pack.packId}. This saves directly and marks Deck Health stale. Continue?`);
+    if (!confirmed) return false;
+
+    const original = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Applying...';
+    }
+    try {
+        const freshPack = getWorkbenchPack(pack.packId) || pack;
+        const rowMap = getLoredeckWorkbenchRowMap();
+        const entryOverrides = {};
+        for (const id of selectedIds) {
+            const row = rowMap.get(id);
+            if (!row || row.draft) continue;
+            const fields = updateFields(getLoredeckWorkbenchEntryFields(row.entry), row) || getLoredeckWorkbenchEntryFields(row.entry);
+            entryOverrides[id] = buildLoredeckWorkbenchEntryOverride(freshPack, row, fields);
+        }
+        const count = Object.keys(entryOverrides).length;
+        if (!count) {
+            toast('No selected Lorecards could be updated.', 'warning');
+            return false;
+        }
+        setLoredeckWorkbenchSaveState('saving', `${actionLabel}: updating ${count} Lorecard${count === 1 ? '' : 's'}...`);
+        const saved = persistLoredeckLibraryRecordMutation(freshPack, next => {
+            next.entryOverrides = {
+                ...(next.entryOverrides || {}),
+                ...entryOverrides,
+            };
+            const disabled = new Set(Array.isArray(next.disabledEntryIds) ? next.disabledEntryIds : []);
+            for (const id of Object.keys(entryOverrides)) disabled.delete(id);
+            next.disabledEntryIds = [...disabled];
+            next.healthStatus = 'stale';
+        }, '', {
+            errorMessage: 'Loredeck bulk edit failed.',
+        });
+        if (!saved) {
+            setLoredeckWorkbenchSaveState('failed', `${actionLabel} failed.`);
+            return false;
+        }
+        loredeckWorkbenchBulkSelection = new Set();
+        loredeckWorkbenchLastSelectionId = '';
+        setLoredeckWorkbenchSaveState('saved', `${actionLabel} updated ${count} Lorecard${count === 1 ? '' : 's'}.`, { render: false, packId: freshPack.packId });
+        await loadLoredeckWorkbenchRows(freshPack.packId, { force: true });
+        return true;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = original || actionLabel;
+        }
+    }
+}
+
+async function deleteLoredeckWorkbenchSelectedEntries(pack = {}, rawIds = [], button = null) {
+    const selectedIds = [...new Set((rawIds || []).map(id => String(id || '').trim()).filter(Boolean))];
+    if (!selectedIds.length) {
+        toast('Select one or more Lorecards first.', 'warning');
+        return false;
+    }
+    const confirmed = await confirmAction(
+        'Delete Selected Lorecards',
+        `Delete ${selectedIds.length} selected Lorecard${selectedIds.length === 1 ? '' : 's'} from ${pack.title || pack.packId}? Custom additions will be removed. Source Lorecards will be suppressed in this editable deck. This saves directly and marks Deck Health stale.`
+    );
+    if (!confirmed) return false;
+
+    const original = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Deleting...';
+    }
+    try {
+        const freshPack = getWorkbenchPack(pack.packId) || pack;
+        const rowMap = getLoredeckWorkbenchRowMap();
+        const affected = selectedIds.filter(id => rowMap.has(id));
+        if (!affected.length) {
+            toast('No selected Lorecards could be deleted.', 'warning');
+            return false;
+        }
+        setLoredeckWorkbenchSaveState('saving', `Deleting ${affected.length} Lorecard${affected.length === 1 ? '' : 's'}...`);
+        const saved = persistLoredeckLibraryRecordMutation(freshPack, next => {
+            next.entryOverrides = { ...(next.entryOverrides || {}) };
+            const disabled = new Set(Array.isArray(next.disabledEntryIds) ? next.disabledEntryIds : []);
+            for (const id of affected) {
+                const row = rowMap.get(id);
+                delete next.entryOverrides[id];
+                if (isLoredeckWorkbenchAdditionRow(row)) disabled.delete(id);
+                else disabled.add(id);
+            }
+            next.disabledEntryIds = [...disabled];
+            next.healthStatus = 'stale';
+        }, '', {
+            errorMessage: 'Loredeck delete failed.',
+        });
+        if (!saved) {
+            setLoredeckWorkbenchSaveState('failed', 'Delete selected failed.');
+            return false;
+        }
+        loredeckWorkbenchBulkSelection = new Set();
+        loredeckWorkbenchLastSelectionId = '';
+        if (affected.includes(loredeckWorkbenchSelectedEntryId)) loredeckWorkbenchSelectedEntryId = '';
+        setLoredeckWorkbenchSaveState('saved', `Deleted ${affected.length} Lorecard${affected.length === 1 ? '' : 's'}.`, { render: false, packId: freshPack.packId });
+        await loadLoredeckWorkbenchRows(freshPack.packId, { force: true });
+        return true;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = original || 'Delete Selected';
+        }
+    }
+}
+
+function isLoredeckWorkbenchAdditionRow(row = {}) {
+    const overrideMeta = row?.entry?.extensions?.sagaLoredeckOverride && typeof row.entry.extensions.sagaLoredeckOverride === 'object'
+        ? row.entry.extensions.sagaLoredeckOverride
+        : {};
+    const sourceFile = String(row?.sourceFile || '').trim();
+    return String(overrideMeta.kind || '').trim() === 'addition'
+        || ['__saga_entry_overrides__', '__saga_embedded_entries__', '__saga_generated_entries__'].includes(sourceFile);
 }
 
 function createLoredeckWorkbenchDetail(pack = {}, rows = []) {
@@ -432,12 +782,12 @@ function createLoredeckWorkbenchEditableDetail(pack = {}, selected = {}) {
 
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
-    title.textContent = 'Lorecard Editor';
+    title.textContent = selected.draft ? 'New Lorecard' : 'Lorecard Editor';
     detail.appendChild(title);
 
     const chips = document.createElement('div');
     chips.className = 'wandlight-loredeck-row-meta';
-    chips.appendChild(createStatusPill('Editable', 'Manual field edits save directly to this Loredeck.'));
+    chips.appendChild(createStatusPill(selected.draft ? 'Draft' : 'Editable', selected.draft ? 'This Lorecard has not been created yet.' : 'Manual field edits save directly to this Loredeck.'));
     chips.appendChild(createStatusPill(selected.sourceFile || 'embedded', 'Source file for this Lorecard.'));
     chips.appendChild(createStatusPill(selected.id, 'Stable Lorecard machine ID.'));
     detail.appendChild(chips);
@@ -446,7 +796,11 @@ function createLoredeckWorkbenchEditableDetail(pack = {}, selected = {}) {
     form.className = 'wandlight-loredeck-workbench-editor-form';
     form.dataset.entryId = selected.id || '';
 
-    form.appendChild(createLoredeckWorkbenchReadonlyField('Machine ID', selected.id, 'Stable Lorecard machine ID. ID editing will be handled by the bulk ID tools.'));
+    if (selected.draft) {
+        form.appendChild(createLoredeckWorkbenchInputField('Machine ID', 'machineId', selected.id, 'Stable Lorecard machine ID. Use lowercase words separated by hyphens or dots.'));
+    } else {
+        form.appendChild(createLoredeckWorkbenchReadonlyField('Machine ID', selected.id, 'Stable Lorecard machine ID. ID editing will be handled by the bulk ID tools.'));
+    }
     form.appendChild(createLoredeckWorkbenchInputField('Title', 'title', fields.title, 'Lorecard display title.', { full: true, required: true }));
     form.appendChild(createLoredeckWorkbenchInputField('Category', 'category', fields.category, 'Type/category used by filters and Deck Health.'));
     form.appendChild(createLoredeckWorkbenchSelectField('Relevance', 'relevance', fields.relevance, getEntryRelevanceOptions(), 'Lorecard relevance tier.'));
@@ -456,12 +810,15 @@ function createLoredeckWorkbenchEditableDetail(pack = {}, selected = {}) {
     form.appendChild(createLoredeckWorkbenchTextareaField('Injection Text', 'injection', fields.injection, 'Optional prompt-facing injection text. Leave blank to let Lore Text carry the entry.', { rows: 5 }));
     form.appendChild(createLoredeckWorkbenchTextareaField('Notes', 'notes', fields.notes, 'Optional editor/source notes.', { rows: 3 }));
 
-    wireLoredeckWorkbenchAutosave(form, pack, selected);
+    if (selected.draft) wireLoredeckWorkbenchDraftCreate(form, pack, selected);
+    else wireLoredeckWorkbenchAutosave(form, pack, selected);
     detail.appendChild(form);
 
     const hint = document.createElement('div');
     hint.className = 'wandlight-loredeck-workbench-editor-hint';
-    hint.textContent = 'Text fields save on blur. Select fields save immediately. Ctrl+Enter saves the focused text area.';
+    hint.textContent = selected.draft
+        ? 'Fill the machine ID, title, and lore text, then create the Lorecard.'
+        : 'Text fields save on blur. Select fields save immediately. Ctrl+Enter saves the focused text area.';
     detail.appendChild(hint);
     return detail;
 }
@@ -600,6 +957,68 @@ function wireLoredeckWorkbenchAutosave(form, pack, selected) {
     });
 }
 
+function wireLoredeckWorkbenchDraftCreate(form, pack, selected) {
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions wandlight-loredeck-workbench-editor-actions';
+    actions.appendChild(createButton('Create Lorecard', 'Create this Lorecard directly in the editable Loredeck.', async btn => {
+        const original = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Creating...';
+        try {
+            await saveLoredeckWorkbenchEntryFields(pack, selected, form, { create: true });
+        } finally {
+            btn.disabled = false;
+            btn.textContent = original || 'Create Lorecard';
+        }
+    }, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Cancel', 'Discard this unsaved Lorecard draft.', () => {
+        cancelLoredeckWorkbenchNewEntry();
+    }));
+    form.appendChild(actions);
+
+    form.querySelectorAll('input[name], textarea[name]').forEach(input => {
+        input.addEventListener('input', () => {
+            setLoredeckWorkbenchSaveState('dirty', 'New Lorecard draft is not created yet.', { render: false });
+        });
+        input.addEventListener('keydown', event => {
+            if (event.key === 'Enter' && event.ctrlKey) {
+                event.preventDefault();
+                void saveLoredeckWorkbenchEntryFields(pack, selected, form, { create: true });
+            }
+        });
+    });
+}
+
+function beginLoredeckWorkbenchNewEntry(pack = {}) {
+    const freshPack = getWorkbenchPack(pack.packId) || pack;
+    if (!isLoredeckWorkbenchEditablePack(freshPack)) {
+        toast('Bundled Loredecks are read-only. Duplicate as Custom first.', 'warning');
+        return false;
+    }
+    const id = suggestLoredeckWorkbenchEntryId(freshPack);
+    loredeckWorkbenchDraftEntry = {
+        packId: freshPack.packId,
+        id,
+        createdAt: Date.now(),
+    };
+    loredeckWorkbenchSelectedEntryId = id;
+    setLoredeckWorkbenchSaveState('dirty', 'New Lorecard draft is not created yet.', { render: false, packId: freshPack.packId });
+    renderLoredeckWorkbench();
+    requestAnimationFrame(() => {
+        const titleInput = document.querySelector(`#${LOREDECK_WORKBENCH_ID} [name="title"]`);
+        titleInput?.focus?.();
+    });
+    return true;
+}
+
+function cancelLoredeckWorkbenchNewEntry() {
+    const packId = loredeckWorkbenchDraftEntry?.packId || loredeckWorkbenchPackId;
+    loredeckWorkbenchDraftEntry = null;
+    loredeckWorkbenchSelectedEntryId = '';
+    resetLoredeckWorkbenchSaveState(packId);
+    renderLoredeckWorkbench();
+}
+
 function getEntryRelevanceOptions() {
     return [
         ['high', 'High'],
@@ -639,7 +1058,7 @@ function getLoredeckWorkbenchEntryFields(entry = {}) {
 
 function collectLoredeckWorkbenchEntryFields(form) {
     const get = name => String(form.querySelector(`[name="${name}"]`)?.value || '').trim();
-    return {
+    const fields = {
         title: get('title'),
         category: get('category') || 'other',
         relevance: ['high', 'normal', 'low'].includes(get('relevance')) ? get('relevance') : 'normal',
@@ -649,6 +1068,8 @@ function collectLoredeckWorkbenchEntryFields(form) {
         injection: get('injection'),
         notes: get('notes'),
     };
+    if (form.querySelector('[name="machineId"]')) fields.machineId = normalizeLoredeckWorkbenchEntryId(get('machineId'));
+    return fields;
 }
 
 function normalizeWorkbenchCanonField(value = '') {
@@ -667,6 +1088,43 @@ function parseLoredeckWorkbenchTags(value = '') {
         tags.push(tag);
     }
     return tags;
+}
+
+function normalizeLoredeckWorkbenchEntryId(value = '') {
+    return String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/['"`]/g, '')
+        .replace(/[^a-z0-9._:-]+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^[._:-]+|[._:-]+$/g, '');
+}
+
+function getLoredeckWorkbenchExistingEntryIds(pack = getWorkbenchPack()) {
+    const ids = new Set();
+    for (const row of loredeckWorkbenchCache.rows || []) {
+        const id = normalizeLoredeckWorkbenchEntryId(row?.id || row?.entry?.id || '');
+        if (id) ids.add(id);
+    }
+    const overrides = pack?.entryOverrides && typeof pack.entryOverrides === 'object' && !Array.isArray(pack.entryOverrides)
+        ? pack.entryOverrides
+        : {};
+    for (const id of Object.keys(overrides)) {
+        const normalized = normalizeLoredeckWorkbenchEntryId(id);
+        if (normalized) ids.add(normalized);
+    }
+    return ids;
+}
+
+function suggestLoredeckWorkbenchEntryId(pack = getWorkbenchPack()) {
+    const packSegment = normalizeLoredeckWorkbenchEntryId(pack?.packId || pack?.title || 'custom-loredeck') || 'custom-loredeck';
+    const base = `${packSegment}.new-lorecard`;
+    const existing = getLoredeckWorkbenchExistingEntryIds(pack);
+    for (let index = 1; index <= 9999; index += 1) {
+        const id = `${base}-${index}`;
+        if (!existing.has(id)) return id;
+    }
+    return `${base}-${Date.now()}`;
 }
 
 function areLoredeckWorkbenchEntryFieldsEqual(a = {}, b = {}) {
@@ -705,21 +1163,29 @@ function getEntryNotesText(entry = {}) {
     ).trim();
 }
 
-async function saveLoredeckWorkbenchEntryFields(pack = {}, selected = {}, form = null) {
+async function saveLoredeckWorkbenchEntryFields(pack = {}, selected = {}, form = null, options = {}) {
     if (!form || !isLoredeckWorkbenchEditablePack(pack)) return false;
     const fields = collectLoredeckWorkbenchEntryFields(form);
     const previous = getLoredeckWorkbenchEntryFields(selected.entry);
-    if (areLoredeckWorkbenchEntryFieldsEqual(fields, previous)) {
+    const creating = options.create === true || selected.draft === true;
+    if (!creating && areLoredeckWorkbenchEntryFieldsEqual(fields, previous)) {
         if (loredeckWorkbenchSaveState.status === 'dirty') {
             resetLoredeckWorkbenchSaveState(pack.packId);
             refreshLoredeckWorkbenchSaveChip();
         }
         return false;
     }
-    const id = String(selected.id || selected.entry?.id || '').trim();
+    const id = creating
+        ? normalizeLoredeckWorkbenchEntryId(fields.machineId || selected.id || selected.entry?.id || '')
+        : String(selected.id || selected.entry?.id || '').trim();
     if (!id) {
         setLoredeckWorkbenchSaveState('failed', 'Lorecard save failed because the selected entry has no machine ID.');
         toast('Lorecard save failed: missing machine ID.', 'error');
+        return false;
+    }
+    if (creating && getLoredeckWorkbenchExistingEntryIds(pack).has(id)) {
+        setLoredeckWorkbenchSaveState('failed', `Lorecard ID already exists: ${id}`);
+        toast(`Lorecard ID already exists: ${id}`, 'warning');
         return false;
     }
     if (!fields.title) {
@@ -727,10 +1193,15 @@ async function saveLoredeckWorkbenchEntryFields(pack = {}, selected = {}, form =
         toast('Lorecard title is required.', 'warning');
         return false;
     }
+    if (creating && !fields.fact) {
+        setLoredeckWorkbenchSaveState('failed', 'New Lorecards need Lore Text before they can be created.');
+        toast('New Lorecards need Lore Text before they can be created.', 'warning');
+        return false;
+    }
 
     const freshPack = getWorkbenchPack(pack.packId) || pack;
-    const entry = buildLoredeckWorkbenchEntryOverride(freshPack, selected, fields);
-    setLoredeckWorkbenchSaveState('saving', `Saving ${fields.title || id}...`);
+    const entry = buildLoredeckWorkbenchEntryOverride(freshPack, { ...selected, id }, fields);
+    setLoredeckWorkbenchSaveState('saving', `${creating ? 'Creating' : 'Saving'} ${fields.title || id}...`);
     const saved = persistLoredeckLibraryRecordMutation(freshPack, next => {
         next.entryOverrides = {
             ...(next.entryOverrides || {}),
@@ -747,21 +1218,25 @@ async function saveLoredeckWorkbenchEntryFields(pack = {}, selected = {}, form =
         setLoredeckWorkbenchSaveState('failed', `Could not save ${fields.title || id}.`);
         return false;
     }
-    setLoredeckWorkbenchSaveState('saved', `Saved ${fields.title || id}.`, { render: false, packId: freshPack.packId });
+    if (creating) {
+        loredeckWorkbenchDraftEntry = null;
+        loredeckWorkbenchSelectedEntryId = id;
+    }
+    setLoredeckWorkbenchSaveState('saved', `${creating ? 'Created' : 'Saved'} ${fields.title || id}.`, { render: false, packId: freshPack.packId });
     await loadLoredeckWorkbenchRows(freshPack.packId, { force: true });
     return true;
 }
 
 function buildLoredeckWorkbenchEntryOverride(pack = {}, selected = {}, fields = {}) {
     const baseEntry = selected.entry || {};
-    const id = String(selected.id || baseEntry.id || '').trim();
+    const id = normalizeLoredeckWorkbenchEntryId(fields.machineId || selected.id || baseEntry.id || '');
     const schemaVersion = Math.max(3, Number(baseEntry.schemaVersion || selected.schemaVersion || pack.entrySchemaVersion || pack.manifestData?.entrySchemaVersion) || 3);
     const overrideMeta = baseEntry.extensions?.sagaLoredeckOverride && typeof baseEntry.extensions.sagaLoredeckOverride === 'object'
         ? baseEntry.extensions.sagaLoredeckOverride
         : {};
     const sourceFile = String(selected.sourceFile || '').trim();
     const virtualSource = ['__saga_entry_overrides__', '__saga_embedded_entries__', '__saga_generated_entries__'].includes(sourceFile);
-    const kind = String(overrideMeta.kind || '').trim() || (virtualSource ? 'addition' : 'override');
+    const kind = selected.draft ? 'addition' : (String(overrideMeta.kind || '').trim() || (virtualSource ? 'addition' : 'override'));
     const canonStatus = normalizeWorkbenchCanonField(fields.canonStatus);
     const entry = {
         ...baseEntry,
@@ -790,7 +1265,7 @@ function buildLoredeckWorkbenchEntryOverride(pack = {}, selected = {}, fields = 
                 ...overrideMeta,
                 kind,
                 packId: pack.packId,
-                sourceEntryId: overrideMeta.sourceEntryId || (kind === 'override' ? id : ''),
+                sourceEntryId: selected.draft ? '' : (overrideMeta.sourceEntryId || (kind === 'override' ? id : '')),
                 updatedAt: Date.now(),
                 source: 'loredeck_workbench',
             },
@@ -879,6 +1354,33 @@ function buildLoredeckWorkbenchRows(source = {}) {
     return rows.sort((a, b) => String(a.entry.title || a.id).localeCompare(String(b.entry.title || b.id)));
 }
 
+function getLoredeckWorkbenchDraftRow() {
+    if (!loredeckWorkbenchDraftEntry || loredeckWorkbenchDraftEntry.packId !== loredeckWorkbenchPackId) return null;
+    const id = normalizeLoredeckWorkbenchEntryId(loredeckWorkbenchDraftEntry.id || suggestLoredeckWorkbenchEntryId(getWorkbenchPack()));
+    return {
+        id,
+        draft: true,
+        sourceFile: 'new',
+        schemaVersion: 3,
+        entry: normalizeLoredeckEntryForSchemaV3({
+            id,
+            schemaVersion: 3,
+            title: 'Untitled Lorecard',
+            category: 'other',
+            relevance: 'normal',
+            tags: [],
+            content: {
+                fact: '',
+                injection: '',
+                notes: '',
+            },
+            retrieval: {
+                relevance: 'normal',
+            },
+        }),
+    };
+}
+
 function getEntriesFromLoredeckFileRecord(fileRecord = {}) {
     if (Array.isArray(fileRecord.entries)) return fileRecord.entries;
     const json = fileRecord.json;
@@ -902,13 +1404,16 @@ function ensureLoredeckWorkbenchSelection(rows = getFilteredLoredeckWorkbenchRow
 
 function getFilteredLoredeckWorkbenchRows() {
     const query = String(loredeckWorkbenchQuery || '').trim().toLowerCase();
-    return (loredeckWorkbenchCache.rows || []).filter(row => {
+    const filtered = (loredeckWorkbenchCache.rows || []).filter(row => {
         const entry = row.entry || {};
         if (loredeckWorkbenchRelevanceFilter !== 'all' && getEntryRelevance(entry).toLowerCase() !== loredeckWorkbenchRelevanceFilter) return false;
         if (loredeckWorkbenchCategoryFilter !== 'all' && getEntryCategory(entry).toLowerCase() !== loredeckWorkbenchCategoryFilter) return false;
         if (!query) return true;
         return getLoredeckWorkbenchSearchText(row).includes(query);
     });
+    const draft = getLoredeckWorkbenchDraftRow();
+    if (draft) filtered.unshift(draft);
+    return filtered;
 }
 
 function getLoredeckWorkbenchSearchText(row = {}) {
