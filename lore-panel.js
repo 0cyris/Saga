@@ -13666,7 +13666,6 @@ async function duplicateLoredeckAsCustom(sourcePack, fields, button = null) {
             addLoredeckToStack(record.packId);
         }
         refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-        toast(`${record.title || title} created as a Custom Loredeck.`, 'success');
     } catch (e) {
         toast(e?.message || 'Loredeck duplication failed.', 'error');
     } finally {
@@ -13749,7 +13748,6 @@ async function duplicateLoredeckLibraryPacksWithConfirm(packsOrIds = []) {
         selectLoredeckForDetails(result.created[0].packId, { refresh: false });
         refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
         renderLoredeckLibraryOverlay();
-        toast(`Duplicated ${result.created.length} Loredeck${result.created.length === 1 ? '' : 's'} as Custom copies.`, 'success');
     }
     if (result.failures.length) {
         toast(`Could not duplicate: ${result.failures.slice(0, 2).join('; ')}${result.failures.length > 2 ? '...' : ''}`, 'warning');
@@ -13823,7 +13821,6 @@ async function duplicateLoredeckLibraryFolderWithContents(folderId = '') {
     setLoredeckLibraryBulkSelection(duplicateResult.created.map(pack => pack.packId), duplicateResult.created[0]?.packId || '');
     refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
     renderLoredeckLibraryOverlay();
-    toast(`Duplicated ${sourceFolder.title || id} with ${duplicateResult.created.length} Custom Loredeck cop${duplicateResult.created.length === 1 ? 'y' : 'ies'}.`, 'success');
     if (duplicateResult.failures.length) {
         toast(`Some Loredecks could not be duplicated: ${duplicateResult.failures.slice(0, 2).join('; ')}${duplicateResult.failures.length > 2 ? '...' : ''}`, 'warning');
     }
@@ -15263,7 +15260,6 @@ async function deleteLoredeckLibraryPackWithConfirm(packOrId) {
     loredeckAssistantDraftCache.delete(packId);
     loredeckHealthRepairSelectionCache.delete(packId);
     refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-    toast(`${title} deleted from Loredeck Library.`, 'info');
     return true;
 }
 
@@ -15363,7 +15359,6 @@ async function deleteLoredeckLibraryPacksWithConfirm(packsOrIds = []) {
     }
     setLoredeckLibraryBulkSelection([], '');
     refreshLoredeckSurfaces({ clearCanon: true, clearContext: true });
-    if (deletedCount) toast(`Deleted ${deletedCount} Loredeck${deletedCount === 1 ? '' : 's'} from the Library.`, 'info');
     if (failed.length) toast(`Could not delete: ${failed.slice(0, 3).join(', ')}${failed.length > 3 ? '...' : ''}`, 'warning');
     return deletedCount > 0;
 }
@@ -15422,7 +15417,6 @@ function normalizeLoredeckStackPriority(stack = []) {
 }
 
 function addLoredeckToStack(packId) {
-    const definition = getLoredeckDefinition(packId);
     const changed = commitLoredeckStackMutation(stack => {
         const existing = stack.find(item => getLoredeckStackItemKey(item) === createLoredeckStackDeckKey(packId));
         if (existing) {
@@ -15438,7 +15432,6 @@ function addLoredeckToStack(packId) {
             addedAt: Date.now(),
         });
     });
-    if (changed) toast(`${definition?.title || packId} added to Loredeck stack.`, 'success');
     return changed;
 }
 
@@ -15471,13 +15464,11 @@ function addLoredeckFolderToStack(folderId, libraryIndex = getLoredeckLibraryInd
             addedAt: Date.now(),
         });
     });
-    if (changed) toast(`${folder.title || id} folder added to Loredeck stack.`, 'success');
     return changed;
 }
 
 function setLoredeckEnabled(packId, enabled) {
     const changed = setLoredeckStackItemEnabled(createLoredeckStackDeckKey(packId), enabled);
-    if (changed) toast(`${getLoredeckDisplayName(packId)} ${enabled ? 'enabled' : 'disabled'}.`, 'success');
     return changed;
 }
 
@@ -15515,7 +15506,6 @@ function moveLoredeckStackItem(stackKey, direction) {
         const [item] = stack.splice(index, 1);
         stack.splice(nextIndex, 0, item);
     });
-    if (changed) toast('Loredeck stack order updated.', 'success');
     return changed;
 }
 
@@ -15533,7 +15523,6 @@ function reorderLoredeckStackItem(stackKey, targetIndex) {
         const [item] = stack.splice(index, 1);
         stack.splice(nextIndex, 0, item);
     });
-    if (changed) toast('Loredeck stack order updated.', 'success');
     return changed;
 }
 
@@ -15542,7 +15531,6 @@ function removeLoredeckFromStack(packId) {
         const index = stack.findIndex(item => getLoredeckStackItemKey(item) === createLoredeckStackDeckKey(packId));
         if (index >= 0) stack.splice(index, 1);
     });
-    if (changed) toast(`${getLoredeckDisplayName(packId)} removed from Loredeck stack.`, 'success');
     return changed;
 }
 
@@ -15552,7 +15540,6 @@ function removeLoredeckStackItem(stackKey) {
         const index = stack.findIndex(item => getLoredeckStackItemKey(item) === key);
         if (index >= 0) stack.splice(index, 1);
     });
-    if (changed) toast('Removed item from the Loredeck stack.', 'success');
     return changed;
 }
 
@@ -15564,7 +15551,6 @@ function removeLoredecksFromStack(packIds = []) {
             if (ids.has(getLoredeckStackItemPackId(stack[index]))) stack.splice(index, 1);
         }
     });
-    if (changed) toast(`Removed ${ids.size} Loredeck${ids.size === 1 ? '' : 's'} from the stack.`, 'success');
     return changed;
 }
 

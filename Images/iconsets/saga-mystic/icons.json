@@ -16,12 +16,6 @@
     "tab.injection": "mystic-tab-injection-256.png",
     "tab.settings": "mystic-tab-settings-256.png"
   },
-  "variants": {
-    "64": "mystic-tab-{target}-64.png",
-    "128": "mystic-tab-{target}-128.png",
-    "256": "mystic-tab-{target}-256.png",
-    "512": "mystic-tab-{target}-512.png"
-  },
   "tags": [
     "iconset:runtime",
     "style:saga-mystic",

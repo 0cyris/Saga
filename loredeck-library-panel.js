@@ -830,7 +830,6 @@ export async function refreshLoredeckLibraryWindowData(button = null) {
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
         renderLoredeckLibraryOverlay();
-        toast('Loredeck Library refreshed.', 'success');
     } catch (e) {
         toast(e?.message || 'Loredeck Library refresh failed.', 'error');
     } finally {
@@ -1366,7 +1365,7 @@ function renameLoredeckLibraryDeckTitle(packId = '', title = '') {
             };
         }
         if (isGeneratedLoredeckPack(next)) refreshGeneratedLoredeckDerivedMetadata(next);
-    }, `${cleanTitle} Loredeck renamed.`);
+    }, '');
 }
 
 export function createLoredeckLibraryEditableTitle(options = {}) {
@@ -4292,7 +4291,7 @@ function importLoredeckCoverImageFromFile(packId = '', button = null) {
         try {
             const fresh = getFreshLoredeckLibraryPack(packId, pack) || pack;
             const asset = await buildLoredeckCoverAssetFromFile(file, fresh);
-            saveLoredeckCoverImageAsset(packId, asset, `${fresh.title || fresh.packId || 'Loredeck'} cover updated.`);
+            saveLoredeckCoverImageAsset(packId, asset, '');
         } catch (e) {
             toast(e?.message || 'Cover image import failed.', 'error');
         } finally {
@@ -4305,7 +4304,7 @@ function importLoredeckCoverImageFromFile(packId = '', button = null) {
 function removeLoredeckCoverImage(packId = '', button = null) {
     if (button) button.disabled = true;
     try {
-        saveLoredeckCoverImageAsset(packId, null, 'Loredeck cover removed.');
+        saveLoredeckCoverImageAsset(packId, null, '');
     } finally {
         if (button) button.disabled = false;
     }
@@ -4331,7 +4330,6 @@ function addLoredecksToStack(packIds = []) {
             });
         }
     });
-    if (changed) toast(`Added ${ids.length} Loredeck${ids.length === 1 ? '' : 's'} to the stack.`, 'success');
     return changed;
 }
 
@@ -4339,7 +4337,6 @@ function clearLoredeckStack() {
     const changed = commitLoredeckStackMutation(stack => {
         stack.splice(0, stack.length);
     });
-    if (changed) toast('Loredeck stack cleared.', 'success');
     return changed;
 }
 
@@ -4358,7 +4355,6 @@ function reorderLoredeckInLibrary(packId, targetIndex, visiblePacks = []) {
     settings.loredeckLibrary = result.registry;
     saveSettings(settings);
     loredeckLibrarySort = 'manual';
-    toast('Loredeck Library order updated.', 'success');
     return true;
 }
 
@@ -4378,8 +4374,6 @@ function moveLoredecksToLibraryFolder(packIds = [], folderId = '') {
     loredeckLibrarySort = 'manual';
     selectLoredeckForDetails(result.validIds[0], { refresh: false });
     setLoredeckLibraryBulkSelection(result.validIds, result.validIds[0]);
-    const targetTitle = result.targetFolderId ? getLoredeckLibraryViewTitle(result.targetFolderId, libraryIndex) : 'Unfiled';
-    toast(`Moved ${result.validIds.length} Loredeck${result.validIds.length === 1 ? '' : 's'} to ${targetTitle}.`, 'success');
     return true;
 }
 
@@ -4434,7 +4428,6 @@ function createLoredeckLibraryFolder(parentId = '', title = '', libraryIndex = g
     loredeckLibrarySelectedFolderId = folder.id;
     loredeckLibrarySelectedFolderDetailsId = folder.id;
     loredeckLibrarySort = 'manual';
-    toast(`${folder.title} folder created.`, 'success');
     return folder;
 }
 
@@ -4469,7 +4462,6 @@ function renameLoredeckLibraryFolder(folderId = '', title = '', libraryIndex = g
     saveLoredeckLibraryFolderRecords(result.folders);
     loredeckLibrarySelectedFolderId = id;
     loredeckLibrarySelectedFolderDetailsId = id;
-    toast(`${result.folder.title} folder renamed.`, 'success');
     return true;
 }
 
@@ -4569,7 +4561,6 @@ function applyLoredeckLibraryFolderRemoval(plan = {}, strategy = 'empty') {
     else setLoredeckLibraryBulkSelection([], '');
     loredeckLibrarySort = 'manual';
     renderLoredeckLibraryOverlay();
-    toast(`${result.plan?.folder?.title || folderId} folder deleted.`, 'info');
     return true;
 }
 
@@ -4588,7 +4579,6 @@ function moveLoredeckLibraryFolder(folderId = '', targetParentId = '', targetInd
         loredeckLibraryExpandedFolderIds.add(targetParentId);
     }
     loredeckLibrarySort = 'manual';
-    toast(`${result.folder.title || id} folder ${result.sameParent ? 'reordered' : 'moved'}.`, 'success');
     return true;
 }
 

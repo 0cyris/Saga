@@ -16,12 +16,6 @@
     "tab.injection": "relay-tab-injection-256.png",
     "tab.settings": "relay-tab-settings-256.png"
   },
-  "variants": {
-    "64": "relay-tab-{target}-64.png",
-    "128": "relay-tab-{target}-128.png",
-    "256": "relay-tab-{target}-256.png",
-    "512": "relay-tab-{target}-512.png"
-  },
   "tags": [
     "iconset:runtime",
     "style:saga-relay",

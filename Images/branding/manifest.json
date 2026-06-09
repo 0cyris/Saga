@@ -1,15 +1,9 @@
 {
   "brand": "Saga",
-  "source": "saga-banner.png",
+  "source": "saga-banner-full.png",
   "assets": [
-    "saga-banner-1024.png",
-    "saga-banner-256.png",
     "saga-banner-512.png",
     "saga-banner-full.png",
-    "saga-banner.png",
-    "saga-s-128.png",
-    "saga-s-256.png",
-    "saga-s-512.png",
-    "saga-s-64.png"
+    "saga-s-256.png"
   ]
 }

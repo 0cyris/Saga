@@ -16,12 +16,6 @@
     "tab.injection": "hero-tab-injection-256.png",
     "tab.settings": "hero-tab-settings-256.png"
   },
-  "variants": {
-    "64": "hero-tab-{target}-64.png",
-    "128": "hero-tab-{target}-128.png",
-    "256": "hero-tab-{target}-256.png",
-    "512": "hero-tab-{target}-512.png"
-  },
   "tags": [
     "iconset:runtime",
     "style:saga-hero",
