@@ -21,6 +21,7 @@ let loredeckWorkbenchPackId = '';
 let loredeckWorkbenchQuery = '';
 let loredeckWorkbenchRelevanceFilter = 'all';
 let loredeckWorkbenchCategoryFilter = 'all';
+let loredeckWorkbenchStatusFilter = 'active';
 let loredeckWorkbenchSelectedEntryId = '';
 let loredeckWorkbenchCache = {
     packId: '',
@@ -72,6 +73,7 @@ export function openLoredeckWorkbench(packId = '') {
     if (loredeckWorkbenchDraftEntry?.packId !== id) loredeckWorkbenchDraftEntry = null;
     loredeckWorkbenchBulkSelection = new Set();
     loredeckWorkbenchLastSelectionId = '';
+    loredeckWorkbenchStatusFilter = 'active';
     loredeckWorkbenchSelectedEntryId = '';
     renderLoredeckWorkbench();
     void loadLoredeckWorkbenchRows(id, { force: loredeckWorkbenchCache.packId !== id || !loredeckWorkbenchCache.rows.length });
@@ -292,6 +294,10 @@ function createLoredeckWorkbenchControls(pack = {}) {
         loredeckWorkbenchCategoryFilter = value || 'all';
         renderLoredeckWorkbench();
     }));
+    controls.appendChild(createWorkbenchSelect('Status', loredeckWorkbenchStatusFilter, getStatusFilterOptions(), value => {
+        loredeckWorkbenchStatusFilter = value || 'active';
+        renderLoredeckWorkbench();
+    }));
 
     const count = document.createElement('div');
     count.className = 'wandlight-lore-workbench-count';
@@ -329,7 +335,7 @@ function createLoredeckWorkbenchTable(rows = [], pack = {}) {
     header.appendChild(createWorkbenchCell('Lorecard'));
     header.appendChild(createWorkbenchCell('Type'));
     header.appendChild(createWorkbenchCell('Relevance'));
-    header.appendChild(createWorkbenchCell('Source'));
+    header.appendChild(createWorkbenchCell('State / Source'));
     table.appendChild(header);
 
     if (!rows.length) {
@@ -356,6 +362,7 @@ function createLoredeckWorkbenchRow(row = {}, rows = [], selectable = false) {
     el.type = 'button';
     el.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-entry-row wandlight-loredeck-workbench-entry-row';
     if (row.draft) el.classList.add('wandlight-loredeck-workbench-draft-row');
+    if (row.disabled) el.classList.add('wandlight-loredeck-workbench-disabled-row');
     if (!row.draft && loredeckWorkbenchBulkSelection.has(row.id)) el.classList.add('wandlight-loredeck-workbench-row-selected');
     if (row.id === loredeckWorkbenchSelectedEntryId) el.classList.add('wandlight-lore-workbench-row-active');
     addTooltip(el, `Inspect ${entry.title || row.id}.`);
@@ -370,7 +377,7 @@ function createLoredeckWorkbenchRow(row = {}, rows = [], selectable = false) {
     el.appendChild(createWorkbenchCell(entry.title || row.id, row.id));
     el.appendChild(createWorkbenchCell(getEntryCategory(entry)));
     el.appendChild(createWorkbenchCell(getEntryRelevance(entry)));
-    el.appendChild(createWorkbenchCell(row.sourceFile || 'embedded'));
+    el.appendChild(createWorkbenchCell(row.disabled ? 'disabled' : 'active', row.sourceFile || 'embedded'));
     return el;
 }
 
@@ -398,7 +405,7 @@ function createLoredeckWorkbenchSelectHeaderCell(rows = []) {
     const checked = !!visibleIds.length && selectedVisibleCount === visibleIds.length;
     const box = document.createElement('span');
     box.className = `wandlight-loredeck-workbench-select-box${checked ? ' wandlight-loredeck-workbench-select-box-checked' : ''}`;
-    box.textContent = checked ? '✓' : '';
+    box.textContent = checked ? 'x' : '';
     box.setAttribute('role', 'checkbox');
     box.setAttribute('aria-checked', checked ? 'true' : 'false');
     addTooltip(box, checked ? 'Clear visible Lorecard selection.' : 'Select all visible Lorecards.');
@@ -418,7 +425,7 @@ function createLoredeckWorkbenchSelectCell(row = {}, rows = []) {
     const checked = loredeckWorkbenchBulkSelection.has(row.id);
     const box = document.createElement('span');
     box.className = `wandlight-loredeck-workbench-select-box${checked ? ' wandlight-loredeck-workbench-select-box-checked' : ''}`;
-    box.textContent = checked ? '✓' : '';
+    box.textContent = checked ? 'x' : '';
     box.setAttribute('role', 'checkbox');
     box.setAttribute('aria-checked', checked ? 'true' : 'false');
     addTooltip(box, checked ? 'Remove this Lorecard from bulk selection.' : 'Add this Lorecard to bulk selection.');
@@ -473,6 +480,37 @@ function createLoredeckWorkbenchBulkToolbar(pack = {}, rows = []) {
         const value = String(tag.value || '').trim();
         await applyLoredeckWorkbenchBulkEntryEdit(pack, 'Remove Tag', selectedIds, fields => ({ ...fields, tags: (fields.tags || []).filter(item => item !== value) }), btn, { requireTag: value });
     }, selectedCount ? '' : 'wandlight-disabled-like'));
+
+    const contextLabel = createLoredeckWorkbenchBulkInput('Context Label', 'Arlong Park Arc', 'Human-readable Context gate label.');
+    const contextScope = createLoredeckWorkbenchBulkSelect(getContextScopeOptions(), 'window', 'Context scope for selected Lorecards.');
+    const contextFrom = createLoredeckWorkbenchBulkInput('From', '1200', 'Context sortKeyFrom value.');
+    const contextTo = createLoredeckWorkbenchBulkInput('To', '1299', 'Context sortKeyTo value.');
+    const contextFromAnchor = createLoredeckWorkbenchBulkInput('From Anchor', 'arc.arlong-park.start', 'Optional validFromAnchor ID.');
+    const contextToAnchor = createLoredeckWorkbenchBulkInput('To Anchor', 'arc.arlong-park.end', 'Optional validToAnchor ID.');
+    toolbar.appendChild(contextLabel);
+    toolbar.appendChild(contextScope);
+    toolbar.appendChild(contextFrom);
+    toolbar.appendChild(contextTo);
+    toolbar.appendChild(contextFromAnchor);
+    toolbar.appendChild(contextToAnchor);
+    toolbar.appendChild(createButton('Set Context', 'Set one Context gate on every selected Lorecard.', async btn => {
+        const contextGate = buildLoredeckWorkbenchBulkContextGate({
+            label: contextLabel.value,
+            scope: contextScope.value,
+            from: contextFrom.value,
+            to: contextTo.value,
+            fromAnchor: contextFromAnchor.value,
+            toAnchor: contextToAnchor.value,
+        });
+        await applyLoredeckWorkbenchBulkEntryEdit(pack, 'Set Context', selectedIds, fields => ({ ...fields, context: contextGate }), btn, { requireContextGate: contextGate });
+    }, selectedCount ? '' : 'wandlight-disabled-like'));
+
+    toolbar.appendChild(createButton('Duplicate Selected', 'Duplicate selected Lorecards as new Custom additions in this Loredeck.', async btn => {
+        await duplicateLoredeckWorkbenchSelectedEntries(pack, selectedIds, btn);
+    }, selectedCount ? '' : 'wandlight-disabled-like'));
+    toolbar.appendChild(createButton('Restore Selected', 'Restore selected disabled Lorecards by removing them from this deck disabled list.', async btn => {
+        await restoreLoredeckWorkbenchSelectedEntries(pack, selectedIds, btn);
+    }, selectedCount ? '' : 'wandlight-disabled-like'));
     toolbar.appendChild(createButton('Delete Selected', 'Delete selected Custom additions or suppress selected source Lorecards in this editable Loredeck.', async btn => {
         await deleteLoredeckWorkbenchSelectedEntries(pack, selectedIds, btn);
     }, selectedCount ? 'wandlight-danger-button' : 'wandlight-danger-button wandlight-disabled-like'));
@@ -508,6 +546,41 @@ function createLoredeckWorkbenchBulkInput(label, placeholder = '', tip = '') {
     return input;
 }
 
+function getContextScopeOptions() {
+    return [
+        ['window', 'Window'],
+        ['anchor', 'Anchor'],
+        ['global', 'Global'],
+    ];
+}
+
+function buildLoredeckWorkbenchBulkContextGate(raw = {}) {
+    const label = String(raw.label || '').trim();
+    const scope = ['anchor', 'window', 'global'].includes(String(raw.scope || '').trim()) ? String(raw.scope || '').trim() : 'window';
+    const sortKeyFrom = Number(raw.from);
+    const sortKeyTo = Number(raw.to);
+    const validFromAnchor = String(raw.fromAnchor || '').trim();
+    const validToAnchor = String(raw.toAnchor || '').trim();
+    const gate = {
+        scope,
+        label,
+        sortKeyFrom,
+        sortKeyTo,
+        precision: scope === 'global' ? 'series' : 'manual',
+    };
+    if (validFromAnchor) gate.validFromAnchor = validFromAnchor;
+    if (validToAnchor) gate.validToAnchor = validToAnchor;
+    if (scope === 'anchor' && validFromAnchor) gate.anchorId = validFromAnchor;
+    return gate;
+}
+
+function isValidLoredeckWorkbenchContextGate(contextGate = {}) {
+    if (!contextGate || typeof contextGate !== 'object' || Array.isArray(contextGate)) return false;
+    if (!String(contextGate.label || '').trim()) return false;
+    if (!['anchor', 'window', 'global'].includes(String(contextGate.scope || '').trim())) return false;
+    return Number.isFinite(Number(contextGate.sortKeyFrom)) && Number.isFinite(Number(contextGate.sortKeyTo));
+}
+
 function getLoredeckWorkbenchSelectableRowIds(rows = getFilteredLoredeckWorkbenchRows()) {
     return (rows || [])
         .filter(row => row?.id && !row.draft)
@@ -529,7 +602,7 @@ function getLoredeckWorkbenchRowMap() {
 }
 
 function reconcileLoredeckWorkbenchBulkSelection() {
-    const valid = new Set(getLoredeckWorkbenchSelectableRowIds(loredeckWorkbenchCache.rows || []));
+    const valid = new Set(getLoredeckWorkbenchSelectableRowIds(getFilteredLoredeckWorkbenchRows()));
     loredeckWorkbenchBulkSelection = new Set([...loredeckWorkbenchBulkSelection].filter(id => valid.has(id)));
     if (loredeckWorkbenchLastSelectionId && !valid.has(loredeckWorkbenchLastSelectionId)) loredeckWorkbenchLastSelectionId = '';
 }
@@ -593,6 +666,10 @@ async function applyLoredeckWorkbenchBulkEntryEdit(pack = {}, actionLabel = 'Bul
     }
     if (options.requireValue !== undefined && !String(options.requireValue || '').trim()) {
         toast(`Enter a ${options.requireValueLabel || 'value'} before applying this bulk action.`, 'warning');
+        return false;
+    }
+    if (options.requireContextGate !== undefined && !isValidLoredeckWorkbenchContextGate(options.requireContextGate)) {
+        toast('Set Context needs a label and numeric From/To sort keys.', 'warning');
         return false;
     }
     if (typeof updateFields !== 'function') return false;
@@ -707,6 +784,138 @@ async function deleteLoredeckWorkbenchSelectedEntries(pack = {}, rawIds = [], bu
     }
 }
 
+async function restoreLoredeckWorkbenchSelectedEntries(pack = {}, rawIds = [], button = null) {
+    const selectedIds = [...new Set((rawIds || []).map(id => String(id || '').trim()).filter(Boolean))];
+    if (!selectedIds.length) {
+        toast('Select one or more Lorecards first.', 'warning');
+        return false;
+    }
+    const disabledSelected = selectedIds.filter(id => {
+        const row = getLoredeckWorkbenchRowMap().get(id);
+        return row?.disabled === true;
+    });
+    if (!disabledSelected.length) {
+        toast('No selected Lorecards are disabled.', 'warning');
+        return false;
+    }
+    const confirmed = await confirmAction(
+        'Restore Selected Lorecards',
+        `Restore ${disabledSelected.length} disabled Lorecard${disabledSelected.length === 1 ? '' : 's'} in ${pack.title || pack.packId}? This saves directly and marks Deck Health stale.`
+    );
+    if (!confirmed) return false;
+
+    const original = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Restoring...';
+    }
+    try {
+        const freshPack = getWorkbenchPack(pack.packId) || pack;
+        setLoredeckWorkbenchSaveState('saving', `Restoring ${disabledSelected.length} Lorecard${disabledSelected.length === 1 ? '' : 's'}...`);
+        const saved = persistLoredeckLibraryRecordMutation(freshPack, next => {
+            const restoreSet = new Set(disabledSelected);
+            next.disabledEntryIds = (Array.isArray(next.disabledEntryIds) ? next.disabledEntryIds : [])
+                .filter(id => !restoreSet.has(String(id || '').trim()));
+            next.healthStatus = 'stale';
+        }, '', {
+            errorMessage: 'Loredeck restore failed.',
+        });
+        if (!saved) {
+            setLoredeckWorkbenchSaveState('failed', 'Restore selected failed.');
+            return false;
+        }
+        loredeckWorkbenchBulkSelection = new Set();
+        loredeckWorkbenchLastSelectionId = '';
+        setLoredeckWorkbenchSaveState('saved', `Restored ${disabledSelected.length} Lorecard${disabledSelected.length === 1 ? '' : 's'}.`, { render: false, packId: freshPack.packId });
+        await loadLoredeckWorkbenchRows(freshPack.packId, { force: true });
+        return true;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = original || 'Restore Selected';
+        }
+    }
+}
+
+async function duplicateLoredeckWorkbenchSelectedEntries(pack = {}, rawIds = [], button = null) {
+    const selectedIds = [...new Set((rawIds || []).map(id => String(id || '').trim()).filter(Boolean))];
+    if (!selectedIds.length) {
+        toast('Select one or more Lorecards first.', 'warning');
+        return false;
+    }
+    const confirmed = await confirmAction(
+        'Duplicate Selected Lorecards',
+        `Duplicate ${selectedIds.length} selected Lorecard${selectedIds.length === 1 ? '' : 's'} as Custom additions in ${pack.title || pack.packId}? This saves directly and marks Deck Health stale.`
+    );
+    if (!confirmed) return false;
+
+    const original = button?.textContent;
+    if (button) {
+        button.disabled = true;
+        button.textContent = 'Duplicating...';
+    }
+    try {
+        const freshPack = getWorkbenchPack(pack.packId) || pack;
+        const rowMap = getLoredeckWorkbenchRowMap();
+        const existing = getLoredeckWorkbenchExistingEntryIds(freshPack);
+        const entryOverrides = {};
+        for (const id of selectedIds) {
+            const row = rowMap.get(id);
+            if (!row || row.draft || row.disabled) continue;
+            const duplicateId = suggestLoredeckWorkbenchDuplicateEntryId(id, existing);
+            existing.add(duplicateId);
+            const fields = getLoredeckWorkbenchEntryFields(row.entry);
+            const entry = buildLoredeckWorkbenchEntryOverride(freshPack, {
+                ...row,
+                id: duplicateId,
+                draft: true,
+                entry: {
+                    ...(row.entry || {}),
+                    id: duplicateId,
+                    title: `Copy of ${row.entry?.title || id}`,
+                },
+                sourceFile: '__saga_entry_overrides__',
+            }, {
+                ...fields,
+                machineId: duplicateId,
+                title: `Copy of ${fields.title || id}`,
+            });
+            entryOverrides[duplicateId] = entry;
+        }
+        const count = Object.keys(entryOverrides).length;
+        if (!count) {
+            toast('No selected Lorecards could be duplicated.', 'warning');
+            return false;
+        }
+        setLoredeckWorkbenchSaveState('saving', `Duplicating ${count} Lorecard${count === 1 ? '' : 's'}...`);
+        const saved = persistLoredeckLibraryRecordMutation(freshPack, next => {
+            next.entryOverrides = {
+                ...(next.entryOverrides || {}),
+                ...entryOverrides,
+            };
+            next.healthStatus = 'stale';
+        }, '', {
+            errorMessage: 'Loredeck duplicate failed.',
+        });
+        if (!saved) {
+            setLoredeckWorkbenchSaveState('failed', 'Duplicate selected failed.');
+            return false;
+        }
+        const duplicatedIds = Object.keys(entryOverrides);
+        loredeckWorkbenchBulkSelection = new Set(duplicatedIds);
+        loredeckWorkbenchLastSelectionId = duplicatedIds[duplicatedIds.length - 1] || '';
+        loredeckWorkbenchSelectedEntryId = loredeckWorkbenchLastSelectionId || loredeckWorkbenchSelectedEntryId;
+        setLoredeckWorkbenchSaveState('saved', `Duplicated ${count} Lorecard${count === 1 ? '' : 's'}.`, { render: false, packId: freshPack.packId });
+        await loadLoredeckWorkbenchRows(freshPack.packId, { force: true });
+        return true;
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = original || 'Duplicate Selected';
+        }
+    }
+}
+
 function isLoredeckWorkbenchAdditionRow(row = {}) {
     const overrideMeta = row?.entry?.extensions?.sagaLoredeckOverride && typeof row.entry.extensions.sagaLoredeckOverride === 'object'
         ? row.entry.extensions.sagaLoredeckOverride
@@ -736,6 +945,7 @@ function createLoredeckWorkbenchDetail(pack = {}, rows = []) {
     chips.className = 'wandlight-loredeck-row-meta';
     chips.appendChild(createStatusPill(getEntryRelevance(entry), 'Lorecard relevance tier.'));
     chips.appendChild(createStatusPill(getEntryCategory(entry), 'Lorecard category/type.'));
+    if (selected.disabled) chips.appendChild(createStatusPill('Disabled', 'This Lorecard is suppressed by this editable Loredeck.'));
     chips.appendChild(createStatusPill(selected.sourceFile || 'embedded', 'Source file for this Lorecard.'));
     chips.appendChild(createStatusPill('Read-only', 'Bundled Loredecks must be duplicated before editing.'));
     detail.appendChild(chips);
@@ -787,7 +997,7 @@ function createLoredeckWorkbenchEditableDetail(pack = {}, selected = {}) {
 
     const chips = document.createElement('div');
     chips.className = 'wandlight-loredeck-row-meta';
-    chips.appendChild(createStatusPill(selected.draft ? 'Draft' : 'Editable', selected.draft ? 'This Lorecard has not been created yet.' : 'Manual field edits save directly to this Loredeck.'));
+    chips.appendChild(createStatusPill(selected.draft ? 'Draft' : (selected.disabled ? 'Disabled' : 'Editable'), selected.draft ? 'This Lorecard has not been created yet.' : (selected.disabled ? 'Saving this Lorecard will restore it.' : 'Manual field edits save directly to this Loredeck.')));
     chips.appendChild(createStatusPill(selected.sourceFile || 'embedded', 'Source file for this Lorecard.'));
     chips.appendChild(createStatusPill(selected.id, 'Stable Lorecard machine ID.'));
     detail.appendChild(chips);
@@ -1050,6 +1260,7 @@ function getLoredeckWorkbenchEntryFields(entry = {}) {
         relevance: getEntryRelevance(entry),
         canonStatus: normalizeWorkbenchCanonField(getEntryCanonStatus(entry)),
         tags: getEntryTags(entry),
+        context: cloneLoredeckWorkbenchContextGate(entry.context),
         fact: getEntryFactText(entry),
         injection: getEntryInjectionText(entry),
         notes: getEntryNotesText(entry),
@@ -1075,6 +1286,12 @@ function collectLoredeckWorkbenchEntryFields(form) {
 function normalizeWorkbenchCanonField(value = '') {
     const normalized = String(value || '').trim().toLowerCase();
     return normalized && normalized !== 'unset' ? normalized : 'unset';
+}
+
+function cloneLoredeckWorkbenchContextGate(value = {}) {
+    return value && typeof value === 'object' && !Array.isArray(value)
+        ? { ...value }
+        : {};
 }
 
 function parseLoredeckWorkbenchTags(value = '') {
@@ -1120,6 +1337,15 @@ function suggestLoredeckWorkbenchEntryId(pack = getWorkbenchPack()) {
     const packSegment = normalizeLoredeckWorkbenchEntryId(pack?.packId || pack?.title || 'custom-loredeck') || 'custom-loredeck';
     const base = `${packSegment}.new-lorecard`;
     const existing = getLoredeckWorkbenchExistingEntryIds(pack);
+    for (let index = 1; index <= 9999; index += 1) {
+        const id = `${base}-${index}`;
+        if (!existing.has(id)) return id;
+    }
+    return `${base}-${Date.now()}`;
+}
+
+function suggestLoredeckWorkbenchDuplicateEntryId(sourceId = '', existing = getLoredeckWorkbenchExistingEntryIds()) {
+    const base = `${normalizeLoredeckWorkbenchEntryId(sourceId) || 'lorecard'}.copy`;
     for (let index = 1; index <= 9999; index += 1) {
         const id = `${base}-${index}`;
         if (!existing.has(id)) return id;
@@ -1247,6 +1473,7 @@ function buildLoredeckWorkbenchEntryOverride(pack = {}, selected = {}, fields = 
         relevance: fields.relevance || getEntryRelevance(baseEntry),
         ...(canonStatus !== 'unset' ? { canonStatus } : {}),
         tags: fields.tags || [],
+        context: cloneLoredeckWorkbenchContextGate(fields.context || baseEntry.context),
         content: {
             ...(baseEntry.content || {}),
             fact: fields.fact || '',
@@ -1295,11 +1522,14 @@ async function loadLoredeckWorkbenchRows(packId = loredeckWorkbenchPackId, optio
     try {
         const pack = getWorkbenchPack(id);
         const registry = getLoredeckLibraryRegistry(getState());
+        const sourcePack = pack && pack.type !== 'bundled'
+            ? { ...pack, disabledEntryIds: [] }
+            : pack;
         const source = await loadLoredeckSourceById(id, {
             registry,
-            registryRecord: pack,
+            registryRecord: sourcePack,
         });
-        const rows = buildLoredeckWorkbenchRows(source);
+        const rows = buildLoredeckWorkbenchRows(source, pack);
         loredeckWorkbenchCache = {
             packId: id,
             status: 'loaded',
@@ -1332,9 +1562,10 @@ async function loadLoredeckWorkbenchRows(packId = loredeckWorkbenchPackId, optio
     }
 }
 
-function buildLoredeckWorkbenchRows(source = {}) {
+function buildLoredeckWorkbenchRows(source = {}, pack = getWorkbenchPack()) {
     const rows = [];
     const seen = new Set();
+    const disabled = new Set(Array.isArray(pack?.disabledEntryIds) ? pack.disabledEntryIds.map(id => String(id || '').trim()).filter(Boolean) : []);
     for (const fileRecord of source.entryFiles || []) {
         const sourceFile = String(fileRecord?.file || '').trim() || 'embedded';
         const entries = getEntriesFromLoredeckFileRecord(fileRecord);
@@ -1346,6 +1577,7 @@ function buildLoredeckWorkbenchRows(source = {}) {
             rows.push({
                 id,
                 entry,
+                disabled: disabled.has(id),
                 sourceFile,
                 schemaVersion: fileRecord?.schemaVersion || source.manifest?.entrySchemaVersion || entry.schemaVersion || 3,
             });
@@ -1406,6 +1638,8 @@ function getFilteredLoredeckWorkbenchRows() {
     const query = String(loredeckWorkbenchQuery || '').trim().toLowerCase();
     const filtered = (loredeckWorkbenchCache.rows || []).filter(row => {
         const entry = row.entry || {};
+        if (loredeckWorkbenchStatusFilter === 'active' && row.disabled) return false;
+        if (loredeckWorkbenchStatusFilter === 'disabled' && !row.disabled) return false;
         if (loredeckWorkbenchRelevanceFilter !== 'all' && getEntryRelevance(entry).toLowerCase() !== loredeckWorkbenchRelevanceFilter) return false;
         if (loredeckWorkbenchCategoryFilter !== 'all' && getEntryCategory(entry).toLowerCase() !== loredeckWorkbenchCategoryFilter) return false;
         if (!query) return true;
@@ -1449,6 +1683,14 @@ function getCategoryFilterOptions() {
     return [
         ['all', 'All Types'],
         ...[...categories].sort().map(category => [category, humanizeScopeKey(category)]),
+    ];
+}
+
+function getStatusFilterOptions() {
+    return [
+        ['active', 'Active'],
+        ['disabled', 'Disabled'],
+        ['all', 'All States'],
     ];
 }
 

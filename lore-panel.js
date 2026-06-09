@@ -8309,8 +8309,6 @@ async function buildLoredeckPackageDeckInstall(packageModel = {}, deck = {}, opt
         disabledEntryIds: [],
         pendingChanges: [],
     };
-    const library = normalizePackLibraryMetadata(sourceManifest.library || indexRecord.library || {});
-    if (Object.keys(library).length) record.library = library;
     if (Object.keys(assets).length) record.assets = assets;
     if (getLoredeckTimelineRegistryCount(timelineRegistry)) record.timelineRegistry = timelineRegistry;
     if (getLoredeckTagRegistryCount(tagRegistry)) record.tagRegistry = tagRegistry;
@@ -8320,6 +8318,7 @@ async function buildLoredeckPackageDeckInstall(packageModel = {}, deck = {}, opt
         id: packId,
         type: 'custom',
         files: [],
+        library: {},
         assets: Object.keys(assets).length ? assets : sourceManifest.assets,
         stats,
         source,
@@ -8392,60 +8391,15 @@ async function readLoredeckZipPackageInstallFile(file) {
     }
 }
 
-function getLoredeckPackageIndexRecords(value) {
-    if (Array.isArray(value)) return value;
-    if (value && typeof value === 'object') return Object.values(value);
-    return [];
-}
-
 function buildLoredeckPackageRegistryForInstall(packageInstall = {}, installs = []) {
     const selected = installs.filter(install => install?.record?.packId);
-    const idMap = new Map(selected.map(install => [String(install.originalPackId || '').trim(), install.record.packId]));
-    const index = packageInstall.packageModel?.index || {};
     const packs = {};
     for (const install of selected) packs[install.record.packId] = install.record;
-    const currentRegistry = getLoredeckLibraryRegistry(getState());
-    const existingFolderIds = new Set((currentRegistry.folders || []).map(folder => String(folder?.id || '').trim()).filter(Boolean));
-    const reservedFolderIds = new Set(existingFolderIds);
-    const folderIdMap = new Map();
-    const folders = getLoredeckPackageIndexRecords(index.folders)
-        .map((folder, folderIndex) => {
-            const next = cloneLoredeckJson(folder) || { ...folder };
-            const originalId = String(next.id || next.folderId || '').trim();
-            if (!originalId) return null;
-            let folderId = originalId;
-            if (reservedFolderIds.has(folderId)) {
-                const stem = normalizeLoredeckPackId(`${folderId}-imported`) || `imported-folder-${folderIndex + 1}`;
-                let counter = 1;
-                folderId = stem;
-                while (reservedFolderIds.has(folderId)) {
-                    counter += 1;
-                    folderId = `${stem}-${counter}`.slice(0, 180);
-                }
-            }
-            reservedFolderIds.add(folderId);
-            folderIdMap.set(originalId, folderId);
-            next.id = folderId;
-            next.parentId = folderIdMap.get(String(next.parentId || '').trim()) || String(next.parentId || '').trim();
-            return next;
-        })
-        .filter(Boolean);
-    const deckPlacements = getLoredeckPackageIndexRecords(index.deckPlacements)
-        .map(placement => {
-            const rawDeckId = String(placement.deckId || placement.packId || placement.id || '').trim();
-            const mappedDeckId = idMap.get(rawDeckId) || idMap.get(normalizeLoredeckPackId(rawDeckId));
-            if (!mappedDeckId) return null;
-            const next = cloneLoredeckJson(placement) || { ...placement };
-            next.deckId = mappedDeckId;
-            next.folderId = folderIdMap.get(String(next.folderId || '').trim()) || String(next.folderId || '').trim();
-            return next;
-        })
-        .filter(Boolean);
     return {
         schemaVersion: 1,
         packs,
-        folders,
-        deckPlacements,
+        folders: [],
+        deckPlacements: [],
         activeStack: [],
     };
 }

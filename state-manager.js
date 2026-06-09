@@ -571,6 +571,12 @@ function normalizeEmbeddedLoredeckManifest(value) {
     return manifest;
 }
 
+function isImportedZipLoredeckRecord(raw = {}, source = {}, derivedFrom = null) {
+    return String(source?.kind || raw?.source?.kind || '').trim() === 'imported_zip'
+        || String(source?.bundleType || raw?.source?.bundleType || '').trim() === 'saga_loredeck_zip_package'
+        || String(derivedFrom?.kind || raw?.derivedFrom?.kind || '').trim() === 'imported_loredeck_package';
+}
+
 function normalizeLoredeckEntryOverrides(value) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
     const output = {};
@@ -891,6 +897,7 @@ function normalizeLoredeckRegistry(value, defaults = getDefaultState().loredeckR
     const inputPacks = input.packs && typeof input.packs === 'object' && !Array.isArray(input.packs) ? input.packs : {};
     const defaultPacks = defaults.packs || {};
     const packs = {};
+    const importedZipPackIds = new Set();
 
     for (const [packId, raw] of Object.entries({ ...defaultPacks, ...inputPacks })) {
         if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
@@ -899,6 +906,9 @@ function normalizeLoredeckRegistry(value, defaults = getDefaultState().loredeckR
         const type = ['bundled', 'custom', 'generated'].includes(raw.type) ? raw.type : 'custom';
         const source = raw.source && typeof raw.source === 'object' && !Array.isArray(raw.source) ? raw.source : {};
         const stats = raw.stats && typeof raw.stats === 'object' && !Array.isArray(raw.stats) ? raw.stats : {};
+        const derivedFrom = cloneLoredeckPlainObject(raw.derivedFrom, 20000);
+        const importedZip = isImportedZipLoredeckRecord(raw, source, derivedFrom);
+        if (importedZip) importedZipPackIds.add(id);
         const pack = {
             packId: id,
             type,
@@ -940,11 +950,11 @@ function normalizeLoredeckRegistry(value, defaults = getDefaultState().loredeckR
                 cover: raw.cover || raw.coverImage,
             };
         }
-        const derivedFrom = cloneLoredeckPlainObject(raw.derivedFrom, 20000);
         if (derivedFrom) pack.derivedFrom = derivedFrom;
         const manifestData = normalizeEmbeddedLoredeckManifest(raw.manifestData);
+        if (importedZip && manifestData?.library) delete manifestData.library;
         if (manifestData) pack.manifestData = manifestData;
-        const library = normalizePackLibraryMetadata(raw.library || manifestData?.library || {});
+        const library = importedZip ? {} : normalizePackLibraryMetadata(raw.library || manifestData?.library || {});
         if (Object.keys(library).length) pack.library = library;
         pack.entryOverrides = normalizeLoredeckEntryOverrides(raw.entryOverrides);
         pack.disabledEntryIds = normalizeLoredeckDisabledEntryIds(raw.disabledEntryIds);
@@ -958,7 +968,62 @@ function normalizeLoredeckRegistry(value, defaults = getDefaultState().loredeckR
         if (Object.keys(healthIssueStates).length) pack.healthIssueStates = healthIssueStates;
         packs[id] = pack;
     }
-    const libraryIndex = normalizeLoredeckLibraryIndex(input, { defaults, packs });
+    let registryInput = input;
+    if (importedZipPackIds.size) {
+        const rawPlacements = Array.isArray(input.deckPlacements) ? input.deckPlacements : [];
+        const removedFolderIds = new Set();
+        const deckPlacements = rawPlacements.filter(placement => {
+            const deckId = String(placement?.deckId || placement?.packId || '').trim();
+            if (!importedZipPackIds.has(deckId)) return true;
+            const folderId = String(placement?.folderId || '').trim();
+            if (folderId) removedFolderIds.add(folderId);
+            return false;
+        });
+        const folders = Array.isArray(input.folders) ? input.folders : [];
+        if (removedFolderIds.size && folders.length) {
+            const byId = new Map(folders.map(folder => [String(folder?.id || '').trim(), folder]));
+            const removalCandidates = new Set();
+            for (const folderId of removedFolderIds) {
+                let current = byId.get(folderId);
+                const seen = new Set();
+                while (current?.id && !seen.has(current.id)) {
+                    seen.add(current.id);
+                    removalCandidates.add(current.id);
+                    current = current.parentId ? byId.get(String(current.parentId || '').trim()) : null;
+                }
+            }
+            const remainingPlacementFolders = new Set(deckPlacements.map(placement => String(placement?.folderId || '').trim()).filter(Boolean));
+            const stackFolderIds = new Set((Array.isArray(input.activeStack) ? input.activeStack : [])
+                .map(item => String(item?.folderId || '').trim())
+                .filter(Boolean));
+            const hasRemainingUse = folderId => {
+                for (const usedId of [...remainingPlacementFolders, ...stackFolderIds]) {
+                    let current = byId.get(usedId);
+                    const seen = new Set();
+                    while (current?.id && !seen.has(current.id)) {
+                        seen.add(current.id);
+                        if (current.id === folderId) return true;
+                        current = current.parentId ? byId.get(String(current.parentId || '').trim()) : null;
+                    }
+                }
+                return false;
+            };
+            registryInput = {
+                ...input,
+                folders: folders.filter(folder => {
+                    const folderId = String(folder?.id || '').trim();
+                    return !removalCandidates.has(folderId) || hasRemainingUse(folderId);
+                }),
+                deckPlacements,
+            };
+        } else if (deckPlacements.length !== rawPlacements.length) {
+            registryInput = {
+                ...input,
+                deckPlacements,
+            };
+        }
+    }
+    const libraryIndex = normalizeLoredeckLibraryIndex(registryInput, { defaults, packs });
 
     return {
         schemaVersion: 1,

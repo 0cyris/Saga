@@ -10955,6 +10955,14 @@
     background: color-mix(in srgb, var(--wandlight-gold, #f1b65a) 12%, transparent);
 }
 
+.wandlight-loredeck-workbench-disabled-row {
+    opacity: 0.76;
+}
+
+.wandlight-loredeck-workbench-disabled-row .wandlight-lore-workbench-cell-main {
+    color: var(--wandlight-muted, rgba(210, 215, 220, 0.72));
+}
+
 .wandlight-loredeck-workbench-draft-row {
     border-color: var(--wandlight-border-strong, rgba(240, 178, 82, 0.55));
     background: color-mix(in srgb, var(--wandlight-gold, #f1b65a) 10%, transparent);
@@ -11009,6 +11017,12 @@
 .wandlight-loredeck-workbench-bulk-control {
     width: min(150px, 24vw);
     min-height: 26px;
+}
+
+.wandlight-loredeck-workbench-bulk-toolbar input[placeholder="Context Label"],
+.wandlight-loredeck-workbench-bulk-toolbar input[placeholder="From Anchor"],
+.wandlight-loredeck-workbench-bulk-toolbar input[placeholder="To Anchor"] {
+    width: min(190px, 28vw);
 }
 
 .wandlight-loredeck-workbench-detail {

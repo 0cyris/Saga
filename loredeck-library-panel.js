@@ -61,9 +61,9 @@ function dep(name, fallback = null) {
 }
 
 function getState() { return dep('getState', () => ({}))(); }
-function saveState() { return dep('saveState', () => {})(); }
+function saveState(...args) { return dep('saveState', () => {})(...args); }
 function getSettings() { return dep('getSettings', () => ({}))(); }
-function saveSettings() { return dep('saveSettings', () => {})(); }
+function saveSettings(...args) { return dep('saveSettings', () => {})(...args); }
 function getDefaultState() { return dep('getDefaultState', () => ({}))(); }
 function getCanonLoreDatabaseSync() { return dep('getCanonLoreDatabaseSync', () => null)(); }
 function clearCanonLoreDatabaseCache() { return dep('clearCanonLoreDatabaseCache', () => {})(); }
@@ -771,7 +771,8 @@ function createLoredeckLibraryResizeHandle(collapsed = false) {
         const startY = e.clientY;
 
         const onMove = event => {
-            if (Math.abs(event.clientY - startY) > 3) dragged = true;
+            if (!dragged && Math.abs(event.clientY - startY) <= 3) return;
+            dragged = true;
             const rect = body.getBoundingClientRect();
             const style = getComputedStyle(body);
             const bottomPadding = parseFloat(style.paddingBottom) || 0;
@@ -798,11 +799,16 @@ function createLoredeckLibraryResizeHandle(collapsed = false) {
             window.removeEventListener('pointermove', onMove);
             window.removeEventListener('pointerup', onUp);
             window.removeEventListener('pointercancel', onUp);
-            setLoredeckLibraryDetailsHeight(loredeckLibraryDetailsHeight, { persist: true });
+            if (event.type === 'pointercancel') return;
             if (dragged) {
+                setLoredeckLibraryDetailsHeight(loredeckLibraryDetailsHeight, { persist: true });
                 handle.dataset.suppressClick = 'true';
                 window.setTimeout(() => { delete handle.dataset.suppressClick; }, 0);
+                return;
             }
+            handle.dataset.suppressClick = 'true';
+            window.setTimeout(() => { delete handle.dataset.suppressClick; }, 0);
+            setLoredeckLibraryDetailsCollapsed(!getLoredeckLibraryDetailsCollapsed(), { persist: true });
         };
 
         window.addEventListener('pointermove', onMove);
@@ -1168,6 +1174,151 @@ function getLoredeckLibraryFolderScopedDeckCount(folderId = '', scopedLibrary = 
     return count;
 }
 
+function getLoredeckLibraryPackFolderResolver(libraryIndex = {}) {
+    const folderIds = new Set((libraryIndex.folders || []).map(folder => String(folder.id || '').trim()).filter(Boolean));
+    const placementByDeckId = new Map();
+    for (const placement of libraryIndex.deckPlacements || []) {
+        const deckId = String(placement.deckId || placement.packId || '').trim();
+        if (deckId && !placementByDeckId.has(deckId)) placementByDeckId.set(deckId, placement);
+    }
+    return pack => {
+        const packId = String(pack?.packId || '').trim();
+        if (!packId) return '';
+        const placement = placementByDeckId.get(packId);
+        const placedFolderId = String(placement?.folderId || '').trim();
+        if (placedFolderId && folderIds.has(placedFolderId)) return placedFolderId;
+        const explicitFolderId = String(pack?.library?.folderId || '').trim();
+        if (explicitFolderId && folderIds.has(explicitFolderId)) return explicitFolderId;
+        const suggestedFolderId = createFolderIdFromPath(pack?.library?.suggestedPath || []);
+        return suggestedFolderId && folderIds.has(suggestedFolderId) ? suggestedFolderId : '';
+    };
+}
+
+function buildLoredeckLibraryFolderRenderModel(library = [], libraryIndex = {}, stack = [], canonDb = null, health = null) {
+    const folders = Array.isArray(libraryIndex.folders) ? libraryIndex.folders : [];
+    const folderIds = new Set(folders.map(folder => String(folder.id || '').trim()).filter(Boolean));
+    const parentByFolderId = new Map(folders.map(folder => [String(folder.id || '').trim(), String(folder.parentId || '').trim()]));
+    const childFolderCountByFolderId = new Map();
+    for (const folder of folders) {
+        const parentId = String(folder.parentId || '').trim();
+        childFolderCountByFolderId.set(parentId, (childFolderCountByFolderId.get(parentId) || 0) + 1);
+    }
+
+    const directPacksByFolderId = new Map();
+    const nestedPacksByFolderId = new Map();
+    const unfiledPacks = [];
+    const folderIdForPack = getLoredeckLibraryPackFolderResolver(libraryIndex);
+
+    const addPack = (map, folderId, pack) => {
+        if (!map.has(folderId)) map.set(folderId, []);
+        map.get(folderId).push(pack);
+    };
+    const addPackToAncestors = (folderId, pack) => {
+        let currentId = folderId;
+        const seen = new Set();
+        while (currentId && folderIds.has(currentId) && !seen.has(currentId)) {
+            seen.add(currentId);
+            addPack(nestedPacksByFolderId, currentId, pack);
+            currentId = parentByFolderId.get(currentId) || '';
+        }
+    };
+
+    for (const pack of library || []) {
+        const folderId = folderIdForPack(pack);
+        if (folderId) {
+            addPack(directPacksByFolderId, folderId, pack);
+            addPackToAncestors(folderId, pack);
+        } else {
+            unfiledPacks.push(pack);
+        }
+    }
+
+    const activeIds = new Set(resolveLoredeckStackItems((stack || []).filter(item => item.enabled !== false), libraryIndex, {
+        packs: getLoredeckLibraryPackMap(library),
+    }).stack.map(item => item.packId).filter(Boolean));
+    const summarizePacks = (packs = [], childFolderCount = 0) => {
+        let warningCount = 0;
+        let errorCount = 0;
+        let hasBundled = false;
+        for (const pack of packs) {
+            const info = getLoredeckLibraryPackHealthInfo(pack, canonDb, health);
+            const tone = getLoredeckLibraryDisplayHealthTone(pack, info);
+            if (tone === 'error') errorCount += 1;
+            else if (['warning', 'unknown'].includes(tone)) warningCount += 1;
+            if (pack?.type === 'bundled' || isBundledLoredeckLibraryPack(pack)) hasBundled = true;
+        }
+        return {
+            deckCount: packs.length,
+            activeCount: packs.filter(pack => activeIds.has(pack.packId)).length,
+            warningCount,
+            errorCount,
+            childFolderCount,
+            hasBundled,
+        };
+    };
+    const summaryByFolderId = new Map();
+    const coverPacksByFolderId = new Map();
+    for (const folder of folders) {
+        const folderId = String(folder.id || '').trim();
+        const directPacks = directPacksByFolderId.get(folderId) || [];
+        const nestedPacks = nestedPacksByFolderId.get(folderId) || [];
+        summaryByFolderId.set(folderId, summarizePacks(nestedPacks, childFolderCountByFolderId.get(folderId) || 0));
+
+        const directCoverIds = new Set();
+        const directCovers = [];
+        for (const pack of directPacks) {
+            if (!getLoredeckAssetRef(pack, 'cover')) continue;
+            directCoverIds.add(pack.packId);
+            directCovers.push(pack);
+        }
+        const nestedCovers = nestedPacks
+            .filter(pack => !directCoverIds.has(pack.packId) && getLoredeckAssetRef(pack, 'cover'));
+        coverPacksByFolderId.set(folderId, [...directCovers, ...nestedCovers].slice(0, 20));
+    }
+
+    return {
+        activeIds,
+        folderIds,
+        folderIdForPack,
+        directPacksByFolderId,
+        nestedPacksByFolderId,
+        unfiledPacks,
+        getStats(folderId = '') {
+            const id = String(folderId || '').trim();
+            if (id === 'unfiled') {
+                return summarizePacks(unfiledPacks, 0);
+            }
+            return summaryByFolderId.get(id) || {
+                deckCount: 0,
+                activeCount: 0,
+                warningCount: 0,
+                errorCount: 0,
+                childFolderCount: childFolderCountByFolderId.get(id) || 0,
+                hasBundled: false,
+            };
+        },
+        getFolderPacks(folderId = '') {
+            return nestedPacksByFolderId.get(String(folderId || '').trim()) || [];
+        },
+        getDirectPacks(folderId = '') {
+            return directPacksByFolderId.get(String(folderId || '').trim()) || [];
+        },
+        getCoverPacks(folderId = '') {
+            return coverPacksByFolderId.get(String(folderId || '').trim()) || [];
+        },
+    };
+}
+
+function getLoredeckLibraryFolderCollapsedStateFromRenderModel(folder = {}, renderModel = null, options = {}) {
+    const id = String(folder?.id || folder || '').trim();
+    if (!id || options.query) return false;
+    if (loredeckLibraryExpandedFolderIds.has(id)) return false;
+    if (loredeckLibraryCollapsedFolderIds.has(id)) return true;
+    if (id === 'unfiled' || isLoredeckLibrarySpecialFolderId(id)) return false;
+    const stats = renderModel?.getStats?.(id);
+    return folder?.collapsed === true || stats?.hasBundled === true;
+}
+
 function getLoredeckLibraryHierarchySearchModel(scopedLibrary = [], visiblePacks = [], libraryIndex = {}, activeViewId = 'all') {
     const query = normalizeLoredeckLibrarySearchQuery();
     const visiblePackIds = new Set((visiblePacks || []).map(pack => pack.packId).filter(Boolean));
@@ -1228,14 +1379,14 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
     const query = String(loredeckLibraryQuery || '').trim();
     const activeViewId = getLoredeckLibraryActiveViewId();
     const folderIds = new Set((libraryIndex.folders || []).map(folder => folder.id));
+    const renderModel = buildLoredeckLibraryFolderRenderModel(library, libraryIndex, stack, canonDb, health);
     const searchModel = getLoredeckLibraryHierarchySearchModel(scopedLibrary, visiblePacks, libraryIndex, activeViewId);
     const visibleOrder = [];
     const visibleByFolder = new Map();
     const unfiledPacks = [];
-    const allUnfiledPacks = [];
 
     const addPackToFolderMap = (map, pack, fallbackUnfiled) => {
-        const folderId = getLoredeckLibraryPackFolderId(pack, libraryIndex);
+        const folderId = renderModel.folderIdForPack(pack);
         if (folderId && folderIds.has(folderId)) {
             if (!map.has(folderId)) map.set(folderId, []);
             map.get(folderId).push(pack);
@@ -1244,10 +1395,6 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
         }
     };
 
-    for (const pack of library || []) {
-        const folderId = getLoredeckLibraryPackFolderId(pack, libraryIndex);
-        if (!folderId || !folderIds.has(folderId)) allUnfiledPacks.push(pack);
-    }
     for (const pack of visiblePacks || []) addPackToFolderMap(visibleByFolder, pack, unfiledPacks);
 
     const appendDeck = (pack, depth = 0) => {
@@ -1266,15 +1413,15 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
         const shouldRender = showEmptyFolders || searchModel.visibleFolderIds.has(folder.id);
         if (!shouldRender) return;
 
-        const folderAllPacks = getLoredeckLibraryFolderPacks(folder.id, library, libraryIndex, { includeNested: true });
-        const stats = getLoredeckLibraryFolderStats(folder.id, library, libraryIndex, stack, canonDb, health);
-        const collapsed = getLoredeckLibraryFolderCollapsedState(folder, library, libraryIndex, { query });
+        const folderAllPacks = renderModel.getFolderPacks(folder.id);
+        const stats = renderModel.getStats(folder.id);
+        const collapsed = getLoredeckLibraryFolderCollapsedStateFromRenderModel(folder, renderModel, { query });
         list.appendChild(createLoredeckLibraryInlineFolderRow(folder, {
             depth,
             collapsed,
             stats,
             searchState,
-            coverPacks: getLoredeckLibraryFolderCoverPacks(folder.id, library, libraryIndex),
+            coverPacks: renderModel.getCoverPacks(folder.id),
             totalCoverableCount: folderAllPacks.filter(pack => getLoredeckAssetRef(pack, 'cover')).length,
         }));
 
@@ -1286,9 +1433,9 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
     const folders = buildFolderTree(libraryIndex);
     for (const folder of folders) appendFolder(folder, 0);
 
-    if (unfiledPacks.length || (showEmptyFolders && allUnfiledPacks.length)) {
-        const unfiledVisible = unfiledPacks.length ? unfiledPacks : (showEmptyFolders ? allUnfiledPacks : []);
-        const collapsed = getLoredeckLibraryFolderCollapsedState('unfiled', library, libraryIndex, { query });
+    if (unfiledPacks.length || (showEmptyFolders && renderModel.unfiledPacks.length)) {
+        const unfiledVisible = unfiledPacks.length ? unfiledPacks : (showEmptyFolders ? renderModel.unfiledPacks : []);
+        const collapsed = getLoredeckLibraryFolderCollapsedStateFromRenderModel('unfiled', renderModel, { query });
         list.appendChild(createLoredeckLibraryInlineFolderRow({
             id: 'unfiled',
             title: 'Unfiled',
@@ -1297,7 +1444,7 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
             depth: 0,
             collapsed,
             special: true,
-            stats: getLoredeckLibraryFolderStats('unfiled', library, libraryIndex, stack, canonDb, health),
+            stats: renderModel.getStats('unfiled'),
             coverPacks: unfiledVisible.filter(pack => getLoredeckAssetRef(pack, 'cover')).slice(0, 5),
             totalCoverableCount: unfiledVisible.filter(pack => getLoredeckAssetRef(pack, 'cover')).length,
         }));

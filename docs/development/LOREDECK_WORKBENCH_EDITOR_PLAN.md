@@ -396,7 +396,7 @@ Phase 2:
 - Mark Deck Health stale on edit.
 - Bundled read-only guard and `Duplicate to Edit`.
 
-Implementation status: in progress. Phase 2 now supports direct inline editing for the selected Lorecard's title, category, relevance, canon status, tags, lore text, injection text, and notes. Text fields save on blur or Ctrl+Enter, selects save immediately, successful edits write through the Loredeck Library record mutation path, and edited decks are marked `healthStatus: stale`. Direct new-Lorecard creation is also implemented for editable decks through a temporary draft row that validates machine ID uniqueness, requires title and lore text, then saves as an `entryOverrides` addition. Bulk actions remain deferred to Phase 3.
+Implementation status: complete. Phase 2 supports direct inline editing for the selected Lorecard's title, category, relevance, canon status, tags, lore text, injection text, and notes. Text fields save on blur or Ctrl+Enter, selects save immediately, successful edits write through the Loredeck Library record mutation path, and edited decks are marked `healthStatus: stale`. Direct new-Lorecard creation is also implemented for editable decks through a temporary draft row that validates machine ID uniqueness, requires title and lore text, then saves as an `entryOverrides` addition.
 
 Phase 3:
 
@@ -405,7 +405,7 @@ Phase 3:
 - Delete confirmation.
 - Direct save after confirmation.
 
-Implementation status: started. The first Phase 3 slice adds editable-deck row selection, visible-selection controls, shift-range selection, and a compact direct-apply bulk toolbar. Implemented actions are set relevance, set category, add tag, remove tag, and delete selected. Bulk edits confirm before saving, write through the Loredeck Library record mutation path, clear selection after success, and mark Deck Health stale. Delete removes Custom additions and suppresses source Lorecards through `disabledEntryIds`. Context-gate bulk editing, duplicate selected, restore disabled, and richer selection/filter tools remain future Phase 3 slices.
+Implementation status: complete. Phase 3 adds editable-deck row selection, visible-selection controls, shift-range selection, active/disabled/all status filtering, and a compact direct-apply bulk toolbar. Implemented actions are set relevance, set category, add tag, remove tag, set Context gate, duplicate selected, restore selected, and delete selected. Bulk edits confirm before saving, write through the Loredeck Library record mutation path, clear or update selection after success, and mark Deck Health stale. Delete removes Custom additions and suppresses source Lorecards through `disabledEntryIds`; restore removes selected IDs from `disabledEntryIds`.
 
 Phase 4:
 
