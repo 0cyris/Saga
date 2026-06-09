@@ -7,10 +7,12 @@ import {
   getLoredeckCreatorRegistry,
   getSettings,
   getState,
+  removeLoredeckLibraryPack,
   setLoredeckCreatorActiveGeneration,
   updateLoredeckCreatorGenerationRun,
   updateLoredeckCreatorGenerationUnit,
   updateLoredeckCreatorProject,
+  upsertLoredeckLibraryPack,
   upsertLoredeckCreatorJob,
 } from '../state-manager.js';
 
@@ -262,10 +264,68 @@ assert.equal(renamedInactive.projectRegistry.activeJobId, 'creator_naruto_chunin
 assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong.projectTitle, 'One Piece: Arlong Park Draft');
 assert.equal(chatMetadata[MODULE_KEY].loredeckCreator.activeJobId, 'creator_naruto_chunin');
 
+const generatedPackId = 'one-piece-arlong-park-generated';
+const linkedGeneratedProject = updateLoredeckCreatorProject('creator_one_piece_arlong', {
+  generatedPackId,
+  generatedPackTitle: 'One Piece: Arlong Park',
+  planningQueuedCount: 1,
+}, { syncPrompt: false });
+assert.equal(linkedGeneratedProject.ok, true);
+
+const titleOnlyGeneratedProject = upsertLoredeckCreatorJob({
+  jobId: 'creator_one_piece_arlong_title_only',
+  fandom: 'One Piece',
+  scope: 'Arlong Park Arc',
+  granularity: 'focused',
+  brief: {
+    title: 'One Piece: Arlong Park Generated',
+    fandom: 'One Piece',
+    scope: 'Arlong Park Arc',
+  },
+}, { syncPrompt: false });
+assert.equal(titleOnlyGeneratedProject.ok, true);
+
+const generatedPackRecord = {
+  packId: generatedPackId,
+  type: 'generated',
+  title: 'One Piece: Arlong Park',
+  description: 'Generated Arlong Park draft deck.',
+  fandom: 'One Piece',
+  era: 'Arlong Park Arc',
+  source: { kind: 'generated' },
+  tags: ['origin:generated', 'saga:creator'],
+  stats: { entryCount: 0, categoryCounts: {} },
+};
+const generatedPackSaved = upsertLoredeckLibraryPack(generatedPackRecord);
+assert.equal(generatedPackSaved.ok, true);
+assert.equal(extensionSettings[MODULE_KEY].loredeckLibrary.packs[generatedPackId].type, 'generated');
+
+chatMetadata[MODULE_KEY].loredeckRegistry = {
+  schemaVersion: 1,
+  packs: {
+    [generatedPackId]: {
+      ...generatedPackRecord,
+      title: 'One Piece: Arlong Park chat mirror',
+    },
+  },
+};
+
+const generatedPackRemoved = removeLoredeckLibraryPack(generatedPackId, { syncPrompt: false });
+assert.equal(generatedPackRemoved.ok, true);
+assert.deepEqual(generatedPackRemoved.clearedCreatorJobIds, ['creator_one_piece_arlong', 'creator_one_piece_arlong_title_only']);
+assert.ok(!extensionSettings[MODULE_KEY].loredeckLibrary.packs[generatedPackId], 'Deleting a Generated Loredeck should remove the global pack record.');
+assert.ok(!chatMetadata[MODULE_KEY].loredeckRegistry.packs[generatedPackId], 'Deleting a Generated Loredeck should remove the chat-local pack mirror.');
+assert.ok(!extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_one_piece_arlong, 'Deleting a Generated Loredeck should clear its global Creator project.');
+assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong, 'Deleting a Generated Loredeck should clear its chat-local Creator project.');
+assert.ok(!extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_one_piece_arlong_title_only, 'Deleting a Generated Loredeck should clear Creator projects that only retain the normalized brief title.');
+assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_one_piece_arlong_title_only, 'Deleting a Generated Loredeck should clear chat-local title-only Creator projects.');
+assert.ok(extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_naruto_chunin, 'Unrelated Creator projects should remain.');
+assert.equal(getLoredeckCreatorProjectRegistry().activeJobId, 'creator_naruto_chunin');
+
 const cleared = clearLoredeckCreatorJob('creator_naruto_chunin', { syncPrompt: false });
 assert.equal(cleared.ok, true);
 assert.ok(!extensionSettings[MODULE_KEY].loredeckCreatorProjects.jobs.creator_naruto_chunin);
 assert.ok(!chatMetadata[MODULE_KEY].loredeckCreator.jobs.creator_naruto_chunin);
-assert.equal(getLoredeckCreatorProjectRegistry().jobs.creator_one_piece_arlong.scope, 'Arlong Park Arc');
+assert.deepEqual(Object.keys(getLoredeckCreatorProjectRegistry().jobs), []);
 
 console.log('Loredeck Creator project registry tests passed.');

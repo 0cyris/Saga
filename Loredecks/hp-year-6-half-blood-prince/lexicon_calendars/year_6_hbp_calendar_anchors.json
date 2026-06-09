@@ -95,11 +95,10 @@
       },
       "content": {
         "fact": "Dumbledore collects Harry from Privet Drive, confronts the Dursleys socially, and brings Harry along while persuading Slughorn to return to Hogwarts.",
-        "injection": "Dumbledore collects Harry from Privet Drive, confronts the Dursleys socially, and brings Harry along while persuading Slughorn to return to Hogwarts. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Dumbledore collects Harry from Privet Drive, confronts the Dursleys socially, and brings Harry along while persuading Slughorn to return to Hogwarts. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -233,11 +232,10 @@
       },
       "content": {
         "fact": "Harry’s OWL results arrive at the Burrow, shaping which NEWT-level courses he can take in sixth year.",
-        "injection": "Harry’s OWL results arrive at the Burrow, shaping which NEWT-level courses he can take in sixth year. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry’s OWL results arrive at the Burrow, shaping which NEWT-level courses he can take in sixth year. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -378,11 +376,10 @@
       },
       "content": {
         "fact": "During the Diagon Alley trip, Harry’s observations of Draco and Narcissa deepen his suspicion that Draco is involved with Death Eaters.",
-        "injection": "During the Diagon Alley trip, Harry’s observations of Draco and Narcissa deepen his suspicion that Draco is involved with Death Eaters. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "During the Diagon Alley trip, Harry’s observations of Draco and Narcissa deepen his suspicion that Draco is involved with Death Eaters. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -523,11 +520,10 @@
       },
       "content": {
         "fact": "Slughorn’s first train gathering establishes the Slug Club social channel, while Harry’s spying on Draco results in him being stunned and hidden.",
-        "injection": "Slughorn’s first train gathering establishes the Slug Club social channel, while Harry’s spying on Draco results in him being stunned and hidden. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Slughorn’s first train gathering establishes the Slug Club social channel, while Harry’s spying on Draco results in him being stunned and hidden. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -668,11 +664,10 @@
       },
       "content": {
         "fact": "Harry receives the annotated Potions book, uses its instructions to excel, and wins Felix Felicis from Slughorn.",
-        "injection": "Harry receives the annotated Potions book, uses its instructions to excel, and wins Felix Felicis from Slughorn. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry receives the annotated Potions book, uses its instructions to excel, and wins Felix Felicis from Slughorn. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -811,11 +806,10 @@
       },
       "content": {
         "fact": "Dumbledore’s first private lesson shows Harry the Gaunt family background and begins the structured investigation of Voldemort’s past.",
-        "injection": "Dumbledore’s first private lesson shows Harry the Gaunt family background and begins the structured investigation of Voldemort’s past. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Dumbledore’s first private lesson shows Harry the Gaunt family background and begins the structured investigation of Voldemort’s past. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -955,11 +949,10 @@
       },
       "content": {
         "fact": "Harry selects a new Gryffindor Quidditch team, Hermione helps Ron secure Keeper, and the first Slug Club dinner reinforces Slughorn’s favoritism network.",
-        "injection": "Harry selects a new Gryffindor Quidditch team, Hermione helps Ron secure Keeper, and the first Slug Club dinner reinforces Slughorn’s favoritism network. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry selects a new Gryffindor Quidditch team, Hermione helps Ron secure Keeper, and the first Slug Club dinner reinforces Slughorn’s favoritism network. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1102,11 +1095,10 @@
       },
       "content": {
         "fact": "Katie Bell is Imperiused and cursed through a necklace during a Hogsmeade trip, supporting Harry’s suspicion that Draco is attempting murder.",
-        "injection": "Katie Bell is Imperiused and cursed through a necklace during a Hogsmeade trip, supporting Harry’s suspicion that Draco is attempting murder. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Katie Bell is Imperiused and cursed through a necklace during a Hogsmeade trip, supporting Harry’s suspicion that Draco is attempting murder. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1241,11 +1233,10 @@
       },
       "content": {
         "fact": "After Gryffindor wins a Quidditch match, Ron kisses Lavender, escalating tension with Hermione and altering the trio’s social dynamic.",
-        "injection": "After Gryffindor wins a Quidditch match, Ron kisses Lavender, escalating tension with Hermione and altering the trio’s social dynamic. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After Gryffindor wins a Quidditch match, Ron kisses Lavender, escalating tension with Hermione and altering the trio’s social dynamic. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1382,11 +1373,10 @@
       },
       "content": {
         "fact": "At Slughorn’s Christmas party, Harry brings Luna; afterward he overhears Snape pressing Draco about his secret task.",
-        "injection": "At Slughorn’s Christmas party, Harry brings Luna; afterward he overhears Snape pressing Draco about his secret task. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "At Slughorn’s Christmas party, Harry brings Luna; afterward he overhears Snape pressing Draco about his secret task. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1529,8 +1519,7 @@
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
           "Use this card to suppress premature Hermione Horcrux expertise.",
-          "Apply only when Saga Context matches the altered Horcrux memory task before Apparition lessons; if the scene is earlier or later, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches the altered Horcrux memory task before Apparition lessons; if the scene is earlier or later, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let the altered memory function as complete Horcrux exposition.",
@@ -1678,11 +1667,10 @@
       },
       "content": {
         "fact": "Ron accidentally takes love potion and is then poisoned by mead at Slughorn’s; Harry saves him with a bezoar.",
-        "injection": "Ron accidentally takes love potion and is then poisoned by mead at Slughorn’s; Harry saves him with a bezoar. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Ron accidentally takes love potion and is then poisoned by mead at Slughorn’s; Harry saves him with a bezoar. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1823,11 +1811,10 @@
       },
       "content": {
         "fact": "Harry realizes Draco is using the Room of Requirement and learns Myrtle has been speaking with a distressed boy, reinforcing his suspicion.",
-        "injection": "Harry realizes Draco is using the Room of Requirement and learns Myrtle has been speaking with a distressed boy, reinforcing his suspicion. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry realizes Draco is using the Room of Requirement and learns Myrtle has been speaking with a distressed boy, reinforcing his suspicion. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1971,11 +1958,10 @@
       },
       "content": {
         "fact": "Harry uses Felix Felicis, attends Aragog’s burial, and succeeds in obtaining Slughorn’s true Horcrux memory.",
-        "injection": "Harry uses Felix Felicis, attends Aragog’s burial, and succeeds in obtaining Slughorn’s true Horcrux memory. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry uses Felix Felicis, attends Aragog’s burial, and succeeds in obtaining Slughorn’s true Horcrux memory. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -2117,11 +2103,10 @@
       },
       "content": {
         "fact": "Harry uses Sectumsempra on Draco in the bathroom, badly injuring him and receiving detention from Snape for the rest of the year.",
-        "injection": "Harry uses Sectumsempra on Draco in the bathroom, badly injuring him and receiving detention from Snape for the rest of the year. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry uses Sectumsempra on Draco in the bathroom, badly injuring him and receiving detention from Snape for the rest of the year. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -2256,11 +2241,10 @@
       },
       "content": {
         "fact": "Gryffindor wins the Quidditch Cup while Harry is in detention, and Harry kisses Ginny during the celebration.",
-        "injection": "Gryffindor wins the Quidditch Cup while Harry is in detention, and Harry kisses Ginny during the celebration. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Gryffindor wins the Quidditch Cup while Harry is in detention, and Harry kisses Ginny during the celebration. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -2407,12 +2391,11 @@
       },
       "content": {
         "fact": "The cave mission and Tower crisis produce the fake locket clue, Dumbledore’s death, and Snape’s flight, without resolving the Horcrux hunt.",
-        "injection": "During the cave/Tower crisis, keep the sequence urgent and unresolved: Dumbledore is weakened then killed, Snape flees and reveals the Prince identity, and the locket clue points forward rather than ending the hunt. Enforce this as a high-priority Context gate for Cave and Astronomy Tower crisis; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "During the cave/Tower crisis, keep the sequence urgent and unresolved: Dumbledore is weakened then killed, Snape flees and reveals the Prince identity, and the locket clue points forward rather than ending the hunt. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
           "After this window, use funeral/hunt-decision cards for the trio’s next step.",
-          "Apply only when Saga Context matches Cave and Astronomy Tower crisis; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Cave and Astronomy Tower crisis; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not treat R.A.B., Kreacher, or Umbridge’s locket as known yet unless Year 7 Context is active.",

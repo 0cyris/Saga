@@ -89,8 +89,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Year 7 Horcrux quest active; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 7 Horcrux quest active; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -207,8 +206,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Deathly Hallows explanation; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Deathly Hallows explanation; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -331,8 +329,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches After Ministry falls; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches After Ministry falls; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -445,8 +442,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Ron absent from Horcrux hunt; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Ron absent from Horcrux hunt; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -565,8 +561,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before locket destruction; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before locket destruction; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -689,8 +684,7 @@
         "constraints": [
           "This is a major endgame spoiler gate and should outrank broad Horcrux cards.",
           "After the truth anchor, Harry may understand the sacrifice but Ron and Hermione still do not automatically know unless he tells them.",
-          "Apply only when Saga Context matches Before Harry learns he must die; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Harry learns he must die; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let Hermione deduce Harry-as-Horcrux early without an explicit story branch.",
@@ -802,8 +796,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches After Snape memories; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches After Snape memories; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -920,8 +913,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Voldemort defeat; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Voldemort defeat; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",

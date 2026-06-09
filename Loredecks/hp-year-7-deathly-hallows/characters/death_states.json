@@ -72,11 +72,10 @@
       },
       "content": {
         "fact": "Charity Burbage is dead after the Malfoy Manor meeting near the start of Year 7.",
-        "injection": "Charity Burbage is dead after the Malfoy Manor meeting near the start of Year 7. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Charity Burbage is dead after the Malfoy Manor meeting near the start of Year 7. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Charity Burbage as alive after 1997-07-21 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -183,11 +182,10 @@
       },
       "content": {
         "fact": "Hedwig is dead after the Seven Potters flight unless our story has established a different outcome.",
-        "injection": "Hedwig is dead after the Seven Potters flight unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Hedwig is dead after the Seven Potters flight unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Hedwig as alive after 1997-07-27 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -296,11 +294,10 @@
       },
       "content": {
         "fact": "Alastor “Mad-Eye” Moody is dead after the Seven Potters flight unless our story has established a different outcome.",
-        "injection": "Alastor “Mad-Eye” Moody is dead after the Seven Potters flight unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Alastor “Mad-Eye” Moody is dead after the Seven Potters flight unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Alastor Moody as alive after 1997-07-27 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -410,11 +407,10 @@
       },
       "content": {
         "fact": "Peter Pettigrew is dead after the Malfoy Manor escape unless our story has established a different outcome.",
-        "injection": "Peter Pettigrew is dead after the Malfoy Manor escape unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Peter Pettigrew is dead after the Malfoy Manor escape unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Peter Pettigrew as alive after 1998-04-08 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -522,11 +518,10 @@
       },
       "content": {
         "fact": "Dobby is dead after the Malfoy Manor escape unless our story has established a different outcome.",
-        "injection": "Dobby is dead after the Malfoy Manor escape unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Dobby is dead after the Malfoy Manor escape unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Dobby as alive after 1998-04-08 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -635,11 +630,10 @@
       },
       "content": {
         "fact": "Fred Weasley is dead after the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Fred Weasley is dead after the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Fred Weasley is dead after the Battle of Hogwarts unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Fred Weasley as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -750,11 +744,10 @@
       },
       "content": {
         "fact": "Remus Lupin is dead after the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Remus Lupin is dead after the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Remus Lupin is dead after the Battle of Hogwarts unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Remus Lupin as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -865,11 +858,10 @@
       },
       "content": {
         "fact": "Nymphadora Tonks is dead after the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Nymphadora Tonks is dead after the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Nymphadora Tonks is dead after the Battle of Hogwarts unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Nymphadora Tonks as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -979,11 +971,10 @@
       },
       "content": {
         "fact": "Severus Snape is dead after the Battle of Hogwarts and his final memories unless our story has established a different outcome.",
-        "injection": "Severus Snape is dead after the Battle of Hogwarts and his final memories unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Severus Snape is dead after the Battle of Hogwarts and his final memories unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Severus Snape as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1094,11 +1085,10 @@
       },
       "content": {
         "fact": "Bellatrix Lestrange is dead after the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Bellatrix Lestrange is dead after the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Bellatrix Lestrange is dead after the Battle of Hogwarts unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Bellatrix Lestrange as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1208,11 +1198,10 @@
       },
       "content": {
         "fact": "Lord Voldemort is dead after the final duel at the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Lord Voldemort is dead after the final duel at the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Lord Voldemort is dead after the final duel at the Battle of Hogwarts unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Lord Voldemort as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1323,11 +1312,10 @@
       },
       "content": {
         "fact": "Colin Creevey is dead after the Battle of Hogwarts unless our story has established a different outcome.",
-        "injection": "Colin Creevey is dead after the Battle of Hogwarts unless our story has established a different outcome. Enforce this as a high-priority Context gate for Deathly Hallows; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Colin Creevey is dead after the Battle of Hogwarts unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Colin Creevey as alive after 1998-05-02 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

@@ -73,8 +73,7 @@
         "constraints": [
           "Before champion selection, Harry is not publicly a Triwizard champion.",
           "After selection, task details and graveyard outcomes still remain future-gated until reached.",
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make September Year 4 scenes assume Harry is already a champion.",

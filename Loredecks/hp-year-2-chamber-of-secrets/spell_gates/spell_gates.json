@@ -93,11 +93,10 @@
       },
       "content": {
         "fact": "The Disarming Charm is a common defensive spell from early Hogwarts years onward.",
-        "injection": "The Disarming Charm is a common defensive spell from early Hogwarts years onward. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Disarming Charm is a common defensive spell from early Hogwarts years onward. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Treat Expelliarmus knowledge as Context- and character-gated.",
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make Expelliarmus common student knowledge too early.",

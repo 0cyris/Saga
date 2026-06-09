@@ -109,10 +109,9 @@
       },
       "content": {
         "fact": "After Voldemort's defeat, wizarding Britain enters an immediate reconstruction phase with Kingsley Shacklebolt stabilizing the Ministry and war survivors processing losses.",
-        "injection": "In the immediate postwar period, wizarding Britain is rebuilding under Kingsley Shacklebolt's stabilizing Ministry leadership while survivors are still processing battle losses. Enforce this as a high-priority Context gate for Post-War Years: Immediate Rebuilding; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "In the immediate postwar period, wizarding Britain is rebuilding under Kingsley Shacklebolt's stabilizing Ministry leadership while survivors are still processing battle losses. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Post-War Years: Immediate Rebuilding; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Post-War Years: Immediate Rebuilding; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -240,10 +239,9 @@
       },
       "content": {
         "fact": "In the postwar reform period, the Ministry moves away from Dementor-run Azkaban and Harry's Auror career belongs to a rebuilt law-enforcement order rather than the old wartime Ministry.",
-        "injection": "In the postwar reform period, Azkaban is no longer treated as a Dementor-run institution and Harry's Auror career sits inside a rebuilt Ministry order. Enforce this as a high-priority Context gate for Post-War Years: Early Ministry Reforms; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "In the postwar reform period, Azkaban is no longer treated as a Dementor-run institution and Harry's Auror career sits inside a rebuilt Ministry order. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Post-War Years: Early Ministry Reforms; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Post-War Years: Early Ministry Reforms; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -376,10 +374,9 @@
       },
       "content": {
         "fact": "By the 2014 Quidditch World Cup, the Golden Trio and many former Dumbledore's Army members are adults in public postwar life rather than school-era combatants.",
-        "injection": "At the 2014 Quidditch World Cup, the Golden Trio and former Dumbledore's Army members should read as adults with public postwar lives, not as school-era combatants. Enforce this as a high-priority Context gate for Post-War Years: 2014 Quidditch World Cup; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "At the 2014 Quidditch World Cup, the Golden Trio and former Dumbledore's Army members should read as adults with public postwar lives, not as school-era combatants. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Post-War Years: 2014 Quidditch World Cup; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Post-War Years: 2014 Quidditch World Cup; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -517,11 +514,10 @@
       },
       "content": {
         "fact": "Before the 2017 King's Cross epilogue, next-generation platform details should not be treated as current scene knowledge unless custom story lore establishes them early.",
-        "injection": "Before the 2017 King's Cross epilogue, next-generation platform details should not be treated as current scene knowledge unless custom story lore establishes them early. Enforce this as a high-priority Context gate for Post-War Years: Before Epilogue Platform; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before the 2017 King's Cross epilogue, next-generation platform details should not be treated as current scene knowledge unless custom story lore establishes them early. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not inject 2017 platform details into earlier postwar scenes.",
-          "Apply only when Saga Context matches Post-War Years: Before Epilogue Platform; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Post-War Years: Before Epilogue Platform; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -666,10 +662,9 @@
       },
       "content": {
         "fact": "By the 2017 King's Cross epilogue, Harry, Ginny, Ron, Hermione, and Draco are adults seeing the next generation onto the Hogwarts Express.",
-        "injection": "At the 2017 King's Cross epilogue, Harry, Ginny, Ron, Hermione, and Draco are adults seeing the next generation onto the Hogwarts Express. Enforce this as a high-priority Context gate for Post-War Years: King's Cross Epilogue; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "At the 2017 King's Cross epilogue, Harry, Ginny, Ron, Hermione, and Draco are adults seeing the next generation onto the Hogwarts Express. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Post-War Years: King's Cross Epilogue; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Post-War Years: King's Cross Epilogue; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

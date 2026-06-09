@@ -78,8 +78,7 @@
         "injection": "Write Year 6 Hermione as precise, skeptical, rule-aware, and intensely research-driven; she should ask for evidence and seek library/professor routes, but she should not know hidden plot truths before our story establishes how she learned them.",
         "constraints": [
           "Do not let Hermione’s intelligence become automatic knowledge of unrevealed secrets.",
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -179,8 +178,7 @@
         "injection": "During Year 6 before the Astronomy Tower crisis, Hogwarts operates under heightened security and Dumbledore remains the decisive authority; suspicious attacks, secret movement, and unusual magic should draw more scrutiny than in ordinary school years.",
         "constraints": [
           "Keep Year 6 Hogwarts more security-conscious than ordinary school years.",
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

@@ -1591,14 +1591,13 @@
       },
       "content": {
         "fact": "In Year 4 before his death, Cedric is mature, fair, capable, publicly admired, and more gracious under pressure than many students around him.",
-        "injection": "Before his death date, write Cedric in Year 4 as mature, fair-minded, capable, gracious under pressure, and still a living student. Enforce this as a high-priority Context gate for Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before his death date, write Cedric in Year 4 as mature, fair-minded, capable, gracious under pressure, and still a living student. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "This living baseline applies only before the Cedric death-state window.",
           "He should be decent without being impossibly flawless.",
           "Keep specific tournament-task details and death aftermath in separate entries.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not treat Cedric as alive after his death-state entry applies unless accepted story lore says otherwise.",

@@ -277,6 +277,7 @@ async function main() {
   const { resolveContextsFromContext } = await import('../context-resolver.js');
   const {
     clearCanonLoreDatabaseCache,
+    loadCanonLoreDatabase,
     previewCanonLoreForContext,
   } = await import('../canon-lore-db.js');
   const { buildLoreMemo } = await import('../memo-builder.js');
@@ -300,10 +301,16 @@ async function main() {
   };
 
   const state = buildIntegrationState(getDefaultState);
-  ctx.chatMetadata[MODULE_KEY] = state;
+  const emptyStackState = buildIntegrationState(getDefaultState);
+  emptyStackState.loredeckStack = [];
+  ctx.chatMetadata[MODULE_KEY] = emptyStackState;
 
   clearContextIndexCache();
   clearCanonLoreDatabaseCache();
+  const emptyStackDb = await loadCanonLoreDatabase();
+  assert.equal(emptyStackDb.entries.length, 0, 'Expected an empty active stack to load no canon entries.');
+
+  ctx.chatMetadata[MODULE_KEY] = state;
   const contextIndex = await loadContextIndexForState(state, {
     registry: getSettings().loredeckLibrary,
     force: true,
@@ -340,7 +347,6 @@ async function main() {
 
   applyResolvedContextsToState(state, resolution, preApparitionContext);
 
-  clearCanonLoreDatabaseCache();
   const preview = await previewCanonLoreForContext(preApparitionContext, {
     contextIndex,
     maxCandidates: 300,

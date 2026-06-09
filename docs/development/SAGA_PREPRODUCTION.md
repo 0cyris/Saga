@@ -191,7 +191,7 @@ Reasonable first-wave color tokens:
 
 Icon mappings are keyed by UI target, such as `brand.compact`, `brand.expanded`, `tab.loredecks`, `tab.context`, or `tab.settings`. Values must be passive image paths, data image URLs, or fetchable image URLs. They do not grant code execution.
 
-Imported Icon Sets live in their own registry instead of being smuggled through Theme Pack overrides. The current bundled foundation uses `saga-hero` as the bundled default Icon Set, and ships `saga-mystic` and `saga-relay` as bundled selectable alternatives for fantasy and sci-fi styling.
+Imported Icon Sets live in their own registry. The current bundled foundation uses `saga-hero` as the bundled default Icon Set, and ships `saga-mystic` and `saga-relay` as bundled selectable alternatives for fantasy and sci-fi styling.
 
 Installed Custom Theme Packs should be importable from a single Theme Pack JSON file or a Theme Pack Library JSON file. Custom imports must not overwrite Bundled Theme Pack IDs.
 

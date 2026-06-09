@@ -68,11 +68,10 @@
       },
       "content": {
         "fact": "Before the Department of Mysteries battle, Sirius Black is alive and should not be treated as dead or memorialized unless our story has established a different outcome.",
-        "injection": "Before the Department of Mysteries battle, Sirius Black is alive and should not be treated as dead or memorialized unless our story has established a different outcome. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before the Department of Mysteries battle, Sirius Black is alive and should not be treated as dead or memorialized unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Use Sirius death-state lore after the Department of Mysteries battle.",
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -200,8 +199,7 @@
         "injection": "During Year 5 before public acknowledgment, the Ministry and general public deny or resist the claim that Voldemort has returned, even while Harry and close allies know the truth.",
         "constraints": [
           "Separate private truth from public denial during Year 5.",
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

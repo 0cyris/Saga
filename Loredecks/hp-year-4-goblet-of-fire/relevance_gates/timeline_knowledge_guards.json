@@ -86,8 +86,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before fake Moody reveal; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before fake Moody reveal; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -202,8 +201,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches After Harry selected as fourth champion; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches After Harry selected as fourth champion; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -315,8 +313,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Ron and Harry rift before first task reconciliation; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Ron and Harry rift before first task reconciliation; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -428,8 +425,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Voldemort rebirth; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Voldemort rebirth; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -547,8 +543,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches After Ministry denial begins; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches After Ministry denial begins; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",

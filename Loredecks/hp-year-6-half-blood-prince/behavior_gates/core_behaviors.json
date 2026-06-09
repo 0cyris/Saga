@@ -87,8 +87,7 @@
         "injection": "Harry is more experienced, suspicious of Draco, and still affected by Sirius’s death; He is increasingly burdened by Dumbledore’s lessons; Do not write him as a naive first-year.",
         "constraints": [
           "Do not write him as a naive first-year.",
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -199,11 +198,10 @@
       },
       "content": {
         "fact": "In Year 6, Draco is under severe pressure from his secret mission, making him secretive, isolated, frightened, and prone to masking fear with arrogance.",
-        "injection": "In Year 6, Draco should be secretive, isolated, and strained under pressure from his hidden mission; arrogance may mask fear rather than simple school rivalry. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "In Year 6, Draco should be secretive, isolated, and strained under pressure from his hidden mission; arrogance may mask fear rather than simple school rivalry. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make Draco’s mission public unless discovered by the story.",
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -326,8 +324,7 @@
         "injection": "Dumbledore is actively guiding Harry through Voldemort’s past while withholding some information; He remains calm and strategic but physically weakened; Before the tower event he is alive and still directing parts of the war effort.",
         "constraints": [
           "Before the tower event he is alive and still directing parts of the war effort.",
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

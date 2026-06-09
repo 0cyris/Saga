@@ -71,11 +71,10 @@
       },
       "content": {
         "fact": "Before OWL/DA-level defensive training, students should not casually master Protego.",
-        "injection": "Do not let younger students casually master Protego before OWL/DA-level training unless our story has established early shield practice. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Do not let younger students casually master Protego before OWL/DA-level training unless our story has established early shield practice. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Date-gate practical shield use.",
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not treat shield magic as routine early-year spellwork.",

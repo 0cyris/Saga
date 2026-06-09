@@ -508,11 +508,10 @@
       },
       "content": {
         "fact": "Dementors search the Hogwarts Express for Sirius Black, causing Harry to collapse until Lupin drives them away.",
-        "injection": "Dementors search the Hogwarts Express for Sirius Black, causing Harry to collapse until Lupin drives them away. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Dementors search the Hogwarts Express for Sirius Black, causing Harry to collapse until Lupin drives them away. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -790,11 +789,10 @@
       },
       "content": {
         "fact": "Lupin’s early Defence Against the Dark Arts Boggart lesson establishes him as a practically effective teacher and reveals several students’ fears.",
-        "injection": "Lupin’s early Defence Against the Dark Arts Boggart lesson establishes him as a practically effective teacher and reveals several students’ fears. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Lupin’s early Defence Against the Dark Arts Boggart lesson establishes him as a practically effective teacher and reveals several students’ fears. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -933,11 +931,10 @@
       },
       "content": {
         "fact": "After Harry’s first restricted Hogsmeade day, Sirius Black attacks the Fat Lady and the students sleep in the Great Hall during the castle search.",
-        "injection": "After Harry’s first restricted Hogsmeade day, Sirius Black attacks the Fat Lady and the students sleep in the Great Hall during the castle search. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After Harry’s first restricted Hogsmeade day, Sirius Black attacks the Fat Lady and the students sleep in the Great Hall during the castle search. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1225,11 +1222,10 @@
       },
       "content": {
         "fact": "Fred and George give Harry the Marauder’s Map, allowing him to enter Hogsmeade secretly and hear the public version of Sirius’s betrayal.",
-        "injection": "Fred and George give Harry the Marauder’s Map, allowing him to enter Hogsmeade secretly and hear the public version of Sirius’s betrayal. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Fred and George give Harry the Marauder’s Map, allowing him to enter Hogsmeade secretly and hear the public version of Sirius’s betrayal. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1650,11 +1646,10 @@
       },
       "content": {
         "fact": "Sirius Black breaches Gryffindor Tower and slashes Ron’s bed curtains while trying to reach Scabbers.",
-        "injection": "Sirius Black breaches Gryffindor Tower and slashes Ron’s bed curtains while trying to reach Scabbers. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Sirius Black breaches Gryffindor Tower and slashes Ron’s bed curtains while trying to reach Scabbers. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1940,11 +1935,10 @@
       },
       "content": {
         "fact": "The Shrieking Shack confrontation reveals that Peter Pettigrew betrayed the Potters, Sirius was framed, Lupin is a werewolf, and Scabbers is Pettigrew.",
-        "injection": "The Shrieking Shack confrontation reveals that Peter Pettigrew betrayed the Potters, Sirius was framed, Lupin is a werewolf, and Scabbers is Pettigrew. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Shrieking Shack confrontation reveals that Peter Pettigrew betrayed the Potters, Sirius was framed, Lupin is a werewolf, and Scabbers is Pettigrew. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -2090,11 +2084,10 @@
       },
       "content": {
         "fact": "Hermione and Harry use the Time-Turner to rescue Buckbeak and help Sirius escape, while keeping the timeline self-consistent.",
-        "injection": "Hermione and Harry use the Time-Turner to rescue Buckbeak and help Sirius escape, while keeping the timeline self-consistent. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Hermione and Harry use the Time-Turner to rescue Buckbeak and help Sirius escape, while keeping the timeline self-consistent. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

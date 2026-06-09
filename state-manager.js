@@ -1376,6 +1376,68 @@ function getMostRecentLoredeckCreatorJob(registry = {}) {
         .sort((a, b) => (Number(b.updatedAt) || 0) - (Number(a.updatedAt) || 0))[0] || null;
 }
 
+function normalizeLoredeckCreatorPackIdCandidate(value = '') {
+    return String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9._-]+/g, '-')
+        .replace(/^[^a-z0-9]+/, '')
+        .replace(/[^a-z0-9]+$/, '')
+        .slice(0, 96);
+}
+
+function getLoredeckCreatorJobGeneratedPackIdCandidates(job = {}) {
+    const values = [
+        job?.generatedPackId,
+        job?.brief?.packId,
+        job?.brief?.title,
+    ];
+    const output = [];
+    const seen = new Set();
+    for (const value of values) {
+        for (const candidate of [
+            normalizeLoredeckCreatorString(value, 200),
+            normalizeLoredeckCreatorPackIdCandidate(value),
+        ]) {
+            if (!candidate || seen.has(candidate)) continue;
+            seen.add(candidate);
+            output.push(candidate);
+        }
+    }
+    return output;
+}
+
+function removeLoredeckCreatorJobsForGeneratedPackId(registry = {}, packId = '') {
+    const id = normalizeLoredeckCreatorString(packId, 200);
+    const normalizedId = normalizeLoredeckCreatorPackIdCandidate(packId);
+    const targetIds = new Set([id, normalizedId].filter(Boolean));
+    const next = normalizeLoredeckCreatorRegistry(registry);
+    if (!targetIds.size || !Object.keys(next.jobs || {}).length) {
+        return { registry: next, removedJobIds: [] };
+    }
+
+    const removedJobIds = [];
+    for (const [jobId, job] of Object.entries(next.jobs || {})) {
+        if (!getLoredeckCreatorJobGeneratedPackIdCandidates(job).some(candidate => targetIds.has(candidate))) continue;
+        delete next.jobs[jobId];
+        removedJobIds.push(jobId);
+    }
+    if (!removedJobIds.length) return { registry: next, removedJobIds };
+
+    const removed = new Set(removedJobIds);
+    if (removed.has(next.activeJobId)) next.activeJobId = '';
+    if (removed.has(next.lastJobId)) next.lastJobId = '';
+    const nextActive = getMostRecentLoredeckCreatorJob(next);
+    if (nextActive) {
+        next.activeJobId = nextActive.jobId;
+        next.lastJobId = nextActive.jobId;
+    }
+    return {
+        registry: normalizeLoredeckCreatorRegistry(next),
+        removedJobIds,
+    };
+}
+
 function normalizeThemeHexColor(value) {
     const text = String(value || '').trim();
     if (/^#[0-9a-f]{6}$/i.test(text)) return text.toLowerCase();
@@ -1419,13 +1481,13 @@ function normalizeThemeIconSetRegistry(value, defaults = DEFAULT_SETTINGS.themeI
     const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     const inputIconSets = input.iconSets && typeof input.iconSets === 'object' && !Array.isArray(input.iconSets)
         ? input.iconSets
-        : (input.packs && typeof input.packs === 'object' && !Array.isArray(input.packs) ? input.packs : {});
+        : {};
     const defaultIconSets = defaults?.iconSets || defaults?.packs || {};
     const iconSets = {};
 
     for (const [iconSetId, raw] of Object.entries({ ...defaultIconSets, ...inputIconSets })) {
         if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
-        const id = String(raw.id || raw.iconSetId || raw.iconPackId || iconSetId || '').trim();
+        const id = String(raw.id || raw.iconSetId || iconSetId || '').trim();
         if (!id) continue;
         const rawIcons = raw.icons && typeof raw.icons === 'object' && !Array.isArray(raw.icons)
             ? raw.icons
@@ -1475,7 +1537,6 @@ function normalizeThemePackRegistry(value, defaults = DEFAULT_SETTINGS.themePack
         const isBundledDefault = defaultPacks[id]?.type === 'bundled' || BUNDLED_THEME_PACK_IDS.includes(id);
         const type = raw.type === 'bundled' && isBundledDefault ? 'bundled' : 'custom';
         const source = raw.source && typeof raw.source === 'object' && !Array.isArray(raw.source) ? raw.source : {};
-        const iconPackId = String(raw.iconPackId || raw.icons?.packId || DEFAULT_SETTINGS.themeIconPackId || 'saga-hero').trim();
         const pack = {
             id,
             type,
@@ -1483,9 +1544,7 @@ function normalizeThemePackRegistry(value, defaults = DEFAULT_SETTINGS.themePack
             description: String(raw.description || '').trim(),
             author: String(raw.author || '').trim(),
             version: String(raw.version || '').trim(),
-            iconPackId,
             colors: normalizeThemeColorMap(raw.colors),
-            icons: normalizeThemeIconMap(raw.icons),
             source: {
                 kind: String(source.kind || (type === 'bundled' ? 'bundled' : 'local')).trim(),
                 url: String(source.url || '').trim(),
@@ -1515,6 +1574,9 @@ export function getThemeIconSetLibraryRegistry() {
 }
 
 export function upsertThemePackLibraryPack(packRecord = {}) {
+    if (packRecord?.icons) {
+        return { ok: false, error: 'Theme Packs cannot contain Icon Set fields. Import Icon Sets separately.' };
+    }
     const normalized = normalizeThemePackRegistry(
         { schemaVersion: 1, packs: { [packRecord.id || packRecord.themeId || '']: { ...packRecord, type: 'custom' } } },
         { schemaVersion: 1, packs: {} }
@@ -1525,10 +1587,6 @@ export function upsertThemePackLibraryPack(packRecord = {}) {
     }
     if (BUNDLED_THEME_PACK_IDS.includes(themeId)) {
         return { ok: false, error: 'Custom Theme Packs cannot replace a Bundled Theme Pack with the same id.' };
-    }
-    const tags = Array.isArray(pack.tags) ? pack.tags.map(tag => String(tag || '').trim().toLowerCase()) : [];
-    if (tags.includes('theme:icon-set') || tags.includes('icons:custom')) {
-        return { ok: false, error: 'Icon Sets must be imported through the Icon Set importer.' };
     }
 
     const settings = getSettings();
@@ -1562,6 +1620,7 @@ export function removeThemePackLibraryPack(themeId, options = {}) {
 
 export function importThemePackLibraryRegistry(registry = {}, options = {}) {
     const incoming = normalizeThemePackRegistry(registry, { schemaVersion: 1, packs: {} });
+    const rawPacks = registry?.packs && typeof registry.packs === 'object' && !Array.isArray(registry.packs) ? registry.packs : {};
     const settings = getSettings();
     const current = options.replace === true
         ? normalizeThemePackRegistry(DEFAULT_SETTINGS.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary)
@@ -1570,8 +1629,8 @@ export function importThemePackLibraryRegistry(registry = {}, options = {}) {
     let importedCount = 0;
     let skippedCount = 0;
     for (const [themeId, pack] of Object.entries(incoming.packs || {})) {
-        const tags = Array.isArray(pack.tags) ? pack.tags.map(tag => String(tag || '').trim().toLowerCase()) : [];
-        if (BUNDLED_THEME_PACK_IDS.includes(themeId) || tags.includes('theme:icon-set') || tags.includes('icons:custom')) {
+        const raw = rawPacks[themeId] || {};
+        if (BUNDLED_THEME_PACK_IDS.includes(themeId) || raw.icons) {
             skippedCount += 1;
             continue;
         }
@@ -1592,7 +1651,7 @@ export function importThemePackLibraryRegistry(registry = {}, options = {}) {
 
 export function upsertThemeIconSetLibraryPack(iconSetRecord = {}) {
     const normalized = normalizeThemeIconSetRegistry(
-        { schemaVersion: 1, iconSets: { [iconSetRecord.id || iconSetRecord.iconSetId || iconSetRecord.iconPackId || '']: { ...iconSetRecord, type: 'custom' } } },
+        { schemaVersion: 1, iconSets: { [iconSetRecord.id || iconSetRecord.iconSetId || '']: { ...iconSetRecord, type: 'custom' } } },
         { schemaVersion: 1, iconSets: {} }
     );
     const [iconSetId, iconSet] = Object.entries(normalized.iconSets || {})[0] || [];
@@ -1643,35 +1702,6 @@ export function importThemeIconSetLibraryRegistry(registry = {}, options = {}) {
     settings.themeIconSetLibrary = normalizeThemeIconSetRegistry(current, DEFAULT_SETTINGS.themeIconSetLibrary);
     saveSettings(settings);
     return { ok: true, importedCount, skippedCount, library: settings.themeIconSetLibrary };
-}
-
-function migrateLegacyThemePackIconSets(iconSetLibrary, themePackLibrary) {
-    const library = normalizeThemeIconSetRegistry(iconSetLibrary, DEFAULT_SETTINGS.themeIconSetLibrary);
-    const themeRegistry = normalizeThemePackRegistry(themePackLibrary, { schemaVersion: 1, packs: {} });
-    for (const [themeId, pack] of Object.entries(themeRegistry.packs || {})) {
-        if (!pack || pack.type === 'bundled') continue;
-        const icons = normalizeThemeIconMap(pack.icons);
-        if (!Object.keys(icons).length) continue;
-        const tags = Array.isArray(pack.tags) ? pack.tags.map(tag => String(tag || '').trim().toLowerCase()) : [];
-        if (!tags.includes('theme:icon-set') && !tags.includes('icons:custom')) continue;
-        if (BUNDLED_THEME_ICON_SET_IDS.includes(themeId) || library.iconSets[themeId]) continue;
-        library.iconSets[themeId] = {
-            schemaVersion: 1,
-            id: themeId,
-            type: 'custom',
-            title: pack.title || themeId,
-            description: pack.description || '',
-            author: pack.author || '',
-            version: pack.version || '',
-            preferredSize: 256,
-            icons,
-            source: pack.source || { kind: 'local', url: '' },
-            tags: pack.tags || ['icons:custom'],
-            installedAt: pack.installedAt || Date.now(),
-            updatedAt: pack.updatedAt || Date.now(),
-        };
-    }
-    return normalizeThemeIconSetRegistry(library, DEFAULT_SETTINGS.themeIconSetLibrary);
 }
 
 function createLoredeckCreatorJobId(seed = '') {
@@ -2078,24 +2108,55 @@ export function removeLoredeckLibraryPack(packId, options = {}) {
     const state = getState();
     const settings = getSettings();
     const library = normalizeLoredeckRegistry(settings.loredeckLibrary, DEFAULT_SETTINGS.loredeckLibrary);
+    const chatRegistry = normalizeLoredeckRegistry(state?.loredeckRegistry, { schemaVersion: 1, packs: {} });
+    let settingsChanged = false;
+    let stateChanged = false;
     let removed = false;
     if (library.packs[id]) {
         delete library.packs[id];
-        settings.loredeckLibrary = normalizeLoredeckRegistry(library, DEFAULT_SETTINGS.loredeckLibrary);
-        saveSettings(settings);
+        settingsChanged = true;
         removed = true;
     }
 
-    const chatRegistry = normalizeLoredeckRegistry(state?.loredeckRegistry, { schemaVersion: 1, packs: {} });
     if (chatRegistry.packs[id]) {
         delete chatRegistry.packs[id];
         state.loredeckRegistry = normalizeLoredeckRegistry(chatRegistry, { schemaVersion: 1, packs: {} });
-        saveState(state, { syncPrompt: false });
+        stateChanged = true;
         removed = true;
     }
 
-    if (!removed) return { ok: false, error: 'Loredeck is not registered.' };
-    return { ok: true, library: settings.loredeckLibrary };
+    const projectRegistryResult = options.clearCreatorProjects === false
+        ? { registry: getLoredeckCreatorSettingsRegistry(settings), removedJobIds: [] }
+        : removeLoredeckCreatorJobsForGeneratedPackId(settings.loredeckCreatorProjects, id);
+    const localRegistryResult = options.clearCreatorProjects === false
+        ? { registry: normalizeLoredeckCreatorRegistry(state.loredeckCreator || getDefaultState().loredeckCreator), removedJobIds: [] }
+        : removeLoredeckCreatorJobsForGeneratedPackId(state.loredeckCreator || getDefaultState().loredeckCreator, id);
+    const clearedCreatorJobIds = [
+        ...new Set([
+            ...(projectRegistryResult.removedJobIds || []),
+            ...(localRegistryResult.removedJobIds || []),
+        ]),
+    ];
+    if (projectRegistryResult.removedJobIds.length) {
+        settings.loredeckCreatorProjects = projectRegistryResult.registry;
+        settingsChanged = true;
+    }
+    if (localRegistryResult.removedJobIds.length) {
+        state.loredeckCreator = localRegistryResult.registry;
+        stateChanged = true;
+    }
+
+    if (!removed && !clearedCreatorJobIds.length) {
+        return { ok: false, error: 'Loredeck is not registered.' };
+    }
+    if (settingsChanged) {
+        settings.loredeckLibrary = normalizeLoredeckRegistry(library, DEFAULT_SETTINGS.loredeckLibrary);
+        saveSettings(settings);
+    }
+    if (stateChanged) {
+        saveState(state, { syncPrompt: false, sanitize: true });
+    }
+    return { ok: true, library: settings.loredeckLibrary, clearedCreatorJobIds };
 }
 
 export function importLoredeckLibraryRegistry(registry = {}, options = {}) {
@@ -2272,13 +2333,6 @@ export function getSettings() {
         stored.themeIconSetLibrary || DEFAULT_SETTINGS.themeIconSetLibrary,
         DEFAULT_SETTINGS.themeIconSetLibrary
     );
-    if (stored.themeIconSetLibrarySeparatedMigrated20260608 !== true) {
-        merged.themeIconSetLibrary = migrateLegacyThemePackIconSets(
-            merged.themeIconSetLibrary,
-            stored.themePackLibrary || DEFAULT_SETTINGS.themePackLibrary
-        );
-        merged.themeIconSetLibrarySeparatedMigrated20260608 = true;
-    }
     merged.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(
         stored.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects
     );
@@ -2306,14 +2360,6 @@ export function getSettings() {
     if (merged.experienceMode === 'basic'
         && Number(stored.basicExperienceProfileVersion || 0) < BASIC_EXPERIENCE_PROFILE_VERSION) {
         applyBasicExperienceProfile(merged);
-    }
-
-    if (stored.themeIconPackMigrated20260605 !== true) {
-        const storedIconPack = String(stored.themeIconPackId || '').trim();
-        if (!storedIconPack || storedIconPack === 'saga-gold') {
-            merged.themeIconPackId = DEFAULT_SETTINGS.themeIconPackId || 'saga-hero';
-        }
-        merged.themeIconPackMigrated20260605 = true;
     }
 
     if (stored.hpSplitLoredeckDefaultsMigrated20260605 !== true) {

@@ -106,12 +106,11 @@
       },
       "content": {
         "fact": "Polyjuice Potion is a complex potion the trio first uses during second year.",
-        "injection": "Treat Polyjuice Potion as advanced and risky; younger students should not casually brew or understand it unless our story has established special access. Enforce this as a high-priority Context gate for Polyjuice is advanced and dangerous.; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Treat Polyjuice Potion as advanced and risky; younger students should not casually brew or understand it unless our story has established special access. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Hermione is unusually capable for attempting it in Year 2.",
           "Most students should not treat Polyjuice as routine.",
-          "Apply only when Saga Context matches Polyjuice is advanced and dangerous.; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Polyjuice is advanced and dangerous.; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make Polyjuice a casual first-year trick.",
@@ -332,8 +331,7 @@
         "constraints": [
           "Do not give Harry map-based Hogwarts tracking or secret passage knowledge before the map reaches him.",
           "Fred and George may still possess the map before giving it to Harry.",
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let Year 1 or Year 2 Harry rely on the Marauder's Map unless this chat established a divergence.",
@@ -454,8 +452,7 @@
         "injection": "Before Hermione's Year 3 schedule is established, Harry, Ron, and Hermione should not use or know about a Time-Turner unless our story has introduced one early.",
         "constraints": [
           "Do not use time travel as a casual Year 1 or Year 2 solution.",
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not reveal Hermione's Time-Turner before the story has established her Year 3 arrangement.",
@@ -585,8 +582,7 @@
         "injection": "Before the Year 5 DA formation, do not treat Dumbledore's Army, DA meetings, DA coins, or DA-trained student combat skills as established unless our story created the group early.",
         "constraints": [
           "Students can still practice defense, but not as members of canon Dumbledore's Army before it forms.",
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not give younger students DA membership or DA training by default.",
@@ -713,8 +709,7 @@
         "injection": "Before the Room of Requirement is discovered or introduced in our story, Harry's circle should not casually know how to access it or use it as a default solution.",
         "constraints": [
           "Do not turn the Room of Requirement into a general-purpose early-year safe room unless the chat established that discovery.",
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not assume Harry, Ron, and Hermione know the room in Years 1-4 by default.",

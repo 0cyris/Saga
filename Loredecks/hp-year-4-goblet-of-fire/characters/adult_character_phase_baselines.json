@@ -280,14 +280,13 @@
       },
       "content": {
         "fact": "In Year 4, Sirius is still a fugitive but more intelligible as a protective adult: impulsive, affectionate, bitterly confined by circumstances, and eager to matter to Harry.",
-        "injection": "Write Sirius in his Year 4 fugitive-godfather phase as protective, intense, affectionate, impatient, and still marked by imprisonment; he wants to help but remains constrained by being a wanted man. Enforce this as a high-priority Context gate for Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Sirius in his Year 4 fugitive-godfather phase as protective, intense, affectionate, impatient, and still marked by imprisonment; he wants to help but remains constrained by being a wanted man. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Keep his judgment affected by isolation, trauma, and urgency; he is not a stable domestic guardian yet.",
           "Do not make him safely public, institutionally trusted, or fully recovered unless accepted story lore establishes a pardon or AU change.",
           "Keep specific contact methods, living arrangements, and relationship beats modular.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write Year 4 Sirius as openly free, legally cleared, or emotionally well-regulated.",
@@ -464,8 +463,7 @@
           "Keep servant identities, ritual details, and graveyard outcomes in separate dated entries.",
           "His weakness should not make him emotionally vulnerable or less cruel.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write pre-restoration Voldemort as healthy, publicly commanding, or broadly recognized as returned.",
@@ -646,8 +644,7 @@
           "Do not leak Barty Crouch Jr.’s identity through narration, casual dialogue, or student knowledge before the reveal gate allows it.",
           "Keep plot manipulation, Crouch-family history, and exposure outcomes modular.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write Year 4 Moody as openly Barty Crouch Jr. to students or staff without story-established revelation.",

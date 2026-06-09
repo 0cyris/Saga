@@ -91,10 +91,9 @@
       },
       "content": {
         "fact": "After the Little Whinging Dementor attack, Harry faces underage-magic legal consequences before being cleared at a Ministry hearing.",
-        "injection": "After the Little Whinging Dementor attack, Harry faces underage-magic legal consequences before being cleared at a Ministry hearing. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After the Little Whinging Dementor attack, Harry faces underage-magic legal consequences before being cleared at a Ministry hearing. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -224,10 +223,9 @@
       },
       "content": {
         "fact": "Number Twelve, Grimmauld Place functions as the Order of the Phoenix headquarters and a tense refuge where Harry learns only limited war information.",
-        "injection": "Number Twelve, Grimmauld Place functions as the Order of the Phoenix headquarters and a tense refuge where Harry learns only limited war information. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Number Twelve, Grimmauld Place functions as the Order of the Phoenix headquarters and a tense refuge where Harry learns only limited war information. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -355,10 +353,9 @@
       },
       "content": {
         "fact": "In Year 5, Harry is angry and isolated after the graveyard, while Dumbledore deliberately keeps distance to reduce perceived risk around Voldemort's link.",
-        "injection": "In Year 5, Harry is angry and isolated after the graveyard, while Dumbledore deliberately keeps distance to reduce perceived risk around Voldemort's link. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "In Year 5, Harry is angry and isolated after the graveyard, while Dumbledore deliberately keeps distance to reduce perceived risk around Voldemort's link. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -491,10 +488,9 @@
       },
       "content": {
         "fact": "Umbridge uses Ministry authority and Educational Decrees to constrain Hogwarts, suppress practical DADA, and expand surveillance over students and staff.",
-        "injection": "Umbridge uses Ministry authority and Educational Decrees to constrain Hogwarts, suppress practical DADA, and expand surveillance over students and staff. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Umbridge uses Ministry authority and Educational Decrees to constrain Hogwarts, suppress practical DADA, and expand surveillance over students and staff. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -634,10 +630,9 @@
       },
       "content": {
         "fact": "Dumbledore's Army forms secretly because Umbridge blocks practical defensive training; membership and meetings must stay hidden from school authority.",
-        "injection": "Dumbledore's Army forms secretly because Umbridge blocks practical defensive training; membership and meetings must stay hidden from school authority. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Dumbledore's Army forms secretly because Umbridge blocks practical defensive training; membership and meetings must stay hidden from school authority. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -784,10 +779,9 @@
       },
       "content": {
         "fact": "DA sessions improve practical defensive skills among participating students, but proficiency varies and remains tied to secret practice.",
-        "injection": "DA sessions improve practical defensive skills among participating students, but proficiency varies and remains tied to secret practice. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "DA sessions improve practical defensive skills among participating students, but proficiency varies and remains tied to secret practice. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -918,10 +912,9 @@
       },
       "content": {
         "fact": "Harry receives Occlumency lessons from Snape because of the mental connection with Voldemort, but the training is hostile and unreliable.",
-        "injection": "Harry receives Occlumency lessons from Snape because of the mental connection with Voldemort, but the training is hostile and unreliable. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry receives Occlumency lessons from Snape because of the mental connection with Voldemort, but the training is hostile and unreliable. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1181,10 +1174,9 @@
       },
       "content": {
         "fact": "Hagrid hides Grawp in the Forbidden Forest after his giant mission, worsening risk with centaurs and creating a private burden for Harry and Hermione.",
-        "injection": "Hagrid hides Grawp in the Forbidden Forest after his giant mission, worsening risk with centaurs and creating a private burden for Harry and Hermione. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Hagrid hides Grawp in the Forbidden Forest after his giant mission, worsening risk with centaurs and creating a private burden for Harry and Hermione. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1313,10 +1305,9 @@
       },
       "content": {
         "fact": "Spring Year 5 includes OWL pressure and career guidance; students' future class access depends on results and teacher requirements.",
-        "injection": "Spring Year 5 includes OWL pressure and career guidance; students' future class access depends on results and teacher requirements. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Spring Year 5 includes OWL pressure and career guidance; students' future class access depends on results and teacher requirements. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1453,11 +1444,10 @@
       },
       "content": {
         "fact": "Before the Department of Mysteries battle, Sirius's death, the prophecy contents, and the trap using Harry's vision must not leak into ordinary scene knowledge.",
-        "injection": "Before the Department of Mysteries battle, Sirius's death, the prophecy contents, and the trap using Harry's vision must not leak into ordinary scene knowledge. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before the Department of Mysteries battle, Sirius's death, the prophecy contents, and the trap using Harry's vision must not leak into ordinary scene knowledge. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Keep Sirius alive and the prophecy unrevealed before the Ministry battle.",
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1587,10 +1577,9 @@
       },
       "content": {
         "fact": "After the Department of Mysteries battle, Voldemort's return becomes publicly undeniable, Fudge's position weakens, and Harry knows more about the prophecy.",
-        "injection": "After the Department of Mysteries battle, Voldemort's return becomes publicly undeniable, Fudge's position weakens, and Harry knows more about the prophecy. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After the Department of Mysteries battle, Voldemort's return becomes publicly undeniable, Fudge's position weakens, and Harry knows more about the prophecy. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1721,10 +1710,9 @@
       },
       "content": {
         "fact": "By late Year 5, Neville, Luna, and Ginny have credible DA and Ministry-battle experience that should inform later resistance scenes.",
-        "injection": "By late Year 5, Neville, Luna, and Ginny have credible DA and Ministry-battle experience that should inform later resistance scenes. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "By late Year 5, Neville, Luna, and Ginny have credible DA and Ministry-battle experience that should inform later resistance scenes. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

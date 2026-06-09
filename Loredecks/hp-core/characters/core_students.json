@@ -119,11 +119,10 @@
       },
       "content": {
         "fact": "Harry Potter is a Gryffindor student at Hogwarts during the 1991-1998 canon school years, with unusual public attention because of his history with Voldemort.",
-        "injection": "Harry Potter is a Gryffindor student at Hogwarts during the 1991-1998 canon school years, with unusual public attention because of his history with Voldemort. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry Potter is a Gryffindor student at Hogwarts during the 1991-1998 canon school years, with unusual public attention because of his history with Voldemort. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "publicVersion": "Harry Potter is a famous Hogwarts student.",
         "constraints": [
-          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -258,11 +257,10 @@
       },
       "content": {
         "fact": "Hermione Granger is a highly studious Gryffindor student in Harry's year and is closely associated with Harry and Ron.",
-        "injection": "Hermione Granger is a highly studious Gryffindor student in Harry's year and is closely associated with Harry and Ron. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Hermione Granger is a highly studious Gryffindor student in Harry's year and is closely associated with Harry and Ron. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "publicVersion": "Hermione is known as an academically exceptional Gryffindor student.",
         "constraints": [
-          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -395,11 +393,10 @@
       },
       "content": {
         "fact": "Ron Weasley is a Gryffindor student in Harry's year and part of Harry's closest friend group.",
-        "injection": "Ron Weasley is a Gryffindor student in Harry's year and part of Harry's closest friend group. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Ron Weasley is a Gryffindor student in Harry's year and part of Harry's closest friend group. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "publicVersion": "Ron is a Gryffindor student from the Weasley family.",
         "constraints": [
-          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -533,11 +530,10 @@
       },
       "content": {
         "fact": "Draco Malfoy is a Slytherin student in Harry's year and a frequent rival or antagonist in school interactions.",
-        "injection": "Draco Malfoy is a Slytherin student in Harry's year and a frequent rival or antagonist in school interactions. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Draco Malfoy is a Slytherin student in Harry's year and a frequent rival or antagonist in school interactions. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "publicVersion": "Draco is a Slytherin student from the Malfoy family.",
         "constraints": [
-          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

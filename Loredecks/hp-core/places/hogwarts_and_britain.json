@@ -116,11 +116,10 @@
       },
       "content": {
         "fact": "Hogwarts is the central British wizarding school setting during the canon school years, with students sorted into houses and governed by school rules, staff, and magical protections.",
-        "injection": "Hogwarts is the central British wizarding school setting during the canon school years, with students sorted into houses and governed by school rules, staff, and magical protections. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Hogwarts is the central British wizarding school setting during the canon school years, with students sorted into houses and governed by school rules, staff, and magical protections. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "publicVersion": "Hogwarts is Britain's major wizarding school.",
         "constraints": [
-          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -231,11 +230,10 @@
       },
       "content": {
         "fact": "Hogsmeade is the wizarding village near Hogwarts that students may visit under school rules when permitted.",
-        "injection": "Hogsmeade is the wizarding village near Hogwarts that students may visit under school rules when permitted. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Hogsmeade is the wizarding village near Hogwarts that students may visit under school rules when permitted. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "publicVersion": "Hogsmeade is a nearby wizarding village associated with student visits.",
         "constraints": [
-          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -372,11 +370,10 @@
       },
       "content": {
         "fact": "The Ministry of Magic is the main British wizarding government authority and strongly affects public policy, law enforcement, and school politics during the later canon years.",
-        "injection": "The Ministry of Magic is the main British wizarding government authority and strongly affects public policy, law enforcement, and school politics during the later canon years. Enforce this as a high-priority Context gate for 1991-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Ministry of Magic is the main British wizarding government authority and strongly affects public policy, law enforcement, and school politics during the later canon years. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "publicVersion": "The Ministry governs British wizarding public life.",
         "constraints": [
-          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1991-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

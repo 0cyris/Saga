@@ -98,11 +98,10 @@
       },
       "content": {
         "fact": "From September 1996 through August 1997, the main school-year context aligns with Harry Potter's sixth year, when Voldemort's return is publicly acknowledged and the Second Wizarding War escalates.",
-        "injection": "From September 1996 through August 1997, the main school-year context aligns with Harry Potter's sixth year, when Voldemort's return is publicly acknowledged and the Second Wizarding War escalates. Enforce this as a high-priority Context gate for 1996-09-01 to 1997-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "From September 1996 through August 1997, the main school-year context aligns with Harry Potter's sixth year, when Voldemort's return is publicly acknowledged and the Second Wizarding War escalates. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "publicVersion": "Harry Potter is a sixth-year student during the Half-Blood Prince period.",
         "constraints": [
-          "Apply only when Saga Context matches 1996-09-01 to 1997-08-31; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1996-09-01 to 1997-08-31; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

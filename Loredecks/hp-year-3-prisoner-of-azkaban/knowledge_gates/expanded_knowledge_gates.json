@@ -88,8 +88,7 @@
         "injection": "Before the Shrieking Shack truth is established, characters generally believe Sirius Black betrayed the Potters; Harry does not know Peter Pettigrew is the traitor.",
         "constraints": [
           "Block early revelation of Sirius innocence and Peter’s betrayal.",
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

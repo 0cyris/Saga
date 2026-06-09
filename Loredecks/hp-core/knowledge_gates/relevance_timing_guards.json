@@ -79,8 +79,7 @@
         "constraints": [
           "This is a broad guard; narrower year-specific cards override it with exact timing.",
           "Use it when a model tries to import later-book knowledge into an earlier scene.",
-          "Apply only when Saga Context matches Golden Trio context-sensitive future reveal guard; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Golden Trio context-sensitive future reveal guard; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not allow Hermione, Ron, Harry, teachers, or narration to casually reference future secrets before their discovery windows.",
@@ -188,8 +187,7 @@
         "constraints": [
           "Dumbledore and Voldemort may have private knowledge earlier; that does not make the knowledge public or available to students.",
           "Hermione’s intelligence supports research after a clue; it does not grant unearned future knowledge.",
-          "Apply only when Saga Context matches Before and during Horcrux discovery arc; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before and during Horcrux discovery arc; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not treat Horcruxes as classroom material, library trivia, or common Auror vocabulary in earlier years.",
@@ -297,8 +295,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Xenophilius explains the Hallows; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Xenophilius explains the Hallows; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import Hallows vocabulary into Years 1-6 as if the trio is already pursuing it.",
@@ -402,8 +399,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Snape memories reveal; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Snape memories reveal; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let later fandom shorthand turn Snape into openly known Dumbledore-loyal ally before the memory reveal.",
@@ -507,8 +503,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Dumbledore explains the prophecy; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Dumbledore explains the prophecy; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make the prophecy common Order, Ministry, or student knowledge.",

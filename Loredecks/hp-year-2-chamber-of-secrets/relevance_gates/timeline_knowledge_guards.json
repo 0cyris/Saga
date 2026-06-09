@@ -85,8 +85,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Dobby is freed; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Dobby is freed; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -191,12 +190,11 @@
       },
       "content": {
         "fact": "After the Dueling Club reveals Harry can speak Parseltongue, many students suspect or fear him as a possible Heir of Slytherin.",
-        "injection": "After Parseltongue exposure, let school suspicion attach to Harry; before that anchor, do not make the school broadly treat him as the Heir. Enforce this as a high-priority Context gate for After Parseltongue exposure before Chamber resolution; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After Parseltongue exposure, let school suspicion attach to Harry; before that anchor, do not make the school broadly treat him as the Heir. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches After Parseltongue exposure before Chamber resolution; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches After Parseltongue exposure before Chamber resolution; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -309,8 +307,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before basilisk-pipes deduction; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before basilisk-pipes deduction; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -433,8 +430,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Ginny is taken into the Chamber; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Ginny is taken into the Chamber; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -551,8 +547,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before diary destruction; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before diary destruction; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",

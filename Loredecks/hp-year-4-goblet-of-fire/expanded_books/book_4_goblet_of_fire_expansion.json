@@ -217,10 +217,9 @@
       },
       "content": {
         "fact": "The Dark Mark appears after a Death Eater disturbance at the Quidditch World Cup, reviving public fear tied to Voldemort's old followers.",
-        "injection": "The Dark Mark appears after a Death Eater disturbance at the Quidditch World Cup, reviving public fear tied to Voldemort's old followers. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Dark Mark appears after a Death Eater disturbance at the Quidditch World Cup, reviving public fear tied to Voldemort's old followers. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -353,10 +352,9 @@
       },
       "content": {
         "fact": "The Triwizard Tournament returns in Year 4 with an Age Line and magically binding champion selection; Harry becomes a fourth champion despite being underage.",
-        "injection": "The Triwizard Tournament returns in Year 4 with an Age Line and magically binding champion selection; Harry becomes a fourth champion despite being underage. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Triwizard Tournament returns in Year 4 with an Age Line and magically binding champion selection; Harry becomes a fourth champion despite being underage. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -483,11 +481,10 @@
       },
       "content": {
         "fact": "Before the end of Year 4, students and most staff believe Alastor Moody is teaching DADA; Barty Crouch Jr.'s impersonation is hidden.",
-        "injection": "Before the end of Year 4, students and most staff believe Alastor Moody is teaching DADA; Barty Crouch Jr.'s impersonation is hidden. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before the end of Year 4, students and most staff believe Alastor Moody is teaching DADA; Barty Crouch Jr.'s impersonation is hidden. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not reveal Moody is an impostor before the post-graveyard exposure.",
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -621,10 +618,9 @@
       },
       "content": {
         "fact": "In Year 4 DADA, students are formally exposed to the concept and effects of the Unforgivable Curses, but this does not make them competent users.",
-        "injection": "In Year 4 DADA, students are formally exposed to the concept and effects of the Unforgivable Curses, but this does not make them competent users. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "In Year 4 DADA, students are formally exposed to the concept and effects of the Unforgivable Curses, but this does not make them competent users. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1153,10 +1149,9 @@
       },
       "content": {
         "fact": "Crouch Sr., Winky, Karkaroff, and related clues point toward a hidden Death Eater plot, but Barty Crouch Jr. remains unidentified until the climax.",
-        "injection": "Crouch Sr., Winky, Karkaroff, and related clues point toward a hidden Death Eater plot, but Barty Crouch Jr. remains unidentified until the climax. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Crouch Sr., Winky, Karkaroff, and related clues point toward a hidden Death Eater plot, but Barty Crouch Jr. remains unidentified until the climax. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1291,11 +1286,10 @@
       },
       "content": {
         "fact": "Before the third task climax, the Triwizard Cup's Portkey trap, Cedric's death, and Voldemort's restored body must not leak into ordinary scene knowledge.",
-        "injection": "Before the third task climax, the Triwizard Cup's Portkey trap, Cedric's death, and Voldemort's restored body must not leak into ordinary scene knowledge. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before the third task climax, the Triwizard Cup's Portkey trap, Cedric's death, and Voldemort's restored body must not leak into ordinary scene knowledge. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Keep Cedric alive and Voldemort's return unrevealed before the graveyard event.",
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1425,10 +1419,9 @@
       },
       "content": {
         "fact": "After the graveyard, Cedric is dead, Voldemort has returned physically, and Harry is one of the few direct witnesses to the event.",
-        "injection": "After the graveyard, Cedric is dead, Voldemort has returned physically, and Harry is one of the few direct witnesses to the event. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After the graveyard, Cedric is dead, Voldemort has returned physically, and Harry is one of the few direct witnesses to the event. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1561,10 +1554,9 @@
       },
       "content": {
         "fact": "After Year 4, Dumbledore and Harry treat Voldemort's return as true while Fudge and the Ministry begin denying or minimizing the claim.",
-        "injection": "After Year 4, Dumbledore and Harry treat Voldemort's return as true while Fudge and the Ministry begin denying or minimizing the claim. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After Year 4, Dumbledore and Harry treat Voldemort's return as true while Fudge and the Ministry begin denying or minimizing the claim. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

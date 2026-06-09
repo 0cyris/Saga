@@ -96,11 +96,10 @@
       },
       "content": {
         "fact": "From September 1997 through August 1998, the main canon context aligns with the Deathly Hallows period and the open Second Wizarding War.",
-        "injection": "From September 1997 through August 1998, the main canon context aligns with the Deathly Hallows period and the open Second Wizarding War. Enforce this as a high-priority Context gate for 1997-09-01 to 1998-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "From September 1997 through August 1998, the main canon context aligns with the Deathly Hallows period and the open Second Wizarding War. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "publicVersion": "The wizarding world is in open wartime conditions.",
         "constraints": [
-          "Apply only when Saga Context matches 1997-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1997-09-01 to 1998-08-31; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

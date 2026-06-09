@@ -93,11 +93,10 @@
       },
       "content": {
         "fact": "Before the Seven Potters flight resolves, Hedwig and Moody's deaths and the full outcome of the escape should not be known.",
-        "injection": "Before the Seven Potters flight resolves, Hedwig and Moody's deaths and the full outcome of the escape should not be known. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before the Seven Potters flight resolves, Hedwig and Moody's deaths and the full outcome of the escape should not be known. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Keep Hedwig and Moody alive until the Seven Potters event resolves.",
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -234,10 +233,9 @@
       },
       "content": {
         "fact": "The Burrow wedding is interrupted by news of the Ministry's fall, forcing Harry, Ron, and Hermione into fugitive status.",
-        "injection": "The Burrow wedding is interrupted by news of the Ministry's fall, forcing Harry, Ron, and Hermione into fugitive status. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Burrow wedding is interrupted by news of the Ministry's fall, forcing Harry, Ron, and Hermione into fugitive status. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -374,10 +372,9 @@
       },
       "content": {
         "fact": "During the camping phase, protective enchantments and constant movement keep the trio hidden while the locket worsens fear, anger, and mistrust.",
-        "injection": "During the camping phase, protective enchantments and constant movement keep the trio hidden while the locket worsens fear, anger, and mistrust. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "During the camping phase, protective enchantments and constant movement keep the trio hidden while the locket worsens fear, anger, and mistrust. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -511,10 +508,9 @@
       },
       "content": {
         "fact": "Ron leaves during the Horcrux hunt but later returns using the Deluminator, helps recover the sword, and destroys the locket.",
-        "injection": "Ron leaves during the Horcrux hunt but later returns using the Deluminator, helps recover the sword, and destroys the locket. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Ron leaves during the Horcrux hunt but later returns using the Deluminator, helps recover the sword, and destroys the locket. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -648,11 +644,10 @@
       },
       "content": {
         "fact": "Before the Xenophilius Lovegood visit, the trio does not have a coherent framework for the Deathly Hallows symbol or the three objects.",
-        "injection": "Before the Xenophilius Lovegood visit, the trio does not have a coherent framework for the Deathly Hallows symbol or the three objects. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before the Xenophilius Lovegood visit, the trio does not have a coherent framework for the Deathly Hallows symbol or the three objects. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not explain the Hallows framework before the Lovegood visit.",
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -794,11 +789,10 @@
       },
       "content": {
         "fact": "Before the Malfoy Manor escape, Dobby’s death, Hermione’s torture, and the wand-allegiance transfer from Draco to Harry should remain unrevealed.",
-        "injection": "Before the Malfoy Manor escape, Dobby’s death, Hermione’s torture, and the wand-allegiance transfer from Draco to Harry should remain unrevealed. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before the Malfoy Manor escape, Dobby’s death, Hermione’s torture, and the wand-allegiance transfer from Draco to Harry should remain unrevealed. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Keep Dobby alive and wand-transfer logic hidden before the Malfoy Manor escape.",
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -935,10 +929,9 @@
       },
       "content": {
         "fact": "The Gringotts break-in obtains Hufflepuff's cup from Bellatrix's vault and ends with a dragon escape, exposing the Horcrux hunt to Voldemort.",
-        "injection": "The Gringotts break-in obtains Hufflepuff's cup from Bellatrix's vault and ends with a dragon escape, exposing the Horcrux hunt to Voldemort. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Gringotts break-in obtains Hufflepuff's cup from Bellatrix's vault and ends with a dragon escape, exposing the Horcrux hunt to Voldemort. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1076,10 +1069,9 @@
       },
       "content": {
         "fact": "The return through Hogsmeade brings Harry to Aberforth and then into Hogwarts through DA-linked passageways for the final Horcrux search.",
-        "injection": "The return through Hogsmeade brings Harry to Aberforth and then into Hogwarts through DA-linked passageways for the final Horcrux search. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The return through Hogsmeade brings Harry to Aberforth and then into Hogwarts through DA-linked passageways for the final Horcrux search. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1219,10 +1211,9 @@
       },
       "content": {
         "fact": "During Year 7, Hogwarts is controlled by Snape as headmaster and the Carrows as enforcers, while Neville, Ginny, Luna, and DA allies resist.",
-        "injection": "During Year 7, Hogwarts is controlled by Snape as headmaster and the Carrows as enforcers, while Neville, Ginny, Luna, and DA allies resist. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "During Year 7, Hogwarts is controlled by Snape as headmaster and the Carrows as enforcers, while Neville, Ginny, Luna, and DA allies resist. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1364,10 +1355,9 @@
       },
       "content": {
         "fact": "During the Battle of Hogwarts, the diadem Horcrux is located in the Room of Requirement and destroyed amid a deadly confrontation and cursed fire.",
-        "injection": "During the Battle of Hogwarts, the diadem Horcrux is located in the Room of Requirement and destroyed amid a deadly confrontation and cursed fire. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "During the Battle of Hogwarts, the diadem Horcrux is located in the Room of Requirement and destroyed amid a deadly confrontation and cursed fire. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1501,11 +1491,10 @@
       },
       "content": {
         "fact": "Before the Battle of Hogwarts reaches its relevant phase, major deaths and survival outcomes must remain hidden, including Fred, Lupin, Tonks, Snape, and Voldemort.",
-        "injection": "Before the Battle of Hogwarts reaches its relevant phase, major deaths and survival outcomes must remain hidden, including Fred, Lupin, Tonks, Snape, and Voldemort. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before the Battle of Hogwarts reaches its relevant phase, major deaths and survival outcomes must remain hidden, including Fred, Lupin, Tonks, Snape, and Voldemort. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not reveal battle casualty outcomes before they occur in-scene.",
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1640,11 +1629,10 @@
       },
       "content": {
         "fact": "Snape's memories reveal his long-term loyalty, his connection to Lily, and Dumbledore-related choices only after Harry receives and views them.",
-        "injection": "Snape's memories reveal his long-term loyalty, his connection to Lily, and Dumbledore-related choices only after Harry receives and views them. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Snape's memories reveal his long-term loyalty, his connection to Lily, and Dumbledore-related choices only after Harry receives and views them. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Keep Snape's loyalty hidden until memories are viewed.",
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1776,10 +1764,9 @@
       },
       "content": {
         "fact": "The Elder Wand’s allegiance follows defeat/disarmament logic, ending with Harry’s claim through Draco unless our story establishes a different chain.",
-        "injection": "The Elder Wand’s allegiance follows defeat/disarmament logic, ending with Harry’s claim through Draco unless our story establishes a different chain. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Elder Wand’s allegiance follows defeat/disarmament logic, ending with Harry’s claim through Draco unless our story establishes a different chain. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1909,10 +1896,9 @@
       },
       "content": {
         "fact": "Harry goes to the forest expecting death and experiences a liminal King's Cross-like encounter tied to the Horcrux fragment in him.",
-        "injection": "Harry goes to the forest expecting death and experiences a liminal King's Cross-like encounter tied to the Horcrux fragment in him. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry goes to the forest expecting death and experiences a liminal King's Cross-like encounter tied to the Horcrux fragment in him. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -2044,10 +2030,9 @@
       },
       "content": {
         "fact": "After the final duel, Voldemort is dead, Harry survives, the remaining Horcrux threat is ended, and the immediate postwar state begins at Hogwarts.",
-        "injection": "After the final duel, Voldemort is dead, Harry survives, the remaining Horcrux threat is ended, and the immediate postwar state begins at Hogwarts. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After the final duel, Voldemort is dead, Harry survives, the remaining Horcrux threat is ended, and the immediate postwar state begins at Hogwarts. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

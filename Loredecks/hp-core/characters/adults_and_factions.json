@@ -130,8 +130,7 @@
         "injection": "Before the Astronomy Tower event, Dumbledore is alive and remains a decisive authority at Hogwarts; do not treat him as dead, memorialized, or absent unless our story has established a different outcome.",
         "constraints": [
           "After the Tower event, use Dumbledore death-state lore instead.",
-          "Apply only when Saga Context matches 1991-09-01 to 1997-06-30; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1991-09-01 to 1997-06-30; if the scene is earlier, withhold this fact or state."
         ],
         "publicVersion": "Dumbledore is Hogwarts Headmaster.",
         "antiLore": [
@@ -278,11 +277,10 @@
       },
       "content": {
         "fact": "Severus Snape is a Hogwarts professor; he teaches Potions before the 1996-1997 school year and Defense Against the Dark Arts during Year 6.",
-        "injection": "Severus Snape is a Hogwarts professor; he teaches Potions before the 1996-1997 school year and Defense Against the Dark Arts during Year 6. Enforce this as a high-priority Context gate for 1991-09-01 to 1997-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Severus Snape is a Hogwarts professor; he teaches Potions before the 1996-1997 school year and Defense Against the Dark Arts during Year 6. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "publicVersion": "Snape is a Hogwarts professor with a severe reputation.",
         "constraints": [
-          "Apply only when Saga Context matches 1991-09-01 to 1997-08-31; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1991-09-01 to 1997-08-31; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

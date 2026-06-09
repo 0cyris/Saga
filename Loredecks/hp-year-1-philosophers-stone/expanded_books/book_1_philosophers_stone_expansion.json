@@ -89,11 +89,10 @@
       },
       "content": {
         "fact": "Before Hagrid explains the magical world in summer 1991, Harry does not have reliable knowledge of Hogwarts, his parents' magical lives, or Voldemort's role in their deaths.",
-        "injection": "Before Hagrid explains the magical world in summer 1991, Harry does not have reliable knowledge of Hogwarts, his parents' magical lives, or Voldemort's role in their deaths. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before Hagrid explains the magical world in summer 1991, Harry does not have reliable knowledge of Hogwarts, his parents' magical lives, or Voldemort's role in their deaths. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not let Harry speak as if he understands wizarding society before Hagrid explains it.",
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -356,10 +355,9 @@
       },
       "content": {
         "fact": "Hagrid tells Harry he is a wizard, explains the existence of Hogwarts, and overturns the Dursleys' false account of his parents.",
-        "injection": "Hagrid tells Harry he is a wizard, explains the existence of Hogwarts, and overturns the Dursleys' false account of his parents. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Hagrid tells Harry he is a wizard, explains the existence of Hogwarts, and overturns the Dursleys' false account of his parents. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1141,10 +1139,9 @@
       },
       "content": {
         "fact": "The Halloween troll incident changes Harry, Ron, and Hermione from classmates in tension into a trusted friend group.",
-        "injection": "The Halloween troll incident changes Harry, Ron, and Hermione from classmates in tension into a trusted friend group. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Halloween troll incident changes Harry, Ron, and Hermione from classmates in tension into a trusted friend group. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1278,10 +1275,9 @@
       },
       "content": {
         "fact": "The Norbert incident leads to detention in the Forbidden Forest, where unicorn attacks point toward a hidden figure preserving life unnaturally.",
-        "injection": "The Norbert incident leads to detention in the Forbidden Forest, where unicorn attacks point toward a hidden figure preserving life unnaturally. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Norbert incident leads to detention in the Forbidden Forest, where unicorn attacks point toward a hidden figure preserving life unnaturally. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1413,11 +1409,10 @@
       },
       "content": {
         "fact": "Before the Philosopher's Stone confrontation, Harry and most students should not know that Quirrell is serving as Voldemort's host and agent.",
-        "injection": "Before the Philosopher's Stone confrontation, Harry and most students should not know that Quirrell is serving as Voldemort's host and agent. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before the Philosopher's Stone confrontation, Harry and most students should not know that Quirrell is serving as Voldemort's host and agent. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Keep Quirrell's allegiance hidden until the Stone-chamber reveal.",
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1549,10 +1544,9 @@
       },
       "content": {
         "fact": "The Stone gauntlet resolves with Quirrell stopped, Voldemort denied the Stone, and Dumbledore choosing to have the Stone destroyed.",
-        "injection": "The Stone gauntlet resolves with Quirrell stopped, Voldemort denied the Stone, and Dumbledore choosing to have the Stone destroyed. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Stone gauntlet resolves with Quirrell stopped, Voldemort denied the Stone, and Dumbledore choosing to have the Stone destroyed. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

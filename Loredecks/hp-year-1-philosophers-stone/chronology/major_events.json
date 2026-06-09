@@ -65,10 +65,9 @@
       },
       "content": {
         "fact": "The Philosopher's Stone plot is resolved and Quirrell is dead.",
-        "injection": "The Philosopher's Stone plot is resolved and Quirrell is dead. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Philosopher's Stone plot is resolved and Quirrell is dead. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

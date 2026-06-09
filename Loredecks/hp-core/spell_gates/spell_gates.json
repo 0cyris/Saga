@@ -97,11 +97,10 @@
       },
       "content": {
         "fact": "The Patronus Charm is advanced defensive magic; Harry learns it unusually early, while most students do not cast it before Dumbledore’s Army training.",
-        "injection": "The Patronus Charm is advanced defensive magic; Harry learns it unusually early, while most students do not cast it before Dumbledore’s Army training. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Patronus Charm is advanced defensive magic; Harry learns it unusually early, while most students do not cast it before Dumbledore’s Army training. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Treat Expecto Patronum knowledge as Context- and character-gated.",
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make Expecto Patronum common student knowledge too early.",
@@ -270,11 +269,10 @@
       },
       "content": {
         "fact": "Sectumsempra is obscure and dangerous; Harry should not know it, and most students should not recognize it.",
-        "injection": "Sectumsempra is obscure and dangerous; Harry should not know it, and most students should not recognize it. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Sectumsempra is obscure and dangerous; Harry should not know it, and most students should not recognize it. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Treat Sectumsempra knowledge as Context- and character-gated.",
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make Sectumsempra common student knowledge too early.",
@@ -541,11 +539,10 @@
       },
       "content": {
         "fact": "Nonverbal magic is a Year 6-level skill and should not be routine for younger students.",
-        "injection": "Nonverbal magic is a Year 6-level skill and should not be routine for younger students. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Nonverbal magic is a Year 6-level skill and should not be routine for younger students. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Treat nonverbal magic knowledge as Context- and character-gated.",
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make nonverbal magic common student knowledge too early.",

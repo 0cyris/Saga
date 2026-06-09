@@ -79,11 +79,10 @@
       },
       "content": {
         "fact": "Before Lupin's Year 3 Boggart lesson or a story-established equivalent, Riddikulus should not be routine student knowledge.",
-        "injection": "Do not let first- or second-year students casually know or use Riddikulus unless our story has established early Boggart instruction. Enforce this as a high-priority Context gate for Prisoner of Azkaban: Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Do not let first- or second-year students casually know or use Riddikulus unless our story has established early Boggart instruction. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Date-gate Boggart handling to Year 3 instruction unless our story establishes otherwise.",
-          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Prisoner of Azkaban: Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not spotlight Riddikulus in later years unless Boggarts or DADA lessons are actually relevant.",

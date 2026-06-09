@@ -121,8 +121,7 @@
           "Portrait behavior should be constrained, indirect, and tied to the setting where the portrait or memory exists.",
           "Keep revelations about plans, motives, and hidden knowledge governed by separate reveal gates.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not use post-death Dumbledore as a normal mobile character or deus ex machina.",
@@ -299,14 +298,13 @@
       },
       "content": {
         "fact": "In Year 7 before his death, Snape is Headmaster under an occupied Hogwarts regime: colder, more isolated, politically compromised in public, and nearly unreadable.",
-        "injection": "Write Snape as occupied-Hogwarts Headmaster: controlled, severe, isolated, publicly aligned with the regime, and almost impossible for students to read emotionally or morally. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Snape as occupied-Hogwarts Headmaster: controlled, severe, isolated, publicly aligned with the regime, and almost impossible for students to read emotionally or morally. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not soften his public presentation; most observers should find him intimidating, compromised, or hostile.",
           "Do not reveal his hidden motives or full allegiance unless separate late-Year-7 reveal lore is active.",
           "Keep student resistance, punishments, and battle outcomes in separate dated entries.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write Headmaster Snape as openly nurturing, openly repentant, or transparently on Harry’s side.",
@@ -480,14 +478,13 @@
       },
       "content": {
         "fact": "In Year 7, Hagrid remains fundamentally loyal, emotionally direct, and hard to intimidate, but Hogwarts occupation pressure makes his usual openness more dangerous.",
-        "injection": "Write Hagrid in occupied-Hogwarts Year 7 as still warm, blunt, loyal, and brave, but operating under hostile pressure where open support or careless speech can have consequences. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Hagrid in occupied-Hogwarts Year 7 as still warm, blunt, loyal, and brave, but operating under hostile pressure where open support or careless speech can have consequences. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make him politically subtle; his courage is emotional and direct rather than covertly strategic.",
           "Do not assume he is available in every Year 7 scene if a separate dated entry establishes hiding, capture, or absence.",
           "Keep occupation incidents and battle outcomes separate from this baseline.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write Year 7 Hagrid as calm under tyranny in the manner of a professional spy.",
@@ -659,14 +656,13 @@
       },
       "content": {
         "fact": "In Year 7, McGonagall remains formal and disciplined, but her protective courage is sharper under occupied Hogwarts conditions.",
-        "injection": "Write McGonagall in occupied-Hogwarts Year 7 as controlled, severe, morally clear, and protective under pressure; she should resist through discipline and decisive action, not theatrical rebellion unless the story reaches that point. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write McGonagall in occupied-Hogwarts Year 7 as controlled, severe, morally clear, and protective under pressure; she should resist through discipline and decisive action, not theatrical rebellion unless the story reaches that point. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make her reckless; her defiance should be principled, measured, and institutionally aware until open conflict is established.",
           "Keep battle actions and public regime changes in separate dated entries.",
           "Maintain her formal speech and high standards even when she is frightened or angry.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write Year 7 McGonagall as passive, cowed, or casually informal.",
@@ -838,14 +834,13 @@
       },
       "content": {
         "fact": "In Year 7, Amycus Carrow is a brutal occupying professor: crude, cruel, ideologically loyal, and comfortable using intimidation as instruction.",
-        "injection": "Write Amycus Carrow as a crude, cruel, authoritarian Death Eater instructor whose classroom presence is intimidation, punishment, and ideology rather than education. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Amycus Carrow as a crude, cruel, authoritarian Death Eater instructor whose classroom presence is intimidation, punishment, and ideology rather than education. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not soften him into a normal strict teacher.",
           "Keep specific punishments, student resistance, and battle outcomes in separate dated entries.",
           "He should feel like part of an occupation regime, not ordinary Hogwarts staff culture.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write Amycus Carrow as a nuanced mentor unless accepted AU lore explicitly changes him.",
@@ -1018,14 +1013,13 @@
       },
       "content": {
         "fact": "In Year 7, Alecto Carrow is a cruel occupying professor: ideological, punitive, contemptuous, and part of the regime’s attempt to reshape Hogwarts culture.",
-        "injection": "Write Alecto Carrow as a punitive, bigoted, authoritarian Death Eater instructor whose lessons serve regime ideology rather than education. Enforce this as a high-priority Context gate for Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Alecto Carrow as a punitive, bigoted, authoritarian Death Eater instructor whose lessons serve regime ideology rather than education. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat her as ordinary faculty or a harmless disciplinarian.",
           "Keep specific punishments, resistance episodes, and battle outcomes in separate dated entries.",
           "Her menace should be institutional and ideological as well as personal.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write Alecto Carrow as an eccentric but fundamentally safe professor.",

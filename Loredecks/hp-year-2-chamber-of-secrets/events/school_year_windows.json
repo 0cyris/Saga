@@ -93,11 +93,10 @@
       },
       "content": {
         "fact": "From September 1992 through August 1993, the main school-year context aligns with Harry Potter's second year at Hogwarts.",
-        "injection": "From September 1992 through August 1993, the main school-year context aligns with Harry Potter's second year at Hogwarts. Enforce this as a high-priority Context gate for 1992-09-01 to 1993-08-31; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "From September 1992 through August 1993, the main school-year context aligns with Harry Potter's second year at Hogwarts. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "publicVersion": "Harry Potter is a second-year student at Hogwarts.",
         "constraints": [
-          "Apply only when Saga Context matches 1992-09-01 to 1993-08-31; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches 1992-09-01 to 1993-08-31; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

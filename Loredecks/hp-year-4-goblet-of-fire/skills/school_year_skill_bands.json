@@ -62,11 +62,10 @@
       },
       "content": {
         "fact": "Fourth-years are intermediate students; exposure to serious curses should not make them casual users of adult-level magic.",
-        "injection": "Do not let fourth-years casually perform adult-level magic just because they have heard about serious curses. Enforce this as a high-priority Context gate for Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Do not let fourth-years casually perform adult-level magic just because they have heard about serious curses. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Treat Year 4 curse knowledge as exposure, not mastery.",
-          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make Unforgivable or advanced combat magic routine student spellwork.",

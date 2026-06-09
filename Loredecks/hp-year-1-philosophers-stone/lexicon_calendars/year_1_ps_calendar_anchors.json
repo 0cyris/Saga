@@ -365,11 +365,10 @@
       },
       "content": {
         "fact": "On Harry’s eleventh birthday, Hagrid arrives at the sea hut, tells Harry he is a wizard, and initiates his entrance into the wizarding world.",
-        "injection": "On Harry’s eleventh birthday, Hagrid arrives at the sea hut, tells Harry he is a wizard, and initiates his entrance into the wizarding world. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "On Harry’s eleventh birthday, Hagrid arrives at the sea hut, tells Harry he is a wizard, and initiates his entrance into the wizarding world. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -508,11 +507,10 @@
       },
       "content": {
         "fact": "During Harry’s first Diagon Alley trip, Ollivander matches him with a holly and phoenix-feather wand whose core is paired with Voldemort’s wand.",
-        "injection": "During Harry’s first Diagon Alley trip, Ollivander matches him with a holly and phoenix-feather wand whose core is paired with Voldemort’s wand. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "During Harry’s first Diagon Alley trip, Ollivander matches him with a holly and phoenix-feather wand whose core is paired with Voldemort’s wand. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1072,11 +1070,10 @@
       },
       "content": {
         "fact": "In Harry’s first Potions lesson, Snape publicly singles him out and begins an antagonistic classroom dynamic that persists through the year.",
-        "injection": "In Harry’s first Potions lesson, Snape publicly singles him out and begins an antagonistic classroom dynamic that persists through the year. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "In Harry’s first Potions lesson, Snape publicly singles him out and begins an antagonistic classroom dynamic that persists through the year. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1360,11 +1357,10 @@
       },
       "content": {
         "fact": "The attempted midnight duel leads Harry, Ron, Hermione, and Neville to discover the three-headed dog guarding the forbidden third-floor corridor.",
-        "injection": "The attempted midnight duel leads Harry, Ron, Hermione, and Neville to discover the three-headed dog guarding the forbidden third-floor corridor. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The attempted midnight duel leads Harry, Ron, Hermione, and Neville to discover the three-headed dog guarding the forbidden third-floor corridor. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1643,11 +1639,10 @@
       },
       "content": {
         "fact": "After the mountain troll enters Hogwarts, Harry and Ron rescue Hermione; the aftermath establishes the core trio friendship.",
-        "injection": "After the mountain troll enters Hogwarts, Harry and Ron rescue Hermione; the aftermath establishes the core trio friendship. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After the mountain troll enters Hogwarts, Harry and Ron rescue Hermione; the aftermath establishes the core trio friendship. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1784,11 +1779,10 @@
       },
       "content": {
         "fact": "During Harry’s first Quidditch match, Quirrell tries to jinx his broom while Snape quietly counters the jinx; Gryffindor wins when Harry catches the Snitch.",
-        "injection": "During Harry’s first Quidditch match, Quirrell tries to jinx his broom while Snape quietly counters the jinx; Gryffindor wins when Harry catches the Snitch. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "During Harry’s first Quidditch match, Quirrell tries to jinx his broom while Snape quietly counters the jinx; Gryffindor wins when Harry catches the Snitch. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1929,11 +1923,10 @@
       },
       "content": {
         "fact": "Harry receives the Invisibility Cloak at Christmas and soon discovers the Mirror of Erised, creating a winter secret centered on his family longing.",
-        "injection": "Harry receives the Invisibility Cloak at Christmas and soon discovers the Mirror of Erised, creating a winter secret centered on his family longing. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry receives the Invisibility Cloak at Christmas and soon discovers the Mirror of Erised, creating a winter secret centered on his family longing. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -2216,11 +2209,10 @@
       },
       "content": {
         "fact": "Harry’s Forbidden Forest detention exposes him to the unicorn-blood mystery and a direct threat connected to Voldemort’s survival.",
-        "injection": "Harry’s Forbidden Forest detention exposes him to the unicorn-blood mystery and a direct threat connected to Voldemort’s survival. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry’s Forbidden Forest detention exposes him to the unicorn-blood mystery and a direct threat connected to Voldemort’s survival. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -2366,11 +2358,10 @@
       },
       "content": {
         "fact": "After exams, Harry, Ron, and Hermione enter the trapdoor route; Harry confronts Quirrell and Voldemort, then spends several days unconscious in the hospital wing.",
-        "injection": "After exams, Harry, Ron, and Hermione enter the trapdoor route; Harry confronts Quirrell and Voldemort, then spends several days unconscious in the hospital wing. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After exams, Harry, Ron, and Hermione enter the trapdoor route; Harry confronts Quirrell and Voldemort, then spends several days unconscious in the hospital wing. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

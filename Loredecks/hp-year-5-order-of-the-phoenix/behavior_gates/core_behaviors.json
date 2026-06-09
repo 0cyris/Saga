@@ -76,8 +76,7 @@
         "injection": "Harry is angry, traumatized, and frustrated by disbelief during Year 5; He distrusts Ministry narratives and is protective of friends; His volatility should cool or shift if the current scene gives him relief; do not keep anger permanently maxed without reinforcement.",
         "constraints": [
           "His volatility should cool or shift if the current scene gives him relief; do not keep anger permanently maxed without reinforcement.",
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

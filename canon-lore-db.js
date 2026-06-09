@@ -18,12 +18,15 @@ import { normalizeLoreMatrix, buildLoreGenerationKey } from './lore-matrix.js';
 import { preprocessPendingLoreEntries } from './pending-lore-preprocessor.js';
 import { normalizeLorePurpose, computeSpecificityScore, isSpecificLorePurpose } from './lore-relevance.js';
 import { combineLoredeckHealth, fetchJson, loadLoredeckStackSources } from './loredeck-loader.js';
+import { resolveLoredeckStackItems } from './loredeck-library-index.js';
 import { evaluateEntryContextGate, CONTEXT_GATE_STATUSES } from './context-gating.js';
 import { getContextIndexSync, loadContextIndex } from './context-index.js';
 import { buildLoredeckRetrievalAudit, recordLoredeckRetrievalAudit } from './retrieval-audit.js';
 
 let _dbCache = null;
+let _dbCacheSignature = '';
 let _dbLoadPromise = null;
+let _dbLoadSignature = '';
 
 export const CANON_DB_SOURCE = 'canon-lore-db';
 
@@ -237,14 +240,103 @@ function dedupeLoredeckEntriesByStack(entries = [], health = null) {
     return { entries: output, duplicateEntryIds };
 }
 
-export async function loadCanonLoreDatabase() {
-    if (_dbCache) return _dbCache;
-    if (_dbLoadPromise) return _dbLoadPromise;
+function cleanCacheString(value, maxLength = 240) {
+    return String(value || '').trim().replace(/\s+/g, ' ').slice(0, maxLength);
+}
 
+function cleanCacheNumber(value, fallback = 0) {
+    const number = Number(value);
+    return Number.isFinite(number) ? number : fallback;
+}
+
+function hashSignatureText(text = '') {
+    let hash = 2166136261;
+    for (let index = 0; index < text.length; index += 1) {
+        hash ^= text.charCodeAt(index);
+        hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(36);
+}
+
+function hashSignatureValue(value) {
+    try {
+        const text = JSON.stringify(value ?? null);
+        return `${text.length}:${hashSignatureText(text)}`;
+    } catch (_) {
+        return '0:0';
+    }
+}
+
+function getCanonLoreDatabaseSignature(state = {}, registry = {}) {
+    const stack = Array.isArray(state?.loredeckStack) ? state.loredeckStack : [];
+    const packs = registry?.packs && typeof registry.packs === 'object' && !Array.isArray(registry.packs)
+        ? registry.packs
+        : {};
+    const resolved = resolveLoredeckStackItems(stack, registry, { packs }).stack || [];
+    const stackItems = stack.map((item, index) => ({
+        type: item?.type === 'folder' || item?.folderId ? 'folder' : 'deck',
+        packId: cleanCacheString(item?.packId || item?.deckId, 160),
+        folderId: cleanCacheString(item?.folderId, 160),
+        includeNested: item?.includeNested !== false,
+        enabled: item?.enabled !== false,
+        priority: cleanCacheNumber(item?.priority),
+        index,
+    }));
+    const folders = Array.isArray(registry?.folders)
+        ? registry.folders.map(folder => ({
+            id: cleanCacheString(folder?.id, 160),
+            parentId: cleanCacheString(folder?.parentId, 160),
+            sortOrder: cleanCacheNumber(folder?.sortOrder),
+            updatedAt: cleanCacheString(folder?.updatedAt, 80),
+        }))
+        : [];
+    const placements = Array.isArray(registry?.deckPlacements)
+        ? registry.deckPlacements.map(placement => ({
+            deckId: cleanCacheString(placement?.deckId || placement?.packId, 160),
+            folderId: cleanCacheString(placement?.folderId, 160),
+            sortOrder: cleanCacheNumber(placement?.sortOrder),
+            updatedAt: cleanCacheString(placement?.updatedAt, 80),
+        }))
+        : [];
+    const resolvedPacks = resolved.map((item, index) => {
+        const packId = cleanCacheString(item?.packId, 160);
+        const record = packs[packId] || {};
+        const source = record.source && typeof record.source === 'object' && !Array.isArray(record.source)
+            ? record.source
+            : {};
+        return {
+            packId,
+            priority: cleanCacheNumber(item?.priority),
+            index,
+            manifest: cleanCacheString(record.manifest, 400),
+            type: cleanCacheString(record.type, 80),
+            version: cleanCacheString(record.version, 80),
+            updatedAt: cleanCacheString(record.updatedAt || record.importedAt || record.addedAt, 80),
+            sourceKind: cleanCacheString(source.kind, 80),
+            sourceUrl: cleanCacheString(source.url, 400),
+            sourceHash: cleanCacheString(source.contentHash, 160),
+            entryOverrides: hashSignatureValue(record.entryOverrides || {}),
+            disabledEntryIds: hashSignatureValue(record.disabledEntryIds || []),
+            manifestData: hashSignatureValue(record.manifestData || null),
+            tagRegistry: hashSignatureValue(record.tagRegistry || null),
+            timelineRegistry: hashSignatureValue(record.timelineRegistry || null),
+        };
+    });
+    return JSON.stringify({ stackItems, folders, placements, resolvedPacks });
+}
+
+export async function loadCanonLoreDatabase() {
+    const state = getState();
+    const registry = getLoredeckLibraryRegistry(state);
+    const signature = getCanonLoreDatabaseSignature(state, registry);
+    if (_dbCache && _dbCacheSignature === signature) return _dbCache;
+    if (_dbLoadPromise && _dbLoadSignature === signature) return _dbLoadPromise;
+
+    const loadSignature = signature;
+    _dbLoadSignature = loadSignature;
     _dbLoadPromise = (async () => {
-        const state = getState();
         const sources = await loadLoredeckStackSources(state?.loredeckStack || [], {
-            registry: getLoredeckLibraryRegistry(state),
+            registry,
             allowEmptyStack: true,
         });
         const usableSources = sources.filter(source => source?.manifest && source?.baseUrl);
@@ -323,7 +415,7 @@ export async function loadCanonLoreDatabase() {
         const deduped = dedupeLoredeckEntriesByStack(entries, health);
         const firstManifest = usableSources[0]?.manifest || {};
 
-        _dbCache = {
+        const database = {
             version: firstManifest.entrySchemaVersion || firstManifest.schemaVersion || firstManifest.version || 2,
             databaseId: packs.length === 1 ? (firstManifest.databaseId || packs[0].id || 'wandlight.canon') : 'saga.loredeck-stack',
             title: packs.length === 1 ? (firstManifest.title || packs[0].title || 'Wandlight Canon Lore Database') : 'Saga Loredeck Stack',
@@ -339,19 +431,28 @@ export async function loadCanonLoreDatabase() {
             duplicateEntryIds: deduped.duplicateEntryIds,
             entries: normalizeLoreMatrix(deduped.entries),
         };
-        return _dbCache;
+        if (_dbLoadSignature === loadSignature) {
+            _dbCache = database;
+            _dbCacheSignature = loadSignature;
+        }
+        return database;
     })();
 
     try {
         return await _dbLoadPromise;
     } finally {
-        _dbLoadPromise = null;
+        if (_dbLoadSignature === loadSignature) {
+            _dbLoadPromise = null;
+            _dbLoadSignature = '';
+        }
     }
 }
 
 export function clearCanonLoreDatabaseCache() {
     _dbCache = null;
+    _dbCacheSignature = '';
     _dbLoadPromise = null;
+    _dbLoadSignature = '';
 }
 
 export function parseCanonDbDate(value) {

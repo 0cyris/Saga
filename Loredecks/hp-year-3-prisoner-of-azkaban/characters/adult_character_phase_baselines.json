@@ -287,14 +287,13 @@
       },
       "content": {
         "fact": "In early-to-mid Year 3, Sirius appears as an unstable escaped fugitive to most observers: intense, gaunt, reckless, and driven by a private objective rather than ordinary social behavior.",
-        "injection": "Write Sirius in his Year 3 fugitive phase as gaunt, intense, desperate, and reckless, with behavior distorted by Azkaban and pursuit; most public-facing scenes should treat him as a feared escaped prisoner unless story truth has shifted. Enforce this as a high-priority Context gate for Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Sirius in his Year 3 fugitive phase as gaunt, intense, desperate, and reckless, with behavior distorted by Azkaban and pursuit; most public-facing scenes should treat him as a feared escaped prisoner unless story truth has shifted. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not make him socially polished, relaxed, or fully recovered from imprisonment in this phase.",
           "Do not give ordinary students private knowledge of his true motives unless separate reveal lore permits it.",
           "Keep innocence, betrayal details, and godfather dynamics governed by separate knowledge or relationship entries.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write early Year 3 Sirius as the casual family-friendly godfather figure from later fanon.",
@@ -463,14 +462,13 @@
       },
       "content": {
         "fact": "In Year 3, Voldemort should generally function as an absent shadow or historical threat, not as a visibly active school-year antagonist unless the story has diverged.",
-        "injection": "In Year 3, treat Voldemort as an absent shadow rather than an openly active present character unless the story has established divergence; his influence is fear, history, followers, and rumors, not normal scene presence. Enforce this as a high-priority Context gate for Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "In Year 3, treat Voldemort as an absent shadow rather than an openly active present character unless the story has established divergence; his influence is fear, history, followers, and rumors, not normal scene presence. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not import restored-body behavior or open-war command into Year 3 scenes.",
           "If he appears directly, require story-established divergence or a separate active-state entry.",
           "Keep follower activity and secret plots modular.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-phase status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make Year 3 Voldemort casually present at Hogwarts or publicly organizing events.",

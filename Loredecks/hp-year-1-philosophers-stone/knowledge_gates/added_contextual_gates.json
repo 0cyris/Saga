@@ -83,11 +83,10 @@
       },
       "content": {
         "fact": "Before Christmas 1991, Harry has not received his Invisibility Cloak.",
-        "injection": "Before Christmas 1991, Harry should not have or use his Invisibility Cloak unless our story has established an early gift. Enforce this as a high-priority Context gate for Philosopher's Stone: Year 1; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before Christmas 1991, Harry should not have or use his Invisibility Cloak unless our story has established an early gift. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not solve early Year 1 stealth scenes with Harry's cloak before he receives it.",
-          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone: Year 1; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not assume Harry always has cloak access from the start of first year.",

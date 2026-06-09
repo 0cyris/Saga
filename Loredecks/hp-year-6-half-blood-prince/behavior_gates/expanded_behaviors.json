@@ -73,11 +73,10 @@
       },
       "content": {
         "fact": "Ron in Year 6 mixes loyalty, insecurity, humor, and sensitivity around relationships and status.",
-        "injection": "Ron in Year 6 should be loyal and funny but vulnerable to insecurity, jealousy, and embarrassment around romance/status. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Ron in Year 6 should be loyal and funny but vulnerable to insecurity, jealousy, and embarrassment around romance/status. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Keep behavior age- and year-appropriate.",
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -185,11 +184,10 @@
       },
       "content": {
         "fact": "Snape in Year 6 is Defense professor, controlled, cutting, secretive, and operating under hidden obligations.",
-        "injection": "Snape in Year 6 should remain controlled, sharp, and opaque; do not reveal his full motives before late canon. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Snape in Year 6 should remain controlled, sharp, and opaque; do not reveal his full motives before late canon. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Protect hidden loyalty/motivation reveals.",
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

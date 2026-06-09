@@ -86,8 +86,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Hagrid reveals the wizarding world; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Hagrid reveals the wizarding world; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -200,8 +199,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches After Halloween troll rescue; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches After Halloween troll rescue; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -314,12 +312,11 @@
       },
       "content": {
         "fact": "After discovering Fluffy, the students know something is guarded but do not yet know the Philosopher’s Stone explanation or Nicolas Flamel connection.",
-        "injection": "In the Fluffy mystery phase, keep the protected object uncertain; block confident Philosopher’s Stone or Flamel exposition until the Flamel identification anchor is reached. Enforce this as a high-priority Context gate for Before Nicolas Flamel is identified; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "In the Fluffy mystery phase, keep the protected object uncertain; block confident Philosopher’s Stone or Flamel exposition until the Flamel identification anchor is reached. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Nicolas Flamel is identified; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Nicolas Flamel is identified; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -441,8 +438,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Quirrell/Voldemort reveal; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Quirrell/Voldemort reveal; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -561,8 +557,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Stone guarded until final confrontation; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Stone guarded until final confrontation; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",

@@ -219,7 +219,7 @@ function createThemeImportTile(options = {}) {
 export function createThemeIconSetPanel(activePreset, settings = {}, options = {}) {
     const panel = document.createElement('div');
     panel.className = 'wandlight-theme-panel wandlight-theme-icon-panel';
-    const iconSet = getIconSetPreset(settings.themeIconPackId || DEFAULT_ICONSET_ID, settings);
+    const iconSet = getIconSetPreset(settings.themeIconSetId || DEFAULT_ICONSET_ID, settings);
     const iconItems = Array.isArray(options.iconItems) ? options.iconItems : [];
     const coverage = getThemeIconCoverage(iconSet, settings, iconItems);
     const header = document.createElement('div');

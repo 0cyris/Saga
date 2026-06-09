@@ -1436,14 +1436,13 @@
       },
       "content": {
         "fact": "In Year 3, George is daring, witty, socially confident, and increasingly skilled at turning mischief into coordinated planning.",
-        "injection": "Write George in Year 3 as daring, witty, coordinated, and confident, with mischief that feels planned as much as impulsive. Enforce this as a high-priority Context gate for Year 3; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write George in Year 3 as daring, witty, coordinated, and confident, with mischief that feels planned as much as impulsive. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should know how to work an audience and a corridor.",
           "He can be less aggressive in forward push than Fred while still fully complicit.",
           "Do not make him a formal resistance figure yet.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 3; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write Year 3 George as a settled adult businessman.",

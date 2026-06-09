@@ -17,7 +17,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Dark archive shelves, gold trim, parchment highlights, and polished fantasy UI.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#120c12',
             backgroundAlt: '#241018',
@@ -40,7 +39,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#f1ead8',
             mutedText: '#cfc5ad',
         },
-        icons: {},
         tags: ['theme:dark', 'style:archive', 'genre:general', 'genre:fantasy', 'quality:bundled'],
     },
     {
@@ -50,7 +48,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'High fantasy court records with royal blue panels, ivory text, wine shadows, and antique gold.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#0b1020',
             backgroundAlt: '#1d1024',
@@ -73,7 +70,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#f7efd8',
             mutedText: '#d8c99f',
         },
-        icons: {},
         tags: ['theme:dark', 'style:royal', 'genre:high-fantasy', 'genre:politics', 'quality:bundled'],
     },
     {
@@ -83,7 +79,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Grimdark occult reliquary with ash-black steel, chapel greys, tarnished gold sigils, and blood-wax danger.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: MYSTIC_ICONSET_ID,
         colors: {
             background: '#070707',
             backgroundAlt: '#141414',
@@ -106,7 +101,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#f3ead4',
             mutedText: '#c5bda8',
         },
-        icons: {},
         tags: ['theme:dark', 'style:grimdark', 'style:occult', 'genre:dark-sci-fi', 'genre:gothic-horror', 'quality:bundled'],
     },
     {
@@ -116,7 +110,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Clean star maps, tactical blue-white lines, restrained command-console glow, and signal amber.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#07111f',
             backgroundAlt: '#102235',
@@ -139,7 +132,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#eef7ff',
             mutedText: '#bdd5e3',
         },
-        icons: {},
         tags: ['theme:dark', 'style:cartography', 'genre:sci-fi', 'genre:space-opera', 'quality:bundled'],
     },
     {
@@ -149,7 +141,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Anime cybercity styling with cyan lanes, magenta shadows, electric yellow alerts, and concrete darks.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#090912',
             backgroundAlt: '#171021',
@@ -172,7 +163,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#f7f3ff',
             mutedText: '#c9c2df',
         },
-        icons: {},
         tags: ['theme:dark', 'style:neon', 'genre:anime', 'genre:cyberpunk', 'quality:bundled'],
     },
     {
@@ -182,7 +172,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Bright shonen academy energy with varsity accents, training-board structure, and notebook clarity.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#0b1425',
             backgroundAlt: '#17203a',
@@ -205,7 +194,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#fff8e8',
             mutedText: '#d9d4c4',
         },
-        icons: {},
         tags: ['theme:dark', 'style:academy', 'genre:shonen', 'genre:superhero', 'quality:bundled'],
     },
     {
@@ -215,7 +203,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Adventure-map warmth with deep ocean panels, sunlit gold, coral danger, and dark ink readability.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#071925',
             backgroundAlt: '#0f3140',
@@ -238,7 +225,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#f7efd8',
             mutedText: '#cfd8c3',
         },
-        icons: {},
         tags: ['theme:dark', 'style:nautical', 'genre:adventure', 'genre:journey', 'quality:bundled'],
     },
     {
@@ -248,7 +234,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Creature encyclopedia and field-guide styling with forest panels, clay warmth, and taxonomy cues.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#08170f',
             backgroundAlt: '#13271b',
@@ -271,7 +256,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#f6f0df',
             mutedText: '#d4d2b8',
         },
-        icons: {},
         tags: ['theme:dark', 'style:field-guide', 'genre:creatures', 'genre:monster-catalog', 'quality:bundled'],
     },
     {
@@ -281,7 +265,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Luminous anime space-fantasy panels with champagne gold, aqua rails, and astral violet depth.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#0b0a18',
             backgroundAlt: '#17162f',
@@ -304,7 +287,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#faf4ff',
             mutedText: '#d5cceb',
         },
-        icons: {},
         tags: ['theme:dark', 'style:holographic', 'genre:anime', 'genre:space-fantasy', 'quality:bundled'],
     },
     {
@@ -314,7 +296,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Investigation-board tension with case-file neutrals, desaturated greens, amber warnings, and rust-red danger.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#090d0c',
             backgroundAlt: '#131a17',
@@ -337,7 +318,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#f1f1e6',
             mutedText: '#c7d0c2',
         },
-        icons: {},
         tags: ['theme:dark', 'style:evidence', 'genre:mystery', 'genre:survival-horror', 'quality:bundled'],
     },
     {
@@ -347,7 +327,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Toxic love-story glow with fallout greens, oil-black panels, hot rose danger, and sickly warning light.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: MYSTIC_ICONSET_ID,
         colors: {
             background: '#090b06',
             backgroundAlt: '#17220d',
@@ -370,7 +349,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#f6ffe8',
             mutedText: '#c4d7a6',
         },
-        icons: {},
         tags: ['theme:dark', 'style:toxic-glamour', 'genre:romance', 'genre:post-apocalyptic', 'quality:bundled'],
     },
     {
@@ -380,7 +358,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Surgical gothic styling with cold teal instruments, velvet-black surfaces, arterial danger, and forensic ivory text.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: MYSTIC_ICONSET_ID,
         colors: {
             background: '#0a0d0f',
             backgroundAlt: '#15111a',
@@ -403,7 +380,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#f7efe2',
             mutedText: '#c8d6d0',
         },
-        icons: {},
         tags: ['theme:dark', 'style:forensic-gothic', 'genre:horror', 'genre:medical-drama', 'quality:bundled'],
     },
     {
@@ -413,7 +389,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Punk zine contrast with concrete blacks, candy pink edges, cyan focus flashes, and comic-panel danger.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: DEFAULT_ICONSET_ID,
         colors: {
             background: '#0f0f10',
             backgroundAlt: '#201824',
@@ -436,7 +411,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#fff7f8',
             mutedText: '#d4c5cc',
         },
-        icons: {},
         tags: ['theme:dark', 'style:brutalist-pop', 'genre:punk', 'genre:superhero', 'quality:bundled'],
     },
     {
@@ -446,7 +420,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Classified terminal styling with blacksite greens, mint signal lines, restraint-room danger, and hard warning yellow.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: RELAY_ICONSET_ID,
         colors: {
             background: '#050a0a',
             backgroundAlt: '#0c1815',
@@ -469,7 +442,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#eafff7',
             mutedText: '#b6cdc4',
         },
-        icons: {},
         tags: ['theme:dark', 'style:blacksite', 'genre:spycraft', 'genre:techno-thriller', 'quality:bundled'],
     },
     {
@@ -479,7 +451,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
         description: 'Candlelit cult-drama warmth with scorched chapel surfaces, sacred gold, fever-red danger, and ritual focus light.',
         author: 'Saga',
         version: '1.0.0',
-        iconPackId: MYSTIC_ICONSET_ID,
         colors: {
             background: '#100b0a',
             backgroundAlt: '#24120d',
@@ -502,7 +473,6 @@ export const THEMEPACK_PRESETS = Object.freeze([
             text: '#fff1dc',
             mutedText: '#dac8b5',
         },
-        icons: {},
         tags: ['theme:dark', 'style:ritual', 'genre:occult', 'genre:gothic-drama', 'quality:bundled'],
     },
 ]);
@@ -725,8 +695,8 @@ export function getIconSetLibrary(settings = getSettings()) {
     ];
 }
 
-export function getIconSetPreset(iconPackId = '', settings = getSettings()) {
-    const id = String(iconPackId || '').trim();
+export function getIconSetPreset(iconSetId = '', settings = getSettings()) {
+    const id = String(iconSetId || '').trim();
     return getIconSetLibrary(settings).find(pack => pack.id === id) || BUNDLED_ICONSET_PRESETS[0];
 }
 
@@ -744,7 +714,7 @@ export function getIconMapValue(icons = {}, iconKey = '') {
 }
 
 export function resolveThemeIconPath(iconKey, preset = getThemePreset(getSettings().themePackId), settings = getSettings()) {
-    const iconSet = getIconSetPreset(settings.themeIconPackId || DEFAULT_ICONSET_ID, settings);
+    const iconSet = getIconSetPreset(settings.themeIconSetId || DEFAULT_ICONSET_ID, settings);
     const iconSetPath = getIconMapValue(iconSet.icons, iconKey);
     if (iconSetPath) return iconSetPath;
     const defaultSet = getIconSetPreset(DEFAULT_ICONSET_ID, settings);
@@ -787,15 +757,10 @@ export function getThemePackLibrary(settings = getSettings()) {
     const registry = settings?.themePackLibrary || getThemePackLibraryRegistry();
     const customPacks = Object.values(registry?.packs || {})
         .filter(pack => pack && typeof pack === 'object')
-        .filter(pack => {
-            const tags = Array.isArray(pack.tags) ? pack.tags.map(tag => String(tag || '').trim().toLowerCase()) : [];
-            return !tags.includes('theme:icon-set') && !tags.includes('icons:custom');
-        })
         .map(pack => ({
             ...pack,
             type: pack.type === 'bundled' ? 'bundled' : 'custom',
             colors: { ...(pack.colors || {}) },
-            icons: { ...(pack.icons || {}) },
             tags: Array.isArray(pack.tags) ? [...pack.tags] : [],
         }));
     return [

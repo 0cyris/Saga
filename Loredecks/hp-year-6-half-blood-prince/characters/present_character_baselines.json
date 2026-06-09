@@ -103,14 +103,13 @@
       },
       "content": {
         "fact": "In Year 6, Harry is more experienced, suspicious, practically capable, emotionally intense, and increasingly willing to trust his own judgment over official explanations.",
-        "injection": "Write Harry as his Year 6 self: more capable and suspicious, still emotionally intense, with stronger practical instincts but persistent teenage blind spots. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Harry as his Year 6 self: more capable and suspicious, still emotionally intense, with stronger practical instincts but persistent teenage blind spots. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He can be forceful about hunches without having airtight evidence.",
           "He should be more competent than earlier years but not an adult investigator or soldier.",
           "Do not give him complete emotional detachment or postwar hindsight.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write Year 6 Harry as naive first-year Harry or as a fully hardened Year 7 survivor.",
@@ -269,14 +268,13 @@
       },
       "content": {
         "fact": "In Year 6, Hermione is academically formidable, proud, emotionally more exposed, and often torn between evidence, principle, and personal frustration.",
-        "injection": "Write Hermione as her Year 6 self: highly competent, proud, evidence-driven, emotionally vulnerable under strain, and less detached than she wants to appear. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Hermione as her Year 6 self: highly competent, proud, evidence-driven, emotionally vulnerable under strain, and less detached than she wants to appear. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Her arguments should often rest on logic and evidence, but personal feelings can sharpen them.",
           "She should not be infallible; pride and hurt can distort her reactions.",
           "Do not make her calmly above all adolescent jealousy, insecurity, or frustration.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not flatten Year 6 Hermione into a neutral encyclopedia voice.",
@@ -437,14 +435,13 @@
       },
       "content": {
         "fact": "In Year 6, Ron mixes loyalty, humor, insecurity, romantic awkwardness, and sensitivity about status, competence, and public embarrassment.",
-        "injection": "Write Ron as his Year 6 self: loyal and funny but vulnerable to insecurity, jealousy, humiliation, and romantic awkwardness. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Ron as his Year 6 self: loyal and funny but vulnerable to insecurity, jealousy, humiliation, and romantic awkwardness. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He can be more socially active than earlier years while remaining emotionally clumsy.",
           "His confidence should fluctuate with immediate success or embarrassment.",
           "Do not make him hardened, articulate about feelings, or free of adolescent defensiveness.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write Year 6 Ron as the desperate, hunted Ron of Year 7.",
@@ -606,14 +603,13 @@
       },
       "content": {
         "fact": "In Year 6, Draco is brittle, secretive, frightened, isolated, and still masking fear with aristocratic contempt and cruelty.",
-        "injection": "Write Draco as his Year 6 self: strained, secretive, frightened beneath arrogance, and less stable than his earlier school-bully persona. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Draco as his Year 6 self: strained, secretive, frightened beneath arrogance, and less stable than his earlier school-bully persona. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "His contempt can be a mask for fear rather than simple confidence.",
           "He should avoid full honesty about pressure unless the scene has earned it.",
           "Do not make him casually carefree or fully redeemed by default.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write Year 6 Draco as merely the comic bully of earlier years.",
@@ -771,14 +767,13 @@
       },
       "content": {
         "fact": "In Year 6, Neville is more self-possessed, still modest, and increasingly dependable, with quiet confidence replacing some earlier panic.",
-        "injection": "Write Neville as his Year 6 self: modest, kinder than bold, more dependable, and quietly more confident without losing humility. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Neville as his Year 6 self: modest, kinder than bold, more dependable, and quietly more confident without losing humility. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should show growth through steadiness rather than swagger.",
           "His competence should be plausible but not exaggerated into effortless mastery.",
           "Do not make him socially dominant without story support.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not erase Neville’s gentleness when increasing his confidence.",
@@ -939,14 +934,13 @@
       },
       "content": {
         "fact": "In Year 6, Ginny is confident, socially capable, direct, athletic, and often impatient with condescension or overprotection.",
-        "injection": "Write Ginny as her Year 6 self: direct, confident, socially adept, athletic, and quick to push back against condescension. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Ginny as her Year 6 self: direct, confident, socially adept, athletic, and quick to push back against condescension. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "She should be warm in her own blunt way, not merely abrasive.",
           "Do not reduce her to anyone else’s romantic context.",
           "Keep specific dating, breakup, or battle states in separate entries.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make Year 6 Ginny shy, fragile, or defined only by her family.",
@@ -1105,14 +1099,13 @@
       },
       "content": {
         "fact": "In Year 6, Luna is steadier, braver, still eccentric, and increasingly willing to stand with others without changing her unusual manner.",
-        "injection": "Write Luna as her Year 6 self: eccentric, steady, brave, kind, and socially unconventional without needing to become normal. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Luna as her Year 6 self: eccentric, steady, brave, kind, and socially unconventional without needing to become normal. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "She should remain sincere and literal in unexpected ways.",
           "Her courage should be quiet rather than boastful.",
           "Do not make acceptance by others erase her distinct voice.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not normalize Luna into a generic brave student.",
@@ -1267,14 +1260,13 @@
       },
       "content": {
         "fact": "In Year 6, Fred is no longer an ordinary Hogwarts student; he is a young entrepreneur whose humor is sharper, more professional, and still reckless under stress.",
-        "injection": "Write Fred in Year 6 as a young joke-shop entrepreneur: fast, theatrical, ambitious, anti-authoritarian, and more adult than the current students. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write Fred in Year 6 as a young joke-shop entrepreneur: fast, theatrical, ambitious, anti-authoritarian, and more adult than the current students. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should not be treated as attending normal Hogwarts classes unless accepted story lore changed that.",
           "His comedy can be commercial and tactical, not just schoolboy pranking.",
           "Do not make him sedate or risk-averse.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not revert Year 6 Fred to a normal enrolled student by default.",
@@ -1430,14 +1422,13 @@
       },
       "content": {
         "fact": "In Year 6, George is no longer an ordinary Hogwarts student; he is a young entrepreneur whose humor is professional, coordinated, and still anti-authoritarian.",
-        "injection": "Write George in Year 6 as a young joke-shop entrepreneur: witty, coordinated, ambitious, anti-authoritarian, and more adult than current students. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Write George in Year 6 as a young joke-shop entrepreneur: witty, coordinated, ambitious, anti-authoritarian, and more adult than current students. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "He should not be treated as attending normal Hogwarts classes unless accepted story lore changed that.",
           "His humor can be commercial, technical, and tactical.",
           "Do not make him sedate or detached from risk.",
           "Treat relationship shifts, event-specific knowledge, injuries, deaths, and other intra-year status changes as separate lore entries, not part of this baseline.",
-          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not revert Year 6 George to a normal enrolled student by default.",

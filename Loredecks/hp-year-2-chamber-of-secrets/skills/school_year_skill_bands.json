@@ -62,11 +62,10 @@
       },
       "content": {
         "fact": "Second-years have basic spell competence but should not handle advanced defensive, nonverbal, or adult-level magic routinely.",
-        "injection": "Do not let second-years handle advanced defensive, nonverbal, or adult-level magic routinely unless our story has established unusual training. Enforce this as a high-priority Context gate for Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Do not let second-years handle advanced defensive, nonverbal, or adult-level magic routinely unless our story has established unusual training. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Treat second-year competence as basic school magic, not adult combat readiness.",
-          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make advanced defensive magic routine for second-years.",

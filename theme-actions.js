@@ -128,37 +128,37 @@ export function importThemeIconSetFromFile() {
     input.accept = 'application/json,.json';
     input.addEventListener('change', async () => {
         const file = input.files?.[0];
-            if (!file) return;
-            try {
-                const parsed = JSON.parse(await file.text());
-                if (parsed?.iconSets && typeof parsed.iconSets === 'object' && !Array.isArray(parsed.iconSets)) {
-                    const result = importThemeIconSetLibraryRegistry(parsed, { replace: false });
-                    if (!result.ok) throw new Error(result.error || 'Icon Set import failed.');
-                    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-                    const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict(s).` : '';
-                    toast(`Imported ${result.importedCount || 0} Icon Set record(s).${skipped}`, result.skippedCount ? 'warning' : 'success');
-                    return;
-                }
-                const icons = parsed?.icons && typeof parsed.icons === 'object' && !Array.isArray(parsed.icons)
-                    ? parsed.icons
-                    : parsed;
-                if (!icons || typeof icons !== 'object' || Array.isArray(icons)) throw new Error('Icon Set import must be a JSON object with an icons object or iconSets registry.');
-                const id = normalizeIconSetImportId(parsed.id || parsed.iconSetId || parsed.iconPackId || parsed.title || file.name || 'custom-icon-set');
-                const result = upsertThemeIconSetLibraryPack({
-                    id,
-                    type: 'custom',
-                    title: parsed.title || id,
-                    description: parsed.description || `Icon Set imported from ${file.name}.`,
-                    author: parsed.author || '',
-                    version: parsed.version || '1.0.0',
-                    preferredSize: parsed.preferredSize || 256,
-                    icons,
-                    tags: Array.isArray(parsed.tags) ? parsed.tags : ['icons:custom'],
-                    source: { kind: 'local', url: file.name },
-                });
+        if (!file) return;
+        try {
+            const parsed = JSON.parse(await file.text());
+            if (parsed?.iconSets && typeof parsed.iconSets === 'object' && !Array.isArray(parsed.iconSets)) {
+                const result = importThemeIconSetLibraryRegistry(parsed, { replace: false });
                 if (!result.ok) throw new Error(result.error || 'Icon Set import failed.');
                 refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-                toast(`Imported Icon Set: ${result.iconSet.title}. Use the Icon Set selector to activate it.`, 'success');
+                const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict(s).` : '';
+                toast(`Imported ${result.importedCount || 0} Icon Set record(s).${skipped}`, result.skippedCount ? 'warning' : 'success');
+                return;
+            }
+            const icons = parsed?.icons && typeof parsed.icons === 'object' && !Array.isArray(parsed.icons)
+                ? parsed.icons
+                : parsed;
+            if (!icons || typeof icons !== 'object' || Array.isArray(icons)) throw new Error('Icon Set import must be a JSON object with an icons object or iconSets registry.');
+            const id = normalizeIconSetImportId(parsed.id || parsed.iconSetId || parsed.title || file.name || 'custom-icon-set');
+            const result = upsertThemeIconSetLibraryPack({
+                id,
+                type: 'custom',
+                title: parsed.title || id,
+                description: parsed.description || `Icon Set imported from ${file.name}.`,
+                author: parsed.author || '',
+                version: parsed.version || '1.0.0',
+                preferredSize: parsed.preferredSize || 256,
+                icons,
+                tags: Array.isArray(parsed.tags) ? parsed.tags : ['icons:custom'],
+                source: { kind: 'local', url: file.name },
+            });
+            if (!result.ok) throw new Error(result.error || 'Icon Set import failed.');
+            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+            toast(`Imported Icon Set: ${result.iconSet.title}. Use the Icon Set selector to activate it.`, 'success');
         } catch (e) {
             toast(e?.message || 'Icon Set import failed.', 'error');
         }
@@ -206,9 +206,7 @@ export function buildThemePackExportObject(preset, settings = getSettings()) {
         author: preset?.author || '',
         version: preset?.version || '1.0.0',
         colors,
-        tags: Array.isArray(preset?.tags)
-            ? preset.tags.filter(tag => !['quality:bundled', 'theme:icon-set', 'icons:custom'].includes(tag))
-            : [],
+        tags: Array.isArray(preset?.tags) ? preset.tags.filter(tag => tag !== 'quality:bundled') : [],
     };
 }
 
@@ -257,10 +255,10 @@ export function refreshThemeIconSetSurfaces(settings = getSettings()) {
     return !!(activePanel || iconPanel);
 }
 
-export function applyThemeIconSet(iconPackId = DEFAULT_ICONSET_ID) {
-    const iconSet = getIconSetPreset(iconPackId);
+export function applyThemeIconSet(iconSetId = DEFAULT_ICONSET_ID) {
+    const iconSet = getIconSetPreset(iconSetId);
     const next = getSettings();
-    next.themeIconPackId = iconSet.id || DEFAULT_ICONSET_ID;
+    next.themeIconSetId = iconSet.id || DEFAULT_ICONSET_ID;
     saveSettings(next);
     applyRuntimeTheme(getPanelRoot(), next);
     refreshRuntimeRailIcons(next);
@@ -323,7 +321,7 @@ export function importThemePackFromFile() {
             if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
                 throw new Error('Theme Pack import must be a JSON object.');
             }
-            if (parsed.iconSets || parsed.type === 'saga_iconset' || (parsed.icons && !parsed.colors && !parsed.packs)) {
+            if (parsed.iconSets || parsed.type === 'saga_iconset' || parsed.icons) {
                 throw new Error('This looks like an Icon Set. Use Import Icon Set instead.');
             }
 

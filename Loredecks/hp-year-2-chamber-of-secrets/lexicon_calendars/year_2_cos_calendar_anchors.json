@@ -91,11 +91,10 @@
       },
       "content": {
         "fact": "On Harry’s twelfth birthday, Dobby warns him not to return to Hogwarts and causes a magical incident that brings a Ministry warning.",
-        "injection": "On Harry’s twelfth birthday, Dobby warns him not to return to Hogwarts and causes a magical incident that brings a Ministry warning. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "On Harry’s twelfth birthday, Dobby warns him not to return to Hogwarts and causes a magical incident that brings a Ministry warning. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -236,11 +235,10 @@
       },
       "content": {
         "fact": "Ron, Fred, and George use the flying Ford Anglia to rescue Harry from Privet Drive and bring him to the Burrow.",
-        "injection": "Ron, Fred, and George use the flying Ford Anglia to rescue Harry from Privet Drive and bring him to the Burrow. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Ron, Fred, and George use the flying Ford Anglia to rescue Harry from Privet Drive and bring him to the Burrow. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -384,11 +382,10 @@
       },
       "content": {
         "fact": "Harry’s Floo misfire sends him to Knockturn Alley before he reunites with the Weasleys at Diagon Alley and encounters Lockhart and Lucius Malfoy at the book signing.",
-        "injection": "Harry’s Floo misfire sends him to Knockturn Alley before he reunites with the Weasleys at Diagon Alley and encounters Lockhart and Lucius Malfoy at the book signing. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry’s Floo misfire sends him to Knockturn Alley before he reunites with the Weasleys at Diagon Alley and encounters Lockhart and Lucius Malfoy at the book signing. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -526,11 +523,10 @@
       },
       "content": {
         "fact": "The barrier to Platform Nine and Three-Quarters closes on Harry and Ron, leading them to fly the Ford Anglia to Hogwarts and crash into the Whomping Willow.",
-        "injection": "The barrier to Platform Nine and Three-Quarters closes on Harry and Ron, leading them to fly the Ford Anglia to Hogwarts and crash into the Whomping Willow. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The barrier to Platform Nine and Three-Quarters closes on Harry and Ron, leading them to fly the Ford Anglia to Hogwarts and crash into the Whomping Willow. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -661,11 +657,10 @@
       },
       "content": {
         "fact": "Ginny Weasley begins Hogwarts and is sorted into Gryffindor during Harry’s second year.",
-        "injection": "Ginny Weasley begins Hogwarts and is sorted into Gryffindor during Harry’s second year. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Ginny Weasley begins Hogwarts and is sorted into Gryffindor during Harry’s second year. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -802,11 +797,10 @@
       },
       "content": {
         "fact": "Lockhart’s early Defence Against the Dark Arts lesson with Cornish pixies demonstrates his poor practical classroom control.",
-        "injection": "Lockhart’s early Defence Against the Dark Arts lesson with Cornish pixies demonstrates his poor practical classroom control. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Lockhart’s early Defence Against the Dark Arts lesson with Cornish pixies demonstrates his poor practical classroom control. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -937,11 +931,10 @@
       },
       "content": {
         "fact": "Harry first hears the hidden basilisk voice during detention, before anyone understands that the sound is Parseltongue-linked and connected to the Chamber.",
-        "injection": "Harry first hears the hidden basilisk voice during detention, before anyone understands that the sound is Parseltongue-linked and connected to the Chamber. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry first hears the hidden basilisk voice during detention, before anyone understands that the sound is Parseltongue-linked and connected to the Chamber. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1080,11 +1073,10 @@
       },
       "content": {
         "fact": "Halloween brings Nearly Headless Nick’s deathday party, Harry’s second hearing of the hidden voice, and the petrification of Mrs Norris.",
-        "injection": "Halloween brings Nearly Headless Nick’s deathday party, Harry’s second hearing of the hidden voice, and the petrification of Mrs Norris. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Halloween brings Nearly Headless Nick’s deathday party, Harry’s second hearing of the hidden voice, and the petrification of Mrs Norris. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1224,11 +1216,10 @@
       },
       "content": {
         "fact": "History of Magic discussion and Myrtle’s bathroom lead the trio toward the Chamber legend and the research needed to brew Polyjuice Potion.",
-        "injection": "History of Magic discussion and Myrtle’s bathroom lead the trio toward the Chamber legend and the research needed to brew Polyjuice Potion. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "History of Magic discussion and Myrtle’s bathroom lead the trio toward the Chamber legend and the research needed to brew Polyjuice Potion. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1368,11 +1359,10 @@
       },
       "content": {
         "fact": "During the Gryffindor-Slytherin Quidditch match, a rogue Bludger breaks Harry’s arm; that night Dobby visits Harry and Colin Creevey is petrified.",
-        "injection": "During the Gryffindor-Slytherin Quidditch match, a rogue Bludger breaks Harry’s arm; that night Dobby visits Harry and Colin Creevey is petrified. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "During the Gryffindor-Slytherin Quidditch match, a rogue Bludger breaks Harry’s arm; that night Dobby visits Harry and Colin Creevey is petrified. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1508,11 +1498,10 @@
       },
       "content": {
         "fact": "At the Dueling Club, Harry speaks Parseltongue publicly, increasing suspicion that he may be connected to Slytherin’s heir.",
-        "injection": "At the Dueling Club, Harry speaks Parseltongue publicly, increasing suspicion that he may be connected to Slytherin’s heir. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "At the Dueling Club, Harry speaks Parseltongue publicly, increasing suspicion that he may be connected to Slytherin’s heir. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1652,11 +1641,10 @@
       },
       "content": {
         "fact": "On Christmas, the Polyjuice plan lets Harry and Ron impersonate Crabbe and Goyle, while Hermione’s cat-hair mistake sends her to the hospital wing.",
-        "injection": "On Christmas, the Polyjuice plan lets Harry and Ron impersonate Crabbe and Goyle, while Hermione’s cat-hair mistake sends her to the hospital wing. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "On Christmas, the Polyjuice plan lets Harry and Ron impersonate Crabbe and Goyle, while Hermione’s cat-hair mistake sends her to the hospital wing. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1795,11 +1783,10 @@
       },
       "content": {
         "fact": "The fourth attack petrifies Hermione and Penelope, cancels Quidditch, and leads to Dumbledore’s removal and Hagrid’s imprisonment.",
-        "injection": "The fourth attack petrifies Hermione and Penelope, cancels Quidditch, and leads to Dumbledore’s removal and Hagrid’s imprisonment. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The fourth attack petrifies Hermione and Penelope, cancels Quidditch, and leads to Dumbledore’s removal and Hagrid’s imprisonment. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1936,11 +1923,10 @@
       },
       "content": {
         "fact": "Harry and Ron’s visit to Aragog clarifies that Hagrid was not responsible for the old Chamber attack and points away from the acromantula as the monster.",
-        "injection": "Harry and Ron’s visit to Aragog clarifies that Hagrid was not responsible for the old Chamber attack and points away from the acromantula as the monster. Enforce this as a high-priority Context gate for Chamber of Secrets: Year 2; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry and Ron’s visit to Aragog clarifies that Hagrid was not responsible for the old Chamber attack and points away from the acromantula as the monster. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Chamber of Secrets: Year 2; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

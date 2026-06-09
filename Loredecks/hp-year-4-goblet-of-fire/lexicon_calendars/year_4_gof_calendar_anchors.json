@@ -95,11 +95,10 @@
       },
       "content": {
         "fact": "Harry wakes from a vision of Voldemort murdering Frank Bryce and writes to Sirius, while the Weasleys invite him to the World Cup.",
-        "injection": "Harry wakes from a vision of Voldemort murdering Frank Bryce and writes to Sirius, while the Weasleys invite him to the World Cup. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry wakes from a vision of Voldemort murdering Frank Bryce and writes to Sirius, while the Weasleys invite him to the World Cup. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -381,11 +380,10 @@
       },
       "content": {
         "fact": "After the Quidditch World Cup, Death Eater activity and the Dark Mark cause panic at the campsite and expose Winky and Crouch-family mystery threads.",
-        "injection": "After the Quidditch World Cup, Death Eater activity and the Dark Mark cause panic at the campsite and expose Winky and Crouch-family mystery threads. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After the Quidditch World Cup, Death Eater activity and the Dark Mark cause panic at the campsite and expose Winky and Crouch-family mystery threads. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -518,11 +516,10 @@
       },
       "content": {
         "fact": "The real Alastor Moody is attacked before the school year begins, allowing Barty Crouch Jr. to impersonate him at Hogwarts.",
-        "injection": "The real Alastor Moody is attacked before the school year begins, allowing Barty Crouch Jr. to impersonate him at Hogwarts. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The real Alastor Moody is attacked before the school year begins, allowing Barty Crouch Jr. to impersonate him at Hogwarts. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -664,11 +661,10 @@
       },
       "content": {
         "fact": "In the first DADA class, the Moody impostor demonstrates the Unforgivable Curses, including the Imperius Curse, establishing unusually severe classroom exposure.",
-        "injection": "In the first DADA class, the Moody impostor demonstrates the Unforgivable Curses, including the Imperius Curse, establishing unusually severe classroom exposure. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "In the first DADA class, the Moody impostor demonstrates the Unforgivable Curses, including the Imperius Curse, establishing unusually severe classroom exposure. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1087,11 +1083,10 @@
       },
       "content": {
         "fact": "The Goblet of Fire selects Cedric, Fleur, Krum, and unexpectedly Harry, binding Harry to compete and triggering his conflict with Ron.",
-        "injection": "The Goblet of Fire selects Cedric, Fleur, Krum, and unexpectedly Harry, binding Harry to compete and triggering his conflict with Ron. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Goblet of Fire selects Cedric, Fleur, Krum, and unexpectedly Harry, binding Harry to compete and triggering his conflict with Ron. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1371,11 +1366,10 @@
       },
       "content": {
         "fact": "Hagrid shows Harry the dragons shortly after midnight, and Harry later consults Sirius by fireplace before telling Cedric.",
-        "injection": "Hagrid shows Harry the dragons shortly after midnight, and Harry later consults Sirius by fireplace before telling Cedric. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Hagrid shows Harry the dragons shortly after midnight, and Harry later consults Sirius by fireplace before telling Cedric. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1811,11 +1805,10 @@
       },
       "content": {
         "fact": "Harry takes the golden egg to the prefects’ bathroom and, with Myrtle’s help, realizes the second task is underwater.",
-        "injection": "Harry takes the golden egg to the prefects’ bathroom and, with Myrtle’s help, realizes the second task is underwater. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry takes the golden egg to the prefects’ bathroom and, with Myrtle’s help, realizes the second task is underwater. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -2098,11 +2091,10 @@
       },
       "content": {
         "fact": "Harry, Ron, and Hermione meet Sirius in a cave near Hogsmeade, making him an active hidden adviser during the Tournament year.",
-        "injection": "Harry, Ron, and Hermione meet Sirius in a cave near Hogsmeade, making him an active hidden adviser during the Tournament year. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry, Ron, and Hermione meet Sirius in a cave near Hogsmeade, making him an active hidden adviser during the Tournament year. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -2240,11 +2232,10 @@
       },
       "content": {
         "fact": "Barty Crouch Sr. appears near the Hogwarts grounds in a distressed state after escaping Voldemort’s control, escalating the hidden Crouch mystery.",
-        "injection": "Barty Crouch Sr. appears near the Hogwarts grounds in a distressed state after escaping Voldemort’s control, escalating the hidden Crouch mystery. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Barty Crouch Sr. appears near the Hogwarts grounds in a distressed state after escaping Voldemort’s control, escalating the hidden Crouch mystery. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -2391,11 +2382,10 @@
       },
       "content": {
         "fact": "The third task’s Triwizard Cup functions as a Portkey to the graveyard, where Cedric is killed, Voldemort regains a body, and Harry survives the duel.",
-        "injection": "The third task’s Triwizard Cup functions as a Portkey to the graveyard, where Cedric is killed, Voldemort regains a body, and Harry survives the duel. Enforce this as a high-priority Context gate for Goblet of Fire: Year 4; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The third task’s Triwizard Cup functions as a Portkey to the graveyard, where Cedric is killed, Voldemort regains a body, and Harry survives the duel. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire: Year 4; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

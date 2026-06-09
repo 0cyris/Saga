@@ -76,11 +76,10 @@
       },
       "content": {
         "fact": "Quirinus Quirrell is dead after the Philosopher's Stone confrontation.",
-        "injection": "Quirinus Quirrell is dead after the Philosopher's Stone confrontation. Enforce this as a high-priority Context gate for Philosopher's Stone; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Quirinus Quirrell is dead after the Philosopher's Stone confrontation. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Quirinus Quirrell as alive after 1992-06-04 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Philosopher's Stone; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Philosopher's Stone; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -201,11 +200,10 @@
       },
       "content": {
         "fact": "Barty Crouch Sr. is dead after his appearance near Hogwarts in late Year 4.",
-        "injection": "Barty Crouch Sr. is dead after his appearance near Hogwarts in late Year 4. Enforce this as a high-priority Context gate for Goblet of Fire; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Barty Crouch Sr. is dead after his appearance near Hogwarts in late Year 4. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Barty Crouch Sr. as alive after 1995-05-27 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Goblet of Fire; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -321,11 +319,10 @@
       },
       "content": {
         "fact": "Cedric Diggory is dead after the Third Task graveyard event unless our story has established a different outcome.",
-        "injection": "Cedric Diggory is dead after the Third Task graveyard event unless our story has established a different outcome. Enforce this as a high-priority Context gate for Goblet of Fire; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Cedric Diggory is dead after the Third Task graveyard event unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Cedric Diggory as alive after 1995-06-24 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Goblet of Fire; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Goblet of Fire; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -439,11 +436,10 @@
       },
       "content": {
         "fact": "Sirius Black is dead after the Department of Mysteries battle unless our story has established a different outcome.",
-        "injection": "Sirius Black is dead after the Department of Mysteries battle unless our story has established a different outcome. Enforce this as a high-priority Context gate for Order of the Phoenix; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Sirius Black is dead after the Department of Mysteries battle unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Sirius Black as alive after 1996-06-18 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Order of the Phoenix; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -555,11 +551,10 @@
       },
       "content": {
         "fact": "Albus Dumbledore is dead after the Astronomy Tower event unless our story has established a different outcome.",
-        "injection": "Albus Dumbledore is dead after the Astronomy Tower event unless our story has established a different outcome. Enforce this as a high-priority Context gate for Half-Blood Prince; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Albus Dumbledore is dead after the Astronomy Tower event unless our story has established a different outcome. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Do not treat Albus Dumbledore as alive after 1997-06-30 unless accepted story lore has established a different outcome.",
-          "Apply only when Saga Context matches Half-Blood Prince; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

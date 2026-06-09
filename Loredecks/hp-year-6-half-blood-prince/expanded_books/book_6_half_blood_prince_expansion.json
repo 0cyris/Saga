@@ -89,10 +89,9 @@
       },
       "content": {
         "fact": "Before Year 6 unfolds, Narcissa and Snape's Unbreakable Vow concerning Draco's mission is hidden from Harry and most observers.",
-        "injection": "Before Year 6 unfolds, Narcissa and Snape's Unbreakable Vow concerning Draco's mission is hidden from Harry and most observers. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before Year 6 unfolds, Narcissa and Snape's Unbreakable Vow concerning Draco's mission is hidden from Harry and most observers. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -221,10 +220,9 @@
       },
       "content": {
         "fact": "Slughorn returns as Potions professor and cultivates the Slug Club around talented, famous, or well-connected students.",
-        "injection": "Slughorn returns as Potions professor and cultivates the Slug Club around talented, famous, or well-connected students. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Slughorn returns as Potions professor and cultivates the Slug Club around talented, famous, or well-connected students. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -353,10 +351,9 @@
       },
       "content": {
         "fact": "Before Harry learns the truth, the Half-Blood Prince's identity remains hidden; the annotated Potions book should provide help without revealing Snape as its former owner.",
-        "injection": "Before Harry learns the truth, the Half-Blood Prince's identity remains hidden; the annotated Potions book should provide help without revealing Snape as its former owner. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Before Harry learns the truth, the Half-Blood Prince's identity remains hidden; the annotated Potions book should provide help without revealing Snape as its former owner. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -487,10 +484,9 @@
       },
       "content": {
         "fact": "Harry's Potions success and Felix Felicis prize change his academic confidence and social leverage during Year 6.",
-        "injection": "Harry's Potions success and Felix Felicis prize change his academic confidence and social leverage during Year 6. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry's Potions success and Felix Felicis prize change his academic confidence and social leverage during Year 6. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -624,8 +620,7 @@
         "injection": "Use the memory lessons as staged revelation: before the true Slughorn memory, avoid full Horcrux mechanics; at and after the true memory, Harry and Dumbledore understand the central Horcrux problem.",
         "constraints": [
           "Ron and Hermione do not automatically receive the full memory-lesson content unless Harry shares it in-story.",
-          "Apply only when Saga Context matches Memory lessons through true Horcrux revelation; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Memory lessons through true Horcrux revelation; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not flatten all Year 6 Dumbledore lessons into immediate full Horcrux knowledge.",
@@ -760,10 +755,9 @@
       },
       "content": {
         "fact": "Harry uses Sectumsempra without fully understanding it, badly injuring Draco and triggering serious consequences around the Prince book.",
-        "injection": "Harry uses Sectumsempra without fully understanding it, badly injuring Draco and triggering serious consequences around the Prince book. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry uses Sectumsempra without fully understanding it, badly injuring Draco and triggering serious consequences around the Prince book. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -897,10 +891,9 @@
       },
       "content": {
         "fact": "Draco is attempting to repair the Vanishing Cabinet as part of a Death Eater entry plan; the full mechanism and timing remain hidden before the Tower night.",
-        "injection": "Draco is attempting to repair the Vanishing Cabinet as part of a Death Eater entry plan; the full mechanism and timing remain hidden before the Tower night. Enforce this as a high-priority Context gate for Half-Blood Prince: Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Draco is attempting to repair the Vanishing Cabinet as part of a Death Eater entry plan; the full mechanism and timing remain hidden before the Tower night. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
-          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Half-Blood Prince: Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1034,8 +1027,7 @@
         "constraints": [
           "Do not treat the locket Horcrux as destroyed in Year 6.",
           "Do not import Kreacher, Umbridge, or Ministry-infiltration knowledge before Year 7 reveals it.",
-          "Apply only when Saga Context matches Cave, fake locket, and R.A.B. clue aftermath; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Cave, fake locket, and R.A.B. clue aftermath; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not write the cave locket as the true destroyed Slytherin locket.",
@@ -1172,8 +1164,7 @@
         "constraints": [
           "Snape’s true loyalty remains hidden until Year 7 memories.",
           "Ron and Hermione join the decision after Harry shares enough; before that, do not assume full operational knowledge.",
-          "Apply only when Saga Context matches Dumbledore death, funeral, and hunt decision; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Dumbledore death, funeral, and hunt decision; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not keep Dumbledore alive in standard canon after this anchor.",

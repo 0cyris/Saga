@@ -62,11 +62,10 @@
       },
       "content": {
         "fact": "Sixth-years may begin NEWT-level and nonverbal magic training, but nonverbal or advanced magic should not be effortless or universal.",
-        "injection": "Do not make sixth-year nonverbal or advanced magic effortless or universal; keep it tied to training, aptitude, and subject specialization. Enforce this as a high-priority Context gate for Year 6; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Do not make sixth-year nonverbal or advanced magic effortless or universal; keep it tied to training, aptitude, and subject specialization. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Treat nonverbal magic as developing skill, not a default capability.",
-          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Year 6; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not make every sixth-year casually competent at nonverbal casting.",

@@ -91,8 +91,7 @@
         "constraints": [
           "This is the primary anti-leak card for early Year 6 Horcrux problems.",
           "If a model makes Hermione explain Horcruxes before this anchor, this card should override that output.",
-          "Apply only when Saga Context matches Before Slughorn Horcrux memory task; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Slughorn Horcrux memory task; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let Hermione’s intelligence become automatic Horcrux knowledge.",
@@ -211,8 +210,7 @@
         "constraints": [
           "Allow term-level awareness only if Harry shares it; block full mechanics until true memory.",
           "Dumbledore may know more, but he controls disclosure.",
-          "Apply only when Saga Context matches After altered Slughorn memory before true memory; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches After altered Slughorn memory before true memory; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not jump from hearing the word Horcrux to complete Year 7 hunt knowledge.",
@@ -326,12 +324,11 @@
       },
       "content": {
         "fact": "After the true Slughorn memory, Harry and Dumbledore understand the Horcrux framework and Voldemort’s intended soul split, but Ron and Hermione should not automatically receive the full briefing unless Harry shares it in-story.",
-        "injection": "Between the true memory and Dumbledore’s death, keep full Horcrux strategy centered on Harry and Dumbledore. Hermione and Ron may know partial information only if the scene establishes Harry told them; otherwise block them from fluent Horcrux exposition. Enforce this as a high-priority Context gate for After true memory before Dumbledore death; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Between the true memory and Dumbledore’s death, keep full Horcrux strategy centered on Harry and Dumbledore. Hermione and Ron may know partial information only if the scene establishes Harry told them; otherwise block them from fluent Horcrux exposition. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "This card is meant to prevent Hermione from over-knowing even late in Year 6 before explicit sharing.",
           "Use narrower accepted story lore if the user has Harry brief Ron and Hermione earlier.",
-          "Apply only when Saga Context matches After true memory before Dumbledore death; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches After true memory before Dumbledore death; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not automatically promote Ron or Hermione to full Horcrux-hunt knowledge at the moment Harry sees the true memory.",
@@ -445,8 +442,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Funeral and Horcrux hunt decision; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Funeral and Horcrux hunt decision; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not move the Year 7 camping hunt, Hallows framework, or Ministry-fall state into the Year 6 school months.",
@@ -565,8 +561,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Tower crisis; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Tower crisis; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -682,8 +677,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Snape reveals Prince identity; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Snape reveals Prince identity; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",
@@ -796,8 +790,7 @@
         "constraints": [
           "Use this as a story-position gate, not a general encyclopedia fact.",
           "If the active Context is before this window, block this state unless accepted story lore explicitly changed it.",
-          "Apply only when Saga Context matches Before Dumbledore death; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Before Dumbledore death; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not import later-book knowledge, deaths, relationships, or reveals into this Context.",

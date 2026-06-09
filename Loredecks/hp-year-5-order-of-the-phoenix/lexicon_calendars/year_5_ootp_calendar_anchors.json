@@ -232,11 +232,10 @@
       },
       "content": {
         "fact": "After reaching Grimmauld Place, Harry joins the Order household and spends days amid tense housecleaning, family conflict, and restricted war information.",
-        "injection": "After reaching Grimmauld Place, Harry joins the Order household and spends days amid tense housecleaning, family conflict, and restricted war information. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After reaching Grimmauld Place, Harry joins the Order household and spends days amid tense housecleaning, family conflict, and restricted war information. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -375,11 +374,10 @@
       },
       "content": {
         "fact": "Harry’s disciplinary hearing is moved earlier and relocated to a more intimidating court, but Dumbledore’s defense helps secure his acquittal.",
-        "injection": "Harry’s disciplinary hearing is moved earlier and relocated to a more intimidating court, but Dumbledore’s defense helps secure his acquittal. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Harry’s disciplinary hearing is moved earlier and relocated to a more intimidating court, but Dumbledore’s defense helps secure his acquittal. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -930,11 +928,10 @@
       },
       "content": {
         "fact": "The first practical Dumbledore’s Army meeting begins student-led defensive training outside Umbridge’s approved curriculum.",
-        "injection": "The first practical Dumbledore’s Army meeting begins student-led defensive training outside Umbridge’s approved curriculum. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The first practical Dumbledore’s Army meeting begins student-led defensive training outside Umbridge’s approved curriculum. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1080,11 +1077,10 @@
       },
       "content": {
         "fact": "After the Gryffindor-Slytherin match, Harry, Fred, and George are banned from Quidditch; Hagrid returns with hidden injuries.",
-        "injection": "After the Gryffindor-Slytherin match, Harry, Fred, and George are banned from Quidditch; Hagrid returns with hidden injuries. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "After the Gryffindor-Slytherin match, Harry, Fred, and George are banned from Quidditch; Hagrid returns with hidden injuries. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1366,11 +1362,10 @@
       },
       "content": {
         "fact": "Snape begins Harry’s Occlumency lessons as Death Eaters escape Azkaban and the Ministry’s public narrative begins to strain.",
-        "injection": "Snape begins Harry’s Occlumency lessons as Death Eaters escape Azkaban and the Ministry’s public narrative begins to strain. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Snape begins Harry’s Occlumency lessons as Death Eaters escape Azkaban and the Ministry’s public narrative begins to strain. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1654,11 +1649,10 @@
       },
       "content": {
         "fact": "Umbridge sacks Trelawney, but Dumbledore appoints Firenze, creating a direct challenge to Umbridge’s control over Hogwarts staffing.",
-        "injection": "Umbridge sacks Trelawney, but Dumbledore appoints Firenze, creating a direct challenge to Umbridge’s control over Hogwarts staffing. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Umbridge sacks Trelawney, but Dumbledore appoints Firenze, creating a direct challenge to Umbridge’s control over Hogwarts staffing. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -1798,11 +1792,10 @@
       },
       "content": {
         "fact": "DA members are caught after Patronus practice, Dumbledore takes responsibility, escapes arrest, and Umbridge becomes Headmistress.",
-        "injection": "DA members are caught after Patronus practice, Dumbledore takes responsibility, escapes arrest, and Umbridge becomes Headmistress. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "DA members are caught after Patronus practice, Dumbledore takes responsibility, escapes arrest, and Umbridge becomes Headmistress. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
@@ -2229,11 +2222,10 @@
       },
       "content": {
         "fact": "The Ministry battle ends with Sirius dead, Death Eaters captured, and Fudge forced to acknowledge Voldemort’s return publicly.",
-        "injection": "The Ministry battle ends with Sirius dead, Death Eaters captured, and Fudge forced to acknowledge Voldemort’s return publicly. Enforce this as a high-priority Context gate for Order of the Phoenix: Year 5; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "The Ministry battle ends with Sirius dead, Death Eaters captured, and Fudge forced to acknowledge Voldemort’s return publicly. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "notes": "Original paraphrased date anchor derived from Harry Potter Lexicon calendar/timeline pages; source wording is not reproduced.",
         "constraints": [
-          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Order of the Phoenix: Year 5; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",

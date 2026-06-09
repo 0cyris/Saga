@@ -87,11 +87,10 @@
       },
       "content": {
         "fact": "Snape’s full motivations and loyalty are hidden until near the end of Year 7.",
-        "injection": "Do not reveal Snape’s full loyalty, Lily motivation, or Dumbledore plan before late Year 7 unless accepted story lore explicitly reveals it. Enforce this as a high-priority Context gate for Deathly Hallows: Year 7; block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
+        "injection": "Do not reveal Snape’s full loyalty, Lily motivation, or Dumbledore plan before late Year 7 unless accepted story lore explicitly reveals it. Block contradictory later-book or earlier-state knowledge unless accepted story lore explicitly overrides it.",
         "constraints": [
           "Protect Snape’s late-canon reveal.",
-          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state.",
-          "This card should be promoted when its characters, topics, or objects appear because it prevents timeline leakage."
+          "Apply only when Saga Context matches Deathly Hallows: Year 7; if the scene is earlier, withhold this fact or state."
         ],
         "antiLore": [
           "Do not let generic model memory, film shorthand, fanon, or later-book knowledge override the active book Context.",
