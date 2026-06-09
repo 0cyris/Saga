@@ -563,7 +563,6 @@ function moveLoredeckCreatorProjectsToFolder(jobIds = [], folderId = 'unfiled', 
 
     const libraryPackIds = new Set((library || []).map(pack => pack.packId).filter(Boolean));
     const linkedPackIds = Array.from(new Set(selectedModels.map(model => model.generatedPackId).filter(id => id && libraryPackIds.has(id))));
-    let movedLinkedPacks = 0;
     if (linkedPackIds.length) {
         const { settings, registry } = getMutableLoredeckLibraryRegistry();
         const placement = moveLoredecksToLibraryFolderPlacement({
@@ -576,7 +575,6 @@ function moveLoredeckCreatorProjectsToFolder(jobIds = [], folderId = 'unfiled', 
         if (placement.ok) {
             settings.loredeckLibrary = placement.registry;
             saveSettings(settings);
-            movedLinkedPacks = placement.validIds.length;
         } else if (placement.error) {
             toast(placement.error, 'warning');
         }
@@ -591,11 +589,9 @@ function moveLoredeckCreatorProjectsToFolder(jobIds = [], folderId = 'unfiled', 
             updatedAt: Date.now(),
         });
     }
-    const targetTitle = targetFolderId ? getLoredeckCreatorProjectFolderLabel(targetFolderId, libraryIndex) : 'Unfiled';
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshHeader();
     if (isLoredeckLibraryOpen()) renderLoredeckLibraryOverlay();
-    toast(`Moved ${movedProjects} Creator project${movedProjects === 1 ? '' : 's'} to ${targetTitle}${movedLinkedPacks ? ` with ${movedLinkedPacks} linked Generated Loredeck${movedLinkedPacks === 1 ? '' : 's'}` : ''}.`, 'success');
     return movedProjects > 0;
 }
 
@@ -709,7 +705,6 @@ function renameLoredeckCreatorProjectTitle(jobId = '', title = '') {
     const cached = getLoredeckCreatorBriefCache();
     if (cached?.jobId === id) loredeckCreatorBriefCache.set('current', { ...cached, projectTitle: cleanTitle, updatedAt: result.job.updatedAt });
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    toast(`${cleanTitle} project renamed.`, 'success');
     return true;
 }
 
@@ -746,7 +741,6 @@ async function deleteLoredeckCreatorProjectWithConfirm(model = {}) {
     }
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshHeader();
-    toast(`${title} Creator project deleted.`, 'info');
     return true;
 }
 
@@ -792,7 +786,6 @@ async function deleteSelectedLoredeckCreatorProjectsWithConfirm(models = []) {
     loredeckCreatorProjectSelectedIds = new Set();
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshHeader();
-    toast(`${deleted} Creator project${deleted === 1 ? '' : 's'} deleted.`, 'info');
     return deleted > 0;
 }
 

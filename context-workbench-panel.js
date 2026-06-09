@@ -423,7 +423,6 @@ function createContextWorkbenchHeader(state = {}, contextIndex = null) {
             await loadContextIndex({ force: true }).catch(() => null);
             renderContextWorkbench();
             refreshContextHeader();
-            toast('Context index refreshed.', 'success');
         });
     }));
     actions.appendChild(createButton('Done', 'Close the Context Workbench.', closeContextWorkbench, 'wandlight-primary-button'));

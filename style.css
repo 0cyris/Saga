@@ -10663,6 +10663,15 @@
     box-sizing: border-box;
 }
 
+.wandlight-loredeck-workbench-overlay {
+    z-index: 10080;
+}
+
+.wandlight-loredeck-duplicate-overlay,
+.wandlight-loredeck-entry-override-overlay {
+    z-index: 10110;
+}
+
 .wandlight-lore-workbench-shell {
     width: min(1320px, calc(100vw - 36px));
     height: min(880px, calc(100vh - 36px));

@@ -645,6 +645,7 @@ configureLoredeckWorkbenchPanel({
     getFreshLoredeckLibraryPack,
     getLoredeckTypeLabel,
     openDuplicateLoredeckDialog,
+    openLoredeckEntryOverrideDialog,
     openLoredeckHealthCenter,
 });
 
@@ -1505,7 +1506,6 @@ function selectExperienceMode(mode) {
     if (current === normalized) return;
     setExperienceMode(normalized);
     showLorePanel();
-    toast(`Experience Mode set to ${normalized === 'advanced' ? 'Advanced' : 'Basic'}.`, 'info');
 }
 
 function renderDrawer(state, direction = 'right') {
@@ -16021,7 +16021,6 @@ function renderSessionTab(container, state) {
                 setAutomationMode(mode);
                 refreshPanelBody({ preserveScroll: false });
                 refreshHeader();
-                toast(`Automation mode set to ${cfg.label}`);
             });
             modeButtons.appendChild(btn);
         }
@@ -16593,7 +16592,6 @@ function toggleLoredeckContextManualLock(packId, locked) {
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshHeader();
     refreshContextWorkbench();
-    toast(`${getLoredeckDisplayName(packId)} Context ${locked ? 'locked' : 'unlocked'}.`, 'success');
 }
 
 function createLoreGenerationCard(state) {
@@ -18125,7 +18123,6 @@ function createAutomationModeCard(titleText, modeKey, intervalKey, manualTooltip
             next[modeKey] = mode;
             saveSettings(next);
             refreshPanelBody({ preserveScroll: true });
-            toast(`${titleText} mode set to ${label}.`, 'info');
         });
         buttons.appendChild(btn);
     }
@@ -19379,7 +19376,6 @@ function createLoreTierModeButton(tier, mode, label, tooltip) {
         saveSettings(next);
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
-        toast(`${RELEVANCE_META[tier]?.label || tier} relevance lore set to ${label}.`);
     });
     return btn;
 }
@@ -20178,7 +20174,6 @@ function createInjectionModeButton(mode, label, tooltip, settings) {
         }
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
-        toast(`Lore injection mode set to ${label}.`);
     });
     return btn;
 }
@@ -20206,7 +20201,6 @@ function createContinuityModeButton(mode, label, tooltip, settings) {
         }
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
         refreshHeader();
-        toast(`Continuity injection mode set to ${label}.`);
     });
     return btn;
 }

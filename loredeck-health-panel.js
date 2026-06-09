@@ -1388,7 +1388,6 @@ async function refreshLoredeckHealthCenterScan(context = getLoredeckHealthCenter
         if (context.pack) {
             const result = await validateLoredeckForEditor(context.pack, null, { quiet: true, updateLibrary: true });
             if (!result.health) throw new Error(result.error || 'Deck Health scan failed.');
-            toast(`Deck Health: ${getLoredeckHealthStatusDescriptor({ summary: result.health.summary || {}, status: result.health.status }, result.health).label}.`, result.health.errors?.length ? 'error' : (result.health.warnings?.length ? 'warning' : 'success'));
             refreshLoredeckSurfaces();
         } else {
             clearCanonLoreDatabaseCache();
@@ -1396,7 +1395,6 @@ async function refreshLoredeckHealthCenterScan(context = getLoredeckHealthCenter
             await loadCanonLoreDatabase();
             refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
             refreshHeader();
-            toast('Deck Health refreshed.', 'success');
         }
     } catch (e) {
         toast(e?.message || 'Deck Health scan failed.', 'error');
@@ -1416,7 +1414,6 @@ function exportLoredeckHealthCenterReport(context = getLoredeckHealthCenterConte
     }
     const fileStem = sanitizeFileStem(context.pack?.packId || context.report.databaseId || 'saga-deck-health');
     downloadJson(context.report, `${fileStem}.health.json`);
-    toast('Deck Health report exported.', 'info');
 }
 
 function createLoredeckHealthMetric(label, value, tooltip) {
@@ -1652,7 +1649,6 @@ export async function refreshLoredeckHealthReport(button = null) {
         clearContextIndexCache();
         await loadCanonLoreDatabase();
         refreshLoredeckSurfaces();
-        toast('Deck Health refreshed.', 'success');
     } catch (e) {
         toast(e?.message || 'Deck Health refresh failed.', 'error');
     } finally {
@@ -1669,5 +1665,4 @@ export function exportLoredeckHealthReport(state, canonDb = null, health = null)
         return;
     }
     downloadJson(buildLoredeckHealthReport(state, canonDb, health), 'saga-pack-health.json');
-    toast('Deck Health report exported.', 'info');
 }

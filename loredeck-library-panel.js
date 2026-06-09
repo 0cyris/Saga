@@ -3589,6 +3589,7 @@ function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo =
     add.disabled = inStack && stackItem.enabled;
     actions.appendChild(add);
     actions.appendChild(createButton('Open Loredeck', 'Open this Loredeck in the fullscreen Lorecard viewer and editor.', () => {
+        closeLoredeckLibraryWindow();
         openLoredeckWorkbench(pack.packId);
     }, 'wandlight-primary-button'));
     actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {

@@ -741,24 +741,18 @@ export function createPendingLoreBulkControls(pendingLore, state) {
         dismissSelectedPendingLore();
     }));
     actions.appendChild(createButton('Apply All', 'Accepts every pending lore entry in the current batch.', () => {
-        const current = getState();
-        const count = (current.pendingLoreEntries || []).length;
         acceptPendingLoreEntries();
         clearPendingReviewSelection();
         refreshPanelBody({ preserveScroll: false });
         refreshHeader();
         refreshLoreWorkbench();
-        toast(`${count} lore entries accepted.`);
     }));
     actions.appendChild(createButton('Dismiss All', 'Rejects every pending lore entry in the current batch.', () => {
-        const current = getState();
-        const count = (current.pendingLoreEntries || []).length;
         rejectPendingLoreEntries();
         clearPendingReviewSelection();
         refreshPanelBody({ preserveScroll: false });
         refreshHeader();
         refreshLoreWorkbench();
-        toast(`${count} lore entries dismissed.`, 'info');
     }));
     card.appendChild(actions);
 
@@ -862,7 +856,6 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
         refreshPanelBody({ preserveScroll: true });
         refreshHeader();
         refreshLoreWorkbench();
-        toast('Lore entry accepted.');
     }, 'wandlight-primary-button'));
     if (targetId) {
         actionsRow.appendChild(createButton('Apply as New', 'Accepts this generated lore as a separate new entry instead of updating the routed target.', () => {
@@ -896,7 +889,6 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
             refreshPanelBody({ preserveScroll: true });
             refreshHeader();
             refreshLoreWorkbench();
-            toast('Lore entry accepted as new.');
         }));
     }
     actionsRow.appendChild(createButton('Dismiss', 'Rejects this single lore entry without changing accepted lore.', () => {
@@ -905,7 +897,6 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
         refreshPanelBody({ preserveScroll: true });
         refreshHeader();
         refreshLoreWorkbench();
-        toast('Lore entry dismissed.', 'info');
     }));
     card.appendChild(actionsRow);
 
@@ -1078,7 +1069,6 @@ function createEditableLifecycleBadge(entry, options = {}) {
         refreshAcceptedLoreBulkToolbar();
         refreshHeader();
         refreshLoreWorkbench();
-        toast(`${entry.title || 'Lore entry'} relevance set to ${RELEVANCE_META[nextRelevance]?.label || nextRelevance}.`, 'info');
     });
 
     wrap.appendChild(select);
@@ -1388,7 +1378,6 @@ function applySelectedPendingLore() {
     refreshPanelBody({ preserveScroll: true });
     refreshHeader();
     refreshLoreWorkbench();
-    toast(`${indexes.length} selected lore entries accepted.`);
 }
 
 function dismissSelectedPendingLore() {
@@ -1402,7 +1391,6 @@ function dismissSelectedPendingLore() {
     refreshPanelBody({ preserveScroll: true });
     refreshHeader();
     refreshLoreWorkbench();
-    toast(`${indexes.length} selected lore entries dismissed.`, 'info');
 }
 
 function acceptPendingLoreEntries() {
@@ -1585,7 +1573,6 @@ function bulkUpdateAcceptedLore(ids, updater) {
     refreshAcceptedLoreBulkToolbar();
     refreshHeader();
     refreshLoreWorkbench();
-    if (count) toast(`Updated ${count} accepted lore entr${count === 1 ? 'y' : 'ies'}.`, 'success');
     return count > 0;
 }
 
@@ -1620,7 +1607,6 @@ function bulkSetAcceptedPinned(ids, pinned) {
     refreshAcceptedLoreBulkToolbar();
     refreshHeader();
     refreshLoreWorkbench();
-    toast(`${pinned ? 'Pinned' : 'Unpinned'} ${idSet.size} accepted lore entr${idSet.size === 1 ? 'y' : 'ies'}.`, 'success');
 }
 
 function bulkSetAcceptedMuted(ids, muted) {
@@ -1654,7 +1640,6 @@ function bulkSetAcceptedMuted(ids, muted) {
     refreshAcceptedLoreBulkToolbar();
     refreshHeader();
     refreshLoreWorkbench();
-    toast(`${muted ? 'Muted' : 'Unmuted'} ${idSet.size} accepted lore entr${idSet.size === 1 ? 'y' : 'ies'}.`, 'success');
 }
 
 function bulkAddTagToAcceptedLore(ids, tag) {
@@ -1697,7 +1682,6 @@ function bulkDeleteAcceptedLore(ids) {
     refreshAcceptedLoreBulkToolbar();
     refreshHeader();
     refreshLoreWorkbench();
-    toast(`Deleted ${deleted} accepted lore entr${deleted === 1 ? 'y' : 'ies'}.`, 'success');
 }
 
 function getLoreRegistryValues(registryName, fallback = []) {
@@ -2548,7 +2532,6 @@ function createEditableLoreMetaBadge(entry, field, value, values = null, tooltip
         if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
         refreshHeader();
         refreshLoreWorkbench();
-        toast(`${entry.title || 'Lore entry'} ${prefix.textContent.toLowerCase()} set to ${getLoreDisplayLabel(field, nextValue)}.`, 'info');
     });
 
     wrap.appendChild(select);
@@ -2588,7 +2571,6 @@ function createEditablePriorityBadge(entry) {
         if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
         refreshHeader();
         refreshLoreWorkbench();
-        toast(`${entry.title || 'Lore entry'} priority set to P${nextValue}.`, 'info');
     });
 
     wrap.appendChild(select);
@@ -2664,7 +2646,6 @@ function createEditableLoreEntryEditor(entry) {
         if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
         refreshHeader();
         refreshLoreWorkbench();
-        toast('Lore entry saved.', 'success');
     }, 'wandlight-primary-button');
     actions.appendChild(saveBtn);
     editor.appendChild(actions);

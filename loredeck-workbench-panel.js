@@ -48,6 +48,7 @@ function getLoredeckDefinition(packId) { return dep('getLoredeckDefinition', () 
 function getFreshLoredeckLibraryPack(packId, fallback) { return dep('getFreshLoredeckLibraryPack', (_packId, _fallback) => _fallback || null)(packId, fallback); }
 function getLoredeckTypeLabel(packId) { return dep('getLoredeckTypeLabel', () => 'Custom')(packId); }
 function openDuplicateLoredeckDialog(pack) { return dep('openDuplicateLoredeckDialog', () => {})(pack); }
+function openLoredeckEntryOverrideDialog(pack, row = null) { return dep('openLoredeckEntryOverrideDialog', () => false)(pack, row); }
 function openLoredeckHealthCenter(packId) { return dep('openLoredeckHealthCenter', () => {})(packId); }
 
 export function openLoredeckWorkbench(packId = '') {
@@ -129,7 +130,7 @@ function createLoredeckWorkbenchHeader(pack = null) {
 
     const subtitle = document.createElement('div');
     subtitle.className = 'wandlight-lore-workbench-subtitle';
-    subtitle.textContent = pack?.description || 'Inspect and edit Lorecards inside this Loredeck.';
+    subtitle.textContent = pack?.description || getLoredeckWorkbenchSubtitle(pack);
     titleWrap.appendChild(subtitle);
 
     const chips = document.createElement('div');
@@ -160,6 +161,10 @@ function createLoredeckWorkbenchHeader(pack = null) {
             actions.appendChild(createButton('Duplicate to Edit', 'Create an editable Custom copy of this Bundled Loredeck.', () => {
                 openDuplicateLoredeckDialog(pack);
             }, 'wandlight-primary-button'));
+        } else {
+            actions.appendChild(createButton('New Lorecard', 'Queue a new Lorecard proposal for this editable Loredeck.', () => {
+                openLoredeckWorkbenchEntryEditor(pack, null);
+            }, 'wandlight-primary-button'));
         }
     }
     actions.appendChild(createButton('Close', 'Close the Loredeck Workbench.', closeLoredeckWorkbench, 'wandlight-small-button wandlight-lore-workbench-close'));
@@ -170,12 +175,18 @@ function createLoredeckWorkbenchHeader(pack = null) {
 function getLoredeckWorkbenchSaveState(pack = {}) {
     if (!pack?.packId) return 'No deck';
     if (pack.type === 'bundled') return 'Read-only';
-    return 'Saved';
+    return 'Editable';
 }
 
 function getLoredeckWorkbenchSaveTooltip(pack = {}) {
     if (pack?.type === 'bundled') return 'Bundled Loredecks are read-only. Duplicate to edit.';
-    return 'Phase 1 is a read-only viewer. Editable autosave will be added next for Custom and Generated Loredecks.';
+    return 'Custom and Generated Loredeck edits are queued as Pending Review changes.';
+}
+
+function getLoredeckWorkbenchSubtitle(pack = null) {
+    if (!pack?.packId) return 'Select a Loredeck to inspect its Lorecards.';
+    if (pack.type === 'bundled') return 'Inspect this read-only Bundled Loredeck, or duplicate it to edit a Custom copy.';
+    return 'Inspect Lorecards and queue Pending Review edits for this Loredeck.';
 }
 
 function createLoredeckWorkbenchTabs() {
@@ -363,7 +374,11 @@ function createLoredeckWorkbenchDetail(pack = {}, rows = []) {
     chips.appendChild(createStatusPill(getEntryRelevance(entry), 'Lorecard relevance tier.'));
     chips.appendChild(createStatusPill(getEntryCategory(entry), 'Lorecard category/type.'));
     chips.appendChild(createStatusPill(selected.sourceFile || 'embedded', 'Source file for this Lorecard.'));
-    if (pack?.type === 'bundled') chips.appendChild(createStatusPill('Read-only', 'Bundled Loredecks must be duplicated before editing.'));
+    if (pack?.type === 'bundled') {
+        chips.appendChild(createStatusPill('Read-only', 'Bundled Loredecks must be duplicated before editing.'));
+    } else {
+        chips.appendChild(createStatusPill('Editable', 'Edits are queued as Pending Review changes for this Loredeck.'));
+    }
     detail.appendChild(chips);
 
     const grid = document.createElement('div');
@@ -391,15 +406,56 @@ function createLoredeckWorkbenchDetail(pack = {}, rows = []) {
     const contextText = getEntryContextSummary(entry);
     if (contextText) detail.appendChild(createKeyValue('Context Gate', contextText, 'Context activation gate for this Lorecard.'));
 
+    const actions = document.createElement('div');
+    actions.className = 'wandlight-primary-actions';
     if (pack?.type === 'bundled') {
-        const actions = document.createElement('div');
-        actions.className = 'wandlight-primary-actions';
         actions.appendChild(createButton('Duplicate to Edit', 'Create an editable Custom copy of this Bundled Loredeck.', () => {
             openDuplicateLoredeckDialog(pack);
         }, 'wandlight-primary-button'));
-        detail.appendChild(actions);
+    } else {
+        actions.appendChild(createButton('Edit Lorecard', 'Queue a pending edit for this Lorecard.', () => {
+            openLoredeckWorkbenchEntryEditor(pack, selected);
+        }, 'wandlight-primary-button'));
+        actions.appendChild(createButton('New Lorecard', 'Queue a new Lorecard proposal for this editable Loredeck.', () => {
+            openLoredeckWorkbenchEntryEditor(pack, null);
+        }));
     }
+    detail.appendChild(actions);
     return detail;
+}
+
+function openLoredeckWorkbenchEntryEditor(pack = {}, row = null) {
+    const freshPack = getWorkbenchPack(pack?.packId) || pack;
+    if (!freshPack?.packId) {
+        toast('Select an editable Loredeck first.', 'warning');
+        return false;
+    }
+    if (freshPack.type === 'bundled') {
+        toast('Bundled Loredecks are read-only. Duplicate as Custom first.', 'warning');
+        return false;
+    }
+    return openLoredeckEntryOverrideDialog(freshPack, row ? createLoredeckWorkbenchEditorRow(freshPack, row) : null);
+}
+
+function createLoredeckWorkbenchEditorRow(pack = {}, row = {}) {
+    const entry = { ...(row.entry || {}), id: row.id };
+    const overrideMeta = entry.extensions?.sagaLoredeckOverride && typeof entry.extensions.sagaLoredeckOverride === 'object'
+        ? entry.extensions.sagaLoredeckOverride
+        : {};
+    const overrideKind = String(overrideMeta.kind || '').trim();
+    const sourceFile = String(row.sourceFile || '').trim();
+    const virtualSource = ['__saga_entry_overrides__', '__saga_embedded_entries__', '__saga_generated_entries__'].includes(sourceFile);
+    const added = overrideKind === 'addition' || (virtualSource && overrideKind !== 'override');
+    const overridden = overrideKind === 'override';
+    return {
+        ...row,
+        entry,
+        sourceEntry: added ? null : entry,
+        overrideEntry: added || overridden ? entry : null,
+        disabled: false,
+        status: overridden ? 'overridden' : (added ? 'added' : 'source'),
+        packId: pack.packId,
+    };
 }
 
 async function loadLoredeckWorkbenchRows(packId = loredeckWorkbenchPackId, options = {}) {
@@ -595,4 +651,3 @@ function getEntryContextSummary(entry = {}) {
 function getSourceFileCount(source = {}) {
     return Array.isArray(source?.entryFiles) ? source.entryFiles.length : 0;
 }
-

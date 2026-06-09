@@ -98,7 +98,6 @@ export function enableThemeOverrides(activePreset = getThemePreset(getSettings()
     saveSettings(next);
     applyRuntimeTheme(getPanelRoot(), next);
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    toast('Color overrides enabled.', 'info');
 }
 
 export function resetThemeOverrides() {
@@ -111,7 +110,6 @@ export function resetThemeOverrides() {
     applyRuntimeTheme(getPanelRoot(), next);
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshHeader();
-    toast('Theme overrides reset.', 'info');
 }
 
 export function updateThemeColorInput(settingKey, colorValue) {
@@ -264,7 +262,6 @@ export function applyThemeIconSet(iconSetId = DEFAULT_ICONSET_ID) {
     refreshRuntimeRailIcons(next);
     refreshThemeIconSetSurfaces(next);
     refreshHeader();
-    toast(`Icon Set set to ${iconSet.title || iconSet.id}.`, 'success');
 }
 
 export function applyThemePreset(themeId) {
@@ -277,7 +274,6 @@ export function applyThemePreset(themeId) {
     applyRuntimeTheme(getPanelRoot(), next);
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshHeader();
-    toast(`Themepack set to ${preset.title}.`, 'success');
 }
 
 export function resetThemeSettings() {
@@ -290,7 +286,6 @@ export function resetThemeSettings() {
     applyRuntimeTheme(getPanelRoot(), next);
     refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     refreshHeader();
-    toast('Theme reset.', 'info');
 }
 
 export function exportActiveThemePack() {
@@ -363,7 +358,6 @@ export async function forgetThemePack(themeId) {
     } else {
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     }
-    toast('Theme Pack forgotten.', 'info');
 }
 
 function defaultDownloadJson(data, filename) {

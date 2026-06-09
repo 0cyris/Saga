@@ -199,7 +199,6 @@ function createProviderChoiceField(kind, settings = getSettings()) {
     select.value = settings[`${prefix}Provider`] || 'st';
     select.addEventListener('change', () => {
         saveProviderSetting(kind, 'Provider', select.value);
-        toast(`${cfg.shortTitle} provider set to ${getProviderLabel(select.value)}.`, 'success');
     });
     return createProviderField('Provider', `Select which model source Saga uses for ${cfg.shortTitle.toLowerCase()} tasks.`, select);
 }
@@ -225,7 +224,6 @@ function createProviderProfileSection(kind, settings = getSettings()) {
     select.disabled = profiles.length === 0;
     select.addEventListener('change', () => {
         saveProviderSetting(kind, 'ProfileId', select.value);
-        toast(`${cfg.shortTitle} connection profile updated.`, 'success');
     });
     section.appendChild(createProviderField('Profile', `Connection Profile used for ${cfg.shortTitle.toLowerCase()} tasks.`, select));
     return section;
@@ -288,7 +286,6 @@ function createProviderOpenAiSection(kind, settings = getSettings()) {
         if (!modelSelect.value) return;
         modelInput.value = modelSelect.value;
         saveProviderSetting(kind, 'OpenAIModel', modelSelect.value);
-        toast(`${cfg.shortTitle} model set to ${modelSelect.value}.`, 'success');
     });
 
     const modelStatus = document.createElement('small');
@@ -306,7 +303,6 @@ function createProviderOpenAiSection(kind, settings = getSettings()) {
             fetchedModels = await fetchLoreModels(kind);
             renderProviderModelOptions(modelSelect, fetchedModels, modelInput.value, modelInput.value);
             modelStatus.textContent = `${fetchedModels.length} model${fetchedModels.length === 1 ? '' : 's'} fetched.`;
-            toast(`${cfg.shortTitle} model list fetched.`, 'success');
         });
     }));
 
@@ -525,7 +521,6 @@ function commitProviderTextOnEnter(event, kind, suffix, input) {
     if (event.key !== 'Enter') return;
     event.preventDefault();
     saveProviderSetting(kind, suffix, input.value.trim(), { refresh: false });
-    toast('Provider setting saved.', 'success');
 }
 
 function createOption(value, label) {

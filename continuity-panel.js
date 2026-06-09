@@ -64,7 +64,6 @@ export function createDeltaReviewCard(delta) {
         saveState(next);
         refreshPanelBody({ preserveScroll: false });
         refreshHeader();
-        toast('Continuity changes applied.');
     }, 'wandlight-primary-button'));
     actions.appendChild(createButton('Dismiss Changes', 'Discards this pending delta without changing continuity state.', () => {
         const current = getState();
@@ -72,7 +71,6 @@ export function createDeltaReviewCard(delta) {
         saveState(current);
         refreshPanelBody({ preserveScroll: false });
         refreshHeader();
-        toast('Continuity changes dismissed.', 'info');
     }));
     card.appendChild(actions);
 

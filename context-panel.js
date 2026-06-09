@@ -117,7 +117,6 @@ export function createContextAutomationPanel() {
             const next = { ...getSettings(), contextDetectionMode: mode };
             saveSettings(next);
             refreshContextPanelBody();
-            toast(`Context detection mode set to ${label}.`, 'info');
         });
         buttons.appendChild(btn);
     }
@@ -587,14 +586,12 @@ export function createContextResolutionProposalPanel(state = {}) {
     actions.appendChild(createButton('Apply Proposals', 'Apply every listed Context proposal to its loaded Loredeck Context.', async () => {
         const ok = await confirmAction('Apply Context proposals?', `Apply ${proposals.length} Reasoner Context proposal${proposals.length === 1 ? '' : 's'}?`);
         if (!ok) return;
-        const applied = applyContextResolutionProposalSet(proposals, {
+        applyContextResolutionProposalSet(proposals, {
             clearAll: true,
         });
-        toast(`Applied ${applied} Context proposal${applied === 1 ? '' : 's'}.`, 'success');
     }));
     actions.appendChild(createButton('Dismiss', 'Discard these Context proposals without changing loaded Loredeck Contexts.', () => {
         dismissContextResolutionProposalSet(proposals, { clearAll: true });
-        toast('Context proposals dismissed.', 'info');
     }));
     wrap.appendChild(actions);
     return wrap;
@@ -671,16 +668,14 @@ export function createContextProposalReviewShell(state = {}) {
     actions.appendChild(createButton('Apply All', 'Apply every listed Context proposal.', async () => {
         const ok = await confirmAction('Apply Context proposals?', `Apply ${proposals.length} Reasoner Context proposal${proposals.length === 1 ? '' : 's'}?`);
         if (!ok) return;
-        const applied = applyContextResolutionProposalSet(proposals, {
+        applyContextResolutionProposalSet(proposals, {
             clearAll: true,
         });
-        toast(`Applied ${applied} Context proposal${applied === 1 ? '' : 's'}.`, 'success');
     }, 'wandlight-primary-button'));
     actions.appendChild(createButton('Dismiss All', 'Discard every listed Context proposal without changing loaded Loredeck Contexts.', async () => {
         const ok = await confirmAction('Dismiss Context proposals?', `Dismiss ${proposals.length} Context proposal${proposals.length === 1 ? '' : 's'}?`);
         if (!ok) return;
         dismissContextResolutionProposalSet(proposals, { clearAll: true });
-        toast('Context proposals dismissed.', 'info');
     }));
     actions.appendChild(createButton('Close', 'Close Context proposal review.', closeContextProposalReview));
     header.appendChild(actions);
@@ -739,11 +734,10 @@ function createContextProposalReviewRow(proposal = {}) {
     actions.className = 'wandlight-primary-actions wandlight-context-proposal-review-row-actions';
     actions.appendChild(createButton('Apply', 'Apply this Context proposal.', () => {
         const applied = applyContextResolutionProposalSet([proposal]);
-        toast(`Applied ${applied} Context proposal${applied === 1 ? '' : 's'}.`, applied ? 'success' : 'warning');
+        if (!applied) toast('Context proposal could not be applied.', 'warning');
     }, 'wandlight-primary-button'));
     actions.appendChild(createButton('Dismiss', 'Discard this Context proposal.', () => {
         dismissContextResolutionProposalSet([proposal]);
-        toast('Context proposal dismissed.', 'info');
     }));
     row.appendChild(actions);
     return row;
