@@ -84,6 +84,8 @@ The helper writes `live-st-*.png` screenshots to:
 Images/documentation/renders/saga-smoke/
 ```
 
+These screenshots are local generated artifacts and are ignored by Git. Do not commit them to the extension install payload.
+
 The helper safely clicks Custom `Delete Deck`, verifies the Saga-owned confirmation modal, captures `live-st-03-delete-confirm.png`, and clicks `Cancel`. Native browser confirmation dialogs should not appear in this flow.
 
 ## Live ST Context Screenshot Helper

@@ -81,6 +81,13 @@ function getLoredeckLibraryRegistry(state) { return dep('getLoredeckLibraryRegis
 function normalizeLoredeckLibraryPack(raw) { return dep('normalizeLoredeckLibraryPack', raw => raw || {})(raw); }
 function getLoredeckDefinition(packId) { return dep('getLoredeckDefinition', () => null)(packId); }
 function getLoredeckTypeLabel(packId) { return dep('getLoredeckTypeLabel', () => 'Custom')(packId); }
+function getLoredeckLibraryPackTypeLabel(pack = {}) {
+    const type = String(pack?.type || pack?.manifestData?.type || '').trim();
+    if (type === 'bundled') return 'Bundled';
+    if (type === 'generated') return 'Generated';
+    if (type === 'custom') return 'Custom';
+    return pack?.packId ? getLoredeckTypeLabel(pack.packId) : 'Custom';
+}
 function getLoredeckSourceSummary(pack) { return dep('getLoredeckSourceSummary', () => '')(pack); }
 function getLoredeckTagRegistryCount(pack) { return dep('getLoredeckTagRegistryCount', () => 0)(pack); }
 function getLoredeckTimelineRegistryCount(pack) { return dep('getLoredeckTimelineRegistryCount', () => 0)(pack); }
@@ -1155,7 +1162,7 @@ function getLoredeckLibraryPackSearchText(pack = {}, libraryIndex = {}) {
         pack.author,
         pack.version,
         pack.manifest,
-        getLoredeckTypeLabel(pack.packId),
+        getLoredeckLibraryPackTypeLabel(pack),
         folderId,
         folderPath.join(' '),
         folderPath.join(' > '),
@@ -2209,11 +2216,11 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     }));
     const desc = document.createElement('div');
     desc.className = 'wandlight-loredeck-library-deck-description';
-    desc.textContent = pack.description || `${getLoredeckTypeLabel(pack.packId)} Loredeck.`;
+    desc.textContent = pack.description || `${getLoredeckLibraryPackTypeLabel(pack)} Loredeck.`;
     main.appendChild(desc);
     const chips = document.createElement('div');
     chips.className = 'wandlight-loredeck-row-meta';
-    chips.appendChild(createStatusPill(getLoredeckTypeLabel(pack.packId), 'Loredeck source type.'));
+    chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.'));
     if (pack.fandom) chips.appendChild(createStatusPill(pack.fandom, 'Fandom or setting.'));
     if (pack.era) chips.appendChild(createStatusPill(pack.era, 'Era, arc, continuity slice, or scope.'));
     if (healthTone !== 'ok') chips.appendChild(createStatusPill(healthInfo.status.label, healthInfo.status.summary));
@@ -2316,8 +2323,8 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
     const toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = `wandlight-loredeck-library-stack-toggle-button ${item.enabled !== false ? 'wandlight-loredeck-library-stack-toggle-active' : 'wandlight-loredeck-library-stack-toggle-inactive'}`;
-    toggle.textContent = item.enabled !== false ? 'On' : 'Off';
     toggle.setAttribute('aria-pressed', item.enabled !== false ? 'true' : 'false');
+    toggle.setAttribute('aria-label', item.enabled !== false ? 'Disable Loredeck retrieval' : 'Enable Loredeck retrieval');
     addTooltip(toggle, item.enabled !== false ? 'Active. Click to disable this Loredeck without removing it.' : 'Disabled. Click to enable this Loredeck for retrieval.');
     toggle.addEventListener('click', e => {
         e.stopPropagation();
@@ -2433,8 +2440,8 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     const toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = `wandlight-loredeck-library-stack-toggle-button ${item.enabled !== false ? 'wandlight-loredeck-library-stack-toggle-active' : 'wandlight-loredeck-library-stack-toggle-inactive'}`;
-    toggle.textContent = item.enabled !== false ? 'On' : 'Off';
     toggle.setAttribute('aria-pressed', item.enabled !== false ? 'true' : 'false');
+    toggle.setAttribute('aria-label', item.enabled !== false ? 'Disable folder group retrieval' : 'Enable folder group retrieval');
     addTooltip(toggle, item.enabled !== false ? 'Active. Click to disable this folder group without removing it.' : 'Disabled. Click to enable this folder group for retrieval.');
     toggle.addEventListener('click', e => {
         e.stopPropagation();
@@ -3320,7 +3327,7 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
     }));
     const chips = document.createElement('div');
     chips.className = 'wandlight-loredeck-row-meta';
-    chips.appendChild(createStatusPill(getLoredeckTypeLabel(pack.packId), 'Loredeck source type.'));
+    chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.'));
     chips.appendChild(createStatusPill(`${stats.entryCount} Lorecards`, 'Approximate Lorecard count.'));
     chips.appendChild(createStatusPill(healthInfo.status.label, healthInfo.status.summary));
     if (stackItem) chips.appendChild(createStatusPill(stackItem.enabled ? `Priority ${stack.findIndex(item => item.packId === pack.packId) + 1}` : 'Stacked disabled', 'Current active stack state.'));
@@ -3828,7 +3835,7 @@ function createLoredeckMetadataEditorCard(pack) {
     main.appendChild(title);
     const chips = document.createElement('div');
     chips.className = 'wandlight-loredeck-row-meta';
-    chips.appendChild(createStatusPill(getLoredeckTypeLabel(pack.packId), 'Loredeck source type.'));
+    chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.'));
     if (virtualDuplicate) {
         chips.appendChild(createStatusPill(
             pack.type === 'generated' ? 'Generated Draft' : 'Virtual Copy',

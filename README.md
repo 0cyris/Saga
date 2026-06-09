@@ -166,20 +166,6 @@ Provider behavior varies. Treat model output as draft material until reviewed.
 
 Saga includes theme and icon set support so the runtime shelf can evolve visually without mixing executable code into visual assets. Like Loredecks, theme and icon assets should remain passive data.
 
-## Interface Preview
-
-<p align="center">
-  <img src="Images/documentation/renders/saga-smoke/live-st-02-loredecks.png" alt="Saga Loredecks tab" width="700">
-</p>
-
-<p align="center">
-  <img src="Images/documentation/renders/saga-smoke/live-st-04-health.png" alt="Saga Deck Health Center" width="700">
-</p>
-
-<p align="center">
-  <img src="Images/documentation/renders/saga-smoke/live-st-05-creator.png" alt="Saga Loredeck Creator" width="700">
-</p>
-
 ## Bundled Reference Decks
 
 The current reference data is the split Harry Potter Golden Trio Loredeck family:

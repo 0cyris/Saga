@@ -4096,42 +4096,90 @@
 }
 
 .wandlight-loredeck-library-stack-toggle-button {
-    width: 24px;
-    height: 24px;
-    min-width: 24px;
+    position: relative;
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(185, 139, 54, 0.28);
-    border-radius: 6px;
+    border: 1px solid rgba(185, 139, 54, 0.32);
+    border-radius: 50%;
     padding: 0;
-    font-size: 0.48em;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: 0;
     cursor: pointer;
     box-sizing: border-box;
+    overflow: visible;
+    transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.wandlight-loredeck-library-stack-toggle-button::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: background 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+}
+
+.wandlight-loredeck-library-stack-toggle-button::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: opacity 140ms ease, box-shadow 140ms ease;
 }
 
 .wandlight-loredeck-library-stack-toggle-active {
-    color: #eaffdf;
     border-color: rgba(119, 184, 93, 0.72);
     background:
-        radial-gradient(circle at 50% 30%, rgba(119, 184, 93, 0.24), transparent 60%),
-        rgba(31, 74, 56, 0.82);
+        radial-gradient(circle at 50% 42%, rgba(231, 255, 192, 0.38), transparent 42%),
+        radial-gradient(circle at 50% 50%, rgba(103, 216, 82, 0.26), transparent 72%),
+        rgba(12, 30, 21, 0.9);
+    box-shadow:
+        0 0 0 1px rgba(202, 255, 146, 0.2) inset,
+        0 0 12px rgba(107, 255, 89, 0.44),
+        0 0 24px rgba(107, 255, 89, 0.16);
+}
+
+.wandlight-loredeck-library-stack-toggle-active::before {
+    background:
+        radial-gradient(circle at 38% 28%, #ffffff 0 12%, #f0ffd3 18%, #9cff6d 54%, #3ecf58 100%);
+    box-shadow:
+        0 0 5px rgba(229, 255, 198, 0.9),
+        0 0 12px rgba(110, 255, 91, 0.78);
+}
+
+.wandlight-loredeck-library-stack-toggle-active::after {
+    opacity: 1;
+    box-shadow:
+        0 0 12px 2px rgba(119, 255, 87, 0.5),
+        0 0 3px rgba(255, 255, 255, 0.72) inset;
 }
 
 .wandlight-loredeck-library-stack-toggle-inactive {
-    color: rgba(241, 234, 216, 0.72);
     border-color: rgba(185, 139, 54, 0.22);
     background:
-        radial-gradient(circle at 50% 30%, rgba(160, 160, 160, 0.12), transparent 60%),
-        rgba(35, 35, 38, 0.78);
+        radial-gradient(circle at 50% 38%, rgba(241, 234, 216, 0.08), transparent 48%),
+        rgba(16, 16, 18, 0.86);
+}
+
+.wandlight-loredeck-library-stack-toggle-inactive::before {
+    opacity: 0.58;
+    background:
+        radial-gradient(circle at 38% 28%, rgba(241, 234, 216, 0.7) 0 10%, rgba(120, 120, 118, 0.46) 44%, rgba(38, 38, 40, 0.82) 100%);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.44) inset;
+}
+
+.wandlight-loredeck-library-stack-toggle-inactive::after {
+    opacity: 0;
 }
 
 .wandlight-loredeck-library-stack-toggle-button:hover,
 .wandlight-loredeck-library-stack-toggle-button:focus-visible {
     border-color: rgba(245, 196, 91, 0.72);
-    box-shadow: 0 0 0 1px rgba(245, 196, 91, 0.18) inset;
+    transform: translateY(-1px);
+    box-shadow:
+        0 0 0 1px rgba(245, 196, 91, 0.18) inset,
+        0 0 14px rgba(245, 196, 91, 0.16);
 }
 
 .wandlight-loredeck-library-center-actions {
