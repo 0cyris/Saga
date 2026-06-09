@@ -864,7 +864,7 @@ export function refreshLoredeckSurfaces(options = {}) {
     refreshPanelBody({ preserveScroll, preserveWindowScroll });
     refreshHeader();
     if (renderLibrary && loredeckLibraryOpen) renderLoredeckLibraryOverlay();
-    if (contextWorkbenchOpen) renderContextWorkbench();
+    renderContextWorkbench();
 }
 
 export function getLoredeckLibraryPackMap(library = []) {
