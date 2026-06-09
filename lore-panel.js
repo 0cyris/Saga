@@ -962,6 +962,7 @@ configureLoredecksTabPanel({
     refreshPanelBody,
     refreshHeader,
     markTourTarget,
+    createCollapsibleSection,
     installLoredeckBundleFromFile,
     openLoredeckCreatorWorkbench,
     getLoredeckDefinition,
@@ -15568,10 +15569,32 @@ function renderSettingsTab(container, state) {
     identity.appendChild(createKeyValue('Loredecks', getLoredeckStackMetric(getState()), 'Enabled Loredecks in the current chat stack.'));
     identity.appendChild(createKeyValue('Library decks', String(Object.keys(getLoredeckLibraryRegistry(getState()).packs || {}).length), 'Loredecks registered in extension settings.'));
     identity.appendChild(createKeyValue('Theme', getThemePreset(settings.themePackId)?.title || 'Custom', 'Active Themepack preset.'));
-    container.appendChild(identity);
+    container.appendChild(createCollapsibleSection(
+        'settings.identity',
+        'Runtime Identity',
+        `${getLoredeckStackMetric(getState())} | ${getThemePreset(settings.themePackId)?.title || 'Theme'}`,
+        true,
+        identity,
+        { tooltip: 'Current Saga runtime, Loredeck, Library, and Theme summary.' }
+    ));
 
-    container.appendChild(createProviderSettingsCard(settings));
-    container.appendChild(createThemeSettingsCard(settings));
+    container.appendChild(createCollapsibleSection(
+        'settings.providers',
+        'Providers',
+        'Utility and Reasoning model settings',
+        true,
+        createProviderSettingsCard(settings),
+        { tooltip: 'Configure model providers used by Saga generation, Context detection, compression, and continuity workflows.' }
+    ));
+
+    container.appendChild(createCollapsibleSection(
+        'settings.themePack',
+        'Theme Pack',
+        getThemePreset(settings.themePackId)?.title || 'Theme',
+        false,
+        createThemeSettingsCard(settings),
+        { tooltip: 'Manage Theme Packs, icon sets, color overrides, and accessibility checks.' }
+    ));
 }
 
 function createThemeSettingsCard(settings = getSettings()) {
@@ -15977,7 +16000,17 @@ function renderSessionTab(container, state) {
         modeDesc.textContent = AUTOMATION_MODES[normalizeAutomationMode(settings.automationMode || settings.workflowMode)].description;
         modeCard.appendChild(modeDesc);
 
-        container.appendChild(markTourTarget(modeCard, 'session.automation'));
+        const currentMode = normalizeAutomationMode(settings.automationMode || settings.workflowMode);
+        const automationSection = createCollapsibleSection(
+            'session.automationMode',
+            'Automation Mode',
+            getAutomationLabel(currentMode),
+            true,
+            modeCard,
+            { tooltip: 'Choose whether Saga runs only when clicked or automatically after roleplay turns.' }
+        );
+        markTourTarget(automationSection, 'session.automation');
+        container.appendChild(automationSection);
     }
 
     container.appendChild(createCollapsibleSection(
@@ -16002,7 +16035,16 @@ function renderSessionTab(container, state) {
     stats.appendChild(createKeyValue('Lore selected for injection', String(selectedLoreCount), 'Accepted lore entries selected for Lore Injection after pin/mute rules, Context activation, and fallback priority selection. There is no hidden entry cap; mute entries to exclude them.'));
     stats.appendChild(createKeyValue('Injection token estimate', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate token count for the combined Continuity + Lore injection previews.'));
     stats.appendChild(createKeyValue('Total chars injected', `${injectionStats.totalChars} chars`, 'Combined character count of Continuity Injection plus Lore Injection using current Injection tab toggles and handling modes.'));
-    container.appendChild(stats);
+    const metricsSection = createCollapsibleSection(
+        'session.metrics',
+        'Session Metrics',
+        `${counts.all - counts.pending} accepted | ${selectedLoreCount} selected | ${Number(injectionStats.totalTokens) || 0} tokens`,
+        false,
+        stats,
+        { tooltip: 'Runtime counters for pending changes, accepted Lorecards, relevance tiers, and current injection size.' }
+    );
+    markTourTarget(metricsSection, 'session.metrics');
+    container.appendChild(metricsSection);
 
     container.appendChild(createCollapsibleSection('session.dangerZone', 'Danger Zone', 'Destructive cleanup actions', false, createDangerZoneCard(state), { tooltip: 'Destructive cleanup actions for this chat.', className: 'wandlight-danger-zone-collapsible' }));
 }
@@ -16311,8 +16353,24 @@ function renderContextTab(container, state) {
         'Set and audit where this chat sits inside each loaded Loredeck.'
     ));
 
-    container.appendChild(createContextCommandCenterCard(state, contextIndex));
-    container.appendChild(createLoredeckContextCard(state, contextIndex));
+    const contextStack = getContextWorkbenchStack(state);
+    const contextProposals = getContextResolutionProposals(state);
+    container.appendChild(createCollapsibleSection(
+        'context.commandCenter',
+        'Runtime Context',
+        `${contextStack.length} loaded | ${contextProposals.length} proposal${contextProposals.length === 1 ? '' : 's'}`,
+        true,
+        createContextCommandCenterCard(state, contextIndex),
+        { tooltip: 'Primary controls for browsing, detecting, resolving, and reviewing loaded Loredeck Context.' }
+    ));
+    container.appendChild(createCollapsibleSection(
+        'context.loadedLoredecks',
+        'Loaded Loredeck Contexts',
+        contextStack.length ? `${contextStack.length} active` : 'none loaded',
+        true,
+        createLoredeckContextCard(state, contextIndex),
+        { tooltip: 'Per-Loredeck Context rows for the active stack, including locks, manual browser access, and resolver confidence.' }
+    ));
     container.appendChild(createContextAdvancedBriefSection(state));
 }
 
@@ -18458,7 +18516,14 @@ function renderContinuityTab(container, state) {
         'Edit the lightweight live roleplay state Saga tracks for the next scene. Durable memory such as knowledge, secrets, milestones, and relationships belongs in Story Lore.'
     ));
 
-    container.appendChild(createContinuityScanCard(state));
+    container.appendChild(createCollapsibleSection(
+        'continuity.scan',
+        'Continuity Scan',
+        getContinuityScanScopeSummary(getSettings()),
+        true,
+        createContinuityScanCard(state),
+        { tooltip: 'Adaptive continuity scanning controls, progress, and scan settings.' }
+    ));
 
     if (state?.lastDelta) {
         const pendingDelta = document.createElement('div');
@@ -18468,7 +18533,14 @@ function renderContinuityTab(container, state) {
         addTooltip(title, 'Older or manually created continuity deltas waiting to be applied. New scans apply directly to the editable sections below.');
         pendingDelta.appendChild(title);
         pendingDelta.appendChild(createDeltaReviewCard(state.lastDelta));
-        container.appendChild(pendingDelta);
+        container.appendChild(createCollapsibleSection(
+            'continuity.pendingChanges',
+            'Pending Continuity Changes',
+            '1 waiting',
+            true,
+            pendingDelta,
+            { tooltip: 'Older or manually created continuity deltas waiting to be applied.' }
+        ));
     }
 
     const trackedSection = createCollapsibleSection('continuity.trackedSections', 'Tracked Sections', 'Enable/disable live-state scan and injection sections', false, createContinuitySectionToggleCard(state), { tooltip: 'Optional lightweight continuity sections for this chat.' });
@@ -18972,7 +19044,16 @@ function renderBasicInjectionTab(container, state, settings = getSettings()) {
     container.appendChild(help);
 
     for (const tier of ['high', 'normal', 'low']) {
-        container.appendChild(createBasicLoreTierInjectionCard(tier, state, settings));
+        const label = RELEVANCE_META[tier]?.label || tier;
+        const entryCount = getInjectableLoreEntries(state, 0, tier).length;
+        container.appendChild(createCollapsibleSection(
+            `injection.basic.lore${capTier(tier)}`,
+            `${label}-Relevance Lore`,
+            `${entryCount} entr${entryCount === 1 ? 'y' : 'ies'}`,
+            tier === 'high',
+            createBasicLoreTierInjectionCard(tier, state, settings),
+            { tooltip: `${label}-Relevance lore injection controls and preview.` }
+        ));
     }
 }
 
@@ -19102,11 +19183,50 @@ function renderInjectionTab(container, state) {
     markTourTarget(placementSection, 'injection.promptPlacement');
     container.appendChild(placementSection);
 
-    container.appendChild(createInjectionPreviewCard('Continuity Injection', 'wandlight-continuity-injection-preview', continuityPreview, settings.injectContinuity !== false && settings.injectMemo !== false, 'This is the actual Continuity block currently configured for prompt injection. It can be placed at a different depth because it is separated from Lore.', createContinuityHandlingDropdown(state, settings)));
-    container.appendChild(createInjectionPreviewCard('High-Relevance Lore Injection', 'wandlight-lore-high-injection-preview', loreHighPreview, settings.injectLore !== false && settings.loreHighInjectionEnabled !== false, 'Lore injected in the high-relevance prompt group.', createLoreTierHandlingDropdown('high', state, settings)));
-    container.appendChild(createInjectionPreviewCard('Normal-Relevance Lore Injection', 'wandlight-lore-normal-injection-preview', loreNormalPreview, settings.injectLore !== false && settings.loreNormalInjectionEnabled !== false, 'Lore injected in the normal-relevance prompt group.', createLoreTierHandlingDropdown('normal', state, settings)));
-    container.appendChild(createInjectionPreviewCard('Low-Relevance Lore Injection', 'wandlight-lore-low-injection-preview', loreLowPreview, settings.injectLore !== false && settings.loreLowInjectionEnabled !== false, 'Lore injected in the low-relevance prompt group.', createLoreTierHandlingDropdown('low', state, settings)));
-    container.appendChild(createInjectionPreviewCard('Combined Lore Preview', 'wandlight-lore-injection-preview', lorePreview, settings.injectLore !== false, 'Combined read-only preview of all relevance-tiered lore blocks.'));
+    const continuityEnabled = settings.injectContinuity !== false && settings.injectMemo !== false;
+    container.appendChild(createCollapsibleSection(
+        'injection.preview.continuity',
+        'Continuity Injection Preview',
+        getInjectionPreviewSectionSummary(continuityPreview, continuityEnabled),
+        true,
+        createInjectionPreviewCard('Continuity Injection', 'wandlight-continuity-injection-preview', continuityPreview, continuityEnabled, 'This is the actual Continuity block currently configured for prompt injection. It can be placed at a different depth because it is separated from Lore.', createContinuityHandlingDropdown(state, settings)),
+        { tooltip: 'Read-only preview of the Continuity prompt block Saga will inject.' }
+    ));
+    const highEnabled = settings.injectLore !== false && settings.loreHighInjectionEnabled !== false;
+    container.appendChild(createCollapsibleSection(
+        'injection.preview.loreHigh',
+        'High-Relevance Lore Preview',
+        getInjectionPreviewSectionSummary(loreHighPreview, highEnabled),
+        true,
+        createInjectionPreviewCard('High-Relevance Lore Injection', 'wandlight-lore-high-injection-preview', loreHighPreview, highEnabled, 'Lore injected in the high-relevance prompt group.', createLoreTierHandlingDropdown('high', state, settings)),
+        { tooltip: 'Read-only preview of the high-relevance Lore prompt block.' }
+    ));
+    const normalEnabled = settings.injectLore !== false && settings.loreNormalInjectionEnabled !== false;
+    container.appendChild(createCollapsibleSection(
+        'injection.preview.loreNormal',
+        'Normal-Relevance Lore Preview',
+        getInjectionPreviewSectionSummary(loreNormalPreview, normalEnabled),
+        false,
+        createInjectionPreviewCard('Normal-Relevance Lore Injection', 'wandlight-lore-normal-injection-preview', loreNormalPreview, normalEnabled, 'Lore injected in the normal-relevance prompt group.', createLoreTierHandlingDropdown('normal', state, settings)),
+        { tooltip: 'Read-only preview of the normal-relevance Lore prompt block.' }
+    ));
+    const lowEnabled = settings.injectLore !== false && settings.loreLowInjectionEnabled !== false;
+    container.appendChild(createCollapsibleSection(
+        'injection.preview.loreLow',
+        'Low-Relevance Lore Preview',
+        getInjectionPreviewSectionSummary(loreLowPreview, lowEnabled),
+        false,
+        createInjectionPreviewCard('Low-Relevance Lore Injection', 'wandlight-lore-low-injection-preview', loreLowPreview, lowEnabled, 'Lore injected in the low-relevance prompt group.', createLoreTierHandlingDropdown('low', state, settings)),
+        { tooltip: 'Read-only preview of the low-relevance Lore prompt block.' }
+    ));
+    container.appendChild(createCollapsibleSection(
+        'injection.preview.loreCombined',
+        'Combined Lore Preview',
+        getInjectionPreviewSectionSummary(lorePreview, settings.injectLore !== false),
+        false,
+        createInjectionPreviewCard('Combined Lore Preview', 'wandlight-lore-injection-preview', lorePreview, settings.injectLore !== false, 'Combined read-only preview of all relevance-tiered lore blocks.'),
+        { tooltip: 'Combined read-only preview of all relevance-tiered Lore blocks.' }
+    ));
 
     const compressionSection = createCollapsibleSection(
         'injection.compressionPrompts',
@@ -19118,6 +19238,13 @@ function renderInjectionTab(container, state) {
     );
     markTourTarget(compressionSection, 'injection.compression');
     container.appendChild(compressionSection);
+}
+
+function getInjectionPreviewSectionSummary(text, enabled = true) {
+    if (!enabled) return 'disabled';
+    const clean = String(text || '').trim();
+    if (!clean) return 'empty';
+    return `${clean.length} chars`;
 }
 
 

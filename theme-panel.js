@@ -17,7 +17,6 @@ import {
     getLocalAssetSrc,
     normalizePassiveAssetPath,
     normalizeHexColor,
-    resolveThemeIconPath,
     THEME_COLOR_FIELDS,
 } from './runtime-theme.js';
 
@@ -122,10 +121,7 @@ export function createActiveThemePanel(activePreset, settings = {}, colors = {},
     summary.appendChild(createKeyValue('Theme ID', activePreset?.id || 'wandlight-default', 'Stable Theme Pack identifier.'));
     summary.appendChild(createKeyValue('Version', activePreset?.version || 'unset', 'Theme Pack version metadata.'));
     summary.appendChild(createKeyValue('Source', activePreset?.type === 'custom' ? getThemeSourceLabel(activePreset) : 'Bundled', 'Where this Theme Pack came from.'));
-    const activeIconSet = getIconSetPreset(settings.themeIconPackId || activePreset?.iconPackId || DEFAULT_ICONSET_ID, settings);
-    summary.appendChild(createKeyValue('Icon Set', activeIconSet.title || activeIconSet.id, 'Reusable runtime icon set selected for the active Theme Pack.'));
     summary.appendChild(createKeyValue('Color overrides', settings.themeCustomEnabled === true ? 'On' : 'Off', 'Overrides are user changes layered over the selected Theme Pack.'));
-    summary.appendChild(createKeyValue('Icon overrides', Object.keys(activePreset?.icons || {}).length ? 'On' : 'Off', 'Theme Pack icon path overrides such as tab.loredecks or brand.expanded.'));
     main.appendChild(summary);
 
     if (activePreset?.type === 'custom' && typeof options.onForgetThemePack === 'function') {
@@ -187,13 +183,6 @@ function createThemePackGalleryCard(preset, activePreset, settings = {}, options
     status.className = `wandlight-theme-pack-accessibility ${report.failedCount ? 'wandlight-theme-pack-accessibility-warning' : ''}`;
     status.textContent = `Accessibility: ${report.status}`;
     main.appendChild(status);
-    const coverage = typeof options.getIconCoverage === 'function'
-        ? options.getIconCoverage(preset)
-        : { loaded: 0, total: 0 };
-    const iconStatus = document.createElement('div');
-    iconStatus.className = 'wandlight-theme-pack-icon-status';
-    iconStatus.textContent = `Icons: ${coverage.loaded || 0} / ${coverage.total || 0}`;
-    main.appendChild(iconStatus);
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
     const apply = createButton(isActive ? 'Active' : 'Apply', isActive ? 'This Theme Pack is active.' : 'Apply this Theme Pack.', () => {
@@ -230,16 +219,16 @@ function createThemeImportTile(options = {}) {
 export function createThemeIconSetPanel(activePreset, settings = {}, options = {}) {
     const panel = document.createElement('div');
     panel.className = 'wandlight-theme-panel wandlight-theme-icon-panel';
-    const iconSet = getIconSetPreset(settings.themeIconPackId || activePreset?.iconPackId || DEFAULT_ICONSET_ID, settings);
+    const iconSet = getIconSetPreset(settings.themeIconPackId || DEFAULT_ICONSET_ID, settings);
     const iconItems = Array.isArray(options.iconItems) ? options.iconItems : [];
-    const coverage = getThemeIconCoverage(activePreset, settings, iconItems);
+    const coverage = getThemeIconCoverage(iconSet, settings, iconItems);
     const header = document.createElement('div');
     header.className = 'wandlight-theme-panel-header';
     const title = document.createElement('div');
     title.className = 'wandlight-runtime-card-title';
     title.textContent = 'Shelf Icon Set';
     header.appendChild(title);
-    header.appendChild(createStatusPill(`Current: ${iconSet.title || iconSet.id}`, 'Current reusable Icon Set metadata selected by the active Theme Pack.'));
+    header.appendChild(createStatusPill(`Current: ${iconSet.title || iconSet.id}`, 'Current reusable Icon Set selected independently from the active Theme Pack.'));
     panel.appendChild(header);
 
     const status = document.createElement('div');
@@ -256,7 +245,7 @@ export function createThemeIconSetPanel(activePreset, settings = {}, options = {
         tile.className = 'wandlight-theme-icon-tile';
         const icon = document.createElement('div');
         icon.className = 'wandlight-theme-icon-preview';
-        const path = getThemeIconPreviewPath(activePreset, item, settings);
+        const path = getThemeIconPreviewPath(iconSet, item, settings);
         if (path) {
             const img = document.createElement('img');
             img.src = getLocalAssetSrc(path);
@@ -280,11 +269,8 @@ export function createThemeIconSetPanel(activePreset, settings = {}, options = {
 
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Import Icon Set', 'Import icon mappings as a Custom Theme Pack that inherits the active colors.', () => {
+    actions.appendChild(createButton('Import Icon Set', 'Import icon mappings as a Custom Icon Set.', () => {
         options.onImportIconSet?.();
-    }));
-    actions.appendChild(createButton('Reset to Theme Icons', 'Reapply the active Theme Pack default Icon Set.', () => {
-        options.onApplyThemeIconSet?.(activePreset?.iconPackId || DEFAULT_ICONSET_ID);
     }));
     actions.appendChild(createButton('Reset to Default', 'Switch to the bundled Saga Hero Icon Set.', () => {
         options.onApplyThemeIconSet?.(DEFAULT_ICONSET_ID);
@@ -299,7 +285,7 @@ export function createThemeIconSetPanel(activePreset, settings = {}, options = {
     const rows = document.createElement('div');
     rows.className = 'wandlight-theme-icon-mapping';
     for (const item of iconItems) {
-        rows.appendChild(createKeyValue(item.label, getThemeIconPreviewPath(activePreset, item, settings) || 'icon set fallback', 'Icon mapping path used by this Theme Pack preview.'));
+        rows.appendChild(createKeyValue(item.label, getThemeIconPreviewPath(iconSet, item, settings) || 'icon set fallback', 'Icon mapping path used by this Icon Set preview.'));
     }
     mapping.appendChild(rows);
     panel.appendChild(mapping);
@@ -525,18 +511,19 @@ export function createThemeAdvancedPanel(settings = {}, activePreset, colors = {
     return panel;
 }
 
-export function getThemeIconPreviewPath(preset = {}, item = {}, settings = {}) {
-    return resolveThemeIconPath(item.key, preset, settings)
-        || resolveThemeIconPath(item.legacyKey, preset, settings)
+export function getThemeIconPreviewPath(iconSet = {}, item = {}, settings = {}) {
+    const icons = iconSet?.icons && typeof iconSet.icons === 'object' ? iconSet.icons : {};
+    return getIconMapValue(icons, item.key)
+        || getIconMapValue(icons, item.legacyKey)
         || normalizePassiveAssetPath(item.defaultPath || '');
 }
 
-export function getThemeIconCoverage(preset = {}, settings = {}, iconItems = []) {
+export function getThemeIconCoverage(iconSet = {}, settings = {}, iconItems = []) {
     const items = Array.isArray(iconItems) ? iconItems : [];
     let loaded = 0;
     let invalid = 0;
     for (const item of items) {
-        const path = getThemeIconPreviewPath(preset, item, settings);
+        const path = getThemeIconPreviewPath(iconSet, item, settings);
         if (path) loaded += 1;
         if (path && !normalizePassiveAssetPath(path)) invalid += 1;
     }

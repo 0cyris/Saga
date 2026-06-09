@@ -5,6 +5,12 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const CORE_PACK_ID = 'hp-core';
 const YEAR_6_PACK_ID = 'hp-year-6-half-blood-prince';
 const MODULES_LOADED_PACKS = [CORE_PACK_ID, YEAR_6_PACK_ID];
+const JAN_25_1997_EXCLUDED_CORE_ENTRY_IDS = [
+  'adult_phase_dumbledore_early_headmaster_years_1_4_baseline',
+  'adult_phase_lucius_malfoy_public_patriarch_years_1_4_baseline',
+  'adult_phase_fudge_minister_pre_denial_years_1_4_baseline',
+  'adult_phase_snape_potions_master_years_1_5_baseline',
+];
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));
@@ -179,21 +185,23 @@ function applyResolvedContextsToState(state, resolution, sourceContext) {
   const year6 = state.loredeckContexts[YEAR_6_PACK_ID];
   assert.ok(year6?.contextSortKey, 'Year 6 Context should expose a contextSortKey.');
 
-  state.loredeckContexts[CORE_PACK_ID] = {
-    ...(state.loredeckContexts[CORE_PACK_ID] || {}),
-    packId: CORE_PACK_ID,
-    contextType: 'calendar',
-    label: `Core mirror for ${year6.label || YEAR_6_PACK_ID}`,
-    sceneDate: sourceContext.sceneDate,
-    canonBoundary: sourceContext.canonBoundary,
-    contextSortKey: year6.contextSortKey,
-    contextSortKeyFrom: year6.contextSortKeyFrom ?? year6.contextSortKey,
-    contextSortKeyTo: year6.contextSortKeyTo ?? year6.contextSortKey,
-    branchId: sourceContext.branchId || 'main',
-    source: 'integration_test_mirror',
-    confidence: 1,
-    updatedAt: 1,
-  };
+  if (!state.loredeckContexts[CORE_PACK_ID]?.contextSortKey) {
+    state.loredeckContexts[CORE_PACK_ID] = {
+      ...(state.loredeckContexts[CORE_PACK_ID] || {}),
+      packId: CORE_PACK_ID,
+      contextType: 'calendar',
+      label: `Core mirror for ${year6.label || YEAR_6_PACK_ID}`,
+      sceneDate: sourceContext.sceneDate,
+      canonBoundary: sourceContext.canonBoundary,
+      contextSortKey: year6.contextSortKey,
+      contextSortKeyFrom: year6.contextSortKeyFrom ?? year6.contextSortKey,
+      contextSortKeyTo: year6.contextSortKeyTo ?? year6.contextSortKey,
+      branchId: sourceContext.branchId || 'main',
+      source: 'integration_test_mirror',
+      confidence: 1,
+      updatedAt: 1,
+    };
+  }
 
   state.loreContext = {
     ...(state.loreContext || {}),
@@ -234,6 +242,16 @@ function assertOnlyLoadedPacks(entries = []) {
     .map(entry => ({ id: entry.id, packId: getPackId(entry) }))
     .filter(item => !MODULES_LOADED_PACKS.includes(item.packId));
   assert.deepEqual(unexpected, [], 'Preview should only include Lorecards from the explicitly loaded stack.');
+}
+
+function assertNoJan25ExcludedCoreEntries(entries = []) {
+  const entryIds = new Set(entries.map(entry => entry.id));
+  const unexpected = JAN_25_1997_EXCLUDED_CORE_ENTRY_IDS.filter(id => entryIds.has(id));
+  assert.deepEqual(
+    unexpected,
+    [],
+    'Jan 25, 1997 previews should not include earlier Core adult phase baselines.',
+  );
 }
 
 function getInjectionNeedle(entry = {}) {
@@ -313,6 +331,12 @@ async function main() {
     `Unexpected Year 6 resolution: ${JSON.stringify(year6Resolution, null, 2)}`,
   );
   assert.equal(year6Resolution?.matchType, 'date');
+  const coreResolution = resolution.results.find(result => result.packId === CORE_PACK_ID);
+  assert.equal(coreResolution?.status, 'resolved', 'Core Context should resolve from the scene date.');
+  assert.equal(coreResolution?.matchType, 'date_only', 'Core should use a date-only calendar context when no named Core window matches.');
+  assert.equal(coreResolution?.patch?.contextType, 'calendar');
+  assert.equal(coreResolution?.patch?.anchorId, '');
+  assert.equal(coreResolution?.patch?.contextSortKey, Math.floor(Date.UTC(1997, 0, 25) / 86400000));
 
   applyResolvedContextsToState(state, resolution, preApparitionContext);
 
@@ -325,6 +349,7 @@ async function main() {
   assert.equal(preview.status, 'preview');
   assert.ok(preview.entries.length >= 30, 'Expected substantial Context-gated Lorecard suggestions.');
   assertOnlyLoadedPacks(preview.entries);
+  assertNoJan25ExcludedCoreEntries(preview.entries);
   assert.ok(preview.entries.some(entry => entry.id === 'future_guard_dumbledore_alive_before_tower'), 'Expected Dumbledore tower future guard before the tower.');
   assert.ok(preview.entries.some(entry => entry.id === 'spell_gate_sectumsempra'), 'Expected Sectumsempra gate in Year 6 suggestions.');
   assert.ok(!preview.entries.some(entry => getPackId(entry) === 'hp-year-7-deathly-hallows'), 'Year 7 Lorecards should not appear when Year 7 is not loaded.');

@@ -17,6 +17,7 @@ globalThis.fetch = async (url) => {
 const { loadContextIndexForState } = await import('../context-index.js');
 const { buildContextResolutionAudit, resolveContextsFromContext } = await import('../context-resolver.js');
 
+const CORE_DECK_ID = 'hp-core';
 const YEAR_3_DECK_ID = 'hp-year-3-prisoner-of-azkaban';
 const YEAR_6_DECK_ID = 'hp-year-6-half-blood-prince';
 
@@ -48,6 +49,67 @@ assert.equal(index.summary.packCount, 2);
 assert.equal(index.packs.map(pack => pack.packId).join(','), `${YEAR_6_DECK_ID},${YEAR_3_DECK_ID}`);
 assert.ok(index.summary.anchorCount >= 100);
 assert.ok(index.summary.windowCount >= 20);
+
+const coreYear6State = {
+  loredeckStack: [
+    { packId: CORE_DECK_ID, enabled: true, priority: 100, addedAt: 0 },
+    { packId: YEAR_6_DECK_ID, enabled: true, priority: 90, addedAt: 1 },
+  ],
+  loredeckContexts: {
+    [CORE_DECK_ID]: {
+      packId: CORE_DECK_ID,
+      contextType: 'recurring_context',
+      anchorId: 'hp.core.school_cycle.hogwarts_express',
+      label: 'School Cycle Hogwarts Express',
+      sceneDate: '1991-10-06',
+      contextSortKey: 7948,
+      contextSortKeyFrom: 7948,
+      contextSortKeyTo: 7948,
+      manualLock: false,
+      source: 'local_alias',
+    },
+    [YEAR_6_DECK_ID]: {
+      packId: YEAR_6_DECK_ID,
+      manualLock: false,
+      source: 'unknown',
+    },
+  },
+};
+const coreYear6Index = await loadContextIndexForState(coreYear6State, {
+  registry: { packs: {} },
+  force: true,
+});
+const jan25Year6Resolution = resolveContextsFromContext({
+  sceneDate: 'Saturday, Jan 25, 1997',
+  canonBoundary: 'Harry Potter Year 6 after Christmas before Apparition lessons',
+  label: 'After Christmas Year 6',
+  alias: 'After Christmas Year 6',
+  branchId: 'main',
+  arc: 'Year 6: Half-Blood Prince',
+  phase: 'Post Christmas Before Apparition',
+  notes: 'Hogwarts Year 6 roleplay scene with Harry Ron Hermione',
+}, {
+  state: coreYear6State,
+  index: coreYear6Index,
+  contextSource: 'local_alias',
+  sourceText: 'Hogwarts Year 6 roleplay scene with Harry Ron Hermione',
+  minLocalConfidence: 0.78,
+});
+const coreDateOnlyMatch = jan25Year6Resolution.results.find(result => result.packId === CORE_DECK_ID);
+assert.equal(coreDateOnlyMatch.status, 'resolved');
+assert.equal(coreDateOnlyMatch.matchType, 'date_only');
+assert.equal(coreDateOnlyMatch.changed, true);
+assert.equal(coreDateOnlyMatch.anchor, null);
+assert.equal(coreDateOnlyMatch.window, null);
+assert.equal(coreDateOnlyMatch.patch.contextType, 'calendar');
+assert.equal(coreDateOnlyMatch.patch.anchorId, '');
+assert.equal(coreDateOnlyMatch.patch.contextSortKey, Math.floor(Date.UTC(1997, 0, 25) / 86400000));
+assert.equal(coreDateOnlyMatch.patch.contextSortKeyFrom, Math.floor(Date.UTC(1997, 0, 25) / 86400000));
+assert.equal(coreDateOnlyMatch.patch.contextSortKeyTo, Math.floor(Date.UTC(1997, 0, 25) / 86400000));
+const year6WindowMatch = jan25Year6Resolution.results.find(result => result.packId === YEAR_6_DECK_ID);
+assert.equal(year6WindowMatch.status, 'resolved');
+assert.equal(year6WindowMatch.window.id, 'hp.y6.window.post_christmas_before_apparition');
+assert.equal(year6WindowMatch.matchType, 'date');
 
 const customIndex = await loadContextIndexForState({
   loredeckStack: [

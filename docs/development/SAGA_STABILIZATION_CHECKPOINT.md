@@ -48,7 +48,7 @@ The next test-planning document is [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_
 - Context v1 exists with per-loaded-Loredeck context state, timeline index loading, manual editing, local resolver, and explicit model fallback.
 - Runtime Settings tab exists at the end of the shelf UI.
 - Provider settings have moved from the extension dropdown into the runtime Settings tab.
-- Theme Pack foundation exists for bundled and installed Custom Theme Packs, JSON import/export, color tokens, icon overrides, and advisory accessibility checks.
+- Theme Pack foundation exists for bundled and installed Custom Theme Packs, JSON import/export, color tokens, independent Icon Set selection/import, and advisory accessibility checks.
 - Entry-level `context` metadata normalizes through the lore pipeline.
 - Context gate evaluation exists as a reusable pure helper, and canon retrieval now requires Context-native eligibility.
 

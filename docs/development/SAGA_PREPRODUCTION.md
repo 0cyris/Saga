@@ -125,7 +125,6 @@ Themepacks should be pure data, like Loredecks. They should not contain executab
   "title": "Saga Archive",
   "type": "bundled",
   "description": "Bundled dark archive theme for SAGA: Fandom Loresystem.",
-  "iconPackId": "saga-hero",
   "colors": {
     "background": "#120c12",
     "backgroundAlt": "#241018",
@@ -155,11 +154,11 @@ Themepacks should be pure data, like Loredecks. They should not contain executab
 }
 ```
 
-The first implementation stores theme settings in normal extension settings and applies them as CSS variables on the runtime panel. Bundled presets live in code. User-made Theme Packs install into a global `themePackLibrary` registry in extension settings.
+The first implementation stores theme settings in normal extension settings and applies them as CSS variables on the runtime panel. Bundled presets live in code. User-made Theme Packs install into a global `themePackLibrary` registry in extension settings. Theme Packs own colors and surface styling only; they do not select or override Icon Sets.
 
 ### Icon Set Draft
 
-Icon Sets should also be pure data. Theme Packs select an Icon Set with `iconPackId`; they may still carry local `icons` overrides, but reusable icon libraries should live separately.
+Icon Sets should also be pure data. Icon Sets are selected, imported, and stored separately from Theme Packs in `themeIconSetLibrary`.
 
 ```json
 {
@@ -192,7 +191,7 @@ Reasonable first-wave color tokens:
 
 Icon mappings are keyed by UI target, such as `brand.compact`, `brand.expanded`, `tab.loredecks`, `tab.context`, or `tab.settings`. Values must be passive image paths, data image URLs, or fetchable image URLs. They do not grant code execution.
 
-Imported Icon Sets should eventually live in their own registry instead of being smuggled through Theme Pack overrides. The current bundled foundation uses `saga-hero` as the bundled default Icon Set, and ships `saga-mystic` and `saga-relay` as bundled selectable alternatives for fantasy and sci-fi styling. Custom Icon Set storage should come with the zip/folder bundle importer.
+Imported Icon Sets live in their own registry instead of being smuggled through Theme Pack overrides. The current bundled foundation uses `saga-hero` as the bundled default Icon Set, and ships `saga-mystic` and `saga-relay` as bundled selectable alternatives for fantasy and sci-fi styling.
 
 Installed Custom Theme Packs should be importable from a single Theme Pack JSON file or a Theme Pack Library JSON file. Custom imports must not overwrite Bundled Theme Pack IDs.
 

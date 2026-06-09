@@ -53,6 +53,7 @@ function refreshLorePanel(options) { return dep('refreshLorePanel', () => {})(op
 function refreshPanelBody(options) { return dep('refreshPanelBody', () => {})(options); }
 function refreshHeader() { return dep('refreshHeader', () => {})(); }
 function markTourTarget(el, target) { return dep('markTourTarget', value => value)(el, target); }
+function createCollapsibleSection(...args) { return dep('createCollapsibleSection')(...args); }
 function installLoredeckBundleFromFile() { return dep('installLoredeckBundleFromFile', () => {})(); }
 function openLoredeckCreatorWorkbench() { return dep('openLoredeckCreatorWorkbench', () => {})(); }
 function getLoredeckDefinition(packId) { return dep('getLoredeckDefinition', () => null)(packId); }
@@ -91,8 +92,35 @@ export function renderLoredecksTab(container, state) {
         'Loredecks',
         'Source decks loaded for canon suggestions, relevance, and Saga deck editing.'
     ));
-    container.appendChild(createLoredeckLibraryLaunchCard(state, canonDb, health));
-    container.appendChild(createLoredeckCreatorProjectShelf(state));
+    const librarySection = createCollapsibleSection(
+        'loredecks.libraryLaunch',
+        'Loredeck Library',
+        getLoredeckLibraryLaunchSummary(state, canonDb, health),
+        true,
+        createLoredeckLibraryLaunchCard(state, canonDb, health),
+        { tooltip: 'Open the fullscreen Loredeck Library, import a deck package, or start the Creator wizard.' }
+    );
+    markTourTarget(librarySection, 'loredecks.library.launch');
+    container.appendChild(librarySection);
+
+    const projectModels = getLoredeckCreatorProjectShelfModels(state);
+    const creatorSection = createCollapsibleSection(
+        'loredecks.creatorProjects',
+        'In-Progress Creator Projects',
+        projectModels.length ? `${projectModels.length} unfinished` : 'none',
+        false,
+        () => createLoredeckCreatorProjectShelf(state, projectModels),
+        { tooltip: 'Resume unfinished Generated Loredecks from the staged Creator.' }
+    );
+    markTourTarget(creatorSection, 'loredecks.creator.projects');
+    container.appendChild(creatorSection);
+}
+
+function getLoredeckLibraryLaunchSummary(state = getState(), canonDb = null, health = null) {
+    const stack = getLoredeckStack(state);
+    const library = getLoredeckLibrary(state);
+    const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
+    return `${library.length} decks | ${stats.activeCount} active | ${stats.entryCount} active Lorecards`;
 }
 
 function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, health = null) {
@@ -175,15 +203,15 @@ function getLoredeckCreatorProjectShelfModels(state = getState()) {
     });
 }
 
-function createLoredeckCreatorProjectShelf(state = getState()) {
+function createLoredeckCreatorProjectShelf(state = getState(), presetModels = null) {
     const card = document.createElement('div');
     card.className = 'wandlight-runtime-card wandlight-loredeck-creator-project-shelf';
-    renderLoredeckCreatorProjectShelfContent(card, state);
+    renderLoredeckCreatorProjectShelfContent(card, state, presetModels);
     return card;
 }
 
-function renderLoredeckCreatorProjectShelfContent(card, state = getState()) {
-    const allModels = getLoredeckCreatorProjectShelfModels(state);
+function renderLoredeckCreatorProjectShelfContent(card, state = getState(), presetModels = null) {
+    const allModels = Array.isArray(presetModels) ? presetModels : getLoredeckCreatorProjectShelfModels(state);
     const libraryIndex = getLoredeckLibraryIndexForPacks(state, getLoredeckLibrary(state));
     normalizeLoredeckCreatorProjectSelection(allModels);
     const models = getFilteredLoredeckCreatorProjectModels(allModels, libraryIndex);

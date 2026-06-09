@@ -271,6 +271,13 @@ function getPackWindows(index = {}, packId = '') {
         : [];
 }
 
+function getPackIndexRecord(index = {}, packId = '') {
+    const id = cleanString(packId, 160);
+    return Array.isArray(index?.packs)
+        ? index.packs.find(pack => pack?.packId === id) || null
+        : null;
+}
+
 function contextCoordinatesToText(coordinates = {}) {
     if (Array.isArray(coordinates)) {
         return coordinates
@@ -608,7 +615,64 @@ export function buildContextPatchFromWindow(windowDef = {}, options = {}) {
     };
 }
 
+function buildContextPatchFromDateOnly(context = {}, options = {}) {
+    const contextDate = parseContextDate(context);
+    const sortKey = getDateContextSortKey(contextDate);
+    const sceneDate = cleanString(context.sceneDate || context.subjectiveDate || contextDate?.iso, 80);
+    const label = cleanString(
+        context.label
+        || context.canonBoundary
+        || context.alias
+        || context.summary
+        || sceneDate
+        || contextDate?.iso,
+        240,
+    );
+    return {
+        contextType: 'calendar',
+        anchorId: '',
+        anchorFrom: '',
+        anchorTo: '',
+        label,
+        sceneDate,
+        contextSortKey: sortKey,
+        contextSortKeyFrom: sortKey,
+        contextSortKeyTo: sortKey,
+        arc: context.arc || '',
+        phase: context.phase || '',
+        season: context.season || '',
+        episode: context.episode || '',
+        chapter: context.chapter || '',
+        issue: context.issue || '',
+        quest: context.quest || '',
+        gameStage: context.gameStage || '',
+        stardate: context.stardate || '',
+        coordinates: isPlainObject(context.coordinates) ? { ...context.coordinates } : {},
+        alias: cleanString(context.alias || context.canonBoundary || label, 240),
+        branchId: cleanString(context.branchId, 120) || 'main',
+        source: mapResolverSource(options.contextSource),
+        confidence: Number.isFinite(Number(options.confidence)) ? Number(options.confidence) : 0.9,
+        manualLock: false,
+    };
+}
+
 function buildResolutionFromMatch(packId, match, context = {}, options = {}) {
+    if (match.dateOnly) {
+        const patch = buildContextPatchFromDateOnly(context, {
+            contextSource: options.contextSource,
+            confidence: match.confidence,
+        });
+        return {
+            packId,
+            status: 'resolved',
+            matchType: match.matchType || 'date_only',
+            score: match.score,
+            confidence: patch.confidence,
+            anchor: null,
+            window: null,
+            patch,
+        };
+    }
     const isWindowMatch = Boolean(match.window);
     const patch = isWindowMatch ? buildContextPatchFromWindow(match.window, {
         contextSource: options.contextSource,
@@ -655,6 +719,23 @@ function getBestDateMatch(packId, context = {}, index = {}) {
             if (a.window && b.anchor) return 1;
             return aSort - bSort;
         })[0] || null;
+}
+
+function getDateOnlyMatch(packId, context = {}, index = {}) {
+    const contextDate = parseContextDate(context);
+    const contextSortKey = getDateContextSortKey(contextDate);
+    if (!contextDate || !Number.isFinite(Number(contextSortKey))) return null;
+    const pack = getPackIndexRecord(index, packId);
+    if (pack?.sortKeyScale !== 'date-derived-day') return null;
+    if (pack?.defaultContextType !== 'recurring_context') return null;
+    return {
+        dateOnly: true,
+        score: contextDate.precision === 'date' ? 86 : 76,
+        matchType: 'date_only',
+        confidence: contextDate.precision === 'date' ? 0.9 : 0.78,
+        contextDate: contextDate.iso,
+        contextSortKey,
+    };
 }
 
 function getBestAliasMatch(packId, context = {}, index = {}, options = {}) {
@@ -1262,6 +1343,8 @@ function patchChangesContext(current = {}, patch = {}) {
         'label',
         'sceneDate',
         'contextSortKey',
+        'contextSortKeyFrom',
+        'contextSortKeyTo',
         'anchorId',
         'anchorFrom',
         'anchorTo',
@@ -1608,8 +1691,9 @@ export function resolveContextsFromContext(context = {}, options = {}) {
         }
 
         const dateMatch = getBestDateMatch(packId, context, index);
+        const dateOnlyMatch = dateMatch ? null : getDateOnlyMatch(packId, context, index);
         const aliasMatch = getBestAliasMatch(packId, context, index, options);
-        const match = chooseBestMatch(dateMatch, aliasMatch, context);
+        const match = chooseBestMatch(dateMatch || dateOnlyMatch, aliasMatch, context);
         if (!match) {
             results.push({
                 packId,

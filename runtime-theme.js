@@ -3,7 +3,7 @@
  * Runtime Theme Pack, Icon Set, passive asset, and contrast helpers.
  */
 
-import { getSettings, getThemePackLibraryRegistry } from './state-manager.js';
+import { getSettings, getThemeIconSetLibraryRegistry, getThemePackLibraryRegistry } from './state-manager.js';
 
 export const DEFAULT_ICONSET_ID = 'saga-hero';
 const MYSTIC_ICONSET_ID = 'saga-mystic';
@@ -702,20 +702,21 @@ function normalizeIconTargetKey(iconKey = '') {
 }
 
 export function getIconSetLibrary(settings = getSettings()) {
-    const customIconSets = getThemePackLibrary(settings)
-        .filter(pack => pack?.type === 'custom' && pack.icons && typeof pack.icons === 'object' && Object.keys(pack.icons).length)
-        .map(pack => ({
+    const registry = settings?.themeIconSetLibrary || getThemeIconSetLibraryRegistry();
+    const customIconSets = Object.values(registry?.iconSets || {})
+        .filter(iconSet => iconSet && typeof iconSet === 'object')
+        .map(iconSet => ({
             schemaVersion: ICONSET_SCHEMA_VERSION,
-            id: pack.id,
-            type: 'custom',
-            title: pack.title || pack.id,
-            description: pack.description || '',
-            author: pack.author || '',
-            version: pack.version || '',
-            preferredSize: 256,
-            icons: { ...(pack.icons || {}) },
-            tags: Array.isArray(pack.tags) ? [...pack.tags] : ['icons:custom'],
-            source: pack.source || {},
+            id: iconSet.id,
+            type: iconSet.type === 'bundled' ? 'bundled' : 'custom',
+            title: iconSet.title || iconSet.id,
+            description: iconSet.description || '',
+            author: iconSet.author || '',
+            version: iconSet.version || '',
+            preferredSize: iconSet.preferredSize || 256,
+            icons: { ...(iconSet.icons || {}) },
+            tags: Array.isArray(iconSet.tags) ? [...iconSet.tags] : ['icons:custom'],
+            source: iconSet.source || {},
         }));
     const bundledIds = new Set(BUNDLED_ICONSET_PRESETS.map(pack => pack.id));
     return [
@@ -743,10 +744,7 @@ export function getIconMapValue(icons = {}, iconKey = '') {
 }
 
 export function resolveThemeIconPath(iconKey, preset = getThemePreset(getSettings().themePackId), settings = getSettings()) {
-    const themeIcons = preset?.icons && typeof preset.icons === 'object' ? preset.icons : {};
-    const explicit = getIconMapValue(themeIcons, iconKey);
-    if (explicit) return explicit;
-    const iconSet = getIconSetPreset(settings.themeIconPackId || preset?.iconPackId || DEFAULT_ICONSET_ID, settings);
+    const iconSet = getIconSetPreset(settings.themeIconPackId || DEFAULT_ICONSET_ID, settings);
     const iconSetPath = getIconMapValue(iconSet.icons, iconKey);
     if (iconSetPath) return iconSetPath;
     const defaultSet = getIconSetPreset(DEFAULT_ICONSET_ID, settings);
@@ -789,6 +787,10 @@ export function getThemePackLibrary(settings = getSettings()) {
     const registry = settings?.themePackLibrary || getThemePackLibraryRegistry();
     const customPacks = Object.values(registry?.packs || {})
         .filter(pack => pack && typeof pack === 'object')
+        .filter(pack => {
+            const tags = Array.isArray(pack.tags) ? pack.tags.map(tag => String(tag || '').trim().toLowerCase()) : [];
+            return !tags.includes('theme:icon-set') && !tags.includes('icons:custom');
+        })
         .map(pack => ({
             ...pack,
             type: pack.type === 'bundled' ? 'bundled' : 'custom',

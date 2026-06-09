@@ -74,6 +74,11 @@ const BUNDLED_THEME_PACK_IDS = Object.freeze([
     'holo-rail',
     'midnight-evidence',
 ]);
+const BUNDLED_THEME_ICON_SET_IDS = Object.freeze([
+    'saga-hero',
+    'saga-mystic',
+    'saga-relay',
+]);
 const THEME_COLOR_KEYS = Object.freeze([
     'background',
     'backgroundAlt',
@@ -1405,6 +1410,58 @@ function normalizeThemeIconMap(value) {
     return icons;
 }
 
+function looksLikeThemeIconMap(value) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    return Object.keys(input).some(key => /^(?:tab\.|brand\.|control\.|loredecks$|lorecards$|session$|context$|continuity$|lore$|injection$|settings$|collapse$)/i.test(String(key || '').trim()));
+}
+
+function normalizeThemeIconSetRegistry(value, defaults = DEFAULT_SETTINGS.themeIconSetLibrary) {
+    const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+    const inputIconSets = input.iconSets && typeof input.iconSets === 'object' && !Array.isArray(input.iconSets)
+        ? input.iconSets
+        : (input.packs && typeof input.packs === 'object' && !Array.isArray(input.packs) ? input.packs : {});
+    const defaultIconSets = defaults?.iconSets || defaults?.packs || {};
+    const iconSets = {};
+
+    for (const [iconSetId, raw] of Object.entries({ ...defaultIconSets, ...inputIconSets })) {
+        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) continue;
+        const id = String(raw.id || raw.iconSetId || raw.iconPackId || iconSetId || '').trim();
+        if (!id) continue;
+        const rawIcons = raw.icons && typeof raw.icons === 'object' && !Array.isArray(raw.icons)
+            ? raw.icons
+            : (looksLikeThemeIconMap(raw) ? raw : {});
+        const icons = normalizeThemeIconMap(rawIcons);
+        if (!Object.keys(icons).length) continue;
+        const isBundledDefault = defaultIconSets[id]?.type === 'bundled' || BUNDLED_THEME_ICON_SET_IDS.includes(id);
+        const type = raw.type === 'bundled' && isBundledDefault ? 'bundled' : 'custom';
+        const source = raw.source && typeof raw.source === 'object' && !Array.isArray(raw.source) ? raw.source : {};
+        iconSets[id] = {
+            schemaVersion: 1,
+            id,
+            type,
+            title: String(raw.title || id).trim(),
+            description: String(raw.description || '').trim(),
+            author: String(raw.author || '').trim(),
+            version: String(raw.version || '').trim(),
+            preferredSize: Math.max(16, Math.min(2048, Math.round(Number(raw.preferredSize) || 256))),
+            icons,
+            source: {
+                kind: String(source.kind || (type === 'bundled' ? 'bundled' : 'local')).trim(),
+                url: String(source.url || '').trim(),
+                updateUrl: String(source.updateUrl || '').trim(),
+            },
+            tags: Array.isArray(raw.tags) ? raw.tags.map(tag => String(tag || '').trim()).filter(Boolean).slice(0, 64) : [],
+            installedAt: Number.isFinite(Number(raw.installedAt)) ? Number(raw.installedAt) : 0,
+            updatedAt: Number.isFinite(Number(raw.updatedAt)) ? Number(raw.updatedAt) : 0,
+        };
+    }
+
+    return {
+        schemaVersion: 1,
+        iconSets,
+    };
+}
+
 function normalizeThemePackRegistry(value, defaults = DEFAULT_SETTINGS.themePackLibrary) {
     const input = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
     const inputPacks = input.packs && typeof input.packs === 'object' && !Array.isArray(input.packs) ? input.packs : {};
@@ -1452,6 +1509,11 @@ export function getThemePackLibraryRegistry() {
     return normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
 }
 
+export function getThemeIconSetLibraryRegistry() {
+    const settings = getSettings();
+    return normalizeThemeIconSetRegistry(settings.themeIconSetLibrary, DEFAULT_SETTINGS.themeIconSetLibrary);
+}
+
 export function upsertThemePackLibraryPack(packRecord = {}) {
     const normalized = normalizeThemePackRegistry(
         { schemaVersion: 1, packs: { [packRecord.id || packRecord.themeId || '']: { ...packRecord, type: 'custom' } } },
@@ -1463,6 +1525,10 @@ export function upsertThemePackLibraryPack(packRecord = {}) {
     }
     if (BUNDLED_THEME_PACK_IDS.includes(themeId)) {
         return { ok: false, error: 'Custom Theme Packs cannot replace a Bundled Theme Pack with the same id.' };
+    }
+    const tags = Array.isArray(pack.tags) ? pack.tags.map(tag => String(tag || '').trim().toLowerCase()) : [];
+    if (tags.includes('theme:icon-set') || tags.includes('icons:custom')) {
+        return { ok: false, error: 'Icon Sets must be imported through the Icon Set importer.' };
     }
 
     const settings = getSettings();
@@ -1504,7 +1570,8 @@ export function importThemePackLibraryRegistry(registry = {}, options = {}) {
     let importedCount = 0;
     let skippedCount = 0;
     for (const [themeId, pack] of Object.entries(incoming.packs || {})) {
-        if (BUNDLED_THEME_PACK_IDS.includes(themeId)) {
+        const tags = Array.isArray(pack.tags) ? pack.tags.map(tag => String(tag || '').trim().toLowerCase()) : [];
+        if (BUNDLED_THEME_PACK_IDS.includes(themeId) || tags.includes('theme:icon-set') || tags.includes('icons:custom')) {
             skippedCount += 1;
             continue;
         }
@@ -1521,6 +1588,90 @@ export function importThemePackLibraryRegistry(registry = {}, options = {}) {
     settings.themePackLibrary = normalizeThemePackRegistry(current, DEFAULT_SETTINGS.themePackLibrary);
     saveSettings(settings);
     return { ok: true, importedCount, skippedCount, library: settings.themePackLibrary };
+}
+
+export function upsertThemeIconSetLibraryPack(iconSetRecord = {}) {
+    const normalized = normalizeThemeIconSetRegistry(
+        { schemaVersion: 1, iconSets: { [iconSetRecord.id || iconSetRecord.iconSetId || iconSetRecord.iconPackId || '']: { ...iconSetRecord, type: 'custom' } } },
+        { schemaVersion: 1, iconSets: {} }
+    );
+    const [iconSetId, iconSet] = Object.entries(normalized.iconSets || {})[0] || [];
+    if (!iconSetId || !iconSet) {
+        return { ok: false, error: 'Icon Set record must include an id and icons.' };
+    }
+    if (BUNDLED_THEME_ICON_SET_IDS.includes(iconSetId)) {
+        return { ok: false, error: 'Custom Icon Sets cannot replace a Bundled Icon Set with the same id.' };
+    }
+
+    const settings = getSettings();
+    const library = normalizeThemeIconSetRegistry(settings.themeIconSetLibrary, DEFAULT_SETTINGS.themeIconSetLibrary);
+    library.iconSets[iconSetId] = {
+        ...(library.iconSets[iconSetId] || {}),
+        ...iconSet,
+        installedAt: library.iconSets[iconSetId]?.installedAt || iconSet.installedAt || Date.now(),
+        updatedAt: Date.now(),
+    };
+    settings.themeIconSetLibrary = library;
+    saveSettings(settings);
+    return { ok: true, iconSet: library.iconSets[iconSetId], library };
+}
+
+export function importThemeIconSetLibraryRegistry(registry = {}, options = {}) {
+    const incoming = normalizeThemeIconSetRegistry(registry, { schemaVersion: 1, iconSets: {} });
+    const settings = getSettings();
+    const current = options.replace === true
+        ? normalizeThemeIconSetRegistry(DEFAULT_SETTINGS.themeIconSetLibrary, DEFAULT_SETTINGS.themeIconSetLibrary)
+        : normalizeThemeIconSetRegistry(settings.themeIconSetLibrary, DEFAULT_SETTINGS.themeIconSetLibrary);
+
+    let importedCount = 0;
+    let skippedCount = 0;
+    for (const [iconSetId, iconSet] of Object.entries(incoming.iconSets || {})) {
+        if (BUNDLED_THEME_ICON_SET_IDS.includes(iconSetId)) {
+            skippedCount += 1;
+            continue;
+        }
+        current.iconSets[iconSetId] = {
+            ...(current.iconSets[iconSetId] || {}),
+            ...iconSet,
+            type: 'custom',
+            installedAt: current.iconSets[iconSetId]?.installedAt || iconSet.installedAt || Date.now(),
+            updatedAt: Date.now(),
+        };
+        importedCount += 1;
+    }
+
+    settings.themeIconSetLibrary = normalizeThemeIconSetRegistry(current, DEFAULT_SETTINGS.themeIconSetLibrary);
+    saveSettings(settings);
+    return { ok: true, importedCount, skippedCount, library: settings.themeIconSetLibrary };
+}
+
+function migrateLegacyThemePackIconSets(iconSetLibrary, themePackLibrary) {
+    const library = normalizeThemeIconSetRegistry(iconSetLibrary, DEFAULT_SETTINGS.themeIconSetLibrary);
+    const themeRegistry = normalizeThemePackRegistry(themePackLibrary, { schemaVersion: 1, packs: {} });
+    for (const [themeId, pack] of Object.entries(themeRegistry.packs || {})) {
+        if (!pack || pack.type === 'bundled') continue;
+        const icons = normalizeThemeIconMap(pack.icons);
+        if (!Object.keys(icons).length) continue;
+        const tags = Array.isArray(pack.tags) ? pack.tags.map(tag => String(tag || '').trim().toLowerCase()) : [];
+        if (!tags.includes('theme:icon-set') && !tags.includes('icons:custom')) continue;
+        if (BUNDLED_THEME_ICON_SET_IDS.includes(themeId) || library.iconSets[themeId]) continue;
+        library.iconSets[themeId] = {
+            schemaVersion: 1,
+            id: themeId,
+            type: 'custom',
+            title: pack.title || themeId,
+            description: pack.description || '',
+            author: pack.author || '',
+            version: pack.version || '',
+            preferredSize: 256,
+            icons,
+            source: pack.source || { kind: 'local', url: '' },
+            tags: pack.tags || ['icons:custom'],
+            installedAt: pack.installedAt || Date.now(),
+            updatedAt: pack.updatedAt || Date.now(),
+        };
+    }
+    return normalizeThemeIconSetRegistry(library, DEFAULT_SETTINGS.themeIconSetLibrary);
 }
 
 function createLoredeckCreatorJobId(seed = '') {
@@ -2117,6 +2268,17 @@ export function getSettings() {
         stored.themePackLibrary || DEFAULT_SETTINGS.themePackLibrary,
         DEFAULT_SETTINGS.themePackLibrary
     );
+    merged.themeIconSetLibrary = normalizeThemeIconSetRegistry(
+        stored.themeIconSetLibrary || DEFAULT_SETTINGS.themeIconSetLibrary,
+        DEFAULT_SETTINGS.themeIconSetLibrary
+    );
+    if (stored.themeIconSetLibrarySeparatedMigrated20260608 !== true) {
+        merged.themeIconSetLibrary = migrateLegacyThemePackIconSets(
+            merged.themeIconSetLibrary,
+            stored.themePackLibrary || DEFAULT_SETTINGS.themePackLibrary
+        );
+        merged.themeIconSetLibrarySeparatedMigrated20260608 = true;
+    }
     merged.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(
         stored.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects
     );
@@ -2331,6 +2493,7 @@ export function saveSettings(settings) {
             DEFAULT_SETTINGS.loredeckLibrary
         );
         settings.themePackLibrary = normalizeThemePackRegistry(settings.themePackLibrary, DEFAULT_SETTINGS.themePackLibrary);
+        settings.themeIconSetLibrary = normalizeThemeIconSetRegistry(settings.themeIconSetLibrary, DEFAULT_SETTINGS.themeIconSetLibrary);
         settings.loredeckCreatorProjects = normalizeLoredeckCreatorRegistry(settings.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects);
     }
     extensionSettings[MODULE_KEY] = settings;

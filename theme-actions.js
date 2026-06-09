@@ -2,8 +2,10 @@ import {
     getSettings,
     saveSettings,
     getThemePackLibraryRegistry,
+    upsertThemeIconSetLibraryPack,
     upsertThemePackLibraryPack,
     removeThemePackLibraryPack,
+    importThemeIconSetLibraryRegistry,
     importThemePackLibraryRegistry,
 } from './state-manager.js';
 import {
@@ -18,6 +20,7 @@ import {
     applyRuntimeTheme,
     completeThemeColors,
     getActiveThemeColors,
+    getIconSetLibrary,
     getIconSetPreset,
     getThemePackLibrary,
     getThemePreset,
@@ -84,7 +87,7 @@ export function createThemePanelOptions() {
         onExportThemePackLibrary: exportThemePackLibrary,
         onResetThemeSettings: resetThemeSettings,
         iconItems,
-        getIconCoverage: preset => getThemeIconCoverage(preset, getSettings(), getThemeShelfIconItems()),
+        getIconCoverage: iconSet => getThemeIconCoverage(iconSet, getSettings(), getThemeShelfIconItems()),
     };
 }
 
@@ -125,31 +128,37 @@ export function importThemeIconSetFromFile() {
     input.accept = 'application/json,.json';
     input.addEventListener('change', async () => {
         const file = input.files?.[0];
-        if (!file) return;
-        try {
-            const parsed = JSON.parse(await file.text());
-            const icons = parsed?.icons && typeof parsed.icons === 'object' && !Array.isArray(parsed.icons)
-                ? parsed.icons
-                : parsed;
-            if (!icons || typeof icons !== 'object' || Array.isArray(icons)) throw new Error('Icon Set import must be a JSON object or a Theme Pack with an icons object.');
-            const active = getThemePreset(getSettings().themePackId, getSettings());
-            const id = normalizeThemeImportId(parsed.id || parsed.themeId || `${active.id}-icon-set`);
-            const result = upsertThemePackLibraryPack({
-                id,
-                type: 'custom',
-                title: parsed.title || `${active.title || 'Theme'} Icon Set`,
-                description: parsed.description || `Icon Set imported from ${file.name}.`,
-                author: parsed.author || '',
-                version: parsed.version || '1.0.0',
-                iconPackId: parsed.iconPackId || 'custom-icons',
-                colors: active.colors || getActiveThemeColors(getSettings()),
-                icons,
-                tags: ['icons:custom', 'theme:icon-set'],
-                source: { kind: 'local', url: file.name },
-            });
-            if (!result.ok) throw new Error(result.error || 'Icon Set import failed.');
-            refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-            toast(`Imported Icon Set as Theme Pack: ${result.pack.title}. Use Apply to activate it.`, 'success');
+            if (!file) return;
+            try {
+                const parsed = JSON.parse(await file.text());
+                if (parsed?.iconSets && typeof parsed.iconSets === 'object' && !Array.isArray(parsed.iconSets)) {
+                    const result = importThemeIconSetLibraryRegistry(parsed, { replace: false });
+                    if (!result.ok) throw new Error(result.error || 'Icon Set import failed.');
+                    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+                    const skipped = result.skippedCount ? ` Skipped ${result.skippedCount} bundled-id conflict(s).` : '';
+                    toast(`Imported ${result.importedCount || 0} Icon Set record(s).${skipped}`, result.skippedCount ? 'warning' : 'success');
+                    return;
+                }
+                const icons = parsed?.icons && typeof parsed.icons === 'object' && !Array.isArray(parsed.icons)
+                    ? parsed.icons
+                    : parsed;
+                if (!icons || typeof icons !== 'object' || Array.isArray(icons)) throw new Error('Icon Set import must be a JSON object with an icons object or iconSets registry.');
+                const id = normalizeIconSetImportId(parsed.id || parsed.iconSetId || parsed.iconPackId || parsed.title || file.name || 'custom-icon-set');
+                const result = upsertThemeIconSetLibraryPack({
+                    id,
+                    type: 'custom',
+                    title: parsed.title || id,
+                    description: parsed.description || `Icon Set imported from ${file.name}.`,
+                    author: parsed.author || '',
+                    version: parsed.version || '1.0.0',
+                    preferredSize: parsed.preferredSize || 256,
+                    icons,
+                    tags: Array.isArray(parsed.tags) ? parsed.tags : ['icons:custom'],
+                    source: { kind: 'local', url: file.name },
+                });
+                if (!result.ok) throw new Error(result.error || 'Icon Set import failed.');
+                refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+                toast(`Imported Icon Set: ${result.iconSet.title}. Use the Icon Set selector to activate it.`, 'success');
         } catch (e) {
             toast(e?.message || 'Icon Set import failed.', 'error');
         }
@@ -171,6 +180,20 @@ function normalizeThemeImportId(value = '') {
     return `${base}-${index}`;
 }
 
+function normalizeIconSetImportId(value = '') {
+    const base = String(value || 'custom-icon-set')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9._-]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 80) || 'custom-icon-set';
+    const existing = new Set(getIconSetLibrary(getSettings()).map(iconSet => iconSet.id));
+    if (!existing.has(base)) return base;
+    let index = 2;
+    while (existing.has(`${base}-${index}`)) index += 1;
+    return `${base}-${index}`;
+}
+
 export function buildThemePackExportObject(preset, settings = getSettings()) {
     const colors = preset?.id === settings.themePackId ? getActiveThemeColors(settings) : completeThemeColors(preset?.colors || {});
     const isCustomOverride = preset?.id === settings.themePackId && settings.themeCustomEnabled === true;
@@ -182,10 +205,10 @@ export function buildThemePackExportObject(preset, settings = getSettings()) {
         description: preset?.description || 'Custom Theme Pack exported from Saga.',
         author: preset?.author || '',
         version: preset?.version || '1.0.0',
-        iconPackId: settings.themeIconPackId || preset?.iconPackId || DEFAULT_ICONSET_ID,
         colors,
-        icons: preset?.icons || {},
-        tags: Array.isArray(preset?.tags) ? preset.tags.filter(tag => tag !== 'quality:bundled') : [],
+        tags: Array.isArray(preset?.tags)
+            ? preset.tags.filter(tag => !['quality:bundled', 'theme:icon-set', 'icons:custom'].includes(tag))
+            : [],
     };
 }
 
@@ -251,7 +274,6 @@ export function applyThemePreset(themeId) {
     const preset = getThemePreset(themeId, current);
     const next = getSettings();
     next.themePackId = preset.id;
-    next.themeIconPackId = preset.iconPackId || DEFAULT_ICONSET_ID;
     writeThemeColorsToSettings(next, preset.colors || {});
     saveSettings(next);
     applyRuntimeTheme(getPanelRoot(), next);
@@ -264,7 +286,6 @@ export function resetThemeSettings() {
     const preset = THEMEPACK_PRESETS[0];
     const next = getSettings();
     next.themePackId = preset.id;
-    next.themeIconPackId = preset.iconPackId || DEFAULT_ICONSET_ID;
     next.themeCustomEnabled = false;
     writeThemeColorsToSettings(next, preset.colors || {});
     saveSettings(next);
@@ -301,6 +322,9 @@ export function importThemePackFromFile() {
             const parsed = JSON.parse(text);
             if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
                 throw new Error('Theme Pack import must be a JSON object.');
+            }
+            if (parsed.iconSets || parsed.type === 'saga_iconset' || (parsed.icons && !parsed.colors && !parsed.packs)) {
+                throw new Error('This looks like an Icon Set. Use Import Icon Set instead.');
             }
 
             if (parsed.packs && typeof parsed.packs === 'object') {
