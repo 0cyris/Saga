@@ -700,7 +700,7 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:core', 'density:core-expanded'],
         assets: {
             cover: {
-                path: 'assets/cover.png',
+                path: 'assets/cover.jpg',
                 alt: 'Deck cover for Star Wars Legends: Core',
                 aspect: '1:1',
                 focalPoint: { x: 0.5, y: 0.5 },
@@ -725,7 +725,7 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:film-spine'],
         assets: {
             cover: {
-                path: 'assets/cover.png',
+                path: 'assets/cover.jpg',
                 alt: 'Deck cover for Star Wars Legends: Film Spine',
                 aspect: '1:1',
                 focalPoint: { x: 0.5, y: 0.5 },
@@ -750,7 +750,7 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:old-republic'],
         assets: {
             cover: {
-                path: 'assets/cover.png',
+                path: 'assets/cover.jpg',
                 alt: 'Deck cover for Star Wars Legends: Old Republic',
                 aspect: '1:1',
                 focalPoint: { x: 0.5, y: 0.5 },
@@ -775,7 +775,7 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:rise-of-empire'],
         assets: {
             cover: {
-                path: 'assets/cover.png',
+                path: 'assets/cover.jpg',
                 alt: 'Deck cover for Star Wars Legends: Rise of Empire',
                 aspect: '1:1',
                 focalPoint: { x: 0.5, y: 0.5 },
@@ -800,7 +800,7 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era'],
         assets: {
             cover: {
-                path: 'assets/cover.png',
+                path: 'assets/cover.jpg',
                 alt: 'Deck cover for Star Wars Legends: Rebellion Era',
                 aspect: '1:1',
                 focalPoint: { x: 0.5, y: 0.5 },
@@ -825,7 +825,7 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:new-republic'],
         assets: {
             cover: {
-                path: 'assets/cover.png',
+                path: 'assets/cover.jpg',
                 alt: 'Deck cover for Star Wars Legends: New Republic',
                 aspect: '1:1',
                 focalPoint: { x: 0.5, y: 0.5 },
@@ -850,7 +850,7 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:njo'],
         assets: {
             cover: {
-                path: 'assets/cover.png',
+                path: 'assets/cover.jpg',
                 alt: 'Deck cover for Star Wars Legends: New Jedi Order',
                 aspect: '1:1',
                 focalPoint: { x: 0.5, y: 0.5 },
@@ -875,7 +875,7 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:late-post-endor'],
         assets: {
             cover: {
-                path: 'assets/cover.png',
+                path: 'assets/cover.jpg',
                 alt: 'Deck cover for Star Wars Legends: Late Post-Endor',
                 aspect: '1:1',
                 focalPoint: { x: 0.5, y: 0.5 },
@@ -900,7 +900,7 @@ const STAR_WARS_LEGENDS_LOREDECKS = Object.freeze([
         tags: ['fandom:star-wars', 'continuity:legends', 'structure:split-loredeck', 'quality:draft', 'scope:era', 'scope:legacy-comics'],
         assets: {
             cover: {
-                path: 'assets/cover.png',
+                path: 'assets/cover.jpg',
                 alt: 'Deck cover for Star Wars Legends: Legacy Comics',
                 aspect: '1:1',
                 focalPoint: { x: 0.5, y: 0.5 },

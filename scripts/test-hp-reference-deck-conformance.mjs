@@ -200,10 +200,11 @@ for (const deckId of bundledDefaultIds) {
   assert.deepEqual(indexRecord.assets, manifest.assets, `${deckId} index assets should match manifest.`);
   assert.deepEqual(defaultRecord.assets, manifest.assets, `${deckId} default assets should match manifest.`);
   if (manifest.assets?.cover?.path) {
-    assert.equal(manifest.assets.cover.path, 'assets/cover.png', `${deckId} manifest should use a deck-local cover.`);
-    assert.equal(indexRecord.assets?.cover?.path, 'assets/cover.png', `${deckId} index should use a deck-local cover.`);
-    assert.equal(defaultRecord.assets?.cover?.path, 'assets/cover.png', `${deckId} defaults should use a deck-local cover.`);
-    assert.ok(fs.existsSync(path.join(deckRoot, manifest.assets.cover.path)), `${deckId} cover asset should exist.`);
+    const coverPath = manifest.assets.cover.path;
+    assert.match(coverPath, /^assets\/cover\.(?:png|jpe?g|webp)$/i, `${deckId} manifest should use a deck-local cover image.`);
+    assert.equal(indexRecord.assets?.cover?.path, coverPath, `${deckId} index should use the manifest cover path.`);
+    assert.equal(defaultRecord.assets?.cover?.path, coverPath, `${deckId} defaults should use the manifest cover path.`);
+    assert.ok(fs.existsSync(path.join(deckRoot, coverPath)), `${deckId} cover asset should exist.`);
   } else {
     assert.equal(indexRecord.assets?.cover, undefined, `${deckId} index should not invent a missing cover.`);
     assert.equal(defaultRecord.assets?.cover, undefined, `${deckId} defaults should not invent a missing cover.`);
