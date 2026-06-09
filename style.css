@@ -10905,6 +10905,66 @@
     white-space: pre-wrap;
 }
 
+.wandlight-loredeck-workbench-header {
+    grid-template-columns: minmax(260px, 1fr) auto;
+}
+
+.wandlight-loredeck-workbench-header-chips {
+    margin-top: 6px;
+}
+
+.wandlight-loredeck-workbench-mode-tabs {
+    flex: 0 0 auto;
+}
+
+.wandlight-loredeck-workbench-main {
+    grid-template-columns: minmax(520px, 1fr) minmax(360px, 460px);
+}
+
+.wandlight-loredeck-workbench-table .wandlight-lore-workbench-row {
+    grid-template-columns: minmax(260px, 2fr) minmax(90px, 0.7fr) minmax(86px, 0.55fr) minmax(160px, 1fr);
+}
+
+.wandlight-loredeck-workbench-entry-row {
+    width: 100%;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    text-align: left;
+    background: transparent;
+    color: inherit;
+}
+
+.wandlight-loredeck-workbench-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wandlight-loredeck-workbench-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.wandlight-loredeck-workbench-entry-text {
+    min-height: 120px;
+    max-height: 320px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid var(--wandlight-border-soft, rgba(126, 145, 165, 0.18));
+    border-radius: 7px;
+    background: var(--wandlight-input, rgba(10, 12, 16, 0.46));
+    color: var(--wandlight-text, #f1ead8);
+    font-size: 0.82em;
+    line-height: 1.42;
+    white-space: pre-wrap;
+}
+
+.wandlight-loredeck-workbench-tags {
+    align-items: flex-start;
+}
+
 /* Context Workbench: timeline registry and runtime Context editor. */
 .wandlight-context-workbench-shell {
     width: min(1480px, calc(100vw - 28px));

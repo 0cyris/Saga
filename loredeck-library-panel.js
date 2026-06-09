@@ -108,6 +108,7 @@ function duplicateLoredeckLibraryPacksWithConfirm(packsOrIds) { return dep('dupl
 function duplicateLoredeckLibraryFolderWithContents(folderId) { return dep('duplicateLoredeckLibraryFolderWithContents', async () => {})(folderId); }
 function deleteLoredeckLibraryPacksWithConfirm(packsOrIds) { return dep('deleteLoredeckLibraryPacksWithConfirm', async () => {})(packsOrIds); }
 function openDuplicateLoredeckDialog(pack) { return dep('openDuplicateLoredeckDialog', () => {})(pack); }
+function openLoredeckWorkbench(packId) { return dep('openLoredeckWorkbench', () => {})(packId); }
 function openLoredeckCreatorWorkbench(options) { return dep('openLoredeckCreatorWorkbench', () => {})(options); }
 function selectLoredeckForDetails(packId, options) { return dep('selectLoredeckForDetails', () => {})(packId, options); }
 function commitLoredeckStackMutation(mutator) { return dep('commitLoredeckStackMutation', () => false)(mutator); }
@@ -526,6 +527,15 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
         context.stack,
         context.selectedPacks,
         context.selectedFolderDetails,
+        context.libraryIndex,
+    ));
+
+    const stackPane = overlay.querySelector('.wandlight-loredeck-library-pane-stack');
+    stackPane?.replaceWith(createLoredeckActiveStackPane(
+        context.stack,
+        context.library,
+        context.canonDb,
+        context.health,
         context.libraryIndex,
     ));
 
@@ -3593,6 +3603,9 @@ function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo =
     }, inStack && stackItem.enabled ? '' : 'wandlight-primary-button');
     add.disabled = inStack && stackItem.enabled;
     actions.appendChild(add);
+    actions.appendChild(createButton('Open Loredeck', 'Open this Loredeck in the fullscreen Lorecard viewer and editor.', () => {
+        openLoredeckWorkbench(pack.packId);
+    }, 'wandlight-primary-button'));
     actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
         void healthInfo;
         openLoredeckHealthCenter(pack.packId);

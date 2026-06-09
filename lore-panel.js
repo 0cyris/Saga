@@ -229,6 +229,7 @@ import {
     openLoredeckLibraryDetails,
     openLoredeckLibraryWindow,
     openLoredeckMetadataEditor,
+    refreshLoredeckLibrarySelectionSurfaces,
     refreshLoredeckSurfaces,
     renderLoredeckLibraryOverlay,
     saveLoredeckLibraryFolderRecords,
@@ -240,6 +241,10 @@ import {
     configureLoredecksTabPanel,
     renderLoredecksTab,
 } from './loredecks-tab-panel.js';
+import {
+    configureLoredeckWorkbenchPanel,
+    openLoredeckWorkbench,
+} from './loredeck-workbench-panel.js';
 import {
     appendLoredeckCreatorGenerationStatus,
     compactLoredeckCreatorTitleDraftForRevision,
@@ -612,6 +617,7 @@ configureLoredeckLibraryPanel({
     duplicateLoredeckLibraryFolderWithContents,
     deleteLoredeckLibraryPacksWithConfirm,
     openDuplicateLoredeckDialog,
+    openLoredeckWorkbench,
     openLoredeckCreatorWorkbench,
     selectLoredeckForDetails,
     commitLoredeckStackMutation,
@@ -630,6 +636,17 @@ configureLoredeckLibraryPanel({
     createLoredeckStackFolderKey,
     renderContextWorkbench,
     buildLoredeckHealthPackSummary,
+});
+
+configureLoredeckWorkbenchPanel({
+    getState,
+    getLoredeckLibrary,
+    getLoredeckLibraryRegistry,
+    getLoredeckDefinition,
+    getFreshLoredeckLibraryPack,
+    getLoredeckTypeLabel,
+    openDuplicateLoredeckDialog,
+    openLoredeckHealthCenter,
 });
 
 configureLoredeckCreatorPanel({
@@ -15369,7 +15386,10 @@ function commitLoredeckStackMutation(mutator) {
     clearContextIndexCache();
     saveState(state, { sanitize: false });
     refreshLoredeckSurfaces({ renderLibrary: false });
-    if (isLoredeckLibraryOpen()) scheduleLoredeckLibraryOverlayRefresh();
+    if (isLoredeckLibraryOpen()) {
+        refreshLoredeckLibrarySelectionSurfaces();
+        scheduleLoredeckLibraryOverlayRefresh();
+    }
     return true;
 }
 
@@ -15934,6 +15954,40 @@ function getLoredeckHealthText(health) {
 
 // Session tab -----------------------------------------------------------------
 
+function formatActiveChatMetricName(value = '') {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    const normalized = raw.replace(/\\/g, '/').split('/').filter(Boolean).pop() || raw;
+    return normalized.replace(/\.(jsonl|json)$/i, '').trim() || raw;
+}
+
+function getActiveChatMetricName() {
+    try {
+        const ctx = globalThis.SillyTavern?.getContext?.();
+        const candidates = [
+            ctx?.chatName,
+            ctx?.chat_name,
+            ctx?.currentChat,
+            ctx?.current_chat,
+            ctx?.chatFile,
+            ctx?.chat_file,
+            ctx?.chatId,
+            ctx?.chat_id,
+            ctx?.chatMetadata?.chatName,
+            ctx?.chatMetadata?.name,
+        ];
+        for (const candidate of candidates) {
+            const name = formatActiveChatMetricName(candidate);
+            if (name) return name;
+        }
+        const characterName = formatActiveChatMetricName(ctx?.name2);
+        if (characterName) return `${characterName} chat`;
+    } catch (_e) {
+        // Ignore unavailable SillyTavern context in static harnesses.
+    }
+    return 'Current chat';
+}
+
 function renderSessionTab(container, state) {
     const settings = getSettings();
     const guideMode = isBasicExperience(settings) ? 'basic' : 'advanced';
@@ -16022,6 +16076,7 @@ function renderSessionTab(container, state) {
     const counts = getPanelLoreState(state).counts;
     const selectedLoreCount = getSelectedLoreInjectionCount(state, settings);
     const injectionStats = getInjectionCharacterStats(state, settings);
+    stats.appendChild(createKeyValue('Active chat', getActiveChatMetricName(), 'The active SillyTavern chat whose Saga metrics and chat metadata are being shown.'));
     stats.appendChild(createKeyValue('Pending continuity changes', state?.lastDelta ? '1' : '0', 'Legacy extracted state delta waiting in the Continuity tab. New scans apply directly to Continuity sections.'));
     stats.appendChild(createKeyValue('Pending Lorecards', String((state?.pendingLoreEntries || []).length), 'Generated Lorecards waiting in the Lorecards tab Pending Lorecard Review section.'));
     stats.appendChild(createKeyValue('Accepted lore entries', String(counts.all - counts.pending), 'Lore entries currently stored in the accepted lore matrix.'));
