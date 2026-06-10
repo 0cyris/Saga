@@ -2019,7 +2019,7 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
         if (duplicateTargets.length === 1) openDuplicateLoredeckDialog(duplicateTargets[0]);
     });
     duplicate.disabled = !selectedActionFolder && !duplicateTargets.length;
-    libraryActions.appendChild(duplicate);
+    libraryActions.appendChild(createLoredeckLibrarySquareActionGroup(duplicate, 'Duplicate'));
     const deleteTargets = selectedIds.length ? selectedPacks.filter(pack => selectedIds.includes(pack.packId)) : (selectedActionFolder || hasSelectedFolderDetails ? [] : (selectedPack ? [selectedPack] : []));
     const deletableTargets = deleteTargets.filter(pack => !isBundledLoredeckLibraryPack(pack));
     const deleteTooltip = selectedActionFolder
@@ -2038,10 +2038,21 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
         void deleteLoredeckLibraryPacksWithConfirm(deleteTargets);
     }, 'saga-loredeck-library-square-action-danger');
     deleteButton.disabled = !selectedActionFolder && !deletableTargets.length;
-    libraryActions.appendChild(deleteButton);
+    libraryActions.appendChild(createLoredeckLibrarySquareActionGroup(deleteButton, 'Delete'));
     footer.appendChild(libraryActions);
     pane.appendChild(footer);
     return pane;
+}
+
+function createLoredeckLibrarySquareActionGroup(button, labelText = '') {
+    const group = document.createElement('div');
+    group.className = 'saga-loredeck-library-square-action-group';
+    group.appendChild(button);
+    const label = document.createElement('div');
+    label.className = 'saga-loredeck-library-square-action-label';
+    label.textContent = labelText;
+    group.appendChild(label);
+    return group;
 }
 
 function createLoredeckLibrarySquareIconAction(kind = 'duplicate', tooltip = '', handler = null, className = '') {
