@@ -54,7 +54,6 @@ function refreshPanelBody(options) { return dep('refreshPanelBody', () => {})(op
 function refreshHeader() { return dep('refreshHeader', () => {})(); }
 function markTourTarget(el, target) { return dep('markTourTarget', value => value)(el, target); }
 function createCollapsibleSection(...args) { return dep('createCollapsibleSection')(...args); }
-function isBasicExperienceMode() { return dep('isBasicExperience', () => false)() === true; }
 function installLoredeckBundleFromFile() { return dep('installLoredeckBundleFromFile', () => {})(); }
 function openLoredeckCreatorWorkbench() { return dep('openLoredeckCreatorWorkbench', () => {})(); }
 function getLoredeckDefinition(packId) { return dep('getLoredeckDefinition', () => null)(packId); }
@@ -81,7 +80,6 @@ let loredeckCreatorProjectFolderFilter = 'all';
 let loredeckCreatorProjectSelectedIds = new Set();
 
 export function renderLoredecksTab(container, state) {
-    const basic = isBasicExperienceMode();
     const canonDb = getCanonLoreDatabaseSync();
     if (!canonDb) {
         loadCanonLoreDatabase()
@@ -92,195 +90,34 @@ export function renderLoredecksTab(container, state) {
 
     container.appendChild(createSectionHeader(
         'Loredecks',
-        basic
-            ? 'Load lore for this chat.'
-            : 'Source decks loaded for canon suggestions, relevance, and Saga deck editing.'
+        'Source decks loaded for canon suggestions, relevance, and Saga deck editing.'
     ));
-    if (basic) {
-        const stackSection = createCollapsibleSection(
-            'loredecks.basicActiveStack',
-            'Active Stack',
-            getBasicLoredeckStackSummary(state, canonDb, health),
-            true,
-            createBasicLoredeckActiveStackCard(state, canonDb, health),
-            { tooltip: 'Loaded Loredecks currently available to Saga in this chat.' }
-        );
-        markTourTarget(stackSection, 'loredecks.activeStack');
-        container.appendChild(stackSection);
-    }
     const librarySection = createCollapsibleSection(
         'loredecks.libraryLaunch',
-        basic ? 'Add Loredeck' : 'Loredeck Library',
+        'Loredeck Library',
         getLoredeckLibraryLaunchSummary(state, canonDb, health),
         true,
-        basic
-            ? createBasicLoredeckLibraryLaunchCard(state, canonDb, health)
-            : createLoredeckLibraryLaunchCard(state, canonDb, health),
+        createLoredeckLibraryLaunchCard(state, canonDb, health),
         {
-            tooltip: basic
-                ? 'Add a Loredeck from the Library. Create or import is available when the bundled library does not fit your fandom.'
-                : 'Open the fullscreen Loredeck Library, import a deck package, or start the Creator wizard.',
+            tooltip: 'Open the fullscreen Loredeck Library, import a deck package, or start the Creator wizard.',
         }
     );
     markTourTarget(librarySection, 'loredecks.library.launch');
     container.appendChild(librarySection);
 
     const projectModels = getLoredeckCreatorProjectShelfModels(state);
-    if (!basic || projectModels.length) {
-        const creatorSection = createCollapsibleSection(
-            'loredecks.creatorProjects',
-            basic ? 'Create Or Import' : 'In-Progress Creator Projects',
-            projectModels.length ? `${projectModels.length} unfinished` : (basic ? 'Advanced path' : 'none'),
-            false,
-            () => createLoredeckCreatorProjectShelf(state, projectModels, { basic }),
-            {
-                tooltip: basic
-                    ? 'Advanced path for creating a Generated Loredeck when no bundled or imported deck matches this chat.'
-                    : 'Resume unfinished Generated Loredecks from the staged Creator.',
-            }
-        );
-        markTourTarget(creatorSection, 'loredecks.creator.projects');
-        container.appendChild(creatorSection);
-    }
-}
-
-function getBasicLoredeckStackReadiness(stats = {}) {
-    if (!stats.activeCount) {
-        return {
-            label: 'Not checked',
-            tone: 'unknown',
-            tooltip: 'No active Loredeck is loaded yet.',
-        };
-    }
-    if (stats.errorCount || stats.warningCount || stats.missingCount || stats.duplicateCount) {
-        return {
-            label: 'Needs review',
-            tone: 'warning',
-            tooltip: 'The active stack has Pack Health warnings, missing decks, or duplicates. It can still be used while you review.',
-        };
-    }
-    if (!stats.entryCount) {
-        return {
-            label: 'Not checked',
-            tone: 'unknown',
-            tooltip: 'The active stack has not exposed usable Lorecards yet.',
-        };
-    }
-    return {
-        label: 'Ready',
-        tone: 'ok',
-        tooltip: 'The active stack has loaded Lorecards and no visible Pack Health warnings.',
-    };
-}
-
-function getBasicLoredeckStackSummary(state = getState(), canonDb = null, health = null) {
-    const stack = getLoredeckStack(state);
-    const library = getLoredeckLibrary(state);
-    const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
-    return getBasicLoredeckStackReadiness(stats).label;
-}
-
-function getBasicLoredeckStackItemLabel(item = {}, library = [], libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library)) {
-    if (item?.type === 'folder' || item?.folderId) {
-        const path = getFolderPath(item.folderId, libraryIndex);
-        return path.length ? path.join(' > ') : (item.folderId || 'Folder');
-    }
-    const packId = String(item.packId || item.deckId || '').trim();
-    const pack = library.find(record => record.packId === packId);
-    return pack?.title || pack?.name || packId || 'Loredeck';
-}
-
-function createBasicLoredeckActiveStackCard(state = getState(), canonDb = null, health = null) {
-    const stack = getLoredeckStack(state);
-    const library = getLoredeckLibrary(state);
-    const libraryIndex = getLoredeckLibraryIndexForPacks(state, library);
-    const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health, libraryIndex);
-    const readiness = getBasicLoredeckStackReadiness(stats);
-
-    const card = document.createElement('div');
-    card.className = 'saga-runtime-card saga-basic-loredeck-stack-card';
-
-    const header = document.createElement('div');
-    header.className = 'saga-basic-loredeck-stack-header';
-    const titleWrap = document.createElement('div');
-    titleWrap.className = 'saga-basic-loredeck-stack-title-wrap';
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = 'Active Stack';
-    titleWrap.appendChild(title);
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = stack.length
-        ? 'Saga checks these Loredecks when choosing lore for this chat.'
-        : 'Add a Loredeck before setting story position or reviewing Lorecards.';
-    titleWrap.appendChild(help);
-    header.appendChild(titleWrap);
-
-    const chips = document.createElement('div');
-    chips.className = 'saga-loredeck-row-meta saga-basic-loredeck-stack-chips';
-    chips.appendChild(createStatusPill(readiness.label, readiness.tooltip));
-    chips.appendChild(createStatusPill(`${stats.activeCount} active`, 'Active Loredecks currently available to Saga.'));
-    chips.appendChild(createStatusPill(`${stats.entryCount} Lorecards`, 'Accepted source Lorecards available from active Loredecks.'));
-    if (stats.warningCount || stats.errorCount) {
-        chips.appendChild(createStatusPill(`${stats.warningCount + stats.errorCount} to review`, 'Pack Health findings in the active stack.'));
-    }
-    header.appendChild(chips);
-    card.appendChild(header);
-
-    if (!stack.length) {
-        card.appendChild(createEmptyMessage('No Loredeck loaded yet. Add a Loredeck to start.'));
-    } else {
-        const list = document.createElement('div');
-        list.className = 'saga-basic-loredeck-stack-list';
-        for (const item of stack.slice(0, 6)) {
-            list.appendChild(createBasicLoredeckStackRow(item, library, libraryIndex));
+    const creatorSection = createCollapsibleSection(
+        'loredecks.creatorProjects',
+        'In-Progress Creator Projects',
+        projectModels.length ? `${projectModels.length} unfinished` : 'none',
+        false,
+        () => createLoredeckCreatorProjectShelf(state, projectModels),
+        {
+            tooltip: 'Resume unfinished Generated Loredecks from the staged Creator.',
         }
-        if (stack.length > 6) {
-            const more = document.createElement('div');
-            more.className = 'saga-runtime-help saga-compact-help';
-            more.textContent = `Showing 6 of ${stack.length} stack items.`;
-            list.appendChild(more);
-        }
-        card.appendChild(list);
-    }
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-basic-loredeck-stack-actions';
-    actions.appendChild(markTourTarget(createButton('Add Loredeck', 'Open the Library to add a Loredeck to this chat.', () => {
-        openLoredeckLibraryWindow();
-    }, 'saga-primary-button'), 'loredecks.library.open'));
-    if (stack.length) {
-        actions.appendChild(createButton('Open Full Library', 'Open the full Library for folders, priority, import, export, updates, and Pack Health details.', () => {
-            openLoredeckLibraryWindow();
-        }));
-    }
-    card.appendChild(actions);
-
-    return card;
-}
-
-function createBasicLoredeckStackRow(item = {}, library = [], libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library)) {
-    const row = document.createElement('div');
-    row.className = `saga-basic-loredeck-stack-row ${item.enabled === false ? 'saga-basic-loredeck-stack-row-disabled' : ''}`.trim();
-
-    const main = document.createElement('div');
-    main.className = 'saga-basic-loredeck-stack-row-main';
-    const title = document.createElement('div');
-    title.className = 'saga-basic-loredeck-stack-row-title';
-    title.textContent = getBasicLoredeckStackItemLabel(item, library, libraryIndex);
-    main.appendChild(title);
-    const detail = document.createElement('div');
-    detail.className = 'saga-runtime-help saga-compact-help';
-    detail.textContent = item?.type === 'folder' || item?.folderId ? 'Folder group' : 'Loredeck';
-    main.appendChild(detail);
-    row.appendChild(main);
-
-    const chips = document.createElement('div');
-    chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(item.enabled === false ? 'Paused' : 'Active', item.enabled === false ? 'This item is in the stack but not currently used.' : 'This item is available to Saga.'));
-    row.appendChild(chips);
-
-    return row;
+    );
+    markTourTarget(creatorSection, 'loredecks.creator.projects');
+    container.appendChild(creatorSection);
 }
 
 function getLoredeckLibraryLaunchSummary(state = getState(), canonDb = null, health = null) {
@@ -374,48 +211,6 @@ function createLoredeckCreatorProjectShelf(state = getState(), presetModels = nu
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-loredeck-creator-project-shelf';
     renderLoredeckCreatorProjectShelfContent(card, state, presetModels);
-    return card;
-}
-
-function createBasicLoredeckLibraryLaunchCard(state = getState(), canonDb = null, health = null) {
-    const stack = getLoredeckStack(state);
-    const library = getLoredeckLibrary(state);
-    const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
-
-    const card = document.createElement('div');
-    card.className = 'saga-runtime-card saga-basic-loredeck-add-card';
-
-    const main = document.createElement('div');
-    main.className = 'saga-loredeck-library-launch-main';
-    const title = document.createElement('h4');
-    title.textContent = 'Add Loredeck';
-    main.appendChild(title);
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = 'Browse available Loredecks and add one to this chat. If the bundled library does not match your fandom, create or import a Loredeck from the advanced path.';
-    main.appendChild(help);
-
-    const chips = document.createElement('div');
-    chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(`${library.length} available`, 'Loredecks currently available in the Library.'));
-    chips.appendChild(createStatusPill(`${stats.activeCount} active`, 'Loredecks currently loaded for this chat.'));
-    chips.appendChild(createStatusPill(getBasicLoredeckStackReadiness(stats).label, 'Plain readiness for the active stack.'));
-    main.appendChild(chips);
-    card.appendChild(main);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-loredeck-library-launch-actions';
-    actions.appendChild(createButton('Add Loredeck', 'Open the Library to add a Loredeck to this chat.', () => {
-        openLoredeckLibraryWindow();
-    }, 'saga-primary-button'));
-    actions.appendChild(createButton('Import Deck', 'Advanced path: import a Saga Loredeck zip package into the Library.', () => {
-        installLoredeckBundleFromFile();
-    }));
-    actions.appendChild(createButton('Create Deck', 'Advanced path: open the staged Loredeck Creator wizard.', () => {
-        openLoredeckCreatorWorkbench();
-    }));
-    card.appendChild(actions);
-
     return card;
 }
 

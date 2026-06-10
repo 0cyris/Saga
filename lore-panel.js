@@ -983,7 +983,6 @@ configureLoredecksTabPanel({
     refreshHeader,
     markTourTarget,
     createCollapsibleSection,
-    isBasicExperience: () => isBasicExperience(getSettings()),
     installLoredeckBundleFromFile,
     openLoredeckCreatorWorkbench,
     getLoredeckDefinition,
@@ -1159,7 +1158,6 @@ function createCollapsibleSection(sectionId, titleText, subtitleText, defaultOpe
 
 function openPendingLoreReviewSections() {
     setSectionCollapsed('lore.pendingReview', false);
-    setSectionCollapsed('lore.basic.pendingReview', false);
 }
 
 function getCountLabel(value, label) {
@@ -15653,13 +15651,13 @@ function renderSettingsTab(container, state) {
     const basic = isBasicExperience(settings);
     container.appendChild(createSectionHeader(
         'SAGA',
-        basic ? 'Provider setup, appearance, and mode.' : 'Fandom Loresystem.'
+        basic ? 'Providers, Theme Pack, and mode.' : 'Fandom Loresystem.'
     ));
 
     if (basic) {
         container.appendChild(createCollapsibleSection(
-            'settings.basicProviders',
-            'Provider Quick Setup',
+            'settings.providers',
+            'Providers',
             `${getProviderStatusText('lore', settings)} / ${getProviderStatusText('continuity', settings)}`,
             true,
             createBasicProviderQuickSetupCard(settings),
@@ -15667,8 +15665,8 @@ function renderSettingsTab(container, state) {
         ));
 
         container.appendChild(createCollapsibleSection(
-            'settings.basicAppearance',
-            'Appearance',
+            'settings.themePack',
+            'Theme Pack',
             getThemePreset(settings.themePackId, settings)?.title || 'Theme',
             true,
             createBasicAppearanceSettingsCard(settings),
@@ -15676,7 +15674,7 @@ function renderSettingsTab(container, state) {
         ));
 
         container.appendChild(createCollapsibleSection(
-            'settings.basicExperience',
+            'settings.experienceMode',
             'Experience Mode',
             getExperienceLabel(settings),
             true,
@@ -15709,7 +15707,7 @@ function createBasicAppearanceSettingsCard(settings = getSettings()) {
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-settings-basic-appearance-card';
     const title = document.createElement('h4');
-    title.textContent = 'Appearance';
+    title.textContent = 'Theme Pack';
     card.appendChild(title);
 
     const help = document.createElement('div');
@@ -16308,7 +16306,7 @@ function createBasicInjectionSummaryCard(state = getState(), settings = getSetti
     help.className = 'saga-runtime-help';
     help.textContent = selectedLore > 0 && loreOn
         ? 'Accepted Lorecards are ready for the next response. Switch to Advanced only if you need the full prompt preview or placement controls.'
-        : 'Accept useful Lorecards in Review before expecting Saga to add lore to the next response.';
+        : 'Accept useful Lorecards in Lorecards before expecting Saga to add lore to the next response.';
     card.appendChild(help);
 
     const actions = document.createElement('div');
@@ -16359,8 +16357,8 @@ function renderSessionTab(container, state) {
     const guide = getRuntimeGuideContent(guideMode);
 
     container.appendChild(createSectionHeader(
-        basic ? 'Start' : 'Session Controls',
-        basic ? 'Get Saga ready for this chat.' : 'Set how Saga behaves during roleplay.'
+        'Session Controls',
+        basic ? 'Review the Start Checklist and runtime state for this chat.' : 'Set how Saga behaves during roleplay.'
     ));
 
     const toggles = document.createElement('div');
@@ -16764,9 +16762,7 @@ function renderContextTab(container, state) {
 
     container.appendChild(createSectionHeader(
         'Context',
-        basic
-            ? 'Choose the story position for each loaded Loredeck.'
-            : 'Set and audit where this chat sits inside each loaded Loredeck.'
+        'Set and audit where this chat sits inside each loaded Loredeck.'
     ));
 
     const contextStack = getContextWorkbenchStack(state);
@@ -16778,9 +16774,7 @@ function renderContextTab(container, state) {
         true,
         createContextCommandCenterCard(state, contextIndex),
         {
-            tooltip: basic
-                ? 'Primary controls for choosing story position across loaded Loredecks.'
-                : 'Primary controls for browsing, detecting, resolving, and reviewing loaded Loredeck Context.',
+            tooltip: 'Primary controls for browsing, detecting, resolving, and reviewing loaded Loredeck Context.',
         }
     ));
     container.appendChild(createCollapsibleSection(
@@ -16790,9 +16784,7 @@ function renderContextTab(container, state) {
         true,
         createLoredeckContextCard(state, contextIndex),
         {
-            tooltip: basic
-                ? 'Per-Loredeck rows for choosing or checking the current story position.'
-                : 'Per-Loredeck Context rows for the active stack, including locks, manual browser access, and resolver confidence.',
+            tooltip: 'Per-Loredeck Context rows for the active stack, including locks, manual browser access, and resolver confidence.',
         }
     ));
     if (!basic) container.appendChild(createContextAdvancedBriefSection(state));
@@ -16946,10 +16938,8 @@ function createContextBriefStatusCard(state) {
 
     const label = document.createElement('div');
     label.className = 'saga-lore-context-status-label';
-    label.textContent = basic ? 'Context Check' : 'Detector';
-    addTooltip(label, basic
-        ? 'Latest story-position check status.'
-        : 'Latest top-level Context Brief extraction status. Loredeck Context rows below use this brief plus each loaded deck timeline registry.');
+    label.textContent = 'Detector';
+    addTooltip(label, 'Latest top-level Context Brief extraction status. Loredeck Context rows below use this brief plus each loaded deck timeline registry.');
     row.appendChild(label);
 
     const value = document.createElement('div');
@@ -16962,7 +16952,7 @@ function createContextBriefStatusCard(state) {
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta saga-context-brief-status-chips';
-    chips.appendChild(createContextBriefStatusPill(labelText, basic ? 'Status from the last story-position check.' : 'Detector status from the last Context scan.', tone));
+    chips.appendChild(createContextBriefStatusPill(labelText, 'Detector status from the last Context scan.', tone));
     if (!basic && status.repaired) chips.appendChild(createContextBriefStatusPill('JSON repaired', 'Saga repaired malformed detector JSON before saving the brief.', 'medium'));
     if (!basic && status.fallbackUsed) chips.appendChild(createContextBriefStatusPill('Local fallback', 'Saga inferred Context locally from recent message headings or obvious story-position cues.', 'medium'));
     if (!basic) chips.appendChild(createStatusPill(`Source: ${formatContextSource(brief.source || 'unknown')}`, 'Where the latest Context Brief came from.'));
@@ -17008,9 +16998,37 @@ function createLoreGenerationCard(state) {
     actionsGrid.className = 'saga-lore-generation-grid';
     actionsGrid.appendChild(createCanonSuggestionPanel(state));
     actionsGrid.appendChild(createStoryLoreGenerationPanel(state));
+    actionsGrid.appendChild(createManualLorecardPanel());
     card.appendChild(actionsGrid);
 
     return card;
+}
+
+function createManualLorecardPanel() {
+    const panel = document.createElement('div');
+    panel.className = 'saga-lore-generation-panel saga-manual-lorecard-panel';
+
+    const header = document.createElement('div');
+    header.className = 'saga-lore-generation-panel-title';
+    header.textContent = 'Manual Lorecard';
+    addTooltip(header, 'Create a reviewable Lorecard by hand when you already know a fact should be available for future responses.');
+    panel.appendChild(header);
+
+    const help = document.createElement('div');
+    help.className = 'saga-runtime-help';
+    help.textContent = 'Draft a fact yourself, then accept it through Pending Lorecard Review before it affects prompts.';
+    panel.appendChild(help);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions saga-generation-actions';
+    actions.appendChild(markTourTarget(createButton('Add Lorecard', 'Create a manual Lorecard draft and send it to Pending Lorecard Review.', () => {
+        openNewLoreDialog({ basicReview: isBasicExperience(getSettings()) });
+    }, 'saga-primary-button'), 'lore.manual.add'));
+    panel.appendChild(actions);
+
+    panel.appendChild(createKeyValue('Destination', 'Pending Review', 'Manual Lorecards are reviewed before they become accepted Lorecards.'));
+
+    return panel;
 }
 
 function createLoreContextStatusCard(state) {

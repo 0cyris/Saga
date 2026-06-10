@@ -20,11 +20,11 @@ export function buildBasicReadinessModel(input = {}) {
         },
         {
             id: 'loredecks',
-            label: 'Loredeck loaded',
+            label: 'Loredeck in stack',
             ready: enabledLoredecks > 0,
             readyText: `${enabledLoredecks} loaded`,
-            missingText: 'No Loredeck loaded',
-            actionLabel: 'Choose Loredeck',
+            missingText: 'Open Loredeck Library and add a deck to the stack',
+            actionLabel: 'Open Library',
             targetTab: 'loredecks',
         },
         {
@@ -33,7 +33,7 @@ export function buildBasicReadinessModel(input = {}) {
             ready: enabledLoredecks > 0 && contextCount > 0,
             readyText: `${contextCount} Context row${contextCount === 1 ? '' : 's'} set`,
             missingText: enabledLoredecks > 0 ? 'Story position missing' : 'Load a Loredeck first',
-            actionLabel: enabledLoredecks > 0 ? 'Set Context' : 'Choose Loredeck',
+            actionLabel: enabledLoredecks > 0 ? 'Set Context' : 'Open Library',
             targetTab: enabledLoredecks > 0 ? 'context' : 'loredecks',
         },
         {

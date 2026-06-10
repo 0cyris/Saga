@@ -114,42 +114,42 @@ Advanced should show the loop as a debuggable, configurable system.
 
 Recommended Basic rail:
 
-1. **Start**
+1. **Session**
 2. **Loredecks**
 3. **Context**
-4. **Review**
+4. **Lorecards**
 5. **Settings**
 
-Implementation can keep internal tab IDs such as `session` and `lore`, but Basic labels should be friendlier:
+Basic should use the same tab labels as Advanced so users do not learn one vocabulary and then unlearn it later:
 
-| Internal Area | Basic Label | Basic Purpose |
+| Internal Area | Visible Label | Basic Purpose |
 | --- | --- | --- |
-| `session` | Start | Status, next action, walkthrough, Saga Active |
+| `session` | Session | Start Checklist, status, next action, walkthrough, Saga Active |
 | `loredecks` | Loredecks | Load deck, see active stack, open library when needed |
 | `context` | Context | Choose or detect story position |
-| `lore` | Review | Review suggested, generated, manual, and accepted Lorecards |
-| `settings` | Settings | Provider quick setup, appearance, mode switch |
+| `lore` | Lorecards | Review suggested, generated, manual, and accepted Lorecards |
+| `settings` | Settings | Providers, Theme Pack, mode switch |
 
-Hide the `continuity` and `injection` tabs in Basic. Current-scene continuity is useful, but it is a second mental model. Full injection tuning is useful, but it is a diagnostic and control surface, not a required novice workflow. In Basic, expose injection only as compact status inside Start and Review: whether lore injection is on, how many accepted Lorecards are selected, and whether anything obvious is blocked.
+Hide the `continuity` and `injection` tabs in Basic. Current-scene continuity is useful, but it is a second mental model. Full injection tuning is useful, but it is a diagnostic and control surface, not a required novice workflow. In Basic, expose injection only as compact status inside Session and Lorecards: whether lore injection is on, how many accepted Lorecards are selected, and whether anything obvious is blocked.
 
-### Basic Start Screen
+### Basic Session Checklist
 
-The Start tab should become the Basic command center.
+The Session tab should keep its Advanced name and include a Basic-only **Start Checklist** card near the top.
 
 Show a compact readiness checklist:
 
 | Check | Ready State | Missing State | Primary Action |
 | --- | --- | --- | --- |
 | Saga Active | Saga is active | Saga is paused | Enable Saga |
-| Loredeck loaded | Active Stack has at least one enabled deck | No Loredeck loaded | Choose Loredeck |
+| Loredeck in stack | Active Stack has at least one enabled deck | Open Loredeck Library and add a deck to the stack | Open Library |
 | Story Context set | Loaded deck has current Context | Story position missing | Set Context |
-| Lorecards reviewed | Accepted Lorecards exist or relevant suggestions are available | Nothing accepted yet | Review Lorecards |
+| Lorecards reviewed | Accepted Lorecards exist or relevant pending/proposed Lorecards are available | Nothing accepted yet | Review Lorecards |
 | Lore ready | Accepted Lorecards are selected for injection | Nothing selected for prompt | Review Lorecards |
 | Provider optional | Provider configured for model-assisted actions | Provider not configured | Configure provider |
 
 Below the checklist, show one recommended next action. Examples:
 
-- "Choose a Loredeck" when the stack is empty.
+- "Open Library" when the stack is empty.
 - "Set story position" when a deck is loaded but Context is missing.
 - "Review suggested Lorecards" when Context produces candidates.
 - "Continue roleplay" when the prompt is ready.
@@ -163,45 +163,47 @@ The Basic walkthrough should be five steps maximum:
 1. **Open Saga and keep Saga Active on.**
    Explain only that Saga can add accepted lore to the next prompt.
 
-2. **Choose a Loredeck.**
-   Offer bundled decks first. For the HP reference family, use a simple picker such as "Core + Year 6" instead of making a novice understand stack composition immediately.
+2. **Open Library.**
+   Use the same Loredeck Library surface as Advanced and add the matching deck or deck group to the active stack.
 
-3. **Set story position.**
-   Use the Context Browser as the trusted path. The primary control should be "Start Here" or "Use This Context." Model detection is secondary.
+3. **Set Context.**
+   Use the Context Browser as the trusted path. The primary control should be **Browse Context**, with **Use This Context** inside the browser. Model detection is secondary.
 
 4. **Review Lorecards.**
-   Show relevant suggestions and Pending Review in one place. The user accepts only cards that should affect future responses.
+   Show relevant proposed Lorecards and Pending Review in one place. The user accepts only cards that should affect future responses.
 
 5. **Continue and update when the story changes.**
    Give the user two clear repeat actions: "Set Context again" for timeline jumps and "Scan recent story" for durable chat-specific facts if a provider is configured.
 
 ### Basic Loredecks
 
-Basic Loredecks should focus on loading and trust:
+Basic Loredecks should teach the same Library workflow as Advanced:
 
-- Show Active Stack first.
-- Show "Add Loredeck" as the main action.
-- Offer curated bundled deck combinations.
-- Use plain readiness badges: Ready, Needs review, Not checked.
-- Keep full Library, folders, import/export, updates, details, and health actions reachable but visually secondary.
-- Do not require users to know Bundled, Generated, and Custom on the first screen. Use those labels in details, not as the first decision.
-- If no bundled deck matches the user's fandom, route to "Create or import a Loredeck" with a short explanation that this is an Advanced path.
+- Show the same **Loredeck Library** section as Advanced.
+- Show the same **In-Progress Creator Projects** section as Advanced.
+- Keep the same section names, order, and launch cards as Advanced.
+- Do not rename the shared Library action to a Basic-only label.
+- Do not add a separate Basic stack card or Basic-only readiness badges.
+- Keep deeper Library, folders, import/export, updates, details, health, and Creator controls reachable through the same shared surfaces.
+- If a later pass reduces visible complexity here, reduce by collapsing or hiding sections without changing the learned workflow.
+
+The key constraint is transfer learning: Basic can remove or collapse sections, but it should not teach a different Loredecks tab that users must unlearn when they switch to Advanced.
 
 ### Basic Context
 
 Basic Context should be manual-first:
 
 - Show loaded Loredecks and their current Context.
-- Primary action: Browse Story Waypoints.
+- Primary action: Browse Context.
 - Secondary action: Detect Context.
 - Keep Advanced Context Brief collapsed or hidden.
 - Use "Story position" copy alongside "Context" where it helps comprehension.
 - If Context detection returns uncertain output, show it as a proposal, not as an applied truth.
 - Keep manual locks implicit in Basic: when the user chooses a Context manually, protect it from automatic overwrite.
 
-### Basic Review
+### Basic Lorecards
 
-Basic Review should combine the pieces a new user expects:
+Basic Lorecards should combine the pieces a new user expects:
 
 - Suggested Lorecards for current Context.
 - Pending Review.
@@ -219,7 +221,7 @@ Basic should not foreground source metadata, routing, similarity decisions, gene
 
 ### Basic Injection Summary
 
-Basic should not have a dedicated Prompt or Injection tab. A compact injection summary should appear inside Start and Review instead.
+Basic should not have a dedicated Prompt or Injection tab. A compact injection summary should appear inside Session and Lorecards instead.
 
 The Basic injection summary should answer:
 
@@ -247,7 +249,7 @@ Basic Settings should expose:
 
 - Provider quick setup.
 - Test provider connection.
-- Appearance/theme selection.
+- Theme Pack selection.
 - Experience Mode switch.
 - Reset layout.
 
@@ -282,7 +284,7 @@ When switching from Advanced to Basic, keep the existing backup-and-restore appr
 
 Use concrete action labels:
 
-- "Choose Loredeck"
+- "Open Library"
 - "Set Context"
 - "Review Lorecards"
 - "See what Saga will send"
@@ -471,22 +473,22 @@ When an Advanced user switches to Basic:
 - Hide advanced tabs and controls.
 - Keep all saved data.
 - Preserve an advanced settings backup for later restoration.
-- If the active Advanced tab is hidden in Basic, land on Start.
+- If the active Advanced tab is hidden in Basic, land on Session.
 
 ## Implementation Plan
 
-### Phase 1: Audit And Rename The Experience Surface
+### Phase 1: Audit And Align The Experience Surface
 
-- Confirm every visible Basic tab label and tooltip uses Saga-native language.
-- Rename Basic `Session` presentation to `Start` if mode-specific labels are feasible.
-- Rename Basic `Lorecards` presentation to `Review` if mode-specific labels are feasible.
-- Hide the Basic `Injection` tab and replace it with compact injection status in Start and Review.
+- Confirm every visible Basic tab label and tooltip matches the shared Advanced workflow language.
+- Do not rename Basic `Session` to `Start`.
+- Do not rename Basic `Lorecards` to `Review`.
+- Hide the Basic `Injection` tab and replace it with compact injection status in Session and Lorecards.
 - Remove or rewrite old Wandlight/Saga legacy copy in the Basic guide, especially "legacy global Context Brief" and "canon packs" framing where active-stack Lorecards are now the source of truth.
 - Keep internal IDs stable unless a cleanup pass deliberately removes old names.
 
-### Phase 2: Rebuild Basic Start
+### Phase 2: Add Basic Start Checklist To Session
 
-- Replace the current instructions-heavy Basic Start area with a readiness checklist.
+- Add a Basic-only Start Checklist card to the Session tab.
 - Add one recommended next action derived from current state.
 - Keep Saga Active and Session Metrics, but make them secondary to next action.
 - Keep the Basic walkthrough collapsed and short.
@@ -502,18 +504,18 @@ When an Advanced user switches to Basic:
 
 ### Phase 4: Simplify Basic Loredeck And Context Paths
 
-- Make "Choose Loredeck" and "Set Context" the first two successful actions.
-- Add curated bundled deck combinations where the bundled family supports it.
+- Make "Open Library" and "Set Context" the first two successful actions.
+- Keep the shared Loredeck Library path intact so Basic users learn the same loading workflow as Advanced users.
 - Make Context Browser the primary trusted selector.
 - Keep Reasoner detection secondary and reviewable.
 - Apply manual lock when a Basic user selects Context manually.
 
-### Phase 5: Simplify Basic Review And Injection Status
+### Phase 5: Simplify Basic Lorecards And Injection Status
 
 - Present suggested, pending, and accepted Lorecards as one review workflow.
 - Keep single-entry accept/dismiss/edit clear and visible.
 - Hide bulk and metadata-heavy operations behind Advanced or details.
-- Add a compact "what Saga will send" summary to Start and Review.
+- Add a compact "what Saga will send" summary to Session and Lorecards.
 - Route users who need full prompt preview, placement, compression, or tier tuning to Advanced.
 - Keep Low relevance hidden or off by default.
 
@@ -542,7 +544,7 @@ Add or update checks for:
 - Advanced mode visible tabs.
 - Switching Basic -> Advanced -> Basic preserves stack, Context, pending, accepted, and backup settings.
 - Basic guide steps target only visible Basic controls.
-- Basic Start next-action derivation for empty stack, missing Context, pending review, accepted lore, and ready prompt.
+- Basic Start Checklist next-action derivation for empty stack, missing Context, pending review, accepted lore, and ready prompt.
 - Basic mode hides the Injection tab while still showing selected-lore status.
 - Basic settings profile keeps automation off and lore injection on.
 - Advanced restores backed-up managed settings.
@@ -552,8 +554,8 @@ Run visual smoke for:
 - First-run Basic empty state.
 - Basic with HP Core + Year deck loaded.
 - Basic Context Browser selection.
-- Basic Review accepting a Lorecard.
-- Basic Start/Review selected-lore summary.
+- Basic Lorecards accepting a Lorecard.
+- Basic Session/Lorecards selected-lore summary.
 - Advanced full rail.
 - Advanced automation, continuity, Deck Health, Creator, and Injection controls.
 

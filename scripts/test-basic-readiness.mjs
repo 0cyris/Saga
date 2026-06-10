@@ -16,10 +16,10 @@ function assertNext(input, expected, message) {
 
 let model = assertNext(
     { enabledLoredecks: 0, contextCount: 0, acceptedCount: 0, pendingCount: 0, selectedLore: 0, providerReady: false },
-    { id: 'loredecks', actionLabel: 'Choose Loredeck', targetTab: 'loredecks' },
+    { id: 'loredecks', actionLabel: 'Open Library', targetTab: 'loredecks' },
     'empty stack'
 );
-assert.equal(row(model, 'loredecks').missingText, 'No Loredeck loaded', 'Empty stack should explain the missing Loredeck.');
+assert.equal(row(model, 'loredecks').missingText, 'Open Loredeck Library and add a deck to the stack', 'Empty stack should explain the Library workflow.');
 assert.equal(row(model, 'context').targetTab, 'loredecks', 'Context row should route to Loredecks until a deck is loaded.');
 
 model = assertNext(

@@ -850,17 +850,9 @@
 }
 
 .saga-basic-readiness-card,
-.saga-basic-injection-summary-card,
-.saga-basic-review-actions-card {
+.saga-basic-injection-summary-card {
     border-color: rgba(215, 181, 109, 0.28);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(0, 0, 0, 0.16));
-}
-
-.saga-basic-review-question {
-    margin: 2px 0 8px;
-    color: var(--SmartThemeBodyColor, #e4dccb);
-    font-size: 0.88em;
-    font-weight: 700;
 }
 
 .saga-basic-advanced-handoff {
@@ -2668,69 +2660,6 @@
     background:
         radial-gradient(circle at 12% 0%, rgba(215, 181, 109, 0.1), transparent 28%),
         rgba(10, 12, 16, 0.28);
-}
-
-.saga-basic-loredeck-stack-card,
-.saga-basic-loredeck-add-card {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.saga-basic-loredeck-stack-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.saga-basic-loredeck-stack-title-wrap {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-
-.saga-basic-loredeck-stack-chips {
-    justify-content: flex-end;
-}
-
-.saga-basic-loredeck-stack-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.saga-basic-loredeck-stack-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    border: 1px solid var(--saga-border-soft, rgba(180, 160, 140, 0.16));
-    border-radius: 7px;
-    background: var(--saga-surface-2, rgba(0, 0, 0, 0.14));
-    padding: 7px;
-}
-
-.saga-basic-loredeck-stack-row-disabled {
-    opacity: 0.68;
-}
-
-.saga-basic-loredeck-stack-row-main {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.saga-basic-loredeck-stack-row-title {
-    font-weight: 700;
-    color: var(--saga-text);
-    overflow-wrap: anywhere;
-}
-
-.saga-basic-loredeck-stack-actions {
-    justify-content: flex-start;
 }
 
 .saga-loredeck-library-launch-main {

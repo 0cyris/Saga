@@ -188,43 +188,6 @@ function openAdvancedLoreReview(mode = '') {
     if (mode) openLoreWorkbench(mode);
 }
 
-function createBasicReviewActionsCard(state) {
-    const loreState = getPanelLoreState(state);
-    const pendingCount = normalizeLoreMatrix(state?.pendingLoreEntries || []).length;
-    const acceptedCount = Math.max(0, (loreState.counts?.all || 0) - (loreState.counts?.pending || 0));
-    const selectedCount = getSelectedLoreInjectionCount(state, getSettings());
-
-    const card = document.createElement('div');
-    card.className = 'saga-runtime-card saga-basic-review-actions-card';
-    markTourTarget(card, 'lore.basic.reviewActions');
-
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = 'Review Actions';
-    addTooltip(title, 'Basic Review keeps the decision surface focused on whether a fact should affect future responses.');
-    card.appendChild(title);
-
-    const question = document.createElement('div');
-    question.className = 'saga-basic-review-question';
-    question.textContent = 'Should this fact affect future responses?';
-    card.appendChild(question);
-
-    const chips = document.createElement('div');
-    chips.className = 'saga-basic-injection-summary-chips';
-    chips.appendChild(createBadge(`${pendingCount} pending`, 'Lorecards waiting for accept or dismiss review.'));
-    chips.appendChild(createBadge(`${acceptedCount} accepted`, 'Lorecards saved for this chat.'));
-    chips.appendChild(createBadge(`${selectedCount} selected`, 'Accepted Lorecards currently selected for the next prompt.'));
-    card.appendChild(chips);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
-    actions.appendChild(createButton('Add Lorecard', 'Create a manual Lorecard draft and send it to Pending Review.', () => openNewLoreDialog({ basicReview: true }), 'saga-primary-button'));
-    actions.appendChild(createButton('Advanced Tools', 'Switch to Advanced Review for timeline, workbench, and bulk management tools.', () => openAdvancedLoreReview()));
-    card.appendChild(actions);
-
-    return card;
-}
-
 function openLoreWorkbench(mode = 'accepted') {
     loreWorkbenchOpen = true;
     loreWorkbenchMode = mode === 'pending' ? 'pending' : 'accepted';
@@ -878,7 +841,7 @@ export function createPendingLoreReviewCard(entry, index, selected = false, opti
             ? `Targets existing lore: ${target.title || target.id}${target.fact ? ` - ${target.fact}` : ''}`
             : `Targets existing lore id: ${targetId}`;
         addTooltip(targetBox, basicReview
-            ? 'Advanced Review shows the routed target and similarity details.'
+            ? 'Advanced Lorecards shows the routed target and similarity details.'
             : generation.similarityReason || reviewMeta.similarityReason || 'Accepting this candidate will update or merge into the target if it still exists and is not locked.'
         );
         card.appendChild(targetBox);
@@ -3166,13 +3129,11 @@ function createBasicReviewInjectionSummary(state) {
 export function renderLorecardsTab(container, state) {
     const basic = isBasicExperience();
     container.appendChild(createSectionHeader(
-        basic ? 'Review' : 'Lorecards',
-        basic ? 'Review suggested, pending, manual, and accepted Lorecards.' : 'Suggest canon Lorecards from the local database, generate story-specific Lorecards with the model, review pending cards, and manage accepted Lorecards.'
+        'Lorecards',
+        basic ? 'Suggest, review, and manage Lorecards with advanced controls hidden.' : 'Suggest canon Lorecards from the local database, generate story-specific Lorecards with the model, review pending cards, and manage accepted Lorecards.'
     ));
     if (basic) container.appendChild(createBasicReviewInjectionSummary(state));
-    if (basic) {
-        container.appendChild(createBasicReviewActionsCard(state));
-    } else {
+    if (!basic) {
         const timelineSection = createCollapsibleSection(
             'lore.timeline',
             'Lore Timeline',
@@ -3187,7 +3148,7 @@ export function renderLorecardsTab(container, state) {
 
     const generationSection = createCollapsibleSection(
         'lore.generation',
-        basic ? 'Find Lorecards' : 'Lorecard Generation',
+        'Lorecard Generation',
         basic ? 'canon suggestions + story scan' : 'canon suggestions + story generation',
         true,
         dep('createLoreGenerationCard')(state),
@@ -3211,8 +3172,8 @@ export function renderLorecardsTab(container, state) {
 
     const pendingCount = (state?.pendingLoreEntries || []).length;
     const pendingSection = createCollapsibleSection(
-        basic ? 'lore.basic.pendingReview' : 'lore.pendingReview',
-        basic ? 'Review Suggested Lorecards' : 'Pending Lorecard Review',
+        'lore.pendingReview',
+        'Pending Lorecard Review',
         pendingCount ? `${pendingCount} pending` : 'none',
         basic ? true : pendingCount > 0,
         createPendingLoreReviewSection(state, { basicReview: basic }),
@@ -3225,7 +3186,7 @@ export function renderLorecardsTab(container, state) {
     const acceptedCount = Math.max(0, (loreState.counts?.all || 0) - (loreState.counts?.pending || 0));
     const injectableCount = getSelectedLoreInjectionCount(state, getSettings());
     const acceptedSection = createCollapsibleSection(
-        basic ? 'lore.basic.acceptedEntries' : 'lore.acceptedEntries',
+        'lore.acceptedEntries',
         'Accepted Lorecards',
         basic ? `${acceptedCount} accepted \u00b7 ${injectableCount} selected` : `${acceptedCount} accepted \u00b7 ${injectableCount} injectable`,
         true,
@@ -3279,7 +3240,7 @@ export function createPendingLoreReviewSection(state, options = {}) {
         } else if (pendingLore.length > 8) {
             const advancedRow = document.createElement('div');
             advancedRow.className = 'saga-basic-advanced-handoff';
-            advancedRow.appendChild(createButton('Bulk Review in Advanced', 'Switch to Advanced Review and open the Pending Review workbench.', () => openAdvancedLoreReview('pending'), 'saga-small-button'));
+            advancedRow.appendChild(createButton('Bulk Tools in Advanced', 'Switch to Advanced Lorecards and open the Pending Review workbench.', () => openAdvancedLoreReview('pending'), 'saga-small-button'));
             section.appendChild(advancedRow);
         }
 
@@ -3305,7 +3266,7 @@ export function createPendingLoreReviewSection(state, options = {}) {
         }
     } else {
         section.appendChild(createEmptyMessage(basicReview
-            ? 'No Lorecards are waiting for review. Use Find Lorecards above or add one manually.'
+            ? 'No Lorecards are waiting for review. Use Lorecard Generation above or add one manually.'
             : 'No lore entries are waiting for review. Use Suggest Canon Lore or Scan Story Lore above.'
         ));
     }
@@ -3332,7 +3293,7 @@ export function createAcceptedLoreEntriesSection(state, options = {}) {
     } else if (acceptedCount > 12) {
         const advancedRow = document.createElement('div');
         advancedRow.className = 'saga-basic-advanced-handoff';
-        advancedRow.appendChild(createButton('Manage in Advanced', 'Switch to Advanced Review and open the Accepted Lore workbench.', () => openAdvancedLoreReview('accepted'), 'saga-small-button'));
+        advancedRow.appendChild(createButton('Manage in Advanced', 'Switch to Advanced Lorecards and open the Accepted Lore workbench.', () => openAdvancedLoreReview('accepted'), 'saga-small-button'));
         controls.appendChild(advancedRow);
     }
 

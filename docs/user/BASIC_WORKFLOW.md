@@ -7,20 +7,20 @@ Basic keeps the workflow manual and review-first. It hides Continuity and the fu
 ## Basic Loop
 
 ```text
-Start -> Loredecks -> Context -> Review -> continue roleplay
+Session -> Loredecks -> Context -> Lorecards -> continue roleplay
 ```
 
 ## Quick Start
 
 1. Open the Saga shelf and choose **Basic** if Saga is not already in Basic Experience.
-2. Open **Start** and confirm Saga is active.
-3. Open **Loredecks** and use **Add Loredeck** to load the bundled or custom Loredeck that matches the current chat.
+2. Open **Session** and confirm Saga is active.
+3. Open **Loredecks**, open **Loredeck Library**, and add the bundled or custom Loredeck that matches the current chat to the active stack.
 4. Open **Context** and set where the story currently is inside the loaded Loredeck.
-5. Open **Review** and use **Find Lorecards** if you need suggestions from the loaded Context.
+5. Open **Lorecards** and use **Lorecard Generation** if you need suggestions from the loaded Context.
 6. Accept only Lorecards that should affect future responses. Dismiss anything that should not matter.
 7. Use **Add Lorecard** when you know a fact matters and Saga has not suggested it.
-8. Check the compact selected-lore summary in **Start** or **Review**.
-9. Open **Settings** if you want to test providers, change appearance, switch modes, or reset the shelf layout.
+8. Check the compact selected-lore summary in **Session** or **Lorecards**.
+9. Open **Settings** if you want to test providers, change Theme Pack, switch modes, or reset the shelf layout.
 10. Continue roleplay.
 
 The core review question is:
@@ -31,7 +31,7 @@ Should this fact affect future responses?
 
 ## What Basic Hides
 
-Basic does not show the dedicated **Injection** tab. Instead, Start and Review show whether lore injection is on and how many accepted Lorecards are selected for the next prompt.
+Basic does not show the dedicated **Injection** tab. Instead, Session and Lorecards show whether lore injection is on and how many accepted Lorecards are selected for the next prompt.
 
 Basic also hides the **Continuity** tab. Current-scene continuity is useful, but it is a second mental model. Basic focuses on loaded Loredecks, story Context, and accepted Lorecards.
 
@@ -41,9 +41,9 @@ Switch to Advanced when you need provider profile internals, endpoint/model cont
 
 ## Common Fixes
 
-- **No Lorecards selected:** load a Loredeck, set Context, then accept relevant Lorecards in Review.
-- **Suggestions look wrong:** revisit Context and choose the correct story position manually.
-- **A saved Lorecard should not affect responses:** mute it in Review.
-- **A Lorecard should always stay prominent:** pin it in Review.
+- **No Lorecards selected:** load a Loredeck, set Context, then accept relevant Lorecards in Lorecards.
+- **Suggestions look wrong:** revisit Context and choose the correct Context manually.
+- **A saved Lorecard should not affect responses:** mute it in Lorecards.
+- **A Lorecard should always stay prominent:** pin it in Lorecards.
 - **A model-backed action says provider setup is needed:** open Settings, test the provider, or use the current SillyTavern model.
 - **You need to inspect exactly what Saga sends:** open **Advanced Injection** from the selected-lore summary.

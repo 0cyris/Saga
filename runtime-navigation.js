@@ -30,16 +30,6 @@ export const TAB_TOOLTIPS = Object.freeze({
     settings: 'Configure providers, runtime appearance, and Saga Theme Packs.',
 });
 
-export const BASIC_TAB_LABELS = Object.freeze({
-    session: 'Start',
-    lore: 'Review',
-});
-
-export const BASIC_TAB_TOOLTIPS = Object.freeze({
-    session: 'Guided Saga status, next action, walkthrough, and active runtime state.',
-    lore: 'Review suggested, pending, manual, and accepted Lorecards.',
-});
-
 export const AUTOMATION_MODES = Object.freeze({
     manual: Object.freeze({
         label: 'Manual',
@@ -93,20 +83,14 @@ export function getVisibleTabsForExperience(settings = getSettings()) {
 }
 
 export function getTabLabelForExperience(tab, settings = getSettings()) {
+    void settings;
     const normalized = normalizeTab(tab);
-    if (normalizeExperienceMode(settings?.experienceMode) === 'basic'
-        && Object.prototype.hasOwnProperty.call(BASIC_TAB_LABELS, normalized)) {
-        return BASIC_TAB_LABELS[normalized];
-    }
     return TAB_LABELS[normalized] || 'Saga';
 }
 
 export function getTabTooltipForExperience(tab, settings = getSettings()) {
+    void settings;
     const normalized = normalizeTab(tab);
-    if (normalizeExperienceMode(settings?.experienceMode) === 'basic'
-        && Object.prototype.hasOwnProperty.call(BASIC_TAB_TOOLTIPS, normalized)) {
-        return BASIC_TAB_TOOLTIPS[normalized];
-    }
     return TAB_TOOLTIPS[normalized] || 'Saga runtime drawer.';
 }
 

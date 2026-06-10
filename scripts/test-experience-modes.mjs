@@ -35,11 +35,11 @@ assert(!BASIC_EXPERIENCE_TABS.includes('injection'), 'Basic Experience must hide
 assert(!BASIC_EXPERIENCE_TABS.includes('continuity'), 'Basic Experience must hide Continuity.');
 assert(ADVANCED_EXPERIENCE_TABS.includes('injection'), 'Advanced Experience must expose Injection.');
 assert(ADVANCED_EXPERIENCE_TABS.includes('continuity'), 'Advanced Experience must expose Continuity.');
-assert.equal(normalizeTabForExperience('injection', { experienceMode: 'basic' }), 'session', 'Hidden Basic Injection tab must normalize to Start.');
-assert.equal(normalizeTabForExperience('continuity', { experienceMode: 'basic' }), 'session', 'Hidden Basic Continuity tab must normalize to Start.');
+assert.equal(normalizeTabForExperience('injection', { experienceMode: 'basic' }), 'session', 'Hidden Basic Injection tab must normalize to Session.');
+assert.equal(normalizeTabForExperience('continuity', { experienceMode: 'basic' }), 'session', 'Hidden Basic Continuity tab must normalize to Session.');
 assert.equal(normalizeTabForExperience('injection', { experienceMode: 'advanced' }), 'injection', 'Advanced Injection tab must stay selectable.');
-assert.equal(getTabLabelForExperience('session', { experienceMode: 'basic' }), 'Start', 'Basic Session label must be Start.');
-assert.equal(getTabLabelForExperience('lore', { experienceMode: 'basic' }), 'Review', 'Basic Lorecards label must be Review.');
+assert.equal(getTabLabelForExperience('session', { experienceMode: 'basic' }), 'Session', 'Basic Session label must match Advanced.');
+assert.equal(getTabLabelForExperience('lore', { experienceMode: 'basic' }), 'Lorecards', 'Basic Lorecards label must match Advanced.');
 
 const advancedSettings = {
     ...DEFAULT_SETTINGS,
@@ -85,7 +85,7 @@ const preservedState = {
 };
 state.lorePanel.activeTab = normalizeTabForExperience(state.lorePanel.activeTab, advancedSettings);
 
-assert.equal(state.lorePanel.activeTab, 'session', 'Switching to Basic must route a hidden saved Injection tab to Start.');
+assert.equal(state.lorePanel.activeTab, 'session', 'Switching to Basic must route a hidden saved Injection tab to Session.');
 assertDeepEqual(state.loredeckStack, preservedState.loredeckStack, 'Mode switching must preserve the active Loredeck stack.');
 assertDeepEqual(state.loredeckContexts, preservedState.loredeckContexts, 'Mode switching must preserve Context rows.');
 assertDeepEqual(state.pendingLoreEntries, preservedState.pendingLoreEntries, 'Mode switching must preserve pending Lorecards.');

@@ -50,17 +50,17 @@ Saga is an extension, not a prompt preset.
 
 3. Open the Saga shelf from the extension UI and use **Basic** Experience for the first run.
 
-4. Open **Start** and confirm Saga is active.
+4. Open **Session** and confirm Saga is active.
 
-5. Open **Loredecks** and use **Add Loredeck** to load a bundled, imported, or custom Loredeck for the current chat.
+5. Open **Loredecks**, open **Loredeck Library**, and add a bundled, imported, or custom Loredeck to the active stack for the current chat.
 
 6. Open **Context** and set where the story currently is inside the loaded Loredeck.
 
-7. Open **Review**, find or add Lorecards, and accept only facts that should affect future responses.
+7. Open **Lorecards**, generate or add Lorecards, and accept only facts that should affect future responses.
 
-8. Check the compact selected-lore summary in **Start** or **Review**, then continue roleplay.
+8. Check the compact selected-lore summary in **Session** or **Lorecards**, then continue roleplay.
 
-9. Use Basic **Settings** for provider tests, appearance, Experience Mode, and layout reset. Switch to **Advanced** when you need provider internals, automation, Continuity, Deck Health, Creator, bulk management, or the full Injection preview.
+9. Use Basic **Settings** for provider tests, Theme Pack, Experience Mode, and layout reset. Switch to **Advanced** when you need provider internals, automation, Continuity, Deck Health, Creator, bulk management, or the full Injection preview.
 
 For the guided path, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md). Fluent users can use [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). Existing Wandlight users should start with [Wandlight To Saga](docs/user/WANDLIGHT_TO_SAGA.md).
 

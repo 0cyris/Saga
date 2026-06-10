@@ -20,7 +20,7 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'Saga can use accepted Lorecards and any manual tools you choose to run.',
             when: 'Turn it off only when this chat should ignore Saga without deleting saved lore.',
         }),
-        guideStep('choose-loredeck', 'Choose a Loredeck', 'Open the Loredeck Library and load the deck or deck group that matches the story you are playing.', 'loredecks', 'loredecks.library.open', {
+        guideStep('choose-loredeck', 'Open Library', 'Open the Loredeck Library and add the deck or deck group that matches the story to the active stack.', 'loredecks', 'loredecks.library.open', {
             fallbackTarget: 'loredecks.library.launch',
             expandSections: Object.freeze(['loredecks.libraryLaunch']),
             expected: 'At least one Loredeck is loaded into the active stack for this chat.',
@@ -32,7 +32,7 @@ export const GUIDE_STEPS = Object.freeze({
             when: 'Do this after loading a Loredeck and whenever the story jumps to a new major point.',
         }),
         guideStep('review-lorecards', 'Review Lorecards', 'Review suggested or generated Lorecards before they affect future responses.', 'lore', 'lore.pending', {
-            expandSections: Object.freeze(['lore.basic.pendingReview', 'lore.basic.acceptedEntries']),
+            expandSections: Object.freeze(['lore.pendingReview', 'lore.acceptedEntries']),
             expected: 'Useful facts become accepted Lorecards. Recap, noise, or wrong facts stay out.',
             when: 'Use this whenever Saga proposes Lorecards or when you add an important story fact manually.',
         }),
@@ -328,7 +328,7 @@ export const GUIDE_CONTENT = Object.freeze({
         title: 'Getting Started',
         subtitle: 'first steps',
         tooltip: 'A short guided setup for core Saga use.',
-        lede: 'Start by loading a Loredeck, setting Context, reviewing useful Lorecards, and then continuing the chat.',
+        lede: 'Begin by loading a Loredeck, setting Context, reviewing useful Lorecards, and then continuing the chat.',
         note: 'Basic keeps the prompt controls out of the way. Switch to Advanced only when you want automation, diagnostics, or the full Injection preview.',
         tourLabel: 'Start Walkthrough',
     }),
