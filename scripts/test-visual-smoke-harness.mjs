@@ -79,6 +79,10 @@ assert(JSON.parse(read(sagaRelayManifestPath)).id === 'saga-relay', 'Bundled Sag
 assert(fs.existsSync(hpCoreCoverPath), 'Bundled HP Core Loredeck cover must be deck-local.');
 assert(fs.existsSync(hpYearOneCoverPath), 'Bundled HP Year 1 Loredeck cover must be deck-local.');
 assert((loredeckIndex.bundled || []).some(record => record.packId === 'hp-core' && record.assets?.cover?.path === 'assets/cover.png'), 'Bundled HP index records must expose deck-local cover paths.');
+assert(runtimePanelSource.includes("tab.classList.add('saga-runtime-rail-tab-global')"), 'Loredecks shelf tab must keep a subtle global accent class.');
+assert(runtimePanelSource.includes("divider.className = 'saga-runtime-rail-tab-divider'"), 'Loredecks shelf tab must be visually grouped with a thin divider.');
+assert(!runtimePanelSource.includes("scope.textContent = 'Global'"), 'Loredecks shelf grouping must not add a visible Global text chip.');
+assert(style.includes('.saga-runtime-rail-tab-global') && style.includes('.saga-runtime-rail-tab-divider'), 'Loredecks shelf grouping must have dedicated accent and divider styling.');
 assert(harness.includes('window.SillyTavern'), 'Harness must stub SillyTavern before importing modules.');
 assert(harness.includes('window.__sagaSmokeReady = true'), 'Harness must expose a smoke-ready marker.');
 assert(harness.includes('new URLSearchParams(window.location.search)'), 'Harness must support query-param visual smoke variants.');
@@ -123,6 +127,13 @@ assert(!runtimePanelSource.includes('entryCount: Number(report.summary?.entryCou
 assert(runtimePanelSource.includes('function refreshLoredeckLibrarySelectionSurfaces'), 'Loredeck Library card selection must support in-place surface refreshes.');
 assert(runtimePanelSource.includes('function refreshLoredeckLibrarySelectionHighlights'), 'Loredeck Library folder selection must update highlights before rebuilding heavier surfaces.');
 assert(runtimePanelSource.includes('function scheduleLoredeckLibrarySelectionSurfaceRefresh'), 'Loredeck Library folder selection must schedule in-place surface refreshes.');
+assert(constants.includes("selectedLoredeckId: ''"), 'New Saga installs must not preselect a Loredeck in the Library details panel.');
+assert(runtimePanelSource.includes('No Loredecks or Folders Selected'), 'Loredeck Library details must show an explicit empty-selection state.');
+assert(runtimePanelSource.includes('function clearLoredeckLibrarySelection'), 'Loredeck Library must provide a shared empty-space selection clear helper.');
+assert(runtimePanelSource.includes('function wireLoredeckLibraryBlankSelectionClear'), 'Loredeck Library columns must clear selection when their blank space is clicked.');
+assert(runtimePanelSource.includes('return selectedId ? (library.find(pack => pack.packId === selectedId) || null) : null;'), 'Loredeck Library details must not fall back to the first deck when nothing is selected.');
+assert(style.includes('saga-loredeck-library-details-empty'), 'Loredeck Library empty-selection details panel must have centered styling.');
+assert(style.includes('.saga-loredeck-library-details-empty .saga-lore-empty::before') && style.includes('.saga-loredeck-library-details-empty .saga-lore-empty::after'), 'Loredeck Library empty-selection label must use CSS divider lines instead of literal dashes.');
 assert(runtimePanelSource.includes('source.originalType || pack.type || manifest.type') && runtimePanelSource.includes("kind: 'package_export'"), 'Loredeck package exporter must write original source type into package index metadata.');
 assert(runtimePanelSource.includes('sourceInfo.originalType || indexRecord.originalType') && runtimePanelSource.includes("storageMode: 'bundled_manifest_reference'"), 'Loredeck package importer must use exported original type for lightweight bundled reimports.');
 assert(runtimePanelSource.includes('requestAnimationFrame(() =>') && runtimePanelSource.includes('refreshLoredeckLibrarySelectionSurfaces();'), 'Loredeck Library folder selection refresh should defer heavier detail work to an animation frame.');

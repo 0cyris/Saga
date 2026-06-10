@@ -1381,12 +1381,15 @@ function renderRail(state) {
 
     const tabs = document.createElement('div');
     tabs.className = 'saga-runtime-rail-tabs';
-    for (const tabId of getVisibleTabsForExperience(settings)) {
+    const visibleTabs = getVisibleTabsForExperience(settings);
+    for (const tabId of visibleTabs) {
         const label = TAB_LABELS[tabId];
         const tab = document.createElement('button');
         tab.type = 'button';
         tab.className = 'saga-runtime-rail-tab';
         tab.dataset.tabId = tabId;
+        const isGlobalLoredecksTab = tabId === 'loredecks';
+        if (isGlobalLoredecksTab) tab.classList.add('saga-runtime-rail-tab-global');
         if (drawerOpen && tabId === activeTab) tab.classList.add('saga-runtime-rail-tab-active');
         addTooltip(tab, TAB_TOOLTIPS[tabId]);
 
@@ -1426,6 +1429,12 @@ function renderRail(state) {
             toggleRuntimeDrawerForTab(tabId);
         });
         tabs.appendChild(tab);
+        if (isGlobalLoredecksTab && visibleTabs.length > 1) {
+            const divider = document.createElement('div');
+            divider.className = 'saga-runtime-rail-tab-divider';
+            divider.setAttribute('aria-hidden', 'true');
+            tabs.appendChild(divider);
+        }
     }
     rail.appendChild(tabs);
 
@@ -15634,24 +15643,6 @@ function renderSettingsTab(container, state) {
     const settings = getSettings();
     container.appendChild(createSectionHeader('SAGA', 'Fandom Loresystem.'));
 
-    const identity = document.createElement('div');
-    identity.className = 'saga-runtime-card';
-    const identityTitle = document.createElement('h4');
-    identityTitle.textContent = 'SAGA: Fandom Loresystem';
-    identity.appendChild(identityTitle);
-    identity.appendChild(createKeyValue('Runtime', 'Saga runtime', 'Core runtime controls for the current chat.'));
-    identity.appendChild(createKeyValue('Loredecks', getLoredeckStackMetric(getState()), 'Enabled Loredecks in the current chat stack.'));
-    identity.appendChild(createKeyValue('Library decks', String(Object.keys(getLoredeckLibraryRegistry(getState()).packs || {}).length), 'Loredecks registered in extension settings.'));
-    identity.appendChild(createKeyValue('Theme', getThemePreset(settings.themePackId)?.title || 'Custom', 'Active Themepack preset.'));
-    container.appendChild(createCollapsibleSection(
-        'settings.identity',
-        'Runtime Identity',
-        `${getLoredeckStackMetric(getState())} | ${getThemePreset(settings.themePackId)?.title || 'Theme'}`,
-        true,
-        identity,
-        { tooltip: 'Current Saga runtime, Loredeck, Library, and Theme summary.' }
-    ));
-
     container.appendChild(createCollapsibleSection(
         'settings.providers',
         'Providers',
@@ -16131,6 +16122,11 @@ function renderSessionTab(container, state) {
     const stats = document.createElement('div');
     stats.className = 'saga-runtime-card';
     markTourTarget(stats, 'session.metrics');
+    const statsTitle = document.createElement('div');
+    statsTitle.className = 'saga-runtime-card-title';
+    statsTitle.textContent = 'Session Metrics';
+    addTooltip(statsTitle, 'Runtime counters for pending changes, accepted Lorecards, relevance tiers, and current injection size.');
+    stats.appendChild(statsTitle);
     const counts = getPanelLoreState(state).counts;
     const selectedLoreCount = getSelectedLoreInjectionCount(state, settings);
     const injectionStats = getInjectionCharacterStats(state, settings);
@@ -16142,18 +16138,9 @@ function renderSessionTab(container, state) {
     stats.appendChild(createKeyValue('Lore selected for injection', String(selectedLoreCount), 'Accepted lore entries selected for Lore Injection after pin/mute rules, Context activation, and fallback priority selection. There is no hidden entry cap; mute entries to exclude them.'));
     stats.appendChild(createKeyValue('Injection token estimate', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate token count for the combined Continuity + Lore injection previews.'));
     stats.appendChild(createKeyValue('Total chars injected', `${injectionStats.totalChars} chars`, 'Combined character count of Continuity Injection plus Lore Injection using current Injection tab toggles and handling modes.'));
-    const metricsSection = createCollapsibleSection(
-        'session.metrics',
-        'Session Metrics',
-        `${counts.all - counts.pending} accepted | ${selectedLoreCount} selected | ${Number(injectionStats.totalTokens) || 0} tokens`,
-        false,
-        stats,
-        { tooltip: 'Runtime counters for pending changes, accepted Lorecards, relevance tiers, and current injection size.' }
-    );
-    markTourTarget(metricsSection, 'session.metrics');
-    container.appendChild(metricsSection);
+    container.appendChild(stats);
 
-    container.appendChild(createCollapsibleSection('session.dangerZone', 'Danger Zone', 'Destructive cleanup actions', false, createDangerZoneCard(state), { tooltip: 'Destructive cleanup actions for this chat.', className: 'saga-danger-zone-collapsible' }));
+    container.appendChild(createDangerZoneCard(state));
 }
 
 function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings().experienceMode)) {
@@ -19229,7 +19216,6 @@ function renderInjectionTab(container, state) {
     }
 
     const continuityPreview = buildContinuityPreview(state, settings.continuityInjectionMode || 'direct');
-    const lorePreview = buildLorePreview(state, settings.loreInjectionMode || 'direct');
     const loreHighPreview = buildLorePreview(state, getLoreTierMode(settings, 'high'), 'high');
     const loreNormalPreview = buildLorePreview(state, getLoreTierMode(settings, 'normal'), 'normal');
     const loreLowPreview = buildLorePreview(state, getLoreTierMode(settings, 'low'), 'low');
@@ -19314,15 +19300,6 @@ function renderInjectionTab(container, state) {
         createInjectionPreviewCard('Low-Relevance Lore Injection', 'saga-lore-low-injection-preview', loreLowPreview, lowEnabled, 'Lore injected in the low-relevance prompt group.', createLoreTierHandlingDropdown('low', state, settings)),
         { tooltip: 'Read-only preview of the low-relevance Lore prompt block.' }
     ));
-    container.appendChild(createCollapsibleSection(
-        'injection.preview.loreCombined',
-        'Combined Lore Preview',
-        getInjectionPreviewSectionSummary(lorePreview, settings.injectLore !== false),
-        false,
-        createInjectionPreviewCard('Combined Lore Preview', 'saga-lore-injection-preview', lorePreview, settings.injectLore !== false, 'Combined read-only preview of all relevance-tiered lore blocks.'),
-        { tooltip: 'Combined read-only preview of all relevance-tiered Lore blocks.' }
-    ));
-
     const compressionSection = createCollapsibleSection(
         'injection.compressionPrompts',
         'Compression Prompts',
@@ -19774,7 +19751,6 @@ function createInjectionPreviewCard(titleText, className, text, enabled, helpTex
     else if (String(className || '').includes('lore-high')) markTourTarget(previewCard, 'injection.preview.high');
     else if (String(className || '').includes('lore-normal')) markTourTarget(previewCard, 'injection.preview.normal');
     else if (String(className || '').includes('lore-low')) markTourTarget(previewCard, 'injection.preview.low');
-    else if (String(className || '').includes('lore-injection-preview')) markTourTarget(previewCard, 'injection.preview.combined');
     const previewTitle = document.createElement('div');
     previewTitle.className = 'saga-runtime-card-title';
     previewTitle.textContent = titleText;
@@ -19819,7 +19795,6 @@ function refreshInjectionPreviewOnly() {
     const state = getState();
     const settings = getSettings();
     const continuity = buildContinuityPreview(state, settings.continuityInjectionMode || 'direct');
-    const lore = buildLorePreview(state, settings.loreInjectionMode || 'direct');
     const loreHigh = buildLorePreview(state, getLoreTierMode(settings, 'high'), 'high');
     const loreNormal = buildLorePreview(state, getLoreTierMode(settings, 'normal'), 'normal');
     const loreLow = buildLorePreview(state, getLoreTierMode(settings, 'low'), 'low');
@@ -19839,11 +19814,6 @@ function refreshInjectionPreviewOnly() {
     if (loreNormalPre) loreNormalPre.textContent = getInjectionDisplayText('Normal-Relevance Lore Injection', loreNormal, settings.injectLore !== false && settings.loreNormalInjectionEnabled !== false);
     const loreLowPre = panelRoot?.querySelector('.saga-lore-low-injection-preview');
     if (loreLowPre) loreLowPre.textContent = getInjectionDisplayText('Low-Relevance Lore Injection', loreLow, settings.injectLore !== false && settings.loreLowInjectionEnabled !== false);
-
-    const lorePre = panelRoot?.querySelector('.saga-lore-injection-preview');
-    if (lorePre) {
-        lorePre.textContent = getInjectionDisplayText('Lore Injection', lore, settings.injectLore !== false);
-    }
 
     if (typeof globalThis.sagaSyncPromptInjection === 'function') {
         globalThis.sagaSyncPromptInjection();

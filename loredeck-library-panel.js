@@ -176,10 +176,6 @@ let bundledLoredeckIndexLoading = false;
 let bundledLoredeckIndexLoadAttempted = false;
 export function openLoredeckLibraryWindow() {
     loredeckLibraryOpen = true;
-    const state = getState();
-    const library = getLoredeckLibrary(state);
-    const selectedId = String(state?.lorePanel?.selectedLoredeckId || '').trim();
-    if (!selectedId && library[0]?.packId) selectLoredeckForDetails(library[0].packId, { refresh: false });
     renderLoredeckLibraryOverlay();
 }
 
@@ -1042,6 +1038,49 @@ function handleLoredeckLibraryDeckSelection(packId, event = null, visiblePacks =
     selectLoredeckForDetails(id, { refresh: false });
 }
 
+function clearLoredeckLibrarySelection(options = {}) {
+    const state = getState();
+    const selectedId = String(state?.lorePanel?.selectedLoredeckId || '').trim();
+    if (options.clearFolderDetails !== false) loredeckLibrarySelectedFolderDetailsId = '';
+    setLoredeckLibraryBulkSelection([], '');
+    if (!selectedId) return false;
+    if (!state.lorePanel) state.lorePanel = getDefaultState().lorePanel;
+    state.lorePanel.selectedLoredeckId = '';
+    saveState(state, { syncPrompt: false });
+    return true;
+}
+
+function isLoredeckLibraryBlankColumnClick(event) {
+    if (!event || event.defaultPrevented) return false;
+    if (event.button != null && event.button !== 0) return false;
+    const target = event.target;
+    if (!target?.closest) return false;
+    return !target.closest([
+        'button',
+        'input',
+        'select',
+        'textarea',
+        'a',
+        '[contenteditable="true"]',
+        '.saga-loredeck-library-controls',
+        '.saga-loredeck-library-selection-toolbar',
+        '.saga-loredeck-library-deck-card',
+        '.saga-loredeck-library-inline-folder-row',
+        '.saga-loredeck-library-stack-card',
+        '.saga-loredeck-library-stack-folder-card',
+        '.saga-loredeck-library-stack-grip',
+    ].join(','));
+}
+
+function wireLoredeckLibraryBlankSelectionClear(pane) {
+    pane?.addEventListener?.('click', event => {
+        if (!isLoredeckLibraryBlankColumnClick(event)) return;
+        clearLoredeckLibrarySelection();
+        refreshLoredeckLibrarySelectionSurfaces();
+    });
+    return pane;
+}
+
 function createLoredeckLibraryHeaderMeta(stack = [], library = [], canonDb = null, health = null) {
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
     const meta = document.createElement('div');
@@ -1058,6 +1097,7 @@ function createLoredeckLibraryHeaderMeta(stack = [], library = [], canonDb = nul
 function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, health = null, libraryIndex = {}, library = getLoredeckLibrary(getState()), scopedLibrary = packs, activeViewId = 'all') {
     const pane = document.createElement('div');
     pane.className = 'saga-loredeck-library-pane saga-loredeck-library-pane-library';
+    wireLoredeckLibraryBlankSelectionClear(pane);
 
     const controls = document.createElement('div');
     controls.className = 'saga-loredeck-library-controls';
@@ -1653,6 +1693,7 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     const selectFolder = () => {
         loredeckLibrarySelectedFolderDetailsId = folderId || '';
         setLoredeckLibraryBulkSelection([], '');
+        clearLoredeckLibrarySelection({ clearFolderDetails: false });
         scheduleLoredeckLibrarySelectionSurfaceRefresh();
     };
     row.addEventListener('click', e => {
@@ -2087,6 +2128,7 @@ function getLoredeckLibraryActionIconSrc(kind = 'duplicate') {
 function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null, health = null, libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library)) {
     const pane = document.createElement('div');
     pane.className = 'saga-loredeck-library-pane saga-loredeck-library-pane-stack';
+    wireLoredeckLibraryBlankSelectionClear(pane);
 
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health, libraryIndex);
     const stackPackMap = Object.fromEntries(library.map(pack => [pack.packId, pack]));
@@ -3302,7 +3344,8 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
     const panel = document.createElement('div');
     panel.className = 'saga-loredeck-library-details';
     if (!pack) {
-        panel.appendChild(createEmptyMessage('Select a Loredeck to inspect its details, health, and stack actions.'));
+        panel.classList.add('saga-loredeck-library-details-empty');
+        panel.appendChild(createEmptyMessage('No Loredecks or Folders Selected'));
         return panel;
     }
 
@@ -3998,7 +4041,7 @@ function createLoredeckMetadataEditorCard(pack) {
 
 function getLoredeckLibrarySelectedPack(state = getState(), library = getLoredeckLibrary(state)) {
     const selectedId = String(state?.lorePanel?.selectedLoredeckId || '').trim();
-    return library.find(pack => pack.packId === selectedId) || library[0] || null;
+    return selectedId ? (library.find(pack => pack.packId === selectedId) || null) : null;
 }
 
 export function getLoredeckLibraryStackStats(stack = [], library = [], canonDb = null, health = null, libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library)) {

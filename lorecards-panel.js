@@ -3018,7 +3018,16 @@ export function renderLorecardsTab(container, state) {
         'Lorecards',
         'Suggest canon Lorecards from the local database, generate story-specific Lorecards with the model, review pending cards, and manage accepted Lorecards.'
     ));
-    container.appendChild(createLoreTimelineCard(state));
+    const timelineSection = createCollapsibleSection(
+        'lore.timeline',
+        basic ? 'Lore Tools' : 'Lore Timeline',
+        basic ? 'manual lore tools' : 'accepted-lore audit + recovery',
+        true,
+        createLoreTimelineCard(state),
+        { tooltip: basic ? 'Create manual lore and review suggested/generated entries below.' : 'Story-aware audit trail for accepted lore changes and recoverable lore versions.' }
+    );
+    markTourTarget(timelineSection, 'lore.timeline.section');
+    container.appendChild(timelineSection);
 
     const generationSection = createCollapsibleSection(
         'lore.generation',
