@@ -2067,9 +2067,10 @@ function createLoredeckLibrarySquareIconAction(kind = 'duplicate', tooltip = '',
 }
 
 function getLoredeckLibraryActionIconSrc(kind = 'duplicate') {
-    return kind === 'delete'
-        ? './Images/loredeck-library/delete-loredeck-256.png'
-        : './Images/loredeck-library/duplicate-loredeck-256.png';
+    const fileName = kind === 'delete'
+        ? 'delete-loredeck-256.png'
+        : 'duplicate-loredeck-256.png';
+    return new URL(`./Images/loredeck-library/${fileName}`, import.meta.url).href;
 }
 
 function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null, health = null, libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library)) {
