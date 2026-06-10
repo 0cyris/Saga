@@ -4220,6 +4220,8 @@
     height: 36px;
     display: block;
     grid-area: 1 / 1;
+    align-self: center;
+    justify-self: center;
     object-fit: contain;
     pointer-events: none;
     user-select: none;
