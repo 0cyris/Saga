@@ -67,7 +67,7 @@ They should not need:
 - Tag registry editing.
 - Timeline registry editing.
 - Raw JSON editing.
-- Deck Health diagnostics beyond readiness summaries.
+- Pack Health diagnostics beyond readiness summaries.
 - Import/export/update collision details unless they explicitly go looking.
 
 ### Advanced User
@@ -83,7 +83,7 @@ They need:
 - Auto-Relevance controls.
 - Prompt placement, direct versus compressed handling, and compression templates.
 - Library organization, import/export, update previews, duplicate handling, and package details.
-- Deck Health Center diagnostics and repair routing.
+- Pack Health Center diagnostics and repair routing.
 - Loredeck Creator, Lore Assistant, Pending Review, and generated-to-custom finalization.
 - Timeline, tag, and Context authoring tools.
 - Debuggable previews and audits for why lore did or did not inject.
@@ -158,9 +158,11 @@ Do not make users read a long feature explanation before acting.
 
 ### Basic Walkthrough
 
-The Basic walkthrough should stay focused, but it should not be a single compressed first-run list. For Alpha, it is about 20 steps grouped by visible Basic tab sections:
+Detailed ordered coverage now lives in [Saga Walkthrough Workflow Expansion Plan](SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md). That plan supersedes the earlier fixed-size target; Basic should be coverage-driven, not capped by a maximum guide count.
 
-- **Loredecks**: open the Library, build the active stack, understand Pack Health/active counts, and resume Generated Lorepack projects when relevant.
+The Basic walkthrough should stay focused, but it should not be a single compressed first-run list. For Alpha, it is grouped by visible Basic tab sections:
+
+- **Loredecks**: open the Library, import a deck package when needed, build the active stack, and understand Pack Health/active counts.
 - **Session**: keep Saga Active, use the Start Checklist, understand the continue/update loop, and read Session Metrics.
 - **Context**: use Runtime Context, Browse Context, Detect Context, and verify loaded Loredeck Context rows.
 - **Lorecards**: use Lorecard Generation, preview canon packs, scan story lore, add a manual Lorecard, review Pending Lorecards, and inspect Accepted Lorecards.
@@ -173,11 +175,13 @@ The Session guide card should present these as smaller tab-section mini walkthro
 Basic Loredecks should teach the same Library workflow as Advanced:
 
 - Show the same **Loredeck Library** section as Advanced.
-- Show the same **In-Progress Creator Projects** section as Advanced.
-- Keep the same section names, order, and launch cards as Advanced.
+- Keep **Import Deck** visible in Basic.
+- Hide **Create Deck** and **In-Progress Creator Projects** in Basic.
+- Keep the shared Library section name, order, and launch card structure as Advanced.
 - Do not rename the shared Library action to a Basic-only label.
 - Do not add a separate Basic stack card or Basic-only readiness badges.
-- Keep deeper Library, folders, import/export, updates, details, health, and Creator controls reachable through the same shared surfaces.
+- Keep deeper Library, folders, import/export, updates, details, and health reachable through the same shared surfaces.
+- Move Creator creation and resume workflows to Advanced.
 - If a later pass reduces visible complexity here, reduce by collapsing or hiding sections without changing the learned workflow.
 
 The key constraint is transfer learning: Basic can remove or collapse sections, but it should not teach a different Loredecks tab that users must unlearn when they switch to Advanced.
@@ -333,7 +337,7 @@ Advanced Loredecks should expose the full Library and source-deck toolchain:
 - Update/reinstall previews and local modification warnings.
 - Duplicate as Custom.
 - Generated-to-Custom finalization.
-- Deck Health launch points.
+- Pack Health launch points.
 - Loredeck Creator launch points.
 - Workbench editor launch points.
 
@@ -426,6 +430,8 @@ Settings should stay in the runtime shelf, not the legacy extension dropdown.
 
 ### Advanced Guide Structure
 
+Detailed ordered Advanced module coverage now lives in [Saga Walkthrough Workflow Expansion Plan](SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md). That plan supersedes a single long linear walkthrough and defines the task tracks in implementation order.
+
 The Advanced guide should not be one huge walkthrough. It should be grouped into task tracks:
 
 - Runtime setup.
@@ -434,7 +440,7 @@ The Advanced guide should not be one huge walkthrough. It should be grouped into
 - Continuity.
 - Loredeck authoring.
 - Creator and Assistant.
-- Deck Health and repair.
+- Pack Health and repair.
 - Import/export/update.
 - Diagnostics.
 
@@ -486,7 +492,7 @@ When an Advanced user switches to Basic:
 ### Phase 3: Section Basic Walkthrough
 
 - Replace the current Basic guide step list with the tab-section walkthrough structure in this plan.
-- Keep the full Basic tour around 20 action-oriented steps.
+- Keep the full Basic tour action-oriented and workflow-complete, without a fixed maximum step count.
 - Ensure every Basic step lands on a visible Basic tab.
 - Render mini walkthrough starters by tab section instead of one visible list of every target.
 - Avoid Advanced-only targets in Basic guide steps.
@@ -547,7 +553,7 @@ Run visual smoke for:
 - Basic Lorecards accepting a Lorecard.
 - Basic Session and Lorecards without selected-lore summary sections.
 - Advanced full rail.
-- Advanced automation, continuity, Deck Health, Creator, and Injection controls.
+- Advanced automation, continuity, Pack Health, Creator, and Injection controls.
 
 ## Acceptance Criteria
 

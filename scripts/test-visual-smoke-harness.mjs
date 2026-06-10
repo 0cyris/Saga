@@ -78,6 +78,7 @@ function collectMarkedTourTargets(source = '') {
 const harness = read(harnessPath);
 const loredeckIndex = JSON.parse(read(loredeckIndexPath));
 const panel = read(panelPath);
+const libraryPanel = read(libraryPanelPath);
 const loredecksTabPanel = read(loredecksTabPanelPath);
 const lorecardsPanel = read(lorecardsPanelPath);
 const contextPanel = read(contextPanelPath);
@@ -85,7 +86,7 @@ const settingsPanel = read(settingsPanelPath);
 const runtimePanelSource = [
     panel,
     lorecardsPanel,
-    read(libraryPanelPath),
+    libraryPanel,
     loredecksTabPanel,
     read(creatorPanelPath),
     read(healthPanelPath),
@@ -179,9 +180,12 @@ assert(!runtimePanelSource.includes('function createBasicInjectionSummaryCard') 
 assert(!lorecardsPanel.includes('function createBasicReviewInjectionSummary') && !lorecardsPanel.includes('What Accepted Lorecards Do'), 'Basic Lorecards must not render the selected-lore prompt summary.');
 assert(runtimePanelSource.includes('function createManualLorecardPanel') && runtimePanelSource.includes('openNewLoreDialog({ basicReview: isBasicExperience(getSettings()) })'), 'Manual Lorecard creation must live in the shared Lorecard Generation card and use the compact dialog only in Basic.');
 assert(!constants.includes("'lore.basic.acceptedEntries'") && !constants.includes("'injection.basic."), 'Collapsed-section defaults must not keep retired Basic-only Lorecards or Injection section ids.');
-assert(!loredecksTabPanel.includes('function isBasicExperienceMode') && !loredecksTabPanel.includes('createBasicLoredeck'), 'Basic Loredecks must reuse the Advanced Loredecks tab instead of a separate simplified layout.');
-assert(loredecksTabPanel.includes("'Loredeck Library'") && loredecksTabPanel.includes("'In-Progress Creator Projects'"), 'Loredecks tab must expose the same Library and Creator Projects sections in Basic and Advanced.');
-assert(loredecksTabPanel.includes('createLoredeckLibraryLaunchCard(state, canonDb, health)') && loredecksTabPanel.includes('createLoredeckCreatorProjectShelf(state, projectModels)'), 'Loredecks tab must render shared Library and Creator Project cards across experience modes.');
+assert(loredecksTabPanel.includes('function isBasicExperienceMode') && !loredecksTabPanel.includes('createBasicLoredeck'), 'Basic Loredecks must use the shared Loredecks tab with mode-gated Creator controls.');
+assert(loredecksTabPanel.includes("'Loredeck Library'") && loredecksTabPanel.includes("'In-Progress Creator Projects'"), 'Loredecks tab must keep the shared Library section and Advanced Creator Projects section.');
+assert(loredecksTabPanel.includes("createButton('Import Deck'") && basicGuideSource.includes("'loredecks.import'"), 'Basic Loredecks must keep Import Deck in the shared Library launch workflow.');
+assert(/if \(!basic\)\s*\{[\s\S]*createLoredeckCreatorProjectShelf\(state, projectModels\)/.test(loredecksTabPanel), 'Basic Loredecks must hide the In-Progress Creator Projects shelf.');
+assert(/if \(!basic\)\s*\{[\s\S]*createButton\('Create Deck'/.test(loredecksTabPanel), 'Basic Loredecks must hide the Create Deck launch action.');
+assert(libraryPanel.includes('function isBasicExperienceMode') && /if \(!basic\)\s*\{[\s\S]*createButton\('Create Deck'/.test(libraryPanel), 'Basic Loredeck Library must hide the fullscreen Create Deck header action.');
 assert(!style.includes('saga-basic-loredeck-stack-card') && !style.includes('saga-basic-loredeck-stack-row'), 'Basic Loredecks must not keep dedicated layout styling.');
 assert(settingsPanel.includes('export function createBasicProviderQuickSetupCard') && settingsPanel.includes('function createBasicProviderQuickSetupRow'), 'Basic Settings must render a simplified Providers surface.');
 assert(settingsPanel.includes('Open Advanced Provider Settings') && settingsPanel.includes('Use Current Model') && settingsPanel.includes('Test ${cfg.shortTitle}'), 'Basic Providers must test providers and hand off to Advanced provider controls.');

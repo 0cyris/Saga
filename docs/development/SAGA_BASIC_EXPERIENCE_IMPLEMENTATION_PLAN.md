@@ -53,7 +53,7 @@ Relevant implementation points when this feature slice started:
 - Basic Lorecards now uses the shared Lorecard Generation, Pending Lorecard Review, and Accepted Lorecards sections while hiding prompt-engineering controls and adding an Advanced Injection handoff.
 - The dedicated Basic Injection tab implementation has been retired.
 - Basic Context now keeps shared Context labels while hiding Advanced Context diagnostics.
-- Basic Loredecks now reuses the same Loredeck Library and In-Progress Creator Projects sections as Advanced so learning Basic transfers cleanly into Advanced.
+- Basic Loredecks now reuses the shared Loredeck Library loading section, keeps Import Deck visible, and hides Create Deck plus In-Progress Creator Projects behind Advanced.
 - Basic Settings now keeps Providers simplified while rendering the full shared Theme Pack section.
 - Starter Basic, Advanced, and Wandlight-to-Saga user workflow docs are in place.
 
@@ -141,6 +141,8 @@ Acceptance:
 
 ### Phase 2: Basic Walkthrough Cleanup
 
+Detailed ordered coverage now lives in [Saga Walkthrough Workflow Expansion Plan](SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md). That plan supersedes the earlier fixed-size target and treats Basic walkthrough coverage as workflow-complete rather than count-capped.
+
 Files:
 
 - `runtime-guide-content.js`
@@ -154,7 +156,7 @@ Tasks:
    - Context.
    - Lorecards.
    - Settings.
-2. Keep the full Basic walkthrough around 20 action-oriented steps.
+2. Keep the full Basic walkthrough action-oriented and workflow-complete, without a fixed maximum step count.
 3. Render tab-section mini walkthrough starters instead of one visible list of every target.
 4. Remove all Basic guide steps targeting hidden tabs.
 5. Keep Advanced guide Injection steps unchanged.
@@ -292,15 +294,18 @@ Tasks:
 
 1. Reuse the same Loredecks tab structure in Basic and Advanced.
 2. Keep **Loredeck Library** as the visible loading section in both modes.
-3. Keep **In-Progress Creator Projects** visible in both modes.
-4. Do not introduce Basic-only stack cards, renamed buttons, or plain readiness labels that teach a different Loredecks workflow.
-5. Let the Start checklist point users to the shared Library workflow.
+3. Keep **Import Deck** visible in Basic and Advanced.
+4. Hide **Create Deck** and **In-Progress Creator Projects** in Basic.
+5. Do not introduce Basic-only stack cards, renamed buttons, or plain readiness labels that teach a different Loredecks workflow.
+6. Let the Start checklist point users to the shared Library workflow.
 
 Acceptance:
 
 - Basic Loredecks shows **Loredeck Library**.
-- Basic Loredecks shows **In-Progress Creator Projects**.
-- Basic and Advanced Loredecks use the same section names, order, and launch cards.
+- Basic Loredecks shows **Import Deck**.
+- Basic Loredecks does not show **Create Deck**.
+- Basic Loredecks does not show **In-Progress Creator Projects**.
+- Basic and Advanced Loredecks share the Library loading workflow.
 - The Start checklist directs users to open the Library and add a deck to the active stack.
 - No Basic-only Loredecks layout or CSS remains.
 
@@ -362,8 +367,8 @@ Add checks:
 9. Basic Session and Lorecards do not contain selected-lore summary sections.
 10. Basic Context hides Advanced Context Brief and other Advanced Context diagnostics.
 11. Basic Context prioritizes Browse Context and presents proposals as proposals.
-12. Basic Loredecks reuses the Advanced Loredecks tab structure.
-13. Basic Loredecks shows Loredeck Library and In-Progress Creator Projects.
+12. Basic Loredecks reuses the shared Loredecks tab structure.
+13. Basic Loredecks shows Loredeck Library and Import Deck while hiding Create Deck and In-Progress Creator Projects.
 14. Basic Settings exposes Providers and Theme Pack.
 15. Basic Settings keeps provider internals behind Advanced while sharing the full Theme Pack surface.
 
@@ -406,7 +411,7 @@ http://127.0.0.1:8765/tests/visual-smoke.html?mode=advanced&tab=injection
 - Continuity simplification.
 - Full provider setup redesign beyond quick status, testing, and Advanced handoff.
 - Loredeck Creator UX changes.
-- Deck Health redesign.
+- Pack Health redesign.
 - Import/export simplification.
 - Full release-facing documentation beyond the starter Basic, Advanced, and Wandlight-to-Saga workflow pages.
 

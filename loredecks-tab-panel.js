@@ -56,6 +56,7 @@ function markTourTarget(el, target) { return dep('markTourTarget', value => valu
 function createCollapsibleSection(...args) { return dep('createCollapsibleSection')(...args); }
 function installLoredeckBundleFromFile() { return dep('installLoredeckBundleFromFile', () => {})(); }
 function openLoredeckCreatorWorkbench() { return dep('openLoredeckCreatorWorkbench', () => {})(); }
+function isBasicExperienceMode() { return dep('isBasicExperience', () => false)() === true; }
 function getLoredeckDefinition(packId) { return dep('getLoredeckDefinition', () => null)(packId); }
 function isGeneratedLoredeckPack(pack) { return dep('isGeneratedLoredeckPack', () => false)(pack); }
 function getGeneratedLoredeckExportReadiness(pack, health, creatorJob) { return dep('getGeneratedLoredeckExportReadiness', () => null)(pack, health, creatorJob); }
@@ -80,6 +81,7 @@ let loredeckCreatorProjectFolderFilter = 'all';
 let loredeckCreatorProjectSelectedIds = new Set();
 
 export function renderLoredecksTab(container, state) {
+    const basic = isBasicExperienceMode();
     const canonDb = getCanonLoreDatabaseSync();
     if (!canonDb) {
         loadCanonLoreDatabase()
@@ -99,25 +101,29 @@ export function renderLoredecksTab(container, state) {
         true,
         createLoredeckLibraryLaunchCard(state, canonDb, health),
         {
-            tooltip: 'Open the fullscreen Loredeck Library, import a deck package, or start the Creator wizard.',
+            tooltip: basic
+                ? 'Open the fullscreen Loredeck Library or import a deck package.'
+                : 'Open the fullscreen Loredeck Library, import a deck package, or start the Creator wizard.',
         }
     );
     markTourTarget(librarySection, 'loredecks.library.launch');
     container.appendChild(librarySection);
 
-    const projectModels = getLoredeckCreatorProjectShelfModels(state);
-    const creatorSection = createCollapsibleSection(
-        'loredecks.creatorProjects',
-        'In-Progress Creator Projects',
-        projectModels.length ? `${projectModels.length} unfinished` : 'none',
-        false,
-        () => createLoredeckCreatorProjectShelf(state, projectModels),
-        {
-            tooltip: 'Resume unfinished Generated Loredecks from the staged Creator.',
-        }
-    );
-    markTourTarget(creatorSection, 'loredecks.creator.projects');
-    container.appendChild(creatorSection);
+    if (!basic) {
+        const projectModels = getLoredeckCreatorProjectShelfModels(state);
+        const creatorSection = createCollapsibleSection(
+            'loredecks.creatorProjects',
+            'In-Progress Creator Projects',
+            projectModels.length ? `${projectModels.length} unfinished` : 'none',
+            false,
+            () => createLoredeckCreatorProjectShelf(state, projectModels),
+            {
+                tooltip: 'Resume unfinished Generated Lorepacks from the staged Creator.',
+            }
+        );
+        markTourTarget(creatorSection, 'loredecks.creator.projects');
+        container.appendChild(creatorSection);
+    }
 }
 
 function getLoredeckLibraryLaunchSummary(state = getState(), canonDb = null, health = null) {
@@ -128,6 +134,7 @@ function getLoredeckLibraryLaunchSummary(state = getState(), canonDb = null, hea
 }
 
 function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, health = null) {
+    const basic = isBasicExperienceMode();
     const stack = getLoredeckStack(state);
     const library = getLoredeckLibrary(state);
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
@@ -162,9 +169,11 @@ function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, hea
     actions.appendChild(markTourTarget(createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
         installLoredeckBundleFromFile();
     }), 'loredecks.import'));
-    actions.appendChild(markTourTarget(createButton('Create Deck', 'Open the staged Loredeck Creator wizard.', () => {
-        openLoredeckCreatorWorkbench();
-    }), 'loredecks.creator.open'));
+    if (!basic) {
+        actions.appendChild(markTourTarget(createButton('Create Deck', 'Open the staged Loredeck Creator wizard.', () => {
+            openLoredeckCreatorWorkbench();
+        }), 'loredecks.creator.open'));
+    }
     card.appendChild(actions);
     return card;
 }

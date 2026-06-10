@@ -10,7 +10,7 @@ The in-app **Advanced Walkthrough** is organized by tab. Start the full walkthro
 
 ### Loredecks
 
-Manage the Library, active stack, folders, package import/update, package export paths, Generated Lorepack projects, and Generated Lorepack to Custom Lorepack finalization.
+Manage the Library, active stack, folders, package import/update, package export paths, Create Deck, in-progress Generated Lorepack projects, and Generated Lorepack to Custom Lorepack finalization.
 
 ### Session
 
@@ -43,7 +43,7 @@ Configure Utility and Reasoning providers, Provider preset support, Theme Packs,
 - Context auditing, proposals, and advanced brief details.
 - Lorecard workbenches, bulk actions, timeline/audit history, and Auto-Relevance.
 - Full injection preview by relevance tier, prompt placement, compression, and sync diagnostics.
-- Deck Health, Creator, import/export, update, duplication, and finalization workflows.
+- Pack Health, Create Deck, in-progress Creator projects, import/export, update, duplication, and finalization workflows.
 
 ## Recommended Advanced Workflow
 
@@ -53,7 +53,7 @@ Configure Utility and Reasoning providers, Provider preset support, Theme Packs,
 4. Use **Lorecards** to suggest, generate, review, edit, tier, pin, mute, and audit entries.
 5. Use **Injection** to inspect what Saga sends and tune prompt placement or compression.
 6. Use **Continuity** when current-scene state needs a separate tracked surface.
-7. Use Deck Health and Creator tools when creating or repairing Loredecks.
+7. Use Pack Health and Creator tools when creating or repairing Loredecks.
 
 Advanced should still remain review-first. Model-produced proposals should become pending or reviewable changes before they affect prompts.
 

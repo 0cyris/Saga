@@ -63,6 +63,7 @@ function dep(name, fallback = null) {
 function getState() { return dep('getState', () => ({}))(); }
 function saveState(...args) { return dep('saveState', () => {})(...args); }
 function getSettings() { return dep('getSettings', () => ({}))(); }
+function isBasicExperienceMode() { return dep('isBasicExperience', settings => String(settings?.experienceMode || '').toLowerCase() === 'basic')(getSettings()) === true; }
 function saveSettings(...args) { return dep('saveSettings', () => {})(...args); }
 function getDefaultState() { return dep('getDefaultState', () => ({}))(); }
 function getCanonLoreDatabaseSync() { return dep('getCanonLoreDatabaseSync', () => null)(); }
@@ -321,6 +322,7 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     normalizeLoredeckLibrarySelectedFolder(libraryIndex);
     const canonDb = getCanonLoreDatabaseSync();
     const health = canonDb?.health || null;
+    const basic = isBasicExperienceMode();
     const selectedPack = getLoredeckLibrarySelectedPack(state, library);
     const activeViewId = getLoredeckLibraryActiveViewId();
     const scopedLibrary = getLoredeckLibraryFolderScopedPacks(library, libraryIndex, activeViewId, stack);
@@ -388,9 +390,11 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     );
     exportSelected.disabled = !selectedPacks.length;
     actions.appendChild(exportSelected);
-    actions.appendChild(createButton('Create Deck', 'Open the staged Loredeck Creator wizard.', () => {
-        openLoredeckCreatorWorkbench();
-    }));
+    if (!basic) {
+        actions.appendChild(createButton('Create Deck', 'Open the staged Loredeck Creator wizard.', () => {
+            openLoredeckCreatorWorkbench();
+        }));
+    }
     actions.appendChild(createButton('Refresh Library', 'Reload active Loredecks and recompute Deck Health.', async (btn) => {
         await refreshLoredeckLibraryWindowData(btn);
     }));

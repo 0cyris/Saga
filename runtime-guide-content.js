@@ -30,7 +30,7 @@ function getGuideSectionId(step) {
 
 export const GUIDE_SECTIONS = Object.freeze({
     basic: freezeGuideSections([
-        { id: 'loredecks', label: 'Loredecks', tab: 'loredecks', description: 'Load the active stack and understand where Generated Lorepack projects live.' },
+        { id: 'loredecks', label: 'Loredecks', tab: 'loredecks', description: 'Load the active stack and install imported Lorepacks when needed.' },
         { id: 'session', label: 'Session', tab: 'session', description: 'Use the Start Checklist and runtime status before continuing roleplay.' },
         { id: 'context', label: 'Context', tab: 'context', description: 'Set the current story position for every loaded Loredeck.' },
         { id: 'lore', label: 'Lorecards', tab: 'lore', description: 'Suggest, scan, review, accept, and inspect Lorecards.' },
@@ -60,15 +60,16 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'The Library opens with the active stack manager and available Loredecks.',
             when: 'Use it when the active stack is empty, incomplete, or in the wrong order.',
         }),
+        guideStep('basic-loredecks-import', 'Import a Loredeck Package', 'Import Deck installs a Saga Loredeck zip package into the Library.', 'loredecks', 'loredecks.import', {
+            fallbackTarget: 'loredecks.library.launch',
+            expandSections: Object.freeze(['loredecks.libraryLaunch']),
+            expected: 'A shared or exported package can become a Custom Lorepack after preview and install.',
+            when: 'Use this when the right Lorepack is not already in the Library.',
+        }),
         guideStep('basic-loredecks-active-stack', 'Build the Active Stack', 'Move the Loredecks or folder groups for this story into the active stack.', 'loredecks', 'loredecks.library.launch', {
             expandSections: Object.freeze(['loredecks.libraryLaunch']),
             expected: 'At least one enabled Loredeck participates in Context, canon suggestion, retrieval, and injection.',
             when: 'Do this before setting Context or scanning story lore.',
-        }),
-        guideStep('basic-loredecks-creator-projects', 'Resume Generated Lorepacks', 'The unfinished project shelf is where started Generated Lorepack projects wait for review or continuation.', 'loredecks', 'loredecks.creator.projects', {
-            expandSections: Object.freeze(['loredecks.creatorProjects']),
-            expected: 'Existing Creator work can be resumed without losing its draft outline, title batches, or Lorecard drafts.',
-            when: 'Use this only when you have an unfinished generated pack; otherwise continue to Context.',
         }),
         guideStep('basic-session-active', 'Saga Active', 'Saga Active is the master switch for runtime behavior.', 'session', 'session.active', {
             expected: 'When enabled, accepted Lorecards and configured Saga behavior can affect the next response.',

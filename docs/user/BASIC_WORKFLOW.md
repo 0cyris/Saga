@@ -10,7 +10,7 @@ The in-app **Basic Walkthrough** is split into small tab walkthroughs instead of
 
 ### Loredecks
 
-Use **Loredecks** to open the Library, choose a **Bundled Lorepack**, **Generated Lorepack**, or **Custom Lorepack**, and add the right decks or folder groups to the active stack. The same section also shows unfinished Generated Lorepack projects if you need to resume one.
+Use **Loredecks** to open the Library, import a deck package when needed, choose a **Bundled Lorepack**, **Generated Lorepack**, or **Custom Lorepack**, and add the right decks or folder groups to the active stack. Basic does not show Creator project creation or the in-progress Creator shelf; switch to Advanced when you need to create or resume a Generated Lorepack project.
 
 ### Session
 
@@ -32,7 +32,7 @@ Use **Settings** to check provider readiness for model-backed actions and manage
 
 1. Open the Saga shelf and choose **Basic** if Saga is not already in Basic Experience.
 2. Open **Session** and confirm Saga is active.
-3. Open **Loredecks**, open **Loredeck Library**, and add the Bundled Lorepack, Generated Lorepack, or Custom Lorepack that matches the current chat to the active stack.
+3. Open **Loredecks**, open **Loredeck Library**, import a package if needed, and add the Bundled Lorepack, Generated Lorepack, or Custom Lorepack that matches the current chat to the active stack.
 4. Open **Context** and set where the story currently is inside the loaded Loredeck.
 5. Open **Lorecards** and use **Lorecard Generation** if you need suggestions from the loaded Context.
 6. Accept only Lorecards that should affect future responses. Dismiss anything that should not matter.
@@ -55,7 +55,7 @@ Basic also hides the **Continuity** tab. Current-scene continuity is useful, but
 
 Basic **Settings** keeps provider setup optional. Use it to test Utility or Reasoning providers, fall back to the current SillyTavern model, or manage Theme Packs. Use the shelf mode buttons to switch Experience Mode.
 
-Switch to Advanced when you need provider profile internals, endpoint/model controls, prompt placement, full injection previews, automation, Continuity tools, Deck Health, Creator controls, bulk Lorecard management, or diagnostic details.
+Switch to Advanced when you need provider profile internals, endpoint/model controls, prompt placement, full injection previews, automation, Continuity tools, Pack Health, Create Deck, in-progress Creator projects, bulk Lorecard management, or diagnostic details.
 
 ## Common Fixes
 
