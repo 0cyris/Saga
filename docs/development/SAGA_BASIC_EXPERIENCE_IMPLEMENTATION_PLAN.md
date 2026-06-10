@@ -231,25 +231,23 @@ Acceptance:
 - Basic Lorecards answers "Should this fact affect future responses?"
 - Basic Lorecards does not become a prompt-engineering surface.
 
-### Phase 6: Retire Or Re-scope `renderBasicInjectionTab()`
+### Phase 6: Retire Basic Injection Tab Code
 
 Files:
 
 - `lore-panel.js`
+- `constants.js`
 
 Tasks:
 
-1. After Basic no longer routes to `injection`, decide whether `renderBasicInjectionTab()` should:
-   - be removed, or
-   - be renamed as a shared summary helper, or
-   - remain only as dead-safe fallback during transition.
-2. Prefer removal or extraction because the current function name will become misleading.
+1. Remove `renderBasicInjectionTab()` and any Basic-only Injection helper cards.
+2. Remove retired `injection.basic.*` collapsed-section defaults.
 3. Keep `renderAdvancedInjectionTab()` and all Advanced injection controls intact.
 
 Acceptance:
 
 - No Basic route renders a dedicated Injection tab.
-- No misleading `Basic Injection Tab` implementation remains unless explicitly documented as transitional.
+- No misleading `Basic Injection Tab` implementation or `injection.basic.*` section IDs remain.
 
 ### Phase 7: Basic Context Surface Cleanup
 
