@@ -8,7 +8,7 @@
 
 Saga is a SillyTavern extension for long-form fandom roleplay and fanfiction. It organizes canon, alternate-universe, crossover, and user-created lore into modular **Loredecks** made of reviewable **Lorecards** that can be loaded, stacked, validated, edited, and injected at the right point in a story.
 
-Saga began as Saga, a Harry Potter-focused lore system. Saga proved the core idea: LLMs often know a lot of lore, but they are weak at story position, hidden knowledge, future-canon leakage, and chat-specific continuity. Saga generalizes that idea into a broader, data-driven framework for many fandoms and custom settings.
+Saga grew out of Wandlight, a Harry Potter-focused lore system. Wandlight proved the core idea: LLMs often know a lot of lore, but they are weak at story position, hidden knowledge, future-canon leakage, and chat-specific continuity. Saga generalizes that idea into a broader, data-driven framework for many fandoms and custom settings.
 
 ## Status
 
@@ -48,19 +48,21 @@ Saga is an extension, not a prompt preset.
 
 2. Restart or reload SillyTavern.
 
-3. Open the Saga shelf from the extension UI.
+3. Open the Saga shelf from the extension UI and use **Basic** Experience for the first run.
 
-4. Open **Settings** and configure provider/API settings if you want model-assisted features such as Lore Assistant, Context proposals, or Loredeck Creator.
+4. Open **Start** and confirm Saga is active.
 
-5. Open **Loredecks** and inspect the bundled reference decks or imported/custom decks.
+5. Open **Loredecks** and use **Add Loredeck** to load a bundled, imported, or custom Loredeck for the current chat.
 
-6. Build an **Active Stack** by loading one or more Loredecks for the current chat.
+6. Open **Context** and set where the story currently is inside the loaded Loredeck.
 
-7. Open **Context** and set where the story currently is inside the loaded deck.
+7. Open **Review**, find or add Lorecards, and accept only facts that should affect future responses.
 
-8. Review suggested and accepted **Lorecards** before relying on prompt injection.
+8. Check the compact selected-lore summary in **Start** or **Review**, then continue roleplay.
 
-9. Use **Deck Health** to validate a deck before sharing it, stacking it, or treating it as a reference model.
+9. Use Basic **Settings** for provider tests, appearance, Experience Mode, and layout reset. Switch to **Advanced** when you need provider internals, automation, Continuity, Deck Health, Creator, bulk management, or the full Injection preview.
+
+For the guided path, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md). Fluent users can use [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). Existing Wandlight users should start with [Wandlight To Saga](docs/user/WANDLIGHT_TO_SAGA.md).
 
 For repeatable local UI checks, see [SAGA_VISUAL_SMOKE.md](docs/development/SAGA_VISUAL_SMOKE.md).
 

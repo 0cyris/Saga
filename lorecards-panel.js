@@ -132,6 +132,15 @@ function getSelectedLoreInjectionCount(state, settings) {
     return dep('getSelectedLoreInjectionCount', () => 0)(state, settings);
 }
 
+function getInjectionCharacterStats(state, settings) {
+    return dep('getInjectionCharacterStats', () => ({
+        continuityChars: 0,
+        loreChars: 0,
+        totalChars: 0,
+        totalTokens: 0,
+    }))(state, settings);
+}
+
 function getPendingLoreBatchLabel(state) {
     const meta = state?.pendingLoreMeta || {};
     const parts = [];
@@ -169,6 +178,51 @@ function createLoreWorkbenchLaunchRow(mode, summaryText) {
     );
     row.appendChild(btn);
     return row;
+}
+
+function openAdvancedLoreReview(mode = '') {
+    setExperienceMode('advanced');
+    setPanelState({ activeTab: 'lore' });
+    refreshPanelBody({ preserveScroll: false });
+    refreshHeader();
+    if (mode) openLoreWorkbench(mode);
+}
+
+function createBasicReviewActionsCard(state) {
+    const loreState = getPanelLoreState(state);
+    const pendingCount = normalizeLoreMatrix(state?.pendingLoreEntries || []).length;
+    const acceptedCount = Math.max(0, (loreState.counts?.all || 0) - (loreState.counts?.pending || 0));
+    const selectedCount = getSelectedLoreInjectionCount(state, getSettings());
+
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card saga-basic-review-actions-card';
+    markTourTarget(card, 'lore.basic.reviewActions');
+
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title';
+    title.textContent = 'Review Actions';
+    addTooltip(title, 'Basic Review keeps the decision surface focused on whether a fact should affect future responses.');
+    card.appendChild(title);
+
+    const question = document.createElement('div');
+    question.className = 'saga-basic-review-question';
+    question.textContent = 'Should this fact affect future responses?';
+    card.appendChild(question);
+
+    const chips = document.createElement('div');
+    chips.className = 'saga-basic-injection-summary-chips';
+    chips.appendChild(createBadge(`${pendingCount} pending`, 'Lorecards waiting for accept or dismiss review.'));
+    chips.appendChild(createBadge(`${acceptedCount} accepted`, 'Lorecards saved for this chat.'));
+    chips.appendChild(createBadge(`${selectedCount} selected`, 'Accepted Lorecards currently selected for the next prompt.'));
+    card.appendChild(chips);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions';
+    actions.appendChild(createButton('Add Lorecard', 'Create a manual Lorecard draft and send it to Pending Review.', () => openNewLoreDialog({ basicReview: true }), 'saga-primary-button'));
+    actions.appendChild(createButton('Advanced Tools', 'Switch to Advanced Review for timeline, workbench, and bulk management tools.', () => openAdvancedLoreReview()));
+    card.appendChild(actions);
+
+    return card;
 }
 
 function openLoreWorkbench(mode = 'accepted') {
@@ -759,15 +813,17 @@ export function createPendingLoreBulkControls(pendingLore, state) {
     return card;
 }
 
-export function createPendingLoreReviewCard(entry, index, selected = false) {
+export function createPendingLoreReviewCard(entry, index, selected = false, options = {}) {
+    const basicReview = !!options.basicReview;
     const card = document.createElement('div');
     card.className = 'saga-lore-entry-card saga-lore-entry-pending saga-pending-review-entry-card';
     markTourTarget(card, 'lore.pending.entry');
     if (selected) card.classList.add('saga-review-lore-card-selected');
+    if (basicReview) card.classList.add('saga-basic-review-entry-card');
 
     const headerRow = document.createElement('div');
     headerRow.className = 'saga-lore-entry-header';
-    headerRow.appendChild(createPendingLoreCheckbox(entry, selected));
+    if (!basicReview) headerRow.appendChild(createPendingLoreCheckbox(entry, selected));
 
     const titleWrap = document.createElement('div');
     titleWrap.className = 'saga-lore-entry-title-wrap';
@@ -780,7 +836,7 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-lore-entry-actions';
-    actions.appendChild(createEditableLifecycleBadge(entry, { pending: true }));
+    if (!basicReview) actions.appendChild(createEditableLifecycleBadge(entry, { pending: true }));
     const status = document.createElement('span');
     status.className = 'saga-lore-badge saga-lore-badge-pending';
     status.textContent = 'pending';
@@ -794,17 +850,21 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
     meta.appendChild(createRegistryBadge('category', entry.category || 'other', `Category: ${entry.category || 'other'}. Pending cards use the same compact metadata style as accepted cards.`));
     meta.appendChild(createLorePurposeBadge(entry));
     meta.appendChild(createRegistryBadge('canonStatus', entry.canon || entry.canonStatus || 'canon', `Canon/Story: ${entry.canon || entry.canonStatus || 'canon'}.`));
-    appendEntrySourceAndContextBadges(meta, entry);
-    meta.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority used for sorting, injection preference, and canon-lore suggestion limits.'));
     const generation = entry.extensions?.sagaGeneration || {};
     const reviewMeta = entry.extensions?.sagaPendingReview || {};
-    if (generation.operation) meta.appendChild(createBadge(`Op: ${generation.operation}`, 'Generated lore operation proposed by the story-lore scan.'));
-    if (generation.qualityRoute || reviewMeta.qualityRoute) meta.appendChild(createBadge(`Quality: ${generation.qualityRoute || reviewMeta.qualityRoute}`, generation.qualityReason || reviewMeta.qualityReason || 'Generated-lore quality route.'));
-    if (generation.similarityRoute || reviewMeta.reviewRoute) meta.appendChild(createBadge(`Route: ${generation.similarityRoute || reviewMeta.reviewRoute}`, generation.similarityReason || reviewMeta.similarityReason || 'Similarity/update routing result.'));
+    if (!basicReview) {
+        appendEntrySourceAndContextBadges(meta, entry);
+        meta.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority used for sorting, injection preference, and canon-lore suggestion limits.'));
+        if (generation.operation) meta.appendChild(createBadge(`Op: ${generation.operation}`, 'Generated lore operation proposed by the story-lore scan.'));
+        if (generation.qualityRoute || reviewMeta.qualityRoute) meta.appendChild(createBadge(`Quality: ${generation.qualityRoute || reviewMeta.qualityRoute}`, generation.qualityReason || reviewMeta.qualityReason || 'Generated-lore quality route.'));
+        if (generation.similarityRoute || reviewMeta.reviewRoute) meta.appendChild(createBadge(`Route: ${generation.similarityRoute || reviewMeta.reviewRoute}`, generation.similarityReason || reviewMeta.similarityReason || 'Similarity/update routing result.'));
+    }
     if (generation.recommendedPin) meta.appendChild(createBadge('pin suggested', 'Generator recommends pinning/protecting this entry after acceptance.'));
     if (generation.recommendedMute) meta.appendChild(createBadge('mute suggested', 'Generator recommends storing but muting this entry after acceptance.'));
-    meta.appendChild(createSpellMetadataBadges(entry));
-    if (entry.confidence !== undefined) meta.appendChild(createBadge(`confidence ${entry.confidence}`, 'Model-provided confidence for this entry.'));
+    if (!basicReview) {
+        meta.appendChild(createSpellMetadataBadges(entry));
+        if (entry.confidence !== undefined) meta.appendChild(createBadge(`confidence ${entry.confidence}`, 'Model-provided confidence for this entry.'));
+    }
     card.appendChild(meta);
 
     const targetId = generation.targetEntryId || reviewMeta.targetEntryId || '';
@@ -812,10 +872,15 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
         const target = normalizeLoreMatrix(getState()?.loreMatrix || []).find(item => item.id === targetId);
         const targetBox = document.createElement('div');
         targetBox.className = 'saga-runtime-help saga-pending-target-help';
-        targetBox.textContent = target
+        targetBox.textContent = basicReview
+            ? 'This will update an accepted Lorecard unless you apply it as new.'
+            : target
             ? `Targets existing lore: ${target.title || target.id}${target.fact ? ` - ${target.fact}` : ''}`
             : `Targets existing lore id: ${targetId}`;
-        addTooltip(targetBox, generation.similarityReason || reviewMeta.similarityReason || 'Accepting this candidate will update or merge into the target if it still exists and is not locked.');
+        addTooltip(targetBox, basicReview
+            ? 'Advanced Review shows the routed target and similarity details.'
+            : generation.similarityReason || reviewMeta.similarityReason || 'Accepting this candidate will update or merge into the target if it still exists and is not locked.'
+        );
         card.appendChild(targetBox);
     }
 
@@ -831,14 +896,14 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
     addTooltip(fact, 'The fact that will be merged into the accepted lore matrix if applied.');
     card.appendChild(fact);
 
-    if (entry.content?.injection && entry.content.injection !== entry.fact) {
+    if (!basicReview && entry.content?.injection && entry.content.injection !== entry.fact) {
         const injection = document.createElement('div');
         injection.className = 'saga-runtime-help saga-pending-injection-preview';
         injection.textContent = `Injection: ${entry.content.injection}`;
         addTooltip(injection, 'Model-facing lore text that will be injected after acceptance.');
         card.appendChild(injection);
     }
-    if (Array.isArray(entry.content?.constraints) && entry.content.constraints.length) {
+    if (!basicReview && Array.isArray(entry.content?.constraints) && entry.content.constraints.length) {
         const constraints = document.createElement('div');
         constraints.className = 'saga-runtime-help saga-pending-constraints-preview';
         constraints.textContent = `Constraints: ${entry.content.constraints.join(' ')}`;
@@ -1466,6 +1531,14 @@ function setPanelState(patch, options = {}) {
     return dep('setPanelState', () => null)(patch, options);
 }
 
+function setExperienceMode(mode) {
+    return dep('setExperienceMode', () => {
+        const settings = getSettings();
+        settings.experienceMode = mode;
+        saveSettings(settings);
+    })(mode);
+}
+
 function getPanelRoot() {
     return dep('getPanelRoot', () => null)();
 }
@@ -1933,7 +2006,8 @@ function createNumberSettingMini(labelText, settingKey, value, min, max, transfo
     return label;
 }
 
-export function openNewLoreDialog() {
+export function openNewLoreDialog(options = {}) {
+    const basicReview = !!options.basicReview || isBasicExperience();
     const existing = document.querySelector('.saga-new-lore-overlay');
     existing?.remove();
 
@@ -1956,7 +2030,9 @@ export function openNewLoreDialog() {
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
     subtitle.className = 'saga-lore-workbench-subtitle';
-    subtitle.textContent = 'Creates a pending draft for review, editing, and acceptance.';
+    subtitle.textContent = basicReview
+        ? 'Creates a pending draft for review and acceptance.'
+        : 'Creates a pending draft for review, editing, and acceptance.';
     titleWrap.appendChild(subtitle);
     header.appendChild(titleWrap);
     header.appendChild(createButton('Close', 'Close without creating lore.', () => overlay.remove()));
@@ -1968,7 +2044,7 @@ export function openNewLoreDialog() {
 
     const titleInput = createNewLoreInput(form, 'Title', 'Short descriptive title', '', false, 'Conundrum Confidicus opening hazard');
     const factInput = createNewLoreInput(form, 'Lore Text', 'The durable fact, rule, constraint, or state to remember', '', true, 'The Conundrum Confidicus is an ancient book that whispers whenever it is opened and chills the room around it.');
-    const injectionInput = createNewLoreInput(form, 'Injection Override', 'Optional model-facing phrasing; blank uses Lore Text', '', true, 'When this book opens, describe faint whispers and an unnatural chill before any spell effect is revealed.');
+    const injectionInput = basicReview ? null : createNewLoreInput(form, 'Injection Override', 'Optional model-facing phrasing; blank uses Lore Text', '', true, 'When this book opens, describe faint whispers and an unnatural chill before any spell effect is revealed.');
     const notesInput = createNewLoreInput(form, 'Notes', 'Optional private notes for the user', '', true, 'Introduced during the Restricted Section scene. Keep as AU unless later tied to canon.');
 
     const metaGrid = document.createElement('div');
@@ -1977,9 +2053,9 @@ export function openNewLoreDialog() {
     const categorySelect = createNewLoreSelect(metaGrid, 'Category', getLoreRegistryValues('categories', LORE_CATEGORY_VALUES), 'knowledge');
     const canonSelect = createNewLoreSelect(metaGrid, 'Canon', getLoreRegistryValues('canonStatuses', ['canon', 'au']), 'au');
     const relevanceSelect = createNewLoreSelect(metaGrid, 'Relevance', LORE_RELEVANCE_TIERS, 'normal', value => LORE_RELEVANCE_LABELS[value] || value);
-    const prioritySelect = createNewLoreSelect(metaGrid, 'Priority', getLorePriorityValues().map(String), '50');
-    const truthSelect = createNewLoreSelect(metaGrid, 'Truth', getLoreRegistryValues('truthStatuses', ['true', 'rumor', 'contested', 'hidden']), 'true');
-    const revealSelect = createNewLoreSelect(metaGrid, 'Reveal', getLoreRegistryValues('revealPolicies', ['private', 'public', 'do_not_reveal']), 'private');
+    const prioritySelect = basicReview ? null : createNewLoreSelect(metaGrid, 'Priority', getLorePriorityValues().map(String), '50');
+    const truthSelect = basicReview ? null : createNewLoreSelect(metaGrid, 'Truth', getLoreRegistryValues('truthStatuses', ['true', 'rumor', 'contested', 'hidden']), 'true');
+    const revealSelect = basicReview ? null : createNewLoreSelect(metaGrid, 'Reveal', getLoreRegistryValues('revealPolicies', ['private', 'public', 'do_not_reveal']), 'private');
     const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated tags', '', false, 'restricted-section, cursed-book, whispers');
 
     const actions = document.createElement('div');
@@ -1999,9 +2075,9 @@ export function openNewLoreDialog() {
             canon: canonSelect.value,
             canonStatus: canonSelect.value,
             relevance: relevanceSelect.value,
-            priority: Number(prioritySelect.value) || 50,
-            truthStatus: truthSelect.value,
-            revealPolicy: revealSelect.value,
+            priority: prioritySelect ? Number(prioritySelect.value) || 50 : 50,
+            truthStatus: truthSelect ? truthSelect.value : 'true',
+            revealPolicy: revealSelect ? revealSelect.value : 'private',
             tags: tagsInput.value,
             source: 'manual',
             sourceInfo: {
@@ -2011,7 +2087,7 @@ export function openNewLoreDialog() {
             },
             content: {
                 fact,
-                injection: injectionInput.value.trim() || fact,
+                injection: injectionInput ? injectionInput.value.trim() || fact : fact,
                 notes: notesInput.value.trim(),
             },
             userEditable: true,
@@ -2347,6 +2423,26 @@ export function getFilteredLoreEntries(state) {
         .map(item => item.entry);
 }
 
+function getBasicAcceptedLoreEntries(state) {
+    const panelState = state?.lorePanel || { search: '' };
+    const { entries } = getPanelLoreState(state);
+    const filtered = entries
+        .filter(entry => !entry.isPending)
+        .sort(sortLoreEntriesForPanel);
+    const query = String(panelState.search || '').trim().toLowerCase();
+    if (!query) return filtered;
+
+    return filtered
+        .map(entry => ({ entry, score: scoreSearchEntry(entry, query) }))
+        .filter(item => item.score > 0)
+        .sort((a, b) =>
+            b.score - a.score
+            || Number(b.entry.priority || 50) - Number(a.entry.priority || 50)
+            || String(a.entry.title || '').localeCompare(String(b.entry.title || ''))
+        )
+        .map(item => item.entry);
+}
+
 export function getLoreSourceBucket(entry) {
     const source = String(entry?.source || entry?.sourceInfo?.id || '').toLowerCase();
     const id = String(entry?.id || '').toLowerCase();
@@ -2403,12 +2499,13 @@ export function refreshAcceptedLoreRow(entryId) {
     const existing = list?.querySelector?.(`[data-entry-id="${cssEscape(entryId)}"]`);
     if (!existing) return false;
     const state = getState();
-    const entry = getFilteredLoreEntries(state).find(item => item.id === entryId);
+    const basicReview = isBasicExperience();
+    const entry = (basicReview ? getBasicAcceptedLoreEntries(state) : getFilteredLoreEntries(state)).find(item => item.id === entryId);
     if (!entry) {
         existing.remove();
         return true;
     }
-    existing.replaceWith(createEntryCard(entry, state));
+    existing.replaceWith(createEntryCard(entry, state, { basicReview }));
     scheduleAcceptedLoreLayoutUpdate();
     return true;
 }
@@ -2577,10 +2674,11 @@ function createEditablePriorityBadge(entry) {
     return wrap;
 }
 
-function createEditableLoreEntryEditor(entry) {
+function createEditableLoreEntryEditor(entry, options = {}) {
+    const basicReview = !!options.basicReview;
     const editor = document.createElement('div');
     editor.className = 'saga-lore-entry-editor';
-    addTooltip(editor, 'Edit accepted lore directly. Changes are saved only when you click Save Entry.');
+    addTooltip(editor, basicReview ? 'Edit this accepted Lorecard directly. Changes are saved only when you click Save Entry.' : 'Edit accepted lore directly. Changes are saved only when you click Save Entry.');
 
     const makeField = (labelText, value, multiline = false) => {
         const label = document.createElement('label');
@@ -2601,7 +2699,7 @@ function createEditableLoreEntryEditor(entry) {
 
     const titleInput = makeField('Title', entry.title || '', false);
     const factInput = makeField('Lore text / fact', entry.fact || entry.content?.fact || '', true);
-    const injectionInput = makeField('Injection override', entry.content?.injection || '', true);
+    const injectionInput = basicReview ? null : makeField('Injection override', entry.content?.injection || '', true);
     const notesInput = makeField('Notes', entry.notes || entry.content?.notes || '', true);
     const metaGrid = document.createElement('div');
     metaGrid.className = 'saga-new-lore-meta-grid saga-lore-editor-meta-grid';
@@ -2609,9 +2707,9 @@ function createEditableLoreEntryEditor(entry) {
     const categorySelect = createNewLoreSelect(metaGrid, 'Category', getLoreRegistryValues('categories', LORE_CATEGORY_VALUES), entry.category || 'other');
     const canonSelect = createNewLoreSelect(metaGrid, 'Canon', getLoreRegistryValues('canonStatuses', ['canon', 'au']), entry.canon || entry.canonStatus || 'canon');
     const relevanceSelect = createNewLoreSelect(metaGrid, 'Relevance', LORE_RELEVANCE_TIERS, entry.relevance || 'normal', value => RELEVANCE_META[value]?.label || value);
-    const prioritySelect = createNewLoreSelect(metaGrid, 'Priority', getLorePriorityValues().map(String), String(entry.priority || 50));
-    const truthSelect = createNewLoreSelect(metaGrid, 'Truth', getLoreRegistryValues('truthStatuses', ['true', 'rumor', 'contested', 'hidden']), entry.truthStatus || 'true');
-    const revealSelect = createNewLoreSelect(metaGrid, 'Reveal', getLoreRegistryValues('revealPolicies', ['private', 'public', 'do_not_reveal']), entry.revealPolicy || 'private');
+    const prioritySelect = basicReview ? null : createNewLoreSelect(metaGrid, 'Priority', getLorePriorityValues().map(String), String(entry.priority || 50));
+    const truthSelect = basicReview ? null : createNewLoreSelect(metaGrid, 'Truth', getLoreRegistryValues('truthStatuses', ['true', 'rumor', 'contested', 'hidden']), entry.truthStatus || 'true');
+    const revealSelect = basicReview ? null : createNewLoreSelect(metaGrid, 'Reveal', getLoreRegistryValues('revealPolicies', ['private', 'public', 'do_not_reveal']), entry.revealPolicy || 'private');
     const tagsInput = makeField('Tags', (entry.tags || []).join(', '), false);
 
     const actions = document.createElement('div');
@@ -2620,7 +2718,7 @@ function createEditableLoreEntryEditor(entry) {
         e?.stopPropagation?.();
         const title = titleInput.value.trim() || entry.title || '(Untitled lore)';
         const fact = factInput.value.trim();
-        const injection = injectionInput.value.trim();
+        const injection = injectionInput ? injectionInput.value.trim() : entry.content?.injection || fact;
         const notes = notesInput.value.trim();
         updateLoreEntryById(entry.id, raw => ({
             ...raw,
@@ -2631,9 +2729,9 @@ function createEditableLoreEntryEditor(entry) {
             canon: canonSelect.value,
             canonStatus: canonSelect.value,
             relevance: normalizeLoreRelevance(relevanceSelect.value),
-            priority: Number(prioritySelect.value) || 50,
-            truthStatus: truthSelect.value,
-            revealPolicy: revealSelect.value,
+            priority: prioritySelect ? Number(prioritySelect.value) || 50 : raw.priority,
+            truthStatus: truthSelect ? truthSelect.value : raw.truthStatus,
+            revealPolicy: revealSelect ? revealSelect.value : raw.revealPolicy,
             tags: tagsInput.value,
             content: {
                 ...(raw.content || {}),
@@ -2709,7 +2807,7 @@ export function refreshAcceptedLoreList(options = {}) {
     const list = root.querySelector('.saga-lore-entry-list');
     if (!list) return;
     const scrollTop = options.preserveScroll ? list.scrollTop : 0;
-    renderAcceptedLoreEntryList(list, getState());
+    renderAcceptedLoreEntryList(list, getState(), { basicReview: isBasicExperience() });
     scheduleAcceptedLoreLayoutUpdate();
     if (options.preserveScroll) list.scrollTop = scrollTop;
 }
@@ -2723,11 +2821,13 @@ function cssEscape(value) {
     return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
 }
 
-export function createEntryCard(entry, state) {
+export function createEntryCard(entry, state, options = {}) {
+    const basicReview = !!options.basicReview;
     const card = document.createElement('div');
     card.className = 'saga-lore-entry-card';
     markTourTarget(card, entry.isPending ? 'lore.pending.entry' : 'lore.accepted.entry');
     if (entry.id) card.dataset.entryId = entry.id;
+    if (basicReview) card.classList.add('saga-basic-review-entry-card');
 
     if (entry.isPending) card.classList.add('saga-lore-entry-pending');
     if (entry.isActive) card.classList.add('saga-lore-entry-active');
@@ -2742,19 +2842,21 @@ export function createEntryCard(entry, state) {
     const headerRow = document.createElement('div');
     headerRow.className = 'saga-lore-entry-header';
 
-    const selectBox = document.createElement('input');
-    selectBox.type = 'checkbox';
-    selectBox.className = 'saga-lore-entry-select';
-    selectBox.checked = getAcceptedSelectionSet(state).has(entry.id);
-    selectBox.setAttribute('aria-label', 'Select accepted lore entry for bulk actions');
-    addTooltip(selectBox, selectBox.checked ? 'Remove this accepted lore entry from the bulk selection.' : 'Select this accepted lore entry for bulk actions.');
-    selectBox.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleAcceptedLoreSelection(entry.id, selectBox.checked);
-        if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
-        refreshAcceptedLoreBulkToolbar();
-    });
-    headerRow.appendChild(selectBox);
+    if (!basicReview) {
+        const selectBox = document.createElement('input');
+        selectBox.type = 'checkbox';
+        selectBox.className = 'saga-lore-entry-select';
+        selectBox.checked = getAcceptedSelectionSet(state).has(entry.id);
+        selectBox.setAttribute('aria-label', 'Select accepted lore entry for bulk actions');
+        addTooltip(selectBox, selectBox.checked ? 'Remove this accepted lore entry from the bulk selection.' : 'Select this accepted lore entry for bulk actions.');
+        selectBox.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleAcceptedLoreSelection(entry.id, selectBox.checked);
+            if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
+            refreshAcceptedLoreBulkToolbar();
+        });
+        headerRow.appendChild(selectBox);
+    }
 
     const titleWrap = document.createElement('div');
     titleWrap.className = 'saga-lore-entry-title-wrap';
@@ -2762,7 +2864,7 @@ export function createEntryCard(entry, state) {
     const titleEl = document.createElement('span');
     titleEl.className = 'saga-lore-entry-title';
     titleEl.textContent = entry.title || '(Untitled lore)';
-    addTooltip(titleEl, 'Click the card to expand details. Tags beside this title are editable search tags.');
+    addTooltip(titleEl, basicReview ? 'Click the card to expand, edit, or inspect this accepted Lorecard.' : 'Click the card to expand details. Tags beside this title are editable search tags.');
     titleWrap.appendChild(titleEl);
     headerRow.appendChild(titleWrap);
 
@@ -2772,7 +2874,9 @@ export function createEntryCard(entry, state) {
 
     const pinBtn = createIconButton(
         entry.isPinned ? 'Pinned' : 'Pin',
-        entry.isPinned ? 'Remove this entry from pinned lore. Pinned lore is prioritized for injection.' : 'Pin this entry so it is prioritized for injection.',
+        basicReview
+            ? (entry.isPinned ? 'Stop keeping this Lorecard especially prominent.' : 'Keep this Lorecard especially prominent when Saga chooses future-response lore.')
+            : (entry.isPinned ? 'Remove this entry from pinned lore. Pinned lore is prioritized for injection.' : 'Pin this entry so it is prioritized for injection.'),
         'saga-lore-entry-btn',
         (e) => {
             e.stopPropagation();
@@ -2787,7 +2891,9 @@ export function createEntryCard(entry, state) {
 
     const suppressBtn = createIconButton(
         entry.isSuppressed ? 'Muted' : 'Mute',
-        entry.isSuppressed ? 'Unmute this entry so it can become active again.' : 'Mute this entry so it will not be injected into prompts.',
+        basicReview
+            ? (entry.isSuppressed ? 'Let this saved Lorecard affect future responses again.' : 'Keep this Lorecard saved but stop it from affecting future responses.')
+            : (entry.isSuppressed ? 'Unmute this entry so it can become active again.' : 'Mute this entry so it will not be injected into prompts.'),
         'saga-lore-entry-btn',
         (e) => {
             e.stopPropagation();
@@ -2809,16 +2915,18 @@ export function createEntryCard(entry, state) {
         metaRow.appendChild(createEditableLoreMetaBadge(entry, 'category', entry.category || 'other', null, `Category: ${entry.category || 'canon'}. Use dropdown to change.`));
         metaRow.appendChild(createLorePurposeBadge(entry));
         metaRow.appendChild(createEditableLoreMetaBadge(entry, 'canonStatus', entry.canon || entry.canonStatus || 'canon', null, `Canon/Story: ${entry.canon || entry.canonStatus || 'canon'}. Use dropdown to change.`));
-        metaRow.appendChild(createEditableLoreMetaBadge(entry, 'truthStatus', entry.truthStatus || 'true', null, `Truth/reveal status: ${entry.truthStatus || 'true'}. Use dropdown to change.`));
-        metaRow.appendChild(createEditableLoreMetaBadge(entry, 'revealPolicy', entry.revealPolicy || 'private', null, `Reveal policy: ${entry.revealPolicy || 'private'}. Use dropdown to change.`));
-        metaRow.appendChild(createEditablePriorityBadge(entry));
+        if (!basicReview) {
+            metaRow.appendChild(createEditableLoreMetaBadge(entry, 'truthStatus', entry.truthStatus || 'true', null, `Truth/reveal status: ${entry.truthStatus || 'true'}. Use dropdown to change.`));
+            metaRow.appendChild(createEditableLoreMetaBadge(entry, 'revealPolicy', entry.revealPolicy || 'private', null, `Reveal policy: ${entry.revealPolicy || 'private'}. Use dropdown to change.`));
+            metaRow.appendChild(createEditablePriorityBadge(entry));
+        }
     } else {
         metaRow.appendChild(createRegistryBadge('category', entry.category || 'other', `Category: ${entry.category || 'canon'}. Expand the entry to edit.`));
         metaRow.appendChild(createLorePurposeBadge(entry));
         metaRow.appendChild(createRegistryBadge('canonStatus', entry.canon || entry.canonStatus || 'canon', `Canon/Story: ${entry.canon || entry.canonStatus || 'canon'}. Expand the entry to edit.`));
-        metaRow.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority. Expand the entry to edit.'));
+        if (!basicReview) metaRow.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority. Expand the entry to edit.'));
     }
-    metaRow.appendChild(createSpellMetadataBadges(entry));
+    if (!basicReview) metaRow.appendChild(createSpellMetadataBadges(entry));
     if (entry.isPending) metaRow.appendChild(createBadge('pending', 'This entry is pending review.'));
     if (entry.isPinned) metaRow.appendChild(createBadge('pinned', 'Pinned entries are prioritized for injection.'));
     if (entry.isSuppressed) metaRow.appendChild(createBadge('muted', 'Muted entries are excluded from injection.'));
@@ -2843,7 +2951,7 @@ export function createEntryCard(entry, state) {
         const details = document.createElement('div');
         details.className = 'saga-lore-entry-details';
 
-        details.appendChild(createEditableLoreEntryEditor(entry));
+        details.appendChild(createEditableLoreEntryEditor(entry, { basicReview }));
 
         if (entry.fact && entry.fact.length > 140) {
             const fullFact = document.createElement('div');
@@ -3012,27 +3120,75 @@ function commitInlineTagInput(entryId, rawTag) {
     refreshLoreWorkbench();
 }
 
+function openAdvancedInjectionTab() {
+    setExperienceMode('advanced');
+    setPanelState({ activeTab: 'injection' });
+    refreshPanelBody({ preserveScroll: false });
+    refreshHeader();
+}
+
+function createBasicReviewInjectionSummary(state) {
+    const settings = getSettings();
+    const loreState = getPanelLoreState(state);
+    const acceptedCount = Math.max(0, (loreState.counts?.all || 0) - (loreState.counts?.pending || 0));
+    const selectedCount = getSelectedLoreInjectionCount(state, settings);
+    const injectionStats = getInjectionCharacterStats(state, settings);
+    const loreOn = settings.injectLore !== false && settings.injectMemo !== false;
+
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card saga-basic-injection-summary-card saga-basic-review-injection-summary';
+    markTourTarget(card, 'lore.basicInjectionSummary');
+
+    const title = document.createElement('div');
+    title.className = 'saga-runtime-card-title';
+    title.textContent = 'What Accepted Lorecards Do';
+    addTooltip(title, 'Basic prompt-status summary. Advanced has the full Injection tab.');
+    card.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'saga-runtime-help';
+    help.textContent = loreOn
+        ? `${selectedCount} of ${acceptedCount} accepted Lorecard${acceptedCount === 1 ? '' : 's'} are selected for the next prompt.`
+        : 'Lore injection is off. Accepted Lorecards remain saved but will not be sent until injection is enabled.';
+    card.appendChild(help);
+
+    card.appendChild(createKeyValue('Selected for next prompt', loreOn ? String(selectedCount) : 'off', 'Accepted Lorecards selected after Context, relevance, pin, and mute rules.'));
+    card.appendChild(createKeyValue('Estimated prompt cost', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate token count for current Saga prompt material.'));
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions';
+    actions.appendChild(createButton('Open Advanced Injection', 'Switches to Advanced Experience and opens the full Injection tab.', openAdvancedInjectionTab));
+    card.appendChild(actions);
+
+    return card;
+}
+
 export function renderLorecardsTab(container, state) {
     const basic = isBasicExperience();
     container.appendChild(createSectionHeader(
-        'Lorecards',
-        'Suggest canon Lorecards from the local database, generate story-specific Lorecards with the model, review pending cards, and manage accepted Lorecards.'
+        basic ? 'Review' : 'Lorecards',
+        basic ? 'Review suggested, pending, manual, and accepted Lorecards.' : 'Suggest canon Lorecards from the local database, generate story-specific Lorecards with the model, review pending cards, and manage accepted Lorecards.'
     ));
-    const timelineSection = createCollapsibleSection(
-        'lore.timeline',
-        basic ? 'Lore Tools' : 'Lore Timeline',
-        basic ? 'manual lore tools' : 'accepted-lore audit + recovery',
-        true,
-        createLoreTimelineCard(state),
-        { tooltip: basic ? 'Create manual lore and review suggested/generated entries below.' : 'Story-aware audit trail for accepted lore changes and recoverable lore versions.' }
-    );
-    markTourTarget(timelineSection, 'lore.timeline.section');
-    container.appendChild(timelineSection);
+    if (basic) container.appendChild(createBasicReviewInjectionSummary(state));
+    if (basic) {
+        container.appendChild(createBasicReviewActionsCard(state));
+    } else {
+        const timelineSection = createCollapsibleSection(
+            'lore.timeline',
+            'Lore Timeline',
+            'accepted-lore audit + recovery',
+            true,
+            createLoreTimelineCard(state),
+            { tooltip: 'Story-aware audit trail for accepted lore changes and recoverable lore versions.' }
+        );
+        markTourTarget(timelineSection, 'lore.timeline.section');
+        container.appendChild(timelineSection);
+    }
 
     const generationSection = createCollapsibleSection(
         'lore.generation',
-        'Lorecard Generation',
-        'canon suggestions + story generation',
+        basic ? 'Find Lorecards' : 'Lorecard Generation',
+        basic ? 'canon suggestions + story scan' : 'canon suggestions + story generation',
         true,
         dep('createLoreGenerationCard')(state),
         { tooltip: 'Suggest canon Lorecards from the local database or generate story-specific Lorecards from recent chat messages.', className: 'saga-lore-generation-collapsible' }
@@ -3056,10 +3212,10 @@ export function renderLorecardsTab(container, state) {
     const pendingCount = (state?.pendingLoreEntries || []).length;
     const pendingSection = createCollapsibleSection(
         basic ? 'lore.basic.pendingReview' : 'lore.pendingReview',
-        'Pending Lorecard Review',
+        basic ? 'Review Suggested Lorecards' : 'Pending Lorecard Review',
         pendingCount ? `${pendingCount} pending` : 'none',
         basic ? true : pendingCount > 0,
-        createPendingLoreReviewSection(state),
+        createPendingLoreReviewSection(state, { basicReview: basic }),
         { tooltip: 'Review suggested/generated Lorecards before accepting them.', className: 'saga-lore-pending-collapsible' }
     );
     markTourTarget(pendingSection, 'lore.pending');
@@ -3071,27 +3227,33 @@ export function renderLorecardsTab(container, state) {
     const acceptedSection = createCollapsibleSection(
         basic ? 'lore.basic.acceptedEntries' : 'lore.acceptedEntries',
         'Accepted Lorecards',
-        `${acceptedCount} accepted \u00b7 ${injectableCount} injectable`,
+        basic ? `${acceptedCount} accepted \u00b7 ${injectableCount} selected` : `${acceptedCount} accepted \u00b7 ${injectableCount} injectable`,
         true,
-        createAcceptedLoreEntriesSection(state),
-        { tooltip: 'Search, filter, bulk edit, tag, pin, mute, and edit accepted Lorecards.', className: 'saga-lore-accepted-collapsible' }
+        createAcceptedLoreEntriesSection(state, { basicReview: basic }),
+        { tooltip: basic ? 'Search and review accepted Lorecards that can affect future responses.' : 'Search, filter, bulk edit, tag, pin, mute, and edit accepted Lorecards.', className: 'saga-lore-accepted-collapsible' }
     );
     markTourTarget(acceptedSection, 'lore.accepted');
     container.appendChild(acceptedSection);
 }
 
-export function createPendingLoreReviewSection(state) {
+export function createPendingLoreReviewSection(state, options = {}) {
+    const basicReview = !!options.basicReview;
     const pendingLore = normalizeLoreMatrix(state?.pendingLoreEntries || []);
     const filteredPendingRows = getFilteredPendingLoreRows(state);
     const section = document.createElement('div');
     section.className = 'saga-review-section saga-pending-lore-section';
+    if (basicReview) section.classList.add('saga-basic-review-pending-section');
 
-    section.appendChild(createLoreWorkbenchLaunchRow('pending', pendingLore.length ? `${pendingLore.length} pending entries` : 'No pending entries yet'));
+    if (!basicReview) {
+        section.appendChild(createLoreWorkbenchLaunchRow('pending', pendingLore.length ? `${pendingLore.length} pending entries` : 'No pending entries yet'));
+    }
 
     if (pendingLore.length > 0) {
         const batchInfo = document.createElement('div');
         batchInfo.className = 'saga-runtime-help';
-        batchInfo.textContent = getPendingLoreBatchLabel(state);
+        batchInfo.textContent = basicReview
+            ? 'Accept facts that should affect future responses. Dismiss the rest.'
+            : getPendingLoreBatchLabel(state);
         section.appendChild(batchInfo);
 
         const filterRow = document.createElement('div');
@@ -3112,13 +3274,20 @@ export function createPendingLoreReviewSection(state) {
         filterRow.appendChild(filterCount);
         section.appendChild(filterRow);
 
-        section.appendChild(markTourTarget(createPendingLoreBulkControls(pendingLore, state), 'lore.pending.bulk'));
+        if (!basicReview) {
+            section.appendChild(markTourTarget(createPendingLoreBulkControls(pendingLore, state), 'lore.pending.bulk'));
+        } else if (pendingLore.length > 8) {
+            const advancedRow = document.createElement('div');
+            advancedRow.className = 'saga-basic-advanced-handoff';
+            advancedRow.appendChild(createButton('Bulk Review in Advanced', 'Switch to Advanced Review and open the Pending Review workbench.', () => openAdvancedLoreReview('pending'), 'saga-small-button'));
+            section.appendChild(advancedRow);
+        }
 
         const visibleLimit = Math.max(5, Math.min(1000, Number(state?.lorePanel?.pendingReviewVisibleLimit) || 10));
         const list = document.createElement('div');
         list.className = 'saga-review-lore-list saga-pending-lore-list';
         markTourTarget(list, 'lore.pending.list');
-        filteredPendingRows.slice(0, visibleLimit).forEach(row => list.appendChild(createPendingLoreReviewCard(row.entry, row.index, isPendingLoreSelected(state, row.entry))));
+        filteredPendingRows.slice(0, visibleLimit).forEach(row => list.appendChild(createPendingLoreReviewCard(row.entry, row.index, isPendingLoreSelected(state, row.entry), { basicReview })));
         if (!filteredPendingRows.length) {
             list.appendChild(createEmptyMessage('No pending Lorecards match the current type filter.'));
         }
@@ -3135,15 +3304,20 @@ export function createPendingLoreReviewSection(state) {
             section.appendChild(more);
         }
     } else {
-        section.appendChild(createEmptyMessage('No lore entries are waiting for review. Use Suggest Canon Lore or Scan Story Lore above.'));
+        section.appendChild(createEmptyMessage(basicReview
+            ? 'No Lorecards are waiting for review. Use Find Lorecards above or add one manually.'
+            : 'No lore entries are waiting for review. Use Suggest Canon Lore or Scan Story Lore above.'
+        ));
     }
 
     return section;
 }
 
-export function createAcceptedLoreEntriesSection(state) {
+export function createAcceptedLoreEntriesSection(state, options = {}) {
+    const basicReview = !!options.basicReview;
     const section = document.createElement('div');
     section.className = 'saga-accepted-lore-section';
+    if (basicReview) section.classList.add('saga-basic-review-accepted-section');
 
     const controls = document.createElement('div');
     controls.className = 'saga-lore-controls';
@@ -3153,29 +3327,38 @@ export function createAcceptedLoreEntriesSection(state) {
     const { entries, categories, counts } = loreState;
     const acceptedCount = Math.max(0, (counts?.all || 0) - (counts?.pending || 0));
 
-    controls.appendChild(createLoreWorkbenchLaunchRow('accepted', `${acceptedCount} accepted entries`));
-
-    const tabs = document.createElement('div');
-    tabs.className = 'saga-lore-tabs';
-    markTourTarget(tabs, 'lore.accepted.categoryTabs');
-    for (const cat of categories) {
-        const tab = document.createElement('button');
-        tab.className = 'saga-lore-tab';
-        if (cat === panelState.selectedCategory) tab.classList.add('saga-lore-tab-active');
-        tab.type = 'button';
-        const label = getLoreDisplayLabel('category', cat);
-        const catCount = getCategoryCount(cat, entries, counts);
-        tab.textContent = `${label} (${catCount})`;
-        tab.dataset.category = cat;
-        addTooltip(tab, getCategoryTooltip(cat));
-        tab.addEventListener('click', () => {
-            setPanelState({ selectedCategory: cat, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
-            refreshAcceptedLoreCategoryTabs(cat);
-            refreshAcceptedLoreFilterResults({ resetListScroll: true });
-        });
-        tabs.appendChild(tab);
+    if (!basicReview) {
+        controls.appendChild(createLoreWorkbenchLaunchRow('accepted', `${acceptedCount} accepted entries`));
+    } else if (acceptedCount > 12) {
+        const advancedRow = document.createElement('div');
+        advancedRow.className = 'saga-basic-advanced-handoff';
+        advancedRow.appendChild(createButton('Manage in Advanced', 'Switch to Advanced Review and open the Accepted Lore workbench.', () => openAdvancedLoreReview('accepted'), 'saga-small-button'));
+        controls.appendChild(advancedRow);
     }
-    controls.appendChild(tabs);
+
+    if (!basicReview) {
+        const tabs = document.createElement('div');
+        tabs.className = 'saga-lore-tabs';
+        markTourTarget(tabs, 'lore.accepted.categoryTabs');
+        for (const cat of categories) {
+            const tab = document.createElement('button');
+            tab.className = 'saga-lore-tab';
+            if (cat === panelState.selectedCategory) tab.classList.add('saga-lore-tab-active');
+            tab.type = 'button';
+            const label = getLoreDisplayLabel('category', cat);
+            const catCount = getCategoryCount(cat, entries, counts);
+            tab.textContent = `${label} (${catCount})`;
+            tab.dataset.category = cat;
+            addTooltip(tab, getCategoryTooltip(cat));
+            tab.addEventListener('click', () => {
+                setPanelState({ selectedCategory: cat, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
+                refreshAcceptedLoreCategoryTabs(cat);
+                refreshAcceptedLoreFilterResults({ resetListScroll: true });
+            });
+            tabs.appendChild(tab);
+        }
+        controls.appendChild(tabs);
+    }
 
     const filterRow = document.createElement('div');
     filterRow.className = 'saga-lore-filter-row';
@@ -3184,61 +3367,65 @@ export function createAcceptedLoreEntriesSection(state) {
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
     searchInput.className = 'saga-lore-search';
-    searchInput.placeholder = 'Search titles and tags...';
+    searchInput.placeholder = basicReview ? 'Search accepted Lorecards...' : 'Search titles and tags...';
     searchInput.value = panelState.search || '';
-    addTooltip(searchInput, 'Searches lore entry titles and tags first. Fact text, notes, and IDs are searched as fallback.');
+    addTooltip(searchInput, basicReview ? 'Search accepted Lorecards by title, tags, fact text, notes, or ID.' : 'Searches lore entry titles and tags first. Fact text, notes, and IDs are searched as fallback.');
     searchInput.addEventListener('input', (e) => {
         setPanelState({ search: e.target.value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
         scheduleAcceptedLoreListRender(section);
     });
     filterRow.appendChild(searchInput);
 
-    const sourceSelect = document.createElement('select');
-    sourceSelect.className = 'saga-lore-source-filter';
-    addTooltip(sourceSelect, 'Filter accepted lore by origin: canon database, story generation, or manual/user-created entries.');
-    const sourceOptions = [
-        ['all', 'Source: All'],
-        ['canon-db', 'Canon Database'],
-        ['story-generation', 'Story Generation'],
-        ['manual', 'Manual / User'],
-    ];
-    for (const [value, label] of sourceOptions) {
-        const opt = document.createElement('option');
-        opt.value = value;
-        opt.textContent = label;
-        if ((panelState.sourceFilter || 'all') === value) opt.selected = true;
-        sourceSelect.appendChild(opt);
-    }
-    sourceSelect.addEventListener('change', () => {
-        setPanelState({ sourceFilter: sourceSelect.value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
-        refreshAcceptedLoreFilterResults({ resetListScroll: true });
-    });
-    filterRow.appendChild(sourceSelect);
-
-    const acceptedPool = entries.filter(entry => !entry.isPending);
-    filterRow.appendChild(createLoreTypeFilterSelect(
-        acceptedPool,
-        panelState.loreTypeFilter || 'all',
-        (value) => {
-            setPanelState({ loreTypeFilter: value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
+    if (!basicReview) {
+        const sourceSelect = document.createElement('select');
+        sourceSelect.className = 'saga-lore-source-filter';
+        addTooltip(sourceSelect, 'Filter accepted lore by origin: canon database, story generation, or manual/user-created entries.');
+        const sourceOptions = [
+            ['all', 'Source: All'],
+            ['canon-db', 'Canon Database'],
+            ['story-generation', 'Story Generation'],
+            ['manual', 'Manual / User'],
+        ];
+        for (const [value, label] of sourceOptions) {
+            const opt = document.createElement('option');
+            opt.value = value;
+            opt.textContent = label;
+            if ((panelState.sourceFilter || 'all') === value) opt.selected = true;
+            sourceSelect.appendChild(opt);
+        }
+        sourceSelect.addEventListener('change', () => {
+            setPanelState({ sourceFilter: sourceSelect.value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
             refreshAcceptedLoreFilterResults({ resetListScroll: true });
-        },
-        { tooltip: 'Filter accepted Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
-    ));
+        });
+        filterRow.appendChild(sourceSelect);
+
+        const acceptedPool = entries.filter(entry => !entry.isPending);
+        filterRow.appendChild(createLoreTypeFilterSelect(
+            acceptedPool,
+            panelState.loreTypeFilter || 'all',
+            (value) => {
+                setPanelState({ loreTypeFilter: value, acceptedLoreVisibleLimit: getAcceptedLoreInitialVisibleLimit() }, { deferSave: true });
+                refreshAcceptedLoreFilterResults({ resetListScroll: true });
+            },
+            { tooltip: 'Filter accepted Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
+        ));
+    }
     controls.appendChild(filterRow);
 
-    const pinHelp = document.createElement('div');
-    pinHelp.className = 'saga-runtime-help saga-pin-help';
-    markTourTarget(pinHelp, 'lore.accepted.pinMuteHelp');
-    pinHelp.textContent = 'Pinned = prioritized/protected. Muted = excluded from injection. Relevance controls tier placement, sorting, and compression budget.';
-    addTooltip(pinHelp, 'Pin important facts you always want kept prominent. Mute facts that should stay stored but not be sent to the model.');
-    controls.appendChild(pinHelp);
+    if (!basicReview) {
+        const pinHelp = document.createElement('div');
+        pinHelp.className = 'saga-runtime-help saga-pin-help';
+        markTourTarget(pinHelp, 'lore.accepted.pinMuteHelp');
+        pinHelp.textContent = 'Pinned = prioritized/protected. Muted = excluded from injection. Relevance controls tier placement, sorting, and compression budget.';
+        addTooltip(pinHelp, 'Pin important facts you always want kept prominent. Mute facts that should stay stored but not be sent to the model.');
+        controls.appendChild(pinHelp);
 
-    const bulkMount = document.createElement('div');
-    bulkMount.className = 'saga-lore-bulk-toolbar';
-    markTourTarget(bulkMount, 'lore.accepted.bulk');
-    bulkMount.appendChild(createAcceptedLoreBulkControls(state));
-    controls.appendChild(bulkMount);
+        const bulkMount = document.createElement('div');
+        bulkMount.className = 'saga-lore-bulk-toolbar';
+        markTourTarget(bulkMount, 'lore.accepted.bulk');
+        bulkMount.appendChild(createAcceptedLoreBulkControls(state));
+        controls.appendChild(bulkMount);
+    }
 
     section.appendChild(controls);
 
@@ -3247,16 +3434,17 @@ export function createAcceptedLoreEntriesSection(state) {
     markTourTarget(list, 'lore.accepted.list');
     list.setAttribute('role', 'region');
     list.setAttribute('aria-label', 'Accepted lore entries');
-    renderAcceptedLoreEntryList(list, state);
+    renderAcceptedLoreEntryList(list, state, { basicReview });
     section.appendChild(list);
     return section;
 }
 
-export function renderAcceptedLoreEntryList(list, state) {
+export function renderAcceptedLoreEntryList(list, state, options = {}) {
     if (!list) return;
     list.replaceChildren();
 
-    const filtered = getFilteredLoreEntries(state);
+    const basicReview = !!options.basicReview;
+    const filtered = basicReview ? getBasicAcceptedLoreEntries(state) : getFilteredLoreEntries(state);
     if (filtered.length === 0) {
         list.appendChild(createEmptyMessage('No lore entries match the current filter.'));
         return;
@@ -3278,7 +3466,7 @@ export function renderAcceptedLoreEntryList(list, state) {
     fragment.appendChild(summary);
 
     for (const entry of visible) {
-        fragment.appendChild(createEntryCard(entry, state));
+        fragment.appendChild(createEntryCard(entry, state, { basicReview }));
     }
 
     if (filtered.length > visible.length) {

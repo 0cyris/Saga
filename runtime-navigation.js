@@ -30,6 +30,16 @@ export const TAB_TOOLTIPS = Object.freeze({
     settings: 'Configure providers, runtime appearance, and Saga Theme Packs.',
 });
 
+export const BASIC_TAB_LABELS = Object.freeze({
+    session: 'Start',
+    lore: 'Review',
+});
+
+export const BASIC_TAB_TOOLTIPS = Object.freeze({
+    session: 'Guided Saga status, next action, walkthrough, and active runtime state.',
+    lore: 'Review suggested, pending, manual, and accepted Lorecards.',
+});
+
 export const AUTOMATION_MODES = Object.freeze({
     manual: Object.freeze({
         label: 'Manual',
@@ -69,7 +79,7 @@ export const AUTOMATION_MODES = Object.freeze({
     }),
 });
 
-export const BASIC_EXPERIENCE_TABS = Object.freeze(['loredecks', 'session', 'context', 'lore', 'injection', 'settings']);
+export const BASIC_EXPERIENCE_TABS = Object.freeze(['loredecks', 'session', 'context', 'lore', 'settings']);
 export const ADVANCED_EXPERIENCE_TABS = Object.freeze(Object.keys(TAB_LABELS));
 
 export function normalizeTab(tab) {
@@ -80,6 +90,24 @@ export function getVisibleTabsForExperience(settings = getSettings()) {
     return normalizeExperienceMode(settings?.experienceMode) === 'basic'
         ? BASIC_EXPERIENCE_TABS
         : ADVANCED_EXPERIENCE_TABS;
+}
+
+export function getTabLabelForExperience(tab, settings = getSettings()) {
+    const normalized = normalizeTab(tab);
+    if (normalizeExperienceMode(settings?.experienceMode) === 'basic'
+        && Object.prototype.hasOwnProperty.call(BASIC_TAB_LABELS, normalized)) {
+        return BASIC_TAB_LABELS[normalized];
+    }
+    return TAB_LABELS[normalized] || 'Saga';
+}
+
+export function getTabTooltipForExperience(tab, settings = getSettings()) {
+    const normalized = normalizeTab(tab);
+    if (normalizeExperienceMode(settings?.experienceMode) === 'basic'
+        && Object.prototype.hasOwnProperty.call(BASIC_TAB_TOOLTIPS, normalized)) {
+        return BASIC_TAB_TOOLTIPS[normalized];
+    }
+    return TAB_TOOLTIPS[normalized] || 'Saga runtime drawer.';
 }
 
 export function isBasicExperience(settings = getSettings()) {

@@ -59,6 +59,10 @@ function refreshRuntimeHeader() {
     return dep('refreshRuntimeHeader', () => null)();
 }
 
+function openAdvancedSettings() {
+    return dep('openAdvancedSettings', () => null)();
+}
+
 function downloadJson(data, filename) {
     return dep('downloadJson', () => null)(data, filename);
 }
@@ -83,6 +87,101 @@ export function createProviderSettingsCard(settings = getSettings()) {
 
     card.appendChild(createProviderPresetStatusCard());
     return card;
+}
+
+export function createBasicProviderQuickSetupCard(settings = getSettings()) {
+    const card = document.createElement('div');
+    card.className = 'saga-runtime-card saga-settings-basic-provider-card';
+    const title = document.createElement('h4');
+    title.textContent = 'Provider Quick Setup';
+    card.appendChild(title);
+
+    const help = document.createElement('div');
+    help.className = 'saga-runtime-help';
+    help.textContent = 'Provider setup is only needed for model-backed actions. You can load Loredecks, choose Story Position, review existing Lorecards, and inject accepted lore without configuring a provider first.';
+    card.appendChild(help);
+
+    const providers = document.createElement('div');
+    providers.className = 'saga-provider-runtime-list saga-basic-provider-list';
+    providers.appendChild(createBasicProviderQuickSetupRow('continuity', settings));
+    providers.appendChild(createBasicProviderQuickSetupRow('lore', settings));
+    card.appendChild(providers);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions saga-basic-provider-actions';
+    actions.appendChild(createButton('Open Advanced Provider Settings', 'Switch to Advanced Experience for provider profiles, endpoints, models, generation parameters, and API compatibility flags.', openAdvancedSettings));
+    card.appendChild(actions);
+
+    return card;
+}
+
+function createBasicProviderQuickSetupRow(kind, settings = getSettings()) {
+    const cfg = getProviderUiConfig(kind);
+    const prefix = getProviderPrefix(kind);
+    const provider = settings[`${prefix}Provider`] || 'st';
+    const validation = safeValidateProviderConfiguration(kind);
+
+    const block = document.createElement('section');
+    block.className = `saga-provider-runtime-block saga-basic-provider-block saga-provider-runtime-${kind}`;
+
+    const header = document.createElement('div');
+    header.className = 'saga-provider-runtime-header';
+    const titleGroup = document.createElement('div');
+    titleGroup.className = 'saga-provider-runtime-title-group';
+    const blockTitle = document.createElement('h5');
+    blockTitle.textContent = `${cfg.shortTitle} Provider`;
+    titleGroup.appendChild(blockTitle);
+    const description = document.createElement('div');
+    description.className = 'saga-runtime-help';
+    description.textContent = kind === 'continuity'
+        ? 'Used when Saga scans, summarizes, or checks recent story.'
+        : 'Used when Saga creates Lorecards, detects Context with a model, or builds generated lore.';
+    titleGroup.appendChild(description);
+    header.appendChild(titleGroup);
+    const status = createStatusPill(validation.ok ? 'Ready' : 'Needs setup', validation.message || `${cfg.shortTitle} provider status.`);
+    status.classList.add(validation.ok ? 'saga-provider-status-ready' : 'saga-provider-status-warning');
+    header.appendChild(status);
+    block.appendChild(header);
+
+    const summary = document.createElement('div');
+    summary.className = 'saga-basic-provider-summary';
+    summary.appendChild(createBasicProviderSummaryRow('Source', getProviderLabel(provider), `Current ${cfg.shortTitle.toLowerCase()} provider source.`));
+    summary.appendChild(createBasicProviderSummaryRow('Status', validation.ok ? 'Ready for model actions' : (validation.message || 'Needs setup'), validation.message || `${cfg.shortTitle} provider validation result.`));
+    block.appendChild(summary);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-primary-actions saga-provider-runtime-actions';
+    actions.appendChild(createButton(`Test ${cfg.shortTitle}`, `Send a tiny JSON test request through the ${cfg.shortTitle} provider.`, async (btn) => {
+        await runBusyAction(btn, 'Testing...', async () => {
+            const result = await testLoreConnection(kind);
+            toast(`${cfg.shortTitle} provider connected: ${String(result.response || '').slice(0, 80)}`, 'success');
+            refreshSettingsPanel({ preserveScroll: true, preserveWindowScroll: true });
+        });
+    }, 'saga-primary-button'));
+    if (provider !== 'st') {
+        actions.appendChild(createButton('Use Current Model', `Use the active SillyTavern model for ${cfg.shortTitle.toLowerCase()} tasks.`, () => {
+            saveProviderSetting(kind, 'Provider', 'st');
+            toast(`${cfg.shortTitle} provider now uses the current SillyTavern model.`, 'info');
+        }));
+    }
+    block.appendChild(actions);
+
+    return block;
+}
+
+function createBasicProviderSummaryRow(labelText, valueText, tooltip) {
+    const row = document.createElement('div');
+    row.className = 'saga-basic-provider-summary-row';
+    addTooltip(row, tooltip || labelText);
+    const label = document.createElement('span');
+    label.className = 'saga-basic-provider-summary-label';
+    label.textContent = labelText;
+    row.appendChild(label);
+    const value = document.createElement('span');
+    value.className = 'saga-basic-provider-summary-value';
+    value.textContent = valueText || 'Not set';
+    row.appendChild(value);
+    return row;
 }
 
 function createRuntimeProviderBlock(kind, settings = getSettings()) {

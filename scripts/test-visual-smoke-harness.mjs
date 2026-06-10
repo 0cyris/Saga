@@ -7,6 +7,7 @@ const loredeckIndexPath = path.join(root, 'Loredecks', 'index.json');
 const panelPath = path.join(root, 'lore-panel.js');
 const libraryPanelPath = path.join(root, 'loredeck-library-panel.js');
 const loredecksTabPanelPath = path.join(root, 'loredecks-tab-panel.js');
+const lorecardsPanelPath = path.join(root, 'lorecards-panel.js');
 const creatorPanelPath = path.join(root, 'loredeck-creator-panel.js');
 const healthPanelPath = path.join(root, 'loredeck-health-panel.js');
 const contextPanelPath = path.join(root, 'context-panel.js');
@@ -15,6 +16,9 @@ const themePanelPath = path.join(root, 'theme-panel.js');
 const themeActionsPath = path.join(root, 'theme-actions.js');
 const runtimeThemePath = path.join(root, 'runtime-theme.js');
 const runtimeUiKitPath = path.join(root, 'runtime-ui-kit.js');
+const runtimeNavigationPath = path.join(root, 'runtime-navigation.js');
+const runtimeBasicReadinessPath = path.join(root, 'runtime-basic-readiness.js');
+const runtimeGuideContentPath = path.join(root, 'runtime-guide-content.js');
 const assistantPath = path.join(root, 'loredeck-assistant.js');
 const llmClientPath = path.join(root, 'lore-llm-client.js');
 const creatorProjectsPath = path.join(root, 'loredeck-creator-projects.js');
@@ -45,14 +49,19 @@ function assert(condition, message) {
 const harness = read(harnessPath);
 const loredeckIndex = JSON.parse(read(loredeckIndexPath));
 const panel = read(panelPath);
+const loredecksTabPanel = read(loredecksTabPanelPath);
+const lorecardsPanel = read(lorecardsPanelPath);
+const contextPanel = read(contextPanelPath);
+const settingsPanel = read(settingsPanelPath);
 const runtimePanelSource = [
     panel,
+    lorecardsPanel,
     read(libraryPanelPath),
-    read(loredecksTabPanelPath),
+    loredecksTabPanel,
     read(creatorPanelPath),
     read(healthPanelPath),
-    read(contextPanelPath),
-    read(settingsPanelPath),
+    contextPanel,
+    settingsPanel,
     read(themePanelPath),
     read(themeActionsPath),
     read(runtimeThemePath),
@@ -65,6 +74,9 @@ const loreGenerator = read(path.join(root, 'lore-generator.js'));
 const extractor = read(path.join(root, 'extractor.js'));
 const stateManager = read(stateManagerPath);
 const constants = read(constantsPath);
+const runtimeNavigation = read(runtimeNavigationPath);
+const runtimeBasicReadiness = read(runtimeBasicReadinessPath);
+const runtimeGuideContent = read(runtimeGuideContentPath);
 const style = read(stylePath);
 const settingsTemplate = read(settingsTemplatePath);
 const liveSmoke = read(liveSmokePath);
@@ -86,9 +98,57 @@ assert(style.includes('.saga-runtime-rail-tab-global') && style.includes('.saga-
 assert(style.includes('border-color: var(--saga-border') && style.includes('var(--saga-border-soft'), 'Loredecks shelf accent must reuse existing theme border variables.');
 assert(!style.includes('2px 0 0 rgba(215, 181, 109') && !style.includes('2px 0 0 rgba(212, 200, 168'), 'Loredecks shelf accent must not use a left inset that visually offsets the tab.');
 assert(harness.includes('window.SillyTavern'), 'Harness must stub SillyTavern before importing modules.');
+const basicTabsSource = runtimeNavigation.match(/BASIC_EXPERIENCE_TABS\s*=\s*Object\.freeze\(\[([^\]]*)\]\)/)?.[1] || '';
+assert(basicTabsSource.includes("'session'") && basicTabsSource.includes("'loredecks'") && basicTabsSource.includes("'context'") && basicTabsSource.includes("'lore'") && basicTabsSource.includes("'settings'"), 'Basic Experience must keep the guided Start/Loredecks/Context/Review/Settings tabs.');
+assert(!basicTabsSource.includes("'injection'") && !basicTabsSource.includes("'continuity'"), 'Basic Experience must hide Injection and Continuity tabs.');
+assert(runtimeNavigation.includes('export const ADVANCED_EXPERIENCE_TABS = Object.freeze(Object.keys(TAB_LABELS));'), 'Advanced Experience must continue exposing the full tab set.');
+assert(runtimeNavigation.includes("session: 'Start'") && runtimeNavigation.includes("lore: 'Review'"), 'Basic Experience must expose friendly Start and Review labels.');
+assert(runtimeNavigation.includes('function getTabLabelForExperience') && runtimeNavigation.includes('function getTabTooltipForExperience'), 'Runtime navigation must provide experience-aware tab label and tooltip helpers.');
+assert(runtimePanelSource.includes('getTabLabelForExperience(tabId, settings)') && runtimePanelSource.includes('getTabTooltipForExperience(tabId, settings)'), 'Runtime rail must render experience-aware tab labels and tooltips.');
+const basicGuideSource = runtimeGuideContent.split('basic: freezeGuideSteps([')[1]?.split('advanced: freezeGuideSteps([')[0] || '';
+const advancedGuideSource = runtimeGuideContent.split('advanced: freezeGuideSteps([')[1] || '';
+const basicGuideStepCount = (basicGuideSource.match(/guideStep\(/g) || []).length;
+assert(basicGuideStepCount === 5, 'Basic guide must stay limited to the five-step first-run workflow.');
+assert(!basicGuideSource.includes("'injection'"), 'Basic guide steps must not target hidden Injection controls.');
+assert(basicGuideSource.includes("'loredecks.library.open'") && basicGuideSource.includes("'context.commandCenter'") && basicGuideSource.includes("'lore.pending'") && basicGuideSource.includes("'session.basicInjectionSummary'"), 'Basic guide must route through Loredeck, Context, Review, and continue/update targets.');
+assert(!basicGuideSource.includes('Advanced Context Brief') && !basicGuideSource.includes('Canon Preview') && !basicGuideSource.includes('Pending Bulk Actions'), 'Basic guide must not expose advanced diagnostic or bulk-review tour steps.');
+assert(advancedGuideSource.includes("'injection'"), 'Advanced guide must retain Injection walkthrough targets.');
+assert(runtimePanelSource.includes('function createBasicStartReadinessCard'), 'Basic Start must render a readiness checklist card.');
+assert(runtimePanelSource.includes('function getBasicReadinessModel'), 'Basic Start readiness must derive from runtime state.');
+assert(runtimeBasicReadiness.includes('export function buildBasicReadinessModel') && runtimePanelSource.includes('buildBasicReadinessModel({'), 'Basic Start readiness decision order must live in the shared model helper.');
+assert(runtimePanelSource.includes('function createBasicInjectionSummaryCard'), 'Basic Start must show compact selected-lore prompt status.');
+assert(runtimePanelSource.includes('function createBasicReviewInjectionSummary'), 'Basic Review must show compact selected-lore prompt status.');
+assert(runtimePanelSource.includes('Open Advanced Injection'), 'Basic selected-lore summaries must provide an Advanced Injection handoff.');
+assert(loredecksTabPanel.includes('function isBasicExperienceMode') && panel.includes('isBasicExperience: () => isBasicExperience(getSettings())'), 'Loredecks tab must receive the active experience mode.');
+assert(/if \(basic\)\s*{\s*const stackSection = createCollapsibleSection\(\s*'loredecks\.basicActiveStack'/.test(loredecksTabPanel), 'Basic Loredecks must show Active Stack before the Library launch.');
+assert(loredecksTabPanel.includes('function createBasicLoredeckActiveStackCard') && loredecksTabPanel.includes('function createBasicLoredeckStackRow'), 'Basic Loredecks must render a focused Active Stack card.');
+assert(loredecksTabPanel.includes("title.textContent = 'Add Loredeck'") && loredecksTabPanel.includes("createButton('Add Loredeck'"), 'Basic Loredecks must expose Add Loredeck as the primary loading action.');
+assert(loredecksTabPanel.includes("'Ready'") && loredecksTabPanel.includes("'Needs review'") && loredecksTabPanel.includes("'Not checked'"), 'Basic Loredecks must use plain readiness badges.');
+assert(loredecksTabPanel.includes('createBasicLoredeckLibraryLaunchCard') && loredecksTabPanel.includes('create or import a Loredeck from the advanced path'), 'Basic Loredecks must keep create/import available as a secondary advanced path.');
+assert(style.includes('saga-basic-loredeck-stack-card') && style.includes('saga-basic-loredeck-stack-row'), 'Basic Loredecks stack card must have dedicated styling.');
+assert(settingsPanel.includes('export function createBasicProviderQuickSetupCard') && settingsPanel.includes('function createBasicProviderQuickSetupRow'), 'Basic Settings must render a Provider Quick Setup surface.');
+assert(settingsPanel.includes('Open Advanced Provider Settings') && settingsPanel.includes('Use Current Model') && settingsPanel.includes('Test ${cfg.shortTitle}'), 'Basic Provider Quick Setup must test providers and hand off to Advanced provider controls.');
+assert(panel.includes("'settings.basicProviders'") && panel.includes("'settings.basicAppearance'") && panel.includes("'settings.basicExperience'"), 'Basic Settings must expose provider quick setup, appearance, and experience-mode sections.');
+assert(panel.includes('function createBasicAppearanceSettingsCard') && panel.includes('createThemePanelOptions().onApplyThemePreset?.(select.value)'), 'Basic Settings must expose Theme Pack selection without the full advanced theme editor.');
+assert(panel.includes('function createBasicExperienceSettingsCard') && panel.includes("createButton('Reset Layout'") && panel.includes('resetLorePanelLayout();'), 'Basic Settings must expose Experience Mode and Reset Layout controls.');
+assert(panel.includes('function openAdvancedSettingsTab') && panel.includes('openAdvancedSettings: openAdvancedSettingsTab'), 'Basic Settings advanced handoffs must switch to the Advanced settings surface.');
+assert(style.includes('saga-settings-basic-provider-card') && style.includes('saga-basic-theme-swatches') && style.includes('saga-basic-experience-switch-wrap'), 'Basic Settings cards must have dedicated compact styling.');
+assert(!panel.includes('function renderBasicInjectionTab') && !panel.includes('function createBasicLoreTierInjectionCard') && !panel.includes("'injection.basic'"), 'Basic Experience must not keep a dedicated Basic Injection tab implementation.');
+assert(!style.includes('saga-basic-injection-controls') && !style.includes('saga-basic-injection-mode-buttons') && !style.includes('saga-basic-injection-status'), 'Retired Basic Injection tab styling must not remain.');
+assert(lorecardsPanel.includes('function createBasicReviewActionsCard'), 'Basic Review must expose a focused review-actions card.');
+assert(lorecardsPanel.includes('Should this fact affect future responses?'), 'Basic Review must foreground the review decision question.');
+assert(lorecardsPanel.includes('openNewLoreDialog({ basicReview: true })'), 'Basic manual Lorecard creation must use the simplified Basic dialog.');
+assert(lorecardsPanel.includes('createPendingLoreReviewSection(state, { basicReview: basic })') && lorecardsPanel.includes('createAcceptedLoreEntriesSection(state, { basicReview: basic })'), 'Basic Review must render pending and accepted sections through Basic-aware paths.');
+assert(/if \(!basicReview\)\s*{\s*section\.appendChild\(createLoreWorkbenchLaunchRow/.test(lorecardsPanel) && /if \(!basicReview\)\s*{\s*section\.appendChild\(markTourTarget\(createPendingLoreBulkControls/.test(lorecardsPanel), 'Basic Review must hide default workbench and pending bulk controls.');
+assert(lorecardsPanel.includes('const filtered = basicReview ? getBasicAcceptedLoreEntries(state) : getFilteredLoreEntries(state);'), 'Basic accepted Lorecards must not inherit hidden Advanced filters.');
+assert(style.includes('saga-basic-review-actions-card') && style.includes('saga-basic-advanced-handoff'), 'Basic Review simplification must have dedicated styling.');
+assert(style.includes('saga-basic-readiness-card') && style.includes('saga-basic-injection-summary-card'), 'Basic readiness and selected-lore cards must have dedicated styling.');
 assert(harness.includes('window.__sagaSmokeReady = true'), 'Harness must expose a smoke-ready marker.');
 assert(harness.includes('new URLSearchParams(window.location.search)'), 'Harness must support query-param visual smoke variants.');
 assert(harness.includes("smokeParams.get('tab')"), 'Harness must allow direct tab selection for targeted smoke tests.');
+assert(harness.includes("const smokeMode = smokeParams.get('mode') === 'basic' ? 'basic' : 'advanced';"), 'Harness must allow direct Basic and Advanced smoke modes.');
+assert(harness.includes("experienceMode: smokeMode"), 'Harness settings must honor the requested smoke mode.');
+assert(harness.includes('window.__sagaSmokeMode = smokeMode'), 'Harness must expose requested smoke mode metadata.');
 assert(harness.includes("activeTab: smokeActiveTab"), 'Harness must open directly to the requested smoke tab.');
 assert(harness.includes("smokeParams.get('review') === 'context-proposals'"), 'Harness must support opening Context proposal review for visual smoke.');
 assert(harness.includes('window.__sagaContextSmoke'), 'Harness must expose Context smoke metadata.');
@@ -178,6 +238,16 @@ assert(runtimePanelSource.includes('Dismiss All'), 'Context proposal review must
 assert(runtimePanelSource.includes('createContextProposalReviewRow'), 'Context proposal review must render per-proposal rows.');
 assert(runtimePanelSource.includes('formatContextPatchSummary'), 'Context proposal review must summarize proposed Context patches.');
 assert(runtimePanelSource.includes('createContextAdvancedBriefSection'), 'Context tab must move legacy global fields into an advanced brief section.');
+assert(/function renderContextTab[\s\S]*const basic = isBasicExperience\(settings\);[\s\S]*if \(!basic\) container\.appendChild\(createContextAdvancedBriefSection\(state\)\);/.test(panel), 'Basic Context must hide the Advanced Context Brief section.');
+assert(panel.includes("'Choose the story position for each loaded Loredeck.'"), 'Basic Context header must use story-position copy.');
+assert(contextPanel.includes('function isBasicExperienceMode') && panel.includes('isBasicExperience: () => isBasicExperience(getSettings())'), 'Context panel must receive the active experience mode.');
+assert(contextPanel.includes("'Story Position'") && contextPanel.includes('Browse Story Waypoints'), 'Basic Context command center must prioritize story-position browsing.');
+assert(contextPanel.includes('Suggested Story Positions') && contextPanel.includes('Story Position Suggestions') && contextPanel.includes('Review Suggestions'), 'Basic Context proposals must be presented as story-position suggestions.');
+assert(/if \(!basic\)\s*{\s*const resolverActions/.test(contextPanel), 'Basic Context must hide Resolve Local and Ask Reasoner controls.');
+assert(/if \(!basic\)\s*{\s*card\.appendChild\(createContextResolutionAuditPanel\(state\)\);\s*card\.appendChild\(createContextAutomationAuditPanel\(state\)\);/.test(contextPanel), 'Basic Context must hide resolver and automation audit panels.');
+assert(/if \(!basic\)\s*{\s*actions\.appendChild\(createButton\(context\.manualLock \? 'Unlock' : 'Lock'/.test(contextPanel), 'Basic Loredeck Context rows must hide direct manual lock controls.');
+assert(contextPanel.includes("createContextProposalReviewRow(proposal, { basic })") && contextPanel.includes("basic ? 'Use This' : 'Apply'"), 'Basic Context proposal review rows must use suggestion wording while Advanced keeps Apply wording.');
+assert(panel.includes("label.textContent = basic ? 'Context Check' : 'Detector'"), 'Basic Context status row must avoid detector-centric labeling.');
 assert(runtimePanelSource.includes("'context.advancedBrief'"), 'Advanced Context Brief section must have a stable collapsible id.');
 assert(!runtimePanelSource.includes('container.appendChild(createContextDetectionCard(state));'), 'Context tab must not render the old standalone detection card.');
 assert(runtimePanelSource.includes('toggleLoredeckContextManualLock'), 'Loaded Loredeck Context rows must expose a direct lock/unlock control.');

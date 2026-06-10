@@ -16,100 +16,30 @@ function freezeGuideSteps(steps) {
 
 export const GUIDE_STEPS = Object.freeze({
     basic: freezeGuideSteps([
-        guideStep('active', 'Saga Active', 'The master runtime switch. Keep it on when you want Saga to select and inject accepted lore.', 'session', 'session.active', {
-            expected: 'When enabled, Saga can update prompt injection and run any manual tools you click.',
-            when: 'Turn it off only when you want the chat to ignore Saga without changing saved lore.',
+        guideStep('active', 'Keep Saga Active', 'Saga Active is the master switch. Leave it on when you want accepted Lorecards to help the next response.', 'session', 'session.active', {
+            expected: 'Saga can use accepted Lorecards and any manual tools you choose to run.',
+            when: 'Turn it off only when this chat should ignore Saga without deleting saved lore.',
         }),
-        guideStep('metrics', 'Session Metrics', 'Summarizes pending lore, accepted lore, selected injection entries, and estimated injected tokens.', 'session', 'session.metrics', {
-            expected: 'These numbers tell you whether Saga has lore to review and whether lore is being selected for injection.',
-            when: 'Use this as a quick health check when the model seems unaware of stored lore.',
+        guideStep('choose-loredeck', 'Choose a Loredeck', 'Open the Loredeck Library and load the deck or deck group that matches the story you are playing.', 'loredecks', 'loredecks.library.open', {
+            fallbackTarget: 'loredecks.library.launch',
+            expandSections: Object.freeze(['loredecks.libraryLaunch']),
+            expected: 'At least one Loredeck is loaded into the active stack for this chat.',
+            when: 'Do this first. Saga needs a loaded Loredeck before Context, review, and prompt selection mean much.',
         }),
-        guideStep('context-detect', 'Detect Context', 'Reads recent chat and updates the active Context Brief plus loaded Loredeck Contexts.', 'context', 'context.detect', {
-            expected: 'The Context Brief and unlocked Loredeck Context rows update from current story-position signals.',
-            when: 'Run this before canon suggestions and whenever the story jumps dates, arcs, chapters, episodes, quests, or major events.',
+        guideStep('set-context', 'Set Context', 'Set the current story position for the loaded Loredeck. Manual Context Browser choices are the trusted Basic path.', 'context', 'context.commandCenter', {
+            expandSections: Object.freeze(['context.commandCenter', 'context.loadedLoredecks']),
+            expected: 'The loaded Loredeck has a current Context row, such as an arc, chapter, date, episode, quest, or other story position.',
+            when: 'Do this after loading a Loredeck and whenever the story jumps to a new major point.',
         }),
-        guideStep('context-fields', 'Advanced Context Brief', 'Manually correct the legacy global Context Brief projection when detection is incomplete.', 'context', 'context.fields', {
-            expandSections: Object.freeze(['context.advancedBrief']),
-            expected: 'Manual edits still affect legacy canon suggestions and story-lore generation, while loaded Loredeck rows remain the primary Context surface.',
-            when: 'Use this for alternate timelines, unclear dates, or scenes where the chat has not stated the story position.',
+        guideStep('review-lorecards', 'Review Lorecards', 'Review suggested or generated Lorecards before they affect future responses.', 'lore', 'lore.pending', {
+            expandSections: Object.freeze(['lore.basic.pendingReview', 'lore.basic.acceptedEntries']),
+            expected: 'Useful facts become accepted Lorecards. Recap, noise, or wrong facts stay out.',
+            when: 'Use this whenever Saga proposes Lorecards or when you add an important story fact manually.',
         }),
-        guideStep('new-lore', 'New Lore', 'Creates a manual pending lore draft from your own judgment.', 'lore', 'lore.new', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'The draft enters Pending Lore Review so it can be edited before acceptance.',
-            when: 'Use this for important objects, rules, promises, relationships, secrets, or story-specific facts.',
-        }),
-        guideStep('lore-context', 'Lore Context Status', 'Shows the global Context projection used by legacy canon and lore tools on this tab.', 'lore', 'lore.contextStatus', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'If the context is missing or stale, refresh it before adding canon lore.',
-            when: 'Check this before Preview Canon Packs or Scan Story Lore.',
-        }),
-        guideStep('canon-preview', 'Preview Canon Packs', 'Queries the local canon database without an API call and groups matching entries into packs.', 'lore', 'lore.canon.preview', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'A preview appears below with selectable date-aware canon constraints.',
-            when: 'Use this to add canon guardrails without paying for model generation.',
-        }),
-        guideStep('canon-results', 'Canon Preview Results', 'Review packs, detail level, selected count, and candidate entries before adding anything.', 'lore', 'lore.canon.previewResults', {
-            fallbackTarget: 'lore.canon.preview',
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Selected entries move to Pending Lore Review, not directly into accepted lore.',
-            when: 'Use this to avoid adding too many low-value canon entries.',
-        }),
-        guideStep('story-scan', 'Scan Story Lore', 'Uses the Reasoning provider to extract story-specific lore from recent chat.', 'lore', 'lore.story.scan', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Generated entries appear in Pending Lore Review after the scan completes.',
-            when: 'Run this after a meaningful amount of new story has happened.',
-        }),
-        guideStep('pending-workbench', 'Pending Workbench', 'Opens a larger review surface for many pending entries.', 'lore', 'lore.pending.workbench', {
-            fallbackTarget: 'lore.pending',
-            expandSections: Object.freeze(['lore.basic.pendingReview', 'lore.pendingReview']),
-            expected: 'You get denser rows and a detail pane for batch review.',
-            when: 'Use this when there are dozens of pending entries.',
-        }),
-        guideStep('pending-entry', 'Pending Entry Anatomy', 'A pending entry shows title, metadata chips, tags, fact text, routing, and review actions.', 'lore', 'lore.pending.entry', {
-            fallbackTarget: 'lore.pending',
-            expandSections: Object.freeze(['lore.basic.pendingReview', 'lore.pendingReview']),
-            expected: 'Accept durable lore. Dismiss recap facts or entries that are not useful for future prompting.',
-            when: 'Use this every time generated or canon lore is proposed.',
-        }),
-        guideStep('pending-bulk', 'Pending Bulk Actions', 'Select, apply, or dismiss groups of pending lore entries.', 'lore', 'lore.pending.bulk', {
-            fallbackTarget: 'lore.pending',
-            expandSections: Object.freeze(['lore.basic.pendingReview', 'lore.pendingReview']),
-            expected: 'Bulk actions process only selected entries unless you choose Apply All or Dismiss All.',
-            when: 'Use this after scanning a large range or adding a whole canon pack.',
-        }),
-        guideStep('accepted-filters', 'Accepted Lore Filters', 'Search and filter accepted entries by category or source.', 'lore', 'lore.accepted.filters', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.basic.acceptedEntries', 'lore.acceptedEntries']),
-            expected: 'Only matching accepted entries remain visible.',
-            when: 'Use this once accepted lore grows beyond a small handful of entries.',
-        }),
-        guideStep('accepted-entry', 'Accepted Entry Controls', 'Accepted entries can be expanded, edited, retagged, pinned, muted, and assigned relevance.', 'lore', 'lore.accepted.entry', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.basic.acceptedEntries', 'lore.acceptedEntries']),
-            expected: 'Pin prioritizes an entry. Mute stores it but excludes it from injection.',
-            when: 'Use this to keep high-value lore precise and remove noise from prompt injection.',
-        }),
-        guideStep('accepted-workbench', 'Accepted Workbench', 'Opens large-list management for accepted lore.', 'lore', 'lore.accepted.workbench', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.basic.acceptedEntries', 'lore.acceptedEntries']),
-            expected: 'You get dense rows, filters, bulk actions, and a detail pane.',
-            when: 'Use this for large accepted-lore sets.',
-        }),
-        guideStep('inject-lore-toggle', 'Inject Lore Toggle', 'Controls whether accepted lore is sent into the next roleplay prompt.', 'injection', 'injection.loreToggle', {
-            expected: 'When on, enabled relevance tiers can contribute prompt text.',
-            when: 'Turn this off if you want to store lore but keep it out of the current prompt.',
-        }),
-        guideStep('high-tier', 'High-Relevance Lore', 'Immediate scene-critical lore. This tier is closest to the latest prompt context.', 'injection', 'injection.tier.high', {
-            expected: 'High lore should usually stay direct unless it becomes very large.',
-            when: 'Use this for current secrets, active objects, live promises, and scene-critical constraints.',
-        }),
-        guideStep('normal-tier', 'Normal-Relevance Lore', 'Useful background lore that may matter soon but is not the current scene focus.', 'injection', 'injection.tier.normal', {
-            expected: 'Normal lore can be direct or compressed depending on token pressure.',
-            when: 'Use this for recent relationship changes, recurring facts, and branch-defining context.',
-        }),
-        guideStep('low-tier', 'Low-Relevance Lore', 'Longer-range background lore. Basic defaults keep this conservative.', 'injection', 'injection.tier.low', {
-            expected: 'Low lore is often disabled or compressed unless the scene needs broad context.',
-            when: 'Use this for distant history or low-priority world state.',
+        guideStep('continue-update', 'Continue and Update', 'When accepted Lorecards are selected, continue roleplay. When the story jumps, return to Context; when new durable facts appear, review or scan recent story.', 'session', 'session.basicInjectionSummary', {
+            fallbackTarget: 'session.basicReadiness',
+            expected: 'Basic shows whether accepted Lorecards are selected for the next response without opening the full Injection tab.',
+            when: 'Use this as the normal loop: play, update Context after jumps, and review important new lore.',
         }),
     ]),
     advanced: freezeGuideSteps([
@@ -398,8 +328,8 @@ export const GUIDE_CONTENT = Object.freeze({
         title: 'Getting Started',
         subtitle: 'first steps',
         tooltip: 'A short guided setup for core Saga use.',
-        lede: 'Start with Context, add reviewable lore, accept what matters, then check what Saga will send into the next prompt.',
-        note: 'The chat remains the source of truth. Saga keeps the useful details editable, searchable, and ready for injection.',
+        lede: 'Start by loading a Loredeck, setting Context, reviewing useful Lorecards, and then continuing the chat.',
+        note: 'Basic keeps the prompt controls out of the way. Switch to Advanced only when you want automation, diagnostics, or the full Injection preview.',
         tourLabel: 'Start Walkthrough',
     }),
     advanced: Object.freeze({

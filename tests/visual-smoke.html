@@ -101,6 +101,7 @@
             .includes(smokeParams.get('tab'))
             ? smokeParams.get('tab')
             : 'loredecks';
+        const smokeMode = smokeParams.get('mode') === 'basic' ? 'basic' : 'advanced';
         const smokeAutoOpenContextProposals = smokeParams.get('review') === 'context-proposals';
 
         const customPack = {
@@ -250,7 +251,7 @@
 
         const settings = {
             ...DEFAULT_SETTINGS,
-            experienceMode: 'advanced',
+            experienceMode: smokeMode,
             loredeckLibrary: {
                 schemaVersion: 1,
                 packs: {
@@ -430,10 +431,13 @@
             });
         }
         window.__sagaContextSmoke = {
+            mode: smokeMode,
             activeTab: smokeActiveTab,
             proposalCount: state.lorePanel.contextResolutionProposals.length,
             autoOpenContextProposals: smokeAutoOpenContextProposals,
         };
+        window.__sagaSmokeMode = smokeMode;
+        window.__sagaSmokeActiveTab = smokeActiveTab;
         window.__sagaSmokeReady = true;
     </script>
 </body>

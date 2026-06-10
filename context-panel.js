@@ -48,6 +48,7 @@ function handleModelResolveContexts(button) { return dep('handleModelResolveCont
 function appendContextGenerationStatus(card, state) { return dep('appendContextGenerationStatus', () => null)(card, state); }
 function createContextBriefStatusCard(state) { return dep('createContextBriefStatusCard', () => document.createDocumentFragment())(state); }
 function shouldShowContextAutomationPanel() { return dep('shouldShowContextAutomationPanel', () => false)(); }
+function isBasicExperienceMode() { return dep('isBasicExperience', () => false)() === true; }
 function createCollapsibleSection(sectionId, titleText, subtitleText, defaultOpen, content, options) { return dep('createCollapsibleSection')(sectionId, titleText, subtitleText, defaultOpen, content, options); }
 function createContextEditorCard(state) { return dep('createContextEditorCard', () => document.createDocumentFragment())(state); }
 function getState() { return dep('getState', () => ({}))(); }
@@ -326,11 +327,13 @@ function clampContextSettingConfidence(value, fallback = 0) {
 }
 
 export function createContextCommandCenterCard(state = {}, contextIndex = null) {
+    const basic = isBasicExperienceMode();
     const stack = getContextWorkbenchStack(state);
     const proposals = getContextResolutionProposals(state);
     const briefStatus = state?.contextBrief?.status || {};
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-context-command-card';
+    if (basic) card.classList.add('saga-context-command-card-basic');
     markTourTarget(card, 'context.commandCenter');
 
     const header = document.createElement('div');
@@ -339,56 +342,77 @@ export function createContextCommandCenterCard(state = {}, contextIndex = null) 
     titleWrap.className = 'saga-context-command-title-wrap';
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
-    title.textContent = 'Runtime Context';
-    addTooltip(title, 'Primary runtime controls for loaded Loredeck Context, detection, proposals, locks, and the Context Browser.');
+    title.textContent = basic ? 'Story Position' : 'Runtime Context';
+    addTooltip(title, basic
+        ? 'Choose where this chat sits in each loaded Loredeck.'
+        : 'Primary runtime controls for loaded Loredeck Context, detection, proposals, locks, and the Context Browser.');
     titleWrap.appendChild(title);
     const help = document.createElement('div');
     help.className = 'saga-runtime-help';
-    help.textContent = 'Choose the current story position per loaded Loredeck. Manual Browser choices and locks outrank automatic detection.';
+    help.textContent = basic
+        ? 'Browse Story Waypoints when you know where the chat is. Use Detect Context if you want Saga to suggest a position.'
+        : 'Choose the current story position per loaded Loredeck. Manual Browser choices and locks outrank automatic detection.';
     titleWrap.appendChild(help);
     header.appendChild(titleWrap);
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta saga-context-command-chips';
-    chips.appendChild(createStatusPill(`${stack.length} loaded`, 'Enabled Loredecks currently participating in Context resolution.'));
-    chips.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Context timeline registry status for the enabled Loredeck stack.'));
-    chips.appendChild(createContextBriefStatusPill(getContextBriefStatusLabel(briefStatus), 'Latest detector status from the saved Context Brief.', getContextBriefStatusTone(briefStatus)));
-    chips.appendChild(createStatusPill(`${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`, 'Reasoner-backed Context proposals waiting for review.'));
+    chips.appendChild(createStatusPill(`${stack.length} loaded`, basic ? 'Loaded Loredecks that need story position.' : 'Enabled Loredecks currently participating in Context resolution.'));
+    chips.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), basic ? 'Available story waypoints from the loaded Loredecks.' : 'Context timeline registry status for the enabled Loredeck stack.'));
+    chips.appendChild(createContextBriefStatusPill(getContextBriefStatusLabel(briefStatus), basic ? 'Latest Context check status.' : 'Latest detector status from the saved Context Brief.', getContextBriefStatusTone(briefStatus)));
+    if (!basic || proposals.length) {
+        chips.appendChild(createStatusPill(
+            `${proposals.length} ${basic ? 'suggestion' : 'proposal'}${proposals.length === 1 ? '' : 's'}`,
+            basic ? 'Story position suggestions waiting for review.' : 'Reasoner-backed Context proposals waiting for review.'
+        ));
+    }
     header.appendChild(chips);
     card.appendChild(header);
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-context-command-actions';
-    actions.appendChild(createButton('Browse Context', 'Open the fullscreen Context Browser for loaded Loredecks, anchors, windows, resolver tests, and manual locks.', () => {
+    actions.appendChild(createButton(basic ? 'Browse Story Waypoints' : 'Browse Context', basic ? 'Open the Context Browser to choose a story position from loaded Loredeck waypoints.' : 'Open the fullscreen Context Browser for loaded Loredecks, anchors, windows, resolver tests, and manual locks.', () => {
         if (!stack.length) {
             toast('Load a Loredeck before opening the Context Browser.', 'warning');
             return;
         }
         openContextWorkbenchForPack(stack[0]?.packId || '', 'context');
     }, 'saga-primary-button'));
-    actions.appendChild(markTourTarget(createButton('Detect Context', 'Analyze recent messages and update the Context Brief plus unlocked loaded Loredeck Contexts.', async (btn) => {
+    actions.appendChild(markTourTarget(createButton('Detect Context', basic ? 'Check recent messages and suggest or update story position.' : 'Analyze recent messages and update the Context Brief plus unlocked loaded Loredeck Contexts.', async (btn) => {
         await handleDetectStoryContext(btn);
-    }, 'saga-primary-button'), 'context.detect'));
-    actions.appendChild(createButton(proposals.length ? `Review Proposals (${proposals.length})` : 'Review Proposals', 'Open bounded Reasoner Context proposals waiting for approval.', () => {
-        openContextProposalReview();
-    }));
+    }, basic ? '' : 'saga-primary-button'), 'context.detect'));
+    if (!basic || proposals.length) {
+        actions.appendChild(createButton(
+            proposals.length
+                ? `${basic ? 'Review Suggestions' : 'Review Proposals'} (${proposals.length})`
+                : 'Review Proposals',
+            basic ? 'Review suggested story positions before using them.' : 'Open bounded Reasoner Context proposals waiting for approval.',
+            () => {
+                openContextProposalReview();
+            }
+        ));
+    }
     card.appendChild(actions);
 
-    const resolverActions = document.createElement('div');
-    resolverActions.className = 'saga-primary-actions saga-context-resolver-actions';
-    resolverActions.appendChild(createButton('Resolve Local', 'Use current Context Brief signals and loaded timeline aliases to update unlocked Loredeck Contexts without a model call.', async (btn) => {
-        await handleResolveContextsFromContext(btn);
-    }));
-    resolverActions.appendChild(createButton('Ask Reasoner', 'Ask the configured Reasoning Provider to choose from bounded known timeline candidates for unresolved loaded Loredecks.', async (btn) => {
-        await handleModelResolveContexts(btn);
-    }));
-    card.appendChild(resolverActions);
+    if (!basic) {
+        const resolverActions = document.createElement('div');
+        resolverActions.className = 'saga-primary-actions saga-context-resolver-actions';
+        resolverActions.appendChild(createButton('Resolve Local', 'Use current Context Brief signals and loaded timeline aliases to update unlocked Loredeck Contexts without a model call.', async (btn) => {
+            await handleResolveContextsFromContext(btn);
+        }));
+        resolverActions.appendChild(createButton('Ask Reasoner', 'Ask the configured Reasoning Provider to choose from bounded known timeline candidates for unresolved loaded Loredecks.', async (btn) => {
+            await handleModelResolveContexts(btn);
+        }));
+        card.appendChild(resolverActions);
+    }
 
     appendContextGenerationStatus(card, state);
     card.appendChild(createContextBriefStatusCard(state));
     card.appendChild(createContextResolutionProposalPanel(state));
-    card.appendChild(createContextResolutionAuditPanel(state));
-    card.appendChild(createContextAutomationAuditPanel(state));
+    if (!basic) {
+        card.appendChild(createContextResolutionAuditPanel(state));
+        card.appendChild(createContextAutomationAuditPanel(state));
+    }
 
     if (shouldShowContextAutomationPanel()) {
         card.appendChild(createContextAutomationPanel());
@@ -404,6 +428,7 @@ function createContextBriefStatusPill(text, tooltip, tone = '') {
 }
 
 export function createLoredeckContextCard(state = {}, contextIndex = null) {
+    const basic = isBasicExperienceMode();
     const stack = getContextWorkbenchStack(state);
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-loredeck-context-card';
@@ -412,19 +437,22 @@ export function createLoredeckContextCard(state = {}, contextIndex = null) {
     header.className = 'saga-context-section-header';
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
-    title.textContent = 'Loaded Loredeck Contexts';
-    addTooltip(title, 'Current story position for each enabled Loredeck in the active stack.');
+    title.textContent = basic ? 'Loaded Loredecks' : 'Loaded Loredeck Contexts';
+    addTooltip(title, basic ? 'Current story position for each loaded Loredeck.' : 'Current story position for each enabled Loredeck in the active stack.');
     header.appendChild(title);
 
     const indexMeta = document.createElement('div');
     indexMeta.className = 'saga-context-index-summary';
     if (stack.length) {
-        indexMeta.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Context timeline registry status for the enabled Loredeck stack.'));
-        if (contextIndex?.summary?.issueCount) {
+        indexMeta.appendChild(createStatusPill(
+            basic ? `${stack.length} loaded` : formatContextIndexSummary(contextIndex),
+            basic ? 'Loaded Loredecks available for story-position selection.' : 'Context timeline registry status for the enabled Loredeck stack.'
+        ));
+        if (!basic && contextIndex?.summary?.issueCount) {
             indexMeta.appendChild(createStatusPill(`${contextIndex.summary.issueCount} index issue${contextIndex.summary.issueCount === 1 ? '' : 's'}`, 'Timeline registry load warnings or suggestions.'));
         }
     } else {
-        indexMeta.appendChild(createStatusPill('No loaded Loredecks', 'Load Loredecks into the active stack before setting per-Loredeck Context.'));
+        indexMeta.appendChild(createStatusPill('No loaded Loredecks', basic ? 'Load a Loredeck before choosing story position.' : 'Load Loredecks into the active stack before setting per-Loredeck Context.'));
     }
     header.appendChild(indexMeta);
     card.appendChild(header);
@@ -437,7 +465,7 @@ export function createLoredeckContextCard(state = {}, contextIndex = null) {
     const list = document.createElement('div');
     list.className = 'saga-loredeck-context-list';
     for (const item of stack) {
-        list.appendChild(createLoredeckContextRow(item, state, contextIndex));
+        list.appendChild(createLoredeckContextRow(item, state, contextIndex, { basic }));
     }
     card.appendChild(list);
     return card;
@@ -534,24 +562,31 @@ export function createContextAutomationAuditPanel(state = {}) {
 }
 
 export function createContextResolutionProposalPanel(state = {}) {
+    const basic = isBasicExperienceMode();
     const proposals = getContextResolutionProposals(state);
     if (!proposals.length) return document.createDocumentFragment();
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-context-quick';
+    if (basic) wrap.classList.add('saga-context-suggestion-panel');
     wrap.dataset.sagaContextProposals = 'true';
 
     const header = document.createElement('div');
     header.className = 'saga-loredeck-context-quick-header';
     const title = document.createElement('div');
     title.className = 'saga-runtime-card-title';
-    title.textContent = 'Reasoner Proposals';
-    addTooltip(title, 'Reasoner-backed Context proposals are bounded to known timeline candidates and require review before application.');
+    title.textContent = basic ? 'Suggested Story Positions' : 'Reasoner Proposals';
+    addTooltip(title, basic
+        ? 'Detected story-position suggestions are reviewable before Saga uses them.'
+        : 'Reasoner-backed Context proposals are bounded to known timeline candidates and require review before application.');
     header.appendChild(title);
 
     const meta = state?.lorePanel?.contextResolutionProposalMeta || {};
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(`${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`, 'Pending Context proposals from the Reasoning Provider.'));
+    chips.appendChild(createStatusPill(
+        `${proposals.length} ${basic ? 'suggestion' : 'proposal'}${proposals.length === 1 ? '' : 's'}`,
+        basic ? 'Story-position suggestions waiting for review.' : 'Pending Context proposals from the Reasoning Provider.'
+    ));
     if (meta.createdAt) chips.appendChild(createStatusPill(`Drafted ${new Date(meta.createdAt).toLocaleTimeString()}`, 'When these Context proposals were drafted.'));
     header.appendChild(chips);
     wrap.appendChild(header);
@@ -562,11 +597,11 @@ export function createContextResolutionProposalPanel(state = {}) {
         const item = document.createElement('div');
         item.className = 'saga-context-workbench-mini-item';
         const label = document.createElement('strong');
-        label.textContent = `${getLoredeckDisplayName(proposal.packId)}: ${proposal.label || proposal.candidateId || 'Context proposal'}`;
+        label.textContent = `${getLoredeckDisplayName(proposal.packId)}: ${proposal.label || proposal.patch?.label || (basic ? 'Story position suggestion' : proposal.candidateId || 'Context proposal')}`;
         item.appendChild(label);
         const detail = document.createElement('span');
-        const confidence = Number.isFinite(Number(proposal.confidence)) ? ` (${Math.round(Number(proposal.confidence) * 100)}%)` : '';
-        detail.textContent = `${proposal.summary || 'Reasoner selected a bounded timeline candidate.'}${confidence}`;
+        const confidence = !basic && Number.isFinite(Number(proposal.confidence)) ? ` (${Math.round(Number(proposal.confidence) * 100)}%)` : '';
+        detail.textContent = `${proposal.summary || (basic ? 'Saga found a possible story position.' : 'Reasoner selected a bounded timeline candidate.')}${confidence}`;
         item.appendChild(detail);
         list.appendChild(item);
     }
@@ -580,16 +615,18 @@ export function createContextResolutionProposalPanel(state = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions';
-    actions.appendChild(createButton('Open Review', 'Open the fullscreen Context proposal review window.', () => {
+    actions.appendChild(createButton(basic ? 'Review Suggestions' : 'Open Review', basic ? 'Review suggested story positions before using them.' : 'Open the fullscreen Context proposal review window.', () => {
         openContextProposalReview();
     }, 'saga-primary-button'));
-    actions.appendChild(createButton('Apply Proposals', 'Apply every listed Context proposal to its loaded Loredeck Context.', async () => {
-        const ok = await confirmAction('Apply Context proposals?', `Apply ${proposals.length} Reasoner Context proposal${proposals.length === 1 ? '' : 's'}?`);
-        if (!ok) return;
-        applyContextResolutionProposalSet(proposals, {
-            clearAll: true,
-        });
-    }));
+    if (!basic) {
+        actions.appendChild(createButton('Apply Proposals', 'Apply every listed Context proposal to its loaded Loredeck Context.', async () => {
+            const ok = await confirmAction('Apply Context proposals?', `Apply ${proposals.length} Reasoner Context proposal${proposals.length === 1 ? '' : 's'}?`);
+            if (!ok) return;
+            applyContextResolutionProposalSet(proposals, {
+                clearAll: true,
+            });
+        }));
+    }
     actions.appendChild(createButton('Dismiss', 'Discard these Context proposals without changing loaded Loredeck Contexts.', () => {
         dismissContextResolutionProposalSet(proposals, { clearAll: true });
     }));
@@ -634,10 +671,12 @@ export function renderContextProposalReview() {
 }
 
 export function createContextProposalReviewShell(state = {}) {
+    const basic = isBasicExperienceMode();
     const proposals = getContextResolutionProposals(state);
     const meta = state?.lorePanel?.contextResolutionProposalMeta || {};
     const shell = document.createElement('div');
     shell.className = 'saga-lore-workbench-shell saga-context-proposal-review-shell';
+    if (basic) shell.classList.add('saga-context-proposal-review-shell-basic');
     shell.addEventListener('click', event => event.stopPropagation());
 
     const header = document.createElement('div');
@@ -647,26 +686,36 @@ export function createContextProposalReviewShell(state = {}) {
     titleWrap.className = 'saga-lore-workbench-title-wrap';
     const title = document.createElement('div');
     title.className = 'saga-lore-workbench-title';
-    title.textContent = 'Context Proposal Review';
+    title.textContent = basic ? 'Story Position Suggestions' : 'Context Proposal Review';
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
     subtitle.className = 'saga-lore-workbench-subtitle';
-    subtitle.textContent = 'Review bounded Reasoner choices before applying them to loaded Loredeck Context.';
+    subtitle.textContent = basic
+        ? 'Review suggested story positions before using them for loaded Loredecks.'
+        : 'Review bounded Reasoner choices before applying them to loaded Loredeck Context.';
     titleWrap.appendChild(subtitle);
 
     const chips = document.createElement('div');
     chips.className = 'saga-context-workbench-header-chips';
-    chips.appendChild(createStatusPill(`${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`, 'Pending Context proposals from the Reasoning Provider.'));
+    chips.appendChild(createStatusPill(
+        `${proposals.length} ${basic ? 'suggestion' : 'proposal'}${proposals.length === 1 ? '' : 's'}`,
+        basic ? 'Story-position suggestions waiting for review.' : 'Pending Context proposals from the Reasoning Provider.'
+    ));
     if (meta.createdAt) chips.appendChild(createStatusPill(`Drafted ${new Date(meta.createdAt).toLocaleTimeString()}`, 'When these Context proposals were drafted.'));
-    if (meta.cached) chips.appendChild(createStatusPill('Cached', 'This proposal batch came from the repeated-check cache.'));
-    if (meta.source) chips.appendChild(createStatusPill(formatContextProposalSource(meta.source), 'Source of this Context proposal batch.'));
+    if (!basic && meta.cached) chips.appendChild(createStatusPill('Cached', 'This proposal batch came from the repeated-check cache.'));
+    if (!basic && meta.source) chips.appendChild(createStatusPill(formatContextProposalSource(meta.source), 'Source of this Context proposal batch.'));
     titleWrap.appendChild(chips);
     header.appendChild(titleWrap);
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-context-proposal-review-actions';
-    actions.appendChild(createButton('Apply All', 'Apply every listed Context proposal.', async () => {
-        const ok = await confirmAction('Apply Context proposals?', `Apply ${proposals.length} Reasoner Context proposal${proposals.length === 1 ? '' : 's'}?`);
+    actions.appendChild(createButton(basic ? 'Use All Suggestions' : 'Apply All', basic ? 'Use every listed story-position suggestion.' : 'Apply every listed Context proposal.', async () => {
+        const ok = await confirmAction(
+            basic ? 'Use story-position suggestions?' : 'Apply Context proposals?',
+            basic
+                ? `Use ${proposals.length} story-position suggestion${proposals.length === 1 ? '' : 's'}?`
+                : `Apply ${proposals.length} Reasoner Context proposal${proposals.length === 1 ? '' : 's'}?`
+        );
         if (!ok) return;
         applyContextResolutionProposalSet(proposals, {
             clearAll: true,
@@ -686,7 +735,7 @@ export function createContextProposalReviewShell(state = {}) {
     const list = document.createElement('div');
     list.className = 'saga-context-proposal-review-list';
     for (const proposal of proposals) {
-        list.appendChild(createContextProposalReviewRow(proposal));
+        list.appendChild(createContextProposalReviewRow(proposal, { basic }));
     }
     body.appendChild(list);
     shell.appendChild(body);
@@ -701,7 +750,8 @@ function formatContextProposalSource(source = '') {
     return normalized || 'Unknown';
 }
 
-function createContextProposalReviewRow(proposal = {}) {
+function createContextProposalReviewRow(proposal = {}, options = {}) {
+    const basic = options.basic === true;
     const row = document.createElement('div');
     row.className = 'saga-context-proposal-review-row';
 
@@ -709,20 +759,22 @@ function createContextProposalReviewRow(proposal = {}) {
     main.className = 'saga-context-proposal-review-main';
     const title = document.createElement('div');
     title.className = 'saga-context-proposal-review-title';
-    title.textContent = `${getLoredeckDisplayName(proposal.packId)}: ${proposal.label || proposal.candidateId || 'Context proposal'}`;
+    title.textContent = `${getLoredeckDisplayName(proposal.packId)}: ${proposal.label || proposal.patch?.label || (basic ? 'Story position suggestion' : proposal.candidateId || 'Context proposal')}`;
     main.appendChild(title);
 
     const summary = document.createElement('div');
     summary.className = 'saga-context-proposal-review-summary';
-    summary.textContent = proposal.summary || 'Reasoner selected a bounded timeline candidate.';
+    summary.textContent = proposal.summary || (basic ? 'Saga found a possible story position.' : 'Reasoner selected a bounded timeline candidate.');
     main.appendChild(summary);
 
-    const chips = document.createElement('div');
-    chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(`${Math.round((Number(proposal.confidence) || 0) * 100)}%`, 'Reasoner confidence for this bounded proposal.'));
-    if (proposal.candidateType) chips.appendChild(createStatusPill(proposal.candidateType, 'Timeline candidate type.'));
-    if (proposal.candidateId) chips.appendChild(createStatusPill(proposal.candidateId, 'Bounded candidate ID selected by the Reasoner.'));
-    main.appendChild(chips);
+    if (!basic) {
+        const chips = document.createElement('div');
+        chips.className = 'saga-loredeck-row-meta';
+        chips.appendChild(createStatusPill(`${Math.round((Number(proposal.confidence) || 0) * 100)}%`, 'Reasoner confidence for this bounded proposal.'));
+        if (proposal.candidateType) chips.appendChild(createStatusPill(proposal.candidateType, 'Timeline candidate type.'));
+        if (proposal.candidateId) chips.appendChild(createStatusPill(proposal.candidateId, 'Bounded candidate ID selected by the Reasoner.'));
+        main.appendChild(chips);
+    }
 
     const patchSummary = document.createElement('div');
     patchSummary.className = 'saga-context-proposal-review-patch';
@@ -732,11 +784,11 @@ function createContextProposalReviewRow(proposal = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-context-proposal-review-row-actions';
-    actions.appendChild(createButton('Apply', 'Apply this Context proposal.', () => {
+    actions.appendChild(createButton(basic ? 'Use This' : 'Apply', basic ? 'Use this story-position suggestion.' : 'Apply this Context proposal.', () => {
         const applied = applyContextResolutionProposalSet([proposal]);
-        if (!applied) toast('Context proposal could not be applied.', 'warning');
+        if (!applied) toast(basic ? 'Story position suggestion could not be used.' : 'Context proposal could not be applied.', 'warning');
     }, 'saga-primary-button'));
-    actions.appendChild(createButton('Dismiss', 'Discard this Context proposal.', () => {
+    actions.appendChild(createButton('Dismiss', basic ? 'Discard this story-position suggestion.' : 'Discard this Context proposal.', () => {
         dismissContextResolutionProposalSet([proposal]);
     }));
     row.appendChild(actions);
@@ -764,12 +816,15 @@ function formatContextPatchSummary(patch = {}) {
     return [...values, ...coordinates].slice(0, 12).join(' | ') || 'No visible Context patch fields.';
 }
 
-function createLoredeckContextRow(item, state = {}, contextIndex = null) {
+function createLoredeckContextRow(item, state = {}, contextIndex = null, options = {}) {
+    const basic = options.basic === true;
     const packId = item.packId;
     const context = getLoredeckContext(state, packId);
     const packIndex = getContextPackSummary(contextIndex, packId);
+    const summaryText = formatContextSummary(context);
     const row = document.createElement('div');
     row.className = 'saga-loredeck-context-row';
+    if (basic) row.classList.add('saga-loredeck-context-row-basic');
 
     const header = document.createElement('div');
     header.className = 'saga-loredeck-context-header';
@@ -780,39 +835,49 @@ function createLoredeckContextRow(item, state = {}, contextIndex = null) {
 
     const chips = document.createElement('div');
     chips.className = 'saga-loredeck-row-meta';
-    chips.appendChild(createStatusPill(getContextTypeLabel(context.contextType), 'Context mode for this Loredeck.'));
-    chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.'));
-    chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts should not be overwritten by automatic resolvers.'));
-    chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence. Manual choices default to high confidence.'));
-    chips.appendChild(createStatusPill(`Updated: ${formatLoredeckContextUpdatedAt(context)}`, 'When this Loredeck Context was last updated.'));
-    if (packIndex?.hasIndex) {
-        chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0}/${packIndex.windowCount || 0}`, 'Timeline anchors/windows available from this Loredeck registry.'));
+    if (basic) {
+        chips.appendChild(createStatusPill(summaryText === 'No Context set.' ? 'Story position missing' : 'Story position set', summaryText === 'No Context set.' ? 'Choose a story waypoint for this Loredeck.' : 'This Loredeck has an active story position.'));
+        chips.appendChild(createStatusPill(`Updated: ${formatLoredeckContextUpdatedAt(context)}`, 'When this Loredeck story position was last updated.'));
+        if (packIndex?.hasIndex) {
+            chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0} waypoints`, 'Story waypoints available from this Loredeck.'));
+        }
     } else {
-        chips.appendChild(createStatusPill(contextIndex ? 'No index' : 'Index loading', 'This Loredeck has no loaded timeline registry yet.'));
+        chips.appendChild(createStatusPill(getContextTypeLabel(context.contextType), 'Context mode for this Loredeck.'));
+        chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.'));
+        chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts should not be overwritten by automatic resolvers.'));
+        chips.appendChild(createStatusPill(`${Math.round((Number(context.confidence) || 0) * 100)}%`, 'Resolver confidence. Manual choices default to high confidence.'));
+        chips.appendChild(createStatusPill(`Updated: ${formatLoredeckContextUpdatedAt(context)}`, 'When this Loredeck Context was last updated.'));
+        if (packIndex?.hasIndex) {
+            chips.appendChild(createStatusPill(`${packIndex.anchorCount || 0}/${packIndex.windowCount || 0}`, 'Timeline anchors/windows available from this Loredeck registry.'));
+        } else {
+            chips.appendChild(createStatusPill(contextIndex ? 'No index' : 'Index loading', 'This Loredeck has no loaded timeline registry yet.'));
+        }
     }
     header.appendChild(chips);
     row.appendChild(header);
 
     const summary = document.createElement('div');
     summary.className = 'saga-loredeck-context-summary';
-    summary.textContent = formatContextSummary(context);
+    summary.textContent = summaryText;
     row.appendChild(summary);
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-loredeck-context-actions';
-    actions.appendChild(createButton('Browse', 'Open this Loredeck in the fullscreen Context Browser.', () => {
+    actions.appendChild(createButton(basic ? 'Choose Story Position' : 'Browse', basic ? 'Open this Loredeck in the Context Browser and choose a story waypoint.' : 'Open this Loredeck in the fullscreen Context Browser.', () => {
         openContextWorkbenchForPack(packId, 'context');
     }, 'saga-primary-button'));
-    actions.appendChild(createButton(context.manualLock ? 'Unlock' : 'Lock', context.manualLock ? 'Allow automatic Context resolvers to update this Loredeck.' : 'Prevent automatic Context resolvers from overwriting this Loredeck.', () => {
-        toggleLoredeckContextManualLock(packId, !context.manualLock);
-    }));
-    actions.appendChild(createButton('Seed From Brief', 'Seed this Loredeck Context from the advanced global Context Brief projection.', () => {
-        seedLoredeckContextFromRuntimeContext(packId, context);
-    }));
-    actions.appendChild(createButton('Timeline', 'Open this Loredeck in the fullscreen Timeline registry view.', () => {
-        openContextWorkbenchForPack(packId, 'timeline');
-    }));
-    actions.appendChild(createButton('Reset Context', 'Clear this Loredeck Context back to an empty default.', async () => {
+    if (!basic) {
+        actions.appendChild(createButton(context.manualLock ? 'Unlock' : 'Lock', context.manualLock ? 'Allow automatic Context resolvers to update this Loredeck.' : 'Prevent automatic Context resolvers from overwriting this Loredeck.', () => {
+            toggleLoredeckContextManualLock(packId, !context.manualLock);
+        }));
+        actions.appendChild(createButton('Seed From Brief', 'Seed this Loredeck Context from the advanced global Context Brief projection.', () => {
+            seedLoredeckContextFromRuntimeContext(packId, context);
+        }));
+        actions.appendChild(createButton('Timeline', 'Open this Loredeck in the fullscreen Timeline registry view.', () => {
+            openContextWorkbenchForPack(packId, 'timeline');
+        }));
+    }
+    actions.appendChild(createButton(basic ? 'Clear' : 'Reset Context', basic ? 'Clear this Loredeck story position.' : 'Clear this Loredeck Context back to an empty default.', async () => {
         await resetLoredeckContextFromPanel(packId);
     }, 'saga-danger-button'));
     row.appendChild(actions);
