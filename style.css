@@ -4197,7 +4197,9 @@
     justify-self: center;
     display: inline-grid !important;
     place-items: center;
-    padding: 0;
+    justify-content: center;
+    align-content: center;
+    padding: 0 !important;
     border-radius: 7px;
     color: var(--saga-gold, #d7b56d);
     line-height: 0;
@@ -4216,8 +4218,8 @@
 }
 
 .saga-loredeck-library-action-icon-img {
-    width: 36px;
-    height: 36px;
+    width: 46px;
+    height: 46px;
     display: block;
     grid-area: 1 / 1;
     align-self: center;
