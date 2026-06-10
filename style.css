@@ -4223,6 +4223,7 @@
     align-self: center;
     justify-self: center;
     object-fit: contain;
+    object-position: center center;
     pointer-events: none;
     user-select: none;
 }
