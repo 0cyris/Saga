@@ -135,6 +135,7 @@ function createLoredeckStackDeckKey(packId) { return dep('createLoredeckStackDec
 function createLoredeckStackFolderKey(folderId) { return dep('createLoredeckStackFolderKey', id => String(id || ''))(folderId); }
 function renderContextWorkbench(options) { return dep('renderContextWorkbench', () => {})(options); }
 function buildLoredeckHealthPackSummary(pack, cached, health) { return dep('buildLoredeckHealthPackSummary', () => ({ packId: pack?.packId || '', title: pack?.title || '' }))(pack, cached, health); }
+function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
 
 
 const LOREDECK_LIBRARY_DETAILS_MIN_HEIGHT = 190;
@@ -349,6 +350,7 @@ export function renderLoredeckLibraryOverlay(options = {}) {
 
     const header = document.createElement('div');
     header.className = 'saga-lore-workbench-header saga-loredeck-library-header';
+    markTourTarget(header, 'loredecks.library.header');
     const titleWrap = document.createElement('div');
     titleWrap.className = 'saga-lore-workbench-title-wrap';
     const titleRow = document.createElement('div');
@@ -376,9 +378,11 @@ export function renderLoredeckLibraryOverlay(options = {}) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-loredeck-library-header-actions';
-    actions.appendChild(createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
+    const importButton = createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
         installLoredeckBundleFromFile();
-    }));
+    });
+    markTourTarget(importButton, 'loredecks.library.import');
+    actions.appendChild(importButton);
     const exportSelected = createButton(
         selectedPacks.length > 1 ? `Export Selected (${selectedPacks.length})` : 'Export Selected',
         selectedPacks.length
@@ -389,6 +393,7 @@ export function renderLoredeckLibraryOverlay(options = {}) {
         }
     );
     exportSelected.disabled = !selectedPacks.length;
+    markTourTarget(exportSelected, 'loredecks.library.export');
     actions.appendChild(exportSelected);
     if (!basic) {
         actions.appendChild(createButton('Create Deck', 'Open the staged Loredeck Creator wizard.', () => {
@@ -398,7 +403,9 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     actions.appendChild(createButton('Refresh Library', 'Reload active Loredecks and recompute Deck Health.', async (btn) => {
         await refreshLoredeckLibraryWindowData(btn);
     }));
-    actions.appendChild(createButton('Done', 'Close the Loredeck Library.', closeLoredeckLibraryWindow, 'saga-primary-button'));
+    const doneButton = createButton('Done', 'Close the Loredeck Library.', closeLoredeckLibraryWindow, 'saga-primary-button');
+    markTourTarget(doneButton, 'loredecks.library.done');
+    actions.appendChild(doneButton);
     header.appendChild(actions);
     shell.appendChild(header);
 
@@ -1105,6 +1112,7 @@ function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, healt
 
     const controls = document.createElement('div');
     controls.className = 'saga-loredeck-library-controls';
+    markTourTarget(controls, 'loredecks.library.filters');
     const search = document.createElement('input');
     search.type = 'search';
     search.className = 'text_pole saga-loredeck-library-search';
@@ -1167,9 +1175,11 @@ function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, healt
         renderLoredeckLibraryOverlay();
     });
     controls.appendChild(sort);
-    controls.appendChild(createButton('New Folder', 'Create a new top-level Library folder.', () => {
+    const newFolderButton = createButton('New Folder', 'Create a new top-level Library folder.', () => {
         void promptCreateLoredeckLibraryFolder('');
-    }, 'saga-loredeck-library-small-button saga-loredeck-library-new-folder-button'));
+    }, 'saga-loredeck-library-small-button saga-loredeck-library-new-folder-button');
+    markTourTarget(newFolderButton, 'loredecks.library.folderActions');
+    controls.appendChild(newFolderButton);
     pane.appendChild(controls);
 
     pane.appendChild(createLoredeckLibrarySelectionToolbar(packs, libraryIndex));
@@ -1428,6 +1438,7 @@ function getLoredeckLibraryFolderSearchState(folderId = '', searchModel = {}) {
 function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canonDb = null, health = null, libraryIndex = {}, library = [], scopedLibrary = library) {
     const list = document.createElement('div');
     list.className = 'saga-loredeck-library-deck-list saga-loredeck-library-hierarchy-list';
+    markTourTarget(list, 'loredecks.library.list');
     const query = String(loredeckLibraryQuery || '').trim();
     const activeViewId = getLoredeckLibraryActiveViewId();
     const folderIds = new Set((libraryIndex.folders || []).map(folder => folder.id));
@@ -1994,6 +2005,7 @@ function appendLoredeckLibraryFolderParentOptions(select, movingFolderId = '', l
 function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = [], stack = [], selectedPacks = [], selectedFolder = null, libraryIndex = getLoredeckLibraryIndexForPacks()) {
     const pane = document.createElement('div');
     pane.className = 'saga-loredeck-library-transfer-pane';
+    markTourTarget(pane, 'loredecks.library.transfer');
     const selectedId = selectedPack?.packId || '';
     const library = getLoredeckLibrary(getState());
     const actionFolderId = String(selectedFolder?.id || '').trim();
@@ -2132,6 +2144,7 @@ function getLoredeckLibraryActionIconSrc(kind = 'duplicate') {
 function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null, health = null, libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library)) {
     const pane = document.createElement('div');
     pane.className = 'saga-loredeck-library-pane saga-loredeck-library-pane-stack';
+    markTourTarget(pane, 'loredecks.library.stack');
     wireLoredeckLibraryBlankSelectionClear(pane);
 
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health, libraryIndex);
@@ -3347,6 +3360,7 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
     }
     const panel = document.createElement('div');
     panel.className = 'saga-loredeck-library-details';
+    markTourTarget(panel, 'loredecks.library.details');
     if (!pack) {
         panel.classList.add('saga-loredeck-library-details-empty');
         panel.appendChild(createEmptyMessage('No Loredecks or Folders Selected'));
@@ -3407,6 +3421,7 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
     const folderId = String(folder.id || '').trim();
     const panel = document.createElement('div');
     panel.className = 'saga-loredeck-library-details saga-loredeck-library-folder-details';
+    markTourTarget(panel, 'loredecks.library.details');
 
     const packs = folderId === 'unfiled'
         ? getLoredeckLibraryFolderScopedPacks(library, libraryIndex, 'unfiled', stack)

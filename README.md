@@ -6,37 +6,38 @@
 
 **SAGA: Fandom Loresystem.**
 
-Saga is a SillyTavern extension for long-form fandom roleplay and fanfiction. It organizes canon, alternate-universe, crossover, and user-created lore into modular **Loredecks** made of reviewable **Lorecards** that can be loaded, stacked, validated, edited, and injected at the right point in a story.
+Saga is a SillyTavern extension for long-form fandom roleplay and fanfiction. It turns canon, alternate-universe, crossover, and user-created lore into modular **Loredecks**, reviewable **Lorecards**, context-aware retrieval, and prompt-ready injection.
 
-Saga grew out of Wandlight, a Harry Potter-focused lore system. Wandlight proved the core idea: LLMs often know a lot of lore, but they are weak at story position, hidden knowledge, future-canon leakage, and chat-specific continuity. Saga generalizes that idea into a broader, data-driven framework for many fandoms and custom settings.
+Saga is not a wiki viewer and not a prompt preset. It is a runtime lore system for deciding what belongs in the story **now**: what is true, what is hidden, what has changed in this chat, and what the model should actually see before writing the next response.
+
+Saga grew out of Wandlight, a Harry Potter-focused preset and lore workflow. Wandlight proved the central problem: LLMs can sound lore-aware while still leaking future canon, flattening hidden knowledge, or forgetting chat-specific changes. Saga generalizes that lesson into a fandom-agnostic extension architecture.
 
 ## Status
 
-Saga is currently in **pre-alpha integration hardening**.
+Saga is in **pre-alpha integration hardening**.
 
-Most foundational systems now exist in some form: the runtime shelf, Loredeck Library, Active Stack, Context browser, Deck Health Center, Loredeck Creator, Pending Review, import/export, theme/icon support, and the split Harry Potter reference Loredeck family. The current focus is proving that those systems work together reliably inside SillyTavern.
+The main systems exist and are being made reliable together: the runtime shelf, Basic and Advanced experiences, Loredeck Library, Active Stack, Context, Pack Health, Loredeck Creator, Pending Review, Continuity, Injection, import/export, and theme/icon support.
 
-Expect active development, incomplete workflows, changing schemas, rough edges, and possible breakage. The repository is not yet a polished public release.
+Expect active development, incomplete workflows, changing schemas, rough edges, and possible breakage. The recommended tester path is: start in **Basic**, get one chat working, then switch to **Advanced** when you need diagnostics, Creator workflows, Pack Health, Continuity, or full Injection controls.
 
-## What Saga Is For
+## Contents
 
-Saga is built for stories where lore has timing, context, and consequences.
+- [Fast Start](#fast-start)
+- [What Saga Adds](#what-saga-adds)
+- [Mental Model](#mental-model)
+- [Operator's Manual](#operators-manual)
+- [Built-In Reference Lorepacks](#built-in-reference-lorepacks)
+- [Relationship To Wandlight](#relationship-to-wandlight)
+- [Documentation](#documentation)
+- [For Contributors](#for-contributors)
+- [Project Layout](#project-layout)
+- [Authoring Loredecks](#authoring-loredecks)
 
-It helps answer:
+## Fast Start
 
-- What lore is true at this point in the story?
-- What facts are not known yet?
-- What future canon should stay hidden?
-- What has this specific chat changed?
-- Which loaded fandom decks should influence the next response?
-- Which Lorecards are important enough to inject now?
-- Which model-generated lore changes need review before they affect play?
-
-Saga is not meant to be a wiki browser. A good Saga Lorecard should change how the model writes a scene: what characters know, hide, want, fear, misunderstand, expect, avoid, reveal, or react to in the current Context.
-
-## Quick Start For Testers
-
-Saga is an extension, not a prompt preset.
+<p align="center">
+  <img src="Images/documentation/renders/docs-shell-basic-start.png" alt="Saga Basic start checklist and runtime shelf" width="800">
+</p>
 
 1. Install or clone this repository as a SillyTavern third-party extension.
 
@@ -47,130 +48,269 @@ Saga is an extension, not a prompt preset.
    ```
 
 2. Restart or reload SillyTavern.
+3. Open the Saga shelf from the extension UI.
+4. Use **Basic** Experience for the first run.
+5. Open **Loredecks** and load a Loredeck into the **Active Stack**.
+6. Open **Context** and set where the story currently is.
+7. Open **Lorecards** and review any generated or user-created lore before accepting it.
+8. Confirm the **Start Checklist** is ready.
+9. Continue roleplay. Switch to **Advanced** only when you need deeper controls.
 
-3. Open the Saga shelf from the extension UI and use **Basic** Experience for the first run.
+For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). Existing Wandlight users should start with [Wandlight To Saga](docs/user/WANDLIGHT_TO_SAGA.md).
 
-4. Open **Session** and confirm Saga is active.
+## What Saga Adds
 
-5. Open **Loredecks**, open **Loredeck Library**, and add a bundled, imported, or custom Loredeck to the active stack for the current chat.
+| Surface | What it does |
+| --- | --- |
+| **Loredecks** | Portable lore packages for fandom canon, AU branches, crossover rules, original settings, or user edits. |
+| **Lorecards** | Reviewable facts and constraints that are focused enough to affect a scene. |
+| **Context** | Story position: date, book, arc, chapter, episode, route, quest stage, stardate, or another coordinate system. |
+| **Active Stack** | The ordered set of loaded Loredecks for the current chat. |
+| **Pending Review** | A safety layer where generated or edited lore waits before becoming accepted content. |
+| **Injection** | The final prompt layer that sends only eligible, relevant lore to the model. |
+| **Pack Health** | Structural validation for Loredecks, tags, manifests, timelines, and Context references. |
+| **Loredeck Creator** | A staged, review-first workflow for generating new Loredecks without one giant prompt. |
 
-6. Open **Context** and set where the story currently is inside the loaded Loredeck.
+## Mental Model
 
-7. Open **Lorecards**, generate or add Lorecards, and accept only facts that should affect future responses.
+Saga's main runtime path is:
 
-8. Confirm the **Start Checklist** is ready, then continue roleplay.
+```text
+Loredeck Library -> Active Stack -> Context -> Lorecards -> Injection -> Model response
+```
 
-9. Use Basic **Settings** for provider tests and Theme Pack management. Use the shelf mode buttons to switch to **Advanced** when you need provider internals, automation, Continuity, Deck Health, Creator, bulk management, or the full Injection preview.
+Saga's review path is:
 
-For the guided path, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md). Fluent users can use [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). Existing Wandlight users should start with [Wandlight To Saga](docs/user/WANDLIGHT_TO_SAGA.md).
+```text
+Generate or edit -> Pending Review -> Accept -> Pack Health -> Use in chat
+```
 
-For repeatable local UI checks, see [SAGA_VISUAL_SMOKE.md](docs/development/SAGA_VISUAL_SMOKE.md).
+The important rule is simple: source lore, generated drafts, accepted chat lore, live continuity, and prompt injection are separate layers. Saga is useful because it keeps those layers visible instead of silently mixing them together.
 
-## Core Concepts
+## Operator's Manual
 
-### Loredeck
+### First Run Checklist
 
-A Loredeck is a portable, data-only package of fandom or story-setting knowledge. It can represent canon, AU material, crossover logic, original setting lore, scenario rules, or user-authored additions.
+Basic Experience keeps the first-run path narrow. The Start Checklist is the operator's quick answer to: "Is Saga ready to influence this chat?"
 
-Loredecks are loaded into a chat through the Active Stack. They can be duplicated, customized, imported, exported, validated, and eventually generated through Saga's Creator workflow.
+Use it to confirm that Saga is active, Loredecks are loaded, Context is set, Lorecards are available, and injection has something useful to send.
 
-### Lorecard
+### Session
 
-A Lorecard is one reviewable unit of lore inside a Loredeck. It should be focused enough to retrieve precisely and useful enough to affect the next scene.
+<p align="center">
+  <img src="Images/documentation/renders/docs-session-advanced-status.png" alt="Saga Advanced session controls and status" width="800">
+</p>
 
-Good Lorecards are not broad wiki summaries. They carry specific facts, constraints, reveals, relationships, states, abilities, location conditions, knowledge boundaries, or timeline events.
+The **Session** tab is the runtime control room. It shows the current experience mode, automation state, readiness, and active system status.
 
-### Context
+Use **Basic** when you want the guided path. Use **Advanced** when you need to inspect automation, run diagnostics, work with Continuity, manage prompt injection, or operate the Loredeck Creator.
 
-Context is Saga's story-position system. It tells Saga where the current chat is inside a deck's source range.
+### Loredecks And Active Stack
 
-Context can be based on dates, school years, books, arcs, chapters, seasons, episodes, quests, routes, phases, stardates, or any other coordinate system that fits the fandom. The point is not exact dates everywhere. The point is making lore eligible only when it belongs.
+<p align="center">
+  <img src="Images/documentation/renders/docs-loredecks-overview.png" alt="Saga Loredecks tab overview" width="800">
+</p>
 
-### Active Stack
+A **Loredeck** is a portable, data-only lore package. It can represent canon, AU material, crossover logic, original setting lore, scenario rules, or user-authored additions.
 
-The Active Stack is the ordered set of loaded Loredecks for the current chat. Stack priority helps decide which deck wins when multiple decks could contribute lore.
+<p align="center">
+  <img src="Images/documentation/renders/docs-loredecks-library-launch.png" alt="Saga Loredeck Library launcher card" width="700">
+</p>
 
-This is what allows Saga to support custom overlays, crossovers, AU decks, and user-edited variants without flattening everything into one lorebook.
+Saga uses three public Lorepack types:
 
-### Pending Review
+- **Bundled Lorepack**: shipped with Saga and human-vetted.
+- **Generated Lorepack**: produced by the Loredeck Creator and still review-oriented.
+- **Custom Lorepack**: user-created, duplicated, imported, edited, AU, crossover, or shared.
 
-Pending Review is the safety layer for proposed changes. Model-generated lore, timeline edits, tag changes, and repair suggestions should be reviewed before they become accepted deck content.
+<p align="center">
+  <img src="Images/documentation/renders/docs-loredeck-library-overview.png" alt="Saga Loredeck Library workbench" width="800">
+</p>
 
-Saga is designed around review-first workflows rather than silent model mutation.
+The **Loredeck Library** is the long-term home for browsing, organizing, importing, exporting, duplicating, inspecting, and validating Loredecks.
 
-### Deck Health
+<p align="center">
+  <img src="Images/documentation/renders/docs-loredeck-library-active-stack.png" alt="Saga Active Stack panel" width="650">
+</p>
 
-Deck Health validates whether a Loredeck is technically reliable. It checks loading, manifests, entry files, schema expectations, Context/timeline references, tag registries, stats, and other structural issues.
+The **Active Stack** is the ordered set of Loredecks loaded into the current chat. Stack priority matters when multiple decks can contribute lore. Enable, disable, reorder, or remove stack items to control what participates in Context, retrieval, and Injection.
 
-Clean Deck Health does not prove every lore fact is canonically perfect, but it does mean Saga can load and reason over the deck without known structural problems.
+<p align="center">
+  <img src="Images/documentation/renders/docs-loredeck-library-selected-details.png" alt="Saga selected Loredeck details panel" width="800">
+</p>
 
-## Feature Overview
+The selected Loredeck details area is where operators inspect metadata, source type, health state, stats, and deck actions. Use it before trusting a deck in a long-running story.
 
-### Loredeck Library
+### Pack Health
 
-Browse and manage bundled, generated, imported, duplicated, and custom Loredecks. The Library is the long-term home for deck organization, deck covers, metadata, folders, import/export, updates, details, and health actions.
+<p align="center">
+  <img src="Images/documentation/renders/docs-pack-health-overview.png" alt="Saga Pack Health overview" width="800">
+</p>
 
-### Active Stack Manager
+**Pack Health** validates whether Saga can reliably load and reason over a Loredeck. It checks manifests, embedded metadata, entry structure, tag registries, timeline references, Context gates, stats, and other structural expectations.
 
-Load multiple Loredecks into a session, reorder them, enable or disable them, and control which decks participate in Context, retrieval, and injection.
+Pack Health is not a canon-truth oracle. A clean report means the deck is structurally usable. It does not prove every lore claim is perfect.
 
-### Context Browser
+<p align="center">
+  <img src="Images/documentation/renders/docs-pack-health-issues.png" alt="Saga Pack Health grouped issues table" width="800">
+</p>
 
-Search or select story waypoints from loaded Loredecks. Saga can work with timelines, windows, anchors, before/after boundaries, and Lorecard-derived event candidates when useful.
-
-### Lorecards
-
-Inspect accepted and pending Lorecards, edit metadata, review generated proposals, adjust relevance, and keep chat-specific accepted lore separate from source deck data.
-
-### Injection Preview
-
-Saga's injection layer decides which Lorecards actually reach the model prompt. It accounts for Context gates, accepted lore, relevance, pin/mute state, stack priority, compression, and prompt placement.
-
-### Deck Health Center
-
-Validate decks before relying on them. Deck Health groups errors, warnings, and suggestions so deck authors can repair issues systematically instead of guessing why a deck behaves strangely.
+The Issues view groups related findings so deck authors can repair problems systematically. Run Pack Health after importing, generating, duplicating, finalizing, or heavily editing a Loredeck.
 
 ### Loredeck Creator
 
-Saga's Creator is a staged workflow for generating Loredecks without asking a model to produce an entire deck in one giant response.
+<p align="center">
+  <img src="Images/documentation/renders/docs-loredeck-creator-intake.png" alt="Saga Loredeck Creator intake screen" width="800">
+</p>
+
+The **Loredeck Creator** is a staged generation workflow. It is deliberately not "ask a model for a whole deck in one response."
 
 The intended flow is:
 
-1. Scope Brief
-2. Story Outline and Context Plan
-3. Lorecard Title Pass
-4. Timeline and Tag Planning
-5. Lorecard Drafting
-6. Review and Pending Review
-7. Deck Health and finalization
+1. Scope Brief.
+2. Story outline and Context plan.
+3. Lorecard title pass.
+4. Timeline and tag planning.
+5. Lorecard drafting.
+6. Review and Pending Review.
+7. Pack Health and finalization.
 
-Generated content is draft material until it survives review.
+<p align="center">
+  <img src="Images/documentation/renders/docs-loredeck-creator-current-task.png" alt="Saga Loredeck Creator current task area" width="800">
+</p>
 
-### Lore Assistant
+Generated material remains draft material until reviewed. A Generated Lorepack should become a Custom Lorepack only after its entries, Context, tags, and Pack Health are good enough to use.
 
-The Lore Assistant is a model-assisted helper for revising entries, tags, timelines, Deck Health issues, and natural-language bulk edits. It should produce reviewable proposals, not silent changes.
+### Context
 
-### Continuity Tools
+<p align="center">
+  <img src="Images/documentation/renders/docs-context-command-center.png" alt="Saga Context command center" width="800">
+</p>
 
-Saga preserves Saga's continuity-tracking direction: durable story lore, lightweight continuity state, reviewable scans, and responsive status feedback. The goal is to remember what this chat changed without mixing that state into static canon decks.
+**Context** tells Saga where the current chat is inside each loaded Loredeck. It can be a date, anchor, chapter, book, arc, phase, route, season, quest stage, stardate, or custom coordinate system.
 
-### Import, Export, And Updates
+Context is how Saga avoids injecting lore too early, too late, or from the wrong branch of a story.
 
-Saga supports local Loredeck import/export and is building toward safer update previews, canonical content hashes, collision handling, local modification warnings, and generated-to-custom installation flows.
+<p align="center">
+  <img src="Images/documentation/renders/docs-context-loaded-loredecks.png" alt="Saga loaded Loredeck Context rows" width="800">
+</p>
 
-### Provider Flexibility
+Loaded Loredeck Context rows show which decks have Context, whether that Context is manual or detected, and whether the operator locked it.
 
-Saga is model/provider agnostic. Stronger reasoning models are useful for Context proposals, Loredeck Creator planning, and more complex lore repairs. Faster utility models can be useful for small revisions or lower-stakes suggestions.
+<p align="center">
+  <img src="Images/documentation/renders/docs-context-workbench.png" alt="Saga Context workbench" width="800">
+</p>
 
-Provider behavior varies. Treat model output as draft material until reviewed.
+The Context workbench supports browsing and selecting story positions from loaded Loredecks.
 
-### Themes And Icon Sets
+<p align="center">
+  <img src="Images/documentation/renders/docs-context-proposal-review.png" alt="Saga Context proposal review" width="800">
+</p>
 
-Saga includes theme and icon set support so the runtime shelf can evolve visually without mixing executable code into visual assets. Like Loredecks, theme and icon assets should remain passive data.
+When Saga proposes Context changes, review them before applying. Reasoner output should guide the operator, not silently change the story's active position.
 
-## Bundled Reference Decks
+### Lorecards
 
-The current reference data is the split Harry Potter Golden Trio Loredeck family:
+<p align="center">
+  <img src="Images/documentation/renders/docs-lorecards-overview.png" alt="Saga Lorecards tab overview" width="800">
+</p>
+
+A **Lorecard** is one reviewable unit of lore. It should be narrow enough to retrieve precisely and important enough to affect the next scene.
+
+Good Lorecards are not broad wiki summaries. They describe specific facts, constraints, reveals, relationship states, knowledge boundaries, abilities, location conditions, or timeline events.
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-lorecards-pending-review.png" alt="Saga Pending Lorecard Review section" width="800">
+</p>
+
+**Pending Review** is where generated or proposed Lorecards wait. Accept only content that should affect future responses. Reject or revise anything that is vague, premature, duplicated, too broad, or wrong for the current branch.
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-lorecards-accepted-list.png" alt="Saga accepted Lorecards list" width="800">
+</p>
+
+Accepted Lorecards can be filtered by relevance, pinned, muted, edited, or inspected. Relevance tiers help Saga decide what deserves prompt space now.
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-lorecards-workbench.png" alt="Saga Lorecard Workbench" width="800">
+</p>
+
+The Lorecard Workbench is for heavier review and batch management.
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-lore-timeline.png" alt="Saga Lore Timeline" width="800">
+</p>
+
+The Lore Timeline shows how lore changed over time: accepted entries, rejected drafts, pin/mute changes, restores, and other review events.
+
+### Continuity
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-continuity-overview.png" alt="Saga Continuity tab overview" width="800">
+</p>
+
+Saga separates durable lore from live continuity. Lorecards are long-term facts and constraints. Continuity is lightweight current state: scene, characters, items, objectives, and active threads.
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-continuity-scan.png" alt="Saga Continuity Scan controls" width="800">
+</p>
+
+Continuity scans help update live state from recent chat. Use them to keep the current scene coherent, not to build a second static lore database.
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-continuity-character-state.png" alt="Saga active character continuity state" width="800">
+</p>
+
+Character state is for what is currently true in the chat: location, posture, clothing, physical state, emotional state, carried items, goals, and immediate notes.
+
+### Injection
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-injection-overview.png" alt="Saga Injection tab overview" width="800">
+</p>
+
+**Injection** is the final operator truth source for what Saga will send to the model. A Lorecard can exist, be accepted, and still not inject if it is muted, out of Context, disabled, lower priority, or outside the configured prompt budget.
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-injection-placement.png" alt="Saga prompt placement controls" width="800">
+</p>
+
+Prompt placement controls decide where Continuity and each Lorecard relevance tier are inserted into the model context.
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-injection-high-preview.png" alt="Saga High-Relevance Lore Injection preview" width="800">
+</p>
+
+The preview shows the actual text Saga is preparing for injection. Use it when debugging "why did the model know this?" or "why did the model forget this?"
+
+### Settings, Providers, Themes
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-settings-providers.png" alt="Saga provider settings" width="800">
+</p>
+
+Saga is model/provider agnostic. Use stronger reasoning models for Context proposals, Creator planning, and complex repairs. Use faster utility models for smaller, lower-risk suggestions. Treat all model output as draft until reviewed.
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-settings-theme-pack.png" alt="Saga Theme Pack settings" width="800">
+</p>
+
+Theme Packs and Icon Sets are passive data. They can change the shelf's appearance without running code.
+
+### Troubleshooting
+
+| Problem | First check |
+| --- | --- |
+| Saga shelf does not open | Confirm the extension is installed under SillyTavern's third-party extension folder and reload SillyTavern. |
+| No Loredecks are active | Open Loredecks, then Loredeck Library, and add a Loredeck to the Active Stack. |
+| Lore seems from the wrong point in the story | Open Context and check the active Context for each loaded Loredeck. |
+| Accepted Lorecards are not reaching the model | Open Injection and inspect the relevance preview, pin/mute state, Context gate, and injection enable toggles. |
+| Imported or generated deck behaves strangely | Run Pack Health and review grouped issues. |
+| Model-assisted actions fail | Check provider settings, model availability, and whether the action requires Utility or Reasoning configuration. |
+
+## Built-In Reference Lorepacks
+
+Saga currently ships a split Harry Potter Golden Trio reference family:
 
 - `hp-core`
 - `hp-year-1-philosophers-stone`
@@ -182,25 +322,40 @@ The current reference data is the split Harry Potter Golden Trio Loredeck family
 - `hp-year-7-deathly-hallows`
 - `hp-epilogue-post-war`
 
-This family is the model for how a large fandom can be split into reusable core lore plus narrower era, year, arc, or post-canon decks. Future bundled decks should meet the same bar: clean Deck Health, clear Context boundaries, consistent manifests, useful tags, and no unreviewed generated material treated as canon.
+`hp-core` is reusable baseline lore. The year and era decks narrow Context so future canon and hidden knowledge are less likely to leak into the wrong point in the story.
+
+This family is the current authoring model for future Bundled Lorepacks: clear Context boundaries, useful tags, clean manifests, reliable Pack Health, and no unreviewed generated material treated as finished canon.
+
+## Relationship To Wandlight
+
+Wandlight was a lightweight Harry Potter preset and lore workflow. It emphasized date-aware canon anchoring, prose controls, anti-slop prompting, character modules, and manual lorebook support.
+
+Saga keeps the strongest product lessons and moves them into a general extension:
+
+- Manual canon anchoring becomes **Context**.
+- Lorebook-style facts become **Lorecards**.
+- Static HP-specific lore becomes portable **Loredecks**.
+- Dynamic canon becomes Context-gated retrieval and spoiler control.
+- Reviewable lore suggestions become **Pending Review**.
+- Prompt placement and relevance controls become **Injection**.
+- HP-only assumptions become fandom-agnostic schema, tags, timelines, and deck stacks.
 
 ## Documentation
 
-Release-facing documentation is being organized under [docs](docs/DOCUMENTATION_INDEX.md).
-
-Key docs:
+Release-facing docs:
 
 - [Documentation Index](docs/DOCUMENTATION_INDEX.md)
+- [Basic Workflow](docs/user/BASIC_WORKFLOW.md)
+- [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md)
+- [Wandlight To Saga](docs/user/WANDLIGHT_TO_SAGA.md)
 - [Loredeck And Lorecard Creation](docs/loredecks/LOREDECK_AND_LORECARD_CREATION_GUIDE.md)
 - [LLM Loredeck Generation Guide](docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md)
 - [Loredeck Schema Reference](docs/loredecks/SAGA_LOREDECK_SCHEMA.md)
 - [Saga Terminology](docs/development/SAGA_TERMINOLOGY.md)
-- [Alpha Release Systems](docs/development/SAGA_ALPHA_RELEASE_SYSTEMS.md)
-- [Visual Smoke Runbook](docs/development/SAGA_VISUAL_SMOKE.md)
 
-Development notes still live in [docs/development](docs/development/) until they are promoted, rewritten, or archived as release-facing docs.
+Development notes live in [docs/development](docs/development/) until promoted, rewritten, or archived as release-facing docs.
 
-## Development Checks
+## For Contributors
 
 HP reference deck health and conformance:
 
@@ -217,7 +372,7 @@ node scripts\test-context-hp-phrase-fixtures.mjs
 node scripts\test-context-current-contract.mjs
 ```
 
-Visual smoke harness checks:
+Visual smoke checks:
 
 ```powershell
 node scripts\test-visual-smoke-harness.mjs
@@ -239,7 +394,7 @@ http://127.0.0.1:8765/tests/visual-smoke.html
 ## Project Layout
 
 ```text
-Loredecks/              Bundled Loredeck data and index.
+Loredecks/              Bundled Lorepack data and index.
 Images/                 Branding, icons, screenshots, and passive assets.
 Presets/                Optional provider/preset data.
 docs/loredecks/         Release-facing Loredeck authoring docs.
@@ -252,31 +407,15 @@ Important runtime modules:
 
 - `index.js`: extension entrypoint and SillyTavern integration.
 - `lore-panel.js`: current runtime shell/controller while decomposition continues.
-- `loredeck-loader.js`: Loredeck loading, validation, Context, tags, and Deck Health behavior.
+- `loredeck-loader.js`: Loredeck loading, validation, Context, tags, and Pack Health behavior.
 - `loredeck-library-panel.js`: Library UI.
-- `loredeck-health-panel.js`: Deck Health UI.
+- `loredeck-health-panel.js`: Pack Health UI.
 - `loredeck-assistant.js`: model-assisted Creator and Lore Assistant prompt builders.
 - `loredeck-creator-projects.js`: Creator project state and review-stage helpers.
 - `context-resolver.js`: Context resolution logic.
 - `context-index.js`: searchable Context index over loaded decks.
 - `prompt-injector.js`: prompt injection bridge.
 - `state-manager.js`: persisted Saga state.
-
-## Relationship To Saga
-
-Saga started as a lightweight Harry Potter preset and lore workflow for SillyTavern. It emphasized date-aware canon anchoring, roleplay prose controls, anti-slop prompting, character set toggles, dynamic canon guidance, and manual lorebook support.
-
-Saga keeps the strongest product lessons and moves them into a general extension architecture:
-
-- Manual canon anchoring becomes Context.
-- Lorebook-style facts become Lorecards.
-- Static HP-specific lore becomes portable Loredecks.
-- Dynamic canon becomes Context-gated retrieval and spoiler control.
-- Reviewable lore suggestions become Pending Review.
-- Prompt placement and relevance controls become the Injection system.
-- HP-only assumptions become fandom-agnostic schema, tags, timelines, and deck stacks.
-
-Saga is not just Saga with more fandoms. It is the broader framework that Saga was pointing toward.
 
 ## Authoring Loredecks
 
@@ -286,7 +425,7 @@ Start with:
 - [LLM Loredeck Generation Guide](docs/loredecks/LLM_LOREDECK_GENERATION_GUIDE.md)
 - [Loredeck Schema Reference](docs/loredecks/SAGA_LOREDECK_SCHEMA.md)
 
-Reference-quality decks should be data-only, Context-aware, reviewable, and clean under Deck Health. Do not treat parsed JSON as finished content. A deck is ready to model future work only when it loads cleanly, retrieves at the right Context, keeps future lore gated, and has no outstanding health issues.
+Reference-quality decks should be data-only, Context-aware, reviewable, and clean under Pack Health. Do not treat parsed JSON as finished content. A deck is ready to model future work only when it loads cleanly, retrieves at the right Context, keeps future lore gated, and has no outstanding health issues.
 
 ## License
 

@@ -6,7 +6,7 @@
 
 This is the working schema and product/data contract for Saga Loredecks. It is still evolving with the extension, but it is no longer stored with broad development notes because deck authors need a stable place to find the contract.
 
-Terminology note: public-facing Saga language is now **Loredeck**, **Lorecard**, **Context**, and **Deck Health**. Internal implementation identifiers such as `packId` remain explicit until Saga has a separate deck-id migration plan.
+Terminology note: public-facing Saga language is now **Loredeck**, **Lorecard**, **Context**, and **Pack Health**. The three public package type labels are **Bundled Lorepack**, **Generated Lorepack**, and **Custom Lorepack**. Internal implementation identifiers such as `packId` remain explicit until Saga has a separate deck-id migration plan.
 
 The goal is to define enough structure for:
 
@@ -14,7 +14,7 @@ The goal is to define enough structure for:
 - A Loredeck stack.
 - Deck-aware Context.
 - Tags.
-- Deck Health.
+- Pack Health.
 - Import, export, and update metadata.
 - Future Loredeck editing and generation.
 
@@ -34,19 +34,19 @@ Saga Loredecks should be:
 - Strict enough to load safely.
 - Flexible enough for fandoms without exact dates.
 
-## User-Facing Deck Types
+## User-Facing Lorepack Types
 
-Saga exposes only three Loredeck types:
+Saga exposes only three public Lorepack type labels over the internal `type` values:
 
-- `bundled`: shipped with Saga and human-vetted.
-- `generated`: created by Saga's Loredeck Creator and not human-vetted by default.
-- `custom`: user-made, user-shared, imported, duplicated, AU, crossover, or original.
+- `bundled`: **Bundled Lorepack**, shipped with Saga and human-vetted.
+- `generated`: **Generated Lorepack**, created by Saga's Loredeck Creator and not human-vetted by default.
+- `custom`: **Custom Lorepack**, user-made, user-shared, imported, duplicated, AU, crossover, or original.
 
-Internal metadata may record source, derivation, update URLs, generation details, and local modifications, but the UI should still classify the deck using only these three types.
+Internal metadata may record source, derivation, update URLs, generation details, and local modifications, but the UI should still classify the deck using only these three Lorepack types.
 
 ## Suggested File Layout
 
-Bundled decks should live under `Loredecks/`.
+Bundled Lorepacks should live under `Loredecks/`.
 
 ```text
 Loredecks/
@@ -69,7 +69,7 @@ Loredecks/
     user/
 ```
 
-Custom and generated packs may eventually live in a user data location managed by SillyTavern or Saga. The loader should not assume every pack is bundled with the extension.
+Custom and Generated Lorepacks may eventually live in a user data location managed by SillyTavern or Saga. The loader should not assume every pack is bundled with the extension.
 
 User-shared bundles should eventually use a zip container so JSON and passive image assets can travel together:
 
@@ -171,13 +171,13 @@ Existing Saga packs can start with `loredeck.json` plus the current entry files 
 | `derivedFrom` | object | Source pack metadata if this pack was duplicated or generated from another pack. |
 | `manifestData` | object | Library-only embedded manifest metadata for virtual Custom duplicates before durable local storage exists. |
 | `entryOverrides` | object | Library-only map of edited or added Lorecards keyed by entry ID. |
-| `disabledEntryIds` | string[] | Library-only source entry IDs suppressed by this Custom Loredeck. |
-| `timelineRegistry` | object | Library-only Custom/Generated timeline overlay for accepted anchor/window edits before durable pack-folder writes exist. |
-| `tagRegistry` | object | Library-only Custom/Generated tag overlay for accepted tag definition edits before durable pack-folder writes exist. |
+| `disabledEntryIds` | string[] | Library-only source entry IDs suppressed by this Custom Lorepack. |
+| `timelineRegistry` | object | Library-only Custom/Generated Lorepack timeline overlay for accepted anchor/window edits before durable pack-folder writes exist. |
+| `tagRegistry` | object | Library-only Custom/Generated Lorepack tag overlay for accepted tag definition edits before durable pack-folder writes exist. |
 | `pendingChanges` | object[] | Library-only review queue for proposed Loredeck edits that have not been accepted yet. |
 | `generatedBy` | object | Loredeck Creator metadata. |
 | `license` | object | Pack license and usage notes. |
-| `health` | object | Last known Deck Health summary. |
+| `health` | object | Last known Pack Health summary. |
 | `dependencies` | object[] | Optional pack compatibility hints. |
 | `extensions` | object | Future or creator-specific metadata. |
 
@@ -335,7 +335,7 @@ Suggested `source.kind` values:
 }
 ```
 
-If a user edits an imported Custom Loredeck, Saga should mark it as locally modified and avoid overwriting it during updates without explicit confirmation.
+If a user edits an imported Custom Lorepack, Saga should mark it as locally modified and avoid overwriting it during updates without explicit confirmation.
 
 ### Virtual Custom Duplicates
 
@@ -345,11 +345,11 @@ Before full local zip/folder storage exists, Saga may represent a duplicated pac
 - `manifestData`: an embedded manifest copy with the new Custom `id`, type, title, tags, and derivation metadata.
 - `derivedFrom`: the source pack ID, title, version, manifest path, and duplicate timestamp.
 
-The UI still shows this as a Custom Loredeck. The virtual duplicate is loadable because entry files resolve relative to the source manifest, while runtime pack identity comes from `manifestData.id`.
+The UI still shows this as a Custom Lorepack. The virtual duplicate is loadable because entry files resolve relative to the source manifest, while runtime pack identity comes from `manifestData.id`.
 
 ### Custom Editable Layers
 
-Before Saga can write durable local pack folders, a Custom Loredeck may store accepted edits in its library record:
+Before Saga can write durable local pack folders, a Custom Lorepack may store accepted edits in its library record:
 
 ```json
 {
@@ -406,9 +406,9 @@ Before Saga can write durable local pack folders, a Custom Loredeck may store ac
 }
 ```
 
-When loading a pack, Saga applies `entryOverrides` before Deck Health and canon database normalization. An override with the same ID as a source entry replaces that entry for this Custom pack. An override with a new ID becomes an added entry. A disabled entry ID suppresses the matching source entry.
+When loading a pack, Saga applies `entryOverrides` before Pack Health and canon database normalization. An override with the same ID as a source entry replaces that entry for this Custom Lorepack. An override with a new ID becomes an added entry. A disabled entry ID suppresses the matching source entry.
 
-`timelineRegistry` overlays source `timeline.json`: custom anchors/windows with the same ID replace source definitions, new IDs extend the timeline, and `disabledAnchorIds` / `disabledWindowIds` suppress source definitions. Accepted timeline overlays affect Deck Health, Context search, resolver behavior, and runtime Context gating.
+`timelineRegistry` overlays source `timeline.json`: custom anchors/windows with the same ID replace source definitions, new IDs extend the timeline, and `disabledAnchorIds` / `disabledWindowIds` suppress source definitions. Accepted timeline overlays affect Pack Health, Context search, resolver behavior, and runtime Context gating.
 
 `pendingChanges` are not applied during loading. They are accepted or rejected in the Loredeck editor. Accepting a pending change applies its record patch into `entryOverrides`, `disabledEntryIds`, `timelineRegistry`, and/or `tagRegistry`; rejecting it removes the proposal without changing runtime-active lore.
 
@@ -418,7 +418,7 @@ Pending change `source` should identify the proposer, such as `manual`, `bulk_ed
 
 Dependencies are advisory in MVP.
 
-They help Saga warn users when a Custom Loredeck expects another pack to be loaded.
+They help Saga warn users when a Custom Lorepack expects another pack to be loaded.
 
 ```json
 {
@@ -563,7 +563,7 @@ Use the existing specific-lore purpose set:
 ]
 ```
 
-These are more important than categories for Deck Health and generated pack quality.
+These are more important than categories for Pack Health and generated pack quality.
 
 ## Content Kind
 
@@ -597,7 +597,7 @@ Example:
 }
 ```
 
-This can be useful as a Custom Loredeck, but Saga should not treat it as strongly Context-driven unless the pack defines an actual campaign/story timeline.
+This can be useful as a Custom Lorepack, but Saga should not treat it as strongly Context-driven unless the pack defines an actual campaign/story timeline.
 
 ## Continuity Block
 
@@ -645,7 +645,7 @@ This is important for:
 
 Saga's local canon suggestions should be Context and relevance driven, but imported lorebooks often rely on keyword triggers. Saga should preserve these semantics.
 
-`triggers` allows Chub/SillyTavern/NovelAI-style lorebooks to import cleanly and gives Custom packs a precise activation layer when Context is not enough.
+`triggers` allows Chub/SillyTavern/NovelAI-style lorebooks to import cleanly and gives Custom Lorepacks a precise activation layer when Context is not enough.
 
 ### Trigger Fields
 
@@ -1011,7 +1011,7 @@ Saga should preserve placeholders instead of stripping or blindly expanding them
 }
 ```
 
-Deck Health should warn about unknown or malformed variables, but imported packs should remain usable.
+Pack Health should warn about unknown or malformed variables, but imported packs should remain usable.
 
 ## Entity References
 
@@ -1023,7 +1023,7 @@ Entries may reference entities by ID through:
 - `tags`
 - `extensions`
 
-Entity IDs are optional in MVP, but they will become important for serious Custom and Bundled Loredecks.
+Entity IDs are optional in MVP, but they will become important for serious Custom and Bundled Lorepacks.
 
 Example:
 
@@ -1066,7 +1066,7 @@ meta:crossover
 meta:future-guard
 ```
 
-Namespaces are not mandatory for all user-created packs, but Bundled Loredecks should use namespaces consistently.
+Namespaces are not mandatory for all user-created packs, but Bundled Lorepacks should use namespaces consistently.
 
 ### Tag Registry Example
 
@@ -1108,7 +1108,7 @@ Namespaces are not mandatory for all user-created packs, but Bundled Loredecks s
 | `deprecated` | boolean | Whether the tag should be replaced. |
 | `replacement` | string | Replacement tag ID. |
 
-Undefined tags should be Deck Health warnings, not load blockers.
+Undefined tags should be Pack Health warnings, not load blockers.
 
 ## entities.json
 
@@ -1192,7 +1192,7 @@ Examples:
 | `sourceInfo` | object | Source metadata. |
 | `extensions` | object | Future metadata. |
 
-Entities should not be required for every Custom pack. They should be strongly recommended for Bundled packs and generated canon-scale packs.
+Entities should not be required for every Custom Lorepack. They should be strongly recommended for Bundled Lorepacks and generated canon-scale Lorepacks.
 
 ## timeline.json
 
@@ -1335,7 +1335,7 @@ The index is stack-aware:
 - Anchor search is pack-local by default in the Context editor.
 - Suggest Lore, preprocessing, and Relevance can later use the same index for deck-aware temporal promotion.
 
-Missing `timeline.json` is allowed. Some Custom Loredecks may be keyword-first, scenario-first, or still in early drafting. Deck Health may suggest adding timeline anchors, but Saga should not reject a pack only because it has no Context registry.
+Missing `timeline.json` is allowed. Some Custom Lorepacks may be keyword-first, scenario-first, or still in early drafting. Pack Health may suggest adding timeline anchors, but Saga should not reject a pack only because it has no Context registry.
 
 Timeline registries are not Lorecard files. They are compact resolver/index data used to help map phrases like `after Shibuya`, `Civil War era`, `Year 4`, `post-war`, or `before the Battle of Hogwarts` into normalized Loredeck Context fields.
 
@@ -1435,7 +1435,7 @@ It controls display labels, colors, and descriptions for:
 
 Saga should merge missing values with safe defaults.
 
-Bundled packs should stay within Saga's supported category values unless the UI and normalizer are updated.
+Bundled Lorepacks should stay within Saga's supported category values unless the UI and normalizer are updated.
 
 ## gate-types.json
 
@@ -1666,9 +1666,9 @@ Suggested `source` values:
 - Empty media-coordinate fields are allowed. A fandom does not need to use season, episode, chapter, issue, quest, and date simultaneously.
 - `branchId` defaults to `main` and can represent AU, crossover, time-travel, or custom continuity branches.
 
-## Deck Health Report
+## Pack Health Report
 
-Deck Health is advisory. It should not block packs for subjective quality issues.
+Pack Health is advisory. It should not block packs for subjective quality issues.
 
 Only technical load failures should be errors.
 
@@ -1813,27 +1813,27 @@ Current Context health behavior:
 - `invalid_context_window` warns when anchor sort order or explicit sort keys make a Context window start after it ends.
 - `unmatchable_context_gate` warns when an anchor/window-only entry gate cannot match known timeline anchors.
 - `timeline_anchor_sortkey_mismatch` and `timeline_window_sortkey_mismatch` warn when date-derived-day timelines drift from their date ranges.
-- `context_gates_without_timeline` is a suggestion, not a warning, because Custom Loredecks may be useful before they have a timeline registry.
+- `context_gates_without_timeline` is a suggestion, not a warning, because Custom Lorepacks may be useful before they have a timeline registry.
 - Missing or empty timeline registries never block pack loading.
 
 Current schema v3 health behavior:
 
 - Schema v3 entries must be Context-native and use `context` instead of legacy top-level date/timing fields.
 - Schema v3 entries must include `content.fact`, `content.injection`, and retrieval metadata.
-- Wide or global lore remains allowed, but Deck Health warns when it is not configured for conservative topic/entity retrieval.
+- Wide or global lore remains allowed, but Pack Health warns when it is not configured for conservative topic/entity retrieval.
 - Manifest `stats.entryCount` and `stats.categoryCounts` are checked against loaded entries as warnings, not load blockers.
-- Editor validation, validated Custom/Generated export, and safe repair actions should call the same Deck Health rules as runtime loading.
+- Editor validation, validated Custom/Generated Lorepack export, and safe repair actions should call the same Pack Health rules as runtime loading.
 - The Custom entry editor should expose Context fields, timeline anchor search/pickers, retrieval metadata, and bulk Context edits for schema v3 entries.
-- The Tag Manager preserves namespaced entry tags, supports bulk add/remove/rename through Custom override layers, loads source `tags.json` when declared, and stores editable Custom/Generated tag definitions in an embedded `tagRegistry` layer.
+- The Tag Manager preserves namespaced entry tags, supports bulk add/remove/rename through Custom Lorepack override layers, loads source `tags.json` when declared, and stores editable Custom/Generated Lorepack tag definitions in an embedded `tagRegistry` layer.
 
 Current tag health behavior:
 
-- `undefined_tag` warns when entries use tags that are not defined by source `tags.json` or the embedded Custom/Generated `tagRegistry` layer.
+- `undefined_tag` warns when entries use tags that are not defined by source `tags.json` or the embedded Custom/Generated Lorepack `tagRegistry` layer.
 - `deprecated_tag_used` warns when entries still use a tag marked deprecated.
 - `duplicate_tag_alias` warns when the same alias points at multiple tag definitions.
 - `malformed_tag_namespace` warns when tag IDs or tag references have unsupported characters, whitespace, or incomplete namespace syntax such as `tag:`.
 - `tag_parent_missing` and `deprecated_tag_replacement_missing` warn when registry relationships point at unknown tags.
-- `tag_registry_missing` is a suggestion, not a warning, because imported or early Custom packs may use entry tags before defining `tags.json`.
+- `tag_registry_missing` is a suggestion, not a warning, because imported or early Custom Lorepacks may use entry tags before defining `tags.json`.
 - `orphaned_tag_definition` is a suggestion for registry definitions not used by entries or registry relationships.
 
 ## Import And Export Packages
@@ -1951,7 +1951,7 @@ Example import metadata:
 }
 ```
 
-Imported keyword-heavy packs may not have Context data. That should be allowed. Deck Health can suggest adding Context gates without blocking the pack.
+Imported keyword-heavy packs may not have Context data. That should be allowed. Pack Health can suggest adding Context gates without blocking the pack.
 
 ## Suggested extensions.sagaLoredeck Block
 
@@ -1992,7 +1992,7 @@ The HP pack now lives under `Loredecks/hp-golden-trio` and should remain the sou
 
 The schema should be checked against popular roleplay universes before implementation hardens.
 
-Saga's main target is canon with stories, but Custom packs may also represent themes, scenarios, mechanics, or looser settings.
+Saga's main target is canon with stories, but Custom Lorepacks may also represent themes, scenarios, mechanics, or looser settings.
 
 | Universe | Saga Fit | Schema Pressure Points |
 | --- | --- | --- |
@@ -2051,7 +2051,7 @@ The first implementation should support:
 - additive entry fields for `triggers`, `continuity`, `coordinates`, `ability`, and `template`
 - single active Loredeck
 - bundled `hp-golden-trio` schema v3 conformance
-- basic Deck Health
+- basic Pack Health
 
 It does not need to fully support:
 
@@ -2066,11 +2066,11 @@ It does not need to fully support:
 
 - Should calendar coordinates remain only in `timeline.json`, or should any entry-level factual date metadata be allowed outside eligibility gates?
 - Should `spell` remain a universal category, or become a pack-defined category alias for `ability`?
-- Should Custom Loredecks be allowed to define new categories before Saga UI supports them?
-- Should unresolved dependency packs reduce scoring, or only show Deck Health warnings?
-- Should Generated Loredecks require user review before auto-suggest can use them?
+- Should Custom Lorepacks be allowed to define new categories before Saga UI supports them?
+- Should unresolved dependency packs reduce scoring, or only show Pack Health warnings?
+- Should Generated Lorepacks require user review before auto-suggest can use them?
 - How should a pack declare adaptation variants, such as manga versus anime or theatrical versus extended cuts?
 - Should tags be globally registered across packs, or merged only at runtime from loaded packs?
 - Should keyword `triggers` be evaluated before Context gates, after Context gates, or both with different scoring weights?
 - Should `contentKind: mechanics` packs be allowed into the same injection tiers as fandom-story packs, or get a separate handling path?
-- Should `entities.json` eventually become required for Bundled Loredecks?
+- Should `entities.json` eventually become required for Bundled Lorepacks?

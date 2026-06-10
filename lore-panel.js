@@ -42,6 +42,7 @@ import { buildContinuityPreview, buildLorePreview, getCompressionSourceSignature
 import { onExtractionTriggered } from './extractor.js';
 import { runLoreContextDetection, runBulkLoreGeneration } from './lore-generator.js';
 import {
+    getProviderModelStatus,
     sendLoreRequest,
     validateLoreProviderConfiguration,
 } from './lore-llm-client.js';
@@ -568,6 +569,7 @@ configureLoredeckHealthPanel({
     normalizeLoredeckPendingTimelineIdList,
     getFreshLoredeckLibraryPack,
     persistLoredeckLibraryRecordMutation,
+    markTourTarget,
 });
 
 configureLoredeckLibraryPanel({
@@ -639,6 +641,7 @@ configureLoredeckLibraryPanel({
     createLoredeckStackFolderKey,
     renderContextWorkbench,
     buildLoredeckHealthPackSummary,
+    markTourTarget,
 });
 
 configureLoredeckWorkbenchPanel({
@@ -727,6 +730,7 @@ configureLoredeckCreatorPanel({
         notes: loredeckCreatorNotes,
     }),
     formatLoredeckCreatorGranularity,
+    markTourTarget,
 });
 
 configureContextPanel({
@@ -910,6 +914,7 @@ configureRuntimeTour({
     normalizePanelLayoutState,
     normalizeTabForExperience,
     showRuntimePanel: showLorePanel,
+    prepareGuideStep: prepareRuntimeGuideStep,
     getPanelRoot: () => panelRoot,
     panelId: PANEL_ID,
 });
@@ -1162,6 +1167,182 @@ function openPendingLoreReviewSections() {
     setSectionCollapsed('lore.pendingReview', false);
 }
 
+function createGuidePrepareResult(ok = true, message = '') {
+    const result = { ok: ok !== false };
+    if (message) result.message = message;
+    return result;
+}
+
+function getRuntimeGuideRequestedPackId(step = {}) {
+    for (const candidate of [
+        step.packId,
+        step.loredeckId,
+        step.deckId,
+        step.targetPackId,
+        step.pack?.packId,
+    ]) {
+        const id = String(candidate || '').trim();
+        if (id) return id;
+    }
+    return '';
+}
+
+function getFirstRuntimeGuidePackId(step = {}) {
+    const requested = getRuntimeGuideRequestedPackId(step);
+    if (requested) return requested;
+    const state = getState();
+    const stackPack = getLoredeckStack(state).find(item => item.enabled !== false && item.type !== 'folder' && item.packId);
+    if (stackPack?.packId) return stackPack.packId;
+    return getLoredeckLibrary(state)[0]?.packId || '';
+}
+
+function getRuntimeGuideCreatorProjectJob(step = {}) {
+    const requested = String(step.jobId || step.creatorJobId || '').trim();
+    const state = getState();
+    const active = getActiveLoredeckCreatorJob(state);
+    if (requested && active?.jobId === requested) return active;
+    const registry = getLoredeckCreatorRegistry(state);
+    const jobs = Object.values(registry?.jobs || {});
+    if (requested) return jobs.find(job => job?.jobId === requested) || null;
+    return active || jobs[0] || null;
+}
+
+function prepareOpenLoredeckLibrary() {
+    navigateRuntimeTab('loredecks');
+    openLoredeckLibraryWindow();
+    return createGuidePrepareResult(true);
+}
+
+function prepareOpenLoredeckDetails(step = {}) {
+    navigateRuntimeTab('loredecks');
+    const packId = getFirstRuntimeGuidePackId(step);
+    if (!packId) {
+        openLoredeckLibraryWindow();
+        return createGuidePrepareResult(false, 'Loredeck Library is open, but no Lorepack is available to select yet.');
+    }
+    openLoredeckLibraryDetails(packId);
+    return createGuidePrepareResult(true);
+}
+
+function prepareOpenContextBrowser() {
+    navigateRuntimeTab('context');
+    const stack = getContextWorkbenchStack(getState());
+    if (!stack.length) {
+        return createGuidePrepareResult(false, 'Load a Lorepack into the active stack before opening Context Browser.');
+    }
+    openContextWorkbenchForPack(stack[0]?.packId || '', 'context');
+    return createGuidePrepareResult(true);
+}
+
+function prepareOpenPendingLoreReview() {
+    openPendingLoreReviewSections();
+    navigateRuntimeTab('lore');
+    const pendingCount = (getState()?.pendingLoreEntries || []).length;
+    return createGuidePrepareResult(
+        true,
+        pendingCount ? '' : 'Pending Lorecard Review is open, but there are no pending Lorecards yet.'
+    );
+}
+
+function prepareOpenAcceptedLoreDetails() {
+    setSectionCollapsed('lore.acceptedEntries', false);
+    navigateRuntimeTab('lore');
+    const acceptedCount = normalizeLoreMatrix(getState()?.loreMatrix || []).length;
+    return createGuidePrepareResult(
+        true,
+        acceptedCount ? '' : 'Accepted Lorecards is open, but no accepted Lorecards exist yet.'
+    );
+}
+
+function prepareOpenInjectionPreview() {
+    setExperienceMode('advanced');
+    navigateRuntimeTab('injection');
+    return createGuidePrepareResult(true);
+}
+
+function prepareOpenContinuityEditor(step = {}) {
+    setExperienceMode('advanced');
+    const target = String(step.target || '').trim();
+    if (target.includes('characters')) setSectionCollapsed('continuity.characters', false);
+    else if (target.includes('items')) setSectionCollapsed('continuity.inventory', false);
+    else if (target.includes('threads')) setSectionCollapsed('continuity.activeGoalsThreads', false);
+    else if (target.includes('scene')) setSectionCollapsed('continuity.canonScene', false);
+    else setSectionCollapsed('continuity.trackedSections', false);
+    navigateRuntimeTab('continuity');
+    return createGuidePrepareResult(true);
+}
+
+function prepareOpenLoredeckCreator() {
+    setExperienceMode('advanced');
+    navigateRuntimeTab('loredecks');
+    openLoredeckCreatorWorkbench();
+    return createGuidePrepareResult(true);
+}
+
+function prepareOpenCreatorProject(step = {}) {
+    setExperienceMode('advanced');
+    navigateRuntimeTab('loredecks');
+    const job = getRuntimeGuideCreatorProjectJob(step);
+    if (!job?.jobId) {
+        openLoredeckCreatorWorkbench();
+        return createGuidePrepareResult(false, 'Loredeck Creator is open, but there is no in-progress Creator project to resume yet.');
+    }
+    const activated = activateLoredeckCreatorJob(job.jobId, { syncPrompt: false });
+    loredeckCreatorBriefCache.set('current', activated?.job || job);
+    openLoredeckCreatorWorkbench();
+    return createGuidePrepareResult(true);
+}
+
+function prepareOpenDeckHealthCenter(step = {}) {
+    setExperienceMode('advanced');
+    navigateRuntimeTab('loredecks');
+    const packId = getFirstRuntimeGuidePackId(step);
+    if (!packId) {
+        openLoredeckHealthCenter('');
+        return createGuidePrepareResult(false, 'Pack Health is open, but no Lorepack is available to inspect yet.');
+    }
+    openLoredeckHealthCenter(packId);
+    return createGuidePrepareResult(true);
+}
+
+function prepareOpenAdvancedSettingsSection(step = {}) {
+    setExperienceMode('advanced');
+    const target = String(step.target || '').trim();
+    if (target.includes('theme')) setSectionCollapsed('settings.themePack', false);
+    else setSectionCollapsed('settings.providers', false);
+    navigateRuntimeTab('settings');
+    return createGuidePrepareResult(true);
+}
+
+function prepareRuntimeGuideStep(step = {}) {
+    switch (String(step?.prepare || step?.prepareAction || '').trim()) {
+        case 'openLoredeckLibrary':
+            return prepareOpenLoredeckLibrary(step);
+        case 'openLoredeckDetails':
+            return prepareOpenLoredeckDetails(step);
+        case 'openContextBrowser':
+            return prepareOpenContextBrowser(step);
+        case 'openPendingLoreReview':
+            return prepareOpenPendingLoreReview(step);
+        case 'openAcceptedLoreDetails':
+            return prepareOpenAcceptedLoreDetails(step);
+        case 'openInjectionPreview':
+            return prepareOpenInjectionPreview(step);
+        case 'openContinuityEditor':
+            return prepareOpenContinuityEditor(step);
+        case 'openLoredeckCreator':
+            return prepareOpenLoredeckCreator(step);
+        case 'openCreatorProject':
+            return prepareOpenCreatorProject(step);
+        case 'openDeckHealthCenter':
+            return prepareOpenDeckHealthCenter(step);
+        case 'openAdvancedSettingsSection':
+            return prepareOpenAdvancedSettingsSection(step);
+        default:
+            return null;
+    }
+}
+
 function getCountLabel(value, label) {
     const count = Array.isArray(value) ? value.length : (value && typeof value === 'object' ? Object.keys(value).length : 0);
     return `${count} ${label}${count === 1 ? '' : 's'}`;
@@ -1355,6 +1536,7 @@ function renderRail(state) {
     const settings = getSettings();
     const activeTab = normalizeTabForExperience(panelState.activeTab, settings);
     const metrics = getRailMetrics(state, settings);
+    const metricTooltips = getRailMetricTooltips(state, settings);
 
     const rail = document.createElement('div');
     rail.className = `saga-runtime-rail saga-runtime-rail-${railMode}`;
@@ -1430,6 +1612,7 @@ function renderRail(state) {
         metric.className = 'saga-runtime-rail-metric';
         metric.dataset.tabId = tabId;
         metric.textContent = metrics[tabId] || '';
+        if (metricTooltips[tabId]) addTooltip(metric, metricTooltips[tabId]);
         tab.appendChild(metric);
 
         tab.addEventListener('click', (e) => {
@@ -1575,9 +1758,15 @@ function refreshHeader() {
     normalizePanelLayoutState(state);
     const settings = getSettings();
     const metrics = getRailMetrics(state, settings);
+    const metricTooltips = getRailMetricTooltips(state, settings);
 
     for (const metric of panelRoot.querySelectorAll('.saga-runtime-rail-metric[data-tab-id]')) {
-        metric.textContent = metrics[metric.dataset.tabId] || '';
+        const tabId = metric.dataset.tabId;
+        metric.textContent = metrics[tabId] || '';
+        if (metricTooltips[tabId]) {
+            metric.dataset.sagaTooltip = metricTooltips[tabId];
+            metric.setAttribute('aria-label', metricTooltips[tabId]);
+        }
     }
 
     const status = panelRoot.querySelector('.saga-runtime-drawer-status');
@@ -15840,6 +16029,36 @@ function createRuntimeRenderErrorCard(titleText = 'Runtime Tab', error = null) {
     return card;
 }
 
+function truncateRailMetricText(value = '', maxLength = 7) {
+    const text = String(value || '').trim();
+    if (!text || text.length <= maxLength) return text;
+    if (maxLength <= 3) return text.slice(0, maxLength);
+    return `${text.slice(0, maxLength - 3)}...`;
+}
+
+function getProviderRailMetricLabel(status = {}) {
+    if (status.provider === 'profile' && !status.exact && status.profileLabel) return status.profileLabel;
+    if (status.provider === 'st' && !status.exact) return 'ST model';
+    if (status.provider === 'openai_compatible' && !status.exact) return 'No model';
+    return status.label || 'Model';
+}
+
+function getProviderRailMetricPart(kind, settings = getSettings()) {
+    const status = getProviderModelStatus(kind, settings);
+    const prefix = kind === 'continuity' ? 'U' : 'R';
+    return `${prefix}:${truncateRailMetricText(getProviderRailMetricLabel(status))}`;
+}
+
+function getSettingsProviderRailMetric(settings = getSettings()) {
+    return `${getProviderRailMetricPart('lore', settings)} ${getProviderRailMetricPart('continuity', settings)}`;
+}
+
+function getSettingsProviderRailTooltip(settings = getSettings()) {
+    const reasoning = getProviderModelStatus('lore', settings);
+    const utility = getProviderModelStatus('continuity', settings);
+    return `Reasoning Provider: ${reasoning.label}. Utility Provider: ${utility.label}.`;
+}
+
 function getRailMetrics(state, settings = getSettings()) {
     const counts = getPanelLoreState(state).counts;
     const pendingLore = (state?.pendingLoreEntries || []).length;
@@ -15859,7 +16078,14 @@ function getRailMetrics(state, settings = getSettings()) {
         continuity: `${activeCharacters || liveItems || 0} live`,
         lore: pendingLore ? `${counts.active || 0}+${pendingLore}` : `${counts.active || 0} active`,
         injection: injectionStats.totalChars ? `${injectionStats.totalTokens} tk` : `${selectedLore} lore`,
-        settings: getThemePreset(settings.themePackId)?.title || 'Theme',
+        settings: getSettingsProviderRailMetric(settings),
+    };
+}
+
+function getRailMetricTooltips(state, settings = getSettings()) {
+    void state;
+    return {
+        settings: getSettingsProviderRailTooltip(settings),
     };
 }
 
@@ -16274,14 +16500,16 @@ function renderSessionTab(container, state) {
         container.appendChild(automationSection);
     }
 
-    container.appendChild(createCollapsibleSection(
+    const instructionsSection = createCollapsibleSection(
         `session.instructions.${guideMode}`,
         guide.title,
         guide.subtitle,
         false,
         createInstructionsCard(guideMode),
         { tooltip: guide.tooltip }
-    ));
+    );
+    markTourTarget(instructionsSection, basic ? 'session.instructions.basic' : 'session.instructions.advanced');
+    container.appendChild(instructionsSection);
 
     const stats = document.createElement('div');
     stats.className = 'saga-runtime-card';
@@ -16313,6 +16541,7 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
     const mode = normalizeExperienceMode(guideMode);
     const guide = getRuntimeGuideContent(mode);
     const sections = getRuntimeGuideSections(mode);
+    const allSteps = getRuntimeGuideSteps(mode);
 
     const intro = document.createElement('p');
     intro.className = 'saga-instructions-lede';
@@ -16330,6 +16559,8 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
     flow.className = 'saga-instructions-flow saga-instructions-section-list';
 
     for (const section of sections) {
+        const firstStep = section.steps?.[0] || null;
+        const firstStepIndex = firstStep ? allSteps.findIndex(step => step.id === firstStep.id) : -1;
         const card = document.createElement('div');
         card.className = 'saga-instructions-section-card';
         const main = document.createElement('div');
@@ -16340,12 +16571,19 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
         title.className = 'saga-instructions-section-title';
         title.textContent = section.label;
         header.appendChild(title);
-        header.appendChild(createStatusPill(`${section.stepCount} step${section.stepCount === 1 ? '' : 's'}`, `${section.label} walkthrough length.`));
+        if (firstStepIndex >= 0) {
+            header.appendChild(createStatusPill(formatGuideStartLabel(mode, firstStepIndex), `Starts at ${firstStep?.title || section.label}.`));
+        }
         main.appendChild(header);
         const body = document.createElement('div');
         body.className = 'saga-instructions-section-body';
         body.textContent = section.description || `Walk through the ${section.label} tab.`;
         main.appendChild(body);
+        const meta = document.createElement('div');
+        meta.className = 'saga-instructions-section-meta';
+        meta.appendChild(createStatusPill(`${section.stepCount} guided stop${section.stepCount === 1 ? '' : 's'}`, `${section.label} module stops; this is a guide path, not a feature limit.`));
+        meta.appendChild(createStatusPill(getTabLabelForExperience(section.tab, getSettings()), `Opens the ${getTabLabelForExperience(section.tab, getSettings())} tab first.`));
+        main.appendChild(meta);
         card.appendChild(main);
         const action = createButton('Start', `Start the ${section.label} walkthrough.`, () => {
             startSagaTour(mode, { sectionId: section.id });
@@ -16364,6 +16602,12 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
     }
 
     return wrap;
+}
+
+function formatGuideStartLabel(mode = 'basic', index = 0) {
+    const prefix = normalizeExperienceMode(mode) === 'advanced' ? 'A' : 'B';
+    const number = Math.max(1, Number(index) + 1);
+    return `${prefix}${String(number).padStart(2, '0')}`;
 }
 
 function createCompactPresetStat(label, value) {

@@ -158,17 +158,18 @@ Do not make users read a long feature explanation before acting.
 
 ### Basic Walkthrough
 
-Detailed ordered coverage now lives in [Saga Walkthrough Workflow Expansion Plan](SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md). That plan supersedes the earlier fixed-size target; Basic should be coverage-driven, not capped by a maximum guide count.
+Detailed ordered coverage now lives in [Saga Walkthrough Workflow Expansion Plan](SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md). That plan makes Basic and Advanced coverage workflow-complete instead of count-limited.
 
-The Basic walkthrough should stay focused, but it should not be a single compressed first-run list. For Alpha, it is grouped by visible Basic tab sections:
+The Basic walkthrough should stay focused, but it should not be a single compressed first-run list. For Alpha, it is split into focused workflow cards that map onto Basic-visible surfaces:
 
+- **First Run**: keep Saga Active, read the Start Checklist, and use the recommended next action.
 - **Loredecks**: open the Library, import a deck package when needed, build the active stack, and understand Pack Health/active counts.
-- **Session**: keep Saga Active, use the Start Checklist, understand the continue/update loop, and read Session Metrics.
 - **Context**: use Runtime Context, Browse Context, Detect Context, and verify loaded Loredeck Context rows.
 - **Lorecards**: use Lorecard Generation, preview canon packs, scan story lore, add a manual Lorecard, review Pending Lorecards, and inspect Accepted Lorecards.
+- **Continue Roleplay**: read Session Metrics, confirm readiness, continue roleplay, and repeat the update loop after major story movement.
 - **Settings**: confirm Providers and Theme Pack.
 
-The Session guide card should present these as smaller tab-section mini walkthroughs, not as one visible list of every "Show" highlight target.
+The Session guide card should present these as smaller workflow walkthroughs, not as one visible list of every "Show" highlight target.
 
 ### Basic Loredecks
 
@@ -491,7 +492,7 @@ When an Advanced user switches to Basic:
 
 ### Phase 3: Section Basic Walkthrough
 
-- Replace the current Basic guide step list with the tab-section walkthrough structure in this plan.
+- Replace the current Basic guide step list with the workflow-card walkthrough structure in this plan.
 - Keep the full Basic tour action-oriented and workflow-complete, without a fixed maximum step count.
 - Ensure every Basic step lands on a visible Basic tab.
 - Render mini walkthrough starters by tab section instead of one visible list of every target.

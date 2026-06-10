@@ -2,7 +2,7 @@
 
 This guide is the handoff document for an LLM that needs to understand Saga well enough to help create Loredecks and Lorecards.
 
-It is not the schema reference and it is not a replacement for Deck Health. Use this guide to understand the task, then use [SAGA_LOREDECK_SCHEMA.md](SAGA_LOREDECK_SCHEMA.md) for exact schemas and [LOREDECK_AND_LORECARD_CREATION_GUIDE.md](LOREDECK_AND_LORECARD_CREATION_GUIDE.md) for authoring principles.
+It is not the schema reference and it is not a replacement for Pack Health. Use this guide to understand the task, then use [SAGA_LOREDECK_SCHEMA.md](SAGA_LOREDECK_SCHEMA.md) for exact schemas and [LOREDECK_AND_LORECARD_CREATION_GUIDE.md](LOREDECK_AND_LORECARD_CREATION_GUIDE.md) for authoring principles.
 
 Do not include the full Harry Potter reference Loredecks in a default LLM handoff. They are useful examples when structure or style needs comparison, but they are large and should not be the first context payload.
 
@@ -22,7 +22,7 @@ That bundle explains Saga's public terms, the authoring target, the schema contr
 If the LLM is expected to match Saga's current Creator workflow or produce data that fits the app, also include:
 
 - `loredeck-assistant.js`: source of the current staged Creator prompt builders and output expectations.
-- `loredeck-loader.js`: source of runtime loading, validation, Context, tag, and Deck Health behavior.
+- `loredeck-loader.js`: source of runtime loading, validation, Context, tag, and Pack Health behavior.
 - `loredeck-creator-projects.js`: source of Creator stage state, review gates, and readiness concepts.
 - `docs/development/LOREDECK_CREATOR_BATCHING_ARCHITECTURE.md`: design notes for staged generation, micro-batching, retry, partial success, and review boundaries.
 
@@ -47,7 +47,7 @@ The bundled Harry Potter Loredecks are the current reference model for a large f
 - Dense timeline registries.
 - Context-gated Lorecards.
 - Tag registry hygiene.
-- Deck Health clean reference data.
+- Pack Health clean reference data.
 - Manifest, index, and runtime-default consistency.
 
 Do not include the full HP deck files in the default LLM bundle. Instead, provide only the specific deck files or snippets needed for the immediate task.
@@ -62,7 +62,7 @@ A Lorecard is one reviewable unit of lore. It should contain a focused fact, sta
 
 Context is the story-position system that decides whether a Lorecard is eligible. Context may be based on dates, arcs, chapters, episodes, quests, routes, seasons, phases, or other fandom-appropriate coordinates.
 
-Deck Health is the release gate. A deck that parses but has health warnings is draft-quality, not reference-quality.
+Pack Health is the release gate. A deck that parses but has health warnings is draft-quality, not reference-quality.
 
 Pending Review is the safety layer. Model-generated content should remain reviewable before it affects a deck or runtime injection.
 
@@ -113,7 +113,7 @@ Saga's Creator is intentionally staged. A useful LLM should follow the same orde
 6. Review And Acceptance
    Treat generated cards, timeline records, and tag records as proposals until reviewed. Revise, accept, or reject them before they become deck content.
 
-7. Deck Health
+7. Pack Health
    Run health and conformance checks. Fix every error, warning, and suggestion before treating the deck as reference-quality.
 
 ## Output Rules For LLMs
@@ -204,7 +204,7 @@ Before calling a generated deck ready, check:
 - Secrets and spoilers are gated.
 - Broad/global cards use conservative retrieval behavior according to the schema reference.
 - Generated material is marked or routed for review.
-- Deck Health has no errors, warnings, or suggestions.
+- Pack Health has no errors, warnings, or suggestions.
 - The deck has equivalent conformance tests before becoming a reference model.
 
 ## Suggested Prompt For Another LLM
@@ -216,7 +216,7 @@ You are helping create Saga Loredecks and Lorecards.
 
 Read the provided Saga documentation before producing deck data. Use LLM_LOREDECK_GENERATION_GUIDE.md for the workflow, LOREDECK_AND_LORECARD_CREATION_GUIDE.md for authoring principles, SAGA_LOREDECK_SCHEMA.md for exact schemas, and SAGA_TERMINOLOGY.md for public terms.
 
-Do not invent schema fields. Do not generate full Lorecards before scope, outline, title, timeline, and tag planning are approved. Do not write wiki summaries. Optimize for Context-aware roleplay/fanfiction utility, spoiler safety, precise retrieval, reviewability, and clean Deck Health.
+Do not invent schema fields. Do not generate full Lorecards before scope, outline, title, timeline, and tag planning are approved. Do not write wiki summaries. Optimize for Context-aware roleplay/fanfiction utility, spoiler safety, precise retrieval, reviewability, and clean Pack Health.
 
 If asked for JSON and the schema reference is available, return JSON only. If required source range or planning metadata is missing, ask concise clarifying questions instead of fabricating final deck data.
 ```

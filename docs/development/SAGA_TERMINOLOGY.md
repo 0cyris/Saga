@@ -10,17 +10,17 @@ This document records the public terminology for Saga after the Loredeck/Lore En
 | --- | --- | --- |
 | A loadable fandom lore collection | Loredeck | Loredeck |
 | A single reviewable lore unit | Lorecard | Lore Entry |
-| The user-facing deck quality report | Deck Health | Pack Health |
-| Built into Saga and human-vetted | Bundled Loredeck | Bundled Loredeck |
-| Created by Saga's model-assisted creator | Generated Loredeck | Generated Loredeck |
-| User-created, user-edited, imported, AU, crossover, or shared | Custom Loredeck | Custom Loredeck |
+| The user-facing deck quality report | Pack Health | Deck Health |
+| Built into Saga and human-vetted | Bundled Lorepack | Bundled Loredeck |
+| Created by Saga's model-assisted creator | Generated Lorepack | Generated Loredeck |
+| User-created, user-edited, imported, AU, crossover, or shared | Custom Lorepack | Custom Loredeck |
 | Deck creation workflow | Loredeck Creator | Loredeck Creator |
 | Deck browsing and management | Loredeck Library | Loredeck Library |
 | Ordered loaded deck list | Active Stack | Loredeck Stack |
 
 ## Migration Policy
 
-Public copy, UI labels, tooltips, and docs should use **Loredeck**, **Lorecard**, and **Deck Health**.
+Public copy, UI labels, tooltips, and docs should use **Loredeck**, **Lorecard**, and **Pack Health**. Use **Bundled Lorepack**, **Generated Lorepack**, and **Custom Lorepack** when describing the three public Loredeck package types.
 
 Internal identifiers may temporarily remain `loredeck`, `packId`, `loredeck.json`, and `Loredecks/` to reduce churn while Saga stabilizes. Do not rename internal files, schema keys, persisted state keys, or export bundle fields until compatibility aliases and migration tests exist.
 

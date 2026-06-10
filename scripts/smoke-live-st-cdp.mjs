@@ -16,6 +16,7 @@ const VIEWPORT = {
 const LIVE_CONTEXT_LOADED_PACK_ID = 'hp-year-6-half-blood-prince';
 const LIVE_CONTEXT_LOADED_PACK_TITLE = 'Harry Potter Year 6: Half-Blood Prince';
 const LIVE_CONTEXT_REASONER_TARGET = 'live-context-reasoner';
+const REPO_LOCAL_HARNESS_TARGETS = new Set(['context-harness', 'guide-harness']);
 const LIVE_CONTEXT_METADATA_TARGETS = new Set([
     'live-context-loaded',
     'live-context-loaded-narrow',
@@ -111,7 +112,13 @@ function getStaticMimeType(filePath) {
     return types[ext] || 'application/octet-stream';
 }
 
-async function startVisualSmokeServer() {
+function getVisualSmokeHarnessQuery(target = SMOKE_TARGET) {
+    if (target === 'context-harness') return '?tab=context&review=context-proposals';
+    if (target === 'guide-harness') return '?mode=basic&tab=session';
+    return '';
+}
+
+async function startVisualSmokeServer(target = SMOKE_TARGET) {
     const host = '127.0.0.1';
     const port = await getFreePort();
     const server = http.createServer(async (req, res) => {
@@ -151,9 +158,10 @@ async function startVisualSmokeServer() {
         server.once('error', reject);
         server.listen(port, host, resolve);
     });
+    const query = getVisualSmokeHarnessQuery(target);
     return {
         server,
-        url: `http://${host}:${port}/tests/visual-smoke.html?tab=context&review=context-proposals`,
+        url: `http://${host}:${port}/tests/visual-smoke.html${query}`,
     };
 }
 
@@ -661,14 +669,161 @@ async function collectState(client) {
     }));
 }
 
+async function runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents) {
+    await waitFor(client, 'window.__sagaSmokeReady === true', 'Guide smoke ready marker', 20000);
+    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "session"', 'Guide smoke Session tab active', 10000);
+
+    const basicInitial = await evaluate(client, script(() => {
+        const text = document.body?.innerText || '';
+        const section = document.querySelector('[data-saga-tour="session.instructions.basic"]');
+        if (section && !section.open) section.querySelector('summary')?.click();
+        const buttonLabels = [...document.querySelectorAll('button')]
+            .map(node => (node.innerText || node.textContent || '').trim())
+            .filter(Boolean);
+        return {
+            smokeMode: window.__sagaSmokeMode || '',
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            hasBasicTitle: text.includes('Basic Walkthrough'),
+            hasBasicStart: buttonLabels.includes('Start Basic Walkthrough'),
+            moduleTitles: [...document.querySelectorAll('.saga-instructions-section-title')].map(node => node.textContent?.trim()).filter(Boolean),
+            stopPills: [...document.querySelectorAll('.saga-instructions-section-meta')].map(node => node.textContent || ''),
+            railTabs: [...document.querySelectorAll('.saga-runtime-rail-tab')].map(node => node.getAttribute('data-tab-id') || ''),
+            hiddenActionButtons: buttonLabels.filter(label => /Create Deck|In-Progress Creator Projects|Prompt Placement/.test(label)),
+        };
+    }));
+    const expectedBasicModules = ['First Run', 'Loredecks', 'Context', 'Lorecards', 'Continue Roleplay', 'Settings'];
+    if (basicInitial.smokeMode !== 'basic') findings.push('Guide harness did not open in Basic mode.');
+    if (basicInitial.activeTab !== 'session') findings.push('Guide harness did not open the Basic Session tab.');
+    if (!basicInitial.hasBasicTitle || !basicInitial.hasBasicStart) findings.push('Basic guide card did not render the expected title and full walkthrough action.');
+    for (const label of expectedBasicModules) {
+        if (!basicInitial.moduleTitles.includes(label)) findings.push(`Basic guide card is missing module: ${label}.`);
+    }
+    if (basicInitial.moduleTitles.length !== expectedBasicModules.length) findings.push(`Basic guide card rendered ${basicInitial.moduleTitles.length} modules instead of ${expectedBasicModules.length}.`);
+    if (basicInitial.railTabs.includes('injection') || basicInitial.railTabs.includes('continuity')) findings.push('Basic rail exposed hidden Injection or Continuity tabs.');
+    if (basicInitial.hiddenActionButtons.length) findings.push(`Basic guide Session surface exposed Advanced-only action buttons: ${basicInitial.hiddenActionButtons.join(', ')}.`);
+    if (!basicInitial.stopPills.every(text => text.includes('guided stop'))) findings.push('Basic guide modules did not show guided stop metadata.');
+    screenshots.push(await screenshot(client, 'guide-harness-01-basic-card'));
+
+    const basicStarted = await clickButtonText(client, 'Start Basic Walkthrough');
+    if (!basicStarted) findings.push('Start Basic Walkthrough button was not clickable.');
+    await waitFor(client, '!!document.querySelector("#saga-tour-popover")', 'Basic walkthrough popover', 10000);
+    await wait(500);
+    const basicTour = await evaluate(client, script(() => {
+        const popover = document.querySelector('#saga-tour-popover');
+        const text = popover?.innerText || '';
+        return {
+            hasPopover: !!popover,
+            title: popover?.querySelector('.saga-tour-title')?.textContent?.trim() || '',
+            progress: popover?.querySelector('.saga-tour-progress')?.textContent?.trim() || '',
+            hasWhen: text.includes('When to use:'),
+            hasExpected: text.includes('Expected result:'),
+            highlightedTargets: document.querySelectorAll('.saga-tour-highlight').length,
+        };
+    }));
+    if (!basicTour.hasPopover || basicTour.title !== 'Basic Workflow Orientation') findings.push('Basic walkthrough did not open on the expected first tour step.');
+    if (basicTour.progress !== '1 / 49') findings.push(`Basic walkthrough progress was ${basicTour.progress || 'missing'} instead of 1 / 49.`);
+    if (!basicTour.hasWhen || !basicTour.hasExpected) findings.push('Basic walkthrough popover did not include When to use and Expected result details.');
+    if (basicTour.highlightedTargets < 1) findings.push('Basic walkthrough did not highlight a runtime target.');
+    screenshots.push(await screenshot(client, 'guide-harness-02-basic-tour'));
+    await clickButtonText(client, 'Close', { root: '#saga-tour-popover', enabledOnly: false });
+    await waitFor(client, '!document.querySelector("#saga-tour-popover")', 'Basic walkthrough close', 10000);
+
+    const advancedUrl = smokeUrl.replace(/([?&])mode=basic\b/, '$1mode=advanced');
+    await client.send('Page.navigate', { url: advancedUrl });
+    await waitFor(client, 'document.readyState === "complete"', 'Advanced guide harness reload', 20000);
+    await waitFor(client, 'window.__sagaSmokeReady === true', 'Advanced guide smoke ready marker', 20000);
+    await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "session"', 'Advanced guide smoke Session tab active', 10000);
+    await wait(1200);
+
+    const advancedInitial = await evaluate(client, script(() => {
+        const text = document.body?.innerText || '';
+        const section = document.querySelector('[data-saga-tour="session.instructions.advanced"]');
+        if (section && !section.open) section.querySelector('summary')?.click();
+        const buttonLabels = [...document.querySelectorAll('button')]
+            .map(node => (node.innerText || node.textContent || '').trim())
+            .filter(Boolean);
+        return {
+            smokeMode: window.__sagaSmokeMode || '',
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            hasAdvancedTitle: text.includes('Advanced Walkthrough'),
+            hasAdvancedStart: buttonLabels.includes('Start Advanced Walkthrough'),
+            moduleTitles: [...document.querySelectorAll('.saga-instructions-section-title')].map(node => node.textContent?.trim()).filter(Boolean),
+            railTabs: [...document.querySelectorAll('.saga-runtime-rail-tab')].map(node => node.getAttribute('data-tab-id') || ''),
+            hasAdvancedControls: text.includes('Automation Mode') && text.includes('Session Metrics'),
+        };
+    }));
+    const expectedAdvancedModules = [
+        'Loredeck Library Mastery',
+        'Session And Runtime Control',
+        'Context Resolution',
+        'Lorecard Generation And Review',
+        'Injection Diagnostics',
+        'Continuity Tracking',
+        'Creator And Generated Lorepack Authoring',
+        'Pack Health And Packages',
+        'Settings And Providers',
+        'Troubleshooting Routes',
+    ];
+    if (advancedInitial.smokeMode !== 'advanced') findings.push('Guide harness did not reload in Advanced mode.');
+    if (!advancedInitial.hasAdvancedTitle || !advancedInitial.hasAdvancedStart) findings.push('Advanced guide card did not render the expected title and full walkthrough action.');
+    for (const label of expectedAdvancedModules) {
+        if (!advancedInitial.moduleTitles.includes(label)) findings.push(`Advanced guide card is missing task track: ${label}.`);
+    }
+    if (advancedInitial.moduleTitles.length !== expectedAdvancedModules.length) findings.push(`Advanced guide card rendered ${advancedInitial.moduleTitles.length} modules instead of ${expectedAdvancedModules.length}.`);
+    if (!advancedInitial.railTabs.includes('injection') || !advancedInitial.railTabs.includes('continuity')) findings.push('Advanced rail did not expose Injection and Continuity tabs.');
+    if (!advancedInitial.hasAdvancedControls) findings.push('Advanced Session surface did not show expected runtime controls.');
+    screenshots.push(await screenshot(client, 'guide-harness-03-advanced-card'));
+
+    const advancedStarted = await clickButtonText(client, 'Start Advanced Walkthrough');
+    if (!advancedStarted) findings.push('Start Advanced Walkthrough button was not clickable.');
+    await waitFor(client, '!!document.querySelector("#saga-tour-popover")', 'Advanced walkthrough popover', 10000);
+    await wait(500);
+    const advancedTour = await evaluate(client, script(() => {
+        const popover = document.querySelector('#saga-tour-popover');
+        const text = popover?.innerText || '';
+        return {
+            hasPopover: !!popover,
+            title: popover?.querySelector('.saga-tour-title')?.textContent?.trim() || '',
+            progress: popover?.querySelector('.saga-tour-progress')?.textContent?.trim() || '',
+            hasWhen: text.includes('When to use:'),
+            hasExpected: text.includes('Expected result:'),
+            highlightedTargets: document.querySelectorAll('.saga-tour-highlight').length,
+            targetVisible: !!document.querySelector('[data-saga-tour="loredecks.library.launch"]'),
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+        };
+    }));
+    if (!advancedTour.hasPopover || advancedTour.title !== 'Library Overview') findings.push('Advanced walkthrough did not open on the expected first tour step.');
+    if (advancedTour.progress !== '1 / 155') findings.push(`Advanced walkthrough progress was ${advancedTour.progress || 'missing'} instead of 1 / 155.`);
+    if (!advancedTour.hasWhen || !advancedTour.hasExpected) findings.push('Advanced walkthrough popover did not include When to use and Expected result details.');
+    if (!advancedTour.targetVisible || advancedTour.activeTab !== 'loredecks') findings.push('Advanced walkthrough did not navigate to the visible Loredeck Library launch target.');
+    screenshots.push(await screenshot(client, 'guide-harness-04-advanced-tour'));
+
+    const errors = client.events
+        .filter(event => event.method === 'Log.entryAdded' && event.params?.entry?.level === 'error')
+        .map(event => event.params.entry.text);
+    console.log(JSON.stringify({
+        ok: findings.length === 0 && errors.length === 0,
+        target: SMOKE_TARGET,
+        url: smokeUrl,
+        screenshots,
+        findings,
+        errors,
+        dialogEvents,
+        basicInitial,
+        basicTour,
+        advancedInitial,
+        advancedTour,
+    }, null, 2));
+}
+
 async function main() {
     await fs.mkdir(OUT_DIR, { recursive: true });
     const chrome = await findChrome();
     const port = await getFreePort();
     const userDataDir = path.join(ROOT, '.tmp', `saga-live-smoke-${Date.now()}`);
     await fs.mkdir(userDataDir, { recursive: true });
-    const harness = SMOKE_TARGET === 'context-harness'
-        ? await startVisualSmokeServer()
+    const harness = REPO_LOCAL_HARNESS_TARGETS.has(SMOKE_TARGET)
+        ? await startVisualSmokeServer(SMOKE_TARGET)
         : null;
     const smokeUrl = harness?.url || ST_URL;
 
@@ -731,9 +886,14 @@ async function main() {
         });
 
         await client.send('Page.navigate', { url: smokeUrl });
-        await waitFor(client, 'document.readyState === "complete"', SMOKE_TARGET === 'context-harness' ? 'Context smoke harness load' : 'SillyTavern load', 20000);
+        await waitFor(client, 'document.readyState === "complete"', REPO_LOCAL_HARNESS_TARGETS.has(SMOKE_TARGET) ? 'Repo-local smoke harness load' : 'SillyTavern load', 20000);
         await waitFor(client, '!!document.querySelector("#saga-lore-panel")', 'Saga runtime panel', 20000);
         await wait(2500);
+
+        if (SMOKE_TARGET === 'guide-harness') {
+            await runGuideHarnessSmoke(client, screenshots, findings, smokeUrl, dialogEvents);
+            return;
+        }
 
         if (SMOKE_TARGET === 'context-harness') {
             await waitFor(client, 'window.__sagaSmokeReady === true', 'Context smoke ready marker', 20000);

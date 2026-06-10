@@ -20,6 +20,7 @@ const runtimeUiKitPath = path.join(root, 'runtime-ui-kit.js');
 const runtimeNavigationPath = path.join(root, 'runtime-navigation.js');
 const runtimeBasicReadinessPath = path.join(root, 'runtime-basic-readiness.js');
 const runtimeGuideContentPath = path.join(root, 'runtime-guide-content.js');
+const runtimeTourPath = path.join(root, 'runtime-tour.js');
 const assistantPath = path.join(root, 'loredeck-assistant.js');
 const llmClientPath = path.join(root, 'lore-llm-client.js');
 const creatorProjectsPath = path.join(root, 'loredeck-creator-projects.js');
@@ -28,6 +29,9 @@ const constantsPath = path.join(root, 'constants.js');
 const stylePath = path.join(root, 'style.css');
 const settingsTemplatePath = path.join(root, 'settings.html');
 const liveSmokePath = path.join(root, 'scripts', 'smoke-live-st-cdp.mjs');
+const basicWorkflowDocPath = path.join(root, 'docs', 'user', 'BASIC_WORKFLOW.md');
+const advancedWorkflowDocPath = path.join(root, 'docs', 'user', 'ADVANCED_WORKFLOW.md');
+const documentationIndexPath = path.join(root, 'docs', 'DOCUMENTATION_INDEX.md');
 const sagaHeroIconPath = path.join(root, 'Images', 'iconsets', 'saga-hero', 'hero-tab-loredecks-256.png');
 const sagaHeroManifestPath = path.join(root, 'Images', 'iconsets', 'saga-hero', 'icons.json');
 const sagaMysticIconPath = path.join(root, 'Images', 'iconsets', 'saga-mystic', 'mystic-tab-loredecks-256.png');
@@ -51,13 +55,305 @@ function parseSingleQuotedValues(source) {
     return [...String(source || '').matchAll(/'([^']+)'/g)].map(match => match[1]);
 }
 
-function collectGuideTargets(steps = []) {
-    const targets = new Set();
-    for (const step of steps) {
-        if (step?.target) targets.add(step.target);
-        if (step?.fallbackTarget) targets.add(step.fallbackTarget);
+const VALID_GUIDE_PREPARES = new Set([
+    'openLoredeckLibrary',
+    'openLoredeckDetails',
+    'openContextBrowser',
+    'openPendingLoreReview',
+    'openAcceptedLoreDetails',
+    'openInjectionPreview',
+    'openContinuityEditor',
+    'openLoredeckCreator',
+    'openCreatorProject',
+    'openDeckHealthCenter',
+    'openAdvancedSettingsSection',
+]);
+
+const REQUIRED_BASIC_GUIDE_STEP_IDS = Object.freeze({
+    session: Object.freeze([
+        'basic-session-orientation',
+        'basic-session-saga-active',
+        'basic-session-start-checklist',
+        'basic-session-next-action',
+        'basic-session-metrics',
+        'basic-session-ready',
+        'basic-session-continue-roleplay',
+        'basic-session-repeat-loop',
+    ]),
+    loredecks: Object.freeze([
+        'basic-loredecks-overview',
+        'basic-loredecks-open-library',
+        'basic-library-layout',
+        'basic-library-pack-types',
+        'basic-library-search-filter',
+        'basic-library-pack-details',
+        'basic-library-pack-health',
+        'basic-loredecks-import',
+        'basic-library-import-preview',
+        'basic-library-add-deck-stack',
+        'basic-library-add-folder-stack',
+        'basic-library-stack-order',
+        'basic-library-stack-enable',
+        'basic-library-close-confirm',
+    ]),
+    context: Object.freeze([
+        'basic-context-overview',
+        'basic-context-loaded-rows',
+        'basic-context-browse',
+        'basic-context-select-position',
+        'basic-context-manual-protects',
+        'basic-context-detect',
+        'basic-context-proposals',
+        'basic-context-update-loop',
+    ]),
+    lorecards: Object.freeze([
+        'basic-lorecards-overview',
+        'basic-lorecards-generation-section',
+        'basic-lorecards-preview-canon',
+        'basic-lorecards-send-canon-review',
+        'basic-lorecards-story-scan',
+        'basic-lorecards-manual-add',
+        'basic-lorecards-pending-review',
+        'basic-lorecards-edit-pending',
+        'basic-lorecards-accept-dismiss',
+        'basic-lorecards-review-question',
+        'basic-lorecards-accepted-list',
+        'basic-lorecards-open-accepted',
+        'basic-lorecards-pin-mute',
+        'basic-lorecards-search-cleanup',
+    ]),
+    settings: Object.freeze([
+        'basic-settings-provider-status',
+        'basic-settings-provider-test',
+        'basic-settings-current-model',
+        'basic-settings-theme-pack',
+        'basic-settings-advanced-handoff',
+    ]),
+});
+
+const REQUIRED_ADVANCED_GUIDE_STEP_IDS = Object.freeze({
+    libraryMastery: Object.freeze([
+        'advanced-loredecks-overview',
+        'advanced-loredecks-open-library',
+        'advanced-library-empty-selection',
+        'advanced-library-special-views',
+        'advanced-library-folder-tree',
+        'advanced-library-search-sort',
+        'advanced-library-pack-select',
+        'advanced-library-pack-source',
+        'advanced-library-cover-metadata',
+        'advanced-library-health-summary',
+        'advanced-library-manifest-preview',
+        'advanced-library-entry-overrides',
+        'advanced-library-stack-pane',
+        'advanced-library-add-deck-stack',
+        'advanced-library-add-folder-stack',
+        'advanced-library-reorder-stack',
+        'advanced-library-enable-stack',
+        'advanced-library-bulk-select',
+        'advanced-library-export-selected',
+        'advanced-library-import-package',
+        'advanced-library-import-preview',
+        'advanced-library-duplicate-warnings',
+        'advanced-library-duplicate-custom',
+        'advanced-library-folder-actions',
+        'advanced-library-open-workbench',
+    ]),
+    sessionControl: Object.freeze([
+        'advanced-session-experience-mode',
+        'advanced-session-saga-active',
+        'advanced-session-automation-mode',
+        'advanced-session-runtime-metrics',
+        'advanced-session-guide-modules',
+        'advanced-session-active-chat',
+        'advanced-session-cleanup-actions',
+        'advanced-session-mode-recovery',
+    ]),
+    contextResolution: Object.freeze([
+        'advanced-context-command-center',
+        'advanced-context-loaded-rows',
+        'advanced-context-browser-open',
+        'advanced-context-manual-select',
+        'advanced-context-locks',
+        'advanced-context-detect',
+        'advanced-context-source-window',
+        'advanced-context-local-resolver',
+        'advanced-context-reasoner',
+        'advanced-context-proposal-review',
+        'advanced-context-audit',
+        'advanced-context-advanced-brief',
+        'advanced-context-seed-from-brief',
+        'advanced-context-reset',
+        'advanced-context-index-summary',
+        'advanced-context-workbench-routes',
+        'advanced-context-eligibility-debug',
+    ]),
+    loreReview: Object.freeze([
+        'advanced-lore-generation-overview',
+        'advanced-lore-canon-preview',
+        'advanced-lore-canon-selection',
+        'advanced-lore-story-scan',
+        'advanced-lore-scan-scope',
+        'advanced-lore-manual-add',
+        'advanced-lore-assistant-drafts',
+        'advanced-lore-pending-review',
+        'advanced-lore-pending-edit',
+        'advanced-lore-pending-accept-reject',
+        'advanced-lore-pending-bulk',
+        'advanced-lore-accepted-list',
+        'advanced-lore-accepted-search-filter',
+        'advanced-lore-accepted-open-edit',
+        'advanced-lore-pin-mute',
+        'advanced-lore-relevance-tier',
+        'advanced-lore-tags-context',
+        'advanced-lore-similarity-duplicates',
+        'advanced-lore-auto-relevance',
+        'advanced-lore-timeline-audit',
+        'advanced-lore-workbench',
+        'advanced-lore-review-first-policy',
+    ]),
+    injectionDiagnostics: Object.freeze([
+        'advanced-injection-overview',
+        'advanced-injection-continuity-toggle',
+        'advanced-injection-lore-toggle',
+        'advanced-injection-high-tier',
+        'advanced-injection-normal-tier',
+        'advanced-injection-low-tier',
+        'advanced-injection-direct-compressed',
+        'advanced-injection-placement',
+        'advanced-injection-compression-prompts',
+        'advanced-injection-preview-lore',
+        'advanced-injection-preview-continuity',
+        'advanced-injection-combined-preview',
+        'advanced-injection-token-estimate',
+        'advanced-injection-omission-reasons',
+        'advanced-injection-sync-diagnostics',
+    ]),
+    continuityTracking: Object.freeze([
+        'advanced-continuity-overview',
+        'advanced-continuity-scan',
+        'advanced-continuity-automation',
+        'advanced-continuity-scope',
+        'advanced-continuity-custom-range',
+        'advanced-continuity-performance',
+        'advanced-continuity-tracked-sections',
+        'advanced-continuity-scene-state',
+        'advanced-continuity-active-characters',
+        'advanced-continuity-items',
+        'advanced-continuity-goals-threads',
+        'advanced-continuity-emotional-freshness',
+        'advanced-continuity-injection-link',
+        'advanced-continuity-recovery',
+    ]),
+    creatorAuthoring: Object.freeze([
+        'advanced-creator-create-deck',
+        'advanced-creator-intake',
+        'advanced-creator-brief',
+        'advanced-creator-outline',
+        'advanced-creator-title-pass',
+        'advanced-creator-title-review',
+        'advanced-creator-planning',
+        'advanced-creator-planning-review',
+        'advanced-creator-entry-draft',
+        'advanced-creator-entry-auto-draft',
+        'advanced-creator-draft-review',
+        'advanced-creator-send-to-review',
+        'advanced-creator-pending-review-link',
+        'advanced-creator-current-task',
+        'advanced-creator-generation-settings',
+        'advanced-creator-project-shelf',
+        'advanced-creator-project-manage',
+        'advanced-creator-inspect-generated-pack',
+        'advanced-creator-readiness-gate',
+    ]),
+    packHealth: Object.freeze([
+        'advanced-health-center-open',
+        'advanced-health-status',
+        'advanced-health-issue-groups',
+        'advanced-health-safe-repair',
+        'advanced-health-manual-repair',
+        'advanced-package-update',
+        'advanced-package-local-mod-warning',
+        'advanced-package-export-bundled',
+        'advanced-package-export-custom',
+        'advanced-generated-finalize-custom',
+        'advanced-generated-export-readiness',
+    ]),
+    settingsDiagnostics: Object.freeze([
+        'advanced-settings-provider-overview',
+        'advanced-settings-provider-profile',
+        'advanced-settings-endpoint-model',
+        'advanced-settings-provider-test',
+        'advanced-settings-current-model',
+        'advanced-settings-generation',
+        'advanced-settings-provider-presets',
+        'advanced-settings-api-compat',
+        'advanced-settings-theme-pack',
+        'advanced-settings-icon-set',
+        'advanced-settings-colors',
+        'advanced-settings-diagnostics',
+    ]),
+    troubleshooting: Object.freeze([
+        'advanced-troubleshoot-no-loredeck',
+        'advanced-troubleshoot-wrong-context',
+        'advanced-troubleshoot-no-suggestions',
+        'advanced-troubleshoot-pending-stuck',
+        'advanced-troubleshoot-no-injection',
+        'advanced-troubleshoot-prompt-heavy',
+        'advanced-troubleshoot-provider-failure',
+        'advanced-troubleshoot-continuity-stale',
+        'advanced-troubleshoot-package-duplicate',
+        'advanced-troubleshoot-health-warnings',
+        'advanced-troubleshoot-creator-failure',
+        'advanced-troubleshoot-return-basic',
+    ]),
+});
+
+function countRequiredGuideStepIds(requiredGroups = {}) {
+    return Object.values(requiredGroups).reduce((sum, ids) => sum + ids.length, 0);
+}
+
+function assertRequiredGuideStepIds(mode, steps = [], requiredGroups = {}) {
+    const stepIds = new Set(steps.map(step => step?.id).filter(Boolean));
+    for (const [group, ids] of Object.entries(requiredGroups)) {
+        for (const id of ids) {
+            assert(stepIds.has(id), `${mode} walkthrough is missing required ${group} guide step: ${id}`);
+        }
     }
-    return targets;
+}
+
+function assertGuideStepMetadata(mode, steps = []) {
+    for (const step of steps) {
+        assert(typeof step?.id === 'string' && step.id.trim(), `${mode} walkthrough contains a step without an id.`);
+        assert(typeof step?.target === 'string' && step.target.trim(), `${mode} walkthrough step ${step.id} is missing a target.`);
+        assert(typeof step?.expected === 'string' && step.expected.trim(), `${mode} walkthrough step ${step.id} is missing expected-result copy.`);
+        assert(typeof step?.when === 'string' && step.when.trim(), `${mode} walkthrough step ${step.id} is missing usage-timing copy.`);
+        if (step.prepare) {
+            assert(VALID_GUIDE_PREPARES.has(step.prepare), `${mode} walkthrough step ${step.id} declares unknown prepare action: ${step.prepare}`);
+        }
+    }
+}
+
+function assertGuideTargetsResolvable(steps = [], markedTargets = new Set()) {
+    for (const step of steps) {
+        const prepareIsValid = step?.prepare && VALID_GUIDE_PREPARES.has(step.prepare);
+        for (const key of ['target', 'fallbackTarget']) {
+            const target = step?.[key];
+            if (!target) continue;
+            assert(markedTargets.has(target) || prepareIsValid, `Walkthrough ${key} is not marked in the runtime UI and has no valid prepare action: ${target}`);
+        }
+    }
+}
+
+function assertDocSectionHeadings(docName, docSource = '', sections = []) {
+    for (const section of sections) {
+        assert(docSource.includes(`### ${section.label}`), `${docName} must document walkthrough module: ${section.label}`);
+    }
+}
+
+function getCoverageLabel(mode, index) {
+    const prefix = mode === 'advanced' ? 'A' : 'B';
+    return `${prefix}${String(index + 1).padStart(2, '0')}`;
 }
 
 function collectMarkedTourTargets(source = '') {
@@ -107,9 +403,13 @@ const constants = read(constantsPath);
 const runtimeNavigation = read(runtimeNavigationPath);
 const runtimeBasicReadiness = read(runtimeBasicReadinessPath);
 const runtimeGuideContent = read(runtimeGuideContentPath);
+const runtimeTour = read(runtimeTourPath);
 const style = read(stylePath);
 const settingsTemplate = read(settingsTemplatePath);
 const liveSmoke = read(liveSmokePath);
+const basicWorkflowDoc = read(basicWorkflowDocPath);
+const advancedWorkflowDoc = read(advancedWorkflowDocPath);
+const documentationIndex = read(documentationIndexPath);
 const runtimeGuideModule = await import(pathToFileURL(runtimeGuideContentPath).href);
 const basicGuideSteps = runtimeGuideModule.getRuntimeGuideSteps('basic');
 const advancedGuideSteps = runtimeGuideModule.getRuntimeGuideSteps('advanced');
@@ -144,33 +444,62 @@ assert(!runtimeNavigation.includes('BASIC_TAB_LABELS') && !runtimeNavigation.inc
 assert(runtimeNavigation.includes("session: 'Session'") && runtimeNavigation.includes("lore: 'Lorecards'"), 'Basic Experience must reuse Advanced Session and Lorecards labels.');
 assert(runtimeNavigation.includes('function getTabLabelForExperience') && runtimeNavigation.includes('function getTabTooltipForExperience'), 'Runtime navigation must provide experience-aware tab label and tooltip helpers.');
 assert(runtimePanelSource.includes('getTabLabelForExperience(tabId, settings)') && runtimePanelSource.includes('getTabTooltipForExperience(tabId, settings)'), 'Runtime rail must render experience-aware tab labels and tooltips.');
-const basicGuideSource = runtimeGuideContent.split('basic: freezeGuideSteps([')[1]?.split('advanced: freezeGuideSteps([')[0] || '';
-const advancedGuideSource = runtimeGuideContent.split('advanced: freezeGuideSteps([')[1] || '';
+assert(llm.includes('export function getProviderModelStatus') && llm.includes('getConnectionProfileModelName'), 'Provider model display status must be resolved through the shared provider client.');
+assert(runtimePanelSource.includes('function getSettingsProviderRailMetric') && runtimePanelSource.includes("settings: getSettingsProviderRailMetric(settings)") && !runtimePanelSource.includes("settings: getThemePreset(settings.themePackId)?.title || 'Theme'"), 'Settings shelf metric must show compact provider model status instead of the active theme.');
+assert(runtimePanelSource.includes('function getRailMetricTooltips') && runtimePanelSource.includes('getSettingsProviderRailTooltip(settings)'), 'Clipped Settings shelf model metrics must keep a full provider-model tooltip.');
+assert(/\.saga-runtime-rail-metric\s*\{[\s\S]*flex: 0 1 auto;[\s\S]*max-width: 98px;[\s\S]*font-size: 0\.66em;/.test(style), 'Runtime rail metrics must stay shrinkable and compact for model/profile text.');
+const basicGuideSource = runtimeGuideContent.split('basic: freezeGuideSteps([')[1]?.split('advanced: freezeGuideSteps(buildAdvancedGuideSteps())')[0] || '';
+const advancedGuideSource = runtimeGuideContent.split('function buildAdvancedGuideSteps()')[1]?.split('export const GUIDE_SECTIONS')[0] || '';
 const basicGuideStepCount = (basicGuideSource.match(/guideStep\(/g) || []).length;
-const advancedGuideStepCount = (advancedGuideSource.match(/guideStep\(/g) || []).length;
+const advancedGuideStepCount = (advancedGuideSource.match(/advancedStep\(/g) || []).length;
 const markedTourTargets = collectMarkedTourTargets(runtimePanelSource);
 assert(runtimeGuideContent.includes("title: 'Basic Walkthrough'") && runtimeGuideContent.includes("title: 'Advanced Walkthrough'"), 'Runtime guides must use Alpha walkthrough titles.');
-assert(runtimeGuideContent.includes('GUIDE_SECTIONS') && runtimeGuideContent.includes("label: 'Loredecks'") && runtimeGuideContent.includes("label: 'Injection'"), 'Runtime guides must expose tab-section walkthrough metadata.');
-assert(basicGuideStepCount === 20, 'Basic guide must provide the sectioned 20-step Alpha walkthrough.');
-assert(advancedGuideStepCount === 50, 'Advanced guide must provide the full 50-step Alpha walkthrough map.');
-assert(basicGuideSteps.length === 20 && advancedGuideSteps.length === 50, 'Runtime guide exports must match source walkthrough counts.');
+assert(runtimeGuideContent.includes('GUIDE_SECTIONS') && runtimeGuideContent.includes("label: 'Loredecks'") && runtimeGuideContent.includes("label: 'Injection Diagnostics'"), 'Runtime guides must expose section walkthrough metadata.');
+assert(runtimeTour.includes("dep('prepareGuideStep'") && runtimeTour.includes('prepareGuideStep(step)') && runtimeTour.includes('getTourStepPrepareAction(step)'), 'Runtime tour must run optional guide prepare actions before locating targets.');
+assert(runtimeTour.includes('renderSagaTourPopover(step, target, prepareResult)') && runtimeTour.includes("appendSagaTourDetail(popover, 'Preparation'") && runtimeTour.includes('!target && !hasPrepare'), 'Prepared walkthrough steps must fall back to an explanatory centered popover instead of being skipped.');
+assert(panel.includes('function prepareRuntimeGuideStep') && panel.includes('prepareGuideStep: prepareRuntimeGuideStep'), 'Runtime tour must receive concrete prepare handlers from the lore panel.');
+for (const prepare of VALID_GUIDE_PREPARES) {
+    assert(panel.includes(`case '${prepare}':`), `Runtime guide prepare action is missing a lore-panel handler: ${prepare}`);
+}
+assert(basicGuideSteps.length === basicGuideStepCount && advancedGuideSteps.length === advancedGuideStepCount, 'Runtime guide exports must include every source guideStep call.');
+assert(basicGuideSteps.length >= countRequiredGuideStepIds(REQUIRED_BASIC_GUIDE_STEP_IDS), 'Basic guide must include all required workflow coverage steps.');
+assert(advancedGuideSteps.length >= countRequiredGuideStepIds(REQUIRED_ADVANCED_GUIDE_STEP_IDS), 'Advanced guide must include all required workflow coverage steps.');
+assert(advancedGuideSteps.length === 155, 'Advanced guide must implement the planned A01-A155 workflow coverage.');
+assertRequiredGuideStepIds('Basic', basicGuideSteps, REQUIRED_BASIC_GUIDE_STEP_IDS);
+assertRequiredGuideStepIds('Advanced', advancedGuideSteps, REQUIRED_ADVANCED_GUIDE_STEP_IDS);
+assertGuideStepMetadata('Basic', basicGuideSteps);
+assertGuideStepMetadata('Advanced', advancedGuideSteps);
 assert(basicGuideSections.reduce((sum, section) => sum + section.stepCount, 0) === basicGuideSteps.length, 'Basic walkthrough sections must account for every exported step.');
 assert(advancedGuideSections.reduce((sum, section) => sum + section.stepCount, 0) === advancedGuideSteps.length, 'Advanced walkthrough sections must account for every exported step.');
+assert(basicGuideSections.map(section => section.id).join(',') === 'firstRun,loredecks,context,lore,continueRoleplay,settings', 'Basic guide cards must follow the planned First Run/Loredecks/Context/Lorecards/Continue Roleplay/Settings order.');
+assert(advancedGuideSections.map(section => section.id).join(',') === 'libraryMastery,sessionControl,contextResolution,loreReview,injectionDiagnostics,continuityTracking,creatorAuthoring,packHealth,settingsDiagnostics,troubleshooting', 'Advanced guide cards must follow the planned workflow module order.');
+assertDocSectionHeadings('Basic Workflow doc', basicWorkflowDoc, basicGuideSections);
+assertDocSectionHeadings('Advanced Workflow doc', advancedWorkflowDoc, advancedGuideSections);
+for (const [index, section] of advancedGuideSections.entries()) {
+    const startLabel = getCoverageLabel('advanced', advancedGuideSteps.findIndex(step => step.id === section.steps[0]?.id));
+    const endLabel = getCoverageLabel('advanced', advancedGuideSteps.findIndex(step => step.id === section.steps.at(-1)?.id));
+    assert(advancedWorkflowDoc.includes(`Coverage: ${startLabel}-${endLabel}.`), `Advanced Workflow doc must document coverage range ${startLabel}-${endLabel} for ${section.label}.`);
+    assert(index === 0 || advancedGuideSections[index - 1].steps.at(-1)?.id !== section.steps[0]?.id, `Advanced section ${section.label} must start at a unique walkthrough step.`);
+}
+assert(basicWorkflowDoc.includes('Basic does not show:') && basicWorkflowDoc.includes('Create Deck') && basicWorkflowDoc.includes('Injection tab controls'), 'Basic Workflow doc must document Basic exclusions.');
+assert(basicWorkflowDoc.includes('Basic keeps **Import Deck** available.'), 'Basic Workflow doc must explicitly keep Import Deck in Basic.');
+assert(!basicWorkflowDoc.includes('tab walkthroughs') && !advancedWorkflowDoc.includes('organized by tab'), 'Workflow docs must not describe the old tab-only walkthrough organization.');
+assert(documentationIndex.includes('[Basic Workflow](user/BASIC_WORKFLOW.md)') && documentationIndex.includes('[Advanced Workflow](user/ADVANCED_WORKFLOW.md)'), 'Documentation index must link the Basic and Advanced workflow docs.');
+assert(documentationIndex.includes('SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md') && documentationIndex.includes('B01-B49') && documentationIndex.includes('A01-A155'), 'Documentation index must link the walkthrough expansion plan with Basic and Advanced coverage ranges.');
 for (const step of basicGuideSteps) {
     assert(basicVisibleTabs.has(step.tab), `Basic walkthrough step ${step.id} targets hidden tab: ${step.tab}`);
 }
 for (const step of advancedGuideSteps) {
     assert(advancedVisibleTabs.has(step.tab), `Advanced walkthrough step ${step.id} targets unknown tab: ${step.tab}`);
 }
-for (const target of collectGuideTargets([...basicGuideSteps, ...advancedGuideSteps])) {
-    assert(markedTourTargets.has(target), `Walkthrough target is not marked in the runtime UI: ${target}`);
-}
+assertGuideTargetsResolvable([...basicGuideSteps, ...advancedGuideSteps], markedTourTargets);
 assert(!basicGuideSource.includes("'injection'"), 'Basic guide steps must not target hidden Injection controls.');
 assert(!basicGuideSource.includes("'continuity'"), 'Basic guide steps must not target hidden Continuity controls.');
 assert(basicGuideSource.includes("'loredecks.library.open'") && basicGuideSource.includes("'context.commandCenter'") && basicGuideSource.includes("'lore.pending'") && basicGuideSource.includes("'settings.themePack'") && basicGuideSource.includes("'session.basicReadiness'"), 'Basic guide must route through Loredecks, Context, Lorecards, Settings, and the Start Checklist.');
 assert(!basicGuideSource.includes('Advanced Context Brief') && !basicGuideSource.includes('Prompt Placement') && !basicGuideSource.includes('Auto-Relevance'), 'Basic guide must not expose advanced diagnostic, injection, or automation tour steps.');
 assert(advancedGuideSource.includes("'injection'"), 'Advanced guide must retain Injection walkthrough targets.');
-assert(runtimePanelSource.includes('getRuntimeGuideSections') && runtimePanelSource.includes('startSagaTour(mode, { sectionId: section.id })'), 'Runtime guide card must render section-level mini walkthrough starts.');
+assert(runtimePanelSource.includes('getRuntimeGuideSections') && runtimePanelSource.includes('startSagaTour(mode, { sectionId: section.id })'), 'Runtime guide card must render module-level walkthrough starts.');
+assert(runtimePanelSource.includes('formatGuideStartLabel') && runtimePanelSource.includes('guided stop'), 'Runtime guide cards must show each module starting point and guided stop count.');
 assert(!runtimePanelSource.includes('showGuideStep(item'), 'Runtime guide card must not render one Show button per walkthrough target.');
 assert(runtimePanelSource.includes('function createBasicStartReadinessCard'), 'Basic Session must render the Start Checklist dropdown.');
 assert(/createBasicStartReadinessCard[\s\S]*createCollapsibleSection\(\s*'session\.basicReadiness'[\s\S]*true[\s\S]*'saga-basic-readiness-card'/.test(runtimePanelSource), 'Basic Session Start Checklist must be an expanded-by-default dropdown.');
@@ -188,6 +517,7 @@ assert(/if \(!basic\)\s*\{[\s\S]*createButton\('Create Deck'/.test(loredecksTabP
 assert(libraryPanel.includes('function isBasicExperienceMode') && /if \(!basic\)\s*\{[\s\S]*createButton\('Create Deck'/.test(libraryPanel), 'Basic Loredeck Library must hide the fullscreen Create Deck header action.');
 assert(!style.includes('saga-basic-loredeck-stack-card') && !style.includes('saga-basic-loredeck-stack-row'), 'Basic Loredecks must not keep dedicated layout styling.');
 assert(settingsPanel.includes('export function createBasicProviderQuickSetupCard') && settingsPanel.includes('function createBasicProviderQuickSetupRow'), 'Basic Settings must render a simplified Providers surface.');
+assert(settingsPanel.includes('getProviderModelStatus') && settingsPanel.includes("createBasicProviderSummaryRow('Model'"), 'Basic provider setup must summarize the resolved model or fallback profile label.');
 assert(settingsPanel.includes('Open Advanced Provider Settings') && settingsPanel.includes('Use Current Model') && settingsPanel.includes('Test ${cfg.shortTitle}'), 'Basic Providers must test providers and hand off to Advanced provider controls.');
 assert(panel.includes("'settings.providers'") && panel.includes("'settings.themePack'") && !panel.includes("'settings.experienceMode'"), 'Basic Settings must expose Providers and Theme Pack without a redundant Experience Mode section.');
 assert(!panel.includes('function createBasicAppearanceSettingsCard') && /if \(basic\)[\s\S]*'settings\.themePack'[\s\S]*createThemeSettingsCard\(settings\)/.test(panel), 'Basic Settings must render the same Theme Pack section as Advanced.');
@@ -359,6 +689,13 @@ assert(style.includes('saga-context-advanced-brief-content'), 'Advanced Context 
 assert(style.includes('saga-context-proposal-focus'), 'Context proposal review jump must have a visible focus animation.');
 assert(style.includes('.saga-context-workbench-window-builder > .saga-primary-actions'), 'Context Workbench window-builder actions must use explicit grid placement.');
 assert(liveSmoke.includes('SAGA_SMOKE_TARGET'), 'Live smoke helper must support targeted smoke modes.');
+assert(liveSmoke.includes('REPO_LOCAL_HARNESS_TARGETS') && liveSmoke.includes("'guide-harness'"), 'Live smoke helper must support repo-local walkthrough guide smoke.');
+assert(liveSmoke.includes('guide-harness-01-basic-card') && liveSmoke.includes('guide-harness-02-basic-tour'), 'Guide harness smoke must capture Basic guide card and tour screenshots.');
+assert(liveSmoke.includes('guide-harness-03-advanced-card') && liveSmoke.includes('guide-harness-04-advanced-tour'), 'Guide harness smoke must capture Advanced guide card and tour screenshots.');
+assert(liveSmoke.includes('Start Basic Walkthrough') && liveSmoke.includes('Start Advanced Walkthrough'), 'Guide harness smoke must click both full walkthrough launch actions.');
+assert(liveSmoke.includes('Basic Workflow Orientation') && liveSmoke.includes('Library Overview'), 'Guide harness smoke must verify the expected first Basic and Advanced tour steps.');
+assert(liveSmoke.includes('1 / 49') && liveSmoke.includes('1 / 155'), 'Guide harness smoke must verify Basic and Advanced walkthrough progress counts.');
+assert(liveSmoke.includes('hiddenActionButtons'), 'Guide harness smoke must guard Basic against Advanced-only action buttons.');
 assert(liveSmoke.includes("SMOKE_TARGET === 'context-harness'"), 'Live smoke helper must support the repo-local Context harness target.');
 assert(liveSmoke.includes('context-harness-01-proposal-review'), 'Context harness smoke must capture the proposal-review screenshot.');
 assert(liveSmoke.includes('context-harness-02-workbench'), 'Context harness smoke must capture the Context Workbench screenshot.');

@@ -15,7 +15,7 @@ Basic should teach the routine roleplay loop. Advanced should teach the full ope
 ## Design Rules
 
 - Keep the visible guide titles **Basic Walkthrough** and **Advanced Walkthrough**.
-- Keep tab-section mini walkthroughs; do not show one long visible list of every "Show" target.
+- Keep focused module walkthroughs; do not show one long visible list of every "Show" target.
 - Let users run the full walkthrough or start a focused module.
 - Do not cap either guide by step count.
 - Every step should have a clear target, expected result, and "when to use this" note.
@@ -94,7 +94,7 @@ The full Basic Walkthrough should run modules in this order:
 5. Session: confirm readiness and continue roleplay.
 6. Settings: fix provider/theme setup only when needed.
 
-The guide card can still render modules by tab. The full walkthrough should stitch them in the dependency order above.
+The guide card should render these as workflow modules, while each module still points users at the relevant Basic tab. The full walkthrough should stitch them in the dependency order above.
 
 ### Basic Ordered Coverage
 

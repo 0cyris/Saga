@@ -52,6 +52,7 @@ function canValidateLoredeckInEditor(pack) { return dep('canValidateLoredeckInEd
 function isLoredeckMalformedTagIssueGroup(group) { return dep('isLoredeckMalformedTagIssueGroup', () => false)(group); }
 function queueLoredeckMalformedTagRepairFromHealthGroup(pack, group, button) { return dep('queueLoredeckMalformedTagRepairFromHealthGroup', async () => {})(pack, group, button); }
 function repairLoredeckSafeHealthIssues(pack, button) { return dep('repairLoredeckSafeHealthIssues', async () => {})(pack, button); }
+function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
 
 const loredeckEntryPreviewCache = { get: id => healthPanelDeps.getLoredeckEntryPreviewCacheRecord?.(id) || null };
 const loredeckManifestPreviewCache = { get: id => healthPanelDeps.getLoredeckManifestPreviewCacheRecord?.(id) || null };
@@ -154,6 +155,7 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
 
         const header = document.createElement('div');
         header.className = 'saga-lore-workbench-header saga-loredeck-health-center-header';
+        markTourTarget(header, 'loredecks.health.header');
         const titleWrap = document.createElement('div');
         titleWrap.className = 'saga-lore-workbench-title-wrap';
         const title = document.createElement('div');
@@ -168,6 +170,7 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
 
         const actions = document.createElement('div');
         actions.className = 'saga-primary-actions saga-loredeck-health-center-actions';
+        markTourTarget(actions, 'loredecks.health.actions');
         actions.appendChild(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Deck Health report.' : 'Reload active Loredecks and recompute stack Deck Health.', async (btn) => {
             await refreshLoredeckHealthCenterScan(context, btn);
         }, 'saga-primary-button'));
@@ -431,6 +434,7 @@ function createLoredeckHealthOverviewView(context) {
     main.className = 'saga-loredeck-health-overview-main';
     const issues = document.createElement('div');
     issues.className = 'saga-loredeck-health-panel';
+    markTourTarget(issues, 'loredecks.health.issues');
     const issueTitle = document.createElement('div');
     issueTitle.className = 'saga-runtime-card-title';
     issueTitle.textContent = 'Priority Issues';
@@ -463,6 +467,7 @@ function createLoredeckHealthOverviewView(context) {
 function createLoredeckHealthIssuesView(context) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-health-issues-view';
+    markTourTarget(wrap, 'loredecks.health.issues');
     const groups = getLoredeckHealthIssueGroupsForContext(context, { includeIgnored: true });
     const header = document.createElement('div');
     header.className = 'saga-loredeck-health-view-header';
@@ -608,6 +613,7 @@ function createLoredeckHealthAdvancedView(context) {
 function createLoredeckHealthSummaryHero(context, options = {}) {
     const hero = document.createElement('div');
     hero.className = `saga-loredeck-health-hero saga-loredeck-health-hero-${context.status.tone}${options.compact ? ' saga-loredeck-health-hero-compact' : ''}`;
+    markTourTarget(hero, 'loredecks.health.status');
     const emblem = document.createElement('div');
     emblem.className = 'saga-loredeck-health-emblem';
     emblem.textContent = context.status.tone === 'error' ? '!' : (context.status.tone === 'ok' ? 'OK' : '!');

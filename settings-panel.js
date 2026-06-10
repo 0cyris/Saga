@@ -12,6 +12,7 @@ import {
     clearCachedApiKey,
     fetchLoreModels,
     getAvailableConnectionProfiles,
+    getProviderModelStatus,
     loadApiKey,
     testLoreConnection,
     validateLoreProviderConfiguration,
@@ -120,6 +121,7 @@ function createBasicProviderQuickSetupRow(kind, settings = getSettings()) {
     const prefix = getProviderPrefix(kind);
     const provider = settings[`${prefix}Provider`] || 'st';
     const validation = safeValidateProviderConfiguration(kind);
+    const modelStatus = getProviderModelStatus(kind, settings);
 
     const block = document.createElement('section');
     block.className = `saga-provider-runtime-block saga-basic-provider-block saga-provider-runtime-${kind}`;
@@ -146,6 +148,7 @@ function createBasicProviderQuickSetupRow(kind, settings = getSettings()) {
     const summary = document.createElement('div');
     summary.className = 'saga-basic-provider-summary';
     summary.appendChild(createBasicProviderSummaryRow('Source', getProviderLabel(provider), `Current ${cfg.shortTitle.toLowerCase()} provider source.`));
+    summary.appendChild(createBasicProviderSummaryRow('Model', modelStatus.label, modelStatus.tooltip || `Current ${cfg.shortTitle.toLowerCase()} provider model.`));
     summary.appendChild(createBasicProviderSummaryRow('Status', validation.ok ? 'Ready for model actions' : (validation.message || 'Needs setup'), validation.message || `${cfg.shortTitle} provider validation result.`));
     block.appendChild(summary);
 
@@ -671,6 +674,7 @@ function resetProviderSettingsToDefaults(kind) {
 export function getProviderStatusText(kind, settings = getSettings()) {
     const prefix = kind === 'continuity' ? 'continuity' : 'lore';
     const provider = settings[`${prefix}Provider`] || 'st';
+    const modelStatus = getProviderModelStatus(kind, settings);
     let status = '';
     try {
         const validation = validateLoreProviderConfiguration(kind);
@@ -678,7 +682,7 @@ export function getProviderStatusText(kind, settings = getSettings()) {
     } catch (_) {
         status = 'unknown';
     }
-    return `${getProviderLabel(provider)} | ${status}`;
+    return `${modelStatus.label || getProviderLabel(provider)} | ${status}`;
 }
 
 function createProviderPresetStatusCard() {

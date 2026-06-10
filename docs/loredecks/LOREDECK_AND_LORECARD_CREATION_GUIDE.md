@@ -29,7 +29,7 @@ Saga uses Loredecks across several systems:
 - Context: tracks where the story currently is inside each loaded deck's continuity, arc, route, season, year, quest, or other story coordinate.
 - Retrieval: chooses Lorecards that match the current Context, scope, stack priority, relevance, pin/mute state, and search signals.
 - Injection: turns selected Lorecards into prompt material for the model.
-- Deck Health: validates that a deck is technically reliable enough to load, share, stack, or use as a reference model.
+- Pack Health: validates that a deck is technically reliable enough to load, share, stack, or use as a reference model.
 - Pending Review: keeps generated or assisted changes reviewable before they become accepted deck content.
 - Loredeck Creator: helps draft and revise decks, while still routing important changes through review.
 
@@ -45,10 +45,10 @@ Use the Harry Potter decks as examples for:
 - Separating reusable world rules from era-specific facts.
 - Writing Context-aware Lorecards.
 - Keeping future canon and secret knowledge gated until the right story point.
-- Maintaining timelines, tags, and manifests that pass Deck Health cleanly.
-- Treating Deck Health as a release gate, not a rough suggestion.
+- Maintaining timelines, tags, and manifests that pass Pack Health cleanly.
+- Treating Pack Health as a release gate, not a rough suggestion.
 
-The reference model should stay at full Deck Health before new deck families are modeled after it.
+The reference model should stay at full Pack Health before new deck families are modeled after it.
 
 ## Authoring Principles
 
@@ -81,7 +81,7 @@ When an LLM is helping create or revise a Loredeck, it should follow these rules
 - Keep cards bounded to the deck's declared continuity and source range.
 - Mark uncertain or generated material for review instead of presenting it as human-vetted canon.
 - Route generated additions through Pending Review when working inside Saga workflows.
-- After changes, run the relevant Deck Health and conformance checks.
+- After changes, run the relevant Pack Health and conformance checks.
 
 The authoring target is not "a lot of lore." The target is a clean, Context-aware deck that retrieves the right information at the right time and stays quiet when it should.
 
@@ -97,14 +97,14 @@ Use this workflow for new reference-quality Loredecks:
 6. Draft Lorecards in focused topic folders.
 7. Keep cards granular, retrieval-aware, and Context-aware.
 8. Add passive display assets if the deck should appear polished in the Library.
-9. Run Deck Health and fix every issue before sharing or using the deck as a model.
-10. For bundled decks, verify the deck is registered, indexed, and synchronized with runtime defaults.
+9. Run Pack Health and fix every issue before sharing or using the deck as a model.
+10. For Bundled Lorepacks, verify the deck is registered, indexed, and synchronized with runtime defaults.
 
 If the deck is generated or assisted by a model, add an explicit review pass after drafting. Generated content should not become reference material simply because it parses.
 
-## Deck Health Release Bar
+## Pack Health Release Bar
 
-Deck Health is the practical release gate for Loredecks. A deck is reference-ready only when it has no Deck Health errors, warnings, or suggestions under the current health system.
+Pack Health is the practical release gate for Loredecks. A deck is reference-ready only when it has no Pack Health errors, warnings, or suggestions under the current health system.
 
 Clean health means the deck is technically reliable. It does not prove the lore is canonically perfect, but it does prove Saga can load and reason over the package without known structural issues.
 
@@ -131,7 +131,7 @@ Future deck families should get equivalent health, conformance, and Context fixt
 
 ## Documentation Map
 
-- [SAGA_LOREDECK_SCHEMA.md](SAGA_LOREDECK_SCHEMA.md): detailed Loredeck, Lorecard, registry, bundle, and Deck Health schema contract.
+- [SAGA_LOREDECK_SCHEMA.md](SAGA_LOREDECK_SCHEMA.md): detailed Loredeck, Lorecard, registry, bundle, and Pack Health schema contract.
 - [LLM_LOREDECK_GENERATION_GUIDE.md](LLM_LOREDECK_GENERATION_GUIDE.md): compact LLM handoff for Saga Loredeck generation and revision.
 - [../DOCUMENTATION_INDEX.md](../DOCUMENTATION_INDEX.md): top-level documentation index.
 - [../development](../development): development notes and planning documents that have not yet been rewritten as release-facing docs.

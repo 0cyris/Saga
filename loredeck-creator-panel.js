@@ -77,6 +77,7 @@ function confirmAction(title, message) { return dep('confirmAction', async () =>
 function createLoredeckCreatorDraftReviewSection(pack) { return dep('createLoredeckCreatorDraftReviewSection', () => null)(pack); }
 function createLoredeckPendingReviewCard(pack) { return dep('createLoredeckPendingReviewCard', () => null)(pack); }
 function getLoredeckCreatorPipelineReadinessView(pack, cached) { return dep('getLoredeckCreatorPipelineReadinessView', () => null)(pack, cached); }
+function markTourTarget(element, target) { return dep('markTourTarget', value => value)(element, target); }
 
 export function openLoredeckCreatorWorkbench() {
     document.querySelector('.saga-loredeck-creator-workbench-overlay')?.remove();
@@ -88,6 +89,7 @@ export function openLoredeckCreatorWorkbench() {
 
     const shell = document.createElement('div');
     shell.className = 'saga-lore-workbench-shell saga-loredeck-creator-workbench-shell';
+    markTourTarget(shell, 'loredecks.creator.workbench');
     overlay.appendChild(shell);
 
     const cached = getLoredeckCreatorBriefCache();
@@ -96,6 +98,7 @@ export function openLoredeckCreatorWorkbench() {
 
     const body = document.createElement('div');
     body.className = 'saga-loredeck-creator-workbench-body';
+    markTourTarget(body, 'loredecks.creator.body');
     body.appendChild(createLoredeckCreatorCard(getState(), { embedded: true, showHeader: false }));
     shell.appendChild(body);
 }
@@ -175,6 +178,7 @@ export function queueLoredeckCreatorWorkbenchRefresh(options = {}) {
 export function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getLoredeckCreatorPipelineModel(cached), options = {}) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-lore-workbench-header saga-loredeck-creator-pipeline-header';
+    markTourTarget(wrap, 'loredecks.creator.pipeline');
     const titleWrap = document.createElement('div');
     titleWrap.className = 'saga-lore-workbench-title-wrap';
     const titleRow = document.createElement('div');
@@ -214,9 +218,11 @@ export function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getL
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-loredeck-library-header-actions saga-loredeck-creator-header-actions';
-    actions.appendChild(createButton('Project Settings', 'Jump to the editable project inputs or approved Scope Brief.', () => {
+    const settingsButton = createButton('Project Settings', 'Jump to the editable project inputs or approved Scope Brief.', () => {
         scrollLoredeckCreatorWorkbenchToAnchor(cached.approved ? 'scope-brief' : 'intake');
-    }));
+    });
+    markTourTarget(settingsButton, 'loredecks.creator.settings');
+    actions.appendChild(settingsButton);
     if (options.showClose) {
         actions.appendChild(createButton('Close', 'Close the Loredeck Creator wizard.', () => {
             document.querySelector('.saga-loredeck-creator-workbench-overlay')?.remove();
@@ -230,6 +236,7 @@ export function createLoredeckCreatorStageGuide(cached = {}, pipeline = getLored
     void cached;
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-stage-guide';
+    markTourTarget(wrap, 'loredecks.creator.stages');
     wrap.dataset.sagaCreatorAnchor = 'roadmap';
 
     const list = document.createElement('div');
@@ -306,6 +313,7 @@ export function createLoredeckCreatorArtifactDisclosure(title, child, options = 
 export function createLoredeckCreatorCurrentTaskCard(cached = {}, pipeline = getLoredeckCreatorPipelineModel(cached), context = {}) {
     const card = document.createElement('div');
     card.className = 'saga-loredeck-creator-current-task';
+    markTourTarget(card, 'loredecks.creator.currentTask');
     card.dataset.sagaCreatorAnchor = 'current-task';
     const main = document.createElement('div');
     main.className = 'saga-loredeck-creator-current-main';
@@ -343,6 +351,7 @@ export function createLoredeckCreatorCurrentTaskCard(cached = {}, pipeline = get
 export function createLoredeckCreatorBriefReview(brief = {}, cached = {}) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-brief';
+    markTourTarget(wrap, 'loredecks.creator.brief');
     wrap.dataset.sagaCreatorAnchor = 'brief-review';
 
     const title = document.createElement('div');
@@ -440,6 +449,7 @@ export function createLoredeckCreatorOutlineCard(brief = {}, cached = {}) {
     const titleBatches = getLoredeckCreatorOutlineRows(outline, 'titleBatches');
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-brief saga-loredeck-creator-outline';
+    markTourTarget(wrap, 'loredecks.creator.outline');
     wrap.dataset.sagaCreatorAnchor = 'story-outline';
 
     const title = document.createElement('div');
@@ -712,6 +722,7 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
 
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-brief saga-loredeck-creator-title-pass';
+    markTourTarget(wrap, 'loredecks.creator.titlePass');
     wrap.dataset.sagaCreatorAnchor = 'title-sets';
 
     const title = document.createElement('div');
@@ -1025,6 +1036,7 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
     const pendingPlanningCount = generatedPack ? countLoredeckCreatorPlanningPendingChanges(generatedPack) : 0;
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-brief saga-loredeck-creator-planning';
+    markTourTarget(wrap, 'loredecks.creator.planning');
     wrap.dataset.sagaCreatorAnchor = 'context-tags';
 
     const title = document.createElement('div');
@@ -1119,6 +1131,7 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     const canDraftEntries = !!generatedPack && planning.ready && !!targetTitles.length && !hasDraftsAwaitingReview;
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-brief saga-loredeck-creator-entry-drafts';
+    markTourTarget(wrap, 'loredecks.creator.entries');
     wrap.dataset.sagaCreatorAnchor = 'lorecards';
 
     const title = document.createElement('div');
@@ -1237,6 +1250,7 @@ export function createLoredeckCreatorPendingReviewCard(cached = {}, pipeline = {
     const card = createLoredeckPendingReviewCard(pack);
     if (!card) return null;
     card.classList.add('saga-loredeck-creator-pending-review');
+    markTourTarget(card, 'loredecks.creator.review');
     card.dataset.sagaCreatorAnchor = 'review-queue';
     if (pipeline.pendingPlanningCount) {
         const note = document.createElement('div');
@@ -1274,6 +1288,7 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
     const pipeline = view.pipeline || readiness.pipeline || {};
     const wrap = document.createElement('div');
     wrap.className = 'saga-loredeck-creator-brief saga-loredeck-generated-readiness saga-loredeck-creator-pipeline-readiness';
+    markTourTarget(wrap, 'loredecks.creator.pipeline');
     wrap.dataset.sagaCreatorAnchor = 'finalize';
 
     const title = document.createElement('div');

@@ -13,6 +13,21 @@ import { getSettings } from './state-manager.js';
 import { loadNamedApiKey } from './secure-keyring.js';
 
 const PROVIDER_KINDS = new Set(['continuity', 'lore']);
+const CONNECTION_PROFILE_ID_FIELDS = Object.freeze(['id', 'name', 'profileId', 'uuid', 'profile_id', 'label']);
+const CONNECTION_PROFILE_MODEL_KEYS = new Set([
+    'model',
+    'modelid',
+    'modelname',
+    'selectedmodel',
+    'selectedmodelid',
+    'apimodel',
+    'onlineapimodel',
+    'custommodel',
+    'chatcompletionmodel',
+    'completionmodel',
+    'llmmodel',
+    'aimodel',
+]);
 const cachedKeys = new Map();
 
 function normalizeProviderKind(kind = 'lore') {
@@ -24,8 +39,8 @@ function capName(kind) {
     return kind === 'continuity' ? 'continuity' : 'lore';
 }
 
-function getProviderSettings(kind = 'lore') {
-    const settings = getSettings();
+function getProviderSettings(kind = 'lore', settingsOverride = null) {
+    const settings = settingsOverride || getSettings();
     const k = normalizeProviderKind(kind);
     const prefix = capName(k);
     const title = k === 'continuity' ? 'Utility' : 'Reasoning';
@@ -336,6 +351,153 @@ function getConnectionProfiles(ctx = getSillyTavernContext()) {
 
 export function getAvailableConnectionProfiles() {
     return getConnectionProfiles();
+}
+
+function cleanProviderText(value) {
+    if (value === undefined || value === null || typeof value === 'object') return '';
+    return String(value).replace(/\s+/g, ' ').trim();
+}
+
+function firstProviderText(...values) {
+    for (const value of values) {
+        const text = cleanProviderText(value);
+        if (text) return text;
+    }
+    return '';
+}
+
+function normalizeProviderKey(key = '') {
+    return String(key || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function isConnectionProfileModelKey(key = '') {
+    const normalized = normalizeProviderKey(key);
+    if (!normalized || normalized === 'models') return false;
+    if (CONNECTION_PROFILE_MODEL_KEYS.has(normalized)) return true;
+    if (!normalized.includes('model')) return false;
+    if (/(list|lists|option|options|map|mapping|setting|settings|parameter|parameters|provider|providers|source|sources|preset|presets)$/.test(normalized)) return false;
+    return normalized.endsWith('model') || normalized.endsWith('modelid') || normalized.endsWith('modelname');
+}
+
+function isConnectionProfileModelCollectionKey(key = '') {
+    const normalized = normalizeProviderKey(key);
+    return normalized === 'models'
+        || normalized.startsWith('availablemodels')
+        || /(list|lists|option|options|map|mapping)$/.test(normalized);
+}
+
+function findModelValueInObject(root, depth = 0, seen = new Set()) {
+    if (!root || typeof root !== 'object' || depth > 5 || seen.has(root)) return '';
+    seen.add(root);
+    const entries = Object.entries(root);
+
+    for (const [key, value] of entries) {
+        if (!isConnectionProfileModelKey(key)) continue;
+        const text = cleanProviderText(value);
+        if (text) return text;
+    }
+
+    for (const [key, value] of entries) {
+        if (!value || typeof value !== 'object') continue;
+        if (isConnectionProfileModelCollectionKey(key)) continue;
+        const nested = findModelValueInObject(value, depth + 1, seen);
+        if (nested) return nested;
+    }
+
+    return '';
+}
+
+function getConnectionProfileId(profile = {}) {
+    return firstProviderText(...CONNECTION_PROFILE_ID_FIELDS.map(key => profile?.[key]));
+}
+
+function getConnectionProfileLabel(profile = {}, fallback = '') {
+    return firstProviderText(profile?.name, profile?.label, profile?.profileName, profile?.title, fallback);
+}
+
+function getConnectionProfileById(profileId = '') {
+    const id = cleanProviderText(profileId);
+    if (!id) return null;
+    return getConnectionProfiles().find(profile => getConnectionProfileId(profile) === id
+        || CONNECTION_PROFILE_ID_FIELDS.some(key => cleanProviderText(profile?.[key]) === id)) || null;
+}
+
+function getConnectionProfileModelName(profile = {}) {
+    return findModelValueInObject(profile);
+}
+
+function getCurrentSillyTavernModelName(ctx = getSillyTavernContext()) {
+    return firstProviderText(
+        ctx?.onlineApiModel,
+        ctx?.model,
+        ctx?.modelName,
+        ctx?.apiModel,
+        ctx?.selectedModel,
+        typeof globalThis !== 'undefined' ? globalThis.onlineApiModel : '',
+        typeof globalThis !== 'undefined' ? globalThis.selectedModel : '',
+    );
+}
+
+export function getProviderModelStatus(kind = 'lore', settings = null) {
+    const cfg = getProviderSettings(kind, settings);
+    if (cfg.provider === 'openai_compatible') {
+        const model = cleanProviderText(cfg.openAIModel);
+        return {
+            kind: cfg.kind,
+            provider: cfg.provider,
+            model,
+            label: model || 'Model not set',
+            sourceLabel: 'OpenAI-compatible endpoint',
+            exact: !!model,
+            tooltip: model
+                ? `${cfg.title} Provider model: ${model}.`
+                : `${cfg.title} Provider uses an OpenAI-compatible endpoint, but no model ID is saved yet.`,
+        };
+    }
+
+    if (cfg.provider === 'profile') {
+        const profile = getConnectionProfileById(cfg.profileId);
+        const model = getConnectionProfileModelName(profile || {});
+        const profileLabel = getConnectionProfileLabel(profile || {}, cfg.profileId || 'Connection Profile');
+        const fallback = profileLabel ? `Profile: ${profileLabel}` : 'Connection Profile';
+        return {
+            kind: cfg.kind,
+            provider: cfg.provider,
+            model,
+            label: model || fallback,
+            sourceLabel: 'Connection Profile',
+            profileLabel,
+            exact: !!model,
+            tooltip: model
+                ? `${cfg.title} Provider model from ${fallback}: ${model}.`
+                : `${cfg.title} Provider model could not be detected; showing selected ${fallback}.`,
+        };
+    }
+
+    if (cfg.provider === 'st') {
+        const model = getCurrentSillyTavernModelName();
+        return {
+            kind: cfg.kind,
+            provider: cfg.provider,
+            model,
+            label: model || 'Current ST model',
+            sourceLabel: 'Current SillyTavern Model',
+            exact: !!model,
+            tooltip: model
+                ? `${cfg.title} Provider uses the active SillyTavern model: ${model}.`
+                : `${cfg.title} Provider uses the active SillyTavern model; Saga could not read its model ID from this session.`,
+        };
+    }
+
+    return {
+        kind: cfg.kind,
+        provider: cfg.provider,
+        model: '',
+        label: 'Provider not set',
+        sourceLabel: cfg.provider || 'Provider',
+        exact: false,
+        tooltip: `${cfg.title} Provider source is not recognized.`,
+    };
 }
 
 export async function loadApiKey(kind = 'lore') {
@@ -911,15 +1073,14 @@ async function fetchOpenAICompatibleModels(cfg) {
 }
 
 function fetchProfileModels(cfg) {
-    const profiles = getConnectionProfiles();
-    const profile = profiles.find(p => String(p.id || p.name || p.profileId || p.uuid || '') === cfg.profileId);
-    if (!profile) return [{ id: 'unknown', name: cfg.profileId || 'Unknown profile' }];
-    return [{ id: profile.model || profile.modelName || profile.name || 'unknown', name: profile.name || cfg.profileId }];
+    const profile = getConnectionProfileById(cfg.profileId);
+    const model = getConnectionProfileModelName(profile || {});
+    const profileLabel = getConnectionProfileLabel(profile || {}, cfg.profileId || 'Unknown profile');
+    return [{ id: model || profileLabel || 'unknown', name: model ? profileLabel || model : `Profile: ${profileLabel || 'unknown'}` }];
 }
 
 function fetchSTModel() {
-    const ctx = getSillyTavernContext();
-    const modelName = ctx?.onlineApiModel || ctx?.model || ctx?.mainApi || 'Current ST model';
+    const modelName = getCurrentSillyTavernModelName() || 'Current ST model';
     return [{ id: modelName, name: modelName }];
 }
 

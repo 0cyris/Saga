@@ -63,6 +63,26 @@ Images/documentation/renders/saga-smoke/context-harness-02-workbench.png
 
 It verifies the Runtime Context command center, proposal review overlay, proposal apply flow, loaded Loredeck Context rows, lock state, and Context Workbench tabs.
 
+## Repo-Local Walkthrough Screenshot Helper
+
+Run the current-code Basic and Advanced walkthrough smoke without depending on the installed SillyTavern extension copy:
+
+```powershell
+$env:SAGA_SMOKE_TARGET='guide-harness'
+node scripts\smoke-live-st-cdp.mjs
+```
+
+This starts the local harness, opens the Basic Session guide, then reloads the harness in Advanced mode. It captures:
+
+```text
+Images/documentation/renders/saga-smoke/guide-harness-01-basic-card.png
+Images/documentation/renders/saga-smoke/guide-harness-02-basic-tour.png
+Images/documentation/renders/saga-smoke/guide-harness-03-advanced-card.png
+Images/documentation/renders/saga-smoke/guide-harness-04-advanced-tour.png
+```
+
+It verifies Basic module cards, Advanced task-track cards, hidden Basic rail tabs, Advanced rail availability, and the first full-tour popover for both walkthroughs.
+
 ## Live ST Screenshot Helper
 
 After syncing the current workspace into the active SillyTavern extension directory, run the dependency-free CDP helper:

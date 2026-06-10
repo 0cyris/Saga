@@ -141,7 +141,7 @@ Acceptance:
 
 ### Phase 2: Basic Walkthrough Cleanup
 
-Detailed ordered coverage now lives in [Saga Walkthrough Workflow Expansion Plan](SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md). That plan supersedes the earlier fixed-size target and treats Basic walkthrough coverage as workflow-complete rather than count-capped.
+Detailed ordered coverage now lives in [Saga Walkthrough Workflow Expansion Plan](SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md). That plan treats Basic walkthrough coverage as workflow-complete rather than count-limited.
 
 Files:
 
@@ -150,14 +150,15 @@ Files:
 
 Tasks:
 
-1. Replace the current Basic guide with the sectioned Alpha flow:
+1. Replace the current Basic guide with the Alpha workflow-card flow:
+   - First Run.
    - Loredecks.
-   - Session.
    - Context.
    - Lorecards.
+   - Continue Roleplay.
    - Settings.
 2. Keep the full Basic walkthrough action-oriented and workflow-complete, without a fixed maximum step count.
-3. Render tab-section mini walkthrough starters instead of one visible list of every target.
+3. Render focused workflow starters instead of one visible list of every target.
 4. Remove all Basic guide steps targeting hidden tabs.
 5. Keep Advanced guide Injection steps unchanged.
 6. Add a validation helper or test assertion that every Basic guide step targets a Basic-visible tab.
@@ -437,7 +438,7 @@ This feature is done when:
 
 - Basic mode rail hides Injection and Continuity.
 - Basic mode has no selected-lore summary section in Session or Lorecards.
-- Basic walkthrough targets only visible Basic tabs and is grouped into tab-section mini walkthroughs.
+- Basic walkthrough targets only visible Basic tabs and is grouped into focused workflow starters.
 - Basic Settings exposes Providers and the full shared Theme Pack surface without showing advanced provider internals.
 - Advanced mode still exposes the full Injection tab and existing controls.
 - Switching modes preserves saved stack, Context, pending Lorecards, accepted Lorecards, and backed-up managed settings.

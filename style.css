@@ -9402,6 +9402,13 @@
     line-height: 1.35;
 }
 
+.saga-instructions-section-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 5px;
+}
+
 .saga-guide-step-button {
     align-self: center;
     white-space: nowrap;
@@ -9977,6 +9984,7 @@
 .saga-runtime-rail-tab,
 .saga-runtime-rail-control {
     width: 100%;
+    min-width: 0;
     min-height: 36px;
     display: flex;
     align-items: center;
@@ -10040,13 +10048,16 @@
 
 .saga-runtime-rail-metric {
     display: none;
-    flex: 0 0 auto;
-    max-width: 72px;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 98px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     opacity: 0.72;
-    font-size: 0.72em;
+    font-size: 0.66em;
+    line-height: 1.1;
+    text-align: right;
 }
 
 .saga-runtime-rail-expanded .saga-runtime-rail-label,

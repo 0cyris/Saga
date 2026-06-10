@@ -28,28 +28,291 @@ function getGuideSectionId(step) {
     return String(step?.section || step?.tab || 'session').trim() || 'session';
 }
 
+const ADVANCED_GUIDE_SECTION_BY_PREFIX = Object.freeze({
+    'advanced-loredecks-': 'libraryMastery',
+    'advanced-library-': 'libraryMastery',
+    'advanced-session-': 'sessionControl',
+    'advanced-context-': 'contextResolution',
+    'advanced-lore-': 'loreReview',
+    'advanced-injection-': 'injectionDiagnostics',
+    'advanced-continuity-': 'continuityTracking',
+    'advanced-creator-': 'creatorAuthoring',
+    'advanced-health-': 'packHealth',
+    'advanced-package-': 'packHealth',
+    'advanced-generated-': 'packHealth',
+    'advanced-settings-': 'settingsDiagnostics',
+    'advanced-troubleshoot-': 'troubleshooting',
+});
+
+const ADVANCED_GUIDE_DEFAULTS = Object.freeze({
+    libraryMastery: Object.freeze({
+        expected: 'You can manage Library records, package sources, and active-stack eligibility deliberately.',
+        when: 'Use this when source packs, stack order, imports, exports, or Library details need inspection.',
+    }),
+    sessionControl: Object.freeze({
+        expected: 'You can control runtime mode, activation, automation, and session-level diagnostics.',
+        when: 'Use this before deeper diagnostics or when changing how Saga behaves during play.',
+    }),
+    contextResolution: Object.freeze({
+        expected: 'You can explain and correct the Context that gates canon, retrieval, and Lorecard eligibility.',
+        when: 'Use this whenever suggestions, retrieval, or injection appear tied to the wrong story position.',
+    }),
+    loreReview: Object.freeze({
+        expected: 'You can generate, review, accept, edit, and audit Lorecards without bypassing review.',
+        when: 'Use this after Context is current and the story has durable facts or canon constraints to capture.',
+    }),
+    injectionDiagnostics: Object.freeze({
+        expected: 'You can inspect the exact continuity and lore material Saga plans to send to the model.',
+        when: 'Use this when the model ignores lore, sees stale state, or receives too much prompt context.',
+    }),
+    continuityTracking: Object.freeze({
+        expected: 'You can maintain live scene state separately from durable accepted Lorecards.',
+        when: 'Use this for current-scene date, cast, items, emotion, and short-term objectives.',
+    }),
+    creatorAuthoring: Object.freeze({
+        expected: 'You can move a Generated Lorepack project through staged authoring and review gates.',
+        when: 'Use this when creating or resuming a generated source pack.',
+    }),
+    packHealth: Object.freeze({
+        expected: 'You can diagnose package readiness, repair safe issues, and export or finalize Lorepacks deliberately.',
+        when: 'Use this before sharing, updating, finalizing, or trusting a pack with warnings.',
+    }),
+    settingsDiagnostics: Object.freeze({
+        expected: 'You can configure providers, presets, generation parameters, themes, and diagnostic routes.',
+        when: 'Use this when model-backed features, profile routing, or visual/runtime configuration needs tuning.',
+    }),
+    troubleshooting: Object.freeze({
+        expected: 'You can route common failure symptoms to the right Advanced workflow instead of guessing.',
+        when: 'Use this when something feels wrong and you need the shortest diagnostic path.',
+    }),
+});
+
+function getAdvancedGuideSectionId(stepId = '') {
+    const id = String(stepId || '').trim();
+    for (const [prefix, section] of Object.entries(ADVANCED_GUIDE_SECTION_BY_PREFIX)) {
+        if (id.startsWith(prefix)) return section;
+    }
+    return 'sessionControl';
+}
+
+function advancedStep(id, title, body, tab, target, options = {}) {
+    const { expected, when, section, ...rest } = options || {};
+    const sectionId = section || getAdvancedGuideSectionId(id);
+    const defaults = ADVANCED_GUIDE_DEFAULTS[sectionId] || ADVANCED_GUIDE_DEFAULTS.sessionControl;
+    return guideStep(id, title, body, tab, target, {
+        section: sectionId,
+        expected: expected || defaults.expected,
+        when: when || defaults.when,
+        ...rest,
+    });
+}
+
+function buildAdvancedGuideSteps() {
+    return [
+        advancedStep('advanced-loredecks-overview', 'Library Overview', 'Read Library size, active stack count, active Lorecard count, and Pack Health summary.', 'loredecks', 'loredecks.library.launch', { expandSections: Object.freeze(['loredecks.libraryLaunch']) }),
+        advancedStep('advanced-loredecks-open-library', 'Open Loredeck Library', 'Open the fullscreen Library where stack, folders, package management, and details live.', 'loredecks', 'loredecks.library.open', { fallbackTarget: 'loredecks.library.launch', expandSections: Object.freeze(['loredecks.libraryLaunch']) }),
+        advancedStep('advanced-library-empty-selection', 'Empty Selection State', 'The Library intentionally starts with no selected deck so details only appear after an explicit choice.', 'loredecks', 'loredecks.library.details', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-special-views', 'Special Views', 'Use All, Bundled, Custom, active, and Unfiled views to inspect Library records without reorganizing folders.', 'loredecks', 'loredecks.library.filters', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-folder-tree', 'Folder Tree', 'Navigate folders and nested folder groups to understand curated pack organization.', 'loredecks', 'loredecks.library.list', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-search-sort', 'Search and Sort', 'Search by title, tag, fandom, source, or manifest data and sort the visible Library list.', 'loredecks', 'loredecks.library.filters', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-pack-select', 'Select a Lorepack', 'Select a Lorepack and inspect its overview details before changing the stack.', 'loredecks', 'loredecks.library.details', { prepare: 'openLoredeckDetails' }),
+        advancedStep('advanced-library-pack-source', 'Pack Source State', 'Identify Bundled Lorepack, Generated Lorepack, Custom Lorepack, imported, duplicated, and finalized source states.', 'loredecks', 'loredecks.library.details', { prepare: 'openLoredeckDetails' }),
+        advancedStep('advanced-library-cover-metadata', 'Cover and Metadata', 'Inspect or update cover and metadata surfaces where the selected pack is editable.', 'loredecks', 'loredecks.library.details', { prepare: 'openLoredeckDetails' }),
+        advancedStep('advanced-library-health-summary', 'Pack Health Summary', 'Read status, issue counts, and last validation time from the selected pack details.', 'loredecks', 'loredecks.library.details', { prepare: 'openLoredeckDetails' }),
+        advancedStep('advanced-library-manifest-preview', 'Manifest Preview', 'Load manifest preview and embedded Lorecard counts before export, repair, or deeper edits.', 'loredecks', 'loredecks.library.details', { prepare: 'openLoredeckDetails' }),
+        advancedStep('advanced-library-entry-overrides', 'Entry Overrides', 'Open per-entry override or editor surfaces for Custom or Generated packs when available.', 'loredecks', 'loredecks.library.details', { prepare: 'openLoredeckDetails' }),
+        advancedStep('advanced-library-stack-pane', 'Active Stack Pane', 'Use the active stack pane as the source of runtime source eligibility.', 'loredecks', 'loredecks.library.stack', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-add-deck-stack', 'Add Deck to Stack', 'Add a selected deck to the active stack so it participates in Context, retrieval, and canon suggestions.', 'loredecks', 'loredecks.library.transfer', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-add-folder-stack', 'Add Folder to Stack', 'Add a folder group when a curated folder represents the intended source set.', 'loredecks', 'loredecks.library.transfer', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-reorder-stack', 'Reorder Stack', 'Reorder stack items so priority and duplicate suppression follow the intended source hierarchy.', 'loredecks', 'loredecks.library.stack', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-enable-stack', 'Enable and Disable Stack Items', 'Enable, disable, collapse, or remove stack items without deleting Library records.', 'loredecks', 'loredecks.library.stack', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-bulk-select', 'Bulk Select', 'Select multiple packs for batch export, duplicate, delete, stack, or folder operations.', 'loredecks', 'loredecks.library.list', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-export-selected', 'Export Selected', 'Export selected packs as one .saga-loredeck.zip package.', 'loredecks', 'loredecks.library.export', { fallbackTarget: 'loredecks.library.header', prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-import-package', 'Import Package', 'Import a .saga-loredeck.zip package into the Library.', 'loredecks', 'loredecks.library.import', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-import-preview', 'Import Preview', 'Review package preview, source type, embedded counts, and install choices before accepting an import.', 'loredecks', 'loredecks.library.import', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-duplicate-warnings', 'Duplicate Warnings', 'Understand same-hash and possible-duplicate warnings before installing or updating a package.', 'loredecks', 'loredecks.library.import', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-duplicate-custom', 'Duplicate as Custom', 'Duplicate an existing Lorepack as a Custom Lorepack before making user-owned edits.', 'loredecks', 'loredecks.library.transfer', { prepare: 'openLoredeckDetails' }),
+        advancedStep('advanced-library-folder-actions', 'Folder Actions', 'Create, rename, move, and remove Library folders without changing pack contents accidentally.', 'loredecks', 'loredecks.library.folderActions', { fallbackTarget: 'loredecks.library.filters', prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-library-open-workbench', 'Open Workbench Routes', 'Launch deeper Loredeck workbench or editor routes from selected Library records.', 'loredecks', 'loredecks.library.details', { prepare: 'openLoredeckDetails' }),
+        advancedStep('advanced-session-experience-mode', 'Experience Mode', 'Switch Basic and Advanced while keeping saved story state and understanding which controls are hidden.', 'session', 'session.experienceMode'),
+        advancedStep('advanced-session-saga-active', 'Saga Active', 'Toggle Saga Active without deleting data or changing saved Lorecards.', 'session', 'session.active'),
+        advancedStep('advanced-session-automation-mode', 'Automation Mode', 'Compare Manual, Assisted, and Automatic automation modes before enabling background behavior.', 'session', 'session.automation'),
+        advancedStep('advanced-session-runtime-metrics', 'Runtime Metrics', 'Read pending, accepted, selected, continuity, and prompt-size metrics.', 'session', 'session.metrics'),
+        advancedStep('advanced-session-guide-modules', 'Guide Modules', 'Use the guide card as a module launcher instead of treating Advanced as one long checklist.', 'session', 'session.instructions.advanced'),
+        advancedStep('advanced-session-active-chat', 'Active Chat Target', 'Confirm which chat state Saga is currently reading and updating.', 'session', 'session.metrics'),
+        advancedStep('advanced-session-cleanup-actions', 'Cleanup Actions', 'Find cleanup or reset actions and understand their risk before using them.', 'session', 'session.metrics'),
+        advancedStep('advanced-session-mode-recovery', 'Mode Recovery', 'Recover when switching modes hides the previously active tab or control.', 'session', 'session.experienceMode'),
+        advancedStep('advanced-context-command-center', 'Context Command Center', 'Use Runtime Context as the status and action hub for story position.', 'context', 'context.commandCenter', { expandSections: Object.freeze(['context.commandCenter']) }),
+        advancedStep('advanced-context-loaded-rows', 'Loaded Context Rows', 'Inspect per-Loredeck Context rows, source, lock state, and update state.', 'context', 'context.loadedLoredecks', { fallbackTarget: 'context.commandCenter', expandSections: Object.freeze(['context.loadedLoredecks']) }),
+        advancedStep('advanced-context-browser-open', 'Open Context Browser', 'Open Context Browser for manual timeline, waypoint, alias, and validation workflows.', 'context', 'context.browser', { fallbackTarget: 'context.commandCenter' }),
+        advancedStep('advanced-context-manual-select', 'Manual Context Select', 'Manually select exact Context for loaded Lorepacks when detection is not authoritative.', 'context', 'context.browser', { prepare: 'openContextBrowser' }),
+        advancedStep('advanced-context-locks', 'Context Locks', 'Lock or unlock Context rows deliberately so detection does not overwrite trusted manual choices.', 'context', 'context.loadedLoredecks', { fallbackTarget: 'context.commandCenter' }),
+        advancedStep('advanced-context-detect', 'Detect Context', 'Run local detection against recent source messages.', 'context', 'context.detect', { fallbackTarget: 'context.commandCenter' }),
+        advancedStep('advanced-context-source-window', 'Source Message Window', 'Tune the number of recent messages used by Context detection and Reasoner fallback.', 'context', 'context.sourceMessages', { fallbackTarget: 'context.commandCenter' }),
+        advancedStep('advanced-context-local-resolver', 'Local Resolver', 'Use local resolver controls and understand confidence thresholds.', 'context', 'context.detect.card', { fallbackTarget: 'context.commandCenter' }),
+        advancedStep('advanced-context-reasoner', 'Reasoner Proposals', 'Ask the Reasoning provider for proposal-based Context resolution when local anchors are ambiguous.', 'context', 'context.commandCenter'),
+        advancedStep('advanced-context-proposal-review', 'Proposal Review', 'Apply or dismiss Context proposals before relying on them.', 'context', 'context.commandCenter'),
+        advancedStep('advanced-context-audit', 'Context Audit', 'Read resolver and automation audit summaries to understand why Context changed.', 'context', 'context.briefStatus', { fallbackTarget: 'context.commandCenter' }),
+        advancedStep('advanced-context-advanced-brief', 'Advanced Context Brief', 'Inspect or edit the Advanced Context Brief for branch-specific story detail.', 'context', 'context.fields', { expandSections: Object.freeze(['context.advancedBrief']) }),
+        advancedStep('advanced-context-seed-from-brief', 'Seed From Brief', 'Seed loaded Loredeck rows from the brief when that is the fastest accurate starting point.', 'context', 'context.fields', { expandSections: Object.freeze(['context.advancedBrief']) }),
+        advancedStep('advanced-context-reset', 'Reset Stale Context', 'Reset stale Context safely when the story position is wrong or no longer applicable.', 'context', 'context.loadedLoredecks', { fallbackTarget: 'context.commandCenter' }),
+        advancedStep('advanced-context-index-summary', 'Context Index Summary', 'Use Context index summaries to understand which anchors and windows are available.', 'context', 'context.editor', { fallbackTarget: 'context.commandCenter' }),
+        advancedStep('advanced-context-workbench-routes', 'Context Workbench Routes', 'Route to timeline, waypoint, alias, and validation workbenches for deeper source maintenance.', 'context', 'context.editor', { fallbackTarget: 'context.commandCenter' }),
+        advancedStep('advanced-context-eligibility-debug', 'Eligibility Debugging', 'Explain why Context allows or blocks a Lorecard.', 'context', 'context.loadedLoredecks', { fallbackTarget: 'context.commandCenter' }),
+        advancedStep('advanced-lore-generation-overview', 'Lore Generation Overview', 'Understand canon preview, story scan, manual add, draft review, pending review, and accepted entries.', 'lore', 'lore.generation', { expandSections: Object.freeze(['lore.generation']) }),
+        advancedStep('advanced-lore-canon-preview', 'Preview Canon Packs', 'Preview local Context-aware suggestions from active Lorepacks.', 'lore', 'lore.canon.preview', { expandSections: Object.freeze(['lore.generation']) }),
+        advancedStep('advanced-lore-canon-selection', 'Canon Selection', 'Select useful canon suggestions for Pending Review rather than accepting them automatically.', 'lore', 'lore.canon.addPending', { fallbackTarget: 'lore.canon.preview' }),
+        advancedStep('advanced-lore-story-scan', 'Scan Story Lore', 'Run model-backed story-lore scan for durable chat facts.', 'lore', 'lore.story.scan', { expandSections: Object.freeze(['lore.generation']) }),
+        advancedStep('advanced-lore-scan-scope', 'Story Scan Scope', 'Tune scan source scope where recent, range, and entire-chat controls are available.', 'lore', 'lore.story.scope', { expandSections: Object.freeze(['lore.generation', 'lore.storyGenerationSettings', 'lore.story.scanScope']) }),
+        advancedStep('advanced-lore-manual-add', 'Manual Lorecard', 'Add a known important fact manually and route it through review.', 'lore', 'lore.manual.add', { fallbackTarget: 'lore.generation' }),
+        advancedStep('advanced-lore-assistant-drafts', 'Assistant Drafts', 'Review assistant or Creator draft batches before they reach Pending Review.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-lore-pending-review', 'Pending Review', 'Inspect Pending Lorecard Review as the gate before proposals affect prompts.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-lore-pending-edit', 'Edit Pending Entry', 'Edit pending entries before acceptance so durable memory is precise.', 'lore', 'lore.pending.entry', { fallbackTarget: 'lore.pending', prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-lore-pending-accept-reject', 'Accept or Reject Pending', 'Accept, reject, or dismiss entries based on future usefulness.', 'lore', 'lore.pending.actions', { fallbackTarget: 'lore.pending', prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-lore-pending-bulk', 'Bulk Pending Review', 'Use bulk review controls deliberately when many pending entries share the same decision.', 'lore', 'lore.pending.bulk', { fallbackTarget: 'lore.pending', prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-lore-accepted-list', 'Accepted List', 'Inspect accepted Lorecards as durable memory.', 'lore', 'lore.accepted', { prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-accepted-search-filter', 'Accepted Search and Filters', 'Search and filter accepted entries by text, status, category, relevance, or suppression state.', 'lore', 'lore.accepted.filters', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-accepted-open-edit', 'Open Accepted Lorecard', 'Open and edit an accepted Lorecard when stored memory needs correction.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-pin-mute', 'Pin and Mute', 'Pin or mute accepted entries to control prominence and suppression without deleting them.', 'lore', 'lore.accepted.pinMuteHelp', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-relevance-tier', 'Relevance Tier', 'Set relevance tier and understand prompt eligibility for High, Normal, and Low lore.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-tags-context', 'Tags and Context Metadata', 'Inspect tags, Context metadata, source metadata, and routing hints on accepted entries.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-similarity-duplicates', 'Similarity and Duplicates', 'Understand duplicate and similarity guards before accepting overlapping lore.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-lore-auto-relevance', 'Auto-Relevance', 'Run, apply, or reject Auto-Relevance suggestions for large accepted-lore collections.', 'lore', 'lore.autoRelevance', { expandSections: Object.freeze(['lore.autoRelevance']) }),
+        advancedStep('advanced-lore-timeline-audit', 'Lore Timeline Audit', 'Use timeline and audit recovery for deleted, restored, pinned, muted, or changed lore.', 'lore', 'lore.timeline.section', { expandSections: Object.freeze(['lore.timeline']) }),
+        advancedStep('advanced-lore-workbench', 'Lore Workbench', 'Open deeper Lorecard workbenches for large-list management and detailed editing.', 'lore', 'lore.accepted.entry', { fallbackTarget: 'lore.accepted', prepare: 'openAcceptedLoreDetails' }),
+        advancedStep('advanced-lore-review-first-policy', 'Review-First Policy', 'Model-produced proposals must be reviewed before they can affect future responses.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-injection-overview', 'Injection Overview', 'Injection is the exact prompt and debugging surface for what Saga sends.', 'injection', 'injection.toggles', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-continuity-toggle', 'Continuity Toggle', 'Toggle Continuity injection independently from Lore injection.', 'injection', 'injection.toggles', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-lore-toggle', 'Lore Toggle', 'Toggle Lore injection independently from Continuity injection.', 'injection', 'injection.toggles', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-high-tier', 'High Relevance Tier', 'Inspect High relevance behavior for immediate scene-critical facts.', 'injection', 'injection.preview.high', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-normal-tier', 'Normal Relevance Tier', 'Inspect Normal relevance behavior for broader but still useful facts.', 'injection', 'injection.preview.normal', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-low-tier', 'Low Relevance Tier', 'Inspect Low relevance behavior for distant or optional background facts.', 'injection', 'injection.preview.low', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-direct-compressed', 'Direct Versus Compressed', 'Tune direct versus compressed handling for continuity and lore tiers.', 'injection', 'injection.compression', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-placement', 'Prompt Placement', 'Tune role, position, depth, and placement for injected prompt groups.', 'injection', 'injection.promptPlacement', { prepare: 'openInjectionPreview', expandSections: Object.freeze(['injection.promptPlacement']) }),
+        advancedStep('advanced-injection-compression-prompts', 'Compression Prompts', 'Inspect or edit compression prompts used for model-compressed blocks.', 'injection', 'injection.compression', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-preview-lore', 'Lore Injection Preview', 'Preview selected Lorecards by relevance tier before the next prompt.', 'injection', 'injection.preview.high', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-preview-continuity', 'Continuity Injection Preview', 'Preview selected continuity state before the next prompt.', 'injection', 'injection.preview.continuity', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-combined-preview', 'Combined Prompt Block', 'Inspect the combined prompt block by reading the active continuity and lore previews together.', 'injection', 'injection.preview.normal', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-token-estimate', 'Token Estimate', 'Read token and character estimates to understand prompt pressure.', 'injection', 'injection.preview.normal', { fallbackTarget: 'session.metrics', prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-omission-reasons', 'Omission Reasons', 'Diagnose omitted Lorecards: muted, disabled tier, Context blocked, stack disabled, token pressure, or not selected.', 'injection', 'injection.preview.normal', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-injection-sync-diagnostics', 'Sync Diagnostics', 'Debug prompt transport and sync behavior from the injection surface.', 'injection', 'injection.promptPlacement', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-continuity-overview', 'Continuity Overview', 'Continuity is live scene state, distinct from durable accepted Lorecards.', 'continuity', 'continuity.scan', { prepare: 'openContinuityEditor' }),
+        advancedStep('advanced-continuity-scan', 'Scan Continuity State', 'Run a continuity scan to update the current scene state.', 'continuity', 'continuity.scan.button', { fallbackTarget: 'continuity.scan', prepare: 'openContinuityEditor' }),
+        advancedStep('advanced-continuity-automation', 'Continuity Automation', 'Configure continuity automation cadence and understand when scans run.', 'continuity', 'continuity.automation', { prepare: 'openContinuityEditor' }),
+        advancedStep('advanced-continuity-scope', 'Continuity Scope', 'Choose recent, custom range, or entire-chat continuity scan scope.', 'continuity', 'continuity.scanScope', { prepare: 'openContinuityEditor', expandSections: Object.freeze(['continuity.scanScope']) }),
+        advancedStep('advanced-continuity-custom-range', 'Custom Range', 'Use custom range for a missed section instead of rescanning the entire chat.', 'continuity', 'continuity.scanScope', { prepare: 'openContinuityEditor', expandSections: Object.freeze(['continuity.scanScope']) }),
+        advancedStep('advanced-continuity-performance', 'Continuity Performance', 'Tune chunking, overlap, concurrency, retries, and checkpoints.', 'continuity', 'continuity.performance', { prepare: 'openContinuityEditor', expandSections: Object.freeze(['continuity.scanPerformance']) }),
+        advancedStep('advanced-continuity-tracked-sections', 'Tracked Sections', 'Choose which live-state sections are scanned and injected.', 'continuity', 'continuity.trackedSections', { prepare: 'openContinuityEditor', expandSections: Object.freeze(['continuity.trackedSections']) }),
+        advancedStep('advanced-continuity-scene-state', 'Scene State', 'Edit scene and timeline state for the immediate prompt context.', 'continuity', 'continuity.scene', { prepare: 'openContinuityEditor', expandSections: Object.freeze(['continuity.canonScene']) }),
+        advancedStep('advanced-continuity-active-characters', 'Active Characters', 'Edit active characters, current state, appearance, emotion, and immediate goals.', 'continuity', 'continuity.characters', { prepare: 'openContinuityEditor', expandSections: Object.freeze(['continuity.characters']) }),
+        advancedStep('advanced-continuity-items', 'Key Items', 'Edit key items, owners, locations, and object status.', 'continuity', 'continuity.items', { prepare: 'openContinuityEditor', expandSections: Object.freeze(['continuity.inventory']) }),
+        advancedStep('advanced-continuity-goals-threads', 'Goals and Threads', 'Edit active goals, threads, and immediate objectives.', 'continuity', 'continuity.threads', { prepare: 'openContinuityEditor', expandSections: Object.freeze(['continuity.activeGoalsThreads']) }),
+        advancedStep('advanced-continuity-emotional-freshness', 'Emotional Freshness', 'Inspect or edit emotional freshness where available.', 'continuity', 'continuity.emotionalState', { prepare: 'openContinuityEditor' }),
+        advancedStep('advanced-continuity-injection-link', 'Continuity Injection Link', 'Understand how continuity state reaches the Injection tab and prompt preview.', 'continuity', 'continuity.trackedSections', { prepare: 'openContinuityEditor' }),
+        advancedStep('advanced-continuity-recovery', 'Continuity Recovery', 'Recover from interrupted or failed long scans by adjusting scope, performance, or retry path.', 'continuity', 'continuity.results', { fallbackTarget: 'continuity.scan', prepare: 'openContinuityEditor' }),
+        advancedStep('advanced-creator-create-deck', 'Create Deck', 'Launch Create Deck to begin a Generated Lorepack project.', 'loredecks', 'loredecks.creator.open', { fallbackTarget: 'loredecks.library.open', prepare: 'openLoredeckCreator' }),
+        advancedStep('advanced-creator-intake', 'Creator Intake', 'Enter fandom, scope, granularity, and notes for the generated project.', 'loredecks', 'loredecks.creator.settings', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openLoredeckCreator' }),
+        advancedStep('advanced-creator-brief', 'Scope Brief', 'Generate and approve the scope brief before outline and title work.', 'loredecks', 'loredecks.creator.brief', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openLoredeckCreator' }),
+        advancedStep('advanced-creator-outline', 'Story Outline', 'Generate and approve the outline that drives title batches and planning.', 'loredecks', 'loredecks.creator.outline', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openLoredeckCreator' }),
+        advancedStep('advanced-creator-title-pass', 'Title Pass', 'Generate title batches from the approved outline.', 'loredecks', 'loredecks.creator.titlePass', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openLoredeckCreator' }),
+        advancedStep('advanced-creator-title-review', 'Title Review', 'Accept, revise, or reject titles before planning and entry drafting.', 'loredecks', 'loredecks.creator.titlePass', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openLoredeckCreator' }),
+        advancedStep('advanced-creator-planning', 'Context and Tag Planning', 'Generate Context and tag planning proposals before downstream Lorecard drafting.', 'loredecks', 'loredecks.creator.planning', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openLoredeckCreator' }),
+        advancedStep('advanced-creator-planning-review', 'Planning Review', 'Review Context and tag proposals before they shape generated entries.', 'loredecks', 'loredecks.creator.planning', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openLoredeckCreator' }),
+        advancedStep('advanced-creator-entry-draft', 'Entry Drafting', 'Draft Lorecards in small batches from approved planning and titles.', 'loredecks', 'loredecks.creator.entries', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openLoredeckCreator' }),
+        advancedStep('advanced-creator-entry-auto-draft', 'Bounded Auto-Draft', 'Use bounded auto-draft controls only when the project is ready for repeated generation.', 'loredecks', 'loredecks.creator.entries', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openLoredeckCreator' }),
+        advancedStep('advanced-creator-draft-review', 'Creator Draft Review', 'Review Creator Lorecard drafts before they enter Pending Review.', 'loredecks', 'loredecks.creator.review', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openCreatorProject' }),
+        advancedStep('advanced-creator-send-to-review', 'Send Drafts to Review', 'Send Creator drafts to Pending Lorecard Review when they are ready for normal lore review.', 'loredecks', 'loredecks.creator.review', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openCreatorProject' }),
+        advancedStep('advanced-creator-pending-review-link', 'Pending Review Link', 'Jump from Creator to the relevant review queue for generated entries.', 'loredecks', 'loredecks.creator.review', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openCreatorProject' }),
+        advancedStep('advanced-creator-current-task', 'Current Task Controls', 'Retry, retry smaller, or cancel active generation from the current task card.', 'loredecks', 'loredecks.creator.currentTask', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openCreatorProject' }),
+        advancedStep('advanced-creator-generation-settings', 'Creator Generation Settings', 'Tune Creator generation settings per project.', 'loredecks', 'loredecks.creator.settings', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openCreatorProject' }),
+        advancedStep('advanced-creator-project-shelf', 'Project Shelf', 'Resume in-progress Creator projects from the Loredecks tab.', 'loredecks', 'loredecks.creator.projects', { fallbackTarget: 'loredecks.creator.open', prepare: 'openCreatorProject' }),
+        advancedStep('advanced-creator-project-manage', 'Manage Projects', 'Rename, move, select, or delete Creator projects deliberately.', 'loredecks', 'loredecks.creator.projects', { fallbackTarget: 'loredecks.creator.open', prepare: 'openCreatorProject' }),
+        advancedStep('advanced-creator-inspect-generated-pack', 'Inspect Generated Pack', 'Open the linked Generated Lorepack in Library details.', 'loredecks', 'loredecks.library.details', { prepare: 'openLoredeckDetails' }),
+        advancedStep('advanced-creator-readiness-gate', 'Creator Readiness Gate', 'Read accepted coverage, draft blockers, Pack Health, and export readiness before finalization.', 'loredecks', 'loredecks.creator.pipeline', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openCreatorProject' }),
+        advancedStep('advanced-health-center-open', 'Open Pack Health Center', 'Open Pack Health Center from Library details or a generated pack readiness surface.', 'loredecks', 'loredecks.health.header', { prepare: 'openDeckHealthCenter' }),
+        advancedStep('advanced-health-status', 'Health Status', 'Read errors, warnings, notices, entry counts, and manifest health.', 'loredecks', 'loredecks.health.status', { fallbackTarget: 'loredecks.health.header', prepare: 'openDeckHealthCenter' }),
+        advancedStep('advanced-health-issue-groups', 'Issue Groups', 'Inspect grouped health issues by severity, code, affected data, and suggested repair path.', 'loredecks', 'loredecks.health.issues', { fallbackTarget: 'loredecks.health.status', prepare: 'openDeckHealthCenter' }),
+        advancedStep('advanced-health-safe-repair', 'Safe Repair', 'Run deterministic safe repair actions when they are available for editable packs.', 'loredecks', 'loredecks.health.actions', { fallbackTarget: 'loredecks.health.issues', prepare: 'openDeckHealthCenter' }),
+        advancedStep('advanced-health-manual-repair', 'Manual Repair Routes', 'Route unresolved issues to workbench or manual edits when safe repair is not enough.', 'loredecks', 'loredecks.health.actions', { fallbackTarget: 'loredecks.health.issues', prepare: 'openDeckHealthCenter' }),
+        advancedStep('advanced-package-update', 'Package Update', 'Update or reinstall packages when a newer or corrected package is available.', 'loredecks', 'loredecks.library.import', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-package-local-mod-warning', 'Local Modification Warning', 'Understand local modification warnings before overwriting or updating a package.', 'loredecks', 'loredecks.library.import', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-package-export-bundled', 'Export Bundled Reference', 'Export Bundled Lorepack references correctly so imports remain lightweight where possible.', 'loredecks', 'loredecks.library.export', { fallbackTarget: 'loredecks.library.header', prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-package-export-custom', 'Export Custom Lorepack', 'Export Custom Lorepacks with embedded data for sharing or backup.', 'loredecks', 'loredecks.library.export', { fallbackTarget: 'loredecks.library.header', prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-generated-finalize-custom', 'Finalize Generated as Custom', 'Finalize a reviewed Generated Lorepack as a Custom Lorepack after review and readiness checks.', 'loredecks', 'loredecks.creator.pipeline', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openCreatorProject' }),
+        advancedStep('advanced-generated-export-readiness', 'Generated Export Readiness', 'Interpret generated export readiness without treating it as the only quality gate.', 'loredecks', 'loredecks.creator.pipeline', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openCreatorProject' }),
+        advancedStep('advanced-settings-provider-overview', 'Provider Overview', 'Understand Utility and Reasoning provider roles.', 'settings', 'settings.providers', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-settings-provider-profile', 'Provider Profiles', 'Select or edit provider profiles for model-backed Saga actions.', 'settings', 'settings.providers', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-settings-endpoint-model', 'Endpoint and Model', 'Configure endpoint and model details for provider routes.', 'settings', 'settings.providers', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-settings-provider-test', 'Provider Test', 'Test configured providers before relying on scans, compression, Context Reasoner, or Creator calls.', 'settings', 'settings.providers', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-settings-current-model', 'Current SillyTavern Model', 'Use the current SillyTavern model where that is the simplest provider route.', 'settings', 'settings.providers', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-settings-generation', 'Generation Parameters', 'Tune generation parameters for model-backed Saga tasks.', 'settings', 'settings.providers', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-settings-provider-presets', 'Provider Presets', 'Use provider preset support to install or update bundled profile routing.', 'settings', 'settings.providers', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-settings-api-compat', 'API Compatibility Flags', 'Inspect compatibility flags only when diagnosing provider behavior.', 'settings', 'settings.providers', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-settings-theme-pack', 'Theme Pack', 'Choose, import, export, reset, and inspect Theme Packs.', 'settings', 'settings.themePack', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-settings-icon-set', 'Icon Set', 'Choose icon sets from the Theme Pack controls.', 'settings', 'settings.themePack', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-settings-colors', 'Color Controls', 'Tune color controls and raw tokens for runtime visual polish.', 'settings', 'settings.themePack', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-settings-diagnostics', 'Diagnostics', 'Use diagnostics or developer status when provider, runtime, or package behavior needs investigation.', 'settings', 'settings.providers', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-troubleshoot-no-loredeck', 'No Loredeck Loaded', 'Route empty-stack issues to the Loredeck Library and active stack.', 'session', 'session.instructions.advanced'),
+        advancedStep('advanced-troubleshoot-wrong-context', 'Wrong Context', 'Route wrong suggestions to Context Browser, locks, proposals, or Advanced Brief.', 'context', 'context.commandCenter'),
+        advancedStep('advanced-troubleshoot-no-suggestions', 'No Suggestions', 'Check active stack, Context, provider readiness, and canon/story generation paths.', 'lore', 'lore.generation'),
+        advancedStep('advanced-troubleshoot-pending-stuck', 'Pending Stuck', 'Clear draft and pending queues through review, accept, reject, or drop actions.', 'lore', 'lore.pending', { prepare: 'openPendingLoreReview' }),
+        advancedStep('advanced-troubleshoot-no-injection', 'No Injection', 'Check Injection toggles, tiers, Context eligibility, stack enabled state, mute, and token pressure.', 'injection', 'injection.toggles', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-troubleshoot-prompt-heavy', 'Prompt Too Heavy', 'Tune tiers, compression, Low relevance, continuity sections, and prompt placement.', 'injection', 'injection.promptPlacement', { prepare: 'openInjectionPreview' }),
+        advancedStep('advanced-troubleshoot-provider-failure', 'Provider Failure', 'Route provider failures to Settings, request surfaces, and audit output.', 'settings', 'settings.providers', { prepare: 'openAdvancedSettingsSection' }),
+        advancedStep('advanced-troubleshoot-continuity-stale', 'Continuity Stale', 'Rescan, adjust scope, inspect tracked sections, or recover interrupted scans.', 'continuity', 'continuity.scan', { prepare: 'openContinuityEditor' }),
+        advancedStep('advanced-troubleshoot-package-duplicate', 'Package Duplicate Warning', 'Resolve duplicate package import warnings before installing or updating.', 'loredecks', 'loredecks.library.import', { prepare: 'openLoredeckLibrary' }),
+        advancedStep('advanced-troubleshoot-health-warnings', 'Health Warnings', 'Route Pack Health warnings to repair, ignore, duplicate-as-custom, or manual edit paths.', 'loredecks', 'loredecks.health.issues', { prepare: 'openDeckHealthCenter' }),
+        advancedStep('advanced-troubleshoot-creator-failure', 'Creator Failure', 'Retry, retry smaller, cancel, or adjust Creator generation settings.', 'loredecks', 'loredecks.creator.currentTask', { fallbackTarget: 'loredecks.creator.workbench', prepare: 'openCreatorProject' }),
+        advancedStep('advanced-troubleshoot-return-basic', 'Return to Basic', 'Switch back to Basic when routine roleplay no longer needs advanced controls.', 'session', 'session.experienceMode'),
+    ];
+}
+
 export const GUIDE_SECTIONS = Object.freeze({
     basic: freezeGuideSections([
-        { id: 'loredecks', label: 'Loredecks', tab: 'loredecks', description: 'Load the active stack and install imported Lorepacks when needed.' },
-        { id: 'session', label: 'Session', tab: 'session', description: 'Use the Start Checklist and runtime status before continuing roleplay.' },
-        { id: 'context', label: 'Context', tab: 'context', description: 'Set the current story position for every loaded Loredeck.' },
-        { id: 'lore', label: 'Lorecards', tab: 'lore', description: 'Suggest, scan, review, accept, and inspect Lorecards.' },
-        { id: 'settings', label: 'Settings', tab: 'settings', description: 'Confirm providers and choose the Theme Pack used by the runtime shelf.' },
+        { id: 'firstRun', label: 'First Run', tab: 'session', description: 'Get oriented, read readiness, and use the next recommended action.' },
+        { id: 'loredecks', label: 'Loredecks', tab: 'loredecks', description: 'Load, import, inspect, and stack Lorepacks.' },
+        { id: 'context', label: 'Context', tab: 'context', description: 'Set story position and keep it current.' },
+        { id: 'lore', label: 'Lorecards', tab: 'lore', description: 'Generate, review, accept, and clean up durable facts.' },
+        { id: 'continueRoleplay', label: 'Continue Roleplay', tab: 'session', description: 'Confirm readiness and repeat the update loop.' },
+        { id: 'settings', label: 'Settings', tab: 'settings', description: 'Fix providers and Theme Pack basics.' },
     ]),
     advanced: freezeGuideSections([
-        { id: 'loredecks', label: 'Loredecks', tab: 'loredecks', description: 'Manage the active stack, imports, Creator entry points, and unfinished projects.' },
-        { id: 'session', label: 'Session', tab: 'session', description: 'Control runtime mode, automation mode, activation, and diagnostic metrics.' },
-        { id: 'context', label: 'Context', tab: 'context', description: 'Resolve story position with browser, local detection, Reasoner proposals, and manual overrides.' },
-        { id: 'continuity', label: 'Continuity', tab: 'continuity', description: 'Tune live scene-state scanning, tracked sections, and editable current-state blocks.' },
-        { id: 'lore', label: 'Lorecards', tab: 'lore', description: 'Generate canon/story Lorecards, review pending proposals, audit changes, and manage relevance.' },
-        { id: 'injection', label: 'Injection', tab: 'injection', description: 'Inspect and tune exactly what Saga sends to the model.' },
-        { id: 'settings', label: 'Settings', tab: 'settings', description: 'Configure providers, Provider preset support, Theme Packs, icons, and color controls.' },
+        { id: 'libraryMastery', label: 'Loredeck Library Mastery', tab: 'loredecks', description: 'Manage Library records, source types, folders, stack order, imports, exports, and details.' },
+        { id: 'sessionControl', label: 'Session And Runtime Control', tab: 'session', description: 'Control runtime mode, automation, activation, guide modules, and session diagnostics.' },
+        { id: 'contextResolution', label: 'Context Resolution', tab: 'context', description: 'Resolve story position with browser, detection, proposals, locks, audits, and Context workbenches.' },
+        { id: 'loreReview', label: 'Lorecard Generation And Review', tab: 'lore', description: 'Generate canon/story Lorecards, review proposals, manage accepted memory, and audit changes.' },
+        { id: 'injectionDiagnostics', label: 'Injection Diagnostics', tab: 'injection', description: 'Inspect prompt placement, relevance tiers, compression, previews, token pressure, and omissions.' },
+        { id: 'continuityTracking', label: 'Continuity Tracking', tab: 'continuity', description: 'Track live scene state, scan scope, performance, tracked sections, and recovery.' },
+        { id: 'creatorAuthoring', label: 'Creator And Generated Lorepack Authoring', tab: 'loredecks', description: 'Create and resume Generated Lorepack projects from scope brief through review and readiness.' },
+        { id: 'packHealth', label: 'Pack Health And Packages', tab: 'loredecks', description: 'Inspect Pack Health, repair issues, handle package import/export, and finalize generated packs.' },
+        { id: 'settingsDiagnostics', label: 'Settings And Providers', tab: 'settings', description: 'Configure providers, Theme Packs, icons, colors, and diagnostics.' },
+        { id: 'troubleshooting', label: 'Troubleshooting Routes', tab: 'session', description: 'Route common symptoms to the right Advanced workflow without scanning every tab.' },
     ]),
 });
 
 export const GUIDE_STEPS = Object.freeze({
     basic: freezeGuideSteps([
-        guideStep('basic-loredecks-library-overview', 'Loredeck Library Overview', 'The Loredecks tab is where source decks enter the active chat stack.', 'loredecks', 'loredecks.library.launch', {
+        guideStep('basic-session-orientation', 'Basic Workflow Orientation', 'Basic mode is the focused setup and play loop: load Lorepacks, set Context, review useful Lorecards, then continue roleplay.', 'session', 'session.basicReadiness', {
+            section: 'firstRun',
+            expected: 'You understand that the Start Checklist is the main Basic guidepost for readiness.',
+            when: 'Start here the first time you open Saga in a chat.',
+        }),
+        guideStep('basic-session-saga-active', 'Saga Active', 'Saga Active pauses or resumes Saga behavior without deleting saved data.', 'session', 'session.active', {
+            section: 'firstRun',
+            expected: 'When Saga is active, accepted Lorecards and configured runtime behavior can affect the next response.',
+            when: 'Turn it off for chats where Saga should not inject or run tools.',
+        }),
+        guideStep('basic-session-start-checklist', 'Start Checklist', 'The Start Checklist turns the Basic workflow into one next action at a time.', 'session', 'session.basicReadiness', {
+            section: 'firstRun',
+            expected: 'The checklist points to the next missing step: load Loredecks, set Context, review Lorecards, enable Saga, or continue roleplay.',
+            when: 'Use this as the first Session stop in Basic mode.',
+        }),
+        guideStep('basic-session-next-action', 'Use the Recommended Action', 'The checklist action button sends you to the right tab instead of making you inspect every control manually.', 'session', 'session.basicReadiness', {
+            section: 'firstRun',
+            expected: 'You can follow the next recommended action to keep setup moving.',
+            when: 'Use it whenever the checklist is not ready.',
+        }),
+        guideStep('basic-loredecks-overview', 'Loredecks as Source Packs', 'Loredecks are source packs for Context, canon suggestions, retrieval, and accepted Lorecards.', 'loredecks', 'loredecks.library.launch', {
             expandSections: Object.freeze(['loredecks.libraryLaunch']),
             expected: 'You can see how many Loredecks exist, how many are active, and whether Pack Health has warnings.',
             when: 'Start here for a new chat or whenever the story source changes.',
@@ -60,43 +323,106 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'The Library opens with the active stack manager and available Loredecks.',
             when: 'Use it when the active stack is empty, incomplete, or in the wrong order.',
         }),
-        guideStep('basic-loredecks-import', 'Import a Loredeck Package', 'Import Deck installs a Saga Loredeck zip package into the Library.', 'loredecks', 'loredecks.import', {
-            fallbackTarget: 'loredecks.library.launch',
-            expandSections: Object.freeze(['loredecks.libraryLaunch']),
+        guideStep('basic-library-layout', 'Library Layout', 'The Library is split into the available Lorepack list, the add/remove controls, the active stack, and the selected pack details panel.', 'loredecks', 'loredecks.library.header', {
+            fallbackTarget: 'loredecks.library.open',
+            prepare: 'openLoredeckLibrary',
+            expected: 'You know where to look for available packs, active stack order, and selected-pack details.',
+            when: 'Use this orientation before changing the active stack.',
+        }),
+        guideStep('basic-library-pack-types', 'Lorepack Types', 'Bundled Lorepacks ship with Saga, Generated Lorepacks come from the Creator workflow, and Custom Lorepacks are user-owned imports or editable copies.', 'loredecks', 'loredecks.library.filters', {
+            fallbackTarget: 'loredecks.library.header',
+            prepare: 'openLoredeckLibrary',
+            expected: 'You can distinguish source type without needing Creator controls in Basic.',
+            when: 'Use this when choosing which pack should drive a story.',
+        }),
+        guideStep('basic-library-search-filter', 'Search and Filter', 'Use Library search, special views, sorting, and folders to find the right Lorepack quickly.', 'loredecks', 'loredecks.library.filters', {
+            fallbackTarget: 'loredecks.library.list',
+            prepare: 'openLoredeckLibrary',
+            expected: 'You can narrow a large Library without changing the active stack.',
+            when: 'Use this when the Library has many packs or folders.',
+        }),
+        guideStep('basic-library-pack-details', 'Pack Details', 'Select a Lorepack to read its summary, type, source, Lorecard count, and basic metadata.', 'loredecks', 'loredecks.library.details', {
+            fallbackTarget: 'loredecks.library.list',
+            prepare: 'openLoredeckDetails',
+            expected: 'The details panel confirms what the selected Lorepack contains before you load it.',
+            when: 'Use this before adding an unfamiliar pack to the active stack.',
+        }),
+        guideStep('basic-library-pack-health', 'Pack Health', 'Pack Health is advisory readiness for the selected Lorepack or active stack, including warnings and errors that may affect reliability.', 'loredecks', 'loredecks.library.details', {
+            fallbackTarget: 'loredecks.library.header',
+            prepare: 'openLoredeckDetails',
+            expected: 'You can tell whether a pack is ready enough for Basic use or needs Advanced repair.',
+            when: 'Check this if a pack looks incomplete, missing entries, or unexpectedly quiet.',
+        }),
+        guideStep('basic-loredecks-import', 'Import a Loredeck Package', 'Import Deck installs a Saga Loredeck zip package into the Library.', 'loredecks', 'loredecks.library.import', {
+            fallbackTarget: 'loredecks.import',
+            prepare: 'openLoredeckLibrary',
             expected: 'A shared or exported package can become a Custom Lorepack after preview and install.',
             when: 'Use this when the right Lorepack is not already in the Library.',
         }),
-        guideStep('basic-loredecks-active-stack', 'Build the Active Stack', 'Move the Loredecks or folder groups for this story into the active stack.', 'loredecks', 'loredecks.library.launch', {
-            expandSections: Object.freeze(['loredecks.libraryLaunch']),
-            expected: 'At least one enabled Loredeck participates in Context, canon suggestion, retrieval, and injection.',
+        guideStep('basic-library-import-preview', 'Import Preview', 'Imported packages are previewed before install so you can confirm the package before it enters the Library.', 'loredecks', 'loredecks.library.import', {
+            fallbackTarget: 'loredecks.import',
+            prepare: 'openLoredeckLibrary',
+            expected: 'Import is still available in Basic, but installing a package remains an intentional action.',
+            when: 'Use this when someone shares a .saga-loredeck.zip package with you.',
+        }),
+        guideStep('basic-library-add-deck-stack', 'Add a Lorepack to Stack', 'Add the selected Lorepack to the active stack so it can participate in Context, canon suggestions, retrieval, and Lorecards.', 'loredecks', 'loredecks.library.transfer', {
+            fallbackTarget: 'loredecks.library.list',
+            prepare: 'openLoredeckLibrary',
+            expected: 'At least one enabled Lorepack can participate in the current session.',
             when: 'Do this before setting Context or scanning story lore.',
         }),
-        guideStep('basic-session-active', 'Saga Active', 'Saga Active is the master switch for runtime behavior.', 'session', 'session.active', {
-            expected: 'When enabled, accepted Lorecards and configured Saga behavior can affect the next response.',
-            when: 'Pause Saga for chats where it should not inject or run tools, without deleting saved data.',
+        guideStep('basic-library-add-folder-stack', 'Add a Folder Group', 'If the Library is organized into folders, a folder group can load several related Lorepacks together.', 'loredecks', 'loredecks.library.transfer', {
+            fallbackTarget: 'loredecks.library.list',
+            prepare: 'openLoredeckLibrary',
+            expected: 'A folder group can represent a whole story collection without adding every pack one by one.',
+            when: 'Use this when a curated folder matches the current story.',
         }),
-        guideStep('basic-session-start-checklist', 'Start Checklist', 'The Start Checklist turns the Basic workflow into one next action at a time.', 'session', 'session.basicReadiness', {
-            expected: 'The checklist points to the next missing step: load Loredecks, set Context, review Lorecards, enable Saga, or continue roleplay.',
-            when: 'Use this as the first Session stop in Basic mode.',
+        guideStep('basic-library-stack-order', 'Stack Order', 'The active stack is top-to-bottom priority; place the main source above supporting packs when order matters.', 'loredecks', 'loredecks.library.stack', {
+            fallbackTarget: 'loredecks.library.transfer',
+            prepare: 'openLoredeckLibrary',
+            expected: 'You can read which packs have priority and adjust the order before play.',
+            when: 'Use this when two packs might overlap or one should clearly lead.',
         }),
-        guideStep('basic-session-ready-loop', 'Continue and Update Loop', 'Once the checklist is ready, continue roleplay, then update Context after jumps and review durable new facts.', 'session', 'session.basicReadiness', {
-            expected: 'Basic work becomes a repeatable loop: play, update story position, review new Lorecards, continue.',
-            when: 'Use this after the initial setup is complete.',
+        guideStep('basic-library-stack-enable', 'Enable or Disable Stack Items', 'Disable an active stack entry to pause it without deleting the Lorepack from the Library.', 'loredecks', 'loredecks.library.stack', {
+            fallbackTarget: 'loredecks.library.transfer',
+            prepare: 'openLoredeckLibrary',
+            expected: 'You can temporarily remove a pack from runtime behavior while preserving Library data.',
+            when: 'Use this for side packs, optional sources, or temporary experiments.',
         }),
-        guideStep('basic-session-metrics', 'Session Metrics', 'Metrics show whether Saga has pending Lorecards, accepted lore, selected injection, and a token estimate.', 'session', 'session.metrics', {
-            expected: 'You can tell whether Saga has data and whether accepted Lorecards are selected for injection.',
-            when: 'Check this if the model seems to ignore lore or if the prompt feels too heavy.',
+        guideStep('basic-library-close-confirm', 'Close and Confirm Stack', 'Use Done to close the Library, then confirm the Loredecks tab shows the active count and active Lorecard count you expect.', 'loredecks', 'loredecks.library.done', {
+            fallbackTarget: 'loredecks.library.header',
+            prepare: 'openLoredeckLibrary',
+            expected: 'The Loredecks tab reflects the stack you just built.',
+            when: 'Do this before moving to Context setup.',
         }),
-        guideStep('basic-context-command-center', 'Runtime Context', 'Runtime Context is the Basic control center for story position.', 'context', 'context.commandCenter', {
+        guideStep('basic-context-overview', 'Context Overview', 'Context is the current story position for each loaded Lorepack.', 'context', 'context.commandCenter', {
             expandSections: Object.freeze(['context.commandCenter']),
             expected: 'Loaded Loredecks can be browsed, detected, reviewed, and manually locked from one place.',
             when: 'Open this after loading Loredecks and whenever the story moves to a new arc, chapter, date, episode, quest, or event.',
         }),
-        guideStep('basic-context-browser', 'Browse Context', 'Browse Context is the trusted manual path for choosing the exact story position.', 'context', 'context.browser', {
+        guideStep('basic-context-loaded-rows', 'Loaded Loredeck Context Rows', 'Each enabled Loredeck has a Context row showing whether its story position is unset, detected, manually selected, or locked.', 'context', 'context.loadedLoredecks', {
+            fallbackTarget: 'context.commandCenter',
+            expandSections: Object.freeze(['context.loadedLoredecks']),
+            expected: 'Every loaded Loredeck exposes its current Context status.',
+            when: 'Verify this before canon suggestions or story-lore scans.',
+        }),
+        guideStep('basic-context-browse', 'Browse Context', 'Browse Context is the trusted manual path for choosing the exact story position.', 'context', 'context.browser', {
             fallbackTarget: 'context.commandCenter',
             expandSections: Object.freeze(['context.commandCenter']),
             expected: 'Manual choices can set and lock the right Context for each loaded Loredeck.',
             when: 'Use this when you know the correct point or detection is uncertain.',
+        }),
+        guideStep('basic-context-select-position', 'Select Story Position', 'Pick the correct arc, chapter, date, episode, quest, or event for the loaded Lorepack.', 'context', 'context.browser', {
+            fallbackTarget: 'context.commandCenter',
+            prepare: 'openContextBrowser',
+            expected: 'The selected Context tells Saga which canon and timeline material is currently eligible.',
+            when: 'Use this when the story position is known or should be locked manually.',
+        }),
+        guideStep('basic-context-manual-protects', 'Manual Context Protects Accuracy', 'Manual Context choices should be protected from accidental overwrite when they are more trustworthy than detection.', 'context', 'context.loadedLoredecks', {
+            fallbackTarget: 'context.commandCenter',
+            expandSections: Object.freeze(['context.loadedLoredecks']),
+            expected: 'You understand why a manually chosen Context should not be casually replaced.',
+            when: 'Use this after selecting a precise story position by hand.',
         }),
         guideStep('basic-context-detect', 'Detect Context', 'Detect Context analyzes recent messages and updates unlocked loaded Loredeck Context rows.', 'context', 'context.detect', {
             fallbackTarget: 'context.commandCenter',
@@ -104,23 +430,40 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'Saga stores a detector status and applies high-confidence story-position matches.',
             when: 'Run this after a scene jump, time skip, new episode/chapter, or major location change.',
         }),
-        guideStep('basic-context-loaded-loredecks', 'Loaded Loredeck Contexts', 'Each loaded Loredeck gets its own current Context row.', 'context', 'context.loadedLoredecks', {
+        guideStep('basic-context-proposals', 'Review Context Proposals', 'Uncertain Context output should be reviewed as a proposal before you rely on it.', 'context', 'context.commandCenter', {
             fallbackTarget: 'context.commandCenter',
-            expandSections: Object.freeze(['context.loadedLoredecks']),
-            expected: 'Every enabled Loredeck shows whether Context is unset, detected, manually selected, or locked.',
-            when: 'Verify this before canon suggestions or story-lore scans.',
+            expandSections: Object.freeze(['context.commandCenter']),
+            expected: 'You can treat low-confidence or ambiguous detection as guidance instead of truth.',
+            when: 'Use this when detection has multiple plausible matches.',
         }),
-        guideStep('basic-lorecards-generation', 'Lorecard Generation', 'The generation section gathers canon pack preview, story-lore scan, and manual Lorecard creation.', 'lore', 'lore.generation', {
+        guideStep('basic-context-update-loop', 'Context Update Loop', 'Return to Context whenever the story crosses a meaningful boundary.', 'context', 'context.commandCenter', {
+            expandSections: Object.freeze(['context.commandCenter']),
+            expected: 'Context stays aligned with the active story instead of drifting behind.',
+            when: 'Repeat after time skips, travel, chapter changes, episode changes, or major plot turns.',
+        }),
+        guideStep('basic-lorecards-overview', 'Lorecards as Reviewed Facts', 'Lorecards are reviewed facts that can affect future responses after they are accepted.', 'lore', 'lore.generation', {
+            fallbackTarget: 'lore.generation.section',
+            expandSections: Object.freeze(['lore.generation']),
+            expected: 'You understand that suggestions do not guide the model until they pass review.',
+            when: 'Use this before creating or accepting new memory.',
+        }),
+        guideStep('basic-lorecards-generation-section', 'Lorecard Generation', 'The generation section gathers canon pack preview, story-lore scan, and manual Lorecard creation.', 'lore', 'lore.generation.section', {
             fallbackTarget: 'lore.generation.section',
             expandSections: Object.freeze(['lore.generation']),
             expected: 'All new Lorecards still go to Pending Lorecard Review before they can affect prompts.',
             when: 'Use this when the story has new facts or when canon guardrails are needed for the current Context.',
         }),
-        guideStep('basic-lorecards-canon-preview', 'Preview Canon Packs', 'Preview Canon Packs queries local Loredeck data for Context-aware canon suggestions without a provider call.', 'lore', 'lore.canon.preview', {
+        guideStep('basic-lorecards-preview-canon', 'Preview Canon Packs', 'Preview Canon Packs queries local Loredeck data for Context-aware canon suggestions without a provider call.', 'lore', 'lore.canon.preview', {
             fallbackTarget: 'lore.generation',
             expandSections: Object.freeze(['lore.generation']),
             expected: 'Matching canon entries appear as selectable packs, then selected entries can be sent to Pending Review.',
             when: 'Use this before scenes where canon constraints matter.',
+        }),
+        guideStep('basic-lorecards-send-canon-review', 'Send Canon to Review', 'Selected canon suggestions go to Pending Lorecard Review instead of becoming accepted memory automatically.', 'lore', 'lore.canon.addPending', {
+            fallbackTarget: 'lore.canon.preview',
+            expandSections: Object.freeze(['lore.generation']),
+            expected: 'Canon suggestions remain reviewable before they can affect prompts.',
+            when: 'Use this when previewed canon is useful for the current scene.',
         }),
         guideStep('basic-lorecards-story-scan', 'Scan Story Lore', 'Scan Story Lore asks the configured provider to extract durable story-specific facts from recent chat.', 'lore', 'lore.story.scan', {
             fallbackTarget: 'lore.generation',
@@ -136,273 +479,99 @@ export const GUIDE_STEPS = Object.freeze({
         }),
         guideStep('basic-lorecards-pending-review', 'Pending Lorecard Review', 'Pending Review is the gate between suggested facts and accepted memory.', 'lore', 'lore.pending', {
             expandSections: Object.freeze(['lore.pendingReview']),
+            prepare: 'openPendingLoreReview',
             expected: 'Accept only useful durable facts. Dismiss recap, noise, wrong canon, or facts that should stay transient.',
             when: 'Review after canon preview, story scan, or manual Lorecard creation.',
         }),
-        guideStep('basic-lorecards-accepted', 'Accepted Lorecards', 'Accepted Lorecards are the durable facts Saga can select for future responses.', 'lore', 'lore.accepted', {
+        guideStep('basic-lorecards-edit-pending', 'Edit Pending Lorecards', 'Open or edit a pending proposal before accepting it so the durable fact is precise.', 'lore', 'lore.pending.entry', {
+            fallbackTarget: 'lore.pending',
+            expandSections: Object.freeze(['lore.pendingReview']),
+            prepare: 'openPendingLoreReview',
+            expected: 'Pending Lorecards can be corrected before they become accepted memory.',
+            when: 'Use this when a proposal is useful but too broad, noisy, or slightly wrong.',
+        }),
+        guideStep('basic-lorecards-accept-dismiss', 'Accept or Dismiss', 'Accept useful durable facts and dismiss recap, noise, wrong canon, or facts that should stay transient.', 'lore', 'lore.pending.actions', {
+            fallbackTarget: 'lore.pending',
+            expandSections: Object.freeze(['lore.pendingReview']),
+            prepare: 'openPendingLoreReview',
+            expected: 'Only reviewed facts move into accepted memory.',
+            when: 'Use this after reading a pending proposal.',
+        }),
+        guideStep('basic-lorecards-review-question', 'Review Question', 'Ask: should this fact affect future responses?', 'lore', 'lore.pending', {
+            expandSections: Object.freeze(['lore.pendingReview']),
+            prepare: 'openPendingLoreReview',
+            expected: 'The review decision is based on future usefulness, not whether the fact appeared once.',
+            when: 'Use this to keep accepted memory clean.',
+        }),
+        guideStep('basic-lorecards-accepted-list', 'Accepted Lorecards', 'Accepted Lorecards are the durable facts Saga can select for future responses.', 'lore', 'lore.accepted', {
             expandSections: Object.freeze(['lore.acceptedEntries']),
+            prepare: 'openAcceptedLoreDetails',
             expected: 'Accepted entries can be searched, opened, edited, and selected for injection by relevance rules.',
             when: 'Use this to confirm what Saga remembers and to clean up entries that should no longer guide the model.',
         }),
-        guideStep('basic-settings-providers', 'Providers', 'Provider setup is only needed for model-backed actions like story-lore scans and Context detection fallback.', 'settings', 'settings.providers', {
+        guideStep('basic-lorecards-open-accepted', 'Open Accepted Lorecard', 'Open an accepted Lorecard to verify or correct its details.', 'lore', 'lore.accepted.entry', {
+            fallbackTarget: 'lore.accepted',
+            expandSections: Object.freeze(['lore.acceptedEntries']),
+            prepare: 'openAcceptedLoreDetails',
+            expected: 'Accepted memory remains inspectable and correctable.',
+            when: 'Use this when a response suggests Saga remembered something incorrectly.',
+        }),
+        guideStep('basic-lorecards-pin-mute', 'Pin or Mute Lorecards', 'Pin important accepted Lorecards for prominence or mute entries that should stay saved but not guide responses.', 'lore', 'lore.accepted.pinMuteHelp', {
+            fallbackTarget: 'lore.accepted',
+            expandSections: Object.freeze(['lore.acceptedEntries']),
+            prepare: 'openAcceptedLoreDetails',
+            expected: 'You can emphasize critical facts or suppress entries without deleting them.',
+            when: 'Use this for secrets, hard constraints, stale entries, or temporarily irrelevant facts.',
+        }),
+        guideStep('basic-lorecards-search-cleanup', 'Search and Clean Up', 'Search accepted Lorecards and clean up entries that should no longer guide the model.', 'lore', 'lore.accepted.filters', {
+            fallbackTarget: 'lore.accepted',
+            expandSections: Object.freeze(['lore.acceptedEntries']),
+            prepare: 'openAcceptedLoreDetails',
+            expected: 'Accepted memory can stay focused as the story grows.',
+            when: 'Use this after long sessions or when the model starts surfacing stale details.',
+        }),
+        guideStep('basic-session-metrics', 'Session Metrics', 'Metrics show whether Saga has pending Lorecards, accepted lore, selected injection, and a token estimate.', 'session', 'session.metrics', {
+            section: 'continueRoleplay',
+            expected: 'You can tell whether Saga has data and whether accepted Lorecards are selected for injection.',
+            when: 'Check this if the model seems to ignore lore or if the prompt feels too heavy.',
+        }),
+        guideStep('basic-session-ready', 'Checklist Ready', 'The Start Checklist is ready when the active stack, Context, review state, and Saga Active status are in place.', 'session', 'session.basicReadiness', {
+            section: 'continueRoleplay',
+            expected: 'You can confirm Saga is ready before continuing roleplay.',
+            when: 'Use this before sending the next story message.',
+        }),
+        guideStep('basic-session-continue-roleplay', 'Continue Roleplay', 'Once lore is loaded, Context is set, and useful Lorecards are accepted, continue roleplay normally.', 'session', 'session.basicReadiness', {
+            section: 'continueRoleplay',
+            expected: 'The Basic setup work turns into normal play instead of constant configuration.',
+            when: 'Use this after the checklist is ready.',
+        }),
+        guideStep('basic-session-repeat-loop', 'Repeat the Basic Loop', 'After major story movement, update Context and review new Lorecards before continuing again.', 'session', 'session.basicReadiness', {
+            section: 'continueRoleplay',
+            expected: 'Basic becomes a repeatable loop: play, update story position, review durable facts, continue.',
+            when: 'Repeat after major scenes, reveals, travel, time skips, or chapter changes.',
+        }),
+        guideStep('basic-settings-provider-status', 'Provider Status', 'Provider setup is only needed for model-backed actions like story-lore scans and Context detection fallback.', 'settings', 'settings.providers', {
             expected: 'Utility and Reasoning provider readiness is visible without exposing every Advanced tuning control.',
             when: 'Check this if model-backed actions fail, stall, or are unavailable.',
+        }),
+        guideStep('basic-settings-provider-test', 'Test Providers', 'Use provider tests to confirm Utility or Reasoning routes are available before relying on model-backed features.', 'settings', 'settings.providers', {
+            expected: 'You can separate provider setup problems from Saga workflow problems.',
+            when: 'Use this when detection, scans, or model-backed actions fail.',
+        }),
+        guideStep('basic-settings-current-model', 'Use Current Model', 'For the simplest Basic setup, use the current SillyTavern model when that route is available and sufficient.', 'settings', 'settings.providers', {
+            expected: 'Basic users can avoid deeper provider routing until Advanced controls are needed.',
+            when: 'Use this when you want the least configuration before play.',
         }),
         guideStep('basic-settings-theme-pack', 'Theme Pack', 'Theme Pack controls the runtime shelf appearance, icons, and colors.', 'settings', 'settings.themePack', {
             expected: 'The active theme and icon set can be changed without affecting story data.',
             when: 'Use this for readability or visual preference before a long session.',
         }),
-    ]),
-    advanced: freezeGuideSteps([
-        guideStep('advanced-loredecks-library-overview', 'Library and Stack Overview', 'The Loredecks tab summarizes the Library, active stack, active Lorecard count, and Pack Health warnings.', 'loredecks', 'loredecks.library.launch', {
-            expandSections: Object.freeze(['loredecks.libraryLaunch']),
-            expected: 'You can see whether the active stack is populated and whether loaded decks need attention.',
-            when: 'Use this as the first stop for stack, import, export, and authoring work.',
-        }),
-        guideStep('advanced-loredecks-open-library', 'Open Loredeck Library', 'Open the fullscreen Library for stack ordering, folders, details, package import/export, duplication, and Generated Lorepack to Custom Lorepack finalization.', 'loredecks', 'loredecks.library.open', {
-            fallbackTarget: 'loredecks.library.launch',
-            expandSections: Object.freeze(['loredecks.libraryLaunch']),
-            expected: 'The Library window exposes full deck management and details panels.',
-            when: 'Use this whenever active-stack behavior or package management needs inspection.',
-        }),
-        guideStep('advanced-loredecks-active-stack', 'Active Stack and Folders', 'The active stack decides which Loredecks participate in Context, canon suggestions, retrieval, and injection.', 'loredecks', 'loredecks.library.launch', {
-            expandSections: Object.freeze(['loredecks.libraryLaunch']),
-            expected: 'Stack order, enabled state, folder groups, and duplicate suppression are visible from the Library workflow.',
-            when: 'Use this to debug why a Lorecard is or is not eligible.',
-        }),
-        guideStep('advanced-loredecks-import-update', 'Import or Update Packages', 'Import Deck installs Saga Loredeck zip packages and checks duplicate content or possible duplicate decks.', 'loredecks', 'loredecks.import', {
-            fallbackTarget: 'loredecks.library.open',
-            expandSections: Object.freeze(['loredecks.libraryLaunch']),
-            expected: 'Imported packages are previewed before installation and become Library records when accepted.',
-            when: 'Use this for a Custom Lorepack, shared package, or updated bundled-family export.',
-        }),
-        guideStep('advanced-loredecks-create', 'Create a Generated Lorepack', 'Create Deck opens the staged Loredeck Creator for outlines, title passes, Context/tag planning, and Lorecard drafting.', 'loredecks', 'loredecks.creator.open', {
-            fallbackTarget: 'loredecks.library.open',
-            expandSections: Object.freeze(['loredecks.libraryLaunch']),
-            expected: 'A Generated Lorepack project can be started without leaving the runtime shelf.',
-            when: 'Use this to build a new Lorepack from a scope brief.',
-        }),
-        guideStep('advanced-loredecks-projects', 'In-Progress Creator Projects', 'The project shelf resumes unfinished Generated Lorepacks and shows review/generation state.', 'loredecks', 'loredecks.creator.projects', {
-            expandSections: Object.freeze(['loredecks.creatorProjects']),
-            expected: 'Draft outlines, title batches, planned Context/tag sets, and Lorecard drafts remain recoverable.',
-            when: 'Use this after interrupted generation or before finalizing a generated pack.',
-        }),
-        guideStep('advanced-session-experience-mode', 'Experience Mode', 'Experience Mode switches between focused Basic controls and the full Advanced toolset.', 'session', 'session.experienceMode', {
-            expected: 'Advanced restores detailed controls and backed-up settings; Basic keeps the main roleplay workflow focused.',
-            when: 'Use Basic for routine play and Advanced for automation, diagnostics, workbenches, or prompt tuning.',
-        }),
-        guideStep('advanced-session-automation-mode', 'Automation Mode', 'Automation Mode chooses whether Saga runs only when clicked or performs background continuity/context/lore work.', 'session', 'session.automation', {
-            expected: 'Manual is explicit, Assisted tracks continuity, and Automatic runs broader configured automation.',
-            when: 'Use Manual while configuring; move to Assisted or Automatic once the workflow is stable.',
-        }),
-        guideStep('advanced-session-active', 'Saga Active', 'Saga Active pauses or resumes Saga behavior without deleting state.', 'session', 'session.active', {
-            expected: 'When active, injection and configured automation can run.',
-            when: 'Use this to isolate Saga behavior during debugging.',
-        }),
-        guideStep('advanced-session-metrics', 'Session Metrics', 'Metrics expose pending continuity, pending Lorecards, accepted lore, selected injection, and prompt-size estimates.', 'session', 'session.metrics', {
-            expected: 'You can quickly confirm whether data exists and whether injection is being selected.',
-            when: 'Use this before deeper Injection or Lorecards diagnostics.',
-        }),
-        guideStep('advanced-context-command-center', 'Runtime Context Command Center', 'The Context command center brings loaded-deck Context, detection, proposals, locks, and browser access together.', 'context', 'context.commandCenter', {
-            expandSections: Object.freeze(['context.commandCenter']),
-            expected: 'Current Context status and resolver actions are visible in one place.',
-            when: 'Use this whenever Context might be stale or ambiguous.',
-        }),
-        guideStep('advanced-context-browser', 'Context Browser', 'Browse known timeline anchors and manually select the exact Context for loaded Loredecks.', 'context', 'context.browser', {
-            fallbackTarget: 'context.commandCenter',
-            expandSections: Object.freeze(['context.commandCenter']),
-            expected: 'Manual choices can override uncertain local or Reasoner detection.',
-            when: 'Use this for precise canon points, alternate branches, and ambiguous scenes.',
-        }),
-        guideStep('advanced-context-detect', 'Detect Context', 'Detect Context analyzes recent messages and updates the Context Brief plus unlocked loaded Loredeck rows.', 'context', 'context.detect', {
-            fallbackTarget: 'context.commandCenter',
-            expandSections: Object.freeze(['context.commandCenter']),
-            expected: 'Detector status, proposals, and high-confidence local matches update.',
-            when: 'Run after time jumps, episode/chapter changes, location shifts, or new canon boundaries.',
-        }),
-        guideStep('advanced-context-source-window', 'Context Source Messages', 'Source Messages controls how much recent chat is sent to Context detection.', 'context', 'context.sourceMessages', {
-            fallbackTarget: 'context.automation',
-            expandSections: Object.freeze(['context.commandCenter']),
-            expected: 'A larger window can improve detection but may cost more provider time when Reasoner fallback is needed.',
-            when: 'Increase it when important date or arc cues appear earlier in the scene.',
-        }),
-        guideStep('advanced-context-loaded-loredecks', 'Loaded Loredeck Context Rows', 'Each enabled Loredeck has its own Context row, source, lock state, and update status.', 'context', 'context.loadedLoredecks', {
-            fallbackTarget: 'context.commandCenter',
-            expandSections: Object.freeze(['context.loadedLoredecks']),
-            expected: 'You can see which decks are set, unset, locked, or still unresolved.',
-            when: 'Use this to explain canon suggestion and retrieval eligibility.',
-        }),
-        guideStep('advanced-context-fields', 'Advanced Context Brief', 'The advanced brief edits the legacy global Context projection used by older canon-preview flows.', 'context', 'context.fields', {
-            expandSections: Object.freeze(['context.advancedBrief']),
-            expected: 'Manual edits affect generation and canon preview while loaded Loredeck rows remain authoritative for deck gates.',
-            when: 'Use this for alternate universes, time travel, unclear dates, or custom branch labels.',
-        }),
-        guideStep('advanced-continuity-scan', 'Scan Continuity State', 'The continuity scanner updates lightweight live state for the current scene.', 'continuity', 'continuity.scan.button', {
-            fallbackTarget: 'continuity.scan',
-            expected: 'Scene, characters, items, and active threads update from the chosen message window.',
-            when: 'Run after scene changes, long exchanges, or before prompt-sensitive continuity beats.',
-        }),
-        guideStep('advanced-continuity-automation', 'Continuity Automation', 'Continuity automation controls manual versus interval-based scanning.', 'continuity', 'continuity.automation', {
-            expected: 'Automatic scans can maintain current-state blocks in the background.',
-            when: 'Use this when live scene continuity should update without manual clicks.',
-        }),
-        guideStep('advanced-continuity-scope', 'Continuity Scan Scope', 'Scope chooses recent, custom range, or entire-chat continuity scanning.', 'continuity', 'continuity.scanScope', {
-            expandSections: Object.freeze(['continuity.scanScope']),
-            expected: 'Recent is maintenance; range and entire-chat are recovery/backfill tools.',
-            when: 'Use custom ranges for a specific missed section.',
-        }),
-        guideStep('advanced-continuity-performance', 'Continuity Performance', 'Performance controls chunking, overlap, reducer concurrency, retries, and checkpoint behavior.', 'continuity', 'continuity.performance', {
-            expandSections: Object.freeze(['continuity.scanPerformance']),
-            expected: 'You can trade speed against provider stability and output reliability.',
-            when: 'Tune this for large chats, weak providers, or repeated scan failures.',
-        }),
-        guideStep('advanced-continuity-tracked-sections', 'Tracked Sections', 'Tracked Sections decide which live-state blocks are scanned and injected.', 'continuity', 'continuity.trackedSections', {
-            expandSections: Object.freeze(['continuity.trackedSections']),
-            expected: 'Disabled sections preserve saved values but stop being updated and injected.',
-            when: 'Use this to reduce prompt noise or focus continuity on the fields you care about.',
-        }),
-        guideStep('advanced-continuity-scene', 'Scene and Timeline', 'Scene and Timeline stores immediate date, location, activity, and canon boundary state.', 'continuity', 'continuity.scene', {
-            expandSections: Object.freeze(['continuity.canonScene']),
-            expected: 'Current scene state is editable without turning it into permanent lore.',
-            when: 'Use this to correct the next prompt anchor.',
-        }),
-        guideStep('advanced-continuity-characters', 'Active Characters', 'Active Characters tracks current cast state, including posture, appearance detail, emotion, and immediate goals.', 'continuity', 'continuity.characters', {
-            expandSections: Object.freeze(['continuity.characters']),
-            expected: 'The model receives concise current-state cues without needing a full chat summary.',
-            when: 'Use this for live character state that should not become durable lore.',
-        }),
-        guideStep('advanced-continuity-items', 'Key Items', 'Key Items tracks consequential current objects, possessions, and object status.', 'continuity', 'continuity.items', {
-            expandSections: Object.freeze(['continuity.inventory']),
-            expected: 'Important object state is available for continuity injection.',
-            when: 'Use this when items affect the current scene.',
-        }),
-        guideStep('advanced-continuity-threads', 'Active Goals and Threads', 'Active Goals and Threads captures unresolved immediate objectives.', 'continuity', 'continuity.threads', {
-            expandSections: Object.freeze(['continuity.activeGoalsThreads']),
-            expected: 'The model gets concise reminders of current direction.',
-            when: 'Use this for short-term plot pressure rather than permanent lore.',
-        }),
-        guideStep('advanced-lore-timeline', 'Lore Timeline', 'Lore Timeline audits accepted-lore creation, updates, deletion, restoration, pinning, muting, and metadata changes.', 'lore', 'lore.timeline.section', {
-            expandSections: Object.freeze(['lore.timeline']),
-            expected: 'Accepted-lore history and recovery paths are available.',
-            when: 'Use this when you need to understand or undo lore changes.',
-        }),
-        guideStep('advanced-lore-generation', 'Lorecard Generation', 'Generation collects canon pack preview, story-lore scans, and manual Lorecard creation.', 'lore', 'lore.generation', {
-            fallbackTarget: 'lore.generation.section',
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'New entries route through Pending Lorecard Review before acceptance.',
-            when: 'Use this after Context is current.',
-        }),
-        guideStep('advanced-lore-context-status', 'Lore Context Status', 'The Lorecards tab shows the Context currently driving canon and generation tools.', 'lore', 'lore.contextStatus', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'You can verify or refresh Context before generating or previewing.',
-            when: 'Use this if canon packs look wrong or story-lore scan scope feels stale.',
-        }),
-        guideStep('advanced-lore-canon-preview', 'Preview Canon Packs', 'Preview Canon Packs locally queries active Loredecks for Context-aware canon suggestions.', 'lore', 'lore.canon.preview', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Results are grouped into selectable packs without a provider call.',
-            when: 'Use this for date-aware guardrails and branch-sensitive canon constraints.',
-        }),
-        guideStep('advanced-lore-canon-detail', 'Canon Detail and Pack Selection', 'Detail and pack controls decide how broad canon preview results should be.', 'lore', 'lore.canon.detailFilter', {
-            fallbackTarget: 'lore.canon.preview',
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Core/Standard keeps regular play lean; Detailed/All exposes more audit material.',
-            when: 'Use higher detail when auditing or preparing complex scenes.',
-        }),
-        guideStep('advanced-lore-canon-add', 'Add Canon to Pending', 'Selected canon entries move into Pending Lorecard Review, not straight into accepted memory.', 'lore', 'lore.canon.addPending', {
-            fallbackTarget: 'lore.canon.preview',
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'You retain final review before canon suggestions affect future responses.',
-            when: 'Use selected entries for precision and pack add for trusted small packs.',
-        }),
-        guideStep('advanced-lore-canon-settings', 'Canon Suggestion Settings', 'Canon settings control local database use, auto-suggest behavior, and quick-add cap.', 'lore', 'lore.canon.settings', {
-            expandSections: Object.freeze(['lore.generation', 'lore.canonSuggestionSettings']),
-            expected: 'Settings affect canon preview and quick-add behavior, not story-lore model scans.',
-            when: 'Tune this when canon suggestions are too broad, too sparse, or too automatic.',
-        }),
-        guideStep('advanced-lore-story-scan', 'Scan Story Lore', 'Story scanning extracts durable story-specific facts from recent, ranged, or entire-chat source text.', 'lore', 'lore.story.scan', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Facts are chunked, checkpointed, and proposed as Pending Lorecards.',
-            when: 'Use after substantial new story content or for backfilling old chats.',
-        }),
-        guideStep('advanced-lore-story-scope', 'Story Lore Scope', 'Scope chooses recent maintenance, custom range, or entire-chat backfill.', 'lore', 'lore.story.scope', {
-            expandSections: Object.freeze(['lore.generation', 'lore.storyGenerationSettings', 'lore.story.scanScope']),
-            expected: 'The selected source window controls what the extractor can see.',
-            when: 'Use custom range for targeted extraction and entire chat for first setup/backfill.',
-        }),
-        guideStep('advanced-lore-story-performance', 'Story Lore Performance', 'Performance controls chunk size, overlap, concurrency, retries, checkpoint cadence, and consolidation.', 'lore', 'lore.story.performance', {
-            expandSections: Object.freeze(['lore.generation', 'lore.storyGenerationSettings', 'lore.story.performance']),
-            expected: 'Lower chunk/concurrency settings are more reliable; higher settings are faster on strong providers.',
-            when: 'Tune this for large scans or provider rate limits.',
-        }),
-        guideStep('advanced-lore-story-quality', 'Story Lore Quality', 'Quality controls breadth, fact targets, generated tags, duplicate guard, similarity routing, and strict gate behavior.', 'lore', 'lore.story.quality', {
-            expandSections: Object.freeze(['lore.generation', 'lore.storyGenerationSettings', 'lore.story.quality']),
-            expected: 'Generated proposals become more targeted before manual review.',
-            when: 'Use this when scans produce recap/noise or miss important facts.',
-        }),
-        guideStep('advanced-lore-story-automation', 'Story Lore Automation', 'Story automation runs scans after enough words or turns have accumulated.', 'lore', 'lore.story.automation', {
-            expandSections: Object.freeze(['lore.generation', 'lore.storyGenerationSettings', 'lore.story.automation']),
-            expected: 'Automation remains conservative and still routes entries to Pending Review.',
-            when: 'Enable after provider, scope, and quality settings are stable.',
-        }),
-        guideStep('advanced-lore-pending-review', 'Pending Lorecard Review', 'Pending Review handles canon proposals, story-scan proposals, manual drafts, similarity-routed updates, and dismissals.', 'lore', 'lore.pending', {
-            expandSections: Object.freeze(['lore.pendingReview']),
-            expected: 'Only accepted proposals become durable Lorecards.',
-            when: 'Use this after any generation source creates proposals.',
-        }),
-        guideStep('advanced-lore-accepted', 'Accepted Lorecards', 'Accepted Lorecards can be searched, filtered, edited, pinned, muted, bulk edited, and opened in a workbench.', 'lore', 'lore.accepted', {
-            expandSections: Object.freeze(['lore.acceptedEntries']),
-            expected: 'Stored lore can be refined separately from prompt selection.',
-            when: 'Use this to clean up, prioritize, or inspect what Saga remembers.',
-        }),
-        guideStep('advanced-lore-auto-relevance', 'Auto-Relevance', 'Auto-Relevance can periodically suggest or apply relevance tier changes for accepted Lorecards.', 'lore', 'lore.autoRelevance', {
-            expandSections: Object.freeze(['lore.autoRelevance']),
-            expected: 'Large accepted-lore collections can be kept closer to current scene needs.',
-            when: 'Use Suggest mode first, then apply high-confidence changes only after tuning.',
-        }),
-        guideStep('advanced-injection-toggles', 'Injection Toggles', 'Injection toggles turn Continuity and Lore blocks on or off independently.', 'injection', 'injection.toggles', {
-            expected: 'Disabled blocks stay editable but are not sent.',
-            when: 'Use this to isolate whether continuity or lore is influencing the model.',
-        }),
-        guideStep('advanced-injection-placement', 'Prompt Placement', 'Prompt Placement sets method, role, position, and depth for each injected prompt group.', 'injection', 'injection.promptPlacement', {
-            expandSections: Object.freeze(['injection.promptPlacement']),
-            expected: 'Depth and role tuning control how close and forceful each block is.',
-            when: 'Use this when lore is too weak, too strong, or in the wrong prompt role.',
-        }),
-        guideStep('advanced-injection-continuity-preview', 'Continuity Injection Preview', 'The continuity preview shows the actual live-state block Saga plans to send.', 'injection', 'injection.preview.continuity', {
-            expected: 'You can verify scene/timeline, characters, items, and goals before prompting.',
-            when: 'Use this before scenes that depend on current-state precision.',
-        }),
-        guideStep('advanced-injection-high-lore', 'High-Relevance Lore Injection', 'High-Relevance lore is the closest, most scene-critical accepted lore block.', 'injection', 'injection.preview.high', {
-            expected: 'Immediate constraints should appear here unless muted, context-blocked, or token-limited.',
-            when: 'Use this to debug why the model is missing an important fact.',
-        }),
-        guideStep('advanced-injection-normal-low-lore', 'Normal and Low Lore Injection', 'Normal and Low tiers carry broader or distant context and can be direct, compressed, or disabled.', 'injection', 'injection.preview.normal', {
-            fallbackTarget: 'injection.preview.low',
-            expected: 'Background lore stays available without overwhelming the prompt.',
-            when: 'Use this when broad context matters or prompt size needs reduction.',
-        }),
-        guideStep('advanced-injection-compression', 'Compression Prompts', 'Compression prompts shape model-compressed continuity and relevance-tiered lore blocks.', 'injection', 'injection.compression', {
-            expandSections: Object.freeze(['injection.compressionPrompts']),
-            expected: 'Reset restores bundled defaults; edited prompts change future compression output.',
-            when: 'Use this when compressed text needs a stricter format or different style.',
-        }),
-        guideStep('advanced-settings-providers', 'Providers', 'Providers configure Utility and Reasoning model routing, endpoints, profiles, keys, and generation parameters.', 'settings', 'settings.providers', {
-            expected: 'Each model-backed feature has a visible provider source and readiness status.',
-            when: 'Use this when Context, continuity, story scan, compression, or Creator calls fail.',
-        }),
-        guideStep('advanced-settings-provider-preset', 'Provider Preset Support', 'Provider preset support checks the bundled thin preset and can install or update it for Connection Profile routing.', 'settings', 'settings.providers', {
-            expected: 'Saga can route through SillyTavern profiles while keeping provider configuration inspectable.',
-            when: 'Use this when setting up profiles or updating the bundled preset version.',
-        }),
-        guideStep('advanced-settings-theme-pack', 'Theme Pack', 'Theme Pack selects the runtime visual preset and manages installed theme packs.', 'settings', 'settings.themePack', {
-            expected: 'Theme changes affect the runtime surface without touching story data.',
-            when: 'Use this for readability, brand flavor, or checking bundled theme variants.',
-        }),
-        guideStep('advanced-settings-icons-colors', 'Icons and Color Controls', 'Icon sets, color overrides, raw tokens, and theme JSON live under the Theme Pack controls.', 'settings', 'settings.themePack', {
-            expected: 'Advanced visual customization stays grouped with Theme Pack settings.',
-            when: 'Use this when polishing the shelf or auditing final Alpha visual tokens.',
+        guideStep('basic-settings-advanced-handoff', 'When to Switch to Advanced', 'Switch to Advanced for provider internals, Creator, Continuity, Injection, Pack Health repair, or diagnostics.', 'settings', 'settings.providers', {
+            expected: 'You know which work belongs outside the Basic walkthrough.',
+            when: 'Use Advanced when Basic intentionally hides the control you need.',
         }),
     ]),
+    advanced: freezeGuideSteps(buildAdvancedGuideSteps()),
 });
 
 export const GUIDE_CONTENT = Object.freeze({

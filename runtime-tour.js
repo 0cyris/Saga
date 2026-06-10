@@ -47,6 +47,11 @@ function showRuntimePanel() {
     return dep('showRuntimePanel', () => null)();
 }
 
+function prepareGuideStep(step) {
+    if (!getTourStepPrepareAction(step)) return null;
+    return dep('prepareGuideStep', () => null)(step);
+}
+
 function getPanelRoot() {
     return dep('getPanelRoot', () => null)();
 }
@@ -62,6 +67,10 @@ export function markTourTarget(el, target) {
 
 function getTourStepSectionId(step) {
     return String(step?.section || step?.tab || 'session').trim() || 'session';
+}
+
+function getTourStepPrepareAction(step) {
+    return String(step?.prepare || step?.prepareAction || '').trim();
 }
 
 export function startSagaTour(mode = normalizeExperienceMode(getSettings().experienceMode), options = {}) {
@@ -98,17 +107,18 @@ function renderActiveSagaTourStep(skipCount = 0) {
     }
 
     const step = tour.steps[tour.index];
+    const hasPrepare = !!getTourStepPrepareAction(step);
     showGuideStep(step, {
         highlight: true,
         tour: true,
-        onReady: (target) => {
+        onReady: (target, prepareResult) => {
             if (!activeSagaTour || activeSagaTour !== tour) return;
-            if (!target && skipCount < tour.steps.length - 1) {
+            if (!target && !hasPrepare && skipCount < tour.steps.length - 1) {
                 tour.index += 1;
                 renderActiveSagaTourStep(skipCount + 1);
                 return;
             }
-            renderSagaTourPopover(step, target);
+            renderSagaTourPopover(step, target, prepareResult);
         },
     });
 }
@@ -130,25 +140,39 @@ export function showGuideStep(step, options = {}) {
     }
     showRuntimePanel();
 
-    const token = activeSagaTour ? ++activeSagaTour.renderToken : 0;
-    requestAnimationFrame(() => {
+    const tour = activeSagaTour;
+    const token = tour ? ++tour.renderToken : 0;
+    const runTargetLookup = (prepareResult = null) => {
         requestAnimationFrame(() => {
-            if (activeSagaTour && token !== activeSagaTour.renderToken) return;
-            const target = getTourTargetElement(step.target) || getTourTargetElement(step.fallbackTarget);
-            if (options.highlight) {
-                highlightSagaTourTarget(target);
-                if (!options.tour) {
-                    window.setTimeout(() => {
-                        if (!activeSagaTour) clearSagaTourHighlight();
-                    }, 2200);
+            requestAnimationFrame(() => {
+                if (tour && (!activeSagaTour || activeSagaTour !== tour || token !== tour.renderToken)) return;
+                const target = getTourTargetElement(step.target) || getTourTargetElement(step.fallbackTarget);
+                if (options.highlight) {
+                    highlightSagaTourTarget(target);
+                    if (!options.tour) {
+                        window.setTimeout(() => {
+                            if (!activeSagaTour) clearSagaTourHighlight();
+                        }, 2200);
+                    }
                 }
-            }
-            if (!target && !options.tour) {
-                toast(`${step.title || 'Feature'} is not visible in the current state.`, 'info');
-            }
-            options.onReady?.(target);
+                if (!target && !options.tour) {
+                    toast(prepareResult?.message || `${step.title || 'Feature'} is not visible in the current state.`, 'info');
+                }
+                options.onReady?.(target, prepareResult);
+            });
         });
-    });
+    };
+
+    Promise.resolve()
+        .then(() => prepareGuideStep(step))
+        .catch(error => {
+            console.warn('[Saga] Walkthrough prepare failed:', error);
+            return { ok: false, error, message: `${step.title || 'Feature'} could not be prepared automatically.` };
+        })
+        .then(prepareResult => {
+            if (tour && (!activeSagaTour || activeSagaTour !== tour || token !== tour.renderToken)) return;
+            runTargetLookup(prepareResult);
+        });
 }
 
 function getTourTargetElement(targetName) {
@@ -174,7 +198,7 @@ function clearSagaTourHighlight() {
     }
 }
 
-function renderSagaTourPopover(step, target) {
+function renderSagaTourPopover(step, target, prepareResult = null) {
     const tour = activeSagaTour;
     if (!tour) return;
 
@@ -202,6 +226,7 @@ function renderSagaTourPopover(step, target) {
     body.textContent = step.body || '';
     popover.appendChild(body);
 
+    appendSagaTourDetail(popover, 'Preparation', prepareResult?.message);
     appendSagaTourDetail(popover, 'When to use', step.when);
     appendSagaTourDetail(popover, 'Expected result', step.expected);
 
