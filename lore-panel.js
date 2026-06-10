@@ -15651,7 +15651,7 @@ function renderSettingsTab(container, state) {
     const basic = isBasicExperience(settings);
     container.appendChild(createSectionHeader(
         'SAGA',
-        basic ? 'Providers, Theme Pack, and mode.' : 'Fandom Loresystem.'
+        basic ? 'Providers and Theme Pack.' : 'Fandom Loresystem.'
     ));
 
     if (basic) {
@@ -15669,18 +15669,10 @@ function renderSettingsTab(container, state) {
             'Theme Pack',
             getThemePreset(settings.themePackId, settings)?.title || 'Theme',
             true,
-            createBasicAppearanceSettingsCard(settings),
-            { tooltip: 'Choose Saga appearance and switch to Advanced for full Theme Pack controls.' }
+            createThemeSettingsCard(settings),
+            { tooltip: 'Manage Theme Packs, icon sets, and color overrides.' }
         ));
 
-        container.appendChild(createCollapsibleSection(
-            'settings.experienceMode',
-            'Experience Mode',
-            getExperienceLabel(settings),
-            true,
-            createBasicExperienceSettingsCard(settings),
-            { tooltip: 'Switch between Basic and Advanced Experience and reset the runtime layout.' }
-        ));
         return;
     }
 
@@ -15701,106 +15693,6 @@ function renderSettingsTab(container, state) {
         createThemeSettingsCard(settings),
         { tooltip: 'Manage Theme Packs, icon sets, and color overrides.' }
     ));
-}
-
-function createBasicAppearanceSettingsCard(settings = getSettings()) {
-    const card = document.createElement('div');
-    card.className = 'saga-runtime-card saga-settings-basic-appearance-card';
-    const title = document.createElement('h4');
-    title.textContent = 'Theme Pack';
-    card.appendChild(title);
-
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = 'Choose the Theme Pack used by the Saga shelf and runtime windows. Import, export, icon, color, and raw JSON controls live in Advanced.';
-    card.appendChild(help);
-
-    const themeLibrary = getThemePackLibrary(settings);
-    const activePreset = getThemePreset(settings.themePackId, settings);
-    const select = document.createElement('select');
-    select.id = 'saga_basic_theme_pack';
-    select.className = 'saga-basic-theme-select';
-    for (const theme of themeLibrary) {
-        const option = document.createElement('option');
-        option.value = theme.id;
-        option.textContent = `${theme.title || theme.id}${theme.type === 'custom' ? ' (Custom)' : ''}`;
-        select.appendChild(option);
-    }
-    select.value = activePreset?.id || '';
-    select.addEventListener('change', () => {
-        createThemePanelOptions().onApplyThemePreset?.(select.value);
-        toast('Theme Pack selected.', 'info');
-    });
-    card.appendChild(createBasicSettingField('Theme Pack', 'Choose the active Saga Theme Pack.', select));
-
-    const colors = getActiveThemeColors(settings);
-    card.appendChild(createBasicThemeSwatches(colors));
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-basic-settings-actions';
-    actions.appendChild(createButton('Open Advanced Theme Settings', 'Switch to Advanced Experience for import, export, icon set, color override, and raw Theme Pack controls.', openAdvancedSettingsTab));
-    card.appendChild(actions);
-
-    return card;
-}
-
-function createBasicExperienceSettingsCard(settings = getSettings()) {
-    const card = document.createElement('div');
-    card.className = 'saga-runtime-card saga-settings-basic-experience-card';
-    const title = document.createElement('h4');
-    title.textContent = 'Experience Mode';
-    card.appendChild(title);
-
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = 'Basic keeps the main workflow visible. Advanced restores the full Saga shelf, provider editor, prompt controls, automation settings, and diagnostics.';
-    card.appendChild(help);
-
-    const switchWrap = document.createElement('div');
-    switchWrap.className = 'saga-basic-experience-switch-wrap';
-    switchWrap.appendChild(createExperienceModeSwitch(settings));
-    card.appendChild(switchWrap);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions saga-basic-settings-actions';
-    actions.appendChild(createButton('Switch to Advanced', 'Show every Saga runtime tab and the full settings surface.', openAdvancedSettingsTab, 'saga-primary-button'));
-    actions.appendChild(createButton('Reset Layout', 'Reset Saga shelf position, drawer size, open tab, and section defaults.', () => {
-        resetLorePanelLayout();
-    }));
-    card.appendChild(actions);
-
-    return card;
-}
-
-function createBasicSettingField(labelText, tooltip, control) {
-    const field = document.createElement('label');
-    field.className = 'saga-basic-setting-field';
-    addTooltip(field, tooltip || labelText);
-    const label = document.createElement('span');
-    label.textContent = labelText;
-    field.appendChild(label);
-    field.appendChild(control);
-    return field;
-}
-
-function createBasicThemeSwatches(colors = {}) {
-    const wrap = document.createElement('div');
-    wrap.className = 'saga-basic-theme-swatches';
-    const items = [
-        ['background', 'Background'],
-        ['surface', 'Surface'],
-        ['accent', 'Accent'],
-        ['text', 'Text'],
-    ];
-    for (const [key, label] of items) {
-        const swatch = document.createElement('span');
-        swatch.className = 'saga-basic-theme-swatch';
-        swatch.style.background = colors[key] || 'transparent';
-        swatch.setAttribute('aria-label', `${label} color`);
-        addTooltip(swatch, `${label}: ${colors[key] || 'unset'}`);
-        wrap.appendChild(swatch);
-    }
-    return wrap;
 }
 
 function createThemeSettingsCard(settings = getSettings()) {
@@ -16187,13 +16079,6 @@ function navigateRuntimeTab(tabId) {
     refreshHeader();
 }
 
-function openAdvancedInjectionTab() {
-    setExperienceMode('advanced');
-    setPanelState({ activeTab: 'injection' });
-    refreshPanelBody({ preserveScroll: false });
-    refreshHeader();
-}
-
 function openAdvancedSettingsTab() {
     setExperienceMode('advanced');
     setPanelState({ activeTab: 'settings' });
@@ -16273,61 +16158,10 @@ function createBasicReadinessRow(row) {
     return item;
 }
 
-function createBasicInjectionSummaryCard(state = getState(), settings = getSettings(), options = {}) {
-    const selectedLore = getSelectedLoreInjectionCount(state, settings);
-    const injectionStats = getInjectionCharacterStats(state, settings);
-    const loreState = getPanelLoreState(state);
-    const acceptedCount = Math.max(0, (loreState.counts?.all || 0) - (loreState.counts?.pending || 0));
-    const mutedCount = Number(loreState.counts?.suppressed || loreState.counts?.muted || 0) || 0;
-    const loreOn = settings.injectLore !== false && settings.injectMemo !== false;
-
-    const card = document.createElement('div');
-    card.className = `saga-runtime-card saga-basic-injection-summary-card ${options.compact ? 'saga-basic-injection-summary-compact' : ''}`.trim();
-    markTourTarget(card, options.target || 'session.basicInjectionSummary');
-
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = options.title || 'What Saga Will Send';
-    addTooltip(title, 'Basic summary of accepted Lorecards selected for the next roleplay prompt. Full prompt controls live in Advanced.');
-    card.appendChild(title);
-
-    const chips = document.createElement('div');
-    chips.className = 'saga-basic-injection-summary-chips';
-    chips.appendChild(createStatusPill(loreOn ? 'Lore injection on' : 'Lore injection off', loreOn ? 'Accepted Lorecards can be selected for prompt injection.' : 'Accepted Lorecards are stored but not injected while lore injection is off.'));
-    chips.appendChild(createStatusPill(`${selectedLore} selected`, 'Accepted Lorecards selected after Context, relevance, pin, and mute rules.'));
-    if (mutedCount > 0) chips.appendChild(createStatusPill(`${mutedCount} muted`, 'Muted Lorecards are stored but excluded from injection.'));
-    card.appendChild(chips);
-
-    card.appendChild(createKeyValue('Accepted Lorecards', String(acceptedCount), 'Lorecards stored for this chat.'));
-    card.appendChild(createKeyValue('Selected for next prompt', loreOn ? String(selectedLore) : 'off', 'Basic count of accepted Lorecards Saga would send next.'));
-    card.appendChild(createKeyValue('Estimated prompt cost', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate token count for current Saga prompt material.'));
-
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = selectedLore > 0 && loreOn
-        ? 'Accepted Lorecards are ready for the next response. Switch to Advanced only if you need the full prompt preview or placement controls.'
-        : 'Accept useful Lorecards in Lorecards before expecting Saga to add lore to the next response.';
-    card.appendChild(help);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
-    actions.appendChild(createButton('Open Advanced Injection', 'Switches to Advanced Experience and opens the full Injection tab.', openAdvancedInjectionTab));
-    card.appendChild(actions);
-
-    return card;
-}
-
 function createBasicStartReadinessCard(state = getState(), settings = getSettings()) {
     const model = getBasicReadinessModel(state, settings);
-    const card = document.createElement('div');
-    card.className = 'saga-runtime-card saga-basic-readiness-card';
-    markTourTarget(card, 'session.basicReadiness');
-
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = 'Start Checklist';
-    addTooltip(title, 'Guided Basic workflow: load lore, set Context, review Lorecards, then continue roleplay.');
-    card.appendChild(title);
+    const content = document.createElement('div');
+    content.className = 'saga-basic-readiness-content';
 
     const next = document.createElement('div');
     next.className = 'saga-basic-next-action';
@@ -16340,14 +16174,25 @@ function createBasicStartReadinessCard(state = getState(), settings = getSetting
     if (model.nextAction?.actionLabel && typeof nextAction === 'function') {
         next.appendChild(createButton(model.nextAction.actionLabel, model.nextAction.missingText || 'Open the next Basic workflow step.', nextAction, 'saga-primary-button'));
     }
-    card.appendChild(next);
+    content.appendChild(next);
 
     const list = document.createElement('div');
     list.className = 'saga-basic-readiness-list';
     for (const row of model.rows) list.appendChild(createBasicReadinessRow(row));
-    card.appendChild(list);
+    content.appendChild(list);
 
-    return card;
+    const subtitle = model.nextAction?.ready ? 'ready' : (model.nextAction?.actionLabel || 'next action');
+    return markTourTarget(createCollapsibleSection(
+        'session.basicReadiness',
+        'Start Checklist',
+        subtitle,
+        true,
+        content,
+        {
+            tooltip: 'Guided Basic workflow: load lore, set Context, review Lorecards, then continue roleplay.',
+            className: 'saga-basic-readiness-card',
+        }
+    ), 'session.basicReadiness');
 }
 
 function renderSessionTab(container, state) {
@@ -16379,7 +16224,6 @@ function renderSessionTab(container, state) {
 
     if (basic) {
         container.appendChild(createBasicStartReadinessCard(state, settings));
-        container.appendChild(createBasicInjectionSummaryCard(state, settings));
     }
 
     if (!basic) {

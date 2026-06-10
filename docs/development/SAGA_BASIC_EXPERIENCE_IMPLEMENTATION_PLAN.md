@@ -16,7 +16,7 @@ Advanced Experience should remain:
 Loredecks -> Session -> Context -> Continuity -> Lorecards -> Injection -> Settings
 ```
 
-Basic users should not need a separate Prompt or Injection tab. They should see a compact selected-lore summary in Session and Lorecards, with a clear path to switch to Advanced when they want the full Injection Preview, placement controls, compression, or tier tuning.
+Basic users should not need a separate Prompt or Injection tab. They should use the Start Checklist for readiness and switch to Advanced when they want the full Injection Preview, placement controls, compression, or tier tuning.
 
 ## Starting Code State
 
@@ -38,7 +38,7 @@ Relevant implementation points when this feature slice started:
 - `lore-panel.js`
   - Header and Session Metrics already compute selected lore through `getSelectedLoreInjectionCount()`.
   - Session Metrics already compute character/token estimates through `getInjectionCharacterStats()`.
-  - `renderBasicInjectionTab()` provided the simplified Injection tab. This should become Advanced-only or be retired after its useful summary pieces are moved into Session/Lorecards.
+  - `renderBasicInjectionTab()` provided the simplified Injection tab. This should become Advanced-only or be retired after its useful summary pieces are moved into Lorecards.
   - `renderSessionTab()` already shows metrics, but the current copy is diagnostic, not a new-user readiness card.
 
 - `scripts/test-visual-smoke-harness.mjs`
@@ -49,12 +49,12 @@ Relevant implementation points when this feature slice started:
 
 - Basic navigation now exposes Session, Loredecks, Context, Lorecards, and Settings while hiding Continuity and Injection.
 - Basic guide steps now stay inside visible Basic tabs and follow the five-step first-run flow.
-- Basic Session now has the Start Checklist and selected-lore summary cards backed by shared helper modules.
+- Basic Session now has an expanded-by-default Start Checklist dropdown backed by the shared readiness model.
 - Basic Lorecards now uses the shared Lorecard Generation, Pending Lorecard Review, and Accepted Lorecards sections while hiding prompt-engineering controls and adding an Advanced Injection handoff.
 - The dedicated Basic Injection tab implementation has been retired.
 - Basic Context now keeps shared Context labels while hiding Advanced Context diagnostics.
 - Basic Loredecks now reuses the same Loredeck Library and In-Progress Creator Projects sections as Advanced so learning Basic transfers cleanly into Advanced.
-- Basic Settings now uses Providers and Theme Pack section names while keeping full provider/theme internals in Advanced.
+- Basic Settings now keeps Providers simplified while rendering the full shared Theme Pack section.
 - Starter Basic, Advanced, and Wandlight-to-Saga user workflow docs are in place.
 
 ## UX Contract
@@ -90,25 +90,9 @@ Advanced must continue to show every runtime tab:
 
 Advanced should keep existing labels unless a later broader UI pass renames them.
 
-### Basic Selected-Lore Summary
+### Basic Injection Visibility
 
-Basic should show a compact summary in Session and Lorecards:
-
-- Lore injection on/off.
-- Accepted Lorecards selected for the next prompt.
-- Estimated injected lore tokens or a simple "empty" state.
-- Context-blocked, muted, or disabled-tier warning if cheaply available.
-- Action: **Open Advanced Injection** or **Switch to Advanced**.
-
-The summary should not show:
-
-- Prompt role.
-- Prompt position.
-- Depth.
-- Direct/compressed handling controls.
-- Compression prompt templates.
-- Full injected text.
-- High/Normal/Low tier tuning.
+Basic should not show a dedicated selected-lore or prompt-status summary section. The Start Checklist owns readiness, Lorecards owns review and acceptance, and Advanced Injection owns exact prompt inspection.
 
 ### Basic Readiness Copy
 
@@ -179,7 +163,7 @@ Acceptance:
 - Basic walkthrough never navigates to `injection`.
 - Advanced walkthrough can still navigate to `injection`.
 
-### Phase 3: Session Start Checklist Card
+### Phase 3: Session Start Checklist Dropdown
 
 Files:
 
@@ -188,7 +172,7 @@ Files:
 
 Tasks:
 
-1. Add a Basic-only readiness card near the top of `renderSessionTab()`.
+1. Add a Basic-only readiness dropdown near the top of `renderSessionTab()`.
 2. Derive readiness from existing state:
    - Saga active from `settings.enabled`.
    - Loredeck loaded from active stack state.
@@ -207,7 +191,7 @@ Acceptance:
 - Context with pending/proposed cards points to Review Lorecards.
 - Accepted selected lore points to Continue roleplay.
 
-### Phase 4: Basic Injection Summary Component
+### Phase 4: Basic Injection Summary Removal
 
 Files:
 
@@ -216,29 +200,16 @@ Files:
 
 Tasks:
 
-1. Create a shared component, for example `createBasicInjectionSummaryCard(state, settings, options)`.
-2. Use existing helpers:
-   - `getSelectedLoreInjectionCount(state, settings)`
-   - `getInjectionCharacterStats(state, settings)`
-   - `getPanelLoreState(state).counts`
-3. Include status states:
-   - Lore injection disabled.
-   - No accepted Lorecards selected.
-   - Accepted Lorecards selected.
-   - Token estimate available.
-   - Full preview available in Advanced.
-4. Add the card to Basic Session.
-5. Add a compact version to Basic Lorecards near accepted Lorecards.
-6. Add an Advanced handoff action:
-   - Switch to Advanced.
-   - Set active tab to `injection`.
-   - Re-render the panel.
+1. Do not add a selected-lore prompt-status summary to Basic Session.
+2. Do not add a selected-lore prompt-status summary to Basic Lorecards.
+3. Keep exact prompt preview and placement controls in Advanced Injection.
+4. Keep Basic readiness in the Start Checklist and review actions in Lorecards.
 
 Acceptance:
 
-- Basic users can see whether accepted Lorecards are selected without opening Injection.
-- Basic users have a one-click path to Advanced Injection.
-- No placement, compression, or tier controls appear in Basic.
+- Basic users do not see **What Saga Will Send** or **What Accepted Lorecards Do** sections.
+- Basic users can still review and accept Lorecards without opening Injection.
+- No placement, compression, prompt-status, or tier controls appear in Basic.
 
 ### Phase 5: Lorecards Tab Simplification
 
@@ -250,7 +221,7 @@ Files:
 Tasks:
 
 1. Keep suggested, pending, and accepted Lorecards visible in Basic.
-2. Add the compact injection summary where it helps users understand accepted Lorecards have an effect.
+2. Keep prompt-status summaries out of Basic.
 3. Hide or collapse metadata-heavy workbench and bulk controls when Basic presentation can do so safely.
 4. Keep single-card accept, dismiss, edit, pin, mute, and relevance controls if currently needed for the existing review flow.
 5. Route deeper management and large-list workbenches to Advanced.
@@ -346,25 +317,22 @@ Tasks:
 1. Render a Basic-only Settings branch with:
    - **Providers**.
    - **Theme Pack**.
-   - **Experience Mode**.
 2. In Providers:
    - Show Utility and Reasoning provider readiness.
    - Expose **Test Utility** and **Test Reasoning**.
    - Allow a quick fallback to the current SillyTavern model.
    - Hand off profile, endpoint, model, generation, and compatibility controls to Advanced.
 3. In Theme Pack:
-   - Let Basic users choose a Theme Pack.
-   - Show simple color swatches as a visual confirmation.
-   - Keep import, export, icon sets, color overrides, and raw JSON in Advanced.
-4. In Experience Mode:
-   - Show the existing Basic/Advanced switch.
-   - Expose **Reset Layout**.
+   - Render the same Theme Pack section used in Advanced.
+   - Let Basic users choose, import, export, reset, inspect, and tune Theme Packs without switching modes.
+   - Keep this surface shared so Basic and Advanced theme behavior cannot drift.
+4. Do not render an Experience Mode section in Basic Settings; the shelf owns Basic/Advanced switching.
 5. Preserve the Advanced settings tab unchanged.
 
 Acceptance:
 
-- Basic Settings exposes Providers, Theme Pack, Experience Mode, and Reset Layout.
-- Basic Settings does not expose provider profile internals, generation parameters, API compatibility flags, or raw Theme Pack controls.
+- Basic Settings exposes Providers and Theme Pack.
+- Basic Settings does not expose provider profile internals, generation parameters, or API compatibility flags.
 - Advanced Settings still exposes the full Providers and Theme Pack surfaces.
 - Basic provider setup remains optional until a model-backed action needs it.
 
@@ -390,13 +358,13 @@ Add checks:
 6. Saved `activeTab: 'injection'` in Basic normalizes to `session`.
 7. Visual smoke can open Basic mode and verify no rail Injection tab.
 8. Visual smoke can switch to Advanced and verify rail Injection tab returns.
-9. Basic Session/Lorecards contains selected-lore summary text.
+9. Basic Session and Lorecards do not contain selected-lore summary sections.
 10. Basic Context hides Advanced Context Brief and other Advanced Context diagnostics.
 11. Basic Context prioritizes Browse Context and presents proposals as proposals.
 12. Basic Loredecks reuses the Advanced Loredecks tab structure.
 13. Basic Loredecks shows Loredeck Library and In-Progress Creator Projects.
-14. Basic Settings exposes Providers, Theme Pack, Experience Mode, and Reset Layout.
-15. Basic Settings keeps provider/theme internals behind Advanced.
+14. Basic Settings exposes Providers and Theme Pack.
+15. Basic Settings keeps provider internals behind Advanced while sharing the full Theme Pack surface.
 
 Recommended commands:
 
@@ -433,7 +401,7 @@ http://127.0.0.1:8765/tests/visual-smoke.html?mode=advanced&tab=injection
 ## Out Of Scope For This Slice
 
 - Full Basic Loredeck curated-combination picker.
-- Full Start Checklist redesign beyond readiness and selected-lore status.
+- Full Start Checklist redesign beyond readiness status.
 - Continuity simplification.
 - Full provider setup redesign beyond quick status, testing, and Advanced handoff.
 - Loredeck Creator UX changes.
@@ -446,7 +414,7 @@ Those are part of the broader experience-mode plan, but this feature slice shoul
 ## Risks
 
 - Hiding Injection may make Basic users less aware that accepted Lorecards affect prompts.
-  - Mitigation: selected-lore summary appears in Session and Lorecards.
+  - Mitigation: Start Checklist readiness and Accepted Lorecards counts point users toward review without exposing prompt tuning.
 
 - Basic guide steps may silently target hidden controls.
   - Mitigation: add a test that guide step tabs are visible for the selected mode.
@@ -462,9 +430,9 @@ Those are part of the broader experience-mode plan, but this feature slice shoul
 This feature is done when:
 
 - Basic mode rail hides Injection and Continuity.
-- Basic mode has selected-lore status in Session and Lorecards.
+- Basic mode has no selected-lore summary section in Session or Lorecards.
 - Basic walkthrough targets only visible Basic tabs.
-- Basic Settings exposes Providers, Theme Pack, Experience Mode, and Reset Layout without showing advanced provider/theme internals.
+- Basic Settings exposes Providers and the full shared Theme Pack surface without showing advanced provider internals.
 - Advanced mode still exposes the full Injection tab and existing controls.
 - Switching modes preserves saved stack, Context, pending Lorecards, accepted Lorecards, and backed-up managed settings.
 - README and starter user docs point new users to the Basic workflow first.

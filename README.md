@@ -58,9 +58,9 @@ Saga is an extension, not a prompt preset.
 
 7. Open **Lorecards**, generate or add Lorecards, and accept only facts that should affect future responses.
 
-8. Check the compact selected-lore summary in **Session** or **Lorecards**, then continue roleplay.
+8. Confirm the **Start Checklist** is ready, then continue roleplay.
 
-9. Use Basic **Settings** for provider tests, Theme Pack, Experience Mode, and layout reset. Switch to **Advanced** when you need provider internals, automation, Continuity, Deck Health, Creator, bulk management, or the full Injection preview.
+9. Use Basic **Settings** for provider tests and Theme Pack management. Use the shelf mode buttons to switch to **Advanced** when you need provider internals, automation, Continuity, Deck Health, Creator, bulk management, or the full Injection preview.
 
 For the guided path, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md). Fluent users can use [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). Existing Wandlight users should start with [Wandlight To Saga](docs/user/WANDLIGHT_TO_SAGA.md).
 

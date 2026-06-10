@@ -128,13 +128,13 @@ Basic should use the same tab labels as Advanced so users do not learn one vocab
 | `loredecks` | Loredecks | Load deck, see active stack, open library when needed |
 | `context` | Context | Choose or detect story position |
 | `lore` | Lorecards | Review suggested, generated, manual, and accepted Lorecards |
-| `settings` | Settings | Providers, Theme Pack, mode switch |
+| `settings` | Settings | Providers and Theme Pack |
 
-Hide the `continuity` and `injection` tabs in Basic. Current-scene continuity is useful, but it is a second mental model. Full injection tuning is useful, but it is a diagnostic and control surface, not a required novice workflow. In Basic, expose injection only as compact status inside Session and Lorecards: whether lore injection is on, how many accepted Lorecards are selected, and whether anything obvious is blocked.
+Hide the `continuity` and `injection` tabs in Basic. Current-scene continuity is useful, but it is a second mental model. Full injection tuning is useful, but it is a diagnostic and control surface, not a required novice workflow. Basic should not add a separate prompt-status summary section; exact prompt inspection belongs in Advanced Injection.
 
 ### Basic Session Checklist
 
-The Session tab should keep its Advanced name and include a Basic-only **Start Checklist** card near the top.
+The Session tab should keep its Advanced name and include a Basic-only **Start Checklist** dropdown near the top, expanded by default.
 
 Show a compact readiness checklist:
 
@@ -219,17 +219,15 @@ Should this fact affect future responses?
 
 Basic should not foreground source metadata, routing, similarity decisions, generated operation types, bulk repair machinery, or timeline event history. Keep those details available through "Details" or Advanced.
 
-### Basic Injection Summary
+### Basic Injection Visibility
 
-Basic should not have a dedicated Prompt or Injection tab. A compact injection summary should appear inside Session and Lorecards instead.
+Basic should not have a dedicated Prompt or Injection tab, and it should not show a separate selected-lore prompt-status summary section.
 
-The Basic injection summary should answer:
+Basic should rely on:
 
-- Is lore injection on?
-- How many accepted Lorecards are selected for the next prompt?
-- Is the selected lore within a reasonable token estimate?
-- Is anything obvious blocked by Context, muted, or disabled?
-- Where can the user switch to Advanced for the full Injection Preview?
+- Start Checklist readiness.
+- Lorecards review and accepted counts.
+- Advanced Injection for exact prompt preview, placement, compression, and tier controls.
 
 Default Basic injection profile:
 
@@ -249,9 +247,8 @@ Basic Settings should expose:
 
 - Provider quick setup.
 - Test provider connection.
-- Theme Pack selection.
-- Experience Mode switch.
-- Reset layout.
+- Full shared Theme Pack controls.
+- Advanced handoff for full provider controls.
 
 Hide or collapse:
 
@@ -287,7 +284,6 @@ Use concrete action labels:
 - "Open Library"
 - "Set Context"
 - "Review Lorecards"
-- "See what Saga will send"
 - "Scan recent story"
 - "Add Lorecard"
 
@@ -482,13 +478,13 @@ When an Advanced user switches to Basic:
 - Confirm every visible Basic tab label and tooltip matches the shared Advanced workflow language.
 - Do not rename Basic `Session` to `Start`.
 - Do not rename Basic `Lorecards` to `Review`.
-- Hide the Basic `Injection` tab and replace it with compact injection status in Session and Lorecards.
+- Hide the Basic `Injection` tab without adding a separate Basic prompt-status summary.
 - Remove or rewrite old Wandlight/Saga legacy copy in the Basic guide, especially "legacy global Context Brief" and "canon packs" framing where active-stack Lorecards are now the source of truth.
 - Keep internal IDs stable unless a cleanup pass deliberately removes old names.
 
 ### Phase 2: Add Basic Start Checklist To Session
 
-- Add a Basic-only Start Checklist card to the Session tab.
+- Add a Basic-only Start Checklist dropdown to the Session tab, expanded by default.
 - Add one recommended next action derived from current state.
 - Keep Saga Active and Session Metrics, but make them secondary to next action.
 - Keep the Basic walkthrough collapsed and short.
@@ -515,7 +511,7 @@ When an Advanced user switches to Basic:
 - Present suggested, pending, and accepted Lorecards as one review workflow.
 - Keep single-entry accept/dismiss/edit clear and visible.
 - Hide bulk and metadata-heavy operations behind Advanced or details.
-- Add a compact "what Saga will send" summary to Session and Lorecards.
+- Keep prompt-status summaries out of Basic.
 - Route users who need full prompt preview, placement, compression, or tier tuning to Advanced.
 - Keep Low relevance hidden or off by default.
 
@@ -555,7 +551,7 @@ Run visual smoke for:
 - Basic with HP Core + Year deck loaded.
 - Basic Context Browser selection.
 - Basic Lorecards accepting a Lorecard.
-- Basic Session/Lorecards selected-lore summary.
+- Basic Session and Lorecards without selected-lore summary sections.
 - Advanced full rail.
 - Advanced automation, continuity, Deck Health, Creator, and Injection controls.
 

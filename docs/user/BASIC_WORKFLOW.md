@@ -19,8 +19,8 @@ Session -> Loredecks -> Context -> Lorecards -> continue roleplay
 5. Open **Lorecards** and use **Lorecard Generation** if you need suggestions from the loaded Context.
 6. Accept only Lorecards that should affect future responses. Dismiss anything that should not matter.
 7. Use **Add Lorecard** when you know a fact matters and Saga has not suggested it.
-8. Check the compact selected-lore summary in **Session** or **Lorecards**.
-9. Open **Settings** if you want to test providers, change Theme Pack, switch modes, or reset the shelf layout.
+8. Confirm the **Start Checklist** is ready.
+9. Open **Settings** if you want to test providers or manage Theme Packs.
 10. Continue roleplay.
 
 The core review question is:
@@ -31,11 +31,11 @@ Should this fact affect future responses?
 
 ## What Basic Hides
 
-Basic does not show the dedicated **Injection** tab. Instead, Session and Lorecards show whether lore injection is on and how many accepted Lorecards are selected for the next prompt.
+Basic does not show the dedicated **Injection** tab. Use **Advanced Injection** when you need to inspect exactly what Saga will send.
 
 Basic also hides the **Continuity** tab. Current-scene continuity is useful, but it is a second mental model. Basic focuses on loaded Loredecks, story Context, and accepted Lorecards.
 
-Basic **Settings** keeps provider setup optional. Use it to test Utility or Reasoning providers, fall back to the current SillyTavern model, choose a Theme Pack, switch Experience Mode, or reset the shelf layout.
+Basic **Settings** keeps provider setup optional. Use it to test Utility or Reasoning providers, fall back to the current SillyTavern model, or manage Theme Packs. Use the shelf mode buttons to switch Experience Mode.
 
 Switch to Advanced when you need provider profile internals, endpoint/model controls, prompt placement, full injection previews, automation, Continuity tools, Deck Health, Creator controls, bulk Lorecard management, or diagnostic details.
 
@@ -46,4 +46,4 @@ Switch to Advanced when you need provider profile internals, endpoint/model cont
 - **A saved Lorecard should not affect responses:** mute it in Lorecards.
 - **A Lorecard should always stay prominent:** pin it in Lorecards.
 - **A model-backed action says provider setup is needed:** open Settings, test the provider, or use the current SillyTavern model.
-- **You need to inspect exactly what Saga sends:** open **Advanced Injection** from the selected-lore summary.
+- **You need to inspect exactly what Saga sends:** switch to Advanced and open **Injection**.

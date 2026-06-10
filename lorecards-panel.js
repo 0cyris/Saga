@@ -132,15 +132,6 @@ function getSelectedLoreInjectionCount(state, settings) {
     return dep('getSelectedLoreInjectionCount', () => 0)(state, settings);
 }
 
-function getInjectionCharacterStats(state, settings) {
-    return dep('getInjectionCharacterStats', () => ({
-        continuityChars: 0,
-        loreChars: 0,
-        totalChars: 0,
-        totalTokens: 0,
-    }))(state, settings);
-}
-
 function getPendingLoreBatchLabel(state) {
     const meta = state?.pendingLoreMeta || {};
     const parts = [];
@@ -3083,56 +3074,12 @@ function commitInlineTagInput(entryId, rawTag) {
     refreshLoreWorkbench();
 }
 
-function openAdvancedInjectionTab() {
-    setExperienceMode('advanced');
-    setPanelState({ activeTab: 'injection' });
-    refreshPanelBody({ preserveScroll: false });
-    refreshHeader();
-}
-
-function createBasicReviewInjectionSummary(state) {
-    const settings = getSettings();
-    const loreState = getPanelLoreState(state);
-    const acceptedCount = Math.max(0, (loreState.counts?.all || 0) - (loreState.counts?.pending || 0));
-    const selectedCount = getSelectedLoreInjectionCount(state, settings);
-    const injectionStats = getInjectionCharacterStats(state, settings);
-    const loreOn = settings.injectLore !== false && settings.injectMemo !== false;
-
-    const card = document.createElement('div');
-    card.className = 'saga-runtime-card saga-basic-injection-summary-card saga-basic-review-injection-summary';
-    markTourTarget(card, 'lore.basicInjectionSummary');
-
-    const title = document.createElement('div');
-    title.className = 'saga-runtime-card-title';
-    title.textContent = 'What Accepted Lorecards Do';
-    addTooltip(title, 'Basic prompt-status summary. Advanced has the full Injection tab.');
-    card.appendChild(title);
-
-    const help = document.createElement('div');
-    help.className = 'saga-runtime-help';
-    help.textContent = loreOn
-        ? `${selectedCount} of ${acceptedCount} accepted Lorecard${acceptedCount === 1 ? '' : 's'} are selected for the next prompt.`
-        : 'Lore injection is off. Accepted Lorecards remain saved but will not be sent until injection is enabled.';
-    card.appendChild(help);
-
-    card.appendChild(createKeyValue('Selected for next prompt', loreOn ? String(selectedCount) : 'off', 'Accepted Lorecards selected after Context, relevance, pin, and mute rules.'));
-    card.appendChild(createKeyValue('Estimated prompt cost', injectionStats.totalChars ? `${injectionStats.totalTokens} tokens` : 'empty', 'Approximate token count for current Saga prompt material.'));
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-primary-actions';
-    actions.appendChild(createButton('Open Advanced Injection', 'Switches to Advanced Experience and opens the full Injection tab.', openAdvancedInjectionTab));
-    card.appendChild(actions);
-
-    return card;
-}
-
 export function renderLorecardsTab(container, state) {
     const basic = isBasicExperience();
     container.appendChild(createSectionHeader(
         'Lorecards',
         basic ? 'Suggest, review, and manage Lorecards with advanced controls hidden.' : 'Suggest canon Lorecards from the local database, generate story-specific Lorecards with the model, review pending cards, and manage accepted Lorecards.'
     ));
-    if (basic) container.appendChild(createBasicReviewInjectionSummary(state));
     if (!basic) {
         const timelineSection = createCollapsibleSection(
             'lore.timeline',

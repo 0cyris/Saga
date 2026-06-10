@@ -36,9 +36,8 @@ export const GUIDE_STEPS = Object.freeze({
             expected: 'Useful facts become accepted Lorecards. Recap, noise, or wrong facts stay out.',
             when: 'Use this whenever Saga proposes Lorecards or when you add an important story fact manually.',
         }),
-        guideStep('continue-update', 'Continue and Update', 'When accepted Lorecards are selected, continue roleplay. When the story jumps, return to Context; when new durable facts appear, review or scan recent story.', 'session', 'session.basicInjectionSummary', {
-            fallbackTarget: 'session.basicReadiness',
-            expected: 'Basic shows whether accepted Lorecards are selected for the next response without opening the full Injection tab.',
+        guideStep('continue-update', 'Continue and Update', 'When accepted Lorecards are selected, continue roleplay. When the story jumps, return to Context; when new durable facts appear, review or scan recent story.', 'session', 'session.basicReadiness', {
+            expected: 'The Start Checklist shows the next Basic workflow action.',
             when: 'Use this as the normal loop: play, update Context after jumps, and review important new lore.',
         }),
     ]),
