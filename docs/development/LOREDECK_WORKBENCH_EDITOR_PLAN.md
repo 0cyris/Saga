@@ -47,15 +47,15 @@ Behavior by deck type:
 
 Use existing workbench shell classes and layout patterns where possible:
 
-- `wandlight-lore-workbench-overlay`
-- `wandlight-lore-workbench-shell`
-- `wandlight-lore-workbench-header`
-- `wandlight-lore-workbench-title-wrap`
-- `wandlight-lore-workbench-mode-tabs`
-- `wandlight-lore-workbench-body`
-- `wandlight-lore-workbench-main`
-- `wandlight-lore-workbench-table`
-- `wandlight-lore-workbench-detail`
+- `saga-lore-workbench-overlay`
+- `saga-lore-workbench-shell`
+- `saga-lore-workbench-header`
+- `saga-lore-workbench-title-wrap`
+- `saga-lore-workbench-mode-tabs`
+- `saga-lore-workbench-body`
+- `saga-lore-workbench-main`
+- `saga-lore-workbench-table`
+- `saga-lore-workbench-detail`
 
 The visual result should feel like the Accepted/Pending Lorecard Workbench, but scoped to a single Loredeck.
 

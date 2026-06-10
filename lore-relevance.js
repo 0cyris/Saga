@@ -1,5 +1,5 @@
 /**
- * lore-relevance.js — Wandlight
+ * lore-relevance.js — Saga
  * Pure helpers for simplified lore relevance, Canon/AU metadata, and tiered lore injection.
  */
 
@@ -117,7 +117,7 @@ export function normalizeLoreCanon(value, fallbackSource = '') {
     if (raw === 'au' || raw === 'divergent' || raw === 'fanon' || raw === 'contested' || raw === 'branch_variant' || raw === 'story_fact') return 'au';
     const src = lower(fallbackSource);
     if (src.includes('canon') || src.includes('lexicon') || src.includes('hp-lexicon')) return 'canon';
-    if (src.includes('story') || src.includes('generated') || src.includes('wandlight')) return 'au';
+    if (src.includes('story') || src.includes('generated') || src.includes('saga')) return 'au';
     return raw === 'unknown' || !raw ? 'canon' : 'au';
 }
 

@@ -1,5 +1,5 @@
 /**
- * extractor.js — Wandlight
+ * extractor.js — Saga
  * Event/automation entrypoints for checkpointed continuity scanning, context
  * detection, and story-lore scanning.
  *
@@ -30,7 +30,7 @@ function setContinuityProgressState(message, percent = 0) {
     state.lorePanel.continuityStatus = message;
     state.lorePanel.continuityProgress = safePercent;
     saveState(state, { syncPrompt: false, sanitize: false });
-    if (typeof globalThis._wandlightRefreshUI === 'function') globalThis._wandlightRefreshUI();
+    if (typeof globalThis._sagaRefreshUI === 'function') globalThis._sagaRefreshUI();
     if (safePercent >= 100 && globalThis.setTimeout) {
         if (_continuityProgressResetTimer && globalThis.clearTimeout) globalThis.clearTimeout(_continuityProgressResetTimer);
         _continuityProgressResetTimer = globalThis.setTimeout(() => {
@@ -39,7 +39,7 @@ function setContinuityProgressState(message, percent = 0) {
                 fresh.lorePanel.continuityStatus = 'Idle.';
                 fresh.lorePanel.continuityProgress = 0;
                 saveState(fresh, { syncPrompt: false, sanitize: false });
-                if (typeof globalThis._wandlightRefreshUI === 'function') globalThis._wandlightRefreshUI();
+                if (typeof globalThis._sagaRefreshUI === 'function') globalThis._sagaRefreshUI();
             }
             _continuityProgressResetTimer = null;
         }, 2200);
@@ -95,7 +95,7 @@ export async function onExtractionTriggered(options = {}) {
             progress,
         });
 
-        if (typeof globalThis._wandlightRefreshUI === 'function') globalThis._wandlightRefreshUI();
+        if (typeof globalThis._sagaRefreshUI === 'function') globalThis._sagaRefreshUI();
         return result;
     } catch (e) {
         console.error(`${LOG_PREFIX} Continuity scan failed:`, e);
@@ -329,7 +329,7 @@ export async function onGenerationEndedAutomation() {
         }
     }
 
-    if (typeof globalThis._wandlightRefreshUI === 'function') globalThis._wandlightRefreshUI();
+    if (typeof globalThis._sagaRefreshUI === 'function') globalThis._sagaRefreshUI();
     return { status: 'complete', results };
 }
 
@@ -338,9 +338,9 @@ export function isExtractionRunning() {
     return _extractionRunning;
 }
 
-globalThis._wandlightRunExtraction = onExtractionTriggered;
-globalThis._wandlightRunAutomation = onGenerationEndedAutomation;
-globalThis._wandlightIsExtractionRunning = isExtractionRunning;
+globalThis._sagaRunExtraction = onExtractionTriggered;
+globalThis._sagaRunAutomation = onGenerationEndedAutomation;
+globalThis._sagaIsExtractionRunning = isExtractionRunning;
 
 /** Resets the automatic continuity throttle counter. Called on chat change. */
 export function resetExtractionCounter() {

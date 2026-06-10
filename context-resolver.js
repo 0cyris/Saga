@@ -1,5 +1,5 @@
 /**
- * context-resolver.js -- Saga/Wandlight
+ * context-resolver.js -- Saga/Saga
  * Local, non-model Context resolver for enabled Loredecks.
  */
 

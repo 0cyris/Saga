@@ -553,7 +553,7 @@ async function clickButtonInRow(client, rootSelector, rowSelector, rowText, butt
 async function captureSagaMetadata(client) {
     return await evaluate(client, script(() => {
         const ctx = window.SillyTavern?.getContext?.();
-        const metadata = ctx?.chatMetadata?.wandlight;
+        const metadata = ctx?.chatMetadata?.saga;
         return metadata && typeof metadata === 'object'
             ? JSON.parse(JSON.stringify(metadata))
             : null;
@@ -564,8 +564,8 @@ async function restoreSagaMetadata(client, snapshot) {
     return await evaluate(client, script(async saved => {
         const ctx = window.SillyTavern?.getContext?.();
         if (!ctx?.chatMetadata) return { ok: false, reason: 'missing-chat-metadata' };
-        if (saved && typeof saved === 'object') ctx.chatMetadata.wandlight = saved;
-        else delete ctx.chatMetadata.wandlight;
+        if (saved && typeof saved === 'object') ctx.chatMetadata.saga = saved;
+        else delete ctx.chatMetadata.saga;
         try {
             if (typeof ctx.saveMetadata === 'function') {
                 await ctx.saveMetadata();
@@ -580,7 +580,7 @@ async function restoreSagaMetadata(client, snapshot) {
 async function captureSagaSettings(client) {
     return await evaluate(client, script(() => {
         const ctx = window.SillyTavern?.getContext?.();
-        const settings = ctx?.extensionSettings?.wandlight;
+        const settings = ctx?.extensionSettings?.saga;
         return settings && typeof settings === 'object'
             ? JSON.parse(JSON.stringify(settings))
             : null;
@@ -591,8 +591,8 @@ async function restoreSagaSettings(client, snapshot) {
     return await evaluate(client, script(async saved => {
         const ctx = window.SillyTavern?.getContext?.();
         if (!ctx?.extensionSettings) return { ok: false, reason: 'missing-extension-settings' };
-        if (saved && typeof saved === 'object') ctx.extensionSettings.wandlight = saved;
-        else delete ctx.extensionSettings.wandlight;
+        if (saved && typeof saved === 'object') ctx.extensionSettings.saga = saved;
+        else delete ctx.extensionSettings.saga;
         try {
             if (typeof ctx.saveSettingsDebounced === 'function') {
                 ctx.saveSettingsDebounced();
@@ -613,14 +613,14 @@ async function clearTransientToasts(client) {
 
 async function setDrawerScroll(client, top) {
     await evaluate(client, script(value => {
-        const body = document.querySelector('.wandlight-lore-panel-body');
+        const body = document.querySelector('.saga-lore-panel-body');
         if (body) body.scrollTop = value;
     }, top));
 }
 
 async function scrollTextIntoView(client, text) {
     return await evaluate(client, script(label => {
-        const candidates = [...document.querySelectorAll('.wandlight-runtime-drawer *')];
+        const candidates = [...document.querySelectorAll('.saga-runtime-drawer *')];
         const target = candidates.find(element => (element.innerText || element.textContent || '').trim() === label);
         if (!target) return false;
         target.scrollIntoView({ block: 'start', inline: 'nearest' });
@@ -638,18 +638,18 @@ async function screenshot(client, name) {
 async function collectState(client) {
     return await evaluate(client, script(() => {
         const text = document.body?.innerText || '';
-        const drawer = document.querySelector('.wandlight-runtime-drawer');
-        const library = document.querySelector('.wandlight-loredeck-library-overlay');
-        const health = document.querySelector('.wandlight-loredeck-health-center-overlay');
-        const creator = document.querySelector('.wandlight-loredeck-creator-workbench-overlay');
-        const settingsText = document.querySelector('#wandlight_settings')?.innerText || '';
+        const drawer = document.querySelector('.saga-runtime-drawer');
+        const library = document.querySelector('.saga-loredeck-library-overlay');
+        const health = document.querySelector('.saga-loredeck-health-center-overlay');
+        const creator = document.querySelector('.saga-loredeck-creator-workbench-overlay');
+        const settingsText = document.querySelector('#saga_settings')?.innerText || '';
         return {
             title: document.title,
             hasSagaCss: !!document.querySelector('#third-party_Saga-css'),
             hasSagaJs: !!document.querySelector('#third-party_Saga-js'),
-            hasPanel: !!document.querySelector('#wandlight-lore-panel'),
-            panelClass: document.querySelector('#wandlight-lore-panel')?.className || '',
-            activeTab: document.querySelector('.wandlight-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+            hasPanel: !!document.querySelector('#saga-lore-panel'),
+            panelClass: document.querySelector('#saga-lore-panel')?.className || '',
+            activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
             drawerText: drawer?.innerText?.slice(0, 2000) || '',
             libraryText: library?.innerText?.slice(0, 2000) || '',
             healthText: health?.innerText?.slice(0, 2000) || '',
@@ -732,19 +732,19 @@ async function main() {
 
         await client.send('Page.navigate', { url: smokeUrl });
         await waitFor(client, 'document.readyState === "complete"', SMOKE_TARGET === 'context-harness' ? 'Context smoke harness load' : 'SillyTavern load', 20000);
-        await waitFor(client, '!!document.querySelector("#wandlight-lore-panel")', 'Saga runtime panel', 20000);
+        await waitFor(client, '!!document.querySelector("#saga-lore-panel")', 'Saga runtime panel', 20000);
         await wait(2500);
 
         if (SMOKE_TARGET === 'context-harness') {
             await waitFor(client, 'window.__sagaSmokeReady === true', 'Context smoke ready marker', 20000);
-            await waitFor(client, 'document.querySelector(".wandlight-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "context"', 'Context tab active', 10000);
+            await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "context"', 'Context tab active', 10000);
             screenshots.push(await screenshot(client, 'context-harness-01-proposal-review'));
             const firstState = await evaluate(client, script(() => {
                 const text = document.body?.innerText || '';
-                const overlay = document.querySelector('#wandlight-context-proposal-review');
+                const overlay = document.querySelector('#saga-context-proposal-review');
                 return {
                     smokeMeta: window.__sagaContextSmoke || null,
-                    activeTab: document.querySelector('.wandlight-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+                    activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
                     hasRuntimeContext: text.includes('Runtime Context'),
                     hasBrowseContext: text.includes('Browse Context'),
                     hasReviewProposals: text.includes('Review Proposals'),
@@ -754,11 +754,11 @@ async function main() {
                     hasAdvancedBrief: text.includes('Advanced Context Brief'),
                     hasLockedContext: /Manual lock|Locked/i.test(text),
                     overlayOpen: !!overlay,
-                    overlayTitle: overlay?.querySelector('.wandlight-lore-workbench-title')?.textContent || '',
+                    overlayTitle: overlay?.querySelector('.saga-lore-workbench-title')?.textContent || '',
                     overlayHasApply: overlay?.innerText?.includes('Apply') || false,
                     overlayHasDismiss: overlay?.innerText?.includes('Dismiss') || false,
-                    proposalRows: document.querySelectorAll('.wandlight-context-proposal-review-row').length,
-                    contextRows: document.querySelectorAll('.wandlight-loredeck-context-row').length,
+                    proposalRows: document.querySelectorAll('.saga-context-proposal-review-row').length,
+                    contextRows: document.querySelectorAll('.saga-loredeck-context-row').length,
                 };
             }));
             if (firstState.activeTab !== 'context') findings.push('Context harness did not open with the Context tab active.');
@@ -774,12 +774,12 @@ async function main() {
             if (firstState.proposalRows < 1) findings.push('Context proposal review overlay did not render proposal rows.');
             if (firstState.contextRows < 1) findings.push('Context harness did not render loaded Loredeck Context rows.');
 
-            await clickButtonText(client, 'Apply', { root: '#wandlight-context-proposal-review' });
+            await clickButtonText(client, 'Apply', { root: '#saga-context-proposal-review' });
             await wait(800);
             const applyState = await evaluate(client, script(() => ({
-                overlayClosed: !document.querySelector('#wandlight-context-proposal-review'),
-                proposalCount: window.__sagaSmokeContext?.chatMetadata?.wandlight?.lorePanel?.contextResolutionProposals?.length ?? null,
-                context: window.__sagaSmokeContext?.chatMetadata?.wandlight?.loredeckContexts?.['smoke-arlong-park'] || null,
+                overlayClosed: !document.querySelector('#saga-context-proposal-review'),
+                proposalCount: window.__sagaSmokeContext?.chatMetadata?.saga?.lorePanel?.contextResolutionProposals?.length ?? null,
+                context: window.__sagaSmokeContext?.chatMetadata?.saga?.loredeckContexts?.['smoke-arlong-park'] || null,
             })));
             if (!applyState.overlayClosed) findings.push('Applying the seeded Context proposal did not close the proposal review overlay.');
             if (applyState.proposalCount !== 0) findings.push('Applying the seeded Context proposal did not clear pending proposals.');
@@ -787,11 +787,11 @@ async function main() {
 
             const browseClicked = await clickButtonText(client, 'Browse Context');
             if (!browseClicked) findings.push('Browse Context button was not clickable in the Context harness.');
-            await waitFor(client, '!!document.querySelector("#wandlight-context-workbench")', 'Context Workbench overlay', 10000);
+            await waitFor(client, '!!document.querySelector("#saga-context-workbench")', 'Context Workbench overlay', 10000);
             await wait(800);
             screenshots.push(await screenshot(client, 'context-harness-02-workbench'));
             const workbenchState = await evaluate(client, script(() => {
-                const overlay = document.querySelector('#wandlight-context-workbench');
+                const overlay = document.querySelector('#saga-context-workbench');
                 const text = overlay?.innerText || '';
                 return {
                     open: !!overlay,
@@ -846,18 +846,18 @@ async function main() {
                 sagaSettingsSnapshot = await captureSagaSettings(client);
             }
 
-            await clickSelector(client, '.wandlight-runtime-rail-tab[data-tab-id="loredecks"]');
-            await waitFor(client, 'document.querySelector(".wandlight-runtime-drawer")?.innerText.includes("Loredecks")', 'Live Loredecks drawer', 10000);
+            await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="loredecks"]');
+            await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.innerText.includes("Loredecks")', 'Live Loredecks drawer', 10000);
             await wait(900);
             const libraryOpened = await clickButtonText(client, 'Open Loredeck Library');
             if (!libraryOpened) findings.push('Live loaded Context smoke could not open the Loredeck Library.');
-            await waitFor(client, '!!document.querySelector(".wandlight-loredeck-library-overlay")', 'Live Loredeck Library overlay', 10000);
+            await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay")', 'Live Loredeck Library overlay', 10000);
             await wait(900);
 
-            await setInputValue(client, '.wandlight-loredeck-library-overlay .wandlight-loredeck-library-search', 'Half-Blood Prince', { eventName: 'change' });
-            await waitFor(client, script(packId => !!document.querySelector(`.wandlight-loredeck-library-deck-card[data-pack-id="${packId}"]`), LIVE_CONTEXT_LOADED_PACK_ID), 'Live HP Year 6 Library card', 10000);
+            await setInputValue(client, '.saga-loredeck-library-overlay .saga-loredeck-library-search', 'Half-Blood Prince', { eventName: 'change' });
+            await waitFor(client, script(packId => !!document.querySelector(`.saga-loredeck-library-deck-card[data-pack-id="${packId}"]`), LIVE_CONTEXT_LOADED_PACK_ID), 'Live HP Year 6 Library card', 10000);
             const selectedDeck = await evaluate(client, script(packId => {
-                const card = document.querySelector(`.wandlight-loredeck-library-deck-card[data-pack-id="${packId}"]`);
+                const card = document.querySelector(`.saga-loredeck-library-deck-card[data-pack-id="${packId}"]`);
                 if (!card) return false;
                 card.scrollIntoView({ block: 'center', inline: 'center' });
                 card.click();
@@ -866,18 +866,18 @@ async function main() {
             if (!selectedDeck) findings.push('Live loaded Context smoke could not select the HP Year 6 Loredeck card.');
             await wait(700);
 
-            let stackAddClicked = await clickButtonText(client, 'Add to Stack >', { root: '.wandlight-loredeck-library-overlay' });
+            let stackAddClicked = await clickButtonText(client, 'Add to Stack >', { root: '.saga-loredeck-library-overlay' });
             if (!stackAddClicked) {
-                stackAddClicked = await clickButtonText(client, 'Add to Stack', { root: '.wandlight-loredeck-library-overlay' });
+                stackAddClicked = await clickButtonText(client, 'Add to Stack', { root: '.saga-loredeck-library-overlay' });
             }
             if (!stackAddClicked) findings.push('Live loaded Context smoke could not add HP Year 6 to the stack.');
             await wait(1200);
 
             const stackState = await evaluate(client, script(packId => {
                 const ctx = window.SillyTavern?.getContext?.();
-                const metadata = ctx?.chatMetadata?.wandlight || {};
+                const metadata = ctx?.chatMetadata?.saga || {};
                 const stack = Array.isArray(metadata.loredeckStack) ? metadata.loredeckStack : [];
-                const overlayText = document.querySelector('.wandlight-loredeck-library-overlay')?.innerText || '';
+                const overlayText = document.querySelector('.saga-loredeck-library-overlay')?.innerText || '';
                 return {
                     stack,
                     hasTargetInMetadata: stack.some(item => item?.packId === packId && item.enabled !== false),
@@ -887,11 +887,11 @@ async function main() {
             }, LIVE_CONTEXT_LOADED_PACK_ID));
             if (!stackState.hasTargetInMetadata) findings.push('HP Year 6 was not present as an enabled Loredeck stack item after Add to Stack.');
 
-            await clickButtonText(client, 'Done', { root: '.wandlight-loredeck-library-overlay', enabledOnly: false });
+            await clickButtonText(client, 'Done', { root: '.saga-loredeck-library-overlay', enabledOnly: false });
             await wait(800);
-            await clickSelector(client, '.wandlight-runtime-rail-tab[data-tab-id="context"]');
-            await waitFor(client, 'document.querySelector(".wandlight-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "context"', 'Live loaded Context tab active', 10000);
-            await waitFor(client, 'document.querySelector(".wandlight-runtime-drawer")?.innerText.includes("Runtime Context")', 'Live loaded Runtime Context command center', 10000);
+            await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="context"]');
+            await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "context"', 'Live loaded Context tab active', 10000);
+            await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.innerText.includes("Runtime Context")', 'Live loaded Runtime Context command center', 10000);
             await wait(1000);
             await clearTransientToasts(client);
             await wait(200);
@@ -899,7 +899,7 @@ async function main() {
 
             const loadedContextState = await evaluate(client, script(packId => {
                 const text = document.body?.innerText || '';
-                const rows = [...document.querySelectorAll('.wandlight-loredeck-context-row')];
+                const rows = [...document.querySelectorAll('.saga-loredeck-context-row')];
                 const rowText = rows.map(row => row.innerText || '').join('\n');
                 return {
                     loadedChip: /1 loaded|[2-9] loaded/.test(text),
@@ -907,7 +907,7 @@ async function main() {
                     hasTargetRow: rowText.includes('Harry Potter Year 6: Half-Blood Prince') || rowText.includes(packId),
                     hasBrowseContext: text.includes('Browse Context'),
                     hasAdvancedBrief: text.includes('Advanced Context Brief'),
-                    drawerText: document.querySelector('.wandlight-runtime-drawer')?.innerText?.slice(0, 1800) || '',
+                    drawerText: document.querySelector('.saga-runtime-drawer')?.innerText?.slice(0, 1800) || '',
                 };
             }, LIVE_CONTEXT_LOADED_PACK_ID));
             if (!loadedContextState.loadedChip) findings.push('Live loaded Context tab did not show a non-empty loaded-Loredeck count.');
@@ -917,11 +917,11 @@ async function main() {
                 const seedState = await evaluate(client, script(async packId => {
                     const ctx = window.SillyTavern?.getContext?.();
                     if (!ctx?.chatMetadata || !ctx?.extensionSettings) return { ok: false, reason: 'missing-st-context' };
-                    const settings = ctx.extensionSettings.wandlight ||= {};
+                    const settings = ctx.extensionSettings.saga ||= {};
                     settings.contextLocalApplyMinConfidence = 1;
                     settings.contextReasonerProposalMinConfidence = 0.5;
                     settings.experienceMode = 'advanced';
-                    const state = ctx.chatMetadata.wandlight ||= {};
+                    const state = ctx.chatMetadata.saga ||= {};
                     state.contextBrief = {
                         schemaVersion: 1,
                         source: 'live_reasoner_smoke',
@@ -986,12 +986,12 @@ async function main() {
                 if (!seedState?.ok) findings.push(`Live Context Reasoner smoke could not seed temporary Context Brief: ${seedState?.reason || 'unknown'}.`);
                 await wait(500);
 
-                const scrollBeforeReasoner = await evaluate(client, 'document.querySelector(".wandlight-lore-panel-body")?.scrollTop || 0');
+                const scrollBeforeReasoner = await evaluate(client, 'document.querySelector(".saga-lore-panel-body")?.scrollTop || 0');
                 const reasonerClicked = await clickButtonText(client, 'Ask Reasoner');
                 if (!reasonerClicked) findings.push('Live Context Reasoner smoke could not click Ask Reasoner.');
                 await waitFor(client, script(packId => {
                     const ctx = window.SillyTavern?.getContext?.();
-                    const state = ctx?.chatMetadata?.wandlight || {};
+                    const state = ctx?.chatMetadata?.saga || {};
                     const panel = state.lorePanel || {};
                     const toastText = document.body?.innerText || '';
                     return !!(
@@ -1009,12 +1009,12 @@ async function main() {
 
                 const reasonerState = await evaluate(client, script(packId => {
                     const ctx = window.SillyTavern?.getContext?.();
-                    const state = ctx?.chatMetadata?.wandlight || {};
+                    const state = ctx?.chatMetadata?.saga || {};
                     const panel = state.lorePanel || {};
                     const proposals = Array.isArray(panel.contextResolutionProposals) ? panel.contextResolutionProposals : [];
                     const audit = panel.contextResolutionAudit || null;
                     const rowContext = state.loredeckContexts?.[packId] || null;
-                    const text = document.querySelector('.wandlight-runtime-drawer')?.innerText || document.body?.innerText || '';
+                    const text = document.querySelector('.saga-runtime-drawer')?.innerText || document.body?.innerText || '';
                     return {
                         proposals,
                         proposalCount: proposals.length,
@@ -1037,26 +1037,26 @@ async function main() {
                 if (reasonerState.proposalCount > 0) {
                     const proposalClicked = await clickButtonText(client, 'Review Proposals');
                     if (!proposalClicked) findings.push('Live Context Reasoner Review Proposals button was not clickable.');
-                    await waitFor(client, '!!document.querySelector("#wandlight-context-proposal-review")', 'Live Context Reasoner proposal review overlay', 10000);
+                    await waitFor(client, '!!document.querySelector("#saga-context-proposal-review")', 'Live Context Reasoner proposal review overlay', 10000);
                     await wait(1000);
                     screenshots.push(await screenshot(client, 'live-context-reasoner-02-proposals'));
                     reasonerProposalState = await evaluate(client, script(() => {
-                        const overlay = document.querySelector('#wandlight-context-proposal-review');
+                        const overlay = document.querySelector('#saga-context-proposal-review');
                         const text = overlay?.innerText || '';
                         return {
                             open: !!overlay,
-                            rowCount: overlay?.querySelectorAll('.wandlight-context-proposal-review-row').length || 0,
+                            rowCount: overlay?.querySelectorAll('.saga-context-proposal-review-row').length || 0,
                             hasApply: text.includes('Apply'),
                             hasDismiss: text.includes('Dismiss'),
                             text: text.slice(0, 1600),
                         };
                     }));
                     if (!reasonerProposalState.open || reasonerProposalState.rowCount < 1) findings.push('Live Context Reasoner proposal review did not render proposal rows.');
-                    await clickButtonText(client, 'Close', { root: '#wandlight-context-proposal-review', enabledOnly: false });
+                    await clickButtonText(client, 'Close', { root: '#saga-context-proposal-review', enabledOnly: false });
                     await wait(500);
                 }
 
-                const scrollAfterReasoner = await evaluate(client, 'document.querySelector(".wandlight-lore-panel-body")?.scrollTop || 0');
+                const scrollAfterReasoner = await evaluate(client, 'document.querySelector(".saga-lore-panel-body")?.scrollTop || 0');
                 const restoreSettingsState = await restoreSagaSettings(client, sagaSettingsSnapshot);
                 sagaSettingsRestored = true;
                 const restoreState = await restoreSagaMetadata(client, sagaMetadataSnapshot);
@@ -1088,14 +1088,14 @@ async function main() {
 
             const browseClicked = await clickButtonText(client, 'Browse Context');
             if (!browseClicked) findings.push('Live loaded Context Browse Context button was not clickable.');
-            await waitFor(client, '!!document.querySelector("#wandlight-context-workbench")', 'Live loaded Context Workbench overlay', 10000);
+            await waitFor(client, '!!document.querySelector("#saga-context-workbench")', 'Live loaded Context Workbench overlay', 10000);
             await wait(1000);
             await clearTransientToasts(client);
             await wait(200);
             screenshots.push(await screenshot(client, `${loadedContextScreenshotPrefix}-02-workbench`));
 
             const workbenchState = await evaluate(client, script(packTitle => {
-                const overlay = document.querySelector('#wandlight-context-workbench');
+                const overlay = document.querySelector('#saga-context-workbench');
                 const text = overlay?.innerText || '';
                 return {
                     open: !!overlay,
@@ -1113,16 +1113,16 @@ async function main() {
             if (!workbenchState.hasContextPicker) findings.push('Live loaded Context Workbench did not render the Context picker.');
             if (!workbenchState.hasTimeline || !workbenchState.hasAliases || !workbenchState.hasValidation) findings.push('Live loaded Context Workbench tabs did not render.');
 
-            const contextPickerSearch = '#wandlight-context-workbench .wandlight-context-workbench-context-picker input[type="search"]';
+            const contextPickerSearch = '#saga-context-workbench .saga-context-workbench-context-picker input[type="search"]';
             const aliasSearch = await setInputValue(client, contextPickerSearch, 'Ron dates the blonde girl', { eventName: 'change' });
             await wait(700);
             const aliasState = await evaluate(client, script(() => {
-                const overlay = document.querySelector('#wandlight-context-workbench');
+                const overlay = document.querySelector('#saga-context-workbench');
                 const text = overlay?.innerText || '';
                 return {
                     searched: true,
                     hasRonLavender: text.includes('Ron Lavender Start'),
-                    rowCount: overlay?.querySelectorAll('.wandlight-context-workbench-context-picker-row').length || 0,
+                    rowCount: overlay?.querySelectorAll('.saga-context-workbench-context-picker-row').length || 0,
                     text: text.slice(0, 1400),
                 };
             }));
@@ -1133,8 +1133,8 @@ async function main() {
             await wait(700);
             const afterClicked = await clickButtonInRow(
                 client,
-                '#wandlight-context-workbench',
-                '.wandlight-context-workbench-context-picker-row',
+                '#saga-context-workbench',
+                '.saga-context-workbench-context-picker-row',
                 'Post Christmas Return',
                 'After',
             );
@@ -1146,8 +1146,8 @@ async function main() {
             await wait(700);
             const beforeClicked = await clickButtonInRow(
                 client,
-                '#wandlight-context-workbench',
-                '.wandlight-context-workbench-context-picker-row',
+                '#saga-context-workbench',
+                '.saga-context-workbench-context-picker-row',
                 'Apparition Lessons Begin',
                 'Before',
             );
@@ -1157,9 +1157,9 @@ async function main() {
 
             const afterBeforeState = await evaluate(client, script(packId => {
                 const ctx = window.SillyTavern?.getContext?.();
-                const state = ctx?.chatMetadata?.wandlight || {};
+                const state = ctx?.chatMetadata?.saga || {};
                 const context = state.loredeckContexts?.[packId] || null;
-                const drawerText = document.querySelector('.wandlight-runtime-drawer')?.innerText || '';
+                const drawerText = document.querySelector('.saga-runtime-drawer')?.innerText || '';
                 return {
                     context,
                     hasFrom: context?.anchorFrom === 'hp.y6.post_christmas_return',
@@ -1175,8 +1175,8 @@ async function main() {
             const seededProposal = await evaluate(client, script(packId => {
                 const ctx = window.SillyTavern?.getContext?.();
                 if (!ctx?.chatMetadata) return 0;
-                if (!ctx.chatMetadata.wandlight || typeof ctx.chatMetadata.wandlight !== 'object') ctx.chatMetadata.wandlight = {};
-                const state = ctx.chatMetadata.wandlight;
+                if (!ctx.chatMetadata.saga || typeof ctx.chatMetadata.saga !== 'object') ctx.chatMetadata.saga = {};
+                const state = ctx.chatMetadata.saga;
                 const panel = state.lorePanel ||= {};
                 panel.contextResolutionProposals = [{
                     packId,
@@ -1206,21 +1206,21 @@ async function main() {
             }, LIVE_CONTEXT_LOADED_PACK_ID));
             if (seededProposal !== 1) findings.push('Live loaded Context smoke could not seed a populated proposal review fixture.');
 
-            await clickButtonText(client, 'Done', { root: '#wandlight-context-workbench', enabledOnly: false });
+            await clickButtonText(client, 'Done', { root: '#saga-context-workbench', enabledOnly: false });
             await wait(700);
             const proposalClicked = await clickButtonText(client, 'Review Proposals');
             if (!proposalClicked) findings.push('Live loaded Context Review Proposals button was not clickable after seeding.');
-            await waitFor(client, '!!document.querySelector("#wandlight-context-proposal-review")', 'Live loaded Context Proposal Review overlay', 10000);
+            await waitFor(client, '!!document.querySelector("#saga-context-proposal-review")', 'Live loaded Context Proposal Review overlay', 10000);
             await wait(1800);
             await clearTransientToasts(client);
             await wait(200);
             screenshots.push(await screenshot(client, `${loadedContextScreenshotPrefix}-03-proposals`));
             const proposalState = await evaluate(client, script(() => {
-                const overlay = document.querySelector('#wandlight-context-proposal-review');
+                const overlay = document.querySelector('#saga-context-proposal-review');
                 const text = overlay?.innerText || '';
                 return {
                     open: !!overlay,
-                    rowCount: overlay?.querySelectorAll('.wandlight-context-proposal-review-row').length || 0,
+                    rowCount: overlay?.querySelectorAll('.saga-context-proposal-review-row').length || 0,
                     hasTitle: text.includes('Context Proposal Review'),
                     hasRonLavender: text.includes('Ron Lavender Start'),
                     hasApply: text.includes('Apply'),
@@ -1230,7 +1230,7 @@ async function main() {
             }));
             if (!proposalState.open || proposalState.rowCount < 1) findings.push('Live loaded Context Proposal Review did not render a populated proposal row.');
             if (!proposalState.hasRonLavender || !proposalState.hasApply || !proposalState.hasDismiss) findings.push('Live loaded Context Proposal Review row missed expected proposal actions/content.');
-            await clickButtonText(client, 'Close', { root: '#wandlight-context-proposal-review', enabledOnly: false });
+            await clickButtonText(client, 'Close', { root: '#saga-context-proposal-review', enabledOnly: false });
             await wait(500);
 
             const restoreState = await restoreSagaMetadata(client, sagaMetadataSnapshot);
@@ -1260,18 +1260,18 @@ async function main() {
         }
 
         if (SMOKE_TARGET === 'live-context') {
-            await clickSelector(client, '.wandlight-runtime-rail-tab[data-tab-id="context"]');
-            await waitFor(client, 'document.querySelector(".wandlight-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "context"', 'Live Context tab active', 10000);
-            await waitFor(client, 'document.querySelector(".wandlight-runtime-drawer")?.innerText.includes("Runtime Context")', 'Live Runtime Context command center', 10000);
+            await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="context"]');
+            await waitFor(client, 'document.querySelector(".saga-runtime-rail-tab-active")?.getAttribute("data-tab-id") === "context"', 'Live Context tab active', 10000);
+            await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.innerText.includes("Runtime Context")', 'Live Runtime Context command center', 10000);
             await wait(1000);
             screenshots.push(await screenshot(client, 'live-context-01-context-tab'));
 
             const contextState = await evaluate(client, script(() => {
                 const text = document.body?.innerText || '';
-                const drawer = document.querySelector('.wandlight-runtime-drawer');
-                const contextButton = document.querySelector('.wandlight-runtime-rail-tab[data-tab-id="context"]');
+                const drawer = document.querySelector('.saga-runtime-drawer');
+                const contextButton = document.querySelector('.saga-runtime-rail-tab[data-tab-id="context"]');
                 return {
-                    activeTab: document.querySelector('.wandlight-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
+                    activeTab: document.querySelector('.saga-runtime-rail-tab-active')?.getAttribute('data-tab-id') || '',
                     contextTooltip: contextButton?.getAttribute('title') || contextButton?.getAttribute('aria-label') || '',
                     hasRuntimeContext: text.includes('Runtime Context'),
                     hasBrowseContext: text.includes('Browse Context'),
@@ -1300,7 +1300,7 @@ async function main() {
             await wait(900);
             const browseState = await evaluate(client, script(() => {
                 const text = document.body?.innerText || '';
-                const overlay = document.querySelector('#wandlight-context-workbench');
+                const overlay = document.querySelector('#saga-context-workbench');
                 return {
                     clicked: true,
                     overlayOpen: !!overlay,
@@ -1312,7 +1312,7 @@ async function main() {
             if (browseState.overlayOpen) {
                 screenshots.push(await screenshot(client, 'live-context-02-workbench'));
                 const workbenchState = await evaluate(client, script(() => {
-                    const overlay = document.querySelector('#wandlight-context-workbench');
+                    const overlay = document.querySelector('#saga-context-workbench');
                     const text = overlay?.innerText || '';
                     return {
                         hasContext: text.includes('Context'),
@@ -1324,7 +1324,7 @@ async function main() {
                 if (!workbenchState.hasContext || !workbenchState.hasTimeline || !workbenchState.hasAliases || !workbenchState.hasValidation) {
                     findings.push('Live ST Context Workbench did not render expected tabs.');
                 }
-                await clickButtonText(client, 'Done', { root: '#wandlight-context-workbench', enabledOnly: false });
+                await clickButtonText(client, 'Done', { root: '#saga-context-workbench', enabledOnly: false });
                 await wait(500);
             } else if (!browseState.blockedNoDecks) {
                 findings.push('Live ST Browse Context neither opened the Workbench nor showed the no-loaded-Loredeck guard.');
@@ -1335,7 +1335,7 @@ async function main() {
             const proposalState = await evaluate(client, script(() => {
                 const text = document.body?.innerText || '';
                 return {
-                    overlayOpen: !!document.querySelector('#wandlight-context-proposal-review'),
+                    overlayOpen: !!document.querySelector('#saga-context-proposal-review'),
                     blockedEmpty: text.includes('No Context proposals are waiting for review.'),
                 };
             }));
@@ -1362,21 +1362,21 @@ async function main() {
 
         screenshots.push(await screenshot(client, 'live-st-01-initial'));
 
-        await clickSelector(client, '.wandlight-runtime-rail-density');
+        await clickSelector(client, '.saga-runtime-rail-density');
         await wait(400);
-        await clickSelector(client, '.wandlight-runtime-rail-tab[data-tab-id="loredecks"]');
-        await waitFor(client, 'document.querySelector(".wandlight-runtime-drawer")?.innerText.includes("Loredecks")', 'Loredecks drawer');
+        await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="loredecks"]');
+        await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.innerText.includes("Loredecks")', 'Loredecks drawer');
         await wait(1500);
         screenshots.push(await screenshot(client, 'live-st-02-loredecks'));
 
         await clickButtonText(client, 'Open Loredeck Library');
-        await waitFor(client, '!!document.querySelector(".wandlight-loredeck-library-overlay")', 'Loredeck Library');
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-library-overlay")', 'Loredeck Library');
         await wait(1000);
         screenshots.push(await screenshot(client, 'live-st-03-library'));
 
         const deleteProbe = await evaluate(client, script(() => {
-            const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
-            const selected = overlay?.querySelector('.wandlight-loredeck-library-details');
+            const overlay = document.querySelector('.saga-loredeck-library-overlay');
+            const selected = overlay?.querySelector('.saga-loredeck-library-details');
             const deleteButton = [...(selected?.querySelectorAll('button') || [])].find(button => button.innerText.trim() === 'Delete Deck');
             return {
                 hasDeleteDeck: !!deleteButton,
@@ -1388,7 +1388,7 @@ async function main() {
         if (deleteProbe.deleteDisabledForSelected !== true) findings.push('Bundled selected deck Delete Deck control was not disabled.');
 
         const customDeleteProbe = await evaluate(client, script(() => {
-            const cards = [...document.querySelectorAll('.wandlight-loredeck-library-deck-card')];
+            const cards = [...document.querySelectorAll('.saga-loredeck-library-deck-card')];
             const custom = cards.find(card => /\bCustom\b/.test(card.innerText || ''));
             if (!custom) return { customFound: false };
             custom.click();
@@ -1397,7 +1397,7 @@ async function main() {
         await wait(600);
         if (customDeleteProbe.customFound) {
             const customDeleteState = await evaluate(client, script(() => {
-                const detail = document.querySelector('.wandlight-loredeck-library-details');
+                const detail = document.querySelector('.saga-loredeck-library-details');
                 const del = [...(detail?.querySelectorAll('button') || [])].find(button => button.innerText.trim() === 'Delete Deck');
                 return {
                     hasDeleteDeck: !!del,
@@ -1408,10 +1408,10 @@ async function main() {
             if (!customDeleteState.hasDeleteDeck || customDeleteState.deleteDisabled) {
                 findings.push('Custom deck did not expose an enabled Delete Deck control.');
             } else {
-                await clickButtonText(client, 'Delete Deck', { root: '.wandlight-loredeck-library-overlay' });
+                await clickButtonText(client, 'Delete Deck', { root: '.saga-loredeck-library-overlay' });
                 await wait(800);
                 const domDeletePrompt = await evaluate(client, script(() => {
-                    const prompt = document.querySelector('.wandlight-confirm-overlay');
+                    const prompt = document.querySelector('.saga-confirm-overlay');
                     const text = prompt?.innerText || '';
                     return {
                         hasPrompt: !!prompt,
@@ -1420,9 +1420,9 @@ async function main() {
                 }));
                 if (domDeletePrompt.hasPrompt && /Delete Loredeck\?|Delete ".+"/i.test(domDeletePrompt.text || '')) {
                     screenshots.push(await screenshot(client, 'live-st-03-delete-confirm'));
-                    await clickButtonText(client, 'Cancel', { root: '.wandlight-confirm-overlay', enabledOnly: false });
+                    await clickButtonText(client, 'Cancel', { root: '.saga-confirm-overlay', enabledOnly: false });
                     await wait(500);
-                    const promptClosed = await evaluate(client, '!document.querySelector(".wandlight-confirm-overlay")');
+                    const promptClosed = await evaluate(client, '!document.querySelector(".saga-confirm-overlay")');
                     if (!promptClosed) findings.push('Delete Deck confirmation did not close after Cancel.');
                 } else if (dialogEvents.length) {
                     findings.push('Delete Deck still opened a native browser confirmation dialog.');
@@ -1435,35 +1435,35 @@ async function main() {
         }
 
         await evaluate(client, script(() => {
-            const first = document.querySelector('.wandlight-loredeck-library-deck-card');
+            const first = document.querySelector('.saga-loredeck-library-deck-card');
             if (first) first.click();
         }), { userGesture: true });
         await wait(500);
 
-        await clickButtonText(client, 'Open Health Center', { root: '.wandlight-loredeck-library-overlay' });
-        await waitFor(client, '!!document.querySelector(".wandlight-loredeck-health-center-overlay")', 'Deck Health Center');
+        await clickButtonText(client, 'Open Health Center', { root: '.saga-loredeck-library-overlay' });
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-health-center-overlay")', 'Deck Health Center');
         await wait(1000);
         screenshots.push(await screenshot(client, 'live-st-04-health'));
-        await clickButtonText(client, 'Close', { root: '.wandlight-loredeck-health-center-overlay', enabledOnly: false });
+        await clickButtonText(client, 'Close', { root: '.saga-loredeck-health-center-overlay', enabledOnly: false });
         await wait(500);
 
-        await clickButtonText(client, 'Create Deck', { root: '.wandlight-loredeck-library-overlay' });
-        await waitFor(client, '!!document.querySelector(".wandlight-loredeck-creator-workbench-overlay")', 'Loredeck Creator');
+        await clickButtonText(client, 'Create Deck', { root: '.saga-loredeck-library-overlay' });
+        await waitFor(client, '!!document.querySelector(".saga-loredeck-creator-workbench-overlay")', 'Loredeck Creator');
         await wait(1000);
         screenshots.push(await screenshot(client, 'live-st-05-creator'));
-        await clickButtonText(client, 'Close', { root: '.wandlight-loredeck-creator-workbench-overlay', enabledOnly: false });
+        await clickButtonText(client, 'Close', { root: '.saga-loredeck-creator-workbench-overlay', enabledOnly: false });
         await wait(500);
-        await clickButtonText(client, 'Done', { root: '.wandlight-loredeck-library-overlay', enabledOnly: false });
+        await clickButtonText(client, 'Done', { root: '.saga-loredeck-library-overlay', enabledOnly: false });
         await wait(800);
 
-        await clickSelector(client, '.wandlight-runtime-rail-tab[data-tab-id="settings"]');
-        await waitFor(client, 'document.querySelector(".wandlight-runtime-drawer")?.innerText.includes("Settings")', 'Settings drawer');
+        await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="settings"]');
+        await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.innerText.includes("Settings")', 'Settings drawer');
         if (!(await scrollTextIntoView(client, 'Theme Pack'))) await setDrawerScroll(client, 9999);
         await wait(800);
         screenshots.push(await screenshot(client, 'live-st-07-theme-pack'));
 
-        await clickSelector(client, '.wandlight-runtime-rail-tab[data-tab-id="injection"]');
-        await waitFor(client, 'document.querySelector(".wandlight-runtime-drawer")?.innerText.includes("High-Relevance Lore Injection")', 'Injection drawer');
+        await clickSelector(client, '.saga-runtime-rail-tab[data-tab-id="injection"]');
+        await waitFor(client, 'document.querySelector(".saga-runtime-drawer")?.innerText.includes("High-Relevance Lore Injection")', 'Injection drawer');
         await wait(800);
         screenshots.push(await screenshot(client, 'live-st-08-injection'));
 

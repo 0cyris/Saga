@@ -1,5 +1,5 @@
 /**
- * auto-relevance.js — Wandlight
+ * auto-relevance.js — Saga
  * Local high-performance Auto-Relevance pass for accepted lore entries.
  *
  * The pass is deliberately local-first: every accepted entry is scored without an

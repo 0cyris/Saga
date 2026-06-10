@@ -129,19 +129,19 @@ function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, hea
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
 
     const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-loredeck-library-launch-card';
+    card.className = 'saga-runtime-card saga-loredeck-library-launch-card';
 
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-library-launch-main';
+    main.className = 'saga-loredeck-library-launch-main';
     const title = document.createElement('h4');
     title.textContent = 'Loredeck Library';
     main.appendChild(title);
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Open the fullscreen Library to move Loredecks from storage into the active session stack and set priority.';
     main.appendChild(help);
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(`${library.length} decks`, 'Total Loredecks available in the Library.'));
     chips.appendChild(createStatusPill(`${stats.activeCount} active`, 'Enabled Loredecks currently participating in retrieval, including folder groups.'));
     chips.appendChild(createStatusPill(`${stats.entryCount} active Lorecards`, 'Approximate Lorecards from enabled stack decks.'));
@@ -151,10 +151,10 @@ function createLoredeckLibraryLaunchCard(state = getState(), canonDb = null, hea
     card.appendChild(main);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-loredeck-library-launch-actions';
+    actions.className = 'saga-primary-actions saga-loredeck-library-launch-actions';
     actions.appendChild(markTourTarget(createButton('Open Loredeck Library', 'Open the fullscreen Loredeck Library and active stack manager.', () => {
         openLoredeckLibraryWindow();
-    }, 'wandlight-primary-button'), 'loredecks.library.open'));
+    }, 'saga-primary-button'), 'loredecks.library.open'));
     actions.appendChild(createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
         installLoredeckBundleFromFile();
     }));
@@ -205,7 +205,7 @@ function getLoredeckCreatorProjectShelfModels(state = getState()) {
 
 function createLoredeckCreatorProjectShelf(state = getState(), presetModels = null) {
     const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-loredeck-creator-project-shelf';
+    card.className = 'saga-runtime-card saga-loredeck-creator-project-shelf';
     renderLoredeckCreatorProjectShelfContent(card, state, presetModels);
     return card;
 }
@@ -218,20 +218,20 @@ function renderLoredeckCreatorProjectShelfContent(card, state = getState(), pres
     const activeJob = getActiveLoredeckCreatorJob(state);
     card.replaceChildren();
     const header = document.createElement('div');
-    header.className = 'wandlight-loredeck-creator-project-header';
+    header.className = 'saga-loredeck-creator-project-header';
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-loredeck-creator-project-title-wrap';
+    titleWrap.className = 'saga-loredeck-creator-project-title-wrap';
     const title = document.createElement('h4');
     title.textContent = 'In Progress';
     titleWrap.appendChild(title);
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Resume unfinished Generated Loredecks from the staged Creator.';
     titleWrap.appendChild(help);
     header.appendChild(titleWrap);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta wandlight-loredeck-creator-project-meta';
+    meta.className = 'saga-loredeck-row-meta saga-loredeck-creator-project-meta';
     const generatedCount = allModels.filter(model => model.hasGeneratedPack).length;
     const reviewCount = allModels.filter(model => model.nextAction?.tone === 'review' || model.stage?.tone === 'review').length;
     const selectedCount = getLoredeckCreatorProjectSelectedIds(allModels).length;
@@ -248,10 +248,10 @@ function renderLoredeckCreatorProjectShelfContent(card, state = getState(), pres
         const empty = createEmptyMessage('No unfinished Creator projects.');
         card.appendChild(empty);
         const actions = document.createElement('div');
-        actions.className = 'wandlight-primary-actions';
+        actions.className = 'saga-primary-actions';
         actions.appendChild(createButton('Open Creator Wizard', 'Start or resume the active Loredeck Creator wizard.', () => {
             openLoredeckCreatorWorkbench();
-        }, 'wandlight-primary-button'));
+        }, 'saga-primary-button'));
         card.appendChild(actions);
         return;
     }
@@ -262,7 +262,7 @@ function renderLoredeckCreatorProjectShelfContent(card, state = getState(), pres
     }
 
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-creator-project-list';
+    list.className = 'saga-loredeck-creator-project-list';
     for (const model of models.slice(0, 20)) {
         list.appendChild(createLoredeckCreatorProjectCard(model, {
             active: activeJob?.jobId === model.jobId,
@@ -273,7 +273,7 @@ function renderLoredeckCreatorProjectShelfContent(card, state = getState(), pres
 
     if (models.length > 20) {
         const more = document.createElement('div');
-        more.className = 'wandlight-runtime-help wandlight-compact-help';
+        more.className = 'saga-runtime-help saga-compact-help';
         more.textContent = `Showing 20 of ${models.length} unfinished Creator projects.`;
         card.appendChild(more);
     }
@@ -353,20 +353,20 @@ function getLoredeckCreatorProjectSelectedIds(models = getLoredeckCreatorProject
 
 function createLoredeckCreatorProjectControls(allModels = [], filteredModels = [], shelfCard = null, libraryIndex = getLoredeckLibraryIndexForPacks()) {
     const controls = document.createElement('div');
-    controls.className = 'wandlight-loredeck-creator-project-controls';
+    controls.className = 'saga-loredeck-creator-project-controls';
 
     const search = document.createElement('input');
     search.type = 'search';
-    search.className = 'text_pole wandlight-loredeck-creator-project-search';
+    search.className = 'text_pole saga-loredeck-creator-project-search';
     search.placeholder = 'Search projects...';
     search.value = loredeckCreatorProjectQuery;
     addTooltip(search, 'Search in-progress Creator projects by title, fandom, scope, stage, or linked Generated Loredeck.');
     search.addEventListener('click', event => event.stopPropagation());
     search.addEventListener('input', () => {
         loredeckCreatorProjectQuery = search.value;
-        const target = shelfCard || controls.closest('.wandlight-loredeck-creator-project-shelf');
+        const target = shelfCard || controls.closest('.saga-loredeck-creator-project-shelf');
         if (target) renderLoredeckCreatorProjectShelfContent(target, getState());
-        const next = document.querySelector('.wandlight-loredeck-creator-project-search');
+        const next = document.querySelector('.saga-loredeck-creator-project-search');
         if (next) {
             next.focus();
             const end = next.value.length;
@@ -376,7 +376,7 @@ function createLoredeckCreatorProjectControls(allModels = [], filteredModels = [
     controls.appendChild(search);
 
     const filter = document.createElement('select');
-    filter.className = 'text_pole wandlight-loredeck-creator-project-filter';
+    filter.className = 'text_pole saga-loredeck-creator-project-filter';
     addTooltip(filter, 'Filter the in-progress Creator shelf.');
     for (const [value, label, tooltip] of LOREDECK_CREATOR_PROJECT_FILTERS) {
         const option = document.createElement('option');
@@ -391,13 +391,13 @@ function createLoredeckCreatorProjectControls(allModels = [], filteredModels = [
     filter.addEventListener('click', event => event.stopPropagation());
     filter.addEventListener('change', () => {
         loredeckCreatorProjectFilter = filter.value || 'all';
-        const target = shelfCard || controls.closest('.wandlight-loredeck-creator-project-shelf');
+        const target = shelfCard || controls.closest('.saga-loredeck-creator-project-shelf');
         if (target) renderLoredeckCreatorProjectShelfContent(target, getState());
     });
     controls.appendChild(filter);
 
     const folderFilter = document.createElement('select');
-    folderFilter.className = 'text_pole wandlight-loredeck-creator-project-folder-filter';
+    folderFilter.className = 'text_pole saga-loredeck-creator-project-folder-filter';
     addTooltip(folderFilter, 'Filter Creator projects by Library folder. Folder filters include nested subfolders.');
     appendLoredeckCreatorProjectFolderFilterOptions(folderFilter, allModels, libraryIndex);
     folderFilter.value = [...folderFilter.options].some(option => option.value === loredeckCreatorProjectFolderFilter)
@@ -406,7 +406,7 @@ function createLoredeckCreatorProjectControls(allModels = [], filteredModels = [
     folderFilter.addEventListener('click', event => event.stopPropagation());
     folderFilter.addEventListener('change', () => {
         loredeckCreatorProjectFolderFilter = folderFilter.value || 'all';
-        const target = shelfCard || controls.closest('.wandlight-loredeck-creator-project-shelf');
+        const target = shelfCard || controls.closest('.saga-loredeck-creator-project-shelf');
         if (target) renderLoredeckCreatorProjectShelfContent(target, getState());
     });
     controls.appendChild(folderFilter);
@@ -465,18 +465,18 @@ function appendLoredeckCreatorProjectMoveOptions(select, libraryIndex = getLored
 
 function createLoredeckCreatorProjectBulkToolbar(allModels = [], filteredModels = [], shelfCard = null, libraryIndex = getLoredeckLibraryIndexForPacks()) {
     const toolbar = document.createElement('div');
-    toolbar.className = 'wandlight-loredeck-creator-project-bulk';
+    toolbar.className = 'saga-loredeck-creator-project-bulk';
     const selectedIds = getLoredeckCreatorProjectSelectedIds(allModels);
     const visibleIds = (filteredModels || []).map(model => model.jobId).filter(Boolean);
     const selectedVisibleCount = visibleIds.filter(id => loredeckCreatorProjectSelectedIds.has(id)).length;
     const summary = document.createElement('span');
-    summary.className = 'wandlight-loredeck-creator-project-selection-summary';
+    summary.className = 'saga-loredeck-creator-project-selection-summary';
     summary.textContent = `${selectedIds.length} selected${selectedVisibleCount !== selectedIds.length ? ` (${selectedVisibleCount} visible)` : ''}`;
     toolbar.appendChild(summary);
 
     const selectVisible = createButton('Select Visible', 'Select every Creator project currently visible after search and filter.', () => {
         loredeckCreatorProjectSelectedIds = new Set(visibleIds);
-        const target = shelfCard || toolbar.closest('.wandlight-loredeck-creator-project-shelf');
+        const target = shelfCard || toolbar.closest('.saga-loredeck-creator-project-shelf');
         if (target) renderLoredeckCreatorProjectShelfContent(target, getState());
     });
     selectVisible.disabled = !visibleIds.length;
@@ -484,14 +484,14 @@ function createLoredeckCreatorProjectBulkToolbar(allModels = [], filteredModels 
 
     const clear = createButton('Clear', 'Clear the Creator project selection.', () => {
         loredeckCreatorProjectSelectedIds = new Set();
-        const target = shelfCard || toolbar.closest('.wandlight-loredeck-creator-project-shelf');
+        const target = shelfCard || toolbar.closest('.saga-loredeck-creator-project-shelf');
         if (target) renderLoredeckCreatorProjectShelfContent(target, getState());
     });
     clear.disabled = !selectedIds.length;
     toolbar.appendChild(clear);
 
     const moveSelect = document.createElement('select');
-    moveSelect.className = 'text_pole wandlight-loredeck-creator-project-move-select';
+    moveSelect.className = 'text_pole saga-loredeck-creator-project-move-select';
     addTooltip(moveSelect, selectedIds.length ? 'Choose a folder target for selected Creator projects.' : 'Select Creator projects before moving them.');
     appendLoredeckCreatorProjectMoveOptions(moveSelect, libraryIndex);
     moveSelect.value = 'unfiled';
@@ -507,7 +507,7 @@ function createLoredeckCreatorProjectBulkToolbar(allModels = [], filteredModels 
 
     const deleteSelected = createButton(selectedIds.length ? `Delete Selected (${selectedIds.length})` : 'Delete Selected', 'Delete selected Creator projects after confirmation.', async () => {
         await deleteSelectedLoredeckCreatorProjectsWithConfirm(allModels);
-    }, 'wandlight-loredeck-creator-project-delete');
+    }, 'saga-loredeck-creator-project-delete');
     deleteSelected.disabled = !selectedIds.length;
     toolbar.appendChild(deleteSelected);
     return toolbar;
@@ -520,7 +520,7 @@ function setLoredeckCreatorProjectSelected(jobId = '', selected = false) {
     if (selected) next.add(id);
     else next.delete(id);
     loredeckCreatorProjectSelectedIds = next;
-    const shelf = document.querySelector('.wandlight-loredeck-creator-project-shelf');
+    const shelf = document.querySelector('.saga-loredeck-creator-project-shelf');
     if (shelf) renderLoredeckCreatorProjectShelfContent(shelf, getState());
 }
 
@@ -597,9 +597,9 @@ function moveLoredeckCreatorProjectsToFolder(jobIds = [], folderId = 'unfiled', 
 
 function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     const card = document.createElement('div');
-    card.className = 'wandlight-loredeck-creator-project-card';
-    if (options.active) card.classList.add('wandlight-loredeck-creator-project-card-active');
-    if (options.selected) card.classList.add('wandlight-loredeck-creator-project-card-selected');
+    card.className = 'saga-loredeck-creator-project-card';
+    if (options.active) card.classList.add('saga-loredeck-creator-project-card-active');
+    if (options.selected) card.classList.add('saga-loredeck-creator-project-card-selected');
     addTooltip(card, `Open ${model.title || 'this Creator project'}.`);
     const open = () => openLoredeckCreatorProject(model.jobId);
     card.addEventListener('click', open);
@@ -608,15 +608,15 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
         packId: model.generatedPackId || model.jobId || model.id,
         title: model.title || 'Creator Project',
     };
-    card.appendChild(createLoredeckDeckVisual(visualPack, 'wandlight-loredeck-library-monogram wandlight-loredeck-creator-project-visual'));
+    card.appendChild(createLoredeckDeckVisual(visualPack, 'saga-loredeck-library-monogram saga-loredeck-creator-project-visual'));
 
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-creator-project-main';
+    main.className = 'saga-loredeck-creator-project-main';
 
     const top = document.createElement('div');
-    top.className = 'wandlight-loredeck-creator-project-topline';
+    top.className = 'saga-loredeck-creator-project-topline';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-creator-project-title';
+    title.className = 'saga-loredeck-creator-project-title';
     title.appendChild(createLoredeckLibraryEditableTitle({
         value: model.title || 'Untitled Creator Project',
         fallback: model.title || 'Untitled Creator Project',
@@ -626,19 +626,19 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     }));
     top.appendChild(title);
     const stage = document.createElement('span');
-    stage.className = `wandlight-loredeck-creator-project-stage wandlight-loredeck-creator-project-stage-${model.stage?.tone || 'neutral'}`;
+    stage.className = `saga-loredeck-creator-project-stage saga-loredeck-creator-project-stage-${model.stage?.tone || 'neutral'}`;
     stage.textContent = model.stage?.label || 'Intake';
     addTooltip(stage, 'Current Creator project stage.');
     top.appendChild(stage);
     main.appendChild(top);
 
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-loredeck-creator-project-subtitle';
+    subtitle.className = 'saga-loredeck-creator-project-subtitle';
     subtitle.textContent = model.subtitle || model.description || '';
     main.appendChild(subtitle);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(model.folderLabel || 'Unfiled', model.folderPathText ? `Library folder: ${model.folderPathText}.` : 'Creator project folder.'));
     for (const chip of model.chips || []) {
         chips.appendChild(createStatusPill(chip.label, chip.tooltip));
@@ -646,7 +646,7 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     main.appendChild(chips);
 
     const progress = document.createElement('div');
-    progress.className = 'wandlight-loredeck-creator-project-progress';
+    progress.className = 'saga-loredeck-creator-project-progress';
     const fill = document.createElement('span');
     fill.style.width = `${Math.max(0, Math.min(100, Number(model.progress) || 0))}%`;
     progress.appendChild(fill);
@@ -654,7 +654,7 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     main.appendChild(progress);
 
     const footer = document.createElement('div');
-    footer.className = 'wandlight-loredeck-creator-project-footer';
+    footer.className = 'saga-loredeck-creator-project-footer';
     const updated = document.createElement('span');
     updated.textContent = model.updatedAt ? `Updated ${formatRelativeHealthTime(model.updatedAt)}` : 'Not updated';
     footer.appendChild(updated);
@@ -669,14 +669,14 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     card.appendChild(main);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-loredeck-creator-project-actions';
+    actions.className = 'saga-loredeck-creator-project-actions';
     const select = createButton(options.selected ? 'Selected' : 'Select', options.selected ? 'Remove this Creator project from the bulk selection.' : 'Select this Creator project for bulk shelf actions.', () => {
         setLoredeckCreatorProjectSelected(model.jobId, !options.selected);
-    }, options.selected ? 'wandlight-loredeck-creator-project-select-active' : 'wandlight-loredeck-creator-project-select');
+    }, options.selected ? 'saga-loredeck-creator-project-select-active' : 'saga-loredeck-creator-project-select');
     actions.appendChild(select);
     actions.appendChild(createButton(model.nextAction?.label || 'Resume', model.nextAction?.tooltip || 'Open this Creator project.', () => {
         openLoredeckCreatorProject(model.jobId);
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     if (model.generatedPackId) {
         actions.appendChild(createButton('Library', 'Open the linked Generated Loredeck in the Library.', () => {
             selectLoredeckForDetails(model.generatedPackId, { refresh: false });
@@ -685,7 +685,7 @@ function createLoredeckCreatorProjectCard(model = {}, options = {}) {
     }
     actions.appendChild(createButton('Delete', 'Delete this saved Creator project. Linked Generated Loredecks stay in the Library.', async () => {
         await deleteLoredeckCreatorProjectWithConfirm(model);
-    }, 'wandlight-loredeck-creator-project-delete'));
+    }, 'saga-loredeck-creator-project-delete'));
     card.appendChild(actions);
     return card;
 }

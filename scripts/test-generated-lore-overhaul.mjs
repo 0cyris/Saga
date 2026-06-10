@@ -61,8 +61,8 @@ const existing = normalizeLoreMatrix([{
 const routed = routeSimilarLoreEntries([highValue], existing, { storyGeneration: true });
 assert.equal(routed.dropped.length, 0);
 assert.equal(routed.entries.length, 1);
-assert.equal(routed.entries[0].extensions.wandlightGeneration.targetEntryId, 'conundrum_confidicus');
-assert.match(routed.entries[0].extensions.wandlightGeneration.operation, /merge|update/);
+assert.equal(routed.entries[0].extensions.sagaGeneration.targetEntryId, 'conundrum_confidicus');
+assert.match(routed.entries[0].extensions.sagaGeneration.operation, /merge|update/);
 
 const exactDuplicate = routeSimilarLoreEntries([{
   ...highValue,

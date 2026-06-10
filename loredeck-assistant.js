@@ -1,5 +1,5 @@
 /**
- * loredeck-assistant.js -- Saga/Wandlight
+ * loredeck-assistant.js -- Saga/Saga
  * Prompt and response helpers for Loredeck Assistant proposal drafting.
  */
 

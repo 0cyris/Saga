@@ -1,5 +1,5 @@
 /**
- * saga-tool-registry.js -- Saga/Wandlight
+ * saga-tool-registry.js -- Saga/Saga
  * Optional SillyTavern ToolManager integration.
  *
  * These tools expose retrieval/search and review-safe lore proposals to capable

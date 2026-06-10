@@ -1,5 +1,5 @@
 /**
- * index.js — Wandlight
+ * index.js — Saga
  * Extension entrypoint. Wires events, renders settings panel, registers
  * slash commands, and exposes globalThis bridge functions.
  *
@@ -114,8 +114,8 @@ function wireEvents(ctx) {
                 // Refresh lore panel if open
                 refreshLorePanel();
                 // Refresh state panel if visible
-                if (typeof globalThis._wandlightRefreshUI === 'function') {
-                    globalThis._wandlightRefreshUI();
+                if (typeof globalThis._sagaRefreshUI === 'function') {
+                    globalThis._sagaRefreshUI();
                 }
                 syncPromptInjection();
             } catch (e) {
@@ -173,13 +173,13 @@ function registerSlashCommands(ctx) {
 
     const register = registerSlashCommand;
 
-    // ── /wandlight-extract ───────────────────────────────────────────────────
-    register('wandlight-extract', async () => {
+    // ── /saga-extract ───────────────────────────────────────────────────
+    register('saga-extract', async () => {
         await onExtractionTriggered({ force: true });
     }, undefined, '\uD83D\uDC41\uFE0F Manually run continuity state extraction', 'Saga');
 
-    // ── /wandlight-memo ─────────────────────────────────────────────────────
-    register('wandlight-memo', async () => {
+    // ── /saga-memo ─────────────────────────────────────────────────────
+    register('saga-memo', async () => {
         const state = getState();
         const memo = buildMemo(state);
         if (!memo) {
@@ -193,8 +193,8 @@ function registerSlashCommands(ctx) {
         }
     }, undefined, '\uD83D\uDCCB Copy continuity memo to clipboard', 'Saga');
 
-    // ── /wandlight-state ────────────────────────────────────────────────────
-    register('wandlight-state', async () => {
+    // ── /saga-state ────────────────────────────────────────────────────
+    register('saga-state', async () => {
         const state = getState();
         const json = exportState(state);
         navigator.clipboard.writeText(json).then(() => {
@@ -206,8 +206,8 @@ function registerSlashCommands(ctx) {
 
     // ── Lore slash commands ──────────────────────────────────────────────────
 
-    // /wandlight-lore-detect — re-run lore context detection
-    register('wandlight-lore-detect', async () => {
+    // /saga-lore-detect — re-run lore context detection
+    register('saga-lore-detect', async () => {
         try {
             if (typeof toastr !== 'undefined') toastr.info('Running lore context detection…');
             await runLoreContextDetection({ force: true });
@@ -230,14 +230,14 @@ function registerSlashCommands(ctx) {
         }
     };
 
-    // /wandlight-lore-scan — scan story lore with the bulk scan engine
-    register('wandlight-lore-scan', runManualLoreScanCommand, undefined, '\u2728 Scan story lorecards', 'Saga Lorecards');
+    // /saga-lore-scan — scan story lore with the bulk scan engine
+    register('saga-lore-scan', runManualLoreScanCommand, undefined, '\u2728 Scan story lorecards', 'Saga Lorecards');
 
-    // /wandlight-lore-generate — deprecated alias retained for user macros/workflows
-    register('wandlight-lore-generate', runManualLoreScanCommand, undefined, '\u2728 Scan story lorecards', 'Saga Lorecards');
+    // /saga-lore-generate — deprecated alias retained for user macros/workflows
+    register('saga-lore-generate', runManualLoreScanCommand, undefined, '\u2728 Scan story lorecards', 'Saga Lorecards');
 
-    // /wandlight-lore-accept — accept all pending lore entries
-    register('wandlight-lore-accept', async () => {
+    // /saga-lore-accept — accept all pending lore entries
+    register('saga-lore-accept', async () => {
         try {
             const state = getState();
             const pendingCount = (state?.pendingLoreEntries || []).length;
@@ -250,8 +250,8 @@ function registerSlashCommands(ctx) {
         }
     }, undefined, '\u2705 Accept all pending lorecards', 'Saga Lorecards');
 
-    // /wandlight-lore-reject — reject all pending lore entries
-    register('wandlight-lore-reject', async () => {
+    // /saga-lore-reject — reject all pending lore entries
+    register('saga-lore-reject', async () => {
         try {
             const state = getState();
             const pendingCount = (state?.pendingLoreEntries || []).length;
@@ -264,8 +264,8 @@ function registerSlashCommands(ctx) {
         }
     }, undefined, '\u274C Reject all pending lorecards', 'Saga Lorecards');
 
-    // /wandlight-lore-panel — toggle the floating lore panel
-    register('wandlight-lore-panel', async () => {
+    // /saga-lore-panel — toggle the floating lore panel
+    register('saga-lore-panel', async () => {
         try {
             const state = getState();
             const isOpen = state?.lorePanel?.isOpen || false;
@@ -296,7 +296,7 @@ function registerSlashCommands(ctx) {
  */
 async function mountSettingsPanel(ctx) {
     // ── Duplicate panel guard ────────────────────────────────────────────────
-    const existingPanel = document.getElementById('wandlight_settings');
+    const existingPanel = document.getElementById('saga_settings');
     if (existingPanel) {
         renderSettingsPanel(existingPanel);
         wireSettingsPanel(existingPanel);
@@ -338,12 +338,12 @@ async function mountSettingsPanel(ctx) {
 
     // ── Wire UI after a brief DOM settle ───────────────────────────────────
     setTimeout(() => {
-        const container = document.getElementById('wandlight_settings');
+        const container = document.getElementById('saga_settings');
         if (container) {
             renderSettingsPanel(container);
             wireSettingsPanel(container);
             // Refresh runtime/settings preview surfaces after wiring
-            // Use the local refreshStatePanel() directly since _wandlightRefreshUI
+            // Use the local refreshStatePanel() directly since _sagaRefreshUI
             // is not yet exposed by exposeGlobalBridge() at this point.
             try {
                 refreshStatePanel();
@@ -378,14 +378,14 @@ function installExtensionsMenuButton() {
     if (!menu) return;
 
     // Guard against double-installation
-    if (document.getElementById('wandlight-extensions-menu-button')) return;
+    if (document.getElementById('saga-extensions-menu-button')) return;
 
     // Clear any stale "no extensions" placeholder
     const placeholder = document.getElementById('extensionsMenuDefault');
     if (placeholder) placeholder.remove();
 
     const btn = document.createElement('div');
-    btn.id = 'wandlight-extensions-menu-button';
+    btn.id = 'saga-extensions-menu-button';
     btn.className = 'list-group-item flex-container flexGap5 interactable';
     btn.title = 'Open SAGA runtime window and extension settings.';
 
@@ -394,7 +394,7 @@ function installExtensionsMenuButton() {
     // Click opens settings panel + optionally lore panel
     btn.addEventListener('click', () => {
         // Scroll/focus the settings panel
-        const panel = document.getElementById('wandlight_settings');
+        const panel = document.getElementById('saga_settings');
         if (panel) {
             panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
             // Expand all inline drawers so settings are visible
@@ -425,13 +425,13 @@ function normalizeSettingsPanelBranding(container) {
         break;
     }
 
-    const openWindowBtn = container.querySelector('#wandlight_open_window');
+    const openWindowBtn = container.querySelector('#saga_open_window');
     if (openWindowBtn) {
         openWindowBtn.title = 'Open the SAGA runtime window.';
         openWindowBtn.innerHTML = '<i class="fa-solid fa-up-right-from-square"></i> Open SAGA Window';
     }
 
-    const resetWindowBtn = container.querySelector('#wandlight_reset_window');
+    const resetWindowBtn = container.querySelector('#saga_reset_window');
     if (resetWindowBtn) {
         resetWindowBtn.title = 'Reset the SAGA runtime window to its safe default position, size, tab, shelf state, and section dropdown defaults.';
     }
@@ -450,7 +450,7 @@ function wireSettingsPanel(container) {
     normalizeSettingsPanelBranding(container);
 
     // Open runtime window button in settings panel
-    const openWindowBtn = container.querySelector('#wandlight_open_window');
+    const openWindowBtn = container.querySelector('#saga_open_window');
     if (openWindowBtn) {
         openWindowBtn.addEventListener('click', (event) => {
             event?.preventDefault?.();
@@ -460,7 +460,7 @@ function wireSettingsPanel(container) {
     }
 
     // Reset runtime window geometry to a safe default if it is off-screen or too small to grab.
-    const resetWindowBtn = container.querySelector('#wandlight_reset_window');
+    const resetWindowBtn = container.querySelector('#saga_reset_window');
     if (resetWindowBtn) {
         resetWindowBtn.addEventListener('click', (event) => {
             event?.preventDefault?.();
@@ -508,12 +508,12 @@ function wireSettingsPanel(container) {
 // ════════════════════════════════════════════════════════════════════════════════
 
 function exposeGlobalBridge() {
-    globalThis._wandlightBuildMemo = buildMemo;
-    globalThis._wandlightRefreshUI = refreshStatePanel;
-    globalThis._wandlightGetState = getState;
-    globalThis._wandlightShowLorePanel = showLorePanel;
-    globalThis._wandlightHideLorePanel = hideLorePanel;
-    globalThis._wandlightRefreshLorePanel = refreshLorePanel;
+    globalThis._sagaBuildMemo = buildMemo;
+    globalThis._sagaRefreshUI = refreshStatePanel;
+    globalThis._sagaGetState = getState;
+    globalThis._sagaShowLorePanel = showLorePanel;
+    globalThis._sagaHideLorePanel = hideLorePanel;
+    globalThis._sagaRefreshLorePanel = refreshLorePanel;
     globalThis._sagaGetLastLoreInjectionAudit = getLastLoreInjectionAudit;
     globalThis._sagaGetLastLoredeckRetrievalAudit = getLastLoredeckRetrievalAudit;
     globalThis._sagaSearchLorecards = (query, options = {}) => searchAcceptedLorecards(getState(), query, options);
@@ -527,7 +527,7 @@ function exposeGlobalBridge() {
 
 /**
  * Refreshes runtime surfaces. Called from
- * buttons, events, and via globalThis._wandlightRefreshUI().
+ * buttons, events, and via globalThis._sagaRefreshUI().
  */
 function refreshStatePanel() {
     try {

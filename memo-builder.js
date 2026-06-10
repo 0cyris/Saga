@@ -1,5 +1,5 @@
 /**
- * memo-builder.js — Wandlight
+ * memo-builder.js — Saga
  * Builds split continuity-state and lore-entry injection previews/memos.
  */
 
@@ -418,4 +418,4 @@ export function getMemoSignature(state, mode = null, kind = 'combined') {
     return JSON.stringify(payload);
 }
 
-globalThis._wandlightBuildMemo = buildMemo;
+globalThis._sagaBuildMemo = buildMemo;

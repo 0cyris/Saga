@@ -2,13 +2,13 @@
 
 Date: 2026-06-05
 
-This audit marks Wandlight-era features and assumptions that should be removed, renamed, or isolated before Saga's public-facing MVP hardens. The goal is not broad cosmetic churn for its own sake. The goal is to stop shipping Wandlight-specific product behavior as if it were Saga architecture.
+This audit marks Saga-era features and assumptions that should be removed, renamed, or isolated before Saga's public-facing MVP hardens. The goal is not broad cosmetic churn for its own sake. The goal is to stop shipping Saga-specific product behavior as if it were Saga architecture.
 
-Implementation status: the full Wandlight chat preset product path, fast reply-header Context detection, and root `Lore/` fallback have been removed from runtime scope. Remaining high-priority cleanup moves to slash/prompt/state namespace migration.
+Implementation status: the full Saga chat preset product path, fast reply-header Context detection, and root `Lore/` fallback have been removed from runtime scope. Remaining high-priority cleanup moves to slash/prompt/state namespace migration.
 
 ## Current Direction
 
-Saga should not include the full Wandlight chat-completion preset in MVP. That preset was a Harry Potter/Wandlight workflow artifact, not a general Loredeck framework feature.
+Saga should not include the full Saga chat-completion preset in MVP. That preset was a Harry Potter/Saga workflow artifact, not a general Loredeck framework feature.
 
 Because the preset is out of scope, fast reply-header Context detection has also left MVP scope. Context should be determined by the Context tab, Context Browser, manual Context locks, local structured/date resolution, and bounded Reasoner Provider proposals against known Loredeck candidates.
 
@@ -18,15 +18,15 @@ Because the preset is out of scope, fast reply-header Context detection has also
 
 These are user-facing or runtime-active features that conflict with Saga's current direction.
 
-1. Full Wandlight chat preset
+1. Full Saga chat preset
    - Files and code:
-     - `Presets/Wandlight-1.4.json`
-     - `constants.js`: `WANDLIGHT_PRESET_NAME`, `WANDLIGHT_PRESET_VERSION`, `WANDLIGHT_PRESET_ASSET_PATH`
-     - `lore-panel.js`: `createWandlightPresetStatusCard`, `refreshWandlightPresetStatusCard`, `getWandlightPresetStatus`, `loadBundledWandlightPreset`, `installBundledWandlightPreset`, related version helpers, and Session-tab insertion
+     - `Presets/Saga-1.4.json`
+     - `constants.js`: `SAGA_PRESET_NAME`, `SAGA_PRESET_VERSION`, `SAGA_PRESET_ASSET_PATH`
+     - `lore-panel.js`: `createSagaPresetStatusCard`, `refreshSagaPresetStatusCard`, `getSagaPresetStatus`, `loadBundledSagaPreset`, `installBundledSagaPreset`, related version helpers, and Session-tab insertion
      - `lore-panel.js`: guide steps keyed to `session.preset`
    - Remove behavior:
      - No preset status card.
-     - No install/update/download controls for the Wandlight preset.
+     - No install/update/download controls for the Saga preset.
      - No walkthrough steps that imply a preset is expected.
    - Replacement:
      - Session tab should describe Saga runtime status, loaded Loredecks, selected Context, and injection health.
@@ -34,11 +34,11 @@ These are user-facing or runtime-active features that conflict with Saga's curre
 2. Fast reply-header Context detection
    - Files and code:
      - `constants.js`: `contextHeaderDetectionEnabled` defaults and managed Basic settings
-     - `lore-generator.js`: `WANDLIGHT_REPLY_HEADER_RE`, `extractWandlightReplyHeader`, `inferStoryContextFromReplyHeaders`, header-first branch in `runLoreContextDetection`
+     - `lore-generator.js`: `SAGA_REPLY_HEADER_RE`, `extractSagaReplyHeader`, `inferStoryContextFromReplyHeaders`, header-first branch in `runLoreContextDetection`
      - `lore-panel.js`: Fast reply-header toggle, tooltips, guide step `fast-header`
      - `scripts/test-context-header-detection.mjs`
    - Remove behavior:
-     - Do not scan assistant replies for a Wandlight date/time/location/weather header.
+     - Do not scan assistant replies for a Saga date/time/location/weather header.
      - Do not skip Reasoner calls based on a preset-only header format.
    - Replacement:
      - Keep source-message count and Reasoner fallback threshold.
@@ -46,7 +46,7 @@ These are user-facing or runtime-active features that conflict with Saga's curre
 
 3. Harry Potter-specific Context detector prompt and correction path
    - Files and code:
-     - `constants.js`: `LORE_CONTEXT_DETECTION_SYSTEM_PROMPT` is explicitly "Wandlight" and "Harry Potter / Hogwarts"
+     - `constants.js`: `LORE_CONTEXT_DETECTION_SYSTEM_PROMPT` is explicitly "Saga" and "Harry Potter / Hogwarts"
      - `lore-generator.js`: `inferHarryPotterCanonBoundary`, `correctHarryPotterCanonContext`
      - `continuity-scanner.js`: `inferHpBoundaryFromText`
    - Remove behavior:
@@ -70,38 +70,38 @@ These are user-facing or runtime-active features that conflict with Saga's curre
 
 ### P1: Rename Or Isolate Before Public MVP
 
-These are not necessarily bad features, but they still expose Wandlight implementation details.
+These are not necessarily bad features, but they still expose Saga implementation details.
 
 1. Slash command namespace
    - Files and code:
-     - `index.js`: `/wandlight-extract`, `/wandlight-memo`, `/wandlight-state`, `/wandlight-lore-detect`, `/wandlight-lore-scan`, `/wandlight-lore-generate`, `/wandlight-lore-accept`, `/wandlight-lore-reject`, `/wandlight-lore-panel`
+     - `index.js`: `/saga-extract`, `/saga-memo`, `/saga-state`, `/saga-lore-detect`, `/saga-lore-scan`, `/saga-lore-generate`, `/saga-lore-accept`, `/saga-lore-reject`, `/saga-lore-panel`
    - Target:
      - Add `/saga-*` commands.
-     - Remove or hide `/wandlight-*` commands before public MVP unless we explicitly decide to keep compatibility aliases.
+     - Remove or hide `/saga-*` commands before public MVP unless we explicitly decide to keep compatibility aliases.
 
 2. Prompt injection names and markers
    - Files and code:
      - `manifest.json`: active `generate_interceptor` now points at `sagaInterceptor`
-     - `prompt-injector.js`: legacy aliases `wandlightInterceptor`, `wandlightSyncPromptInjection`, `wandlightClearPromptInjection`, and prompt keys beginning `wandlight_`
+     - `prompt-injector.js`: legacy aliases `sagaInterceptor`, `sagaSyncPromptInjection`, `sagaClearPromptInjection`, and prompt keys beginning `saga_`
      - `memo-builder.js` and `prompt-injector.js`: active model-visible wrappers now use `[SAGA ...]`
    - Target:
      - Rename active prompt keys and remaining global bridge functions to Saga.
-     - Clear old Wandlight prompt keys once after migration so stale extension prompts do not remain injected.
+     - Clear old Saga prompt keys once after migration so stale extension prompts do not remain injected.
 
 3. Settings and chat metadata namespace
    - Files and code:
-     - `constants.js`: `MODULE_KEY = 'wandlight'`
-     - `state-manager.js`: reads/writes `extensionSettings.wandlight` and `chatMetadata.wandlight`
+     - `constants.js`: `MODULE_KEY = 'saga'`
+     - `state-manager.js`: reads/writes `extensionSettings.saga` and `chatMetadata.saga`
    - Target:
      - Move to `saga` settings/state keys.
-     - Decide whether we perform one-time import from `wandlight` or intentionally start clean for Saga public builds.
+     - Decide whether we perform one-time import from `saga` or intentionally start clean for Saga public builds.
    - Risk:
      - This touches persistence, migrations, prompt sync, and tests. Do this in a dedicated slice.
 
 4. Provider preset naming
    - Files and code:
      - `Presets/Provider-1.2.json`
-     - `constants.js`: `WANDLIGHT_PROVIDER_PRESET_*`
+     - `constants.js`: `SAGA_PROVIDER_PRESET_*`
      - `lore-panel.js` and `ui.js`: Provider preset install/status helpers
    - Decision needed:
      - If Saga has no preset concept at all, remove this too.
@@ -109,8 +109,8 @@ These are not necessarily bad features, but they still expose Wandlight implemen
 
 5. Theme and icon legacy IDs
    - Files and code:
-     - `constants.js`: default `themePackId: 'wandlight-default'`
-     - `lore-panel.js`: bundled Theme Pack id `wandlight-default`
+     - `constants.js`: default `themePackId: 'saga-default'`
+     - `lore-panel.js`: bundled Theme Pack id `saga-default`
      - `Images/iconsets/saga-mystic` and `Images/iconsets/saga-relay` replace the retired `saga-gold` alternate icon set.
    - Target:
      - Rename active default theme id to a Saga name such as `saga-archive`.
@@ -121,7 +121,7 @@ These are not necessarily bad features, but they still expose Wandlight implemen
      - `index.js`, `auto-relevance.js`, `continuity-scanner.js`, `lore-generator.js`, `lore-panel.js`, `memo-builder.js`, docs
    - Target:
      - Prompts and UI copy should say Saga, Context, Loredecks, and Lorecards.
-     - Internal comments can lag if they are not user-visible, but model prompts should not identify as Wandlight.
+     - Internal comments can lag if they are not user-visible, but model prompts should not identify as Saga.
 
 ### P2: Defer Or Avoid Unless It Blocks Work
 
@@ -129,7 +129,7 @@ These are broad internal implementation names. Changing them now is high-churn a
 
 1. CSS class namespace
    - Files and code:
-     - `style.css` and most UI builders use `wandlight-*` classes.
+     - `style.css` and most UI builders use `saga-*` classes.
    - Recommendation:
      - Leave for now. This is a large CSS/DOM churn slice with little MVP value.
      - Revisit only if we want clean extension internals after feature stabilization.
@@ -137,24 +137,24 @@ These are broad internal implementation names. Changing them now is high-churn a
 2. Legacy normalization aliases
    - Files and code:
      - `lore-matrix.js`: lifecycle aliases, `activeWhen`, v2/v3 compatibility normalization
-     - `state-manager.js`: `wandlightGeneration`, `wandlightPendingReview`
+     - `state-manager.js`: `sagaGeneration`, `sagaPendingReview`
    - Recommendation:
      - Remove only after all bundled data, generated data, custom deck import/export, and pending review patches are schema-v3 native.
      - Until then, these helpers prevent data loss while we finish migration.
 
 3. Existing documentation render filenames
    - Files and code:
-     - `Images/documentation/renders/wandlight-*`
+     - `Images/documentation/renders/saga-*`
    - Recommendation:
      - Replace when new Saga screenshots are curated. Do not block runtime cleanup on image filename churn.
 
 ## Suggested Removal Sequence
 
-1. Done: remove the full Wandlight preset UI and file.
+1. Done: remove the full Saga preset UI and file.
 2. Done: remove fast reply-header Context detection and its tests.
 3. Done: replace the HP-specific Context system prompt with a Saga Context resolver prompt.
 4. Done: remove the root `Lore/` fallback and update canon/health copy to refer to loaded Loredecks.
-5. Partly done: Saga prompt wrappers, manifest interceptor, and Saga prompt globals are active. Next, add Saga slash commands, rename prompt keys, and remove Wandlight aliases.
+5. Partly done: Saga prompt wrappers, manifest interceptor, and Saga prompt globals are active. Next, add Saga slash commands, rename prompt keys, and remove Saga aliases.
 6. Decide Provider preset fate: remove entirely or rename as a Saga utility preset.
 7. Rename `MODULE_KEY` and persisted state only in a dedicated migration slice.
 

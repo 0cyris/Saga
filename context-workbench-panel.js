@@ -105,7 +105,7 @@ function exportContextWorkbenchTimelineRegistry(pack) { return dep('exportContex
 
 export function createContextWorkbenchTimelineView(state = {}, contextIndex = null) {
     const view = document.createElement('div');
-    view.className = 'wandlight-context-workbench-view';
+    view.className = 'saga-context-workbench-view';
     const pack = getContextWorkbenchPack(state);
     if (!pack) {
         view.appendChild(createEmptyMessage('No loaded Loredeck selected.'));
@@ -123,7 +123,7 @@ export function createContextWorkbenchTimelineView(state = {}, contextIndex = nu
     view.appendChild(createContextWorkbenchTimelineControls(state, contextIndex, pack, allItems, visibleItems));
 
     const main = document.createElement('div');
-    main.className = 'wandlight-context-workbench-main';
+    main.className = 'saga-context-workbench-main';
     main.appendChild(createContextWorkbenchTimelineTable(pack, visibleItems, selected));
     main.appendChild(createContextWorkbenchInspector(pack, selected, allItems, contextIndex));
     view.appendChild(main);
@@ -132,12 +132,12 @@ export function createContextWorkbenchTimelineView(state = {}, contextIndex = nu
 
 function createContextWorkbenchTimelineControls(state, contextIndex, pack, allItems = [], visibleItems = []) {
     const controls = document.createElement('div');
-    controls.className = 'wandlight-context-workbench-controls';
+    controls.className = 'saga-context-workbench-controls';
     controls.appendChild(createContextWorkbenchPackSelector(state, contextIndex));
 
     const search = document.createElement('input');
     search.type = 'search';
-    search.className = 'wandlight-lore-workbench-search';
+    search.className = 'saga-lore-workbench-search';
     search.placeholder = 'Search anchors, windows, arcs, dates, aliases, tags...';
     search.value = getContextWorkbenchQuery();
     addTooltip(search, 'Search the selected Loredeck timeline registry.');
@@ -148,7 +148,7 @@ function createContextWorkbenchTimelineControls(state, contextIndex, pack, allIt
     controls.appendChild(search);
 
     const type = document.createElement('select');
-    type.className = 'wandlight-lore-workbench-select';
+    type.className = 'saga-lore-workbench-select';
     addTooltip(type, 'Filter timeline rows by registry object type.');
     const activeTypeFilter = getContextWorkbenchTypeFilter();
     for (const [value, label] of [['all', 'All Types'], ['anchor', 'Anchors'], ['window', 'Windows']]) {
@@ -166,7 +166,7 @@ function createContextWorkbenchTimelineControls(state, contextIndex, pack, allIt
     controls.appendChild(type);
 
     const count = document.createElement('div');
-    count.className = 'wandlight-lore-workbench-count';
+    count.className = 'saga-lore-workbench-count';
     count.textContent = `${visibleItems.length} / ${allItems.length} shown`;
     controls.appendChild(count);
 
@@ -196,9 +196,9 @@ function createContextWorkbenchTimelineControls(state, contextIndex, pack, allIt
 
 function createContextWorkbenchTimelineTable(pack, items = [], selected = null) {
     const table = document.createElement('div');
-    table.className = 'wandlight-context-workbench-table';
+    table.className = 'saga-context-workbench-table';
     const header = document.createElement('div');
-    header.className = 'wandlight-context-workbench-table-row wandlight-context-workbench-row-header';
+    header.className = 'saga-context-workbench-table-row saga-context-workbench-row-header';
     for (const label of ['Type', 'Label / ID', 'Context', 'Coordinates', 'Aliases', 'Tags', 'Attached', 'State']) {
         const cell = document.createElement('div');
         cell.textContent = label;
@@ -215,9 +215,9 @@ function createContextWorkbenchTimelineTable(pack, items = [], selected = null) 
         const key = getContextTimelineItemKey(item);
         const def = item.definition || {};
         const row = document.createElement('div');
-        row.className = 'wandlight-context-workbench-table-row';
-        if (selected && key === getContextTimelineItemKey(selected)) row.classList.add('wandlight-context-workbench-row-active');
-        if (item.disabled) row.classList.add('wandlight-context-workbench-row-disabled');
+        row.className = 'saga-context-workbench-table-row';
+        if (selected && key === getContextTimelineItemKey(selected)) row.classList.add('saga-context-workbench-row-active');
+        if (item.disabled) row.classList.add('saga-context-workbench-row-disabled');
         row.addEventListener('click', () => {
             setContextWorkbenchSelectedKey(key);
             renderContextWorkbench();
@@ -234,7 +234,7 @@ function createContextWorkbenchTimelineTable(pack, items = [], selected = null) 
     }
     if (items.length > 500) {
         const note = document.createElement('div');
-        note.className = 'wandlight-lore-workbench-row-note';
+        note.className = 'saga-lore-workbench-row-note';
         note.textContent = `Showing first 500 of ${items.length} matching definitions. Narrow the search to inspect more precisely.`;
         table.appendChild(note);
     }
@@ -243,7 +243,7 @@ function createContextWorkbenchTimelineTable(pack, items = [], selected = null) 
 
 function createContextWorkbenchInspector(pack, selected = null, allItems = [], contextIndex = null) {
     const detail = document.createElement('div');
-    detail.className = 'wandlight-context-workbench-inspector';
+    detail.className = 'saga-context-workbench-inspector';
     if (!selected) {
         detail.appendChild(createEmptyMessage('Select an anchor or window to inspect it.'));
         return detail;
@@ -251,12 +251,12 @@ function createContextWorkbenchInspector(pack, selected = null, allItems = [], c
     const def = selected.definition || {};
 
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-inspector-title';
+    title.className = 'saga-context-workbench-inspector-title';
     title.textContent = def.label || selected.id || 'Timeline Definition';
     detail.appendChild(title);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(selected.kind === 'window' ? 'Window' : 'Anchor', 'Timeline registry object type.'));
     chips.appendChild(createStatusPill(selected.registryState || 'source', 'Source/custom overlay state.'));
     chips.appendChild(createStatusPill(`${selected.entryIds?.length || 0} attached`, 'Lorecards attached to this timeline Context.'));
@@ -264,7 +264,7 @@ function createContextWorkbenchInspector(pack, selected = null, allItems = [], c
     detail.appendChild(chips);
 
     const grid = document.createElement('div');
-    grid.className = 'wandlight-context-workbench-inspector-grid';
+    grid.className = 'saga-context-workbench-inspector-grid';
     grid.appendChild(createKeyValue('ID', selected.id, 'Stable timeline registry ID.'));
     grid.appendChild(createKeyValue('Context', getContextTimelineItemContextText(selected) || 'unset', 'Sort key or sort range.'));
     if (selected.kind === 'window') {
@@ -278,10 +278,10 @@ function createContextWorkbenchInspector(pack, selected = null, allItems = [], c
     detail.appendChild(grid);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-context-workbench-inspector-actions';
+    actions.className = 'saga-primary-actions saga-context-workbench-inspector-actions';
     actions.appendChild(createButton('Apply to Context', 'Set the selected Loredeck Context to this anchor/window.', () => {
         applyContextTimelineItem(pack.packId, selected);
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
 
     const editButton = createButton('Edit Definition', 'Edit this timeline definition as a Pending Review proposal.', () => {
         if (selected.kind === 'anchor') openLoredeckTimelineAnchorDialog(pack, selected);
@@ -299,7 +299,7 @@ function createContextWorkbenchInspector(pack, selected = null, allItems = [], c
     if (selected.customDefined) {
         const forgetButton = createButton('Forget Overlay', 'Queue removal of this Custom timeline overlay definition.', () => {
             removeLoredeckTimelineDefinition(pack, selected.kind, selected.id);
-        }, 'wandlight-danger-button');
+        }, 'saga-danger-button');
         forgetButton.disabled = pack.type === 'bundled';
         actions.appendChild(forgetButton);
     }
@@ -318,14 +318,14 @@ function createContextWorkbenchInspector(pack, selected = null, allItems = [], c
     const issues = getContextWorkbenchValidationIssues(pack, allItems, contextIndex).filter(issue => issue.itemKey === getContextTimelineItemKey(selected));
     if (issues.length) {
         const issueWrap = document.createElement('div');
-        issueWrap.className = 'wandlight-context-workbench-mini-list';
+        issueWrap.className = 'saga-context-workbench-mini-list';
         const issueTitle = document.createElement('div');
-        issueTitle.className = 'wandlight-runtime-card-title';
+        issueTitle.className = 'saga-runtime-card-title';
         issueTitle.textContent = 'Warnings';
         issueWrap.appendChild(issueTitle);
         for (const issue of issues.slice(0, 4)) {
             const row = document.createElement('div');
-            row.className = `wandlight-context-workbench-mini-item wandlight-context-workbench-issue-${issue.severity || 'suggestion'}`;
+            row.className = `saga-context-workbench-mini-item saga-context-workbench-issue-${issue.severity || 'suggestion'}`;
             row.textContent = issue.message;
             issueWrap.appendChild(row);
         }
@@ -336,13 +336,13 @@ function createContextWorkbenchInspector(pack, selected = null, allItems = [], c
 
 export function createContextWorkbenchShell(state = {}, contextIndex = null) {
     const shell = document.createElement('div');
-    shell.className = 'wandlight-lore-workbench-shell wandlight-context-workbench-shell';
+    shell.className = 'saga-lore-workbench-shell saga-context-workbench-shell';
     shell.addEventListener('click', event => event.stopPropagation());
 
     shell.appendChild(createContextWorkbenchHeader(state, contextIndex));
 
     const body = document.createElement('div');
-    body.className = 'wandlight-context-workbench-body';
+    body.className = 'saga-context-workbench-body';
     const activeTab = getContextWorkbenchTab();
     if (activeTab === 'timeline') {
         body.appendChild(createContextWorkbenchTimelineView(state, contextIndex));
@@ -360,26 +360,26 @@ export function createContextWorkbenchShell(state = {}, contextIndex = null) {
 
 function createContextWorkbenchHeader(state = {}, contextIndex = null) {
     const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-header wandlight-context-workbench-header';
+    header.className = 'saga-lore-workbench-header saga-context-workbench-header';
 
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    titleWrap.className = 'saga-lore-workbench-title-wrap';
     const title = document.createElement('div');
-    title.className = 'wandlight-lore-workbench-title';
+    title.className = 'saga-lore-workbench-title';
     title.textContent = 'Context Workbench';
     titleWrap.appendChild(title);
 
     const stack = getContextWorkbenchStack(state);
     const selectedPack = getContextWorkbenchPack(state);
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.className = 'saga-lore-workbench-subtitle';
     subtitle.textContent = selectedPack
         ? `${selectedPack.title || selectedPack.packId} | ${stack.length} loaded Loredeck${stack.length === 1 ? '' : 's'}`
         : 'Load a Loredeck stack to set Context.';
     titleWrap.appendChild(subtitle);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-context-workbench-header-chips';
+    chips.className = 'saga-context-workbench-header-chips';
     chips.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Loaded Context timeline registry status.'));
     if (selectedPack) {
         const context = getLoredeckContext(state, selectedPack.packId);
@@ -393,7 +393,7 @@ function createContextWorkbenchHeader(state = {}, contextIndex = null) {
     header.appendChild(titleWrap);
 
     const tabs = document.createElement('div');
-    tabs.className = 'wandlight-lore-workbench-mode-tabs wandlight-context-workbench-tabs';
+    tabs.className = 'saga-lore-workbench-mode-tabs saga-context-workbench-tabs';
     const activeTab = getContextWorkbenchTab();
     for (const [id, label] of [
         ['context', 'Context'],
@@ -403,8 +403,8 @@ function createContextWorkbenchHeader(state = {}, contextIndex = null) {
     ]) {
         const tab = document.createElement('button');
         tab.type = 'button';
-        tab.className = 'wandlight-lore-workbench-mode-tab';
-        if (activeTab === id) tab.classList.add('wandlight-lore-workbench-mode-tab-active');
+        tab.className = 'saga-lore-workbench-mode-tab';
+        if (activeTab === id) tab.classList.add('saga-lore-workbench-mode-tab-active');
         tab.textContent = label;
         addTooltip(tab, getContextWorkbenchTabTooltip(id));
         tab.addEventListener('click', () => {
@@ -416,7 +416,7 @@ function createContextWorkbenchHeader(state = {}, contextIndex = null) {
     header.appendChild(tabs);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-context-workbench-header-actions';
+    actions.className = 'saga-primary-actions saga-context-workbench-header-actions';
     actions.appendChild(createButton('Refresh Index', 'Reload loaded Loredeck timeline registries and refresh the workbench.', async (btn) => {
         await runBusyAction(btn, 'Refreshing...', async () => {
             clearContextIndexCache();
@@ -425,7 +425,7 @@ function createContextWorkbenchHeader(state = {}, contextIndex = null) {
             refreshContextHeader();
         });
     }));
-    actions.appendChild(createButton('Done', 'Close the Context Workbench.', closeContextWorkbench, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Done', 'Close the Context Workbench.', closeContextWorkbench, 'saga-primary-button'));
     header.appendChild(actions);
     return header;
 }
@@ -439,7 +439,7 @@ function getContextWorkbenchTabTooltip(tabId = '') {
 
 export function createContextWorkbenchPackSelector(state = {}, contextIndex = null) {
     const select = document.createElement('select');
-    select.className = 'wandlight-lore-workbench-select';
+    select.className = 'saga-lore-workbench-select';
     addTooltip(select, 'Selected loaded Loredeck for timeline, alias, and validation views.');
     const selectedPackId = getContextWorkbenchPackId();
     for (const item of getContextWorkbenchStack(state)) {
@@ -460,7 +460,7 @@ export function createContextWorkbenchPackSelector(state = {}, contextIndex = nu
 
 export function createContextWorkbenchContextView(state = {}, contextIndex = null) {
     const view = document.createElement('div');
-    view.className = 'wandlight-context-workbench-view wandlight-context-workbench-context-view';
+    view.className = 'saga-context-workbench-view saga-context-workbench-context-view';
     const stack = getContextWorkbenchStack(state);
     if (!stack.length) {
         view.appendChild(createEmptyMessage('No enabled Loredecks are loaded. Open the Loredeck Library and add decks to the active stack first.'));
@@ -468,11 +468,11 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
     }
 
     const controls = document.createElement('div');
-    controls.className = 'wandlight-context-workbench-controls';
+    controls.className = 'saga-context-workbench-controls';
     controls.appendChild(createButton('Resolve From Context', 'Use current Context and loaded timeline aliases to update unlocked Contexts.', async (btn) => {
         await resolveContextsFromContext(btn);
         renderContextWorkbench();
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     controls.appendChild(createButton('Resolve With Reasoner', 'Ask the configured Reasoning Provider to resolve unresolved Contexts using bounded known candidates.', async (btn) => {
         await modelResolveContexts(btn);
         renderContextWorkbench();
@@ -484,9 +484,9 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
     view.appendChild(controls);
 
     const table = document.createElement('div');
-    table.className = 'wandlight-context-workbench-context-table';
+    table.className = 'saga-context-workbench-context-table';
     const header = document.createElement('div');
-    header.className = 'wandlight-context-workbench-context-row wandlight-context-workbench-row-header';
+    header.className = 'saga-context-workbench-context-row saga-context-workbench-row-header';
     for (const label of ['Loredeck', 'Current Context', 'Source', 'Index', 'Manual Lock', 'Actions']) {
         const cell = document.createElement('div');
         cell.textContent = label;
@@ -499,8 +499,8 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
         const context = getLoredeckContext(state, item.packId);
         const packIndex = getContextPackSummary(contextIndex, item.packId);
         const row = document.createElement('div');
-        row.className = 'wandlight-context-workbench-context-row';
-        if (item.packId === selectedPackId) row.classList.add('wandlight-context-workbench-row-active');
+        row.className = 'saga-context-workbench-context-row';
+        if (item.packId === selectedPackId) row.classList.add('saga-context-workbench-row-active');
         row.addEventListener('click', () => {
             setContextWorkbenchPackId(item.packId);
             renderContextWorkbench();
@@ -511,7 +511,7 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
         row.appendChild(createWorkbenchTextCell(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors` : 'No timeline', packIndex?.hasIndex ? `${packIndex.windowCount || 0} windows` : 'Load or create registry data'));
 
         const lockCell = document.createElement('label');
-        lockCell.className = 'wandlight-context-workbench-lock';
+        lockCell.className = 'saga-context-workbench-lock';
         const check = document.createElement('input');
         check.type = 'checkbox';
         check.checked = context.manualLock === true;
@@ -526,7 +526,7 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
         row.appendChild(lockCell);
 
         const actions = document.createElement('div');
-        actions.className = 'wandlight-context-workbench-row-actions';
+        actions.className = 'saga-context-workbench-row-actions';
         actions.appendChild(createButton('Timeline', 'Open this Loredeck in the Timeline tab.', () => {
             setContextWorkbenchPackId(item.packId);
             setContextWorkbenchTab('timeline');
@@ -535,13 +535,13 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
         }));
         actions.appendChild(createButton('Reset', 'Clear this Loredeck Context.', async () => {
             await resetLoredeckContextFromWorkbench(item.packId);
-        }, 'wandlight-danger-button'));
+        }, 'saga-danger-button'));
         row.appendChild(actions);
         table.appendChild(row);
     }
 
     const layout = document.createElement('div');
-    layout.className = 'wandlight-context-workbench-context-layout';
+    layout.className = 'saga-context-workbench-context-layout';
     layout.appendChild(table);
     layout.appendChild(createContextWorkbenchContextEditor(state, contextIndex));
     view.appendChild(layout);
@@ -551,7 +551,7 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
 function createContextWorkbenchContextEditor(state = {}, contextIndex = null) {
     const pack = getContextWorkbenchPack(state);
     const panel = document.createElement('div');
-    panel.className = 'wandlight-context-workbench-inspector wandlight-context-workbench-context-editor';
+    panel.className = 'saga-context-workbench-inspector saga-context-workbench-context-editor';
     if (!pack?.packId) {
         panel.appendChild(createEmptyMessage('Select a loaded Loredeck to edit its Context.'));
         return panel;
@@ -560,12 +560,12 @@ function createContextWorkbenchContextEditor(state = {}, contextIndex = null) {
     const context = getLoredeckContext(state, pack.packId);
     const packIndex = getContextPackSummary(contextIndex, pack.packId);
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-inspector-title';
+    title.className = 'saga-context-workbench-inspector-title';
     title.textContent = pack.title || getLoredeckDisplayName(pack.packId);
     panel.appendChild(title);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(getContextTypeLabel(context.contextType), 'Context mode for this Loredeck.'));
     chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.'));
     chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts are protected from automatic resolver overwrites.'));
@@ -574,7 +574,7 @@ function createContextWorkbenchContextEditor(state = {}, contextIndex = null) {
     panel.appendChild(chips);
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-context-summary';
+    summary.className = 'saga-loredeck-context-summary';
     summary.textContent = formatContextSummary(context);
     panel.appendChild(summary);
 
@@ -583,12 +583,12 @@ function createContextWorkbenchContextEditor(state = {}, contextIndex = null) {
     panel.appendChild(createContextWorkbenchContextPicker(pack, context, contextIndex));
 
     const grid = document.createElement('div');
-    grid.className = 'wandlight-context-workbench-editor-grid';
+    grid.className = 'saga-context-workbench-editor-grid';
     appendContextManualFields(grid, pack.packId, context);
     panel.appendChild(grid);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-context-workbench-inspector-actions';
+    actions.className = 'saga-primary-actions saga-context-workbench-inspector-actions';
     actions.appendChild(createButton('Seed From Context', 'Seed this Context from the current Context fields.', () => {
         seedLoredeckContextFromRuntimeContext(pack.packId, context);
     }));
@@ -599,7 +599,7 @@ function createContextWorkbenchContextEditor(state = {}, contextIndex = null) {
     }));
     actions.appendChild(createButton('Reset Context', 'Clear this Loredeck Context.', async () => {
         await resetLoredeckContextFromWorkbench(pack.packId);
-    }, 'wandlight-danger-button'));
+    }, 'saga-danger-button'));
     panel.appendChild(actions);
     return panel;
 }
@@ -615,19 +615,19 @@ const CONTEXT_WAYPOINT_FILTER_OPTIONS = Object.freeze([
 
 function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex = null) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-context-workbench-waypoint-browser';
+    wrap.className = 'saga-context-workbench-waypoint-browser';
 
     const top = document.createElement('div');
-    top.className = 'wandlight-context-workbench-waypoint-top';
+    top.className = 'saga-context-workbench-waypoint-top';
     const label = document.createElement('div');
-    label.className = 'wandlight-runtime-card-title';
+    label.className = 'saga-runtime-card-title';
     label.textContent = 'Browse Story Waypoints';
     addTooltip(label, 'Choose major timeline points directly. Use After and Before on two waypoints to build a Context window.');
     top.appendChild(label);
 
     const search = document.createElement('input');
     search.type = 'search';
-    search.className = 'wandlight-lore-workbench-search';
+    search.className = 'saga-lore-workbench-search';
     search.placeholder = 'Search: Christmas 6th Year, Ron Lavender, Hogsmeade...';
     search.value = getContextWorkbenchWaypointQuery();
     addTooltip(search, 'Search first-class timeline waypoints and, when loaded, Lorecard-derived event waypoints.');
@@ -644,7 +644,7 @@ function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex 
     top.appendChild(search);
 
     const filter = document.createElement('select');
-    filter.className = 'wandlight-lore-workbench-select';
+    filter.className = 'saga-lore-workbench-select';
     addTooltip(filter, 'Control how much of the Loredeck Context map is shown.');
     const activeFilter = getContextWorkbenchWaypointFilter();
     for (const [value, text] of CONTEXT_WAYPOINT_FILTER_OPTIONS) {
@@ -663,7 +663,7 @@ function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex 
     top.appendChild(createButton('Find', 'Search browser waypoints.', () => {
         setContextWorkbenchWaypointQuery(search.value.trim());
         renderContextWorkbench();
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
 
     const cachedEntries = getLoredeckEntryPreview(pack?.packId);
     const loadEvents = createButton(cachedEntries?.loadedAt ? 'Reload Events' : 'Load Events', 'Load Lorecards so the browser can include event-level Context waypoints.', async (btn) => {
@@ -680,7 +680,7 @@ function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex 
     const visible = filterContextWorkbenchWaypointItems(allItems, getContextWorkbenchWaypointQuery(), getContextWorkbenchWaypointFilter());
     const capped = visible.slice(0, 80);
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
+    meta.className = 'saga-loredeck-row-meta';
     const firstClassCount = allItems.filter(item => item.source === 'timeline').length;
     const eventCount = allItems.filter(item => item.source === 'lorecard').length;
     meta.appendChild(createStatusPill(`${firstClassCount} timeline`, 'First-class anchors/windows from the Loredeck timeline registry.'));
@@ -692,7 +692,7 @@ function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex 
     wrap.appendChild(meta);
 
     const list = document.createElement('div');
-    list.className = 'wandlight-context-workbench-waypoint-list';
+    list.className = 'saga-context-workbench-waypoint-list';
     if (!allItems.length) {
         list.appendChild(createEmptyMessage('No Context waypoints are loaded for this Loredeck yet.'));
     } else if (!visible.length) {
@@ -705,7 +705,7 @@ function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex 
         }
         if (visible.length > capped.length) {
             const note = document.createElement('div');
-            note.className = 'wandlight-runtime-help';
+            note.className = 'saga-runtime-help';
             note.textContent = `Showing ${capped.length} of ${visible.length} matching waypoints. Narrow the search for a smaller set.`;
             list.appendChild(note);
         }
@@ -716,29 +716,29 @@ function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex 
 
 function createContextWorkbenchWindowBuilderSummary(pack, context = {}) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-context-workbench-window-builder';
+    wrap.className = 'saga-context-workbench-window-builder';
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-window-builder-title';
+    title.className = 'saga-context-workbench-window-builder-title';
     title.textContent = 'Current Window';
     addTooltip(title, 'Use After and Before on browser waypoints to define the active Context window for this Loredeck.');
     wrap.appendChild(title);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
+    meta.className = 'saga-loredeck-row-meta';
     meta.appendChild(createStatusPill(context.anchorFrom ? `After: ${formatContextAnchorBoundaryLabel(context.anchorFrom, context)}` : 'After: unset', 'Lower Context bound.'));
     meta.appendChild(createStatusPill(context.anchorTo ? `Before: ${formatContextAnchorBoundaryLabel(context.anchorTo, context)}` : 'Before: unset', 'Upper Context bound.'));
     meta.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts are protected from automatic updates.'));
     wrap.appendChild(meta);
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-context-workbench-window-summary';
+    summary.className = 'saga-context-workbench-window-summary';
     summary.textContent = context.anchorFrom || context.anchorTo
         ? formatContextSummary(context)
         : 'Select After on one waypoint and Before on another to create a bounded Context window.';
     wrap.appendChild(summary);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     const lockButton = createButton(context.manualLock ? 'Unlock' : 'Lock Context', 'Toggle whether automatic Context detection may replace this selected window.', () => {
         commitLoredeckContextPatch(pack.packId, { manualLock: !context.manualLock }, `Toggle Context lock: ${getLoredeckDisplayName(pack.packId)}`, { manual: false });
     });
@@ -888,23 +888,23 @@ function getContextWaypointSearchText(item = {}) {
 function createContextWorkbenchWaypointRow(pack, item = {}, context = {}) {
     const def = item.definition || {};
     const row = document.createElement('div');
-    row.className = 'wandlight-context-workbench-waypoint-row';
-    if (item.source === 'lorecard') row.classList.add('wandlight-context-workbench-waypoint-row-entry');
-    if (context.anchorId && normalizeLoredeckTimelineId(context.anchorId) === normalizeLoredeckTimelineId(item.id)) row.classList.add('wandlight-context-workbench-row-active');
+    row.className = 'saga-context-workbench-waypoint-row';
+    if (item.source === 'lorecard') row.classList.add('saga-context-workbench-waypoint-row-entry');
+    if (context.anchorId && normalizeLoredeckTimelineId(context.anchorId) === normalizeLoredeckTimelineId(item.id)) row.classList.add('saga-context-workbench-row-active');
     if ((context.anchorFrom && normalizeLoredeckTimelineId(context.anchorFrom) === normalizeLoredeckTimelineId(item.id))
         || (context.anchorTo && normalizeLoredeckTimelineId(context.anchorTo) === normalizeLoredeckTimelineId(item.id))) {
-        row.classList.add('wandlight-context-workbench-row-active');
+        row.classList.add('saga-context-workbench-row-active');
     }
 
     const main = document.createElement('div');
-    main.className = 'wandlight-context-workbench-context-picker-main';
+    main.className = 'saga-context-workbench-context-picker-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-context-picker-title';
+    title.className = 'saga-context-workbench-context-picker-title';
     title.textContent = def.label || item.entry?.title || item.id || 'Waypoint';
     main.appendChild(title);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-context-workbench-context-picker-meta';
+    meta.className = 'saga-context-workbench-context-picker-meta';
     meta.textContent = [
         getContextWaypointKindLabel(item),
         item.id,
@@ -916,15 +916,15 @@ function createContextWorkbenchWaypointRow(pack, item = {}, context = {}) {
     row.appendChild(main);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-context-workbench-row-actions';
+    actions.className = 'saga-context-workbench-row-actions';
     if (item.kind === 'window') {
         actions.appendChild(createButton('Use Window', 'Apply this whole timeline window as the current Context.', () => {
             applyContextTimelineItem(pack.packId, item);
-        }, 'wandlight-primary-button'));
+        }, 'saga-primary-button'));
     } else {
         actions.appendChild(createButton('Start Here', 'Apply this waypoint as the exact starting Context.', () => {
             applyContextWaypointItem(pack.packId, item);
-        }, 'wandlight-primary-button'));
+        }, 'saga-primary-button'));
         actions.appendChild(createButton('After', 'Use this waypoint as the lower bound of the current Context window.', () => {
             applyContextWaypointBoundary(pack.packId, item, 'from');
         }));
@@ -1018,19 +1018,19 @@ function applyContextWaypointBoundary(packId, item = {}, mode = 'from') {
 
 function createContextWorkbenchResolverTester(pack, context = {}, contextIndex = null) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-context-workbench-resolver';
+    wrap.className = 'saga-context-workbench-resolver';
 
     const top = document.createElement('div');
-    top.className = 'wandlight-context-workbench-resolver-top';
+    top.className = 'saga-context-workbench-resolver-top';
     const label = document.createElement('div');
-    label.className = 'wandlight-runtime-card-title';
+    label.className = 'saga-runtime-card-title';
     label.textContent = 'Phrase Resolver';
     addTooltip(label, 'Test casual context phrasing against this Loredeck timeline registry before applying a match.');
     top.appendChild(label);
 
     const input = document.createElement('input');
     input.type = 'search';
-    input.className = 'wandlight-lore-workbench-search';
+    input.className = 'saga-lore-workbench-search';
     input.placeholder = 'Try: after the Yule Ball, pre-Endgame, post Shibuya...';
     input.value = getContextWorkbenchResolverQuery();
     addTooltip(input, 'Local-only resolver test using loaded anchor labels, IDs, aliases, dates, arcs, tags, and coordinates.');
@@ -1049,7 +1049,7 @@ function createContextWorkbenchResolverTester(pack, context = {}, contextIndex =
     top.appendChild(createButton('Test Phrase', 'Run the local phrase resolver for this Loredeck.', () => {
         setContextWorkbenchResolverQuery(input.value.trim());
         renderContextWorkbench();
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     top.appendChild(createButton('Use Context', 'Use the current Context and runtime context text as the test phrase.', () => {
         const seed = getContextResolverSeedText(context);
         if (!seed) {
@@ -1073,7 +1073,7 @@ function createContextWorkbenchResolverTester(pack, context = {}, contextIndex =
     wrap.appendChild(top);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
+    meta.className = 'saga-loredeck-row-meta';
     const packIndex = getContextPackSummary(contextIndex, pack?.packId);
     meta.appendChild(createStatusPill('Local match', 'This test does not call a model.'));
     meta.appendChild(createStatusPill(packIndex?.hasIndex ? `${packIndex.anchorCount || 0} anchors` : 'No index', 'Anchor count available to the local resolver.'));
@@ -1089,7 +1089,7 @@ function createContextWorkbenchResolverTester(pack, context = {}, contextIndex =
     wrap.appendChild(meta);
 
     const list = document.createElement('div');
-    list.className = 'wandlight-context-workbench-resolver-results';
+    list.className = 'saga-context-workbench-resolver-results';
     const query = String(resolverQuery || '').trim();
     const analysis = analyzeContextQuery(query);
     if (query) {
@@ -1169,14 +1169,14 @@ function createContextWorkbenchResolverTester(pack, context = {}, contextIndex =
 
 function createContextResolverDiagnosticCard(titleText = 'Resolver note', lines = [], severity = 'suggestion') {
     const card = document.createElement('div');
-    card.className = `wandlight-context-workbench-resolver-diagnostic wandlight-context-workbench-issue-${severity || 'suggestion'}`;
+    card.className = `saga-context-workbench-resolver-diagnostic saga-context-workbench-issue-${severity || 'suggestion'}`;
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-context-picker-title';
+    title.className = 'saga-context-workbench-context-picker-title';
     title.textContent = titleText;
     card.appendChild(title);
     for (const line of lines.filter(Boolean).slice(0, 5)) {
         const item = document.createElement('div');
-        item.className = 'wandlight-context-workbench-resolver-diagnostic-line';
+        item.className = 'saga-context-workbench-resolver-diagnostic-line';
         item.textContent = line;
         card.appendChild(item);
     }
@@ -1207,17 +1207,17 @@ function createContextWorkbenchResolverResult(pack, match = {}, currentAnchorId 
     const anchor = match.anchor || {};
     const id = normalizeLoredeckTimelineId(anchor.id);
     const row = document.createElement('div');
-    row.className = 'wandlight-context-workbench-resolver-row';
-    if (id && id === currentAnchorId) row.classList.add('wandlight-context-workbench-row-active');
+    row.className = 'saga-context-workbench-resolver-row';
+    if (id && id === currentAnchorId) row.classList.add('saga-context-workbench-row-active');
 
     const main = document.createElement('div');
-    main.className = 'wandlight-context-workbench-context-picker-main';
+    main.className = 'saga-context-workbench-context-picker-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-context-picker-title';
+    title.className = 'saga-context-workbench-context-picker-title';
     title.textContent = anchor.label || id || 'Anchor';
     main.appendChild(title);
     const meta = document.createElement('div');
-    meta.className = 'wandlight-context-workbench-context-picker-meta';
+    meta.className = 'saga-context-workbench-context-picker-meta';
     meta.textContent = [
         id,
         getContextResolverConfidenceLabel(match.score),
@@ -1229,22 +1229,22 @@ function createContextWorkbenchResolverResult(pack, match = {}, currentAnchorId 
     ].filter(Boolean).join(' | ');
     main.appendChild(meta);
     const reason = document.createElement('div');
-    reason.className = 'wandlight-context-workbench-resolver-reason';
+    reason.className = 'saga-context-workbench-resolver-reason';
     reason.textContent = formatContextResolverReasonText(match);
     main.appendChild(reason);
     row.appendChild(main);
 
     const score = document.createElement('div');
-    score.className = 'wandlight-context-workbench-resolver-score';
+    score.className = 'saga-context-workbench-resolver-score';
     score.textContent = String(Math.round(Number(match.score) || 0));
     addTooltip(score, 'Local resolver match score. Higher is better; this is not model confidence.');
     row.appendChild(score);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-context-workbench-row-actions';
+    actions.className = 'saga-context-workbench-row-actions';
     actions.appendChild(createButton('Apply', 'Apply this anchor as the exact Context.', () => {
         applyContextAnchor(pack.packId, anchor);
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     actions.appendChild(createButton('After', 'Use this anchor as the lower bound of the current Context window.', () => {
         applyContextAnchorBoundary(pack.packId, { kind: 'anchor', id, definition: anchor }, 'from');
     }));
@@ -1263,17 +1263,17 @@ function createContextWorkbenchResolverResult(pack, match = {}, currentAnchorId 
 function createContextWorkbenchEntryResolverResult(pack, match = {}) {
     const entry = match.entry || {};
     const row = document.createElement('div');
-    row.className = 'wandlight-context-workbench-resolver-row wandlight-context-workbench-resolver-row-entry';
+    row.className = 'saga-context-workbench-resolver-row saga-context-workbench-resolver-row-entry';
 
     const main = document.createElement('div');
-    main.className = 'wandlight-context-workbench-context-picker-main';
+    main.className = 'saga-context-workbench-context-picker-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-context-picker-title';
+    title.className = 'saga-context-workbench-context-picker-title';
     title.textContent = entry.title || match.row?.id || 'Lorecard candidate';
     main.appendChild(title);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-context-workbench-context-picker-meta';
+    meta.className = 'saga-context-workbench-context-picker-meta';
     meta.textContent = [
         'Lorecard-derived',
         match.row?.id,
@@ -1285,22 +1285,22 @@ function createContextWorkbenchEntryResolverResult(pack, match = {}) {
     main.appendChild(meta);
 
     const reason = document.createElement('div');
-    reason.className = 'wandlight-context-workbench-resolver-reason';
+    reason.className = 'saga-context-workbench-resolver-reason';
     reason.textContent = formatContextResolverReasonText(match);
     main.appendChild(reason);
     row.appendChild(main);
 
     const score = document.createElement('div');
-    score.className = 'wandlight-context-workbench-resolver-score';
+    score.className = 'saga-context-workbench-resolver-score';
     score.textContent = String(Math.round(Number(match.score) || 0));
     addTooltip(score, 'Entry-derived resolver match score. Higher is better; this is not model confidence.');
     row.appendChild(score);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-context-workbench-row-actions';
+    actions.className = 'saga-context-workbench-row-actions';
     actions.appendChild(createButton('Apply', 'Apply this Lorecard-derived Context to the current chat.', () => {
         applyContextEntryCandidate(pack.packId, match);
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     if (pack.type === 'bundled') {
         actions.appendChild(createButton('Duplicate as Custom', 'Create an editable Custom Loredeck before promoting Lorecard-derived anchors.', () => {
             openDuplicateLoredeckDialog(pack);
@@ -1380,19 +1380,19 @@ function uniqueStrings(values = []) {
 
 function createContextWorkbenchContextPicker(pack, context = {}, contextIndex = null) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-context-workbench-context-picker';
+    wrap.className = 'saga-context-workbench-context-picker';
 
     const top = document.createElement('div');
-    top.className = 'wandlight-context-workbench-context-picker-top';
+    top.className = 'saga-context-workbench-context-picker-top';
     const label = document.createElement('div');
-    label.className = 'wandlight-runtime-card-title';
+    label.className = 'saga-runtime-card-title';
     label.textContent = 'Select From Timeline';
     addTooltip(label, 'Search known anchors/windows and apply them to the selected Loredeck Context.');
     top.appendChild(label);
 
     const search = document.createElement('input');
     search.type = 'search';
-    search.className = 'wandlight-lore-workbench-search';
+    search.className = 'saga-lore-workbench-search';
     search.placeholder = 'Search anchors, windows, aliases...';
     search.value = getContextWorkbenchContextQuery();
     addTooltip(search, 'Search timeline labels, IDs, aliases, tags, arcs, dates, episodes, chapters, and attached Lorecard IDs.');
@@ -1435,7 +1435,7 @@ function createContextWorkbenchContextPicker(pack, context = {}, contextIndex = 
     }
 
     const list = document.createElement('div');
-    list.className = 'wandlight-context-workbench-context-picker-list';
+    list.className = 'saga-context-workbench-context-picker-list';
     if (!items.length) {
         list.appendChild(createEmptyMessage('No timeline registry rows are loaded for this Loredeck yet.'));
     } else if (!visible.length) {
@@ -1449,7 +1449,7 @@ function createContextWorkbenchContextPicker(pack, context = {}, contextIndex = 
 
     if (!q && items.length > visible.length) {
         const note = document.createElement('div');
-        note.className = 'wandlight-runtime-help';
+        note.className = 'saga-runtime-help';
         note.textContent = `Showing ${visible.length} of ${items.length} timeline rows. Search to narrow the registry.`;
         wrap.appendChild(note);
     }
@@ -1478,18 +1478,18 @@ function createContextWorkbenchContextPickerRow(pack, item = {}, currentKey = ''
     const def = item.definition || {};
     const key = getContextTimelineItemKey(item);
     const row = document.createElement('div');
-    row.className = 'wandlight-context-workbench-context-picker-row';
-    if (key === currentKey) row.classList.add('wandlight-context-workbench-row-active');
-    if (item.disabled) row.classList.add('wandlight-context-workbench-row-disabled');
+    row.className = 'saga-context-workbench-context-picker-row';
+    if (key === currentKey) row.classList.add('saga-context-workbench-row-active');
+    if (item.disabled) row.classList.add('saga-context-workbench-row-disabled');
 
     const main = document.createElement('div');
-    main.className = 'wandlight-context-workbench-context-picker-main';
+    main.className = 'saga-context-workbench-context-picker-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-context-picker-title';
+    title.className = 'saga-context-workbench-context-picker-title';
     title.textContent = def.label || item.id || 'Timeline row';
     main.appendChild(title);
     const meta = document.createElement('div');
-    meta.className = 'wandlight-context-workbench-context-picker-meta';
+    meta.className = 'saga-context-workbench-context-picker-meta';
     meta.textContent = [
         item.kind === 'window' ? 'Window' : 'Anchor',
         item.id,
@@ -1501,15 +1501,15 @@ function createContextWorkbenchContextPickerRow(pack, item = {}, currentKey = ''
     row.appendChild(main);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-context-workbench-row-actions';
+    actions.className = 'saga-context-workbench-row-actions';
     if (item.kind === 'window') {
         actions.appendChild(createButton('Use Window', 'Apply this timeline window as the selected Context.', () => {
             applyContextTimelineItem(pack.packId, item);
-        }, 'wandlight-primary-button'));
+        }, 'saga-primary-button'));
     } else {
         actions.appendChild(createButton('Use Anchor', 'Apply this anchor as the exact Context.', () => {
             applyContextTimelineItem(pack.packId, item);
-        }, 'wandlight-primary-button'));
+        }, 'saga-primary-button'));
         actions.appendChild(createButton('After', 'Use this anchor as the lower bound of the current Context window.', () => {
             applyContextAnchorBoundary(pack.packId, item, 'from');
         }));
@@ -1523,7 +1523,7 @@ function createContextWorkbenchContextPickerRow(pack, item = {}, currentKey = ''
 
 export function createContextWorkbenchAliasesView(state = {}, contextIndex = null) {
     const view = document.createElement('div');
-    view.className = 'wandlight-context-workbench-view';
+    view.className = 'saga-context-workbench-view';
     const pack = getContextWorkbenchPack(state);
     if (!pack) {
         view.appendChild(createEmptyMessage('No loaded Loredeck selected.'));
@@ -1534,11 +1534,11 @@ export function createContextWorkbenchAliasesView(state = {}, contextIndex = nul
     const aliasRows = getContextWorkbenchAliasRows(filteredItems);
 
     const controls = document.createElement('div');
-    controls.className = 'wandlight-context-workbench-controls';
+    controls.className = 'saga-context-workbench-controls';
     controls.appendChild(createContextWorkbenchPackSelector(state, contextIndex));
     const search = document.createElement('input');
     search.type = 'search';
-    search.className = 'wandlight-lore-workbench-search';
+    search.className = 'saga-lore-workbench-search';
     search.placeholder = 'Search aliases and targets...';
     search.value = getContextWorkbenchQuery();
     addTooltip(search, 'Search resolver aliases, target labels, IDs, tags, and coordinates.');
@@ -1548,7 +1548,7 @@ export function createContextWorkbenchAliasesView(state = {}, contextIndex = nul
     });
     controls.appendChild(search);
     const count = document.createElement('div');
-    count.className = 'wandlight-lore-workbench-count';
+    count.className = 'saga-lore-workbench-count';
     count.textContent = `${aliasRows.length} aliases`;
     controls.appendChild(count);
     controls.appendChild(createButton('Timeline', 'Return to the timeline spreadsheet.', () => {
@@ -1558,9 +1558,9 @@ export function createContextWorkbenchAliasesView(state = {}, contextIndex = nul
     view.appendChild(controls);
 
     const table = document.createElement('div');
-    table.className = 'wandlight-context-workbench-alias-table';
+    table.className = 'saga-context-workbench-alias-table';
     const header = document.createElement('div');
-    header.className = 'wandlight-context-workbench-alias-row wandlight-context-workbench-row-header';
+    header.className = 'saga-context-workbench-alias-row saga-context-workbench-row-header';
     for (const label of ['Alias', 'Target', 'Kind', 'Context', 'State', 'Warning', 'Actions']) {
         const cell = document.createElement('div');
         cell.textContent = label;
@@ -1600,8 +1600,8 @@ function createContextWorkbenchAliasRow(pack, aliasRow = {}) {
     const item = aliasRow.item || {};
     const def = item.definition || {};
     const row = document.createElement('div');
-    row.className = 'wandlight-context-workbench-alias-row';
-    if (aliasRow.duplicate) row.classList.add('wandlight-context-workbench-row-warning');
+    row.className = 'saga-context-workbench-alias-row';
+    if (aliasRow.duplicate) row.classList.add('saga-context-workbench-row-warning');
     row.appendChild(createWorkbenchTextCell(aliasRow.alias, aliasRow.duplicate ? 'duplicate alias' : 'resolver phrase'));
     row.appendChild(createWorkbenchTextCell(def.label || item.id, item.id));
     row.appendChild(createWorkbenchTextCell(item.kind === 'window' ? 'Window' : 'Anchor', item.registryState || 'source'));
@@ -1609,7 +1609,7 @@ function createContextWorkbenchAliasRow(pack, aliasRow = {}) {
     row.appendChild(createWorkbenchTextCell(item.disabled ? 'Disabled' : 'Active', item.registryState || ''));
     row.appendChild(createWorkbenchTextCell(aliasRow.duplicate ? 'Duplicate' : 'OK', aliasRow.duplicate ? 'Same alias maps to multiple targets.' : ''));
     const actions = document.createElement('div');
-    actions.className = 'wandlight-context-workbench-row-actions';
+    actions.className = 'saga-context-workbench-row-actions';
     actions.appendChild(createButton('Select', 'Select this timeline target in the Timeline tab.', () => {
         setContextWorkbenchSelectedKey(getContextTimelineItemKey(item));
         setContextWorkbenchTab('timeline');
@@ -1617,14 +1617,14 @@ function createContextWorkbenchAliasRow(pack, aliasRow = {}) {
     }));
     actions.appendChild(createButton('Apply', 'Use this alias target as the selected Loredeck Context.', () => {
         applyContextTimelineItem(pack.packId, item);
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     row.appendChild(actions);
     return row;
 }
 
 export function createContextWorkbenchValidationView(state = {}, contextIndex = null) {
     const view = document.createElement('div');
-    view.className = 'wandlight-context-workbench-view';
+    view.className = 'saga-context-workbench-view';
     const pack = getContextWorkbenchPack(state);
     if (!pack) {
         view.appendChild(createEmptyMessage('No loaded Loredeck selected.'));
@@ -1634,7 +1634,7 @@ export function createContextWorkbenchValidationView(state = {}, contextIndex = 
     const issues = getContextWorkbenchValidationIssues(pack, items, contextIndex);
 
     const controls = document.createElement('div');
-    controls.className = 'wandlight-context-workbench-controls';
+    controls.className = 'saga-context-workbench-controls';
     controls.appendChild(createContextWorkbenchPackSelector(state, contextIndex));
     const counts = {
         error: issues.filter(issue => issue.severity === 'error').length,
@@ -1648,15 +1648,15 @@ export function createContextWorkbenchValidationView(state = {}, contextIndex = 
         await validateLoredeckForEditor(pack, btn);
         await loadContextIndex({ force: true }).catch(() => null);
         renderContextWorkbench();
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     view.appendChild(controls);
 
     const main = document.createElement('div');
-    main.className = 'wandlight-context-workbench-validation-layout';
+    main.className = 'saga-context-workbench-validation-layout';
     const table = document.createElement('div');
-    table.className = 'wandlight-context-workbench-validation-table';
+    table.className = 'saga-context-workbench-validation-table';
     const header = document.createElement('div');
-    header.className = 'wandlight-context-workbench-validation-row wandlight-context-workbench-row-header';
+    header.className = 'saga-context-workbench-validation-row saga-context-workbench-row-header';
     for (const label of ['Severity', 'Issue', 'Target', 'Suggested Action']) {
         const cell = document.createElement('div');
         cell.textContent = label;
@@ -1793,7 +1793,7 @@ export function getContextWorkbenchValidationIssues(pack, items = [], contextInd
 
 function createContextWorkbenchValidationRow(issue = {}) {
     const row = document.createElement('div');
-    row.className = `wandlight-context-workbench-validation-row wandlight-context-workbench-issue-${issue.severity || 'suggestion'}`;
+    row.className = `saga-context-workbench-validation-row saga-context-workbench-issue-${issue.severity || 'suggestion'}`;
     row.addEventListener('click', () => {
         if (issue.itemKey) {
             setContextWorkbenchSelectedKey(issue.itemKey);
@@ -1810,9 +1810,9 @@ function createContextWorkbenchValidationRow(issue = {}) {
 
 function createContextWorkbenchValidationSummary(pack, items = [], issues = []) {
     const panel = document.createElement('div');
-    panel.className = 'wandlight-context-workbench-inspector';
+    panel.className = 'saga-context-workbench-inspector';
     const title = document.createElement('div');
-    title.className = 'wandlight-context-workbench-inspector-title';
+    title.className = 'saga-context-workbench-inspector-title';
     title.textContent = 'Timeline Summary';
     panel.appendChild(title);
     const anchors = items.filter(item => item.kind === 'anchor');
@@ -1820,7 +1820,7 @@ function createContextWorkbenchValidationSummary(pack, items = [], issues = []) 
     const aliases = items.reduce((sum, item) => sum + (item.definition?.aliases?.length || 0), 0);
     const attached = items.filter(item => item.entryIds?.length).length;
     const grid = document.createElement('div');
-    grid.className = 'wandlight-context-workbench-inspector-grid';
+    grid.className = 'saga-context-workbench-inspector-grid';
     grid.appendChild(createKeyValue('Deck', pack.title || pack.packId, 'Selected Loredeck.'));
     grid.appendChild(createKeyValue('Anchors', String(anchors.length), 'Timeline anchors visible to the workbench.'));
     grid.appendChild(createKeyValue('Windows', String(windows.length), 'Timeline windows visible to the workbench.'));
@@ -1829,7 +1829,7 @@ function createContextWorkbenchValidationSummary(pack, items = [], issues = []) 
     grid.appendChild(createKeyValue('Issues', String(issues.length), 'Current Context validation findings.'));
     panel.appendChild(grid);
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'This validation is focused on Context structure. Deck Health remains the broader import/export and schema health report.';
     panel.appendChild(help);
     return panel;
@@ -1837,14 +1837,14 @@ function createContextWorkbenchValidationSummary(pack, items = [], issues = []) 
 
 function createWorkbenchTextCell(primary, secondary = '') {
     const cell = document.createElement('div');
-    cell.className = 'wandlight-lore-workbench-cell';
+    cell.className = 'saga-lore-workbench-cell';
     const main = document.createElement('span');
-    main.className = 'wandlight-lore-workbench-cell-main';
+    main.className = 'saga-lore-workbench-cell-main';
     main.textContent = primary || '-';
     cell.appendChild(main);
     if (secondary) {
         const sub = document.createElement('span');
-        sub.className = 'wandlight-lore-workbench-cell-sub';
+        sub.className = 'saga-lore-workbench-cell-sub';
         sub.textContent = truncateText(secondary, 150);
         cell.appendChild(sub);
     }

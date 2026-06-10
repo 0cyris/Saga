@@ -1,5 +1,5 @@
 /**
- * lore-llm-client.js — Wandlight
+ * lore-llm-client.js — Saga
  * Provider abstraction for continuity scanning, lore context detection, and lore generation.
  *
  * Provider roles:

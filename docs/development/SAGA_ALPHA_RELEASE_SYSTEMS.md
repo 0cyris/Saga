@@ -1,6 +1,6 @@
 # Saga Alpha Release Systems
 
-This document identifies the major systems Saga needs working for an alpha release. Alpha does not require every system to be feature-complete, but each system below should be coherent enough that a tester can use Saga in SillyTavern without broken core workflows, stale Wandlight assumptions, or confusing placeholder surfaces.
+This document identifies the major systems Saga needs working for an alpha release. Alpha does not require every system to be feature-complete, but each system below should be coherent enough that a tester can use Saga in SillyTavern without broken core workflows, stale Saga assumptions, or confusing placeholder surfaces.
 
 ## Alpha Definition
 
@@ -47,7 +47,7 @@ The HP reference-deck conformance check now exists at `scripts/test-hp-reference
 
 ### 1. Saga Runtime Shell
 
-The shelf, tabs, fullscreen workbenches, reset behavior, settings routing, and overall Saga runtime surface. This includes removing or hiding stale Wandlight UI and ensuring major windows open, close, reset, and preserve scroll state correctly.
+The shelf, tabs, fullscreen workbenches, reset behavior, settings routing, and overall Saga runtime surface. This includes removing or hiding stale Saga UI and ensuring major windows open, close, reset, and preserve scroll state correctly.
 
 `lore-panel.js` has grown into a monolithic runtime/controller file. The decomposition roadmap lives in [SAGA_LORE_PANEL_DECOMPOSITION_PLAN.md](SAGA_LORE_PANEL_DECOMPOSITION_PLAN.md) and should be followed as a cross-system hardening effort rather than a UI redesign pass.
 
@@ -139,7 +139,7 @@ Large-library responsiveness, no full-window rerenders for small interactions, s
 
 ### 22. Legacy Removal And Terminology Cleanup
 
-Consistent Saga terminology: Loredecks, Lorecards, Context, Theme Packs, Icon Sets. Remove visible Wandlight product behavior, old preset assumptions, legacy extension-menu settings, changelog-style UI copy, and incomplete-feature placeholder messaging.
+Consistent Saga terminology: Loredecks, Lorecards, Context, Theme Packs, Icon Sets. Remove visible Saga product behavior, old preset assumptions, legacy extension-menu settings, changelog-style UI copy, and incomplete-feature placeholder messaging.
 
 ## Alpha Blockers
 

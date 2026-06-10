@@ -1,5 +1,5 @@
 /**
- * context-index.js -- Saga/Wandlight
+ * context-index.js -- Saga/Saga
  * Aggregates pack-local timeline registries for Context lookup.
  */
 

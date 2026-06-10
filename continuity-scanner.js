@@ -1,5 +1,5 @@
 /**
- * continuity-scanner.js — Wandlight
+ * continuity-scanner.js — Saga
  * Checkpointed, chunked continuity scanner.
  *
  * Pipeline:

@@ -1,5 +1,5 @@
 /**
- * retrieval-audit.js -- Saga/Wandlight
+ * retrieval-audit.js -- Saga/Saga
  * Lightweight observability for Lorecard retrieval and prompt injection.
  *
  * Inspired by TunnelVision's retrieval sidecar, but Saga keeps Context gates and

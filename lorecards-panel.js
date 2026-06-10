@@ -44,7 +44,7 @@ import {
 
 let lorecardsPanelDeps = {};
 let acceptedLoreSearchRenderTimer = null;
-const LORE_WORKBENCH_ID = 'wandlight-lore-workbench';
+const LORE_WORKBENCH_ID = 'saga-lore-workbench';
 let loreWorkbenchSearchTimer = null;
 let loreWorkbenchOpen = false;
 let loreWorkbenchMode = 'accepted';
@@ -151,11 +151,11 @@ function getPendingLoreBatchLabel(state) {
 
 function createLoreWorkbenchLaunchRow(mode, summaryText) {
     const row = document.createElement('div');
-    row.className = 'wandlight-lore-workbench-launch-row';
+    row.className = 'saga-lore-workbench-launch-row';
     markTourTarget(row, mode === 'pending' ? 'lore.pending.workbench' : 'lore.accepted.workbench');
 
     const text = document.createElement('div');
-    text.className = 'wandlight-lore-workbench-launch-text';
+    text.className = 'saga-lore-workbench-launch-text';
     text.textContent = summaryText || (mode === 'pending' ? 'Review pending lore in a larger surface.' : 'Manage accepted lore in a larger surface.');
     row.appendChild(text);
 
@@ -165,7 +165,7 @@ function createLoreWorkbenchLaunchRow(mode, summaryText) {
             ? 'Open a larger Pending Lore Review workspace with dense rows and a detail pane.'
             : 'Open a larger Accepted Lore workspace with filters, bulk actions, dense rows, and a detail pane.',
         () => openLoreWorkbench(mode),
-        'wandlight-small-button wandlight-lore-workbench-open-button'
+        'saga-small-button saga-lore-workbench-open-button'
     );
     row.appendChild(btn);
     return row;
@@ -223,7 +223,7 @@ function renderLoreWorkbench() {
     if (!overlay) {
         overlay = document.createElement('div');
         overlay.id = LORE_WORKBENCH_ID;
-        overlay.className = 'wandlight-lore-workbench-overlay';
+        overlay.className = 'saga-lore-workbench-overlay';
         overlay.tabIndex = -1;
         wireOverlayBackdropClose(overlay, closeLoreWorkbench);
         overlay.addEventListener('keydown', (event) => {
@@ -232,7 +232,7 @@ function renderLoreWorkbench() {
         document.body.appendChild(overlay);
     }
 
-    const previousTable = overlay.querySelector?.('.wandlight-lore-workbench-table');
+    const previousTable = overlay.querySelector?.('.saga-lore-workbench-table');
     if (previousTable) loreWorkbenchScrollState[loreWorkbenchMode] = previousTable.scrollTop || 0;
 
     const focusSelector = loreWorkbenchFocusSelector;
@@ -245,20 +245,20 @@ function renderLoreWorkbench() {
             const len = String(focusTarget.value || '').length;
             focusTarget.setSelectionRange(len, len);
         }
-        const table = overlay.querySelector?.('.wandlight-lore-workbench-table');
+        const table = overlay.querySelector?.('.saga-lore-workbench-table');
         if (table) table.scrollTop = loreWorkbenchScrollState[loreWorkbenchMode] || 0;
     });
 }
 
 function createLoreWorkbenchShell(state) {
     const shell = document.createElement('div');
-    shell.className = 'wandlight-lore-workbench-shell';
+    shell.className = 'saga-lore-workbench-shell';
     shell.addEventListener('click', event => event.stopPropagation());
 
     shell.appendChild(createLoreWorkbenchHeader(state));
 
     const body = document.createElement('div');
-    body.className = 'wandlight-lore-workbench-body';
+    body.className = 'saga-lore-workbench-body';
     body.appendChild(loreWorkbenchMode === 'pending'
         ? createPendingLoreWorkbenchView(state)
         : createAcceptedLoreWorkbenchView(state));
@@ -269,33 +269,33 @@ function createLoreWorkbenchShell(state) {
 
 function createLoreWorkbenchHeader(state) {
     const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-header';
+    header.className = 'saga-lore-workbench-header';
 
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    titleWrap.className = 'saga-lore-workbench-title-wrap';
     const title = document.createElement('div');
-    title.className = 'wandlight-lore-workbench-title';
+    title.className = 'saga-lore-workbench-title';
     title.textContent = 'Lore Workbench';
     titleWrap.appendChild(title);
 
     const acceptedCount = normalizeLoreMatrix(state?.loreMatrix || []).length;
     const pendingCount = normalizeLoreMatrix(state?.pendingLoreEntries || []).length;
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.className = 'saga-lore-workbench-subtitle';
     subtitle.textContent = `${acceptedCount} accepted | ${pendingCount} pending`;
     titleWrap.appendChild(subtitle);
     header.appendChild(titleWrap);
 
     const modeTabs = document.createElement('div');
-    modeTabs.className = 'wandlight-lore-workbench-mode-tabs';
+    modeTabs.className = 'saga-lore-workbench-mode-tabs';
     for (const [mode, label, count] of [
         ['accepted', 'Accepted', acceptedCount],
         ['pending', 'Pending', pendingCount],
     ]) {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'wandlight-lore-workbench-mode-tab';
-        if (loreWorkbenchMode === mode) btn.classList.add('wandlight-lore-workbench-mode-tab-active');
+        btn.className = 'saga-lore-workbench-mode-tab';
+        if (loreWorkbenchMode === mode) btn.classList.add('saga-lore-workbench-mode-tab-active');
         btn.textContent = `${label} (${count})`;
         btn.addEventListener('click', () => {
             loreWorkbenchMode = mode;
@@ -307,24 +307,24 @@ function createLoreWorkbenchHeader(state) {
     }
     header.appendChild(modeTabs);
 
-    const close = createButton('Close', 'Close the Lore Workbench.', () => closeLoreWorkbench(), 'wandlight-small-button wandlight-lore-workbench-close');
+    const close = createButton('Close', 'Close the Lore Workbench.', () => closeLoreWorkbench(), 'saga-small-button saga-lore-workbench-close');
     header.appendChild(close);
     return header;
 }
 
 function createAcceptedLoreWorkbenchView(state) {
     const view = document.createElement('div');
-    view.className = 'wandlight-lore-workbench-view wandlight-lore-workbench-view-accepted';
+    view.className = 'saga-lore-workbench-view saga-lore-workbench-view-accepted';
 
     view.appendChild(createAcceptedWorkbenchControls(state));
 
     const bulk = document.createElement('div');
-    bulk.className = 'wandlight-workbench-bulk-toolbar wandlight-workbench-accepted-bulk-toolbar';
+    bulk.className = 'saga-workbench-bulk-toolbar saga-workbench-accepted-bulk-toolbar';
     bulk.appendChild(createAcceptedLoreBulkControls(state));
     view.appendChild(bulk);
 
     const main = document.createElement('div');
-    main.className = 'wandlight-lore-workbench-main';
+    main.className = 'saga-lore-workbench-main';
 
     const filtered = getFilteredLoreEntries(state);
     main.appendChild(createAcceptedWorkbenchTable(filtered, state));
@@ -336,13 +336,13 @@ function createAcceptedLoreWorkbenchView(state) {
 
 function createAcceptedWorkbenchControls(state) {
     const controls = document.createElement('div');
-    controls.className = 'wandlight-lore-workbench-controls';
+    controls.className = 'saga-lore-workbench-controls';
     const panelState = state?.lorePanel || {};
     const loreState = getPanelLoreState(state);
 
     const search = document.createElement('input');
     search.type = 'text';
-    search.className = 'wandlight-lore-workbench-search';
+    search.className = 'saga-lore-workbench-search';
     search.dataset.workbenchFocus = 'accepted-search';
     search.placeholder = 'Search accepted lore...';
     search.value = panelState.search || '';
@@ -355,7 +355,7 @@ function createAcceptedWorkbenchControls(state) {
     controls.appendChild(search);
 
     const category = document.createElement('select');
-    category.className = 'wandlight-lore-workbench-select';
+    category.className = 'saga-lore-workbench-select';
     for (const cat of loreState.categories || ['all']) {
         if (cat === 'pending') continue;
         const opt = document.createElement('option');
@@ -373,7 +373,7 @@ function createAcceptedWorkbenchControls(state) {
     controls.appendChild(category);
 
     const source = document.createElement('select');
-    source.className = 'wandlight-lore-workbench-select';
+    source.className = 'saga-lore-workbench-select';
     for (const [value, label] of [
         ['all', 'Source: All'],
         ['canon-db', 'Canon Database'],
@@ -402,11 +402,11 @@ function createAcceptedWorkbenchControls(state) {
             refreshAcceptedLoreFilterResults({ resetListScroll: true });
             refreshLoreWorkbench();
         },
-        { className: 'wandlight-lore-workbench-select', tooltip: 'Filter accepted Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
+        { className: 'saga-lore-workbench-select', tooltip: 'Filter accepted Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
     ));
 
     const count = document.createElement('div');
-    count.className = 'wandlight-lore-workbench-count';
+    count.className = 'saga-lore-workbench-count';
     count.textContent = `${getFilteredLoreEntries(state).length} matching`;
     controls.appendChild(count);
 
@@ -415,10 +415,10 @@ function createAcceptedWorkbenchControls(state) {
 
 function createAcceptedWorkbenchTable(entries, state) {
     const table = document.createElement('div');
-    table.className = 'wandlight-lore-workbench-table wandlight-lore-workbench-accepted-table';
+    table.className = 'saga-lore-workbench-table saga-lore-workbench-accepted-table';
 
     const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-row-header';
+    header.className = 'saga-lore-workbench-row saga-lore-workbench-row-header';
     for (const label of ['', 'Title', 'Relevance', 'Source', 'Category', 'Canon', 'Priority', 'Flags']) {
         const cell = document.createElement('div');
         cell.textContent = label;
@@ -435,8 +435,8 @@ function createAcceptedWorkbenchTable(entries, state) {
     const selected = getAcceptedSelectionSet(state);
     for (const entry of visible) {
         const row = document.createElement('div');
-        row.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-entry-row';
-        if (entry.id === loreWorkbenchSelectedId) row.classList.add('wandlight-lore-workbench-row-active');
+        row.className = 'saga-lore-workbench-row saga-lore-workbench-entry-row';
+        if (entry.id === loreWorkbenchSelectedId) row.classList.add('saga-lore-workbench-row-active');
         row.addEventListener('click', () => {
             loreWorkbenchSelectedId = entry.id;
             renderLoreWorkbench();
@@ -472,7 +472,7 @@ function createAcceptedWorkbenchTable(entries, state) {
 
     if (entries.length > visible.length) {
         const more = document.createElement('div');
-        more.className = 'wandlight-lore-workbench-row-note';
+        more.className = 'saga-lore-workbench-row-note';
         more.textContent = `Showing first ${visible.length} of ${entries.length} matching entries. Narrow filters or search to reduce the set.`;
         table.appendChild(more);
     }
@@ -482,7 +482,7 @@ function createAcceptedWorkbenchTable(entries, state) {
 
 function createAcceptedWorkbenchDetail(entries, state) {
     const detail = document.createElement('div');
-    detail.className = 'wandlight-lore-workbench-detail';
+    detail.className = 'saga-lore-workbench-detail';
 
     const entry = entries.find(item => item.id === loreWorkbenchSelectedId) || entries[0];
     if (!entry) {
@@ -498,27 +498,27 @@ function createAcceptedWorkbenchDetail(entries, state) {
         },
     };
     const card = createEntryCard(entry, detailState);
-    card.classList.add('wandlight-lore-workbench-detail-card');
+    card.classList.add('saga-lore-workbench-detail-card');
     detail.appendChild(card);
     return detail;
 }
 
 function createPendingLoreWorkbenchView(state) {
     const view = document.createElement('div');
-    view.className = 'wandlight-lore-workbench-view wandlight-lore-workbench-view-pending';
+    view.className = 'saga-lore-workbench-view saga-lore-workbench-view-pending';
 
     view.appendChild(createPendingWorkbenchControls(state));
 
     const pending = normalizeLoreMatrix(state?.pendingLoreEntries || []);
     if (pending.length) {
         const bulk = document.createElement('div');
-        bulk.className = 'wandlight-workbench-bulk-toolbar wandlight-workbench-pending-bulk-toolbar';
+        bulk.className = 'saga-workbench-bulk-toolbar saga-workbench-pending-bulk-toolbar';
         bulk.appendChild(createPendingLoreBulkControls(pending, state));
         view.appendChild(bulk);
     }
 
     const main = document.createElement('div');
-    main.className = 'wandlight-lore-workbench-main';
+    main.className = 'saga-lore-workbench-main';
     const rows = getPendingWorkbenchRows(state);
     main.appendChild(createPendingWorkbenchTable(rows, state));
     main.appendChild(createPendingWorkbenchDetail(rows, state));
@@ -529,11 +529,11 @@ function createPendingLoreWorkbenchView(state) {
 
 function createPendingWorkbenchControls(state) {
     const controls = document.createElement('div');
-    controls.className = 'wandlight-lore-workbench-controls';
+    controls.className = 'saga-lore-workbench-controls';
 
     const search = document.createElement('input');
     search.type = 'text';
-    search.className = 'wandlight-lore-workbench-search';
+    search.className = 'saga-lore-workbench-search';
     search.dataset.workbenchFocus = 'pending-search';
     search.placeholder = 'Search pending lore...';
     search.value = loreWorkbenchPendingQuery || '';
@@ -553,12 +553,12 @@ function createPendingWorkbenchControls(state) {
             loreWorkbenchSelectedId = '';
             refreshLoreWorkbench();
         },
-        { className: 'wandlight-lore-workbench-select', tooltip: 'Filter pending Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
+        { className: 'saga-lore-workbench-select', tooltip: 'Filter pending Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
     ));
 
     const rows = getPendingWorkbenchRows(state);
     const count = document.createElement('div');
-    count.className = 'wandlight-lore-workbench-count';
+    count.className = 'saga-lore-workbench-count';
     count.textContent = `${rows.length} matching pending`;
     controls.appendChild(count);
 
@@ -566,14 +566,14 @@ function createPendingWorkbenchControls(state) {
         setPendingReviewSelection(rows.map(row => getLoreReviewId(row.entry)));
         refreshPanelBody({ preserveScroll: true });
         refreshLoreWorkbench();
-    }, 'wandlight-small-button');
+    }, 'saga-small-button');
     controls.appendChild(selectFiltered);
 
     const clear = createButton('Clear Selection', 'Clear pending lore selection.', () => {
         clearPendingReviewSelection();
         refreshPanelBody({ preserveScroll: true });
         refreshLoreWorkbench();
-    }, 'wandlight-small-button');
+    }, 'saga-small-button');
     controls.appendChild(clear);
 
     return controls;
@@ -581,10 +581,10 @@ function createPendingWorkbenchControls(state) {
 
 function createPendingWorkbenchTable(rows, state) {
     const table = document.createElement('div');
-    table.className = 'wandlight-lore-workbench-table wandlight-lore-workbench-pending-table';
+    table.className = 'saga-lore-workbench-table saga-lore-workbench-pending-table';
 
     const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-row-header';
+    header.className = 'saga-lore-workbench-row saga-lore-workbench-row-header';
     for (const label of ['', 'Title', 'Operation', 'Route', 'Category', 'Canon', 'Priority']) {
         const cell = document.createElement('div');
         cell.textContent = label;
@@ -602,11 +602,11 @@ function createPendingWorkbenchTable(rows, state) {
     for (const rowInfo of visible) {
         const entry = rowInfo.entry;
         const reviewId = getLoreReviewId(entry);
-        const generation = entry.extensions?.wandlightGeneration || {};
-        const reviewMeta = entry.extensions?.wandlightPendingReview || {};
+        const generation = entry.extensions?.sagaGeneration || {};
+        const reviewMeta = entry.extensions?.sagaPendingReview || {};
         const row = document.createElement('div');
-        row.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-entry-row';
-        if (reviewId === loreWorkbenchSelectedId) row.classList.add('wandlight-lore-workbench-row-active');
+        row.className = 'saga-lore-workbench-row saga-lore-workbench-entry-row';
+        if (reviewId === loreWorkbenchSelectedId) row.classList.add('saga-lore-workbench-row-active');
         row.addEventListener('click', () => {
             loreWorkbenchSelectedId = reviewId;
             renderLoreWorkbench();
@@ -636,7 +636,7 @@ function createPendingWorkbenchTable(rows, state) {
 
     if (rows.length > visible.length) {
         const more = document.createElement('div');
-        more.className = 'wandlight-lore-workbench-row-note';
+        more.className = 'saga-lore-workbench-row-note';
         more.textContent = `Showing first ${visible.length} of ${rows.length} matching pending entries. Narrow search to reduce the set.`;
         table.appendChild(more);
     }
@@ -645,7 +645,7 @@ function createPendingWorkbenchTable(rows, state) {
 
 function createPendingWorkbenchDetail(rows, state) {
     const detail = document.createElement('div');
-    detail.className = 'wandlight-lore-workbench-detail';
+    detail.className = 'saga-lore-workbench-detail';
 
     const selected = rows.find(row => getLoreReviewId(row.entry) === loreWorkbenchSelectedId) || rows[0];
     if (!selected) {
@@ -685,14 +685,14 @@ function getFilteredPendingLoreRows(state = getState()) {
 
 function createWorkbenchTextCell(primary, secondary = '') {
     const cell = document.createElement('div');
-    cell.className = 'wandlight-lore-workbench-cell';
+    cell.className = 'saga-lore-workbench-cell';
     const main = document.createElement('span');
-    main.className = 'wandlight-lore-workbench-cell-main';
+    main.className = 'saga-lore-workbench-cell-main';
     main.textContent = primary || '-';
     cell.appendChild(main);
     if (secondary) {
         const sub = document.createElement('span');
-        sub.className = 'wandlight-lore-workbench-cell-sub';
+        sub.className = 'saga-lore-workbench-cell-sub';
         sub.textContent = truncateText(secondary, 150);
         cell.appendChild(sub);
     }
@@ -712,10 +712,10 @@ export function createPendingLoreBulkControls(pendingLore, state) {
     const selectedCount = pendingIds.filter(id => selectedIds.has(id)).length;
 
     const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-review-bulk-card';
+    card.className = 'saga-runtime-card saga-review-bulk-card';
 
     const header = document.createElement('label');
-    header.className = 'wandlight-review-select-all';
+    header.className = 'saga-review-select-all';
     const selectAll = document.createElement('input');
     selectAll.type = 'checkbox';
     selectAll.checked = selectedCount > 0 && selectedCount === pendingIds.length;
@@ -733,10 +733,10 @@ export function createPendingLoreBulkControls(pendingLore, state) {
     card.appendChild(header);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Apply Selected', 'Accepts only the selected pending lore entries. Use Select All for large batches.', () => {
         applySelectedPendingLore();
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     actions.appendChild(createButton('Dismiss Selected', 'Rejects only the selected pending lore entries.', () => {
         dismissSelectedPendingLore();
     }));
@@ -761,28 +761,28 @@ export function createPendingLoreBulkControls(pendingLore, state) {
 
 export function createPendingLoreReviewCard(entry, index, selected = false) {
     const card = document.createElement('div');
-    card.className = 'wandlight-lore-entry-card wandlight-lore-entry-pending wandlight-pending-review-entry-card';
+    card.className = 'saga-lore-entry-card saga-lore-entry-pending saga-pending-review-entry-card';
     markTourTarget(card, 'lore.pending.entry');
-    if (selected) card.classList.add('wandlight-review-lore-card-selected');
+    if (selected) card.classList.add('saga-review-lore-card-selected');
 
     const headerRow = document.createElement('div');
-    headerRow.className = 'wandlight-lore-entry-header';
+    headerRow.className = 'saga-lore-entry-header';
     headerRow.appendChild(createPendingLoreCheckbox(entry, selected));
 
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-entry-title-wrap';
+    titleWrap.className = 'saga-lore-entry-title-wrap';
     const title = document.createElement('span');
-    title.className = 'wandlight-lore-entry-title';
+    title.className = 'saga-lore-entry-title';
     title.textContent = entry.title || `Pending lore ${index + 1}`;
     addTooltip(title, 'Generated lore entry title. This entry is pending until accepted.');
     titleWrap.appendChild(title);
     headerRow.appendChild(titleWrap);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-lore-entry-actions';
+    actions.className = 'saga-lore-entry-actions';
     actions.appendChild(createEditableLifecycleBadge(entry, { pending: true }));
     const status = document.createElement('span');
-    status.className = 'wandlight-lore-badge wandlight-lore-badge-pending';
+    status.className = 'saga-lore-badge saga-lore-badge-pending';
     status.textContent = 'pending';
     addTooltip(status, 'This lore entry has not been accepted into the accepted lore matrix yet.');
     actions.appendChild(status);
@@ -790,14 +790,14 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
     card.appendChild(headerRow);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-lore-entry-meta';
+    meta.className = 'saga-lore-entry-meta';
     meta.appendChild(createRegistryBadge('category', entry.category || 'other', `Category: ${entry.category || 'other'}. Pending cards use the same compact metadata style as accepted cards.`));
     meta.appendChild(createLorePurposeBadge(entry));
     meta.appendChild(createRegistryBadge('canonStatus', entry.canon || entry.canonStatus || 'canon', `Canon/Story: ${entry.canon || entry.canonStatus || 'canon'}.`));
     appendEntrySourceAndContextBadges(meta, entry);
     meta.appendChild(createBadge(`P${Number(entry.priority || 50)}`, 'Priority used for sorting, injection preference, and canon-lore suggestion limits.'));
-    const generation = entry.extensions?.wandlightGeneration || {};
-    const reviewMeta = entry.extensions?.wandlightPendingReview || {};
+    const generation = entry.extensions?.sagaGeneration || {};
+    const reviewMeta = entry.extensions?.sagaPendingReview || {};
     if (generation.operation) meta.appendChild(createBadge(`Op: ${generation.operation}`, 'Generated lore operation proposed by the story-lore scan.'));
     if (generation.qualityRoute || reviewMeta.qualityRoute) meta.appendChild(createBadge(`Quality: ${generation.qualityRoute || reviewMeta.qualityRoute}`, generation.qualityReason || reviewMeta.qualityReason || 'Generated-lore quality route.'));
     if (generation.similarityRoute || reviewMeta.reviewRoute) meta.appendChild(createBadge(`Route: ${generation.similarityRoute || reviewMeta.reviewRoute}`, generation.similarityReason || reviewMeta.similarityReason || 'Similarity/update routing result.'));
@@ -811,7 +811,7 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
     if (targetId) {
         const target = normalizeLoreMatrix(getState()?.loreMatrix || []).find(item => item.id === targetId);
         const targetBox = document.createElement('div');
-        targetBox.className = 'wandlight-runtime-help wandlight-pending-target-help';
+        targetBox.className = 'saga-runtime-help saga-pending-target-help';
         targetBox.textContent = target
             ? `Targets existing lore: ${target.title || target.id}${target.fact ? ` - ${target.fact}` : ''}`
             : `Targets existing lore id: ${targetId}`;
@@ -821,33 +821,33 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
 
     if (Array.isArray(entry.tags) && entry.tags.length) {
         const tags = createReadOnlyTags(entry.tags);
-        tags.classList.add('wandlight-pending-readonly-tags');
+        tags.classList.add('saga-pending-readonly-tags');
         card.appendChild(tags);
     }
 
     const fact = document.createElement('div');
-    fact.className = 'wandlight-lore-entry-fact';
+    fact.className = 'saga-lore-entry-fact';
     fact.textContent = entry.fact || '(No fact text)';
     addTooltip(fact, 'The fact that will be merged into the accepted lore matrix if applied.');
     card.appendChild(fact);
 
     if (entry.content?.injection && entry.content.injection !== entry.fact) {
         const injection = document.createElement('div');
-        injection.className = 'wandlight-runtime-help wandlight-pending-injection-preview';
+        injection.className = 'saga-runtime-help saga-pending-injection-preview';
         injection.textContent = `Injection: ${entry.content.injection}`;
         addTooltip(injection, 'Model-facing lore text that will be injected after acceptance.');
         card.appendChild(injection);
     }
     if (Array.isArray(entry.content?.constraints) && entry.content.constraints.length) {
         const constraints = document.createElement('div');
-        constraints.className = 'wandlight-runtime-help wandlight-pending-constraints-preview';
+        constraints.className = 'saga-runtime-help saga-pending-constraints-preview';
         constraints.textContent = `Constraints: ${entry.content.constraints.join(' ')}`;
         addTooltip(constraints, 'Specific constraints captured by generated lore.');
         card.appendChild(constraints);
     }
 
     const actionsRow = document.createElement('div');
-    actionsRow.className = 'wandlight-primary-actions wandlight-pending-entry-actions';
+    actionsRow.className = 'saga-primary-actions saga-pending-entry-actions';
     markTourTarget(actionsRow, 'lore.pending.actions');
     const applyLabel = targetId ? 'Apply Update' : 'Apply';
     actionsRow.appendChild(createButton(applyLabel, targetId ? 'Accepts this generated update and merges it into the targeted accepted lore entry.' : 'Accepts this single lore entry and merges it into the accepted lore matrix.', () => {
@@ -856,25 +856,25 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
         refreshPanelBody({ preserveScroll: true });
         refreshHeader();
         refreshLoreWorkbench();
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     if (targetId) {
         actionsRow.appendChild(createButton('Apply as New', 'Accepts this generated lore as a separate new entry instead of updating the routed target.', () => {
             const current = getState();
             const pending = normalizeLoreMatrix(current.pendingLoreEntries || []);
             if (pending[index]) {
-                const generationMeta = pending[index].extensions?.wandlightGeneration || {};
-                const reviewMeta = pending[index].extensions?.wandlightPendingReview || {};
+                const generationMeta = pending[index].extensions?.sagaGeneration || {};
+                const reviewMeta = pending[index].extensions?.sagaPendingReview || {};
                 pending[index] = normalizeLoreEntry({
                     ...pending[index],
                     extensions: {
                         ...(pending[index].extensions || {}),
-                        wandlightGeneration: {
+                        sagaGeneration: {
                             ...generationMeta,
                             operation: 'create',
                             targetEntryId: '',
                             similarityRoute: 'kept_separate',
                         },
-                        wandlightPendingReview: {
+                        sagaPendingReview: {
                             ...reviewMeta,
                             reviewRoute: 'kept_separate',
                             targetEntryId: '',
@@ -906,7 +906,7 @@ export function createPendingLoreReviewCard(entry, index, selected = false) {
 function createPendingLoreCheckbox(entry, checked) {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
-    checkbox.className = 'wandlight-review-lore-checkbox wandlight-lore-entry-select';
+    checkbox.className = 'saga-review-lore-checkbox saga-lore-entry-select';
     checkbox.checked = checked;
     addTooltip(checkbox, checked ? 'Remove this lore entry from the current bulk selection.' : 'Add this lore entry to the current bulk selection.');
     checkbox.addEventListener('click', e => e.stopPropagation());
@@ -920,12 +920,12 @@ function createPendingLoreCheckbox(entry, checked) {
 
 function createReadOnlyTags(tags) {
     const row = document.createElement('div');
-    row.className = 'wandlight-lore-entry-tags';
+    row.className = 'saga-lore-entry-tags';
     for (const tag of tags) {
         const chip = document.createElement('span');
-        chip.className = 'wandlight-lore-tag-chip';
+        chip.className = 'saga-lore-tag-chip';
         const label = document.createElement('span');
-        label.className = 'wandlight-lore-tag-label';
+        label.className = 'saga-lore-tag-label';
         label.textContent = tag;
         chip.appendChild(label);
         row.appendChild(chip);
@@ -985,7 +985,7 @@ function getLoreEntryTypeFilterOptions(entries = []) {
 
 function createLoreTypeFilterSelect(entries, value, onChange, options = {}) {
     const select = document.createElement('select');
-    select.className = options.className || 'wandlight-lore-type-filter';
+    select.className = options.className || 'saga-lore-type-filter';
     addTooltip(select, options.tooltip || 'Filter Lorecards by relevance tier, category, canon/AU status, or injection flag.');
     const active = String(value || 'all');
     for (const [filterValue, label] of getLoreEntryTypeFilterOptions(entries)) {
@@ -1019,13 +1019,13 @@ function createEditableLifecycleBadge(entry, options = {}) {
     const value = getLifecycleStatus(entry);
     const meta = RELEVANCE_META[value] || RELEVANCE_META.normal;
     const wrap = document.createElement('label');
-    wrap.className = 'wandlight-lore-lifecycle-select-wrap';
-    wrap.style.setProperty('--wandlight-chip-bg', meta.color);
-    wrap.style.setProperty('--wandlight-chip-fg', meta.textColor);
+    wrap.className = 'saga-lore-lifecycle-select-wrap';
+    wrap.style.setProperty('--saga-chip-bg', meta.color);
+    wrap.style.setProperty('--saga-chip-fg', meta.textColor);
     addTooltip(wrap, `${meta.label} Relevance: ${meta.tooltip}`);
 
     const select = document.createElement('select');
-    select.className = 'wandlight-lore-lifecycle-select';
+    select.className = 'saga-lore-lifecycle-select';
     select.setAttribute('aria-label', 'Lore relevance');
     select.addEventListener('click', e => e.stopPropagation());
     select.addEventListener('mousedown', e => e.stopPropagation());
@@ -1078,7 +1078,7 @@ function createEditableLifecycleBadge(entry, options = {}) {
 function createRegistryBadge(field, value, tooltip = '') {
     const label = getLoreDisplayLabel(field, value);
     const badge = createBadge(label, tooltip || `${field}: ${label}. Expand the entry to edit.`);
-    badge.classList.add('wandlight-lore-registry-badge');
+    badge.classList.add('saga-lore-registry-badge');
     applyLoreRegistryStyle(badge, field, value);
     return badge;
 }
@@ -1116,7 +1116,7 @@ function getReadableEntrySource(entry = {}) {
     const loredeck = getEntrySagaLoredeckMeta(entry);
     const sourceInfo = isPlainObjectValue(entry.sourceInfo) ? entry.sourceInfo : {};
     const source = cleanLoreChipText(entry.source, 180);
-    const generation = isPlainObjectValue(entry.extensions?.wandlightGeneration) ? entry.extensions.wandlightGeneration : {};
+    const generation = isPlainObjectValue(entry.extensions?.sagaGeneration) ? entry.extensions.sagaGeneration : {};
     const work = cleanLoreChipText(sourceInfo.work, 120);
     const book = cleanLoreChipText(sourceInfo.book, 120);
     const chapter = cleanLoreChipText(sourceInfo.chapter, 120);
@@ -1165,7 +1165,7 @@ function getReadableEntrySource(entry = {}) {
         };
     }
 
-    if (source && !['wandlight', 'model-generated', 'unknown'].includes(source.toLowerCase())) {
+    if (source && !['saga', 'model-generated', 'unknown'].includes(source.toLowerCase())) {
         return {
             label: `Source: ${truncateText(source, 32)}`,
             tooltip: source,
@@ -1179,7 +1179,7 @@ function getReadableEntrySource(entry = {}) {
 
 function createSagaMetadataBadge(label, tooltip, classes = []) {
     const badge = createBadge(label, tooltip);
-    badge.classList.add('wandlight-lore-badge-saga-meta');
+    badge.classList.add('saga-lore-badge-saga-meta');
     for (const className of classes) {
         if (className) badge.classList.add(className);
     }
@@ -1191,9 +1191,9 @@ function createEntrySourceBadges(entry = {}) {
     const source = getReadableEntrySource(entry);
     if (!source?.label) return fragment;
 
-    fragment.appendChild(createSagaMetadataBadge(source.label, source.tooltip || 'Lore source metadata.', ['wandlight-lore-badge-source']));
+    fragment.appendChild(createSagaMetadataBadge(source.label, source.tooltip || 'Lore source metadata.', ['saga-lore-badge-source']));
     if (source.detailLabel) {
-        fragment.appendChild(createSagaMetadataBadge(`Ref: ${truncateText(source.detailLabel, 32)}`, source.detailTooltip || source.tooltip, ['wandlight-lore-badge-source-detail']));
+        fragment.appendChild(createSagaMetadataBadge(`Ref: ${truncateText(source.detailLabel, 32)}`, source.detailTooltip || source.tooltip, ['saga-lore-badge-source-detail']));
     }
     return fragment;
 }
@@ -1232,11 +1232,11 @@ function getContextGateChipLabel(gate = {}) {
 
 function getContextGateClass(gate = {}) {
     const matchedBy = String(gate.matchedBy || '');
-    if (gate.status === 'mismatch' || matchedBy.includes('mismatch') || matchedBy.includes('conflict')) return 'wandlight-lore-badge-context-blocked';
-    if (gate.status === 'unresolved' || matchedBy.includes('unresolved')) return 'wandlight-lore-badge-context-unresolved';
-    if (gate.status === 'match' || matchedBy.includes('context')) return 'wandlight-lore-badge-context-match';
-    if (matchedBy === 'date') return 'wandlight-lore-badge-date-gate';
-    return 'wandlight-lore-badge-context';
+    if (gate.status === 'mismatch' || matchedBy.includes('mismatch') || matchedBy.includes('conflict')) return 'saga-lore-badge-context-blocked';
+    if (gate.status === 'unresolved' || matchedBy.includes('unresolved')) return 'saga-lore-badge-context-unresolved';
+    if (gate.status === 'match' || matchedBy.includes('context')) return 'saga-lore-badge-context-match';
+    if (matchedBy === 'date') return 'saga-lore-badge-date-gate';
+    return 'saga-lore-badge-context';
 }
 
 function hasEntryContextMetadata(entry = {}) {
@@ -1290,12 +1290,12 @@ function createEntryContextBadges(entry = {}) {
             gate.packId ? `Deck ID: ${gate.packId}` : '',
             gate.reason,
         ].filter(Boolean).join(' | ');
-        fragment.appendChild(createSagaMetadataBadge(gateLabel, tooltip, ['wandlight-lore-badge-context', getContextGateClass(gate)]));
+        fragment.appendChild(createSagaMetadataBadge(gateLabel, tooltip, ['saga-lore-badge-context', getContextGateClass(gate)]));
     }
 
     const summary = formatEntryContextSummary(entry);
     if (summary) {
-        fragment.appendChild(createSagaMetadataBadge(`Ctx: ${truncateText(summary, 36)}`, summary, ['wandlight-lore-badge-context']));
+        fragment.appendChild(createSagaMetadataBadge(`Ctx: ${truncateText(summary, 36)}`, summary, ['saga-lore-badge-context']));
     }
     return fragment;
 }
@@ -1319,7 +1319,7 @@ function createSpellMetadataBadges(entry) {
 
     for (const spell of spells) {
         const badge = createBadge(`Spell: ${spell}`, 'Spell metadata. This identifies spell knowledge, spell-learning gates, or magic-ability constraints attached to this lore entry.');
-        badge.classList.add('wandlight-lore-badge-spell');
+        badge.classList.add('saga-lore-badge-spell');
         row.appendChild(badge);
     }
 
@@ -1489,16 +1489,16 @@ function flushScheduledStateSave() {
 export function refreshAcceptedLoreCategoryTabs(activeCategory) {
     const root = getPanelRoot();
     if (!root) return;
-    root.querySelectorAll('.wandlight-lore-tabs .wandlight-lore-tab').forEach(tab => {
-        tab.classList.toggle('wandlight-lore-tab-active', tab.dataset.category === activeCategory);
+    root.querySelectorAll('.saga-lore-tabs .saga-lore-tab').forEach(tab => {
+        tab.classList.toggle('saga-lore-tab-active', tab.dataset.category === activeCategory);
     });
 }
 
 export function refreshAcceptedLoreFilterResults(options = {}) {
     const root = getPanelRoot();
     if (!root) return;
-    const section = root.querySelector('.wandlight-accepted-lore-section');
-    const list = section?.querySelector?.('.wandlight-lore-entry-list');
+    const section = root.querySelector('.saga-accepted-lore-section');
+    const list = section?.querySelector?.('.saga-lore-entry-list');
     if (!list) return;
     renderAcceptedLoreEntryList(list, getState());
     if (options.resetListScroll !== false) list.scrollTop = 0;
@@ -1512,7 +1512,7 @@ export function scheduleAcceptedLoreListRender(container) {
     acceptedLoreSearchRenderTimer = setTimeout(() => {
         acceptedLoreSearchRenderTimer = null;
         const root = container || getPanelRoot();
-        const list = root?.querySelector?.('.wandlight-lore-entry-list');
+        const list = root?.querySelector?.('.saga-lore-entry-list');
         if (list) renderAcceptedLoreEntryList(list, getState());
         refreshAcceptedLoreBulkToolbar();
         scheduleAcceptedLoreLayoutUpdate();
@@ -1735,20 +1735,20 @@ function clearAutoRelevanceSuggestions() {
 export function createAutoRelevanceCard(state) {
     const settings = getSettings();
     const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-auto-relevance-card';
+    card.className = 'saga-runtime-card saga-auto-relevance-card';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Auto-Relevance';
     addTooltip(title, 'Periodically rescans recent context and adjusts accepted lore relevance tiers. Mute remains the hard injection on/off control.');
     card.appendChild(title);
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Auto-Relevance uses local scoring for performance. It can promote or demote High/Normal/Low relevance, but it does not change mute or pin.';
     card.appendChild(help);
     appendSettingsResetButton(card, AUTO_RELEVANCE_SETTING_KEYS, 'Auto-Relevance settings');
 
     const enabled = document.createElement('label');
-    enabled.className = 'wandlight-inline-toggle';
+    enabled.className = 'saga-inline-toggle';
     markTourTarget(enabled, 'lore.autoRelevance.toggle');
     const cb = document.createElement('input');
     cb.type = 'checkbox';
@@ -1765,10 +1765,10 @@ export function createAutoRelevanceCard(state) {
     card.appendChild(enabled);
 
     const modeRow = document.createElement('div');
-    modeRow.className = 'wandlight-runtime-grid';
+    modeRow.className = 'saga-runtime-grid';
     markTourTarget(modeRow, 'lore.autoRelevance.mode');
     const modeLabel = document.createElement('label');
-    modeLabel.className = 'wandlight-inline-field';
+    modeLabel.className = 'saga-inline-field';
     const modeSpan = document.createElement('span');
     modeSpan.textContent = 'Action when enabled';
     addTooltip(modeSpan, 'The checkbox turns Auto-Relevance on or off. This selector controls what Auto-Relevance does when it runs.');
@@ -1793,7 +1793,7 @@ export function createAutoRelevanceCard(state) {
     card.appendChild(modeRow);
 
     const row = document.createElement('div');
-    row.className = 'wandlight-runtime-grid';
+    row.className = 'saga-runtime-grid';
     markTourTarget(row, 'lore.autoRelevance.tuning');
     row.appendChild(createNumberSettingMini('Run every turns', 'autoRelevanceEveryTurns', settings.autoRelevanceEveryTurns || 5, 1, 50));
     row.appendChild(createNumberSettingMini('Recent messages', 'autoRelevanceRecentMessages', settings.autoRelevanceRecentMessages || 20, 1, 200));
@@ -1802,10 +1802,10 @@ export function createAutoRelevanceCard(state) {
     card.appendChild(row);
 
     const modelRow = document.createElement('div');
-    modelRow.className = 'wandlight-runtime-grid';
+    modelRow.className = 'saga-runtime-grid';
     markTourTarget(modelRow, 'lore.autoRelevance.model');
     const modelToggle = document.createElement('label');
-    modelToggle.className = 'wandlight-inline-toggle';
+    modelToggle.className = 'saga-inline-toggle';
     const modelCb = document.createElement('input');
     modelCb.type = 'checkbox';
     modelCb.checked = !!settings.autoRelevanceUseModel;
@@ -1828,17 +1828,17 @@ export function createAutoRelevanceCard(state) {
     const suggestions = Array.isArray(state.autoRelevanceSuggestions) ? state.autoRelevanceSuggestions : [];
     if (suggestions.length) {
         const box = document.createElement('div');
-        box.className = 'wandlight-auto-relevance-suggestions';
+        box.className = 'saga-auto-relevance-suggestions';
         markTourTarget(box, 'lore.autoRelevance.suggestions');
         const heading = document.createElement('div');
-        heading.className = 'wandlight-runtime-help';
+        heading.className = 'saga-runtime-help';
         heading.textContent = `Pending relevance suggestions: ${suggestions.length}`;
         box.appendChild(heading);
         for (const suggestion of suggestions.slice(0, 12)) {
             const row = document.createElement('div');
-            row.className = 'wandlight-auto-relevance-suggestion-row';
+            row.className = 'saga-auto-relevance-suggestion-row';
             const summary = document.createElement('div');
-            summary.className = 'wandlight-auto-relevance-suggestion-summary';
+            summary.className = 'saga-auto-relevance-suggestion-summary';
             summary.textContent = `${suggestion.title || suggestion.id}: ${suggestion.currentRelevance || '?'} -> ${suggestion.suggestedRelevance} (${Math.round((suggestion.confidence || 0) * 100)}%, ${suggestion.source || 'local'})`;
             addTooltip(summary, suggestion.reason || 'Auto-Relevance suggestion.');
             row.appendChild(summary);
@@ -1847,19 +1847,19 @@ export function createAutoRelevanceCard(state) {
                 refreshPanelBody({ preserveScroll: true });
                 refreshHeader();
                 toast(`Applied ${result.applied || 0} relevance suggestion.`, 'success');
-            }, 'wandlight-mini-button');
+            }, 'saga-mini-button');
             const rejectOne = createButton('Reject', 'Reject this relevance suggestion only.', () => {
                 const result = rejectAutoRelevanceSuggestions([suggestion.id]);
                 refreshPanelBody({ preserveScroll: true });
                 toast(`Rejected ${result.rejected || 0} relevance suggestion.`, 'info');
-            }, 'wandlight-mini-button');
+            }, 'saga-mini-button');
             row.appendChild(applyOne);
             row.appendChild(rejectOne);
             box.appendChild(row);
         }
         if (suggestions.length > 12) {
             const more = document.createElement('div');
-            more.className = 'wandlight-runtime-help';
+            more.className = 'saga-runtime-help';
             more.textContent = `${suggestions.length - 12} additional suggestions hidden. Use Apply Suggestions or Clear Suggestions for the full queue.`;
             box.appendChild(more);
         }
@@ -1867,7 +1867,7 @@ export function createAutoRelevanceCard(state) {
     }
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     markTourTarget(actions, 'lore.autoRelevance.actions');
     actions.appendChild(createButton('Run Auto-Relevance Now', 'Runs Auto-Relevance immediately. Local scoring always runs first; optional Utility Provider adjudication reviews only the candidate set.', async (btn) => {
         const original = btn.textContent;
@@ -1893,19 +1893,19 @@ export function createAutoRelevanceCard(state) {
             btn.disabled = false;
             btn.textContent = original;
         }
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     if (suggestions.length) {
         actions.appendChild(createButton('Apply Suggestions', 'Applies all pending Auto-Relevance suggestions.', () => {
             const result = applyAutoRelevanceSuggestions();
             refreshPanelBody({ preserveScroll: true });
             refreshHeader();
             toast(`Auto-Relevance suggestions applied: ${result.applied || 0}.`, 'success');
-        }, 'wandlight-small-button'));
+        }, 'saga-small-button'));
         actions.appendChild(createButton('Reject All Suggestions', 'Rejects all pending Auto-Relevance suggestions without applying them.', () => {
             clearAutoRelevanceSuggestions();
             refreshPanelBody({ preserveScroll: true });
             toast('Auto-Relevance suggestions rejected.', 'info');
-        }, 'wandlight-small-button'));
+        }, 'saga-small-button'));
     }
     card.appendChild(actions);
     return card;
@@ -1913,7 +1913,7 @@ export function createAutoRelevanceCard(state) {
 
 function createNumberSettingMini(labelText, settingKey, value, min, max, transform = null) {
     const label = document.createElement('label');
-    label.className = 'wandlight-inline-field';
+    label.className = 'saga-inline-field';
     const span = document.createElement('span');
     span.textContent = labelText;
     const input = document.createElement('input');
@@ -1934,28 +1934,28 @@ function createNumberSettingMini(labelText, settingKey, value, min, max, transfo
 }
 
 export function openNewLoreDialog() {
-    const existing = document.querySelector('.wandlight-new-lore-overlay');
+    const existing = document.querySelector('.saga-new-lore-overlay');
     existing?.remove();
 
     const overlay = document.createElement('div');
-    overlay.className = 'wandlight-new-lore-overlay';
+    overlay.className = 'saga-new-lore-overlay';
     wireOverlayBackdropClose(overlay, () => overlay.remove());
     document.body.appendChild(overlay);
 
     const shell = document.createElement('div');
-    shell.className = 'wandlight-new-lore-shell';
+    shell.className = 'saga-new-lore-shell';
     overlay.appendChild(shell);
 
     const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-header';
+    header.className = 'saga-lore-workbench-header';
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    titleWrap.className = 'saga-lore-workbench-title-wrap';
     const title = document.createElement('div');
-    title.className = 'wandlight-lore-workbench-title';
+    title.className = 'saga-lore-workbench-title';
     title.textContent = 'New Lorecard';
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.className = 'saga-lore-workbench-subtitle';
     subtitle.textContent = 'Creates a pending draft for review, editing, and acceptance.';
     titleWrap.appendChild(subtitle);
     header.appendChild(titleWrap);
@@ -1963,7 +1963,7 @@ export function openNewLoreDialog() {
     shell.appendChild(header);
 
     const form = document.createElement('div');
-    form.className = 'wandlight-new-lore-form';
+    form.className = 'saga-new-lore-form';
     shell.appendChild(form);
 
     const titleInput = createNewLoreInput(form, 'Title', 'Short descriptive title', '', false, 'Conundrum Confidicus opening hazard');
@@ -1972,7 +1972,7 @@ export function openNewLoreDialog() {
     const notesInput = createNewLoreInput(form, 'Notes', 'Optional private notes for the user', '', true, 'Introduced during the Restricted Section scene. Keep as AU unless later tied to canon.');
 
     const metaGrid = document.createElement('div');
-    metaGrid.className = 'wandlight-new-lore-meta-grid';
+    metaGrid.className = 'saga-new-lore-meta-grid';
     form.appendChild(metaGrid);
     const categorySelect = createNewLoreSelect(metaGrid, 'Category', getLoreRegistryValues('categories', LORE_CATEGORY_VALUES), 'knowledge');
     const canonSelect = createNewLoreSelect(metaGrid, 'Canon', getLoreRegistryValues('canonStatuses', ['canon', 'au']), 'au');
@@ -1983,7 +1983,7 @@ export function openNewLoreDialog() {
     const tagsInput = createNewLoreInput(form, 'Tags', 'Comma-separated tags', '', false, 'restricted-section, cursed-book, whispers');
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Create Pending Lore', 'Adds this draft to Pending Lore Review.', () => {
         const title = titleInput.value.trim();
         const fact = factInput.value.trim();
@@ -2017,7 +2017,7 @@ export function openNewLoreDialog() {
             userEditable: true,
             userEdited: true,
             extensions: {
-                wandlightManualDraft: {
+                sagaManualDraft: {
                     createdAt: Date.now(),
                     reviewRoute: 'manual_pending',
                 },
@@ -2048,7 +2048,7 @@ export function openNewLoreDialog() {
         refreshLoreTimeline();
         refreshLoreWorkbench();
         toast('Manual lore draft added to Pending Review.', 'success');
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     actions.appendChild(createButton('Cancel', 'Close without creating lore.', () => overlay.remove()));
     form.appendChild(actions);
 
@@ -2060,13 +2060,13 @@ export function openNewLoreDialog() {
 
 export function createNewLoreInput(container, labelText, tooltip, value = '', multiline = false, placeholder = '') {
     const label = document.createElement('label');
-    label.className = 'wandlight-new-lore-field';
+    label.className = 'saga-new-lore-field';
     const span = document.createElement('span');
     span.textContent = labelText;
     addTooltip(span, tooltip);
     label.appendChild(span);
     const input = multiline ? document.createElement('textarea') : document.createElement('input');
-    input.className = multiline ? 'wandlight-lore-editor-textarea' : 'wandlight-lore-editor-input';
+    input.className = multiline ? 'saga-lore-editor-textarea' : 'saga-lore-editor-input';
     if (!multiline) input.type = 'text';
     input.value = value || '';
     input.placeholder = placeholder || '';
@@ -2077,12 +2077,12 @@ export function createNewLoreInput(container, labelText, tooltip, value = '', mu
 
 export function createNewLoreSelect(container, labelText, values, selected, display = null) {
     const label = document.createElement('label');
-    label.className = 'wandlight-new-lore-field';
+    label.className = 'saga-new-lore-field';
     const span = document.createElement('span');
     span.textContent = labelText;
     label.appendChild(span);
     const select = document.createElement('select');
-    select.className = 'wandlight-lore-editor-input';
+    select.className = 'saga-lore-editor-input';
     for (const value of values) {
         const option = document.createElement('option');
         option.value = String(value);
@@ -2097,7 +2097,7 @@ export function createNewLoreSelect(container, labelText, values, selected, disp
 
 export function createAcceptedLoreBulkControls(state) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-lore-bulk-controls-card';
+    wrap.className = 'saga-lore-bulk-controls-card';
 
     const selected = getAcceptedSelectionSet(state);
     const filteredIds = getFilteredAcceptedLoreIds(state);
@@ -2105,19 +2105,19 @@ export function createAcceptedLoreBulkControls(state) {
     const disabled = selectedCount === 0;
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-lore-bulk-summary';
+    summary.className = 'saga-lore-bulk-summary';
     summary.textContent = `${selectedCount} selected | ${filteredIds.length} matching current filters`;
     addTooltip(summary, 'Bulk actions apply to selected accepted lore entries. Use Select Filtered to select every accepted entry matching the current search and filters, not just the rendered page.');
     wrap.appendChild(summary);
 
     const selectRow = document.createElement('div');
-    selectRow.className = 'wandlight-lore-bulk-row';
+    selectRow.className = 'saga-lore-bulk-row';
     const selectFiltered = createButton('Select Filtered', 'Selects every accepted lore entry matching the current search and filters, including entries not currently rendered by paging.', () => {
         setAcceptedLoreSelection(filteredIds, { deferSave: true });
         refreshAcceptedLoreList({ preserveScroll: true });
         refreshAcceptedLoreBulkToolbar();
         refreshLoreWorkbench();
-    }, 'wandlight-small-button');
+    }, 'saga-small-button');
     selectRow.appendChild(selectFiltered);
 
     const clearSelection = createButton('Clear Selection', 'Clears the accepted-lore selection.', () => {
@@ -2125,15 +2125,15 @@ export function createAcceptedLoreBulkControls(state) {
         refreshAcceptedLoreList({ preserveScroll: true });
         refreshAcceptedLoreBulkToolbar();
         refreshLoreWorkbench();
-    }, 'wandlight-small-button');
+    }, 'saga-small-button');
     clearSelection.disabled = disabled;
     selectRow.appendChild(clearSelection);
     wrap.appendChild(selectRow);
 
     const actionRow = document.createElement('div');
-    actionRow.className = 'wandlight-lore-bulk-row';
+    actionRow.className = 'saga-lore-bulk-row';
 
-    const addAction = (label, tooltip, fn, className = 'wandlight-small-button', detail = '') => {
+    const addAction = (label, tooltip, fn, className = 'saga-small-button', detail = '') => {
         const btn = createButton(label, tooltip, async () => {
             const ids = Array.from(getAcceptedSelectionSet(getState()));
             if (!ids.length) {
@@ -2149,15 +2149,15 @@ export function createAcceptedLoreBulkControls(state) {
         return btn;
     };
 
-    addAction('Pin', 'Pins selected accepted lore entries so they are prioritized for injection.', ids => bulkSetAcceptedPinned(ids, true), 'wandlight-small-button', 'Selected entries will be pinned and prioritized for lore injection.');
-    addAction('Unpin', 'Removes selected accepted lore entries from pinned lore.', ids => bulkSetAcceptedPinned(ids, false), 'wandlight-small-button', 'Selected entries will no longer be pinned. They may still inject if unmuted and active.');
-    addAction('Mute', 'Mutes selected accepted lore entries so they are excluded from injection.', ids => bulkSetAcceptedMuted(ids, true), 'wandlight-small-button', 'Selected entries will be muted and excluded from injection.');
-    addAction('Unmute', 'Unmutes selected accepted lore entries.', ids => bulkSetAcceptedMuted(ids, false), 'wandlight-small-button', 'Selected entries will be unmuted and may be injected again.');
-    addAction('Delete', 'Deletes selected accepted lore entries from this chat after confirmation.', ids => bulkDeleteAcceptedLore(ids), 'wandlight-small-button wandlight-danger-button', 'Deleted accepted lore can be restored to Pending Review from Lore Timeline while the recovery payload is retained.');
+    addAction('Pin', 'Pins selected accepted lore entries so they are prioritized for injection.', ids => bulkSetAcceptedPinned(ids, true), 'saga-small-button', 'Selected entries will be pinned and prioritized for lore injection.');
+    addAction('Unpin', 'Removes selected accepted lore entries from pinned lore.', ids => bulkSetAcceptedPinned(ids, false), 'saga-small-button', 'Selected entries will no longer be pinned. They may still inject if unmuted and active.');
+    addAction('Mute', 'Mutes selected accepted lore entries so they are excluded from injection.', ids => bulkSetAcceptedMuted(ids, true), 'saga-small-button', 'Selected entries will be muted and excluded from injection.');
+    addAction('Unmute', 'Unmutes selected accepted lore entries.', ids => bulkSetAcceptedMuted(ids, false), 'saga-small-button', 'Selected entries will be unmuted and may be injected again.');
+    addAction('Delete', 'Deletes selected accepted lore entries from this chat after confirmation.', ids => bulkDeleteAcceptedLore(ids), 'saga-small-button saga-danger-button', 'Deleted accepted lore can be restored to Pending Review from Lore Timeline while the recovery payload is retained.');
     wrap.appendChild(actionRow);
 
     const editRow = document.createElement('div');
-    editRow.className = 'wandlight-lore-bulk-row wandlight-lore-bulk-edit-row';
+    editRow.className = 'saga-lore-bulk-row saga-lore-bulk-edit-row';
     const selectedIdsNow = () => Array.from(getAcceptedSelectionSet(getState()));
     editRow.appendChild(createBulkSelect('Relevance', LORE_RELEVANCE_TIERS, 'Set relevance tier for selected entries.', async value => {
         const ids = selectedIdsNow();
@@ -2197,10 +2197,10 @@ export function createAcceptedLoreBulkControls(state) {
     wrap.appendChild(editRow);
 
     const tagRow = document.createElement('div');
-    tagRow.className = 'wandlight-lore-bulk-row wandlight-lore-bulk-tag-row';
+    tagRow.className = 'saga-lore-bulk-row saga-lore-bulk-tag-row';
     const tagInput = document.createElement('input');
     tagInput.type = 'text';
-    tagInput.className = 'wandlight-lore-bulk-tag-input';
+    tagInput.className = 'saga-lore-bulk-tag-input';
     tagInput.placeholder = 'Add tag to selected...';
     tagInput.disabled = disabled;
     addTooltip(tagInput, 'Adds one searchable tag to all selected accepted lore entries.');
@@ -2218,7 +2218,7 @@ export function createAcceptedLoreBulkControls(state) {
             bulkAddTagToAcceptedLore(ids, tag);
             tagInput.value = '';
         });
-    }, 'wandlight-small-button');
+    }, 'saga-small-button');
     addTagBtn.disabled = disabled;
     tagRow.appendChild(addTagBtn);
     wrap.appendChild(tagRow);
@@ -2253,7 +2253,7 @@ async function confirmBulkAcceptedAction(actionLabel, ids, detail = '') {
 
 function createBulkSelect(label, values, tooltip, onChange, disabled = false, display = null) {
     const select = document.createElement('select');
-    select.className = 'wandlight-lore-bulk-select';
+    select.className = 'saga-lore-bulk-select';
     select.disabled = disabled;
     addTooltip(select, tooltip);
     const placeholder = document.createElement('option');
@@ -2399,7 +2399,7 @@ export function scoreSearchEntry(entry, query) {
 export function refreshAcceptedLoreRow(entryId) {
     const root = getPanelRoot();
     if (!root || !entryId) return false;
-    const list = root.querySelector('.wandlight-lore-entry-list');
+    const list = root.querySelector('.saga-lore-entry-list');
     const existing = list?.querySelector?.(`[data-entry-id="${cssEscape(entryId)}"]`);
     if (!existing) return false;
     const state = getState();
@@ -2485,12 +2485,12 @@ function createEditableLoreMetaBadge(entry, field, value, values = null, tooltip
     const help = tooltip || meta?.description || `${field}: ${currentLabel}. Choose a new value from the dropdown.`;
 
     const wrap = document.createElement('label');
-    wrap.className = 'wandlight-lore-meta-select-wrap';
+    wrap.className = 'saga-lore-meta-select-wrap';
     applyLoreRegistryStyle(wrap, field, currentValue);
     addTooltip(wrap, help);
 
     const prefix = document.createElement('span');
-    prefix.className = 'wandlight-lore-meta-select-prefix';
+    prefix.className = 'saga-lore-meta-select-prefix';
     prefix.textContent = (field === 'canonStatus' || field === 'canon')
         ? 'Canon'
         : field === 'truthStatus'
@@ -2501,7 +2501,7 @@ function createEditableLoreMetaBadge(entry, field, value, values = null, tooltip
     wrap.appendChild(prefix);
 
     const select = document.createElement('select');
-    select.className = 'wandlight-lore-meta-select';
+    select.className = 'saga-lore-meta-select';
     select.setAttribute('aria-label', `${prefix.textContent} metadata`);
     select.addEventListener('click', e => e.stopPropagation());
     select.addEventListener('mousedown', e => e.stopPropagation());
@@ -2541,16 +2541,16 @@ function createEditableLoreMetaBadge(entry, field, value, values = null, tooltip
 function createEditablePriorityBadge(entry) {
     const current = Number(entry.priority || 50);
     const wrap = document.createElement('label');
-    wrap.className = 'wandlight-lore-meta-select-wrap wandlight-lore-meta-select-priority';
+    wrap.className = 'saga-lore-meta-select-wrap saga-lore-meta-select-priority';
     addTooltip(wrap, 'Priority controls sorting and injection preference. Choose P10 through P100.');
 
     const prefix = document.createElement('span');
-    prefix.className = 'wandlight-lore-meta-select-prefix';
+    prefix.className = 'saga-lore-meta-select-prefix';
     prefix.textContent = 'Priority';
     wrap.appendChild(prefix);
 
     const select = document.createElement('select');
-    select.className = 'wandlight-lore-meta-select';
+    select.className = 'saga-lore-meta-select';
     select.setAttribute('aria-label', 'Priority metadata');
     select.addEventListener('click', e => e.stopPropagation());
     select.addEventListener('mousedown', e => e.stopPropagation());
@@ -2579,17 +2579,17 @@ function createEditablePriorityBadge(entry) {
 
 function createEditableLoreEntryEditor(entry) {
     const editor = document.createElement('div');
-    editor.className = 'wandlight-lore-entry-editor';
+    editor.className = 'saga-lore-entry-editor';
     addTooltip(editor, 'Edit accepted lore directly. Changes are saved only when you click Save Entry.');
 
     const makeField = (labelText, value, multiline = false) => {
         const label = document.createElement('label');
-        label.className = 'wandlight-lore-editor-field';
+        label.className = 'saga-lore-editor-field';
         const span = document.createElement('span');
         span.textContent = labelText;
         label.appendChild(span);
         const input = multiline ? document.createElement('textarea') : document.createElement('input');
-        input.className = multiline ? 'wandlight-lore-editor-textarea' : 'wandlight-lore-editor-input';
+        input.className = multiline ? 'saga-lore-editor-textarea' : 'saga-lore-editor-input';
         if (!multiline) input.type = 'text';
         input.value = value || '';
         input.addEventListener('click', e => e.stopPropagation());
@@ -2604,7 +2604,7 @@ function createEditableLoreEntryEditor(entry) {
     const injectionInput = makeField('Injection override', entry.content?.injection || '', true);
     const notesInput = makeField('Notes', entry.notes || entry.content?.notes || '', true);
     const metaGrid = document.createElement('div');
-    metaGrid.className = 'wandlight-new-lore-meta-grid wandlight-lore-editor-meta-grid';
+    metaGrid.className = 'saga-new-lore-meta-grid saga-lore-editor-meta-grid';
     editor.appendChild(metaGrid);
     const categorySelect = createNewLoreSelect(metaGrid, 'Category', getLoreRegistryValues('categories', LORE_CATEGORY_VALUES), entry.category || 'other');
     const canonSelect = createNewLoreSelect(metaGrid, 'Canon', getLoreRegistryValues('canonStatuses', ['canon', 'au']), entry.canon || entry.canonStatus || 'canon');
@@ -2615,7 +2615,7 @@ function createEditableLoreEntryEditor(entry) {
     const tagsInput = makeField('Tags', (entry.tags || []).join(', '), false);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     const saveBtn = createButton('Save Entry', 'Saves the edited title, lore text, injection override, and notes for this accepted lore entry.', (btn, e) => {
         e?.stopPropagation?.();
         const title = titleInput.value.trim() || entry.title || '(Untitled lore)';
@@ -2646,7 +2646,7 @@ function createEditableLoreEntryEditor(entry) {
         if (!refreshAcceptedLoreRow(entry.id)) refreshAcceptedLoreList({ preserveScroll: true });
         refreshHeader();
         refreshLoreWorkbench();
-    }, 'wandlight-primary-button');
+    }, 'saga-primary-button');
     actions.appendChild(saveBtn);
     editor.appendChild(actions);
     return editor;
@@ -2706,7 +2706,7 @@ function removeLoreTag(entryId, tag, options = {}) {
 export function refreshAcceptedLoreList(options = {}) {
     const root = getPanelRoot();
     if (!root) return;
-    const list = root.querySelector('.wandlight-lore-entry-list');
+    const list = root.querySelector('.saga-lore-entry-list');
     if (!list) return;
     const scrollTop = options.preserveScroll ? list.scrollTop : 0;
     renderAcceptedLoreEntryList(list, getState());
@@ -2725,26 +2725,26 @@ function cssEscape(value) {
 
 export function createEntryCard(entry, state) {
     const card = document.createElement('div');
-    card.className = 'wandlight-lore-entry-card';
+    card.className = 'saga-lore-entry-card';
     markTourTarget(card, entry.isPending ? 'lore.pending.entry' : 'lore.accepted.entry');
     if (entry.id) card.dataset.entryId = entry.id;
 
-    if (entry.isPending) card.classList.add('wandlight-lore-entry-pending');
-    if (entry.isActive) card.classList.add('wandlight-lore-entry-active');
-    if (entry.isPinned) card.classList.add('wandlight-lore-entry-pinned');
-    if (entry.isSuppressed) card.classList.add('wandlight-lore-entry-suppressed');
-    if (getAcceptedSelectionSet(state).has(entry.id)) card.classList.add('wandlight-lore-entry-selected');
+    if (entry.isPending) card.classList.add('saga-lore-entry-pending');
+    if (entry.isActive) card.classList.add('saga-lore-entry-active');
+    if (entry.isPinned) card.classList.add('saga-lore-entry-pinned');
+    if (entry.isSuppressed) card.classList.add('saga-lore-entry-suppressed');
+    if (getAcceptedSelectionSet(state).has(entry.id)) card.classList.add('saga-lore-entry-selected');
 
     const panelState = state?.lorePanel || {};
     const isExpanded = panelState.selectedEntryId === entry.id;
-    if (isExpanded) card.classList.add('wandlight-lore-entry-expanded');
+    if (isExpanded) card.classList.add('saga-lore-entry-expanded');
 
     const headerRow = document.createElement('div');
-    headerRow.className = 'wandlight-lore-entry-header';
+    headerRow.className = 'saga-lore-entry-header';
 
     const selectBox = document.createElement('input');
     selectBox.type = 'checkbox';
-    selectBox.className = 'wandlight-lore-entry-select';
+    selectBox.className = 'saga-lore-entry-select';
     selectBox.checked = getAcceptedSelectionSet(state).has(entry.id);
     selectBox.setAttribute('aria-label', 'Select accepted lore entry for bulk actions');
     addTooltip(selectBox, selectBox.checked ? 'Remove this accepted lore entry from the bulk selection.' : 'Select this accepted lore entry for bulk actions.');
@@ -2757,23 +2757,23 @@ export function createEntryCard(entry, state) {
     headerRow.appendChild(selectBox);
 
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-entry-title-wrap';
+    titleWrap.className = 'saga-lore-entry-title-wrap';
 
     const titleEl = document.createElement('span');
-    titleEl.className = 'wandlight-lore-entry-title';
+    titleEl.className = 'saga-lore-entry-title';
     titleEl.textContent = entry.title || '(Untitled lore)';
     addTooltip(titleEl, 'Click the card to expand details. Tags beside this title are editable search tags.');
     titleWrap.appendChild(titleEl);
     headerRow.appendChild(titleWrap);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-lore-entry-actions';
+    actions.className = 'saga-lore-entry-actions';
     actions.appendChild(createEditableLifecycleBadge(entry));
 
     const pinBtn = createIconButton(
         entry.isPinned ? 'Pinned' : 'Pin',
         entry.isPinned ? 'Remove this entry from pinned lore. Pinned lore is prioritized for injection.' : 'Pin this entry so it is prioritized for injection.',
-        'wandlight-lore-entry-btn',
+        'saga-lore-entry-btn',
         (e) => {
             e.stopPropagation();
             togglePinEntry(entry.id, { deferSave: true });
@@ -2788,7 +2788,7 @@ export function createEntryCard(entry, state) {
     const suppressBtn = createIconButton(
         entry.isSuppressed ? 'Muted' : 'Mute',
         entry.isSuppressed ? 'Unmute this entry so it can become active again.' : 'Mute this entry so it will not be injected into prompts.',
-        'wandlight-lore-entry-btn',
+        'saga-lore-entry-btn',
         (e) => {
             e.stopPropagation();
             toggleSuppressEntry(entry.id, { deferSave: true });
@@ -2804,7 +2804,7 @@ export function createEntryCard(entry, state) {
     card.appendChild(headerRow);
 
     const metaRow = document.createElement('div');
-    metaRow.className = 'wandlight-lore-entry-meta';
+    metaRow.className = 'saga-lore-entry-meta';
     if (isExpanded) {
         metaRow.appendChild(createEditableLoreMetaBadge(entry, 'category', entry.category || 'other', null, `Category: ${entry.category || 'canon'}. Use dropdown to change.`));
         metaRow.appendChild(createLorePurposeBadge(entry));
@@ -2827,7 +2827,7 @@ export function createEntryCard(entry, state) {
     card.appendChild(createTagsRow(entry));
 
     const factEl = document.createElement('div');
-    factEl.className = 'wandlight-lore-entry-fact';
+    factEl.className = 'saga-lore-entry-fact';
     factEl.textContent = truncateText(entry.fact || '', 140);
     addTooltip(factEl, 'Lore fact text. Expand the card to inspect the full entry.');
     card.appendChild(factEl);
@@ -2841,13 +2841,13 @@ export function createEntryCard(entry, state) {
 
     if (isExpanded) {
         const details = document.createElement('div');
-        details.className = 'wandlight-lore-entry-details';
+        details.className = 'saga-lore-entry-details';
 
         details.appendChild(createEditableLoreEntryEditor(entry));
 
         if (entry.fact && entry.fact.length > 140) {
             const fullFact = document.createElement('div');
-            fullFact.className = 'wandlight-lore-entry-full-fact';
+            fullFact.className = 'saga-lore-entry-full-fact';
             fullFact.textContent = entry.fact;
             details.appendChild(fullFact);
         }
@@ -2875,7 +2875,7 @@ export function createEntryCard(entry, state) {
         if (aw.tagsAny?.length) conditions.push(`Tags: ${aw.tagsAny.join(', ')}`);
         if (conditions.length) {
             const cond = document.createElement('div');
-            cond.className = 'wandlight-lore-entry-conditions';
+            cond.className = 'saga-lore-entry-conditions';
             cond.textContent = `Relevant when: ${conditions.join(' | ')}`;
             addTooltip(cond, 'Context conditions used to determine whether this lore entry should be active.');
             details.appendChild(cond);
@@ -2883,7 +2883,7 @@ export function createEntryCard(entry, state) {
 
         if (entry.isPending) {
             const pendingActions = document.createElement('div');
-            pendingActions.className = 'wandlight-lore-entry-pending-actions';
+            pendingActions.className = 'saga-lore-entry-pending-actions';
             pendingActions.appendChild(createButton('Apply', 'Accepts this pending entry into the lore matrix.', (btn, e) => {
                 e?.stopPropagation?.();
                 const current = getState();
@@ -2894,7 +2894,7 @@ export function createEntryCard(entry, state) {
                     refreshPanelBody({ preserveScroll: true });
                     refreshHeader();
                 }
-            }, 'wandlight-primary-button'));
+            }, 'saga-primary-button'));
             pendingActions.appendChild(createButton('Dismiss', 'Rejects this pending entry.', (btn, e) => {
                 e?.stopPropagation?.();
                 const current = getState();
@@ -2917,16 +2917,16 @@ export function createEntryCard(entry, state) {
 
 function createTagsRow(entry) {
     const row = document.createElement('div');
-    row.className = 'wandlight-lore-entry-tags';
+    row.className = 'saga-lore-entry-tags';
     addTooltip(row, 'Tags are editable search labels. Search matches tags as well as entry titles.');
 
     const tags = Array.isArray(entry.tags) ? entry.tags : [];
     for (const tag of tags) {
         const chip = document.createElement('span');
-        chip.className = 'wandlight-lore-tag-chip';
+        chip.className = 'saga-lore-tag-chip';
 
         const removeBtn = document.createElement('button');
-        removeBtn.className = 'wandlight-lore-tag-remove';
+        removeBtn.className = 'saga-lore-tag-remove';
         removeBtn.type = 'button';
         removeBtn.textContent = 'x';
         addTooltip(removeBtn, `Remove tag: ${tag}`);
@@ -2940,14 +2940,14 @@ function createTagsRow(entry) {
         chip.appendChild(removeBtn);
 
         const label = document.createElement('span');
-        label.className = 'wandlight-lore-tag-label';
+        label.className = 'saga-lore-tag-label';
         label.textContent = tag;
         chip.appendChild(label);
         row.appendChild(chip);
     }
 
     const addBtn = document.createElement('button');
-    addBtn.className = 'wandlight-lore-tag-add';
+    addBtn.className = 'saga-lore-tag-add';
     addBtn.type = 'button';
     addBtn.textContent = '+';
     addTooltip(addBtn, 'Add a searchable tag to this lore entry.');
@@ -2962,10 +2962,10 @@ function createTagsRow(entry) {
 }
 
 function showInlineTagInput(row, entryId, addBtn) {
-    if (row.querySelector('.wandlight-lore-tag-input')) return;
+    if (row.querySelector('.saga-lore-tag-input')) return;
 
     const input = document.createElement('input');
-    input.className = 'wandlight-lore-tag-input';
+    input.className = 'saga-lore-tag-input';
     input.type = 'text';
     input.placeholder = 'tag';
     addTooltip(input, 'Type a tag and press Enter. Press Escape to cancel.');
@@ -3026,7 +3026,7 @@ export function renderLorecardsTab(container, state) {
         'canon suggestions + story generation',
         true,
         dep('createLoreGenerationCard')(state),
-        { tooltip: 'Suggest canon Lorecards from the local database or generate story-specific Lorecards from recent chat messages.', className: 'wandlight-lore-generation-collapsible' }
+        { tooltip: 'Suggest canon Lorecards from the local database or generate story-specific Lorecards from recent chat messages.', className: 'saga-lore-generation-collapsible' }
     );
     markTourTarget(generationSection, 'lore.generation.section');
     container.appendChild(generationSection);
@@ -3051,7 +3051,7 @@ export function renderLorecardsTab(container, state) {
         pendingCount ? `${pendingCount} pending` : 'none',
         basic ? true : pendingCount > 0,
         createPendingLoreReviewSection(state),
-        { tooltip: 'Review suggested/generated Lorecards before accepting them.', className: 'wandlight-lore-pending-collapsible' }
+        { tooltip: 'Review suggested/generated Lorecards before accepting them.', className: 'saga-lore-pending-collapsible' }
     );
     markTourTarget(pendingSection, 'lore.pending');
     container.appendChild(pendingSection);
@@ -3065,7 +3065,7 @@ export function renderLorecardsTab(container, state) {
         `${acceptedCount} accepted \u00b7 ${injectableCount} injectable`,
         true,
         createAcceptedLoreEntriesSection(state),
-        { tooltip: 'Search, filter, bulk edit, tag, pin, mute, and edit accepted Lorecards.', className: 'wandlight-lore-accepted-collapsible' }
+        { tooltip: 'Search, filter, bulk edit, tag, pin, mute, and edit accepted Lorecards.', className: 'saga-lore-accepted-collapsible' }
     );
     markTourTarget(acceptedSection, 'lore.accepted');
     container.appendChild(acceptedSection);
@@ -3075,18 +3075,18 @@ export function createPendingLoreReviewSection(state) {
     const pendingLore = normalizeLoreMatrix(state?.pendingLoreEntries || []);
     const filteredPendingRows = getFilteredPendingLoreRows(state);
     const section = document.createElement('div');
-    section.className = 'wandlight-review-section wandlight-pending-lore-section';
+    section.className = 'saga-review-section saga-pending-lore-section';
 
     section.appendChild(createLoreWorkbenchLaunchRow('pending', pendingLore.length ? `${pendingLore.length} pending entries` : 'No pending entries yet'));
 
     if (pendingLore.length > 0) {
         const batchInfo = document.createElement('div');
-        batchInfo.className = 'wandlight-runtime-help';
+        batchInfo.className = 'saga-runtime-help';
         batchInfo.textContent = getPendingLoreBatchLabel(state);
         section.appendChild(batchInfo);
 
         const filterRow = document.createElement('div');
-        filterRow.className = 'wandlight-lore-filter-row wandlight-pending-lore-filter-row';
+        filterRow.className = 'saga-lore-filter-row saga-pending-lore-filter-row';
         filterRow.appendChild(createLoreTypeFilterSelect(
             pendingLore,
             getPendingReviewTypeFilter(state),
@@ -3098,7 +3098,7 @@ export function createPendingLoreReviewSection(state) {
             { tooltip: 'Filter pending Lorecards by relevance, card type, canon/AU, pin, or mute state.' }
         ));
         const filterCount = document.createElement('div');
-        filterCount.className = 'wandlight-lore-workbench-count';
+        filterCount.className = 'saga-lore-workbench-count';
         filterCount.textContent = `${filteredPendingRows.length} matching`;
         filterRow.appendChild(filterCount);
         section.appendChild(filterRow);
@@ -3107,7 +3107,7 @@ export function createPendingLoreReviewSection(state) {
 
         const visibleLimit = Math.max(5, Math.min(1000, Number(state?.lorePanel?.pendingReviewVisibleLimit) || 10));
         const list = document.createElement('div');
-        list.className = 'wandlight-review-lore-list wandlight-pending-lore-list';
+        list.className = 'saga-review-lore-list saga-pending-lore-list';
         markTourTarget(list, 'lore.pending.list');
         filteredPendingRows.slice(0, visibleLimit).forEach(row => list.appendChild(createPendingLoreReviewCard(row.entry, row.index, isPendingLoreSelected(state, row.entry))));
         if (!filteredPendingRows.length) {
@@ -3122,7 +3122,7 @@ export function createPendingLoreReviewSection(state) {
                 saveState(current);
                 refreshPanelBody({ preserveScroll: true });
             });
-            more.classList.add('wandlight-small-button');
+            more.classList.add('saga-small-button');
             section.appendChild(more);
         }
     } else {
@@ -3134,10 +3134,10 @@ export function createPendingLoreReviewSection(state) {
 
 export function createAcceptedLoreEntriesSection(state) {
     const section = document.createElement('div');
-    section.className = 'wandlight-accepted-lore-section';
+    section.className = 'saga-accepted-lore-section';
 
     const controls = document.createElement('div');
-    controls.className = 'wandlight-lore-controls';
+    controls.className = 'saga-lore-controls';
 
     const panelState = state?.lorePanel || { selectedCategory: 'all', search: '' };
     const loreState = getPanelLoreState(state);
@@ -3147,12 +3147,12 @@ export function createAcceptedLoreEntriesSection(state) {
     controls.appendChild(createLoreWorkbenchLaunchRow('accepted', `${acceptedCount} accepted entries`));
 
     const tabs = document.createElement('div');
-    tabs.className = 'wandlight-lore-tabs';
+    tabs.className = 'saga-lore-tabs';
     markTourTarget(tabs, 'lore.accepted.categoryTabs');
     for (const cat of categories) {
         const tab = document.createElement('button');
-        tab.className = 'wandlight-lore-tab';
-        if (cat === panelState.selectedCategory) tab.classList.add('wandlight-lore-tab-active');
+        tab.className = 'saga-lore-tab';
+        if (cat === panelState.selectedCategory) tab.classList.add('saga-lore-tab-active');
         tab.type = 'button';
         const label = getLoreDisplayLabel('category', cat);
         const catCount = getCategoryCount(cat, entries, counts);
@@ -3169,12 +3169,12 @@ export function createAcceptedLoreEntriesSection(state) {
     controls.appendChild(tabs);
 
     const filterRow = document.createElement('div');
-    filterRow.className = 'wandlight-lore-filter-row';
+    filterRow.className = 'saga-lore-filter-row';
     markTourTarget(filterRow, 'lore.accepted.filters');
 
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
-    searchInput.className = 'wandlight-lore-search';
+    searchInput.className = 'saga-lore-search';
     searchInput.placeholder = 'Search titles and tags...';
     searchInput.value = panelState.search || '';
     addTooltip(searchInput, 'Searches lore entry titles and tags first. Fact text, notes, and IDs are searched as fallback.');
@@ -3185,7 +3185,7 @@ export function createAcceptedLoreEntriesSection(state) {
     filterRow.appendChild(searchInput);
 
     const sourceSelect = document.createElement('select');
-    sourceSelect.className = 'wandlight-lore-source-filter';
+    sourceSelect.className = 'saga-lore-source-filter';
     addTooltip(sourceSelect, 'Filter accepted lore by origin: canon database, story generation, or manual/user-created entries.');
     const sourceOptions = [
         ['all', 'Source: All'],
@@ -3219,14 +3219,14 @@ export function createAcceptedLoreEntriesSection(state) {
     controls.appendChild(filterRow);
 
     const pinHelp = document.createElement('div');
-    pinHelp.className = 'wandlight-runtime-help wandlight-pin-help';
+    pinHelp.className = 'saga-runtime-help saga-pin-help';
     markTourTarget(pinHelp, 'lore.accepted.pinMuteHelp');
     pinHelp.textContent = 'Pinned = prioritized/protected. Muted = excluded from injection. Relevance controls tier placement, sorting, and compression budget.';
     addTooltip(pinHelp, 'Pin important facts you always want kept prominent. Mute facts that should stay stored but not be sent to the model.');
     controls.appendChild(pinHelp);
 
     const bulkMount = document.createElement('div');
-    bulkMount.className = 'wandlight-lore-bulk-toolbar';
+    bulkMount.className = 'saga-lore-bulk-toolbar';
     markTourTarget(bulkMount, 'lore.accepted.bulk');
     bulkMount.appendChild(createAcceptedLoreBulkControls(state));
     controls.appendChild(bulkMount);
@@ -3234,7 +3234,7 @@ export function createAcceptedLoreEntriesSection(state) {
     section.appendChild(controls);
 
     const list = document.createElement('div');
-    list.className = 'wandlight-lore-entry-list wandlight-accepted-lore-scroll-region';
+    list.className = 'saga-lore-entry-list saga-accepted-lore-scroll-region';
     markTourTarget(list, 'lore.accepted.list');
     list.setAttribute('role', 'region');
     list.setAttribute('aria-label', 'Accepted lore entries');
@@ -3262,7 +3262,7 @@ export function renderAcceptedLoreEntryList(list, state) {
     const fragment = document.createDocumentFragment();
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-lore-list-summary';
+    summary.className = 'saga-lore-list-summary';
     summary.textContent = filtered.length > visible.length
         ? `Showing ${visible.length} of ${filtered.length} accepted lore entries.`
         : `Showing ${filtered.length} accepted lore entr${filtered.length === 1 ? 'y' : 'ies'}.`;
@@ -3275,7 +3275,7 @@ export function renderAcceptedLoreEntryList(list, state) {
     if (filtered.length > visible.length) {
         const more = document.createElement('button');
         more.type = 'button';
-        more.className = 'wandlight-secondary-button wandlight-lore-show-more';
+        more.className = 'saga-secondary-button saga-lore-show-more';
         const pageIncrement = getAcceptedLorePageIncrement();
         const nextCount = Math.min(pageIncrement, filtered.length - visible.length);
         more.textContent = `Show ${nextCount} more`;

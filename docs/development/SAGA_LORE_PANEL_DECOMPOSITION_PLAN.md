@@ -183,7 +183,7 @@ Use a strangler pattern:
 
 ## Non-Goals
 
-- Do not rename all `wandlight-*` CSS classes during this effort.
+- Do not rename all `saga-*` CSS classes during this effort.
 - Do not redesign UI while extracting modules unless a small change is required to preserve behavior.
 - Do not change persisted state shape unless the slice explicitly requires a migration.
 - Do not combine feature work with mechanical extraction.
@@ -926,7 +926,7 @@ Mitigation: keep `runtime-ui-kit.js` DOM-only. Feature-specific helpers belong i
 
 ### Legacy Naming Cleanup
 
-Risk: changing `wandlight-*` IDs/classes while extracting code will break CSS and tests.
+Risk: changing `saga-*` IDs/classes while extracting code will break CSS and tests.
 
 Mitigation: leave internal names alone during decomposition. Do a later alias/migration pass.
 

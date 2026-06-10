@@ -22,7 +22,7 @@ import {
 
 export function createThemeEmblem(preset, colors, options = {}) {
     const emblem = document.createElement('div');
-    emblem.className = `wandlight-theme-emblem${options.large ? ' wandlight-theme-emblem-large' : ''}`;
+    emblem.className = `saga-theme-emblem${options.large ? ' saga-theme-emblem-large' : ''}`;
     applyThemePreviewVariables(emblem, colors);
     const initials = String(preset?.title || preset?.id || 'SAGA')
         .split(/[^A-Za-z0-9]+/)
@@ -38,7 +38,7 @@ export function createThemeEmblem(preset, colors, options = {}) {
 
 export function createThemeSwatchStrip(colors = {}) {
     const strip = document.createElement('div');
-    strip.className = 'wandlight-theme-swatch-strip';
+    strip.className = 'saga-theme-swatch-strip';
     for (const key of ['background', 'surface', 'accent', 'danger', 'borderStrong', 'button', 'text']) {
         const swatch = document.createElement('span');
         swatch.style.background = normalizeHexColor(colors[key], '#000000');
@@ -88,37 +88,37 @@ export function getThemeSourceLabel(preset = {}) {
 
 export function createActiveThemePanel(activePreset, settings = {}, colors = {}, options = {}) {
     const panel = document.createElement('div');
-    panel.className = 'wandlight-theme-panel wandlight-theme-active-panel';
+    panel.className = 'saga-theme-panel saga-theme-active-panel';
 
     const label = document.createElement('div');
-    label.className = 'wandlight-runtime-card-title';
+    label.className = 'saga-runtime-card-title';
     label.textContent = 'Active Theme';
     panel.appendChild(label);
 
     const body = document.createElement('div');
-    body.className = 'wandlight-theme-active-body';
+    body.className = 'saga-theme-active-body';
     body.appendChild(createThemeEmblem(activePreset, colors, { large: true }));
 
     const main = document.createElement('div');
-    main.className = 'wandlight-theme-active-main';
+    main.className = 'saga-theme-active-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-theme-active-title';
+    title.className = 'saga-theme-active-title';
     title.textContent = activePreset?.title || 'SAGA Archive';
     main.appendChild(title);
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(activePreset?.type === 'custom' ? 'Custom' : 'Bundled', 'Theme Pack source type.'));
     chips.appendChild(createStatusPill(getThemeStyleLabel(activePreset), 'Theme Pack style tags.'));
     chips.appendChild(createStatusPill('JSON-only', 'Theme Packs are data-only and cannot run code.'));
     main.appendChild(chips);
     const description = document.createElement('div');
-    description.className = 'wandlight-theme-description';
+    description.className = 'saga-theme-description';
     description.textContent = activePreset?.description || 'Dark archive interface with gold accents and maroon surfaces.';
     main.appendChild(description);
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-theme-pack-summary';
-    summary.appendChild(createKeyValue('Theme ID', activePreset?.id || 'wandlight-default', 'Stable Theme Pack identifier.'));
+    summary.className = 'saga-theme-pack-summary';
+    summary.appendChild(createKeyValue('Theme ID', activePreset?.id || 'saga-default', 'Stable Theme Pack identifier.'));
     summary.appendChild(createKeyValue('Version', activePreset?.version || 'unset', 'Theme Pack version metadata.'));
     summary.appendChild(createKeyValue('Source', activePreset?.type === 'custom' ? getThemeSourceLabel(activePreset) : 'Bundled', 'Where this Theme Pack came from.'));
     summary.appendChild(createKeyValue('Color overrides', settings.themeCustomEnabled === true ? 'On' : 'Off', 'Overrides are user changes layered over the selected Theme Pack.'));
@@ -126,10 +126,10 @@ export function createActiveThemePanel(activePreset, settings = {}, colors = {},
 
     if (activePreset?.type === 'custom' && typeof options.onForgetThemePack === 'function') {
         const actions = document.createElement('div');
-        actions.className = 'wandlight-primary-actions';
+        actions.className = 'saga-primary-actions';
         actions.appendChild(createButton('Forget Theme Pack', 'Remove this Custom Theme Pack from installed settings.', async () => {
             await options.onForgetThemePack(activePreset.id);
-        }, 'wandlight-danger-button'));
+        }, 'saga-danger-button'));
         main.appendChild(actions);
     }
 
@@ -140,18 +140,18 @@ export function createActiveThemePanel(activePreset, settings = {}, colors = {},
 
 export function createInstalledThemePackGallery(themeLibrary = [], activePreset, settings = {}, options = {}) {
     const panel = document.createElement('div');
-    panel.className = 'wandlight-theme-panel wandlight-theme-gallery-panel';
+    panel.className = 'saga-theme-panel saga-theme-gallery-panel';
     const header = document.createElement('div');
-    header.className = 'wandlight-theme-panel-header';
+    header.className = 'saga-theme-panel-header';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Installed Theme Packs';
     header.appendChild(title);
     header.appendChild(createStatusPill(`${themeLibrary.length} installed`, 'Bundled and Custom Theme Packs available in this settings profile.'));
     panel.appendChild(header);
 
     const gallery = document.createElement('div');
-    gallery.className = 'wandlight-theme-gallery';
+    gallery.className = 'saga-theme-gallery';
     for (const preset of themeLibrary) {
         gallery.appendChild(createThemePackGalleryCard(preset, activePreset, settings, options));
     }
@@ -164,25 +164,25 @@ function createThemePackGalleryCard(preset, activePreset, settings = {}, options
     const colors = preset.id === settings.themePackId ? getActiveThemeColors(settings) : completeThemeColors(preset.colors || {});
     const isActive = preset.id === activePreset?.id;
     const card = document.createElement('div');
-    card.className = `wandlight-theme-pack-card${isActive ? ' wandlight-theme-pack-card-active' : ''}`;
+    card.className = `saga-theme-pack-card${isActive ? ' saga-theme-pack-card-active' : ''}`;
     card.appendChild(createThemeEmblem(preset, colors));
     const main = document.createElement('div');
-    main.className = 'wandlight-theme-pack-card-main';
+    main.className = 'saga-theme-pack-card-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-theme-pack-card-title';
+    title.className = 'saga-theme-pack-card-title';
     title.textContent = preset.title || preset.id;
     main.appendChild(title);
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(preset.type === 'custom' ? 'Custom' : 'Bundled', 'Theme Pack source type.'));
     chips.appendChild(createStatusPill(getThemeStyleLabel(preset), 'Theme style metadata.'));
     main.appendChild(chips);
     main.appendChild(createThemeSwatchStrip(colors));
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     const apply = createButton(isActive ? 'Active' : 'Apply', isActive ? 'This Theme Pack is active.' : 'Apply this Theme Pack.', () => {
         options.onApplyThemePreset?.(preset.id);
-    }, isActive ? 'wandlight-primary-button' : '');
+    }, isActive ? 'saga-primary-button' : '');
     apply.disabled = isActive;
     actions.appendChild(apply);
     main.appendChild(actions);
@@ -192,17 +192,17 @@ function createThemePackGalleryCard(preset, activePreset, settings = {}, options
 
 function createThemeImportTile(options = {}) {
     const tile = document.createElement('div');
-    tile.className = 'wandlight-theme-import-tile';
+    tile.className = 'saga-theme-import-tile';
     const icon = document.createElement('div');
-    icon.className = 'wandlight-theme-import-icon';
+    icon.className = 'saga-theme-import-icon';
     icon.textContent = '+';
     tile.appendChild(icon);
     const title = document.createElement('div');
-    title.className = 'wandlight-theme-pack-card-title';
+    title.className = 'saga-theme-pack-card-title';
     title.textContent = 'Import Theme Pack';
     tile.appendChild(title);
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Import a JSON Theme Pack to add it to your library.';
     tile.appendChild(help);
     tile.appendChild(createButton('Import', 'Choose a Theme Pack JSON file.', () => {
@@ -213,33 +213,33 @@ function createThemeImportTile(options = {}) {
 
 export function createThemeIconSetPanel(activePreset, settings = {}, options = {}) {
     const panel = document.createElement('div');
-    panel.className = 'wandlight-theme-panel wandlight-theme-icon-panel';
+    panel.className = 'saga-theme-panel saga-theme-icon-panel';
     const iconSet = getIconSetPreset(settings.themeIconSetId || DEFAULT_ICONSET_ID, settings);
     const iconItems = Array.isArray(options.iconItems) ? options.iconItems : [];
     const coverage = getThemeIconCoverage(iconSet, settings, iconItems);
     const header = document.createElement('div');
-    header.className = 'wandlight-theme-panel-header';
+    header.className = 'saga-theme-panel-header';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Shelf Icon Set';
     header.appendChild(title);
     header.appendChild(createStatusPill(`Current: ${iconSet.title || iconSet.id}`, 'Current reusable Icon Set selected independently from the active Theme Pack.'));
     panel.appendChild(header);
 
     const status = document.createElement('div');
-    status.className = 'wandlight-theme-icon-status';
+    status.className = 'saga-theme-icon-status';
     status.textContent = `${coverage.loaded} / ${coverage.total} icon paths available | ${coverage.missing} using text fallback | ${coverage.invalid} invalid paths`;
     panel.appendChild(status);
 
     panel.appendChild(createThemeIconSetSelector(iconSet, settings, options));
 
     const grid = document.createElement('div');
-    grid.className = 'wandlight-theme-icon-grid';
+    grid.className = 'saga-theme-icon-grid';
     for (const item of iconItems) {
         const tile = document.createElement('div');
-        tile.className = 'wandlight-theme-icon-tile';
+        tile.className = 'saga-theme-icon-tile';
         const icon = document.createElement('div');
-        icon.className = 'wandlight-theme-icon-preview';
+        icon.className = 'saga-theme-icon-preview';
         const path = getThemeIconPreviewPath(iconSet, item, settings);
         if (path) {
             const img = document.createElement('img');
@@ -263,7 +263,7 @@ export function createThemeIconSetPanel(activePreset, settings = {}, options = {
     panel.appendChild(grid);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Import Icon Set', 'Import icon mappings as a Custom Icon Set.', () => {
         options.onImportIconSet?.();
     }));
@@ -273,12 +273,12 @@ export function createThemeIconSetPanel(activePreset, settings = {}, options = {
     panel.appendChild(actions);
 
     const mapping = document.createElement('details');
-    mapping.className = 'wandlight-theme-advanced-details';
+    mapping.className = 'saga-theme-advanced-details';
     const summary = document.createElement('summary');
     summary.textContent = 'Advanced Icon Mapping';
     mapping.appendChild(summary);
     const rows = document.createElement('div');
-    rows.className = 'wandlight-theme-icon-mapping';
+    rows.className = 'saga-theme-icon-mapping';
     for (const item of iconItems) {
         rows.appendChild(createKeyValue(item.label, getThemeIconPreviewPath(iconSet, item, settings) || 'icon set fallback', 'Icon mapping path used by this Icon Set preview.'));
     }
@@ -290,17 +290,17 @@ export function createThemeIconSetPanel(activePreset, settings = {}, options = {
 function createThemeIconSetSelector(activeIconSet = getIconSetPreset(DEFAULT_ICONSET_ID), settings = {}, options = {}) {
     const iconSets = getIconSetLibrary(settings);
     const shell = document.createElement('div');
-    shell.className = 'wandlight-theme-iconset-selector';
+    shell.className = 'saga-theme-iconset-selector';
 
     const row = document.createElement('label');
-    row.className = 'wandlight-theme-iconset-select-row';
+    row.className = 'saga-theme-iconset-select-row';
     const label = document.createElement('span');
     label.textContent = 'Icon Set';
     addTooltip(label, 'Switch the runtime shelf tab icon library without changing colors or the active Theme Pack.');
     row.appendChild(label);
 
     const select = document.createElement('select');
-    select.className = 'wandlight-lore-workbench-select wandlight-theme-iconset-select';
+    select.className = 'saga-lore-workbench-select saga-theme-iconset-select';
     for (const iconSet of iconSets) {
         const option = document.createElement('option');
         option.value = iconSet.id;
@@ -313,18 +313,18 @@ function createThemeIconSetSelector(activeIconSet = getIconSetPreset(DEFAULT_ICO
     shell.appendChild(row);
 
     const strip = document.createElement('div');
-    strip.className = 'wandlight-theme-iconset-strip';
+    strip.className = 'saga-theme-iconset-strip';
     for (const iconSet of iconSets) {
         const active = iconSet.id === activeIconSet.id;
         const card = document.createElement('button');
         card.type = 'button';
-        card.className = `wandlight-theme-iconset-card${active ? ' wandlight-theme-iconset-card-active' : ''}`;
+        card.className = `saga-theme-iconset-card${active ? ' saga-theme-iconset-card-active' : ''}`;
         card.disabled = active;
         addTooltip(card, active ? `${iconSet.title} is active.` : `Switch to ${iconSet.title}.`);
         card.addEventListener('click', () => options.onApplyThemeIconSet?.(iconSet.id));
 
         const preview = document.createElement('div');
-        preview.className = 'wandlight-theme-iconset-preview-row';
+        preview.className = 'saga-theme-iconset-preview-row';
         for (const iconKey of ['tab.loredecks', 'tab.context', 'tab.lore', 'tab.settings']) {
             const path = getIconMapValue(iconSet.icons, iconKey);
             const cell = document.createElement('span');
@@ -358,11 +358,11 @@ function createThemeIconSetSelector(activeIconSet = getIconSetPreset(DEFAULT_ICO
 
 export function createThemeColorOverridesPanel(settings = {}, activePreset, colors = {}, options = {}) {
     const panel = document.createElement('div');
-    panel.className = 'wandlight-theme-panel wandlight-theme-overrides-panel';
+    panel.className = 'saga-theme-panel saga-theme-overrides-panel';
     const header = document.createElement('div');
-    header.className = 'wandlight-theme-panel-header';
+    header.className = 'saga-theme-panel-header';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Color Overrides';
     header.appendChild(title);
     header.appendChild(createStatusPill(`Overrides: ${settings.themeCustomEnabled === true ? 'On' : 'Off'}`, 'Overrides are user color changes layered over the Theme Pack.'));
@@ -370,9 +370,9 @@ export function createThemeColorOverridesPanel(settings = {}, activePreset, colo
 
     if (settings.themeCustomEnabled !== true) {
         const empty = document.createElement('div');
-        empty.className = 'wandlight-theme-overrides-empty';
+        empty.className = 'saga-theme-overrides-empty';
         const emblem = document.createElement('div');
-        emblem.className = 'wandlight-theme-header-icon';
+        emblem.className = 'saga-theme-header-icon';
         emblem.textContent = 'C';
         empty.appendChild(emblem);
         const text = document.createElement('div');
@@ -380,16 +380,16 @@ export function createThemeColorOverridesPanel(settings = {}, activePreset, colo
         title.textContent = 'Using pack defaults.';
         text.appendChild(title);
         const help = document.createElement('div');
-        help.className = 'wandlight-runtime-help';
+        help.className = 'saga-runtime-help';
         help.textContent = 'Enable overrides to customize this theme without editing the original pack.';
         text.appendChild(help);
         empty.appendChild(text);
         panel.appendChild(empty);
         const actions = document.createElement('div');
-        actions.className = 'wandlight-primary-actions';
+        actions.className = 'saga-primary-actions';
         actions.appendChild(createButton('Enable Color Overrides', 'Enable editable color overrides layered on top of this Theme Pack.', () => {
             options.onEnableColorOverrides?.(activePreset);
-        }, 'wandlight-primary-button'));
+        }, 'saga-primary-button'));
         panel.appendChild(actions);
         return panel;
     }
@@ -416,12 +416,12 @@ export function createThemeColorOverridesPanel(settings = {}, activePreset, colo
     ], options));
 
     const advanced = document.createElement('details');
-    advanced.className = 'wandlight-theme-advanced-details';
+    advanced.className = 'saga-theme-advanced-details';
     const summary = document.createElement('summary');
     summary.textContent = 'Advanced Tokens';
     advanced.appendChild(summary);
     const grid = document.createElement('div');
-    grid.className = 'wandlight-theme-color-grid';
+    grid.className = 'saga-theme-color-grid';
     for (const [label, settingKey, colorKey] of THEME_COLOR_FIELDS) {
         grid.appendChild(createThemeColorField(label, settingKey, colors[colorKey], true, options));
     }
@@ -429,7 +429,7 @@ export function createThemeColorOverridesPanel(settings = {}, activePreset, colo
     panel.appendChild(advanced);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Reset Color Overrides', 'Disable overrides and restore this Theme Pack colors.', () => {
         options.onResetThemeOverrides?.();
     }));
@@ -442,13 +442,13 @@ export function createThemeColorOverridesPanel(settings = {}, activePreset, colo
 
 function createThemeColorGroup(titleText, colors, fields = [], options = {}) {
     const group = document.createElement('div');
-    group.className = 'wandlight-theme-color-group';
+    group.className = 'saga-theme-color-group';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = titleText;
     group.appendChild(title);
     const grid = document.createElement('div');
-    grid.className = 'wandlight-theme-color-grid';
+    grid.className = 'saga-theme-color-grid';
     for (const [label, settingKey, colorKey] of fields) {
         grid.appendChild(createThemeColorField(label, settingKey, colors[colorKey], true, options));
     }
@@ -458,7 +458,7 @@ function createThemeColorGroup(titleText, colors, fields = [], options = {}) {
 
 function createThemeColorField(labelText, settingKey, value, enabled, options = {}) {
     const label = document.createElement('label');
-    label.className = 'wandlight-theme-color-field';
+    label.className = 'saga-theme-color-field';
     const text = document.createElement('span');
     text.textContent = labelText;
     label.appendChild(text);
@@ -479,20 +479,20 @@ function createThemeColorField(labelText, settingKey, value, enabled, options = 
 
 export function createThemeAdvancedPanel(settings = {}, activePreset, colors = {}, options = {}) {
     const panel = document.createElement('details');
-    panel.className = 'wandlight-theme-panel wandlight-theme-advanced-panel';
+    panel.className = 'saga-theme-panel saga-theme-advanced-panel';
     const summary = document.createElement('summary');
     const title = document.createElement('span');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Advanced';
     summary.appendChild(title);
     const help = document.createElement('span');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Export raw tokens, inspect theme JSON, and manage diagnostics.';
     summary.appendChild(help);
     panel.appendChild(summary);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Show Raw Color Tokens', 'Open all resolved color tokens for this Theme Pack.', () => {
         options.onShowRawColorTokens?.(completeThemeColors(colors));
     }));
@@ -533,10 +533,10 @@ export function getThemeIconCoverage(iconSet = {}, settings = {}, iconItems = []
 export function createThemeAccessibilityCard(colors = {}, options = {}) {
     const report = buildThemeAccessibilityReport(colors);
     const shell = document.createElement('div');
-    shell.className = `wandlight-theme-accessibility wandlight-theme-accessibility-${report.failedCount ? 'warning' : 'good'}${options.compact ? ' wandlight-theme-accessibility-compact' : ''}`;
+    shell.className = `saga-theme-accessibility saga-theme-accessibility-${report.failedCount ? 'warning' : 'good'}${options.compact ? ' saga-theme-accessibility-compact' : ''}`;
 
     const header = document.createElement('div');
-    header.className = 'wandlight-theme-accessibility-header';
+    header.className = 'saga-theme-accessibility-header';
     const title = document.createElement('strong');
     title.textContent = 'Accessibility';
     header.appendChild(title);
@@ -544,14 +544,14 @@ export function createThemeAccessibilityCard(colors = {}, options = {}) {
     shell.appendChild(header);
 
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = report.failedCount
         ? `${report.failedCount} contrast check${report.failedCount === 1 ? ' is' : 's are'} below the recommended threshold.`
         : 'All required contrast checks pass. Contrast checks use WCAG ratios.';
     shell.appendChild(help);
 
     const list = document.createElement('div');
-    list.className = 'wandlight-theme-accessibility-list';
+    list.className = 'saga-theme-accessibility-list';
     const visibleChecks = options.compact
         ? (report.failedCount ? report.checks.filter(check => !check.passes) : [])
         : report.checks;
@@ -562,12 +562,12 @@ export function createThemeAccessibilityCard(colors = {}, options = {}) {
 
     if (options.compact && !report.failedCount) {
         const details = document.createElement('details');
-        details.className = 'wandlight-theme-advanced-details';
+        details.className = 'saga-theme-advanced-details';
         const summary = document.createElement('summary');
         summary.textContent = 'View Contrast Details';
         details.appendChild(summary);
         const detailList = document.createElement('div');
-        detailList.className = 'wandlight-theme-accessibility-list';
+        detailList.className = 'saga-theme-accessibility-list';
         for (const check of report.checks) {
             detailList.appendChild(createThemeAccessibilityRow(check));
         }
@@ -579,10 +579,10 @@ export function createThemeAccessibilityCard(colors = {}, options = {}) {
 
 function createThemeAccessibilityRow(check = {}) {
     const row = document.createElement('div');
-    row.className = `wandlight-theme-accessibility-row ${check.passes ? 'wandlight-theme-accessibility-pass' : 'wandlight-theme-accessibility-fail'}`;
+    row.className = `saga-theme-accessibility-row ${check.passes ? 'saga-theme-accessibility-pass' : 'saga-theme-accessibility-fail'}`;
 
     const main = document.createElement('div');
-    main.className = 'wandlight-theme-accessibility-main';
+    main.className = 'saga-theme-accessibility-main';
     const label = document.createElement('span');
     label.textContent = check.label || 'Contrast check';
     main.appendChild(label);
@@ -592,7 +592,7 @@ function createThemeAccessibilityRow(check = {}) {
     row.appendChild(main);
 
     const score = document.createElement('span');
-    score.className = 'wandlight-theme-accessibility-score';
+    score.className = 'saga-theme-accessibility-score';
     score.textContent = `${formatContrastRatio(check.ratio)} / ${check.target}:1`;
     addTooltip(score, check.passes ? 'Passes the advisory contrast target.' : 'Below the advisory contrast target.');
     row.appendChild(score);

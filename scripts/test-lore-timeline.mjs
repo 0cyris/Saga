@@ -86,7 +86,7 @@ const restored = restoreTimelineEntriesToPending(state, deleteEvent.id);
 assert.equal(restored.restored, 1);
 assert.equal(state.pendingLoreEntries.length, 1);
 assert.equal(state.pendingLoreEntries[0].id, 'conundrum_confidicus');
-assert.equal(state.pendingLoreEntries[0].extensions.wandlightTimelineRecovery.eventId, deleteEvent.id);
+assert.equal(state.pendingLoreEntries[0].extensions.sagaTimelineRecovery.eventId, deleteEvent.id);
 assert.equal(getLoreTimelineEvents(state).at(-1).type, 'restore_to_pending');
 
 console.log('Lore timeline tests passed.');

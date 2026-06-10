@@ -16,7 +16,7 @@ The current system has useful pieces, especially Loredeck-local Context state, t
 
 ## Current Diagnosis
 
-As of this planning pass, Context support is split between newer Saga infrastructure and older Wandlight-shaped runtime detection.
+As of this planning pass, Context support is split between newer Saga infrastructure and older Saga-shaped runtime detection.
 
 Strong pieces already present:
 

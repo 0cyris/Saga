@@ -1,5 +1,5 @@
 /**
- * pending-lore-preprocessor.js — Wandlight
+ * pending-lore-preprocessor.js — Saga
  * Assigns user-facing relevance/canon/category defaults before entries enter Pending Lore Review.
  */
 
@@ -7,7 +7,7 @@ import { normalizeLoreEntry, normalizeLoreMatrix } from './lore-matrix.js';
 import { normalizeLoreCanon, normalizeLoreCategory, computeLocalLoreRelevance, normalizeLorePurpose, computeSpecificityScore } from './lore-relevance.js';
 
 function sourceText(entry = {}) {
-    return [entry.source, entry.sourceInfo?.work, entry.sourceInfo?.book, entry.extensions?.wandlightGeneration?.mode]
+    return [entry.source, entry.sourceInfo?.work, entry.sourceInfo?.book, entry.extensions?.sagaGeneration?.mode]
         .map(v => String(v || '').toLowerCase())
         .join(' ');
 }
@@ -23,7 +23,7 @@ function isCanonDatabaseEntry(entry = {}) {
 
 function isStoryGeneratedEntry(entry = {}) {
     const text = sourceText(entry);
-    return text.includes('story') || text.includes('bulk') || text.includes('wandlight') || text.includes('generated');
+    return text.includes('story') || text.includes('bulk') || text.includes('saga') || text.includes('generated');
 }
 
 export function preprocessPendingLoreEntry(rawEntry = {}, state = {}, options = {}) {
@@ -37,7 +37,7 @@ export function preprocessPendingLoreEntry(rawEntry = {}, state = {}, options = 
     const storyGenerated = isStoryGeneratedEntry(normalized) && !canonDatabase;
     const currentBranchCanonReference = canonDatabase && branch !== 'main' && options.strictCanon !== true;
     const manualRelevance = normalized.extensions?.autoRelevance?.mode === 'manual'
-        || normalized.extensions?.wandlightPendingReview?.manualRelevance === true
+        || normalized.extensions?.sagaPendingReview?.manualRelevance === true
         || options.preserveRelevance === true;
     const shouldPreserveRelevance = manualRelevance;
     const recommendedRelevance = shouldPreserveRelevance && rawEntry.relevance
@@ -63,15 +63,15 @@ export function preprocessPendingLoreEntry(rawEntry = {}, state = {}, options = 
         },
         extensions: {
             ...(normalized.extensions || {}),
-            wandlightPendingReview: {
-                ...(normalized.extensions?.wandlightPendingReview || {}),
+            sagaPendingReview: {
+                ...(normalized.extensions?.sagaPendingReview || {}),
                 relevanceRecommendation: recommendedRelevance,
                 relevanceScore: local.score,
                 lorePurpose: local.lorePurpose || normalizeLorePurpose(normalized.lorePurpose || normalized.purpose, normalized),
                 specificityScore: local.specificityScore || computeSpecificityScore(normalized),
                 temporalRole: local.temporalRole,
                 canonRecommendation: canon,
-                modelRelevanceHint: storyGenerated ? (normalized.extensions?.wandlightGeneration?.relevanceHint || rawEntry.relevance || '') : '',
+                modelRelevanceHint: storyGenerated ? (normalized.extensions?.sagaGeneration?.relevanceHint || rawEntry.relevance || '') : '',
                 currentBranchId: branch,
                 preprocessedAt: Date.now(),
                 preservedStaticRelevance: shouldPreserveRelevance && !!rawEntry.relevance,

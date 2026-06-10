@@ -1,5 +1,5 @@
 /**
- * constants.js — Wandlight
+ * constants.js — Saga
  * Module key, default state object, default settings, extraction prompt template,
  * lore generation prompts, and logging prefix. No other dependencies.
  */
@@ -12,18 +12,18 @@ import {
 } from './loredeck-defaults.js';
 
 // ── Module key ──────────────────────────────────────────────────────────────────
-export const MODULE_KEY = 'wandlight';
-export const LEGACY_MODULE_KEYS = Object.freeze(['wandlight_continuity']);
-export const WANDLIGHT_PROVIDER_PRESET_NAME = 'Provider';
-export const WANDLIGHT_PROVIDER_PRESET_VERSION = 'Provider-1.2';
-export const WANDLIGHT_PROVIDER_PRESET_ASSET_PATH = './Presets/Provider-1.2.json';
+export const MODULE_KEY = 'saga';
+export const LEGACY_MODULE_KEYS = Object.freeze(['saga_continuity']);
+export const SAGA_PROVIDER_PRESET_NAME = 'Provider';
+export const SAGA_PROVIDER_PRESET_VERSION = 'Provider-1.2';
+export const SAGA_PROVIDER_PRESET_ASSET_PATH = './Presets/Provider-1.2.json';
 
 /**
  * The extension folder name under data/default-user/extensions/third-party/.
  * Must match the installed folder name exactly for renderExtensionTemplateAsync.
  */
-export const EXTENSION_FOLDER = 'third-party/Wandlight';
-export const LEGACY_EXTENSION_FOLDERS = Object.freeze(['third-party/WandlightContinuity']);
+export const EXTENSION_FOLDER = 'third-party/Saga';
+export const LEGACY_EXTENSION_FOLDERS = Object.freeze(['third-party/SagaContinuity']);
 
 /**
  * Dynamically detects the actual installed extension folder from the script src.
@@ -35,10 +35,10 @@ export function detectExtensionFolder(fallback = EXTENSION_FOLDER) {
     try {
         const scripts = Array.from(document.querySelectorAll('script[src]'));
         // Match the actual script location instead of assuming a fixed folder name.
-        // This supports both the rebranded /third-party/Wandlight/ folder and legacy installs.
+        // This supports both the rebranded /third-party/Saga/ folder and legacy installs.
         for (const script of scripts) {
             const rawSrc = script?.src || '';
-            if (!/wandlight/i.test(rawSrc) || !rawSrc.includes('/third-party/')) continue;
+            if (!/saga/i.test(rawSrc) || !rawSrc.includes('/third-party/')) continue;
             const url = new URL(rawSrc, document.baseURI);
             const match = url.pathname.match(/third-party\/([^/]+)\/index\.js$/);
             if (match?.[1]) {
@@ -131,7 +131,7 @@ export const DEFAULT_SETTINGS = {
     experienceMode: 'basic',
     advancedExperienceSettingsBackup: null,
     basicExperienceProfileVersion: BASIC_EXPERIENCE_PROFILE_VERSION,
-    themePackId: 'wandlight-default',
+    themePackId: 'saga-default',
     themeIconSetId: 'saga-hero',
     themeCustomEnabled: false,
     themeBackgroundColor: '#120c12',

@@ -1,5 +1,5 @@
 /**
- * context-gating.js -- Saga/Wandlight
+ * context-gating.js -- Saga/Saga
  * Pure helpers for evaluating entry-level Context gates.
  */
 

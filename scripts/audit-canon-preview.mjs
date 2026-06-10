@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Audits Wandlight canon lore preview metadata without a model call.
+ * Audits Saga canon lore preview metadata without a model call.
  *
  * Default mode is report-only:
  *   node scripts/audit-canon-preview.mjs

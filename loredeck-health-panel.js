@@ -79,16 +79,16 @@ export function openLoredeckHealthCenter(packId = '') {
 
 export function closeLoredeckHealthCenter() {
     loredeckHealthCenterOpen = false;
-    document.querySelector('.wandlight-loredeck-health-center-overlay')?.remove();
+    document.querySelector('.saga-loredeck-health-center-overlay')?.remove();
 }
 
 const LOREDECK_HEALTH_CENTER_SCROLL_SELECTORS = Object.freeze({
-    body: '.wandlight-loredeck-health-center-body',
-    content: '.wandlight-loredeck-health-center-content',
+    body: '.saga-loredeck-health-center-body',
+    content: '.saga-loredeck-health-center-content',
 });
 
 function captureLoredeckHealthCenterScrollState() {
-    const overlay = document.querySelector('.wandlight-loredeck-health-center-overlay');
+    const overlay = document.querySelector('.saga-loredeck-health-center-overlay');
     if (!overlay) return null;
     const snapshot = { elements: {} };
     for (const [key, selector] of Object.entries(LOREDECK_HEALTH_CENTER_SCROLL_SELECTORS)) {
@@ -112,7 +112,7 @@ function captureLoredeckHealthCenterScrollState() {
 function restoreLoredeckHealthCenterScrollState(snapshot = null) {
     if (!snapshot || typeof snapshot !== 'object') return;
     const restore = () => {
-        const overlay = document.querySelector('.wandlight-loredeck-health-center-overlay');
+        const overlay = document.querySelector('.saga-loredeck-health-center-overlay');
         if (overlay && snapshot.elements && typeof snapshot.elements === 'object') {
             for (const [key, value] of Object.entries(snapshot.elements)) {
                 const selector = LOREDECK_HEALTH_CENTER_SCROLL_SELECTORS[key];
@@ -134,7 +134,7 @@ function restoreLoredeckHealthCenterScrollState(snapshot = null) {
 
 export function renderLoredeckHealthCenterOverlay(options = {}) {
     const scrollState = options.preserveScroll === false ? null : captureLoredeckHealthCenterScrollState();
-    const previousOverlay = document.querySelector('.wandlight-loredeck-health-center-overlay');
+    const previousOverlay = document.querySelector('.saga-loredeck-health-center-overlay');
     if (!loredeckHealthCenterOpen) {
         previousOverlay?.remove();
         return;
@@ -145,32 +145,32 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
         const context = getLoredeckHealthCenterContext(loredeckHealthCenterPackId);
 
         overlay = document.createElement('div');
-        overlay.className = 'wandlight-lore-workbench-overlay wandlight-loredeck-health-center-overlay';
+        overlay.className = 'saga-lore-workbench-overlay saga-loredeck-health-center-overlay';
         wireOverlayBackdropClose(overlay, closeLoredeckHealthCenter);
 
         const shell = document.createElement('div');
-        shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-health-center-shell';
+        shell.className = 'saga-lore-workbench-shell saga-loredeck-health-center-shell';
         overlay.appendChild(shell);
 
         const header = document.createElement('div');
-        header.className = 'wandlight-lore-workbench-header wandlight-loredeck-health-center-header';
+        header.className = 'saga-lore-workbench-header saga-loredeck-health-center-header';
         const titleWrap = document.createElement('div');
-        titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+        titleWrap.className = 'saga-lore-workbench-title-wrap';
         const title = document.createElement('div');
-        title.className = 'wandlight-lore-workbench-title';
+        title.className = 'saga-lore-workbench-title';
         title.textContent = 'Deck Health Center';
         titleWrap.appendChild(title);
         const subtitle = document.createElement('div');
-        subtitle.className = 'wandlight-lore-workbench-subtitle';
+        subtitle.className = 'saga-lore-workbench-subtitle';
         subtitle.textContent = context.subtitle;
         titleWrap.appendChild(subtitle);
         header.appendChild(titleWrap);
 
         const actions = document.createElement('div');
-        actions.className = 'wandlight-primary-actions wandlight-loredeck-health-center-actions';
+        actions.className = 'saga-primary-actions saga-loredeck-health-center-actions';
         actions.appendChild(createButton('Refresh Scan', context.pack ? 'Validate this Loredeck and refresh its Deck Health report.' : 'Reload active Loredecks and recompute stack Deck Health.', async (btn) => {
             await refreshLoredeckHealthCenterScan(context, btn);
-        }, 'wandlight-primary-button'));
+        }, 'saga-primary-button'));
         const exportButton = createButton('Export Report', 'Download this Deck Health report as JSON.', () => exportLoredeckHealthCenterReport(context));
         exportButton.disabled = !context.health;
         actions.appendChild(exportButton);
@@ -179,10 +179,10 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
         shell.appendChild(header);
 
         const body = document.createElement('div');
-        body.className = 'wandlight-loredeck-health-center-body';
+        body.className = 'saga-loredeck-health-center-body';
         body.appendChild(createLoredeckHealthCenterTabs());
         const content = document.createElement('div');
-        content.className = `wandlight-loredeck-health-center-content wandlight-loredeck-health-center-content-${loredeckHealthCenterTab}`;
+        content.className = `saga-loredeck-health-center-content saga-loredeck-health-center-content-${loredeckHealthCenterTab}`;
         if (loredeckHealthCenterTab === 'issues') content.appendChild(createLoredeckHealthIssuesView(context));
         else if (loredeckHealthCenterTab === 'coverage') content.appendChild(createLoredeckHealthCoverageView(context));
         else if (loredeckHealthCenterTab === 'files') content.appendChild(createLoredeckHealthFilesView(context));
@@ -206,38 +206,38 @@ export function renderLoredeckHealthCenterOverlay(options = {}) {
 
 function createLoredeckHealthCenterRenderErrorOverlay(error = null) {
     const overlay = document.createElement('div');
-    overlay.className = 'wandlight-lore-workbench-overlay wandlight-loredeck-health-center-overlay';
+    overlay.className = 'saga-lore-workbench-overlay saga-loredeck-health-center-overlay';
     wireOverlayBackdropClose(overlay, closeLoredeckHealthCenter);
 
     const shell = document.createElement('div');
-    shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-health-center-shell';
+    shell.className = 'saga-lore-workbench-shell saga-loredeck-health-center-shell';
     overlay.appendChild(shell);
 
     const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-header wandlight-loredeck-health-center-header';
+    header.className = 'saga-lore-workbench-header saga-loredeck-health-center-header';
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    titleWrap.className = 'saga-lore-workbench-title-wrap';
     const title = document.createElement('div');
-    title.className = 'wandlight-lore-workbench-title';
+    title.className = 'saga-lore-workbench-title';
     title.textContent = 'Deck Health Center';
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.className = 'saga-lore-workbench-subtitle';
     subtitle.textContent = 'The report could not be rendered.';
     titleWrap.appendChild(subtitle);
     header.appendChild(titleWrap);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-loredeck-health-center-actions';
+    actions.className = 'saga-primary-actions saga-loredeck-health-center-actions';
     actions.appendChild(createButton('Close', 'Close the Deck Health Center.', closeLoredeckHealthCenter));
     header.appendChild(actions);
     shell.appendChild(header);
 
     const body = document.createElement('div');
-    body.className = 'wandlight-loredeck-health-center-body';
+    body.className = 'saga-loredeck-health-center-body';
     body.appendChild(createEmptyMessage('Deck Health Center could not render this report. Close and reopen the Health Center after rerunning the scan.'));
     const detail = document.createElement('div');
-    detail.className = 'wandlight-runtime-help';
+    detail.className = 'saga-runtime-help';
     detail.textContent = error?.message || 'Unknown render error.';
     body.appendChild(detail);
     shell.appendChild(body);
@@ -246,7 +246,7 @@ function createLoredeckHealthCenterRenderErrorOverlay(error = null) {
 
 function createLoredeckHealthCenterTabs() {
     const tabs = document.createElement('div');
-    tabs.className = 'wandlight-lore-workbench-mode-tabs wandlight-loredeck-health-tabs';
+    tabs.className = 'saga-lore-workbench-mode-tabs saga-loredeck-health-tabs';
     const options = [
         ['overview', 'Overview', 'Readiness, priority issues, categories, and inventory.'],
         ['issues', 'Issues', 'Grouped issue triage with affected data and repair guidance.'],
@@ -257,7 +257,7 @@ function createLoredeckHealthCenterTabs() {
     for (const [id, label, tooltip] of options) {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = `wandlight-lore-workbench-mode-tab${loredeckHealthCenterTab === id ? ' wandlight-lore-workbench-mode-tab-active' : ''}`;
+        btn.className = `saga-lore-workbench-mode-tab${loredeckHealthCenterTab === id ? ' saga-lore-workbench-mode-tab-active' : ''}`;
         btn.textContent = label;
         addTooltip(btn, tooltip);
         btn.addEventListener('click', () => {
@@ -423,16 +423,16 @@ export function getLoredeckHealthStatusDescriptor(report = {}, health = null) {
 
 function createLoredeckHealthOverviewView(context) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-health-overview';
+    wrap.className = 'saga-loredeck-health-overview';
     wrap.appendChild(createLoredeckHealthSummaryHero(context));
     wrap.appendChild(createLoredeckHealthSeverityGrid(context));
 
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-health-overview-main';
+    main.className = 'saga-loredeck-health-overview-main';
     const issues = document.createElement('div');
-    issues.className = 'wandlight-loredeck-health-panel';
+    issues.className = 'saga-loredeck-health-panel';
     const issueTitle = document.createElement('div');
-    issueTitle.className = 'wandlight-runtime-card-title';
+    issueTitle.className = 'saga-runtime-card-title';
     issueTitle.textContent = 'Priority Issues';
     issues.appendChild(issueTitle);
     const groups = getLoredeckHealthIssueGroupsForContext(context);
@@ -446,9 +446,9 @@ function createLoredeckHealthOverviewView(context) {
     main.appendChild(issues);
 
     const categories = document.createElement('div');
-    categories.className = 'wandlight-loredeck-health-panel';
+    categories.className = 'saga-loredeck-health-panel';
     const categoryTitle = document.createElement('div');
-    categoryTitle.className = 'wandlight-runtime-card-title';
+    categoryTitle.className = 'saga-runtime-card-title';
     categoryTitle.textContent = 'Health Categories';
     categories.appendChild(categoryTitle);
     categories.appendChild(createLoredeckHealthCategoryList(context));
@@ -462,10 +462,10 @@ function createLoredeckHealthOverviewView(context) {
 
 function createLoredeckHealthIssuesView(context) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-health-issues-view';
+    wrap.className = 'saga-loredeck-health-issues-view';
     const groups = getLoredeckHealthIssueGroupsForContext(context, { includeIgnored: true });
     const header = document.createElement('div');
-    header.className = 'wandlight-loredeck-health-view-header';
+    header.className = 'saga-loredeck-health-view-header';
     const stateCounts = getLoredeckHealthIssueStateCounts(context, groups);
     header.appendChild(createStatusPill(`${groups.length} grouped issue${groups.length === 1 ? '' : 's'}`, 'Issues are grouped by severity, code, and affected file when possible.'));
     header.appendChild(createStatusPill(`${getLoredeckHealthAllIssues(context.report).length} raw finding${getLoredeckHealthAllIssues(context.report).length === 1 ? '' : 's'}`, 'Raw Deck Health findings before grouping.'));
@@ -477,7 +477,7 @@ function createLoredeckHealthIssuesView(context) {
         return wrap;
     }
     const table = document.createElement('div');
-    table.className = 'wandlight-loredeck-health-issue-table';
+    table.className = 'saga-loredeck-health-issue-table';
     table.appendChild(createLoredeckHealthIssueTableHeader());
     for (const group of groups) {
         table.appendChild(createLoredeckHealthIssueTableRow(group, context));
@@ -488,20 +488,20 @@ function createLoredeckHealthIssuesView(context) {
 
 function createLoredeckHealthCoverageView(context) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-health-coverage-view';
+    wrap.className = 'saga-loredeck-health-coverage-view';
     const summary = context.report.summary || {};
     const panel = document.createElement('div');
-    panel.className = 'wandlight-loredeck-health-panel';
+    panel.className = 'saga-loredeck-health-panel';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Narrative Coverage Signals';
     panel.appendChild(title);
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Coverage is advisory. These signals help identify whether a deck has enough Context, category, and retrieval structure to support long-form play.';
     panel.appendChild(help);
     const grid = document.createElement('div');
-    grid.className = 'wandlight-loredeck-health-coverage-grid';
+    grid.className = 'saga-loredeck-health-coverage-grid';
     const categoryCounts = summary.categoryCounts && typeof summary.categoryCounts === 'object' && !Array.isArray(summary.categoryCounts)
         ? summary.categoryCounts
         : {};
@@ -527,16 +527,16 @@ function createLoredeckHealthCoverageView(context) {
 
 function createLoredeckHealthFilesView(context) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-health-files-view';
+    wrap.className = 'saga-loredeck-health-files-view';
     const files = getLoredeckHealthFileRows(context);
     if (!files.length) {
         wrap.appendChild(createEmptyMessage('No file-level diagnostics are available yet. Run Refresh Scan or validate the selected Loredeck.'));
         return wrap;
     }
     const table = document.createElement('div');
-    table.className = 'wandlight-loredeck-health-file-table';
+    table.className = 'saga-loredeck-health-file-table';
     const header = document.createElement('div');
-    header.className = 'wandlight-loredeck-health-file-row wandlight-loredeck-health-file-row-header';
+    header.className = 'saga-loredeck-health-file-row saga-loredeck-health-file-row-header';
     for (const text of ['File', 'Entries', 'Errors', 'Warnings', 'Status']) {
         const cell = document.createElement('div');
         cell.textContent = text;
@@ -545,7 +545,7 @@ function createLoredeckHealthFilesView(context) {
     table.appendChild(header);
     for (const file of files) {
         const row = document.createElement('div');
-        row.className = `wandlight-loredeck-health-file-row wandlight-loredeck-health-file-row-${file.statusTone}`;
+        row.className = `saga-loredeck-health-file-row saga-loredeck-health-file-row-${file.statusTone}`;
         for (const text of [file.file || '(unknown)', String(file.entries || 0), String(file.errors || 0), String(file.warnings || 0), file.status]) {
             const cell = document.createElement('div');
             cell.textContent = text;
@@ -559,18 +559,18 @@ function createLoredeckHealthFilesView(context) {
 
 function createLoredeckHealthAdvancedView(context) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-health-advanced-view';
+    wrap.className = 'saga-loredeck-health-advanced-view';
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Copy Diagnostics', 'Copy the current Deck Health report JSON to clipboard.', async () => {
         await copyTextToClipboard(JSON.stringify(context.report, null, 2), 'Deck Health diagnostics copied.');
     }));
-    actions.appendChild(createButton('Export Report', 'Download this Deck Health report as JSON.', () => exportLoredeckHealthCenterReport(context), 'wandlight-primary-button'));
+    actions.appendChild(createButton('Export Report', 'Download this Deck Health report as JSON.', () => exportLoredeckHealthCenterReport(context), 'saga-primary-button'));
     wrap.appendChild(actions);
 
     const summary = context.report.summary || {};
     const grid = document.createElement('div');
-    grid.className = 'wandlight-loredeck-health-grid';
+    grid.className = 'saga-loredeck-health-grid';
     const metrics = [
         ['Status', context.report.status || 'unknown', 'Raw Deck Health status.'],
         ['Entries', String(summary.entryCount || 0), 'Loaded entry count after Custom overrides and stack dedupe.'],
@@ -594,7 +594,7 @@ function createLoredeckHealthAdvancedView(context) {
 
     if (context.report.packs?.length) {
         const packs = document.createElement('div');
-        packs.className = 'wandlight-loredeck-health-pack-list';
+        packs.className = 'saga-loredeck-health-pack-list';
         for (const pack of context.report.packs) packs.appendChild(createLoredeckHealthPackRow(pack));
         wrap.appendChild(packs);
     }
@@ -607,35 +607,35 @@ function createLoredeckHealthAdvancedView(context) {
 
 function createLoredeckHealthSummaryHero(context, options = {}) {
     const hero = document.createElement('div');
-    hero.className = `wandlight-loredeck-health-hero wandlight-loredeck-health-hero-${context.status.tone}${options.compact ? ' wandlight-loredeck-health-hero-compact' : ''}`;
+    hero.className = `saga-loredeck-health-hero saga-loredeck-health-hero-${context.status.tone}${options.compact ? ' saga-loredeck-health-hero-compact' : ''}`;
     const emblem = document.createElement('div');
-    emblem.className = 'wandlight-loredeck-health-emblem';
+    emblem.className = 'saga-loredeck-health-emblem';
     emblem.textContent = context.status.tone === 'error' ? '!' : (context.status.tone === 'ok' ? 'OK' : '!');
     hero.appendChild(emblem);
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-health-hero-main';
+    main.className = 'saga-loredeck-health-hero-main';
     const deck = document.createElement('div');
-    deck.className = 'wandlight-loredeck-health-deck-title';
+    deck.className = 'saga-loredeck-health-deck-title';
     deck.textContent = context.title;
     main.appendChild(deck);
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
+    meta.className = 'saga-loredeck-row-meta';
     const pack = context.pack || context.report.packs?.[0] || null;
     if (pack) meta.appendChild(createStatusPill(pack.typeLabel || getLoredeckTypeLabel(pack.packId), 'Loredeck type.'));
     meta.appendChild(createStatusPill(`${context.report.summary?.entryCount || 0} Lorecards`, 'Lorecards checked in this report.'));
     meta.appendChild(createStatusPill(`Last scan: ${context.health ? formatRelativeHealthTime(context.generatedAt) : 'not scanned'}`, 'Last Deck Health scan time.'));
     main.appendChild(meta);
     const status = document.createElement('div');
-    status.className = 'wandlight-loredeck-health-status-label';
+    status.className = 'saga-loredeck-health-status-label';
     status.textContent = context.status.label;
     main.appendChild(status);
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-health-status-summary';
+    summary.className = 'saga-loredeck-health-status-summary';
     summary.textContent = context.status.summary;
     main.appendChild(summary);
     if (!options.compact) {
         const detail = document.createElement('div');
-        detail.className = 'wandlight-loredeck-health-status-detail';
+        detail.className = 'saga-loredeck-health-status-detail';
         detail.textContent = context.status.detail;
         main.appendChild(detail);
     }
@@ -646,7 +646,7 @@ function createLoredeckHealthSummaryHero(context, options = {}) {
 function createLoredeckHealthSeverityGrid(context, options = {}) {
     const summary = context.report.summary || {};
     const grid = document.createElement('div');
-    grid.className = `wandlight-loredeck-health-severity-grid${options.compact ? ' wandlight-loredeck-health-severity-grid-compact' : ''}`;
+    grid.className = `saga-loredeck-health-severity-grid${options.compact ? ' saga-loredeck-health-severity-grid-compact' : ''}`;
     grid.appendChild(createLoredeckHealthSeverityCard('Errors', String(summary.errorCount || 0), (summary.errorCount || 0) ? 'Fix first' : 'None found', 'error'));
     grid.appendChild(createLoredeckHealthSeverityCard('Warnings', String(summary.warningCount || 0), (summary.warningCount || 0) ? 'Needs review' : 'Clear', 'warning'));
     grid.appendChild(createLoredeckHealthSeverityCard('Suggestions', String(summary.suggestionCount || 0), (summary.suggestionCount || 0) ? 'Optional' : 'None', 'suggestion'));
@@ -656,7 +656,7 @@ function createLoredeckHealthSeverityGrid(context, options = {}) {
 
 function createLoredeckHealthSeverityCard(label, value, detail, tone = 'checked') {
     const card = document.createElement('div');
-    card.className = `wandlight-loredeck-health-severity-card wandlight-loredeck-health-severity-card-${tone}`;
+    card.className = `saga-loredeck-health-severity-card saga-loredeck-health-severity-card-${tone}`;
     const labelEl = document.createElement('span');
     labelEl.textContent = label;
     card.appendChild(labelEl);
@@ -672,10 +672,10 @@ function createLoredeckHealthSeverityCard(label, value, detail, tone = 'checked'
 function createLoredeckHealthCategoryList(context, options = {}) {
     const categories = getLoredeckHealthCategories(context.report);
     const list = document.createElement('div');
-    list.className = `${options.asPanel ? 'wandlight-loredeck-health-panel ' : ''}wandlight-loredeck-health-category-list`.trim();
+    list.className = `${options.asPanel ? 'saga-loredeck-health-panel ' : ''}saga-loredeck-health-category-list`.trim();
     for (const category of categories) {
         const row = document.createElement('div');
-        row.className = `wandlight-loredeck-health-category-row wandlight-loredeck-health-category-row-${category.tone}`;
+        row.className = `saga-loredeck-health-category-row saga-loredeck-health-category-row-${category.tone}`;
         const name = document.createElement('span');
         name.textContent = category.label;
         row.appendChild(name);
@@ -729,9 +729,9 @@ function getLoredeckHealthCategories(report = {}) {
 function createLoredeckHealthInventoryBar(context) {
     const summary = context.report.summary || {};
     const bar = document.createElement('div');
-    bar.className = 'wandlight-loredeck-health-inventory';
+    bar.className = 'saga-loredeck-health-inventory';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-health-inventory-title';
+    title.className = 'saga-loredeck-health-inventory-title';
     title.textContent = 'Deck Inventory';
     bar.appendChild(title);
     const items = [
@@ -745,7 +745,7 @@ function createLoredeckHealthInventoryBar(context) {
     ];
     for (const [label, value] of items) {
         const item = document.createElement('div');
-        item.className = 'wandlight-loredeck-health-inventory-item';
+        item.className = 'saga-loredeck-health-inventory-item';
         const k = document.createElement('span');
         k.textContent = label;
         item.appendChild(k);
@@ -760,43 +760,43 @@ function createLoredeckHealthInventoryBar(context) {
 function createLoredeckHealthIssueGroupCard(group, context, options = {}) {
     const issueState = getLoredeckHealthIssueState(context.pack, group);
     const card = document.createElement('details');
-    card.className = `wandlight-loredeck-health-group-card wandlight-loredeck-health-group-${group.severity}${options.compact ? ' wandlight-loredeck-health-group-card-compact' : ''}`;
-    if (issueState?.status) card.classList.add(`wandlight-loredeck-health-group-state-${issueState.status}`);
+    card.className = `saga-loredeck-health-group-card saga-loredeck-health-group-${group.severity}${options.compact ? ' saga-loredeck-health-group-card-compact' : ''}`;
+    if (issueState?.status) card.classList.add(`saga-loredeck-health-group-state-${issueState.status}`);
     card.open = false;
     const summary = document.createElement('summary');
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-health-group-main';
+    main.className = 'saga-loredeck-health-group-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-health-group-title';
+    title.className = 'saga-loredeck-health-group-title';
     title.textContent = group.title;
     main.appendChild(title);
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
+    meta.className = 'saga-loredeck-row-meta';
     const severityPill = createStatusPill(humanizeScopeKey(group.severity), 'Issue severity.');
-    severityPill.classList.add('wandlight-loredeck-health-chip', `wandlight-loredeck-health-chip-${group.severity}`);
+    severityPill.classList.add('saga-loredeck-health-chip', `saga-loredeck-health-chip-${group.severity}`);
     meta.appendChild(severityPill);
     const affectedPill = createStatusPill(group.affectedLabel, 'Affected scope.');
-    affectedPill.classList.add('wandlight-loredeck-health-chip', 'wandlight-loredeck-health-chip-affected');
+    affectedPill.classList.add('saga-loredeck-health-chip', 'saga-loredeck-health-chip-affected');
     meta.appendChild(affectedPill);
     if (group.files.length) {
         const filePill = createStatusPill(`${group.files.length} file${group.files.length === 1 ? '' : 's'}`, group.files.join(', '));
-        filePill.classList.add('wandlight-loredeck-health-chip', 'wandlight-loredeck-health-chip-file');
+        filePill.classList.add('saga-loredeck-health-chip', 'saga-loredeck-health-chip-file');
         meta.appendChild(filePill);
     }
     if (group.autoFixLabel) {
         const fixPill = createStatusPill(group.autoFixLabel, group.autoFixTooltip);
-        fixPill.classList.add('wandlight-loredeck-health-chip', 'wandlight-loredeck-health-chip-fix');
+        fixPill.classList.add('saga-loredeck-health-chip', 'saga-loredeck-health-chip-fix');
         meta.appendChild(fixPill);
     }
     if (issueState?.status) {
         const stateLabel = getLoredeckHealthIssueStateLabel(issueState, group);
         const statePill = createStatusPill(stateLabel, issueState.note || 'User-set Deck Health issue state.');
-        statePill.classList.add('wandlight-loredeck-health-chip', `wandlight-loredeck-health-chip-state-${issueState.status}`);
+        statePill.classList.add('saga-loredeck-health-chip', `saga-loredeck-health-chip-state-${issueState.status}`);
         meta.appendChild(statePill);
     }
     main.appendChild(meta);
     const message = document.createElement('div');
-    message.className = 'wandlight-loredeck-health-group-message';
+    message.className = 'saga-loredeck-health-group-message';
     message.textContent = group.summary;
     main.appendChild(message);
     summary.appendChild(main);
@@ -811,13 +811,13 @@ function createLoredeckHealthIssueDetailPanel(group, context, options = {}) {
     const issueState = getLoredeckHealthIssueState(context.pack, group);
     const editable = !!context.pack && context.pack.type !== 'bundled';
     const panel = document.createElement('div');
-    panel.className = `wandlight-loredeck-health-detail-panel${options.embedded ? ' wandlight-loredeck-health-detail-panel-embedded' : ''}`;
+    panel.className = `saga-loredeck-health-detail-panel${options.embedded ? ' saga-loredeck-health-detail-panel-embedded' : ''}`;
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = options.embedded ? 'Details' : `Issue: ${group.title}`;
     panel.appendChild(title);
     const why = document.createElement('div');
-    why.className = 'wandlight-loredeck-health-detail-block';
+    why.className = 'saga-loredeck-health-detail-block';
     const whyTitle = document.createElement('strong');
     whyTitle.textContent = 'Why this matters';
     why.appendChild(whyTitle);
@@ -826,7 +826,7 @@ function createLoredeckHealthIssueDetailPanel(group, context, options = {}) {
     why.appendChild(whyText);
     panel.appendChild(why);
     const fix = document.createElement('div');
-    fix.className = 'wandlight-loredeck-health-detail-block';
+    fix.className = 'saga-loredeck-health-detail-block';
     const fixTitle = document.createElement('strong');
     fixTitle.textContent = 'Recommended fix';
     fix.appendChild(fixTitle);
@@ -837,7 +837,7 @@ function createLoredeckHealthIssueDetailPanel(group, context, options = {}) {
 
     if (context.pack) {
         const workflow = document.createElement('div');
-        workflow.className = 'wandlight-loredeck-health-detail-block';
+        workflow.className = 'saga-loredeck-health-detail-block';
         const workflowTitle = document.createElement('strong');
         workflowTitle.textContent = 'Repair workflow';
         workflow.appendChild(workflowTitle);
@@ -853,7 +853,7 @@ function createLoredeckHealthIssueDetailPanel(group, context, options = {}) {
     if (affected) panel.appendChild(affected);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Copy Details', 'Copy this grouped issue summary to clipboard.', async () => {
         await copyTextToClipboard(formatLoredeckHealthGroupForCopy(group), 'Deck Health issue copied.');
     }));
@@ -890,7 +890,7 @@ function createLoredeckHealthIssueDetailPanel(group, context, options = {}) {
                 const tagRepairButton = createButton('Queue Tag ID Repair', 'Queue deterministic malformed tag ID replacements for Pending Review.', async (btn) => {
                     await queueLoredeckMalformedTagRepairFromHealthGroup(context.pack, group, btn);
                     renderLoredeckHealthCenterOverlay();
-                }, 'wandlight-primary-button');
+                }, 'saga-primary-button');
                 tagRepairButton.disabled = !canValidateLoredeckInEditor(context.pack);
                 actions.appendChild(tagRepairButton);
             }
@@ -910,14 +910,14 @@ function createLoredeckHealthAffectedList(group) {
     const rows = getLoredeckHealthAffectedRows(group).slice(0, 12);
     if (!rows.length) return null;
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-health-affected-list';
+    wrap.className = 'saga-loredeck-health-affected-list';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Affected Items';
     wrap.appendChild(title);
     for (const row of rows) {
         const item = document.createElement('div');
-        item.className = 'wandlight-loredeck-health-affected-row';
+        item.className = 'saga-loredeck-health-affected-row';
         for (const text of row) {
             const cell = document.createElement('span');
             cell.textContent = text;
@@ -928,7 +928,7 @@ function createLoredeckHealthAffectedList(group) {
     const total = getLoredeckHealthAffectedCount(group);
     if (total > rows.length) {
         const more = document.createElement('div');
-        more.className = 'wandlight-runtime-help';
+        more.className = 'saga-runtime-help';
         more.textContent = `Showing first ${rows.length} of ${total}. Export the report for the full set.`;
         wrap.appendChild(more);
     }
@@ -937,7 +937,7 @@ function createLoredeckHealthAffectedList(group) {
 
 function createLoredeckHealthIssueTableHeader() {
     const row = document.createElement('div');
-    row.className = 'wandlight-loredeck-health-issue-table-row wandlight-loredeck-health-issue-table-header';
+    row.className = 'saga-loredeck-health-issue-table-row saga-loredeck-health-issue-table-header';
     for (const text of ['Severity', 'Issue', 'Affected', 'File', 'Action']) {
         const cell = document.createElement('div');
         cell.textContent = text;
@@ -949,8 +949,8 @@ function createLoredeckHealthIssueTableHeader() {
 function createLoredeckHealthIssueTableRow(group, context) {
     const issueState = getLoredeckHealthIssueState(context.pack, group);
     const row = document.createElement('details');
-    row.className = `wandlight-loredeck-health-issue-table-row wandlight-loredeck-health-issue-table-row-${group.severity}`;
-    if (issueState?.status) row.classList.add(`wandlight-loredeck-health-issue-table-row-state-${issueState.status}`);
+    row.className = `saga-loredeck-health-issue-table-row saga-loredeck-health-issue-table-row-${group.severity}`;
+    if (issueState?.status) row.classList.add(`saga-loredeck-health-issue-table-row-state-${issueState.status}`);
     const summary = document.createElement('summary');
     const actionText = issueState?.status
         ? `${getLoredeckHealthIssueStateLabel(issueState, group)} | ${group.fixShort}`
@@ -1488,7 +1488,7 @@ function exportLoredeckHealthCenterReport(context = getLoredeckHealthCenterConte
 
 function createLoredeckHealthMetric(label, value, tooltip) {
     const metric = document.createElement('div');
-    metric.className = 'wandlight-loredeck-health-metric';
+    metric.className = 'saga-loredeck-health-metric';
     addTooltip(metric, tooltip || label);
     const k = document.createElement('span');
     k.textContent = label;
@@ -1501,21 +1501,21 @@ function createLoredeckHealthMetric(label, value, tooltip) {
 
 function createLoredeckHealthPackRow(pack) {
     const row = document.createElement('div');
-    row.className = 'wandlight-loredeck-health-pack-row';
+    row.className = 'saga-loredeck-health-pack-row';
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-row-main';
+    main.className = 'saga-loredeck-row-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-row-title';
+    title.className = 'saga-loredeck-row-title';
     title.textContent = pack.title || pack.packId;
     main.appendChild(title);
 
     const desc = document.createElement('div');
-    desc.className = 'wandlight-loredeck-row-description';
+    desc.className = 'saga-loredeck-row-description';
     desc.textContent = pack.description || pack.manifest || pack.packId;
     main.appendChild(desc);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
+    meta.className = 'saga-loredeck-row-meta';
     meta.appendChild(createStatusPill(pack.typeLabel || pack.type || 'Custom', 'Loredeck type.'));
     meta.appendChild(createStatusPill(`${pack.entryCount || 0} entries`, 'Loaded entries from this pack.'));
     meta.appendChild(createStatusPill(pack.healthStatus || 'unknown', 'Per-pack health status.'));
@@ -1529,10 +1529,10 @@ function createLoredeckHealthPackRow(pack) {
 
 function createLoredeckHealthIssueList(titleText, issues = [], severity = 'suggestion') {
     const wrap = document.createElement('div');
-    wrap.className = `wandlight-loredeck-health-issue-section wandlight-loredeck-health-issue-section-${severity}`;
+    wrap.className = `saga-loredeck-health-issue-section saga-loredeck-health-issue-section-${severity}`;
 
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = `${titleText}: ${issues.length}`;
     wrap.appendChild(title);
 
@@ -1542,20 +1542,20 @@ function createLoredeckHealthIssueList(titleText, issues = [], severity = 'sugge
     }
 
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-health-issue-list';
+    list.className = 'saga-loredeck-health-issue-list';
     for (const issue of issues.slice(0, 12)) {
         const item = document.createElement('div');
-        item.className = `wandlight-loredeck-health-issue wandlight-loredeck-health-issue-${severity}`;
+        item.className = `saga-loredeck-health-issue saga-loredeck-health-issue-${severity}`;
         const code = document.createElement('div');
-        code.className = 'wandlight-loredeck-health-issue-code';
+        code.className = 'saga-loredeck-health-issue-code';
         code.textContent = issue.code || severity;
         item.appendChild(code);
         const message = document.createElement('div');
-        message.className = 'wandlight-loredeck-health-issue-message';
+        message.className = 'saga-loredeck-health-issue-message';
         message.textContent = issue.message || 'No message.';
         item.appendChild(message);
         const meta = document.createElement('div');
-        meta.className = 'wandlight-loredeck-row-meta';
+        meta.className = 'saga-loredeck-row-meta';
         if (issue.packId) meta.appendChild(createStatusPill(issue.packId, 'Affected pack ID.'));
         if (Array.isArray(issue.entryIds) && issue.entryIds.length) meta.appendChild(createStatusPill(`${issue.entryIds.length} entr${issue.entryIds.length === 1 ? 'y' : 'ies'}`, 'Affected entry IDs.'));
         if (issue.file) meta.appendChild(createStatusPill(issue.file, 'Affected file.'));
@@ -1570,7 +1570,7 @@ function createLoredeckHealthIssueList(titleText, issues = [], severity = 'sugge
     }
     if (issues.length > 12) {
         const more = document.createElement('div');
-        more.className = 'wandlight-runtime-help';
+        more.className = 'saga-runtime-help';
         more.textContent = `Showing first 12 of ${issues.length}. Export Health JSON for the full list.`;
         list.appendChild(more);
     }

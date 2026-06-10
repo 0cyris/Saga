@@ -8,7 +8,7 @@
 
 Saga is a SillyTavern extension for long-form fandom roleplay and fanfiction. It organizes canon, alternate-universe, crossover, and user-created lore into modular **Loredecks** made of reviewable **Lorecards** that can be loaded, stacked, validated, edited, and injected at the right point in a story.
 
-Saga began as Wandlight, a Harry Potter-focused lore system. Wandlight proved the core idea: LLMs often know a lot of lore, but they are weak at story position, hidden knowledge, future-canon leakage, and chat-specific continuity. Saga generalizes that idea into a broader, data-driven framework for many fandoms and custom settings.
+Saga began as Saga, a Harry Potter-focused lore system. Saga proved the core idea: LLMs often know a lot of lore, but they are weak at story position, hidden knowledge, future-canon leakage, and chat-specific continuity. Saga generalizes that idea into a broader, data-driven framework for many fandoms and custom settings.
 
 ## Status
 
@@ -150,7 +150,7 @@ The Lore Assistant is a model-assisted helper for revising entries, tags, timeli
 
 ### Continuity Tools
 
-Saga preserves Wandlight's continuity-tracking direction: durable story lore, lightweight continuity state, reviewable scans, and responsive status feedback. The goal is to remember what this chat changed without mixing that state into static canon decks.
+Saga preserves Saga's continuity-tracking direction: durable story lore, lightweight continuity state, reviewable scans, and responsive status feedback. The goal is to remember what this chat changed without mixing that state into static canon decks.
 
 ### Import, Export, And Updates
 
@@ -260,9 +260,9 @@ Important runtime modules:
 - `prompt-injector.js`: prompt injection bridge.
 - `state-manager.js`: persisted Saga state.
 
-## Relationship To Wandlight
+## Relationship To Saga
 
-Wandlight started as a lightweight Harry Potter preset and lore workflow for SillyTavern. It emphasized date-aware canon anchoring, roleplay prose controls, anti-slop prompting, character set toggles, dynamic canon guidance, and manual lorebook support.
+Saga started as a lightweight Harry Potter preset and lore workflow for SillyTavern. It emphasized date-aware canon anchoring, roleplay prose controls, anti-slop prompting, character set toggles, dynamic canon guidance, and manual lorebook support.
 
 Saga keeps the strongest product lessons and moves them into a general extension architecture:
 
@@ -274,7 +274,7 @@ Saga keeps the strongest product lessons and moves them into a general extension
 - Prompt placement and relevance controls become the Injection system.
 - HP-only assumptions become fandom-agnostic schema, tags, timelines, and deck stacks.
 
-Saga is not just Wandlight with more fandoms. It is the broader framework that Wandlight was pointing toward.
+Saga is not just Saga with more fandoms. It is the broader framework that Saga was pointing toward.
 
 ## Authoring Loredecks
 

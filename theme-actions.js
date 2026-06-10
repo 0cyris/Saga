@@ -210,16 +210,16 @@ export function buildThemePackExportObject(preset, settings = getSettings()) {
 
 export function openThemeJsonDialog(titleText, data) {
     const overlay = document.createElement('div');
-    overlay.className = 'wandlight-new-lore-overlay wandlight-theme-json-overlay';
+    overlay.className = 'saga-new-lore-overlay saga-theme-json-overlay';
     wireOverlayBackdropClose(overlay, () => overlay.remove());
     document.body.appendChild(overlay);
 
     const shell = document.createElement('div');
-    shell.className = 'wandlight-new-lore-shell wandlight-theme-json-shell';
+    shell.className = 'saga-new-lore-shell saga-theme-json-shell';
     overlay.appendChild(shell);
 
     const header = document.createElement('div');
-    header.className = 'wandlight-new-lore-header';
+    header.className = 'saga-new-lore-header';
     const title = document.createElement('h3');
     title.textContent = titleText || 'Theme JSON';
     header.appendChild(title);
@@ -227,13 +227,13 @@ export function openThemeJsonDialog(titleText, data) {
     shell.appendChild(header);
 
     const text = document.createElement('textarea');
-    text.className = 'wandlight-lore-editor-textarea wandlight-theme-json-textarea';
+    text.className = 'saga-lore-editor-textarea saga-theme-json-textarea';
     text.readOnly = true;
     text.value = JSON.stringify(data || {}, null, 2);
     shell.appendChild(text);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Copy JSON', 'Copy this JSON to clipboard.', async () => {
         await navigator.clipboard?.writeText(text.value);
         toast('Theme JSON copied.', 'info');
@@ -242,13 +242,13 @@ export function openThemeJsonDialog(titleText, data) {
 }
 
 export function refreshThemeIconSetSurfaces(settings = getSettings()) {
-    const card = getPanelRoot()?.querySelector('.wandlight-settings-theme-card');
+    const card = getPanelRoot()?.querySelector('.saga-settings-theme-card');
     if (!card) return false;
     const activePreset = getThemePreset(settings.themePackId, settings);
     const colors = getActiveThemeColors(settings);
-    const activePanel = card.querySelector('.wandlight-theme-active-panel');
+    const activePanel = card.querySelector('.saga-theme-active-panel');
     if (activePanel) activePanel.replaceWith(createActiveThemePanel(activePreset, settings, colors, createThemePanelOptions()));
-    const iconPanel = card.querySelector('.wandlight-theme-icon-panel');
+    const iconPanel = card.querySelector('.saga-theme-icon-panel');
     if (iconPanel) iconPanel.replaceWith(createThemeIconSetPanel(activePreset, settings, createThemePanelOptions()));
     return !!(activePanel || iconPanel);
 }

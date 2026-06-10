@@ -126,7 +126,7 @@ Optional passive assets:
 
 Deck assets are display-only. They must not contain executable code. Saga should initially allow `.png`, `.jpg`, `.jpeg`, and `.webp`; SVG should stay out of the MVP unless a sanitizer is added.
 
-Existing Wandlight packs can start with `loredeck.json` plus the current entry files and registries.
+Existing Saga packs can start with `loredeck.json` plus the current entry files and registries.
 
 ## loredeck.json
 
@@ -438,7 +438,7 @@ Missing optional dependencies should be warnings. Missing required dependencies 
 
 ## Entry Files
 
-Entry files keep the existing Wandlight wrapper style.
+Entry files keep the existing Saga wrapper style.
 
 ```json
 {
@@ -513,7 +513,7 @@ Use the existing supported category values for MVP:
 ]
 ```
 
-`spell` should remain supported for Wandlight compatibility. Later Saga may add a generic `ability` category, with `spell` as a fandom-specific specialization or alias.
+`spell` should remain supported for Saga compatibility. Later Saga may add a generic `ability` category, with `spell` as a fandom-specific specialization or alias.
 
 ### Reserved Future Categories
 
@@ -1424,7 +1424,7 @@ Local aliases remain useful for exact shortcuts, but Loredeck authors should not
 
 ## taxonomy.json
 
-`taxonomy.json` can mostly preserve the existing Wandlight taxonomy format.
+`taxonomy.json` can mostly preserve the existing Saga taxonomy format.
 
 It controls display labels, colors, and descriptions for:
 
@@ -1439,7 +1439,7 @@ Bundled packs should stay within Saga's supported category values unless the UI 
 
 ## gate-types.json
 
-`gate-types.json` can preserve the existing Wandlight format.
+`gate-types.json` can preserve the existing Saga format.
 
 It controls behavior-oriented `kind` metadata.
 
@@ -1463,7 +1463,7 @@ Saga should allow packs to define new gate types. New gate types may not have sp
 
 ## scoring.json
 
-`scoring.json` should extend the current Wandlight scoring format.
+`scoring.json` should extend the current Saga scoring format.
 
 Existing fields:
 
@@ -2002,7 +2002,7 @@ Saga's main target is canon with stories, but Custom packs may also represent th
 | DC / Batfamily | High but continuity-heavy. | Comic eras, fanon blends, aliases, family roster state, hero identities, city/location state. |
 | Genshin Impact | High for story/setting packs. | Archon quests, nations, character story quests, Visions/elements, playable character unlock assumptions. |
 | Resident Evil | High. | Game chronology, outbreak/location state, organizations, infection types, remakes versus originals. |
-| Harry Potter | High and already proven by Wandlight. | Dates, school years, knowledge gates, spells, secrets, Marauders/Legacy era splits. |
+| Harry Potter | High and already proven by Saga. | Dates, school years, knowledge gates, spells, secrets, Marauders/Legacy era splits. |
 | Wizarding World: Marauders / Legacy | High. | Era-separated packs, school years, character generations, game quest state, institutional state. |
 | Star Wars | High. | Legends/Disney canon split, BBY/ABY dates, eras, factions, Force abilities, titles, locations. |
 | Jujutsu Kaisen | High. | Manga/anime arcs, cursed techniques, domains, spoiler guards, character death/status changes. |

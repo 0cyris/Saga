@@ -9,7 +9,7 @@ import {
     wireOverlayBackdropClose,
 } from './runtime-ui-kit.js';
 
-const CONTEXT_PROPOSAL_REVIEW_ID = 'wandlight-context-proposal-review';
+const CONTEXT_PROPOSAL_REVIEW_ID = 'saga-context-proposal-review';
 
 let contextPanelDeps = {};
 
@@ -65,7 +65,7 @@ export function createContextAdvancedBriefSection(state = {}) {
         createContextEditorCard(state),
         {
             tooltip: 'Legacy global Context projection used by older canon-preview flows. Loaded Loredeck rows are the primary Context surface.',
-            className: 'wandlight-context-advanced-brief-section',
+            className: 'saga-context-advanced-brief-section',
         }
     );
 }
@@ -86,13 +86,13 @@ export function createContextAutomationPanel() {
     const settings = getSettings();
     const selectedMode = String(settings.contextDetectionMode || 'manual').toLowerCase();
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-context-automation-panel';
+    wrap.className = 'saga-context-automation-panel';
     markTourTarget(wrap, 'context.automation');
 
     const header = document.createElement('div');
-    header.className = 'wandlight-loredeck-context-quick-header';
+    header.className = 'saga-loredeck-context-quick-header';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Automation';
     addTooltip(title, 'Controls automatic Context detection cadence. Manual locks still prevent overwrites.');
     header.appendChild(title);
@@ -101,7 +101,7 @@ export function createContextAutomationPanel() {
     wrap.appendChild(header);
 
     const buttons = document.createElement('div');
-    buttons.className = 'wandlight-mode-buttons wandlight-context-mode-buttons';
+    buttons.className = 'saga-mode-buttons saga-context-mode-buttons';
     for (const [mode, label, tip] of [
         ['manual', 'Manual', 'Context detection runs only when you click Detect Context or Ask Reasoner.'],
         ['assisted', 'Assisted', 'Runs conservative background Context checks and queues uncertain Reasoner results for review.'],
@@ -109,8 +109,8 @@ export function createContextAutomationPanel() {
     ]) {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'wandlight-mode-button';
-        if (selectedMode === mode) btn.classList.add('wandlight-mode-button-active');
+        btn.className = 'saga-mode-button';
+        if (selectedMode === mode) btn.classList.add('saga-mode-button-active');
         btn.textContent = label;
         addTooltip(btn, tip);
         btn.addEventListener('click', () => {
@@ -123,12 +123,12 @@ export function createContextAutomationPanel() {
     wrap.appendChild(buttons);
 
     const modeDescription = document.createElement('div');
-    modeDescription.className = 'wandlight-runtime-help wandlight-context-automation-description';
+    modeDescription.className = 'saga-runtime-help saga-context-automation-description';
     modeDescription.textContent = getContextAutomationModeDescription(selectedMode);
     wrap.appendChild(modeDescription);
 
     const grid = document.createElement('div');
-    grid.className = 'wandlight-context-automation-grid';
+    grid.className = 'saga-context-automation-grid';
 
     grid.appendChild(createContextRangeSettingRow(
         'Min cadence',
@@ -165,7 +165,7 @@ export function createContextAutomationPanel() {
     wrap.appendChild(grid);
 
     const toggles = document.createElement('div');
-    toggles.className = 'wandlight-context-automation-toggles';
+    toggles.className = 'saga-context-automation-toggles';
     toggles.appendChild(createContextToggleSetting(
         'Allow Reasoner fallback',
         'When enabled, automatic Context checks can ask the Reasoning Provider after local resolution leaves unlocked Loredecks unresolved. Results are stored as proposals for review.',
@@ -174,12 +174,12 @@ export function createContextAutomationPanel() {
     wrap.appendChild(toggles);
 
     const resetRow = document.createElement('div');
-    resetRow.className = 'wandlight-settings-reset-row';
+    resetRow.className = 'saga-settings-reset-row';
     resetRow.appendChild(createButton(
         'Reset Defaults',
         'Reset only the context detection settings controls in this section to bundled defaults.',
         () => resetContextDetectionSettings(),
-        'wandlight-small-button wandlight-settings-reset-button'
+        'saga-small-button saga-settings-reset-button'
     ));
     wrap.appendChild(resetRow);
 
@@ -200,7 +200,7 @@ function getContextAutomationModeDescription(mode = 'manual') {
 function createContextRangeSettingRow(labelPrefix, tooltip, settingKey, { min = 0, max = 100, fallback = 0, suffix = '', step = 1 } = {}) {
     const settings = getSettings();
     const row = document.createElement('label');
-    row.className = 'wandlight-slider-row wandlight-compact-slider-row';
+    row.className = 'saga-slider-row saga-compact-slider-row';
     const text = document.createElement('span');
     const rawValue = settings[settingKey] ?? fallback;
     const numericValue = Number.isFinite(Number(rawValue)) ? Number(rawValue) : fallback;
@@ -227,7 +227,7 @@ function createContextRangeSettingRow(labelPrefix, tooltip, settingKey, { min = 
 
 function createContextMaxCadenceRow(settings = getSettings()) {
     const row = document.createElement('label');
-    row.className = 'wandlight-slider-row wandlight-compact-slider-row';
+    row.className = 'saga-slider-row saga-compact-slider-row';
     const label = document.createElement('span');
     label.textContent = `Max cadence: ${settings.contextDetectionAutoInterval || 20} turns`;
     addTooltip(label, 'Maximum completed model turns before Saga runs a background Context check even if the character threshold has not been reached.');
@@ -253,7 +253,7 @@ function createContextMaxCadenceRow(settings = getSettings()) {
 
 function createContextSourceMessageRow(settings = getSettings()) {
     const row = document.createElement('label');
-    row.className = 'wandlight-slider-row wandlight-compact-slider-row';
+    row.className = 'saga-slider-row saga-compact-slider-row';
     markTourTarget(row, 'context.sourceMessages');
     const text = document.createElement('span');
     text.textContent = `Source messages: ${settings.contextSourceMessageCount || 20}`;
@@ -278,7 +278,7 @@ function createContextSourceMessageRow(settings = getSettings()) {
 function createContextPercentRangeSettingRow(labelPrefix, tooltip, settingKey, fallback = 0.5) {
     const settings = getSettings();
     const row = document.createElement('label');
-    row.className = 'wandlight-slider-row wandlight-compact-slider-row';
+    row.className = 'saga-slider-row saga-compact-slider-row';
     const text = document.createElement('span');
     const currentValue = clampContextSettingConfidence(settings[settingKey], fallback);
     text.textContent = `${labelPrefix}: ${Math.round(currentValue * 100)}%`;
@@ -303,7 +303,7 @@ function createContextPercentRangeSettingRow(labelPrefix, tooltip, settingKey, f
 function createContextToggleSetting(labelText, tooltip, settingKey) {
     const settings = getSettings();
     const label = document.createElement('label');
-    label.className = 'wandlight-inline-toggle wandlight-context-automation-toggle';
+    label.className = 'saga-inline-toggle saga-context-automation-toggle';
     addTooltip(label, tooltip);
     const input = document.createElement('input');
     input.type = 'checkbox';
@@ -330,26 +330,26 @@ export function createContextCommandCenterCard(state = {}, contextIndex = null) 
     const proposals = getContextResolutionProposals(state);
     const briefStatus = state?.contextBrief?.status || {};
     const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-context-command-card';
+    card.className = 'saga-runtime-card saga-context-command-card';
     markTourTarget(card, 'context.commandCenter');
 
     const header = document.createElement('div');
-    header.className = 'wandlight-context-command-header';
+    header.className = 'saga-context-command-header';
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-context-command-title-wrap';
+    titleWrap.className = 'saga-context-command-title-wrap';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Runtime Context';
     addTooltip(title, 'Primary runtime controls for loaded Loredeck Context, detection, proposals, locks, and the Context Browser.');
     titleWrap.appendChild(title);
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Choose the current story position per loaded Loredeck. Manual Browser choices and locks outrank automatic detection.';
     titleWrap.appendChild(help);
     header.appendChild(titleWrap);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta wandlight-context-command-chips';
+    chips.className = 'saga-loredeck-row-meta saga-context-command-chips';
     chips.appendChild(createStatusPill(`${stack.length} loaded`, 'Enabled Loredecks currently participating in Context resolution.'));
     chips.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Context timeline registry status for the enabled Loredeck stack.'));
     chips.appendChild(createContextBriefStatusPill(getContextBriefStatusLabel(briefStatus), 'Latest detector status from the saved Context Brief.', getContextBriefStatusTone(briefStatus)));
@@ -358,24 +358,24 @@ export function createContextCommandCenterCard(state = {}, contextIndex = null) 
     card.appendChild(header);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-context-command-actions';
+    actions.className = 'saga-primary-actions saga-context-command-actions';
     actions.appendChild(createButton('Browse Context', 'Open the fullscreen Context Browser for loaded Loredecks, anchors, windows, resolver tests, and manual locks.', () => {
         if (!stack.length) {
             toast('Load a Loredeck before opening the Context Browser.', 'warning');
             return;
         }
         openContextWorkbenchForPack(stack[0]?.packId || '', 'context');
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     actions.appendChild(markTourTarget(createButton('Detect Context', 'Analyze recent messages and update the Context Brief plus unlocked loaded Loredeck Contexts.', async (btn) => {
         await handleDetectStoryContext(btn);
-    }, 'wandlight-primary-button'), 'context.detect'));
+    }, 'saga-primary-button'), 'context.detect'));
     actions.appendChild(createButton(proposals.length ? `Review Proposals (${proposals.length})` : 'Review Proposals', 'Open bounded Reasoner Context proposals waiting for approval.', () => {
         openContextProposalReview();
     }));
     card.appendChild(actions);
 
     const resolverActions = document.createElement('div');
-    resolverActions.className = 'wandlight-primary-actions wandlight-context-resolver-actions';
+    resolverActions.className = 'saga-primary-actions saga-context-resolver-actions';
     resolverActions.appendChild(createButton('Resolve Local', 'Use current Context Brief signals and loaded timeline aliases to update unlocked Loredeck Contexts without a model call.', async (btn) => {
         await handleResolveContextsFromContext(btn);
     }));
@@ -399,25 +399,25 @@ export function createContextCommandCenterCard(state = {}, contextIndex = null) 
 
 function createContextBriefStatusPill(text, tooltip, tone = '') {
     const pill = createStatusPill(text, tooltip);
-    if (tone) pill.classList.add(`wandlight-status-pill-risk-${tone}`);
+    if (tone) pill.classList.add(`saga-status-pill-risk-${tone}`);
     return pill;
 }
 
 export function createLoredeckContextCard(state = {}, contextIndex = null) {
     const stack = getContextWorkbenchStack(state);
     const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-loredeck-context-card';
+    card.className = 'saga-runtime-card saga-loredeck-context-card';
 
     const header = document.createElement('div');
-    header.className = 'wandlight-context-section-header';
+    header.className = 'saga-context-section-header';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Loaded Loredeck Contexts';
     addTooltip(title, 'Current story position for each enabled Loredeck in the active stack.');
     header.appendChild(title);
 
     const indexMeta = document.createElement('div');
-    indexMeta.className = 'wandlight-context-index-summary';
+    indexMeta.className = 'saga-context-index-summary';
     if (stack.length) {
         indexMeta.appendChild(createStatusPill(formatContextIndexSummary(contextIndex), 'Context timeline registry status for the enabled Loredeck stack.'));
         if (contextIndex?.summary?.issueCount) {
@@ -435,7 +435,7 @@ export function createLoredeckContextCard(state = {}, contextIndex = null) {
     }
 
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-context-list';
+    list.className = 'saga-loredeck-context-list';
     for (const item of stack) {
         list.appendChild(createLoredeckContextRow(item, state, contextIndex));
     }
@@ -447,18 +447,18 @@ export function createContextResolutionAuditPanel(state = {}) {
     const audit = state?.lorePanel?.contextResolutionAudit || null;
     if (!audit || !audit.createdAt) return document.createDocumentFragment();
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-context-quick wandlight-context-resolution-audit';
+    wrap.className = 'saga-loredeck-context-quick saga-context-resolution-audit';
 
     const header = document.createElement('div');
-    header.className = 'wandlight-loredeck-context-quick-header';
+    header.className = 'saga-loredeck-context-quick-header';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Last Resolver Check';
     addTooltip(title, 'Audit summary for the most recent local or Reasoner-backed Context resolver pass.');
     header.appendChild(title);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(audit.status || 'unknown', 'Final resolver status for the latest check.'));
     if (audit.reason) chips.appendChild(createStatusPill(formatContextAuditReason(audit.reason), audit.message || audit.reason));
     if (audit.cached) chips.appendChild(createStatusPill('Cached', 'This result came from the repeated-check cache.'));
@@ -499,18 +499,18 @@ export function createContextAutomationAuditPanel(state = {}) {
     const audit = state?.lorePanel?.contextAutomationAudit || null;
     if (!audit || !audit.createdAt) return document.createDocumentFragment();
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-context-quick wandlight-context-automation-audit';
+    wrap.className = 'saga-loredeck-context-quick saga-context-automation-audit';
 
     const header = document.createElement('div');
-    header.className = 'wandlight-loredeck-context-quick-header';
+    header.className = 'saga-loredeck-context-quick-header';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Last Automation Check';
     addTooltip(title, 'Audit summary for the most recent background Context automation decision, including skipped cadence/provider/lock states.');
     header.appendChild(title);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(audit.status || 'unknown', audit.message || 'Latest Context automation status.'));
     if (audit.reason) chips.appendChild(createStatusPill(formatContextAuditReason(audit.reason), audit.message || audit.reason));
     if (audit.mode) chips.appendChild(createStatusPill(getContextAutomationModeLabel(audit.mode), 'Context automation mode used for this decision.'));
@@ -525,7 +525,7 @@ export function createContextAutomationAuditPanel(state = {}) {
 
     if (audit.message) {
         const message = document.createElement('div');
-        message.className = 'wandlight-runtime-help';
+        message.className = 'saga-runtime-help';
         message.textContent = audit.message;
         wrap.appendChild(message);
     }
@@ -537,30 +537,30 @@ export function createContextResolutionProposalPanel(state = {}) {
     const proposals = getContextResolutionProposals(state);
     if (!proposals.length) return document.createDocumentFragment();
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-context-quick';
+    wrap.className = 'saga-loredeck-context-quick';
     wrap.dataset.sagaContextProposals = 'true';
 
     const header = document.createElement('div');
-    header.className = 'wandlight-loredeck-context-quick-header';
+    header.className = 'saga-loredeck-context-quick-header';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Reasoner Proposals';
     addTooltip(title, 'Reasoner-backed Context proposals are bounded to known timeline candidates and require review before application.');
     header.appendChild(title);
 
     const meta = state?.lorePanel?.contextResolutionProposalMeta || {};
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(`${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`, 'Pending Context proposals from the Reasoning Provider.'));
     if (meta.createdAt) chips.appendChild(createStatusPill(`Drafted ${new Date(meta.createdAt).toLocaleTimeString()}`, 'When these Context proposals were drafted.'));
     header.appendChild(chips);
     wrap.appendChild(header);
 
     const list = document.createElement('div');
-    list.className = 'wandlight-context-workbench-mini-list';
+    list.className = 'saga-context-workbench-mini-list';
     for (const proposal of proposals.slice(0, 6)) {
         const item = document.createElement('div');
-        item.className = 'wandlight-context-workbench-mini-item';
+        item.className = 'saga-context-workbench-mini-item';
         const label = document.createElement('strong');
         label.textContent = `${getLoredeckDisplayName(proposal.packId)}: ${proposal.label || proposal.candidateId || 'Context proposal'}`;
         item.appendChild(label);
@@ -572,17 +572,17 @@ export function createContextResolutionProposalPanel(state = {}) {
     }
     if (proposals.length > 6) {
         const more = document.createElement('div');
-        more.className = 'wandlight-runtime-help wandlight-compact-help';
+        more.className = 'saga-runtime-help saga-compact-help';
         more.textContent = `Showing 6 of ${proposals.length} proposals.`;
         list.appendChild(more);
     }
     wrap.appendChild(list);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Open Review', 'Open the fullscreen Context proposal review window.', () => {
         openContextProposalReview();
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     actions.appendChild(createButton('Apply Proposals', 'Apply every listed Context proposal to its loaded Loredeck Context.', async () => {
         const ok = await confirmAction('Apply Context proposals?', `Apply ${proposals.length} Reasoner Context proposal${proposals.length === 1 ? '' : 's'}?`);
         if (!ok) return;
@@ -621,7 +621,7 @@ export function renderContextProposalReview() {
     if (!overlay) {
         overlay = document.createElement('div');
         overlay.id = CONTEXT_PROPOSAL_REVIEW_ID;
-        overlay.className = 'wandlight-lore-workbench-overlay wandlight-context-proposal-review-overlay';
+        overlay.className = 'saga-lore-workbench-overlay saga-context-proposal-review-overlay';
         overlay.tabIndex = -1;
         wireOverlayBackdropClose(overlay, closeContextProposalReview);
         overlay.addEventListener('keydown', event => {
@@ -637,25 +637,25 @@ export function createContextProposalReviewShell(state = {}) {
     const proposals = getContextResolutionProposals(state);
     const meta = state?.lorePanel?.contextResolutionProposalMeta || {};
     const shell = document.createElement('div');
-    shell.className = 'wandlight-lore-workbench-shell wandlight-context-proposal-review-shell';
+    shell.className = 'saga-lore-workbench-shell saga-context-proposal-review-shell';
     shell.addEventListener('click', event => event.stopPropagation());
 
     const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-header wandlight-context-proposal-review-header';
+    header.className = 'saga-lore-workbench-header saga-context-proposal-review-header';
 
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    titleWrap.className = 'saga-lore-workbench-title-wrap';
     const title = document.createElement('div');
-    title.className = 'wandlight-lore-workbench-title';
+    title.className = 'saga-lore-workbench-title';
     title.textContent = 'Context Proposal Review';
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.className = 'saga-lore-workbench-subtitle';
     subtitle.textContent = 'Review bounded Reasoner choices before applying them to loaded Loredeck Context.';
     titleWrap.appendChild(subtitle);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-context-workbench-header-chips';
+    chips.className = 'saga-context-workbench-header-chips';
     chips.appendChild(createStatusPill(`${proposals.length} proposal${proposals.length === 1 ? '' : 's'}`, 'Pending Context proposals from the Reasoning Provider.'));
     if (meta.createdAt) chips.appendChild(createStatusPill(`Drafted ${new Date(meta.createdAt).toLocaleTimeString()}`, 'When these Context proposals were drafted.'));
     if (meta.cached) chips.appendChild(createStatusPill('Cached', 'This proposal batch came from the repeated-check cache.'));
@@ -664,14 +664,14 @@ export function createContextProposalReviewShell(state = {}) {
     header.appendChild(titleWrap);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-context-proposal-review-actions';
+    actions.className = 'saga-primary-actions saga-context-proposal-review-actions';
     actions.appendChild(createButton('Apply All', 'Apply every listed Context proposal.', async () => {
         const ok = await confirmAction('Apply Context proposals?', `Apply ${proposals.length} Reasoner Context proposal${proposals.length === 1 ? '' : 's'}?`);
         if (!ok) return;
         applyContextResolutionProposalSet(proposals, {
             clearAll: true,
         });
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     actions.appendChild(createButton('Dismiss All', 'Discard every listed Context proposal without changing loaded Loredeck Contexts.', async () => {
         const ok = await confirmAction('Dismiss Context proposals?', `Dismiss ${proposals.length} Context proposal${proposals.length === 1 ? '' : 's'}?`);
         if (!ok) return;
@@ -682,9 +682,9 @@ export function createContextProposalReviewShell(state = {}) {
     shell.appendChild(header);
 
     const body = document.createElement('div');
-    body.className = 'wandlight-context-proposal-review-body';
+    body.className = 'saga-context-proposal-review-body';
     const list = document.createElement('div');
-    list.className = 'wandlight-context-proposal-review-list';
+    list.className = 'saga-context-proposal-review-list';
     for (const proposal of proposals) {
         list.appendChild(createContextProposalReviewRow(proposal));
     }
@@ -703,39 +703,39 @@ function formatContextProposalSource(source = '') {
 
 function createContextProposalReviewRow(proposal = {}) {
     const row = document.createElement('div');
-    row.className = 'wandlight-context-proposal-review-row';
+    row.className = 'saga-context-proposal-review-row';
 
     const main = document.createElement('div');
-    main.className = 'wandlight-context-proposal-review-main';
+    main.className = 'saga-context-proposal-review-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-context-proposal-review-title';
+    title.className = 'saga-context-proposal-review-title';
     title.textContent = `${getLoredeckDisplayName(proposal.packId)}: ${proposal.label || proposal.candidateId || 'Context proposal'}`;
     main.appendChild(title);
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-context-proposal-review-summary';
+    summary.className = 'saga-context-proposal-review-summary';
     summary.textContent = proposal.summary || 'Reasoner selected a bounded timeline candidate.';
     main.appendChild(summary);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(`${Math.round((Number(proposal.confidence) || 0) * 100)}%`, 'Reasoner confidence for this bounded proposal.'));
     if (proposal.candidateType) chips.appendChild(createStatusPill(proposal.candidateType, 'Timeline candidate type.'));
     if (proposal.candidateId) chips.appendChild(createStatusPill(proposal.candidateId, 'Bounded candidate ID selected by the Reasoner.'));
     main.appendChild(chips);
 
     const patchSummary = document.createElement('div');
-    patchSummary.className = 'wandlight-context-proposal-review-patch';
+    patchSummary.className = 'saga-context-proposal-review-patch';
     patchSummary.textContent = formatContextPatchSummary(proposal.patch);
     main.appendChild(patchSummary);
     row.appendChild(main);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-context-proposal-review-row-actions';
+    actions.className = 'saga-primary-actions saga-context-proposal-review-row-actions';
     actions.appendChild(createButton('Apply', 'Apply this Context proposal.', () => {
         const applied = applyContextResolutionProposalSet([proposal]);
         if (!applied) toast('Context proposal could not be applied.', 'warning');
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     actions.appendChild(createButton('Dismiss', 'Discard this Context proposal.', () => {
         dismissContextResolutionProposalSet([proposal]);
     }));
@@ -769,17 +769,17 @@ function createLoredeckContextRow(item, state = {}, contextIndex = null) {
     const context = getLoredeckContext(state, packId);
     const packIndex = getContextPackSummary(contextIndex, packId);
     const row = document.createElement('div');
-    row.className = 'wandlight-loredeck-context-row';
+    row.className = 'saga-loredeck-context-row';
 
     const header = document.createElement('div');
-    header.className = 'wandlight-loredeck-context-header';
+    header.className = 'saga-loredeck-context-header';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-row-title';
+    title.className = 'saga-loredeck-row-title';
     title.textContent = getLoredeckDisplayName(packId);
     header.appendChild(title);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(getContextTypeLabel(context.contextType), 'Context mode for this Loredeck.'));
     chips.appendChild(createStatusPill(formatContextSource(context.source), 'How this Context was last set.'));
     chips.appendChild(createStatusPill(context.manualLock ? 'Locked' : 'Unlocked', 'Locked Contexts should not be overwritten by automatic resolvers.'));
@@ -794,15 +794,15 @@ function createLoredeckContextRow(item, state = {}, contextIndex = null) {
     row.appendChild(header);
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-context-summary';
+    summary.className = 'saga-loredeck-context-summary';
     summary.textContent = formatContextSummary(context);
     row.appendChild(summary);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-loredeck-context-actions';
+    actions.className = 'saga-primary-actions saga-loredeck-context-actions';
     actions.appendChild(createButton('Browse', 'Open this Loredeck in the fullscreen Context Browser.', () => {
         openContextWorkbenchForPack(packId, 'context');
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     actions.appendChild(createButton(context.manualLock ? 'Unlock' : 'Lock', context.manualLock ? 'Allow automatic Context resolvers to update this Loredeck.' : 'Prevent automatic Context resolvers from overwriting this Loredeck.', () => {
         toggleLoredeckContextManualLock(packId, !context.manualLock);
     }));
@@ -814,7 +814,7 @@ function createLoredeckContextRow(item, state = {}, contextIndex = null) {
     }));
     actions.appendChild(createButton('Reset Context', 'Clear this Loredeck Context back to an empty default.', async () => {
         await resetLoredeckContextFromPanel(packId);
-    }, 'wandlight-danger-button'));
+    }, 'saga-danger-button'));
     row.appendChild(actions);
 
     return row;

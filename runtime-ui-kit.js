@@ -129,16 +129,16 @@ function formatKeyValueDisplay(label, value) {
 
 export function createKeyValue(label, value, tooltip) {
     const row = document.createElement('div');
-    row.className = 'wandlight-key-value';
+    row.className = 'saga-key-value';
     addTooltip(row, tooltip || label);
 
     const k = document.createElement('span');
-    k.className = 'wandlight-key';
+    k.className = 'saga-key';
     k.textContent = label;
     row.appendChild(k);
 
     const v = document.createElement('span');
-    v.className = 'wandlight-value';
+    v.className = 'saga-value';
     v.textContent = formatKeyValueDisplay(label, value);
     row.appendChild(v);
 
@@ -147,7 +147,7 @@ export function createKeyValue(label, value, tooltip) {
 
 export function createSectionHeader(title, description) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-section-header';
+    wrap.className = 'saga-section-header';
     const h = document.createElement('h3');
     h.textContent = title;
     addTooltip(h, description);
@@ -160,7 +160,7 @@ export function createSectionHeader(title, description) {
 
 export function createToggleCard(label, checked, tooltip, onChange) {
     const card = document.createElement('label');
-    card.className = 'wandlight-toggle-card';
+    card.className = 'saga-toggle-card';
     addTooltip(card, tooltip);
 
     const input = document.createElement('input');
@@ -173,7 +173,7 @@ export function createToggleCard(label, checked, tooltip, onChange) {
     card.appendChild(text);
 
     const state = document.createElement('span');
-    state.className = 'wandlight-toggle-state';
+    state.className = 'saga-toggle-state';
     state.textContent = checked ? 'On' : 'Off';
     card.appendChild(state);
 
@@ -188,7 +188,7 @@ export function createToggleCard(label, checked, tooltip, onChange) {
 export function createButton(label, tooltip, handler, className = '') {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = `wandlight-runtime-button ${className}`.trim();
+    btn.className = `saga-runtime-button ${className}`.trim();
     btn.textContent = label;
     addTooltip(btn, tooltip);
     btn.addEventListener('click', (e) => {
@@ -226,12 +226,12 @@ function getLoreBadgeClass(text) {
         .toLowerCase()
         .replace(/^p\d+$/, 'priority')
         .replace(/[^a-z0-9]+/g, '-');
-    return normalized ? `wandlight-lore-badge-${normalized}` : '';
+    return normalized ? `saga-lore-badge-${normalized}` : '';
 }
 
 export function createBadge(text, tooltip) {
     const badge = document.createElement('span');
-    badge.className = `wandlight-lore-badge ${getLoreBadgeClass(text)}`.trim();
+    badge.className = `saga-lore-badge ${getLoreBadgeClass(text)}`.trim();
     badge.textContent = text;
     addTooltip(badge, tooltip);
     return badge;
@@ -239,7 +239,7 @@ export function createBadge(text, tooltip) {
 
 export function createStatusPill(text, tooltip) {
     const pill = document.createElement('span');
-    pill.className = 'wandlight-status-pill';
+    pill.className = 'saga-status-pill';
     pill.textContent = text;
     addTooltip(pill, tooltip);
     return pill;
@@ -247,14 +247,14 @@ export function createStatusPill(text, tooltip) {
 
 export function createEmptyMessage(text) {
     const empty = document.createElement('div');
-    empty.className = 'wandlight-lore-empty';
+    empty.className = 'saga-lore-empty';
     empty.textContent = text;
     return empty;
 }
 
 export function addTooltip(el, text) {
     if (!el || !text) return el;
-    el.dataset.wandlightTooltip = text;
+    el.dataset.sagaTooltip = text;
     el.setAttribute('aria-label', text);
     // Native title tooltips are slow and can fight the runtime overlay tooltip.
     el.removeAttribute('title');
@@ -266,12 +266,12 @@ export function addTooltip(el, text) {
 }
 
 function showFloatingTooltip(anchor) {
-    const text = anchor?.dataset?.wandlightTooltip;
+    const text = anchor?.dataset?.sagaTooltip;
     if (!text) return;
     tooltipAnchor = anchor;
     if (!floatingTooltip) {
         floatingTooltip = document.createElement('div');
-        floatingTooltip.className = 'wandlight-floating-tooltip';
+        floatingTooltip.className = 'saga-floating-tooltip';
         document.body.appendChild(floatingTooltip);
     }
     floatingTooltip.textContent = text;
@@ -322,34 +322,34 @@ export async function runBusyAction(btn, busyText, action) {
 function showSagaConfirmDialog(title, message) {
     if (typeof document === 'undefined' || !document.body) return Promise.resolve(false);
     return new Promise(resolve => {
-        document.querySelector('.wandlight-confirm-overlay')?.remove();
+        document.querySelector('.saga-confirm-overlay')?.remove();
 
         const overlay = document.createElement('div');
-        overlay.className = 'wandlight-confirm-overlay';
+        overlay.className = 'saga-confirm-overlay';
 
         const shell = document.createElement('div');
-        shell.className = 'wandlight-confirm-shell';
+        shell.className = 'saga-confirm-shell';
         shell.setAttribute('role', 'dialog');
         shell.setAttribute('aria-modal', 'true');
-        shell.setAttribute('aria-labelledby', 'wandlight-confirm-title');
-        shell.setAttribute('aria-describedby', 'wandlight-confirm-message');
+        shell.setAttribute('aria-labelledby', 'saga-confirm-title');
+        shell.setAttribute('aria-describedby', 'saga-confirm-message');
 
         const heading = document.createElement('div');
-        heading.id = 'wandlight-confirm-title';
-        heading.className = 'wandlight-confirm-title';
+        heading.id = 'saga-confirm-title';
+        heading.className = 'saga-confirm-title';
         heading.textContent = String(title || 'Confirm Action');
         shell.appendChild(heading);
 
         const body = document.createElement('div');
-        body.id = 'wandlight-confirm-message';
-        body.className = 'wandlight-confirm-message';
+        body.id = 'saga-confirm-message';
+        body.className = 'saga-confirm-message';
         body.textContent = String(message || 'Continue?');
         shell.appendChild(body);
 
         const actions = document.createElement('div');
-        actions.className = 'wandlight-primary-actions wandlight-confirm-actions';
+        actions.className = 'saga-primary-actions saga-confirm-actions';
         const cancel = createButton('Cancel', 'Cancel this action.', () => finish(false));
-        const confirm = createButton('Confirm', 'Confirm and continue.', () => finish(true), 'wandlight-danger-button');
+        const confirm = createButton('Confirm', 'Confirm and continue.', () => finish(true), 'saga-danger-button');
         actions.appendChild(cancel);
         actions.appendChild(confirm);
         shell.appendChild(actions);
@@ -378,45 +378,45 @@ function showSagaConfirmDialog(title, message) {
 function showSagaInputDialog(title, message, initialValue = '', options = {}) {
     if (typeof document === 'undefined' || !document.body) return Promise.resolve(null);
     return new Promise(resolve => {
-        document.querySelector('.wandlight-confirm-overlay')?.remove();
+        document.querySelector('.saga-confirm-overlay')?.remove();
 
         const overlay = document.createElement('div');
-        overlay.className = 'wandlight-confirm-overlay';
+        overlay.className = 'saga-confirm-overlay';
 
         const shell = document.createElement('div');
-        shell.className = 'wandlight-confirm-shell wandlight-input-shell';
+        shell.className = 'saga-confirm-shell saga-input-shell';
         shell.setAttribute('role', 'dialog');
         shell.setAttribute('aria-modal', 'true');
-        shell.setAttribute('aria-labelledby', 'wandlight-input-title');
-        shell.setAttribute('aria-describedby', 'wandlight-input-message');
+        shell.setAttribute('aria-labelledby', 'saga-input-title');
+        shell.setAttribute('aria-describedby', 'saga-input-message');
 
         const heading = document.createElement('div');
-        heading.id = 'wandlight-input-title';
-        heading.className = 'wandlight-confirm-title';
+        heading.id = 'saga-input-title';
+        heading.className = 'saga-confirm-title';
         heading.textContent = String(title || 'Enter Value');
         shell.appendChild(heading);
 
         const body = document.createElement('div');
-        body.id = 'wandlight-input-message';
-        body.className = 'wandlight-confirm-message';
+        body.id = 'saga-input-message';
+        body.className = 'saga-confirm-message';
         body.textContent = String(message || '');
         shell.appendChild(body);
 
         const input = document.createElement('input');
         input.type = 'text';
-        input.className = 'text_pole wandlight-confirm-input';
+        input.className = 'text_pole saga-confirm-input';
         input.value = String(initialValue || '');
         input.placeholder = String(options.placeholder || '');
         input.maxLength = Number.isFinite(Number(options.maxLength)) ? Number(options.maxLength) : 120;
         shell.appendChild(input);
 
         const error = document.createElement('div');
-        error.className = 'wandlight-confirm-error';
+        error.className = 'saga-confirm-error';
         error.hidden = true;
         shell.appendChild(error);
 
         const actions = document.createElement('div');
-        actions.className = 'wandlight-primary-actions wandlight-confirm-actions';
+        actions.className = 'saga-primary-actions saga-confirm-actions';
         const cancel = createButton('Cancel', 'Cancel this action.', () => finish(null));
         const confirm = createButton(options.confirmLabel || 'Save', 'Save this value.', () => {
             const value = String(input.value || '').trim().replace(/\s+/g, ' ');
@@ -427,7 +427,7 @@ function showSagaInputDialog(title, message, initialValue = '', options = {}) {
                 return;
             }
             finish(value);
-        }, 'wandlight-primary-button');
+        }, 'saga-primary-button');
         actions.appendChild(cancel);
         actions.appendChild(confirm);
         shell.appendChild(actions);
@@ -466,32 +466,32 @@ function showSagaInputDialog(title, message, initialValue = '', options = {}) {
 function showSagaChoiceDialog(title, message, choices = []) {
     if (typeof document === 'undefined' || !document.body) return Promise.resolve(null);
     return new Promise(resolve => {
-        document.querySelector('.wandlight-confirm-overlay')?.remove();
+        document.querySelector('.saga-confirm-overlay')?.remove();
 
         const overlay = document.createElement('div');
-        overlay.className = 'wandlight-confirm-overlay';
+        overlay.className = 'saga-confirm-overlay';
 
         const shell = document.createElement('div');
-        shell.className = 'wandlight-confirm-shell wandlight-choice-shell';
+        shell.className = 'saga-confirm-shell saga-choice-shell';
         shell.setAttribute('role', 'dialog');
         shell.setAttribute('aria-modal', 'true');
-        shell.setAttribute('aria-labelledby', 'wandlight-choice-title');
-        shell.setAttribute('aria-describedby', 'wandlight-choice-message');
+        shell.setAttribute('aria-labelledby', 'saga-choice-title');
+        shell.setAttribute('aria-describedby', 'saga-choice-message');
 
         const heading = document.createElement('div');
-        heading.id = 'wandlight-choice-title';
-        heading.className = 'wandlight-confirm-title';
+        heading.id = 'saga-choice-title';
+        heading.className = 'saga-confirm-title';
         heading.textContent = String(title || 'Choose Action');
         shell.appendChild(heading);
 
         const body = document.createElement('div');
-        body.id = 'wandlight-choice-message';
-        body.className = 'wandlight-confirm-message';
+        body.id = 'saga-choice-message';
+        body.className = 'saga-confirm-message';
         body.textContent = String(message || '');
         shell.appendChild(body);
 
         const choiceWrap = document.createElement('div');
-        choiceWrap.className = 'wandlight-confirm-choice-list';
+        choiceWrap.className = 'saga-confirm-choice-list';
         for (const choice of choices || []) {
             const value = String(choice?.value || '').trim();
             if (!value) continue;
@@ -499,14 +499,14 @@ function showSagaChoiceDialog(title, message, choices = []) {
                 choice.label || value,
                 choice.tooltip || choice.label || value,
                 () => finish(value),
-                `wandlight-confirm-choice-button ${choice.className || ''}`.trim(),
+                `saga-confirm-choice-button ${choice.className || ''}`.trim(),
             );
             choiceWrap.appendChild(button);
         }
         shell.appendChild(choiceWrap);
 
         const actions = document.createElement('div');
-        actions.className = 'wandlight-primary-actions wandlight-confirm-actions';
+        actions.className = 'saga-primary-actions saga-confirm-actions';
         const cancel = createButton('Cancel', 'Cancel this action.', () => finish(null));
         actions.appendChild(cancel);
         shell.appendChild(actions);

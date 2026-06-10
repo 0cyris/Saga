@@ -1,5 +1,5 @@
 /**
- * lore-matrix.js — Wandlight
+ * lore-matrix.js — Saga
  * Pure helpers for lore normalization, activation, and merging.
  * No SillyTavern calls. All functions are pure or use only their arguments.
  *
@@ -746,7 +746,7 @@ function parseIsoDate(value) {
  * Determines whether a lore entry is currently active based on
  * status, branch, date window, and trigger conditions.
  * @param {Object} entry - A lore entry (normalized)
- * @param {Object} state - WandlightState
+ * @param {Object} state - SagaState
  * @returns {boolean}
  */
 export function isLoreEntryActive(entry, state) {
@@ -758,7 +758,7 @@ export function isLoreEntryActive(entry, state) {
 /**
  * Returns currently active lore entries, sorted by priority descending,
  * limited to `limit` entries.
- * @param {Object} state - WandlightState
+ * @param {Object} state - SagaState
  * @param {number} [limit=6] - Max entries to return
  * @returns {Object[]} Active lore entries
  */
@@ -1110,13 +1110,13 @@ export function routeSimilarLoreEntries(entries = [], existingEntries = [], opti
             continue;
         }
         if (match?.current) {
-            const generation = entry.extensions?.wandlightGeneration || {};
+            const generation = entry.extensions?.sagaGeneration || {};
             const route = match.kind;
             const next = normalizeLoreEntry({
                 ...entry,
                 extensions: {
                     ...(entry.extensions || {}),
-                    wandlightGeneration: {
+                    sagaGeneration: {
                         ...generation,
                         operation: generation.operation && generation.operation !== 'create' ? generation.operation : route === 'possible_merge' ? 'merge' : 'update',
                         targetEntryId: generation.targetEntryId || match.current.id,
@@ -1124,8 +1124,8 @@ export function routeSimilarLoreEntries(entries = [], existingEntries = [], opti
                         similarityReason: match.reason,
                         routedAt: Date.now(),
                     },
-                    wandlightPendingReview: {
-                        ...(entry.extensions?.wandlightPendingReview || {}),
+                    sagaPendingReview: {
+                        ...(entry.extensions?.sagaPendingReview || {}),
                         reviewRoute: route,
                         targetEntryId: generation.targetEntryId || match.current.id,
                         similarityReason: match.reason,
@@ -1211,7 +1211,7 @@ function normalizeList(values) {
  * Does NOT filter by activeWhen — the panel shows all entries, not just active ones.
  * Annotations include: isPinned, isSuppressed, isActive, and category matches.
  *
- * @param {Object} state - WandlightState
+ * @param {Object} state - SagaState
  * @returns {{ entries: Object[], categories: string[], counts: Object }}
  */
 export function getPanelLoreState(state) {
@@ -1276,7 +1276,7 @@ export function getPanelLoreState(state) {
  * suppressed entries are excluded regardless of activeWhen.
  * Falls back to getActiveLoreEntries if loreSelection is missing.
  *
- * @param {Object} state - WandlightState
+ * @param {Object} state - SagaState
  * @param {number} limit - Max entries to return
  * @returns {Object[]} Injectable lore entries
  */
@@ -1328,7 +1328,7 @@ export function scoreLoreEntryRelevance(entry, state = {}, options = {}) {
  * lore proposal. Transient fields like weather or current activity are
  * deliberately excluded to avoid unnecessary regeneration.
  *
- * @param {Object} state - WandlightState
+ * @param {Object} state - SagaState
  * @returns {string} Context fingerprint
  */
 export function buildLoreGenerationKey(state) {

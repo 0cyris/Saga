@@ -1,5 +1,5 @@
 /**
- * lore-generator.js — Wandlight
+ * lore-generator.js — Saga
  * LLM-calling logic for lore context detection and lore matrix generation.
  * No direct UI dependencies — all state operations go through state-manager.
  *
@@ -1809,7 +1809,7 @@ function candidateFactToLoreEntry(candidate = {}, { batchId = '', chunk = {}, pr
             notes: messageRefs.length ? `Evidence messages: ${messageRefs.join(', ')}` : rangeLabel,
         },
         extensions: {
-            wandlightGeneration: {
+            sagaGeneration: {
                 mode: generationMode,
                 batchId,
                 chunkId: chunk?.chunkId || '',
@@ -1834,7 +1834,7 @@ function candidateFactToLoreEntry(candidate = {}, { batchId = '', chunk = {}, pr
 }
 
 function classifyGeneratedLoreValue(entry = {}) {
-    const generation = entry.extensions?.wandlightGeneration || {};
+    const generation = entry.extensions?.sagaGeneration || {};
     const operation = String(generation.operation || 'create').toLowerCase();
     if (operation === 'none') {
         return { route: 'discard_none', keep: false, reason: 'Model marked this interval as having no durable lore.' };
@@ -1873,18 +1873,18 @@ function applyGeneratedLoreQualityRouting(entries = [], settings = getSettings()
     const strict = settings.loreStrictQualityGate !== false;
     for (const raw of normalizeLoreMatrix(entries)) {
         const classification = classifyGeneratedLoreValue(raw);
-        const generation = raw.extensions?.wandlightGeneration || {};
+        const generation = raw.extensions?.sagaGeneration || {};
         const routed = normalizeLoreMatrix([{
             ...raw,
             extensions: {
                 ...(raw.extensions || {}),
-                wandlightGeneration: {
+                sagaGeneration: {
                     ...generation,
                     qualityRoute: classification.route,
                     qualityReason: classification.reason,
                 },
-                wandlightPendingReview: {
-                    ...(raw.extensions?.wandlightPendingReview || {}),
+                sagaPendingReview: {
+                    ...(raw.extensions?.sagaPendingReview || {}),
                     qualityRoute: classification.route,
                     qualityReason: classification.reason,
                 },

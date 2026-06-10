@@ -2,7 +2,7 @@
 
 ## Historical Status
 
-This document is a historical implementation slice. It describes the first Saga foundation, when the goal was to move the original Wandlight lore database into a single bundled Loredeck without changing runtime behavior.
+This document is a historical implementation slice. It describes the first Saga foundation, when the goal was to move the original Saga lore database into a single bundled Loredeck without changing runtime behavior.
 
 It is no longer the current roadmap. Current production work is tracked in:
 
@@ -14,13 +14,13 @@ References below to `hp-golden-trio` describe the original scaffold state, not t
 
 ## Objective
 
-Historical implementation slice: build the first Saga foundation without changing Wandlight's existing runtime behavior.
+Historical implementation slice: build the first Saga foundation without changing Saga's existing runtime behavior.
 
 Current status: the HP database now loads as a Bundled Loredeck from `Loredecks/hp-golden-trio`, and the old root `Lore/manifest.json` fallback has been removed.
 
 ## Non-Goals For This Slice
 
-- Full rebrand from Wandlight to Saga.
+- Full rebrand from Saga to Saga.
 - Multi-pack stack UI.
 - Loredeck editor.
 - Import/export.

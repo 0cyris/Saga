@@ -14,7 +14,7 @@ import {
     wireOverlayBackdropClose,
 } from './runtime-ui-kit.js';
 
-const LOREDECK_WORKBENCH_ID = 'wandlight-loredeck-workbench';
+const LOREDECK_WORKBENCH_ID = 'saga-loredeck-workbench';
 
 let loredeckWorkbenchDeps = {};
 let loredeckWorkbenchPackId = '';
@@ -106,7 +106,7 @@ function renderLoredeckWorkbench() {
     if (!overlay) {
         overlay = document.createElement('div');
         overlay.id = LOREDECK_WORKBENCH_ID;
-        overlay.className = 'wandlight-lore-workbench-overlay wandlight-loredeck-workbench-overlay';
+        overlay.className = 'saga-lore-workbench-overlay saga-loredeck-workbench-overlay';
         overlay.tabIndex = -1;
         wireOverlayBackdropClose(overlay, closeLoredeckWorkbench);
         overlay.addEventListener('keydown', event => {
@@ -120,13 +120,13 @@ function renderLoredeckWorkbench() {
 
 function createLoredeckWorkbenchShell(pack = null) {
     const shell = document.createElement('div');
-    shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-workbench-shell';
+    shell.className = 'saga-lore-workbench-shell saga-loredeck-workbench-shell';
     shell.addEventListener('click', event => event.stopPropagation());
 
     shell.appendChild(createLoredeckWorkbenchHeader(pack));
 
     const body = document.createElement('div');
-    body.className = 'wandlight-lore-workbench-body wandlight-loredeck-workbench-body';
+    body.className = 'saga-lore-workbench-body saga-loredeck-workbench-body';
     if (!pack?.packId) {
         body.appendChild(createEmptyMessage('Select a Loredeck from the Library before opening the workbench.'));
     } else {
@@ -139,22 +139,22 @@ function createLoredeckWorkbenchShell(pack = null) {
 
 function createLoredeckWorkbenchHeader(pack = null) {
     const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-header wandlight-loredeck-workbench-header';
+    header.className = 'saga-lore-workbench-header saga-loredeck-workbench-header';
 
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    titleWrap.className = 'saga-lore-workbench-title-wrap';
     const title = document.createElement('div');
-    title.className = 'wandlight-lore-workbench-title';
+    title.className = 'saga-lore-workbench-title';
     title.textContent = pack?.title || pack?.packId || 'Loredeck Workbench';
     titleWrap.appendChild(title);
 
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.className = 'saga-lore-workbench-subtitle';
     subtitle.textContent = pack?.description || getLoredeckWorkbenchSubtitle(pack);
     titleWrap.appendChild(subtitle);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-workbench-header-chips wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-workbench-header-chips saga-loredeck-row-meta';
     if (pack?.packId) {
         chips.appendChild(createStatusPill(getLoredeckTypeLabel(pack.packId), 'Loredeck source type.'));
         chips.appendChild(createStatusPill(`${loredeckWorkbenchCache.rows.length} Lorecards`, 'Loaded Lorecards in this workbench cache.'));
@@ -170,7 +170,7 @@ function createLoredeckWorkbenchHeader(pack = null) {
     header.appendChild(titleWrap);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-loredeck-workbench-header-actions';
+    actions.className = 'saga-primary-actions saga-loredeck-workbench-header-actions';
     if (pack?.packId) {
         const refresh = createButton('Reload Lorecards', 'Reload Lorecards from this Loredeck source.', async btn => {
             await loadLoredeckWorkbenchRows(pack.packId, { force: true, button: btn });
@@ -182,14 +182,14 @@ function createLoredeckWorkbenchHeader(pack = null) {
         if (pack.type === 'bundled') {
             actions.appendChild(createButton('Duplicate to Edit', 'Create an editable Custom copy of this Bundled Loredeck.', () => {
                 openDuplicateLoredeckDialog(pack);
-            }, 'wandlight-primary-button'));
+            }, 'saga-primary-button'));
         } else {
             actions.appendChild(createButton('New Lorecard', 'Create a new Lorecard directly in this editable Loredeck.', () => {
                 beginLoredeckWorkbenchNewEntry(pack);
-            }, 'wandlight-primary-button'));
+            }, 'saga-primary-button'));
         }
     }
-    actions.appendChild(createButton('Close', 'Close the Loredeck Workbench.', closeLoredeckWorkbench, 'wandlight-small-button wandlight-lore-workbench-close'));
+    actions.appendChild(createButton('Close', 'Close the Loredeck Workbench.', closeLoredeckWorkbench, 'saga-small-button saga-lore-workbench-close'));
     header.appendChild(actions);
     return header;
 }
@@ -220,7 +220,7 @@ function getLoredeckWorkbenchSubtitle(pack = null) {
 
 function createLoredeckWorkbenchTabs() {
     const tabs = document.createElement('div');
-    tabs.className = 'wandlight-lore-workbench-mode-tabs wandlight-loredeck-workbench-mode-tabs';
+    tabs.className = 'saga-lore-workbench-mode-tabs saga-loredeck-workbench-mode-tabs';
     for (const [id, label, count, tip] of [
         ['lorecards', 'Lorecards', loredeckWorkbenchCache.rows.length, 'Browse Lorecards inside this Loredeck.'],
         ['registries', 'Registries', getLoredeckWorkbenchRegistryCount(getWorkbenchPack()), 'Manage deck-owned tag and timeline registry metadata.'],
@@ -229,8 +229,8 @@ function createLoredeckWorkbenchTabs() {
     ]) {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'wandlight-lore-workbench-mode-tab';
-        if (id === loredeckWorkbenchActiveTab) btn.classList.add('wandlight-lore-workbench-mode-tab-active');
+        btn.className = 'saga-lore-workbench-mode-tab';
+        if (id === loredeckWorkbenchActiveTab) btn.classList.add('saga-lore-workbench-mode-tab-active');
         btn.textContent = count ? `${label} (${count})` : label;
         btn.disabled = !['lorecards', 'registries'].includes(id);
         if (!btn.disabled) {
@@ -252,7 +252,7 @@ function createLoredeckWorkbenchActiveView(pack = {}) {
 
 function createLoredeckWorkbenchLorecardsView(pack = {}) {
     const view = document.createElement('div');
-    view.className = 'wandlight-lore-workbench-view wandlight-loredeck-workbench-view';
+    view.className = 'saga-lore-workbench-view saga-loredeck-workbench-view';
 
     view.appendChild(createLoredeckWorkbenchControls(pack));
 
@@ -273,7 +273,7 @@ function createLoredeckWorkbenchLorecardsView(pack = {}) {
     }
 
     const main = document.createElement('div');
-    main.className = 'wandlight-lore-workbench-main wandlight-loredeck-workbench-main';
+    main.className = 'saga-lore-workbench-main saga-loredeck-workbench-main';
     main.appendChild(createLoredeckWorkbenchTable(rows, pack));
     main.appendChild(createLoredeckWorkbenchDetail(pack, rows));
     view.appendChild(main);
@@ -282,10 +282,10 @@ function createLoredeckWorkbenchLorecardsView(pack = {}) {
 
 function createLoredeckWorkbenchRegistriesView(pack = {}) {
     const view = document.createElement('div');
-    view.className = 'wandlight-lore-workbench-view wandlight-loredeck-workbench-registries-view';
+    view.className = 'saga-lore-workbench-view saga-loredeck-workbench-registries-view';
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-workbench-registry-summary';
+    summary.className = 'saga-loredeck-workbench-registry-summary';
     const tagRegistry = normalizeWorkbenchTagRegistry(pack.tagRegistry);
     const timelineRegistry = normalizeWorkbenchTimelineRegistry(pack.timelineRegistry);
     summary.appendChild(createStatusPill(`${Object.keys(tagRegistry.tags || {}).length} tags`, 'Deck-owned tag definitions saved on this Loredeck.'));
@@ -298,7 +298,7 @@ function createLoredeckWorkbenchRegistriesView(pack = {}) {
     view.appendChild(summary);
 
     const layout = document.createElement('div');
-    layout.className = 'wandlight-loredeck-workbench-registries-layout';
+    layout.className = 'saga-loredeck-workbench-registries-layout';
     layout.appendChild(createLoredeckWorkbenchTagRegistryPanel(pack, tagRegistry));
     layout.appendChild(createLoredeckWorkbenchTimelineRegistryPanel(pack, timelineRegistry));
     view.appendChild(layout);
@@ -317,31 +317,31 @@ function getLoredeckWorkbenchRegistryCount(pack = {}) {
 
 function createLoredeckWorkbenchTagRegistryPanel(pack = {}, tagRegistry = normalizeWorkbenchTagRegistry()) {
     const panel = document.createElement('div');
-    panel.className = 'wandlight-loredeck-workbench-registry-panel';
+    panel.className = 'saga-loredeck-workbench-registry-panel';
 
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Tag Registry';
     panel.appendChild(title);
 
     const help = document.createElement('div');
-    help.className = 'wandlight-loredeck-workbench-editor-hint';
+    help.className = 'saga-loredeck-workbench-editor-hint';
     help.textContent = 'Define machine-safe tags used by Lorecards. These are deck metadata, not Lorecard tag assignments.';
     panel.appendChild(help);
 
     const controls = document.createElement('div');
-    controls.className = 'wandlight-loredeck-workbench-registry-controls';
+    controls.className = 'saga-loredeck-workbench-registry-controls';
     const search = document.createElement('input');
     search.type = 'search';
     search.placeholder = 'Search tags...';
     search.value = loredeckWorkbenchRegistryQuery;
-    search.className = 'wandlight-loredeck-workbench-registry-search';
+    search.className = 'saga-loredeck-workbench-registry-search';
     addTooltip(search, 'Search tag IDs, labels, descriptions, aliases, and parents.');
     search.addEventListener('input', () => {
         loredeckWorkbenchRegistryQuery = search.value;
         renderLoredeckWorkbench();
         requestAnimationFrame(() => {
-            const next = document.querySelector(`#${LOREDECK_WORKBENCH_ID} .wandlight-loredeck-workbench-registry-search`);
+            const next = document.querySelector(`#${LOREDECK_WORKBENCH_ID} .saga-loredeck-workbench-registry-search`);
             next?.focus?.();
             next?.setSelectionRange?.(next.value.length, next.value.length);
         });
@@ -351,7 +351,7 @@ function createLoredeckWorkbenchTagRegistryPanel(pack = {}, tagRegistry = normal
         loredeckWorkbenchRegistryQuery = '';
         renderLoredeckWorkbench();
         requestAnimationFrame(() => document.querySelector(`#${LOREDECK_WORKBENCH_ID} [name="tagId"]`)?.focus?.());
-    }, pack.type === 'bundled' ? '' : 'wandlight-primary-button'));
+    }, pack.type === 'bundled' ? '' : 'saga-primary-button'));
     panel.appendChild(controls);
 
     panel.appendChild(createLoredeckWorkbenchTagRegistryForm(pack, null));
@@ -363,13 +363,13 @@ function createLoredeckWorkbenchTagRegistryPanel(pack = {}, tagRegistry = normal
     }
 
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-workbench-registry-list';
+    list.className = 'saga-loredeck-workbench-registry-list';
     for (const [id, def] of entries.slice(0, 80)) {
         list.appendChild(createLoredeckWorkbenchTagRegistryRow(pack, id, def));
     }
     if (entries.length > 80) {
         const more = document.createElement('div');
-        more.className = 'wandlight-loredeck-workbench-editor-hint';
+        more.className = 'saga-loredeck-workbench-editor-hint';
         more.textContent = `Showing 80 of ${entries.length} matching tags. Search to narrow the list.`;
         list.appendChild(more);
     }
@@ -379,7 +379,7 @@ function createLoredeckWorkbenchTagRegistryPanel(pack = {}, tagRegistry = normal
 
 function createLoredeckWorkbenchTagRegistryForm(pack = {}, tag = null) {
     const form = document.createElement('div');
-    form.className = 'wandlight-loredeck-workbench-registry-form';
+    form.className = 'saga-loredeck-workbench-registry-form';
     const tagId = tag?.id || '';
     form.appendChild(createLoredeckWorkbenchInputField('Tag ID', 'tagId', tagId, 'Machine-safe tag ID, e.g. faction:straw-hats.', { required: true }));
     form.appendChild(createLoredeckWorkbenchInputField('Label', 'tagLabel', tag?.label || '', 'Human-readable label.'));
@@ -388,16 +388,16 @@ function createLoredeckWorkbenchTagRegistryForm(pack = {}, tag = null) {
     form.appendChild(createLoredeckWorkbenchTextareaField('Description', 'tagDescription', tag?.description || '', 'What this tag means in this Loredeck.', { rows: 3 }));
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-loredeck-workbench-editor-actions';
+    actions.className = 'saga-primary-actions saga-loredeck-workbench-editor-actions';
     const save = createButton(tagId ? 'Update Tag' : 'Add Tag', tagId ? 'Update this tag definition directly.' : 'Add this tag definition directly.', async btn => {
         await saveLoredeckWorkbenchTagDefinition(pack, form, btn);
-    }, 'wandlight-primary-button');
+    }, 'saga-primary-button');
     save.disabled = pack.type === 'bundled';
     actions.appendChild(save);
     if (tagId) {
         const remove = createButton('Delete Tag', 'Delete this tag definition directly after confirmation.', async btn => {
             await deleteLoredeckWorkbenchTagDefinition(pack, tagId, btn);
-        }, 'wandlight-danger-button');
+        }, 'saga-danger-button');
         remove.disabled = pack.type === 'bundled';
         actions.appendChild(remove);
     }
@@ -407,15 +407,15 @@ function createLoredeckWorkbenchTagRegistryForm(pack = {}, tag = null) {
 
 function createLoredeckWorkbenchTagRegistryRow(pack = {}, id = '', def = {}) {
     const row = document.createElement('div');
-    row.className = 'wandlight-loredeck-workbench-registry-row';
+    row.className = 'saga-loredeck-workbench-registry-row';
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-workbench-registry-row-main';
+    main.className = 'saga-loredeck-workbench-registry-row-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = def.label || id;
     main.appendChild(title);
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
+    meta.className = 'saga-loredeck-row-meta';
     meta.appendChild(createStatusPill(id, 'Tag ID.'));
     if (def.parents?.length) meta.appendChild(createStatusPill(`${def.parents.length} parents`, 'Parent tag count.'));
     if (def.aliases?.length) meta.appendChild(createStatusPill(`${def.aliases.length} aliases`, 'Alias count.'));
@@ -423,14 +423,14 @@ function createLoredeckWorkbenchTagRegistryRow(pack = {}, id = '', def = {}) {
     main.appendChild(meta);
     if (def.description) {
         const description = document.createElement('div');
-        description.className = 'wandlight-loredeck-workbench-registry-row-description';
+        description.className = 'saga-loredeck-workbench-registry-row-description';
         description.textContent = def.description;
         main.appendChild(description);
     }
     row.appendChild(main);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Edit', 'Load this tag definition into the editor form.', () => {
         replaceLoredeckWorkbenchRegistryForm(row, pack, { id, ...def });
     }));
@@ -439,8 +439,8 @@ function createLoredeckWorkbenchTagRegistryRow(pack = {}, id = '', def = {}) {
 }
 
 function replaceLoredeckWorkbenchRegistryForm(row, pack, tag) {
-    const panel = row.closest('.wandlight-loredeck-workbench-registry-panel');
-    const oldForm = panel?.querySelector('.wandlight-loredeck-workbench-registry-form');
+    const panel = row.closest('.saga-loredeck-workbench-registry-panel');
+    const oldForm = panel?.querySelector('.saga-loredeck-workbench-registry-form');
     if (!panel || !oldForm) return;
     const nextForm = createLoredeckWorkbenchTagRegistryForm(pack, tag);
     oldForm.replaceWith(nextForm);
@@ -529,14 +529,14 @@ async function deleteLoredeckWorkbenchTagDefinition(pack = {}, tagId = '', butto
 
 function createLoredeckWorkbenchTimelineRegistryPanel(pack = {}, timelineRegistry = normalizeWorkbenchTimelineRegistry()) {
     const panel = document.createElement('div');
-    panel.className = 'wandlight-loredeck-workbench-registry-panel';
+    panel.className = 'saga-loredeck-workbench-registry-panel';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Timeline / Context Registry';
     panel.appendChild(title);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
+    meta.className = 'saga-loredeck-row-meta';
     meta.appendChild(createStatusPill(timelineRegistry.timelineMode || 'hybrid', 'Timeline mode.'));
     meta.appendChild(createStatusPill(timelineRegistry.sortKeyScale || 'pack_local', 'Sort key scale.'));
     meta.appendChild(createStatusPill(`${timelineRegistry.anchors.length} anchors`, 'Deck-owned anchors.'));
@@ -544,26 +544,26 @@ function createLoredeckWorkbenchTimelineRegistryPanel(pack = {}, timelineRegistr
     panel.appendChild(meta);
 
     const help = document.createElement('div');
-    help.className = 'wandlight-loredeck-workbench-editor-hint';
+    help.className = 'saga-loredeck-workbench-editor-hint';
     help.textContent = 'Edit deck-owned Context anchors and windows used for story position gating. Source registry merge controls will come in a later slice.';
     panel.appendChild(help);
 
     const controls = document.createElement('div');
-    controls.className = 'wandlight-loredeck-workbench-registry-controls';
+    controls.className = 'saga-loredeck-workbench-registry-controls';
     const newAnchor = createButton('New Anchor', 'Create a deck-owned Context anchor.', () => {
         replaceLoredeckWorkbenchTimelineForm(panel, pack, 'anchor', null);
-    }, isLoredeckWorkbenchEditablePack(pack) ? 'wandlight-primary-button' : '');
+    }, isLoredeckWorkbenchEditablePack(pack) ? 'saga-primary-button' : '');
     newAnchor.disabled = !isLoredeckWorkbenchEditablePack(pack);
     controls.appendChild(newAnchor);
     const newWindow = createButton('New Window', 'Create a deck-owned Context window between anchors or sort keys.', () => {
         replaceLoredeckWorkbenchTimelineForm(panel, pack, 'window', null);
-    }, isLoredeckWorkbenchEditablePack(pack) ? 'wandlight-primary-button' : '');
+    }, isLoredeckWorkbenchEditablePack(pack) ? 'saga-primary-button' : '');
     newWindow.disabled = !isLoredeckWorkbenchEditablePack(pack);
     controls.appendChild(newWindow);
     panel.appendChild(controls);
 
     const formSlot = document.createElement('div');
-    formSlot.className = 'wandlight-loredeck-workbench-timeline-form-slot';
+    formSlot.className = 'saga-loredeck-workbench-timeline-form-slot';
     formSlot.appendChild(createEmptyMessage(isLoredeckWorkbenchEditablePack(pack)
         ? 'Choose New Anchor, New Window, or Edit a row to update this deck-owned timeline registry.'
         : 'Bundled Loredeck registries are read-only. Duplicate the Loredeck before editing anchors or windows.'));
@@ -576,9 +576,9 @@ function createLoredeckWorkbenchTimelineRegistryPanel(pack = {}, timelineRegistr
 
 function createLoredeckWorkbenchTimelinePreviewList(titleText, items = [], pack = {}, kind = 'anchor') {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-workbench-timeline-preview';
+    wrap.className = 'saga-loredeck-workbench-timeline-preview';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-workbench-registry-subtitle';
+    title.className = 'saga-loredeck-workbench-registry-subtitle';
     title.textContent = `${titleText} (${items.length})`;
     wrap.appendChild(title);
     if (!items.length) {
@@ -586,18 +586,18 @@ function createLoredeckWorkbenchTimelinePreviewList(titleText, items = [], pack 
         return wrap;
     }
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-workbench-registry-list';
+    list.className = 'saga-loredeck-workbench-registry-list';
     for (const item of items.slice(0, 16)) {
         const row = document.createElement('div');
-        row.className = 'wandlight-loredeck-workbench-registry-row';
+        row.className = 'saga-loredeck-workbench-registry-row';
         const main = document.createElement('div');
-        main.className = 'wandlight-loredeck-workbench-registry-row-main';
+        main.className = 'saga-loredeck-workbench-registry-row-main';
         const label = document.createElement('div');
-        label.className = 'wandlight-runtime-card-title';
+        label.className = 'saga-runtime-card-title';
         label.textContent = item.label || item.id;
         main.appendChild(label);
         const meta = document.createElement('div');
-        meta.className = 'wandlight-loredeck-row-meta';
+        meta.className = 'saga-loredeck-row-meta';
         meta.appendChild(createStatusPill(item.id, `${titleText} ID.`));
         if (Number.isFinite(Number(item.sortKey))) meta.appendChild(createStatusPill(`sort ${item.sortKey}`, 'Anchor sort key.'));
         if (Number.isFinite(Number(item.sortKeyFrom)) || Number.isFinite(Number(item.sortKeyTo))) meta.appendChild(createStatusPill(`${item.sortKeyFrom ?? '?'} -> ${item.sortKeyTo ?? '?'}`, 'Window sort range.'));
@@ -605,21 +605,21 @@ function createLoredeckWorkbenchTimelinePreviewList(titleText, items = [], pack 
         main.appendChild(meta);
         if (item.notes) {
             const notes = document.createElement('div');
-            notes.className = 'wandlight-loredeck-workbench-registry-row-description';
+            notes.className = 'saga-loredeck-workbench-registry-row-description';
             notes.textContent = item.notes;
             main.appendChild(notes);
         }
         row.appendChild(main);
 
         const actions = document.createElement('div');
-        actions.className = 'wandlight-primary-actions';
+        actions.className = 'saga-primary-actions';
         actions.appendChild(createButton('Edit', `Load this ${kind} into the editor form.`, () => {
             replaceLoredeckWorkbenchTimelineForm(row, pack, kind, item);
         }));
         if (isLoredeckWorkbenchEditablePack(pack)) {
             const remove = createButton('Delete', `Delete this ${kind} after confirmation.`, async btn => {
                 await deleteLoredeckWorkbenchTimelineItem(pack, kind, item.id, btn);
-            }, 'wandlight-danger-button');
+            }, 'saga-danger-button');
             actions.appendChild(remove);
         }
         row.appendChild(actions);
@@ -627,7 +627,7 @@ function createLoredeckWorkbenchTimelinePreviewList(titleText, items = [], pack 
     }
     if (items.length > 16) {
         const more = document.createElement('div');
-        more.className = 'wandlight-loredeck-workbench-editor-hint';
+        more.className = 'saga-loredeck-workbench-editor-hint';
         more.textContent = `Showing 16 of ${items.length}.`;
         list.appendChild(more);
     }
@@ -640,7 +640,7 @@ function createLoredeckWorkbenchTimelineRegistryForm(pack = {}, kind = 'anchor',
     const existing = item && typeof item === 'object' ? item : null;
     const isWindow = normalizedKind === 'window';
     const form = document.createElement('div');
-    form.className = 'wandlight-loredeck-workbench-registry-form wandlight-loredeck-workbench-timeline-form';
+    form.className = 'saga-loredeck-workbench-registry-form saga-loredeck-workbench-timeline-form';
     form.dataset.kind = normalizedKind;
     form.dataset.originalId = existing?.id || '';
 
@@ -663,21 +663,21 @@ function createLoredeckWorkbenchTimelineRegistryForm(pack = {}, kind = 'anchor',
     form.appendChild(createLoredeckWorkbenchTextareaField('Notes', 'timelineNotes', existing?.notes || '', 'Editor notes for this Context point.', { rows: 3 }));
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-loredeck-workbench-editor-actions';
+    actions.className = 'saga-primary-actions saga-loredeck-workbench-editor-actions';
     const save = createButton(existing ? `Update ${isWindow ? 'Window' : 'Anchor'}` : `Add ${isWindow ? 'Window' : 'Anchor'}`, `Save this ${normalizedKind} directly to the Loredeck.`, async btn => {
         await saveLoredeckWorkbenchTimelineItem(pack, normalizedKind, form, btn);
-    }, 'wandlight-primary-button');
+    }, 'saga-primary-button');
     save.disabled = !isLoredeckWorkbenchEditablePack(pack);
     actions.appendChild(save);
     if (existing?.id) {
         const remove = createButton(`Delete ${isWindow ? 'Window' : 'Anchor'}`, `Delete this ${normalizedKind} after confirmation.`, async btn => {
             await deleteLoredeckWorkbenchTimelineItem(pack, normalizedKind, existing.id, btn);
-        }, 'wandlight-danger-button');
+        }, 'saga-danger-button');
         remove.disabled = !isLoredeckWorkbenchEditablePack(pack);
         actions.appendChild(remove);
     }
     actions.appendChild(createButton('Cancel', 'Close the timeline editor form.', () => {
-        const slot = form.closest('.wandlight-loredeck-workbench-timeline-form-slot');
+        const slot = form.closest('.saga-loredeck-workbench-timeline-form-slot');
         slot?.replaceChildren(createEmptyMessage(isLoredeckWorkbenchEditablePack(pack)
             ? 'Choose New Anchor, New Window, or Edit a row to update this deck-owned timeline registry.'
             : 'Bundled Loredeck registries are read-only. Duplicate the Loredeck before editing anchors or windows.'));
@@ -687,8 +687,8 @@ function createLoredeckWorkbenchTimelineRegistryForm(pack = {}, kind = 'anchor',
 }
 
 function replaceLoredeckWorkbenchTimelineForm(source, pack = {}, kind = 'anchor', item = null) {
-    const panel = source?.closest?.('.wandlight-loredeck-workbench-registry-panel') || source;
-    const slot = panel?.querySelector?.('.wandlight-loredeck-workbench-timeline-form-slot');
+    const panel = source?.closest?.('.saga-loredeck-workbench-registry-panel') || source;
+    const slot = panel?.querySelector?.('.saga-loredeck-workbench-timeline-form-slot');
     if (!slot) return;
     const form = createLoredeckWorkbenchTimelineRegistryForm(pack, kind, item);
     slot.replaceChildren(form);
@@ -868,18 +868,18 @@ function sortWorkbenchTimelineItems(list = [], kind = 'anchor') {
 
 function createLoredeckWorkbenchControls(pack = {}) {
     const controls = document.createElement('div');
-    controls.className = 'wandlight-lore-workbench-controls wandlight-loredeck-workbench-controls';
+    controls.className = 'saga-lore-workbench-controls saga-loredeck-workbench-controls';
 
     const search = document.createElement('input');
     search.type = 'search';
-    search.className = 'wandlight-lore-workbench-search';
+    search.className = 'saga-lore-workbench-search';
     search.placeholder = 'Search Lorecards...';
     search.value = loredeckWorkbenchQuery;
     addTooltip(search, 'Search by Lorecard title, ID, summary, tags, category, Context, or source file.');
     search.addEventListener('input', () => {
         loredeckWorkbenchQuery = search.value;
         renderLoredeckWorkbench();
-        const next = document.querySelector(`#${LOREDECK_WORKBENCH_ID} .wandlight-lore-workbench-search`);
+        const next = document.querySelector(`#${LOREDECK_WORKBENCH_ID} .saga-lore-workbench-search`);
         if (next) {
             next.focus();
             next.setSelectionRange?.(next.value.length, next.value.length);
@@ -901,7 +901,7 @@ function createLoredeckWorkbenchControls(pack = {}) {
     }));
 
     const count = document.createElement('div');
-    count.className = 'wandlight-lore-workbench-count';
+    count.className = 'saga-lore-workbench-count';
     const filtered = getFilteredLoredeckWorkbenchRows();
     count.textContent = `${filtered.length} of ${loredeckWorkbenchCache.rows.length} Lorecards`;
     addTooltip(count, `Current filters for ${pack.title || pack.packId}.`);
@@ -911,7 +911,7 @@ function createLoredeckWorkbenchControls(pack = {}) {
 
 function createWorkbenchSelect(labelText, value, options, onChange) {
     const select = document.createElement('select');
-    select.className = 'wandlight-lore-workbench-select';
+    select.className = 'saga-lore-workbench-select';
     addTooltip(select, `Filter by ${labelText.toLowerCase()}.`);
     for (const [optionValue, optionLabel] of options) {
         const option = document.createElement('option');
@@ -927,11 +927,11 @@ function createWorkbenchSelect(labelText, value, options, onChange) {
 function createLoredeckWorkbenchTable(rows = [], pack = {}) {
     const selectable = isLoredeckWorkbenchEditablePack(pack);
     const table = document.createElement('div');
-    table.className = 'wandlight-lore-workbench-table wandlight-loredeck-workbench-table';
-    if (selectable) table.classList.add('wandlight-loredeck-workbench-selectable-table');
+    table.className = 'saga-lore-workbench-table saga-loredeck-workbench-table';
+    if (selectable) table.classList.add('saga-loredeck-workbench-selectable-table');
 
     const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-row-header';
+    header.className = 'saga-lore-workbench-row saga-lore-workbench-row-header';
     if (selectable) header.appendChild(createLoredeckWorkbenchSelectHeaderCell(rows));
     header.appendChild(createWorkbenchCell('Lorecard'));
     header.appendChild(createWorkbenchCell('Type'));
@@ -950,7 +950,7 @@ function createLoredeckWorkbenchTable(rows = [], pack = {}) {
     }
     if (visible.length < rows.length) {
         const more = document.createElement('div');
-        more.className = 'wandlight-lore-workbench-row-note';
+        more.className = 'saga-lore-workbench-row-note';
         more.textContent = `Showing ${visible.length} of ${rows.length}. Narrow search or filters to inspect more.`;
         table.appendChild(more);
     }
@@ -961,11 +961,11 @@ function createLoredeckWorkbenchRow(row = {}, rows = [], selectable = false) {
     const entry = row.entry || {};
     const el = document.createElement('button');
     el.type = 'button';
-    el.className = 'wandlight-lore-workbench-row wandlight-lore-workbench-entry-row wandlight-loredeck-workbench-entry-row';
-    if (row.draft) el.classList.add('wandlight-loredeck-workbench-draft-row');
-    if (row.disabled) el.classList.add('wandlight-loredeck-workbench-disabled-row');
-    if (!row.draft && loredeckWorkbenchBulkSelection.has(row.id)) el.classList.add('wandlight-loredeck-workbench-row-selected');
-    if (row.id === loredeckWorkbenchSelectedEntryId) el.classList.add('wandlight-lore-workbench-row-active');
+    el.className = 'saga-lore-workbench-row saga-lore-workbench-entry-row saga-loredeck-workbench-entry-row';
+    if (row.draft) el.classList.add('saga-loredeck-workbench-draft-row');
+    if (row.disabled) el.classList.add('saga-loredeck-workbench-disabled-row');
+    if (!row.draft && loredeckWorkbenchBulkSelection.has(row.id)) el.classList.add('saga-loredeck-workbench-row-selected');
+    if (row.id === loredeckWorkbenchSelectedEntryId) el.classList.add('saga-lore-workbench-row-active');
     addTooltip(el, `Inspect ${entry.title || row.id}.`);
     el.addEventListener('click', event => {
         loredeckWorkbenchSelectedEntryId = row.id;
@@ -984,14 +984,14 @@ function createLoredeckWorkbenchRow(row = {}, rows = [], selectable = false) {
 
 function createWorkbenchCell(text, subText = '') {
     const cell = document.createElement('div');
-    cell.className = 'wandlight-lore-workbench-cell';
+    cell.className = 'saga-lore-workbench-cell';
     const main = document.createElement('span');
-    main.className = 'wandlight-lore-workbench-cell-main';
+    main.className = 'saga-lore-workbench-cell-main';
     main.textContent = String(text || 'unset');
     cell.appendChild(main);
     if (subText) {
         const sub = document.createElement('span');
-        sub.className = 'wandlight-lore-workbench-cell-sub';
+        sub.className = 'saga-lore-workbench-cell-sub';
         sub.textContent = String(subText || '');
         cell.appendChild(sub);
     }
@@ -1000,12 +1000,12 @@ function createWorkbenchCell(text, subText = '') {
 
 function createLoredeckWorkbenchSelectHeaderCell(rows = []) {
     const cell = document.createElement('span');
-    cell.className = 'wandlight-loredeck-workbench-select-cell wandlight-loredeck-workbench-select-header-cell';
+    cell.className = 'saga-loredeck-workbench-select-cell saga-loredeck-workbench-select-header-cell';
     const visibleIds = getLoredeckWorkbenchSelectableRowIds(rows);
     const selectedVisibleCount = visibleIds.filter(id => loredeckWorkbenchBulkSelection.has(id)).length;
     const checked = !!visibleIds.length && selectedVisibleCount === visibleIds.length;
     const box = document.createElement('span');
-    box.className = `wandlight-loredeck-workbench-select-box${checked ? ' wandlight-loredeck-workbench-select-box-checked' : ''}`;
+    box.className = `saga-loredeck-workbench-select-box${checked ? ' saga-loredeck-workbench-select-box-checked' : ''}`;
     box.textContent = checked ? 'x' : '';
     box.setAttribute('role', 'checkbox');
     box.setAttribute('aria-checked', checked ? 'true' : 'false');
@@ -1021,11 +1021,11 @@ function createLoredeckWorkbenchSelectHeaderCell(rows = []) {
 
 function createLoredeckWorkbenchSelectCell(row = {}, rows = []) {
     const cell = document.createElement('span');
-    cell.className = 'wandlight-loredeck-workbench-select-cell';
+    cell.className = 'saga-loredeck-workbench-select-cell';
     if (row.draft) return cell;
     const checked = loredeckWorkbenchBulkSelection.has(row.id);
     const box = document.createElement('span');
-    box.className = `wandlight-loredeck-workbench-select-box${checked ? ' wandlight-loredeck-workbench-select-box-checked' : ''}`;
+    box.className = `saga-loredeck-workbench-select-box${checked ? ' saga-loredeck-workbench-select-box-checked' : ''}`;
     box.textContent = checked ? 'x' : '';
     box.setAttribute('role', 'checkbox');
     box.setAttribute('aria-checked', checked ? 'true' : 'false');
@@ -1041,12 +1041,12 @@ function createLoredeckWorkbenchSelectCell(row = {}, rows = []) {
 
 function createLoredeckWorkbenchBulkToolbar(pack = {}, rows = []) {
     const toolbar = document.createElement('div');
-    toolbar.className = 'wandlight-loredeck-workbench-bulk-toolbar';
+    toolbar.className = 'saga-loredeck-workbench-bulk-toolbar';
     const selectedIds = getLoredeckWorkbenchSelectedIds();
     const selectedCount = selectedIds.length;
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-workbench-bulk-summary';
+    summary.className = 'saga-loredeck-workbench-bulk-summary';
     summary.textContent = selectedCount ? `${selectedCount} selected` : 'No bulk selection';
     addTooltip(summary, 'Bulk actions apply directly after confirmation.');
     toolbar.appendChild(summary);
@@ -1062,25 +1062,25 @@ function createLoredeckWorkbenchBulkToolbar(pack = {}, rows = []) {
     toolbar.appendChild(relevance);
     toolbar.appendChild(createButton('Set Relevance', 'Set the selected Lorecards to this relevance tier.', async btn => {
         await applyLoredeckWorkbenchBulkEntryEdit(pack, 'Set Relevance', selectedIds, fields => ({ ...fields, relevance: relevance.value }), btn);
-    }, selectedCount ? '' : 'wandlight-disabled-like'));
+    }, selectedCount ? '' : 'saga-disabled-like'));
 
     const category = createLoredeckWorkbenchBulkInput('Category', 'character', 'Bulk category/type value.');
     toolbar.appendChild(category);
     toolbar.appendChild(createButton('Set Category', 'Set the selected Lorecards to this category/type.', async btn => {
         const value = String(category.value || '').trim();
         await applyLoredeckWorkbenchBulkEntryEdit(pack, 'Set Category', selectedIds, fields => ({ ...fields, category: value || fields.category }), btn, { requireValue: value, requireValueLabel: 'category' });
-    }, selectedCount ? '' : 'wandlight-disabled-like'));
+    }, selectedCount ? '' : 'saga-disabled-like'));
 
     const tag = createLoredeckWorkbenchBulkInput('Tag', 'faction:straw-hats', 'Tag to add or remove.');
     toolbar.appendChild(tag);
     toolbar.appendChild(createButton('Add Tag', 'Add this tag to every selected Lorecard.', async btn => {
         const value = String(tag.value || '').trim();
         await applyLoredeckWorkbenchBulkEntryEdit(pack, 'Add Tag', selectedIds, fields => ({ ...fields, tags: mergeLoredeckWorkbenchTags(fields.tags, [value]) }), btn, { requireTag: value });
-    }, selectedCount ? '' : 'wandlight-disabled-like'));
+    }, selectedCount ? '' : 'saga-disabled-like'));
     toolbar.appendChild(createButton('Remove Tag', 'Remove this tag from every selected Lorecard.', async btn => {
         const value = String(tag.value || '').trim();
         await applyLoredeckWorkbenchBulkEntryEdit(pack, 'Remove Tag', selectedIds, fields => ({ ...fields, tags: (fields.tags || []).filter(item => item !== value) }), btn, { requireTag: value });
-    }, selectedCount ? '' : 'wandlight-disabled-like'));
+    }, selectedCount ? '' : 'saga-disabled-like'));
 
     const contextLabel = createLoredeckWorkbenchBulkInput('Context Label', 'Arlong Park Arc', 'Human-readable Context gate label.');
     const contextScope = createLoredeckWorkbenchBulkSelect(getContextScopeOptions(), 'window', 'Context scope for selected Lorecards.');
@@ -1104,19 +1104,19 @@ function createLoredeckWorkbenchBulkToolbar(pack = {}, rows = []) {
             toAnchor: contextToAnchor.value,
         });
         await applyLoredeckWorkbenchBulkEntryEdit(pack, 'Set Context', selectedIds, fields => ({ ...fields, context: contextGate }), btn, { requireContextGate: contextGate });
-    }, selectedCount ? '' : 'wandlight-disabled-like'));
+    }, selectedCount ? '' : 'saga-disabled-like'));
 
     toolbar.appendChild(createButton('Duplicate Selected', 'Duplicate selected Lorecards as new Custom additions in this Loredeck.', async btn => {
         await duplicateLoredeckWorkbenchSelectedEntries(pack, selectedIds, btn);
-    }, selectedCount ? '' : 'wandlight-disabled-like'));
+    }, selectedCount ? '' : 'saga-disabled-like'));
     toolbar.appendChild(createButton('Restore Selected', 'Restore selected disabled Lorecards by removing them from this deck disabled list.', async btn => {
         await restoreLoredeckWorkbenchSelectedEntries(pack, selectedIds, btn);
-    }, selectedCount ? '' : 'wandlight-disabled-like'));
+    }, selectedCount ? '' : 'saga-disabled-like'));
     toolbar.appendChild(createButton('Delete Selected', 'Delete selected Custom additions or suppress selected source Lorecards in this editable Loredeck.', async btn => {
         await deleteLoredeckWorkbenchSelectedEntries(pack, selectedIds, btn);
-    }, selectedCount ? 'wandlight-danger-button' : 'wandlight-danger-button wandlight-disabled-like'));
+    }, selectedCount ? 'saga-danger-button' : 'saga-danger-button saga-disabled-like'));
 
-    toolbar.querySelectorAll('.wandlight-disabled-like').forEach(btn => {
+    toolbar.querySelectorAll('.saga-disabled-like').forEach(btn => {
         btn.disabled = true;
     });
     return toolbar;
@@ -1124,7 +1124,7 @@ function createLoredeckWorkbenchBulkToolbar(pack = {}, rows = []) {
 
 function createLoredeckWorkbenchBulkSelect(options = [], value = '', tip = '') {
     const select = document.createElement('select');
-    select.className = 'wandlight-loredeck-workbench-bulk-control';
+    select.className = 'saga-loredeck-workbench-bulk-control';
     for (const [optionValue, optionLabel] of options) {
         const option = document.createElement('option');
         option.value = optionValue;
@@ -1139,7 +1139,7 @@ function createLoredeckWorkbenchBulkSelect(options = [], value = '', tip = '') {
 function createLoredeckWorkbenchBulkInput(label, placeholder = '', tip = '') {
     const input = document.createElement('input');
     input.type = 'text';
-    input.className = 'wandlight-loredeck-workbench-bulk-control';
+    input.className = 'saga-loredeck-workbench-bulk-control';
     input.placeholder = label;
     input.value = '';
     input.dataset.placeholderExample = placeholder;
@@ -1528,7 +1528,7 @@ function isLoredeckWorkbenchAdditionRow(row = {}) {
 
 function createLoredeckWorkbenchDetail(pack = {}, rows = []) {
     const detail = document.createElement('div');
-    detail.className = 'wandlight-lore-workbench-detail wandlight-loredeck-workbench-detail';
+    detail.className = 'saga-lore-workbench-detail saga-loredeck-workbench-detail';
     const selected = rows.find(row => row.id === loredeckWorkbenchSelectedEntryId) || rows[0] || null;
     if (!selected) {
         detail.appendChild(createEmptyMessage('Select a Lorecard to inspect it.'));
@@ -1538,12 +1538,12 @@ function createLoredeckWorkbenchDetail(pack = {}, rows = []) {
 
     const entry = selected.entry || {};
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = entry.title || selected.id;
     detail.appendChild(title);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(getEntryRelevance(entry), 'Lorecard relevance tier.'));
     chips.appendChild(createStatusPill(getEntryCategory(entry), 'Lorecard category/type.'));
     if (selected.disabled) chips.appendChild(createStatusPill('Disabled', 'This Lorecard is suppressed by this editable Loredeck.'));
@@ -1552,7 +1552,7 @@ function createLoredeckWorkbenchDetail(pack = {}, rows = []) {
     detail.appendChild(chips);
 
     const grid = document.createElement('div');
-    grid.className = 'wandlight-loredeck-workbench-detail-grid';
+    grid.className = 'saga-loredeck-workbench-detail-grid';
     grid.appendChild(createKeyValue('ID', selected.id, 'Stable Lorecard machine ID.'));
     grid.appendChild(createKeyValue('Canon', getEntryCanonStatus(entry), 'Canon/AU/custom status.'));
     grid.appendChild(createKeyValue('Truth', entry.truthStatus || entry.truth || 'unset', 'Truth or reliability status.'));
@@ -1560,14 +1560,14 @@ function createLoredeckWorkbenchDetail(pack = {}, rows = []) {
     detail.appendChild(grid);
 
     const fact = document.createElement('div');
-    fact.className = 'wandlight-loredeck-workbench-entry-text';
+    fact.className = 'saga-loredeck-workbench-entry-text';
     fact.textContent = getEntryMainText(entry) || 'No Lorecard content available.';
     detail.appendChild(fact);
 
     const tags = getEntryTags(entry);
     if (tags.length) {
         const tagWrap = document.createElement('div');
-        tagWrap.className = 'wandlight-loredeck-row-meta wandlight-loredeck-workbench-tags';
+        tagWrap.className = 'saga-loredeck-row-meta saga-loredeck-workbench-tags';
         for (const tag of tags.slice(0, 32)) tagWrap.appendChild(createStatusPill(tag, 'Lorecard tag.'));
         if (tags.length > 32) tagWrap.appendChild(createStatusPill(`+${tags.length - 32}`, 'Additional tags hidden in this compact view.'));
         detail.appendChild(tagWrap);
@@ -1577,34 +1577,34 @@ function createLoredeckWorkbenchDetail(pack = {}, rows = []) {
     if (contextText) detail.appendChild(createKeyValue('Context Gate', contextText, 'Context activation gate for this Lorecard.'));
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Duplicate to Edit', 'Create an editable Custom copy of this Bundled Loredeck.', () => {
         openDuplicateLoredeckDialog(pack);
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     detail.appendChild(actions);
     return detail;
 }
 
 function createLoredeckWorkbenchEditableDetail(pack = {}, selected = {}) {
     const detail = document.createElement('div');
-    detail.className = 'wandlight-lore-workbench-detail wandlight-loredeck-workbench-detail wandlight-loredeck-workbench-editor-detail';
+    detail.className = 'saga-lore-workbench-detail saga-loredeck-workbench-detail saga-loredeck-workbench-editor-detail';
     const entry = selected.entry || {};
     const fields = getLoredeckWorkbenchEntryFields(entry);
 
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = selected.draft ? 'New Lorecard' : 'Lorecard Editor';
     detail.appendChild(title);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(selected.draft ? 'Draft' : (selected.disabled ? 'Disabled' : 'Editable'), selected.draft ? 'This Lorecard has not been created yet.' : (selected.disabled ? 'Saving this Lorecard will restore it.' : 'Manual field edits save directly to this Loredeck.')));
     chips.appendChild(createStatusPill(selected.sourceFile || 'embedded', 'Source file for this Lorecard.'));
     chips.appendChild(createStatusPill(selected.id, 'Stable Lorecard machine ID.'));
     detail.appendChild(chips);
 
     const form = document.createElement('div');
-    form.className = 'wandlight-loredeck-workbench-editor-form';
+    form.className = 'saga-loredeck-workbench-editor-form';
     form.dataset.entryId = selected.id || '';
 
     if (selected.draft) {
@@ -1626,7 +1626,7 @@ function createLoredeckWorkbenchEditableDetail(pack = {}, selected = {}) {
     detail.appendChild(form);
 
     const hint = document.createElement('div');
-    hint.className = 'wandlight-loredeck-workbench-editor-hint';
+    hint.className = 'saga-loredeck-workbench-editor-hint';
     hint.textContent = selected.draft
         ? 'Fill the machine ID, title, and lore text, then create the Lorecard.'
         : 'Text fields save on blur. Select fields save immediately. Ctrl+Enter saves the focused text area.';
@@ -1671,7 +1671,7 @@ function refreshLoredeckWorkbenchSaveChip() {
 
 function createLoredeckWorkbenchReadonlyField(labelText, value, tip = '') {
     const label = document.createElement('label');
-    label.className = 'wandlight-loredeck-workbench-editor-field';
+    label.className = 'saga-loredeck-workbench-editor-field';
     const span = document.createElement('span');
     span.textContent = labelText;
     label.appendChild(span);
@@ -1679,7 +1679,7 @@ function createLoredeckWorkbenchReadonlyField(labelText, value, tip = '') {
     input.type = 'text';
     input.value = String(value || '');
     input.readOnly = true;
-    input.className = 'wandlight-loredeck-workbench-editor-input';
+    input.className = 'saga-loredeck-workbench-editor-input';
     label.appendChild(input);
     if (tip) addTooltip(input, tip);
     return label;
@@ -1687,7 +1687,7 @@ function createLoredeckWorkbenchReadonlyField(labelText, value, tip = '') {
 
 function createLoredeckWorkbenchInputField(labelText, name, value, tip = '', options = {}) {
     const label = document.createElement('label');
-    label.className = `wandlight-loredeck-workbench-editor-field${options.full ? ' wandlight-loredeck-workbench-editor-field-full' : ''}`;
+    label.className = `saga-loredeck-workbench-editor-field${options.full ? ' saga-loredeck-workbench-editor-field-full' : ''}`;
     const span = document.createElement('span');
     span.textContent = labelText;
     label.appendChild(span);
@@ -1696,7 +1696,7 @@ function createLoredeckWorkbenchInputField(labelText, name, value, tip = '', opt
     input.name = name;
     input.value = String(value || '');
     input.required = options.required === true;
-    input.className = 'wandlight-loredeck-workbench-editor-input';
+    input.className = 'saga-loredeck-workbench-editor-input';
     label.appendChild(input);
     if (tip) addTooltip(input, tip);
     return label;
@@ -1704,7 +1704,7 @@ function createLoredeckWorkbenchInputField(labelText, name, value, tip = '', opt
 
 function createLoredeckWorkbenchTextareaField(labelText, name, value, tip = '', options = {}) {
     const label = document.createElement('label');
-    label.className = 'wandlight-loredeck-workbench-editor-field wandlight-loredeck-workbench-editor-field-full';
+    label.className = 'saga-loredeck-workbench-editor-field saga-loredeck-workbench-editor-field-full';
     const span = document.createElement('span');
     span.textContent = labelText;
     label.appendChild(span);
@@ -1712,7 +1712,7 @@ function createLoredeckWorkbenchTextareaField(labelText, name, value, tip = '', 
     textarea.name = name;
     textarea.rows = Math.max(2, Number(options.rows) || 4);
     textarea.value = String(value || '');
-    textarea.className = 'wandlight-loredeck-workbench-editor-textarea';
+    textarea.className = 'saga-loredeck-workbench-editor-textarea';
     label.appendChild(textarea);
     if (tip) addTooltip(textarea, tip);
     return label;
@@ -1720,13 +1720,13 @@ function createLoredeckWorkbenchTextareaField(labelText, name, value, tip = '', 
 
 function createLoredeckWorkbenchSelectField(labelText, name, value, options, tip = '') {
     const label = document.createElement('label');
-    label.className = 'wandlight-loredeck-workbench-editor-field';
+    label.className = 'saga-loredeck-workbench-editor-field';
     const span = document.createElement('span');
     span.textContent = labelText;
     label.appendChild(span);
     const select = document.createElement('select');
     select.name = name;
-    select.className = 'wandlight-loredeck-workbench-editor-input';
+    select.className = 'saga-loredeck-workbench-editor-input';
     const normalized = String(value || '').trim().toLowerCase();
     for (const [optionValue, optionLabel] of options) {
         const option = document.createElement('option');
@@ -1770,7 +1770,7 @@ function wireLoredeckWorkbenchAutosave(form, pack, selected) {
 
 function wireLoredeckWorkbenchDraftCreate(form, pack, selected) {
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-loredeck-workbench-editor-actions';
+    actions.className = 'saga-primary-actions saga-loredeck-workbench-editor-actions';
     actions.appendChild(createButton('Create Lorecard', 'Create this Lorecard directly in the editable Loredeck.', async btn => {
         const original = btn.textContent;
         btn.disabled = true;
@@ -1781,7 +1781,7 @@ function wireLoredeckWorkbenchDraftCreate(form, pack, selected) {
             btn.disabled = false;
             btn.textContent = original || 'Create Lorecard';
         }
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     actions.appendChild(createButton('Cancel', 'Discard this unsaved Lorecard draft.', () => {
         cancelLoredeckWorkbenchNewEntry();
     }));

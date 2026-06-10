@@ -249,7 +249,7 @@ function buttonLabels() {
 
 async function waitForRefreshToSettle(deckId, entryPreviewCache) {
   for (let attempt = 0; attempt < 120; attempt += 1) {
-    const overlay = document.querySelector('.wandlight-loredeck-health-center-overlay');
+    const overlay = document.querySelector('.saga-loredeck-health-center-overlay');
     const hasRestoredRefreshButton = buttonLabels().includes('Refresh Scan');
     const hasCachedHealth = !!entryPreviewCache.get(deckId)?.health;
     if (overlay && hasRestoredRefreshButton && hasCachedHealth) return;
@@ -332,14 +332,14 @@ async function runHealthCenterRefresh(deckId) {
 
   try {
     openLoredeckHealthCenter(deckId);
-    assert.ok(document.querySelector('.wandlight-loredeck-health-center-overlay'), `${deckId} should open the Deck Health Center.`);
+    assert.ok(document.querySelector('.saga-loredeck-health-center-overlay'), `${deckId} should open the Deck Health Center.`);
     const refreshButton = document.body.querySelectorAll('button').find(button => button.textContent === 'Refresh Scan');
     assert.ok(refreshButton, `${deckId} should render a Refresh Scan button.`);
 
     await refreshButton.click();
     await waitForRefreshToSettle(deckId, entryPreviewCache);
 
-    assert.ok(document.querySelector('.wandlight-loredeck-health-center-overlay'), `${deckId} should keep the Deck Health Center visible after refresh.`);
+    assert.ok(document.querySelector('.saga-loredeck-health-center-overlay'), `${deckId} should keep the Deck Health Center visible after refresh.`);
     assert.ok(buttonLabels().includes('Refresh Scan'), `${deckId} should restore the Refresh Scan button after refresh.`);
     assert.equal(entryPreviewCache.get(deckId)?.health?.status, 'good', `${deckId} should cache good Deck Health after refresh.`);
     assert.equal(errors.some(error => error.includes('Deck Health Center render failed')), false, `${deckId} should not hit the Health Center render fallback.`);

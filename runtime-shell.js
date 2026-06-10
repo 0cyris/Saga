@@ -107,7 +107,7 @@ export function getDefaultRailY(panelState = null) {
 
 export function getMeasuredCenteredRailY(root, panelState = null) {
     const viewportHeight = getViewportHeight();
-    const rail = root?.querySelector?.('.wandlight-runtime-rail');
+    const rail = root?.querySelector?.('.saga-runtime-rail');
     const measuredHeight = Number(rail?.offsetHeight) || getEstimatedRailHeight(panelState);
     const safeHeight = Math.min(measuredHeight, Math.max(80, viewportHeight - (MAX_PANEL_MARGIN * 2)));
     return Math.max(MAX_PANEL_MARGIN, Math.round((viewportHeight - safeHeight) / 2));
@@ -212,41 +212,41 @@ export function applyRuntimeShellGeometry(root, panelState) {
 export function updateDrawerScrollMetrics(drawer) {
     if (!drawer) return;
     const drawerRect = drawer.getBoundingClientRect?.();
-    const headerRect = drawer.querySelector('.wandlight-runtime-drawer-header')?.getBoundingClientRect?.();
+    const headerRect = drawer.querySelector('.saga-runtime-drawer-header')?.getBoundingClientRect?.();
     const drawerHeight = Number(drawerRect?.height) || Number.parseFloat(drawer.style.height) || 640;
     const headerHeight = Number(headerRect?.height) || 48;
     const bodyHeight = Math.max(120, Math.floor(drawerHeight - headerHeight - 18));
     const nestedMax = Math.max(140, Math.min(420, Math.floor(bodyHeight * 0.52)));
-    drawer.style.setProperty('--wandlight-drawer-body-available', `${bodyHeight}px`);
-    drawer.style.setProperty('--wandlight-nested-scroll-max', `${nestedMax}px`);
+    drawer.style.setProperty('--saga-drawer-body-available', `${bodyHeight}px`);
+    drawer.style.setProperty('--saga-nested-scroll-max', `${nestedMax}px`);
 }
 
 export function getActiveTabScrollElement(root = getPanelRoot()) {
     if (!root) return null;
-    return root.querySelector('.wandlight-runtime-tab-body');
+    return root.querySelector('.saga-runtime-tab-body');
 }
 
 export function getActiveNestedScrollElement(root = getPanelRoot()) {
     if (!root) return null;
-    return root.querySelector('.wandlight-accepted-lore-scroll-region')
-        || root.querySelector('.wandlight-pending-lore-list')
-        || root.querySelector('.wandlight-injection-preview')
-        || root.querySelector('.wandlight-continuity-json-editor');
+    return root.querySelector('.saga-accepted-lore-scroll-region')
+        || root.querySelector('.saga-pending-lore-list')
+        || root.querySelector('.saga-injection-preview')
+        || root.querySelector('.saga-continuity-json-editor');
 }
 
 export function installNestedScrollHandoff(tabBody) {
     if (!tabBody) return;
     const nestedScrolls = tabBody.querySelectorAll([
-        '.wandlight-accepted-lore-scroll-region',
-        '.wandlight-pending-lore-list',
-        '.wandlight-injection-preview',
-        '.wandlight-continuity-json-editor',
+        '.saga-accepted-lore-scroll-region',
+        '.saga-pending-lore-list',
+        '.saga-injection-preview',
+        '.saga-continuity-json-editor',
         'textarea'
     ].join(','));
 
     for (const nested of nestedScrolls) {
         nested.addEventListener('wheel', (event) => {
-            const outer = nested.closest('.wandlight-runtime-tab-body');
+            const outer = nested.closest('.saga-runtime-tab-body');
             if (!outer || outer === nested || !event.deltaY) return;
 
             const canScrollDown = nested.scrollTop + nested.clientHeight < nested.scrollHeight - 1;
@@ -292,16 +292,16 @@ export function clampRuntimeShellToViewport() {
     const panelState = normalizePanelLayoutState(state);
     if (!panelState) return;
     const railWidth = getRailWidth(panelState);
-    const railHeight = root.querySelector('.wandlight-runtime-rail')?.offsetHeight || 80;
+    const railHeight = root.querySelector('.saga-runtime-rail')?.offsetHeight || 80;
     panelState.railX = clampNumber(Number(panelState.railX), 0, Math.max(0, getViewportWidth() - railWidth), DEFAULT_RAIL_LEFT);
     panelState.railY = clampNumber(Number(panelState.railY), 0, Math.max(0, getViewportHeight() - Math.min(railHeight, getViewportHeight())), getDefaultRailY());
     panelState.x = panelState.railX;
     panelState.y = panelState.railY;
     applyRuntimeShellGeometry(root, panelState);
-    root.style.setProperty('--wandlight-rail-width', `${railWidth}px`);
-    root.style.setProperty('--wandlight-drawer-width', `${getConstrainedDrawerWidth(panelState, resolveDrawerDirection(panelState))}px`);
-    root.style.setProperty('--wandlight-drawer-height', `${getConstrainedDrawerHeight(panelState)}px`);
-    updateDrawerScrollMetrics(root.querySelector('.wandlight-runtime-drawer'));
+    root.style.setProperty('--saga-rail-width', `${railWidth}px`);
+    root.style.setProperty('--saga-drawer-width', `${getConstrainedDrawerWidth(panelState, resolveDrawerDirection(panelState))}px`);
+    root.style.setProperty('--saga-drawer-height', `${getConstrainedDrawerHeight(panelState)}px`);
+    updateDrawerScrollMetrics(root.querySelector('.saga-runtime-drawer'));
     saveStateForShell(state);
 }
 
@@ -377,7 +377,7 @@ export function toggleRuntimeRailMode() {
 export function onRuntimeRailDragStart(event) {
     const root = getPanelRoot();
     if (!root) return;
-    if (event.target.closest('button, input, textarea, select, .wandlight-lore-panel-resize-handle')) return;
+    if (event.target.closest('button, input, textarea, select, .saga-lore-panel-resize-handle')) return;
 
     isDragging = true;
     const rect = root.getBoundingClientRect();
@@ -388,7 +388,7 @@ export function onRuntimeRailDragStart(event) {
     root.style.top = `${rect.top}px`;
     root.style.right = '';
     root.style.bottom = '';
-    root.classList.add('wandlight-runtime-dragging');
+    root.classList.add('saga-runtime-dragging');
 
     document.addEventListener('mousemove', onRuntimeRailDragMove);
     document.addEventListener('mouseup', onRuntimeRailDragEnd);
@@ -400,7 +400,7 @@ function onRuntimeRailDragMove(event) {
     const state = getStateForShell();
     const panelState = normalizePanelLayoutState(state) || {};
     const railWidth = getRailWidth(panelState);
-    const railHeight = root.querySelector('.wandlight-runtime-rail')?.offsetHeight || 80;
+    const railHeight = root.querySelector('.saga-runtime-rail')?.offsetHeight || 80;
     const x = event.clientX - dragOffsetX;
     const y = event.clientY - dragOffsetY;
     const maxX = Math.max(0, getViewportWidth() - railWidth);
@@ -413,7 +413,7 @@ function onRuntimeRailDragEnd() {
     const root = getPanelRoot();
     if (!root) return;
     isDragging = false;
-    root.classList.remove('wandlight-runtime-dragging');
+    root.classList.remove('saga-runtime-dragging');
     saveRuntimeRailGeometry();
     document.removeEventListener('mousemove', onRuntimeRailDragMove);
     document.removeEventListener('mouseup', onRuntimeRailDragEnd);
@@ -422,7 +422,7 @@ function onRuntimeRailDragEnd() {
 export function onRuntimeDrawerResizeStart(event) {
     const root = getPanelRoot();
     if (event.button !== 0 || !root) return;
-    const drawer = root.querySelector('.wandlight-runtime-drawer');
+    const drawer = root.querySelector('.saga-runtime-drawer');
     if (!drawer) return;
 
     isResizing = true;
@@ -433,7 +433,7 @@ export function onRuntimeDrawerResizeStart(event) {
     resizeStartHeight = rect.height;
     resizeStartDirection = root.dataset.drawerDirection === 'left' ? 'left' : 'right';
 
-    drawer.classList.add('wandlight-lore-panel-resizing');
+    drawer.classList.add('saga-lore-panel-resizing');
 
     event.preventDefault();
     event.stopPropagation();
@@ -447,7 +447,7 @@ export function onRuntimeDrawerResizeStart(event) {
 function onRuntimeDrawerResizeMove(event) {
     const root = getPanelRoot();
     if (!isResizing || !root) return;
-    const drawer = root.querySelector('.wandlight-runtime-drawer');
+    const drawer = root.querySelector('.saga-runtime-drawer');
     if (!drawer) return;
     const state = getStateForShell();
     const panelState = normalizePanelLayoutState(state) || {};
@@ -465,8 +465,8 @@ function onRuntimeDrawerResizeMove(event) {
     const height = Math.max(MIN_DRAWER_HEIGHT, Math.min(maxHeight, resizeStartHeight + (event.clientY - resizeStartY)));
     drawer.style.width = `${width}px`;
     drawer.style.height = `${height}px`;
-    root.style.setProperty('--wandlight-drawer-width', `${width}px`);
-    root.style.setProperty('--wandlight-drawer-height', `${height}px`);
+    root.style.setProperty('--saga-drawer-width', `${width}px`);
+    root.style.setProperty('--saga-drawer-height', `${height}px`);
     updateDrawerScrollMetrics(drawer);
     updateAcceptedLoreScrollRegionHeightForShell();
 }
@@ -475,8 +475,8 @@ function onRuntimeDrawerResizeEnd() {
     const root = getPanelRoot();
     if (!isResizing || !root) return;
     isResizing = false;
-    const drawer = root.querySelector('.wandlight-runtime-drawer');
-    drawer?.classList.remove('wandlight-lore-panel-resizing');
+    const drawer = root.querySelector('.saga-runtime-drawer');
+    drawer?.classList.remove('saga-lore-panel-resizing');
     saveRuntimeDrawerGeometry();
     document.removeEventListener('pointermove', onRuntimeDrawerResizeMove);
     document.removeEventListener('pointerup', onRuntimeDrawerResizeEnd);
@@ -503,7 +503,7 @@ function saveRuntimeDrawerGeometry() {
     const state = getStateForShell();
     if (!state?.lorePanel) return;
     normalizePanelLayoutState(state);
-    const drawer = root.querySelector('.wandlight-runtime-drawer');
+    const drawer = root.querySelector('.saga-runtime-drawer');
     if (!drawer) {
         saveStateForShell(state);
         return;

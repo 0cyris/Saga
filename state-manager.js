@@ -1,5 +1,5 @@
 /**
- * state-manager.js — Wandlight
+ * state-manager.js — Saga
  * State CRUD, settings I/O, migration, delta merging, export/import, and storage safety.
  * Reads reacquire from SillyTavern's context, with one-session migration caching so UI clicks do not repeatedly normalize the full lore matrix.
  *
@@ -63,7 +63,7 @@ const LOREDECK_CONTEXT_SOURCES = Object.freeze([
     'unknown',
 ]);
 const BUNDLED_THEME_PACK_IDS = Object.freeze([
-    'wandlight-default',
+    'saga-default',
     'royal-chronicle',
     'void-reliquary',
     'stellar-cartography',
@@ -2351,7 +2351,7 @@ function normalizeExperienceModeValue(value, fallback = 'basic') {
     return EXPERIENCE_MODE_VALUES.includes(value) ? value : fallback;
 }
 
-function hasStoredWandlightSettings(stored = {}) {
+function hasStoredSagaSettings(stored = {}) {
     return !!(stored && typeof stored === 'object' && Object.keys(stored).length > 0);
 }
 
@@ -2363,10 +2363,10 @@ function applyBasicExperienceProfile(settings) {
 }
 
 /**
- * Reads extensionSettings.wandlight, deep-merges defaults for any
+ * Reads extensionSettings.saga, deep-merges defaults for any
  * missing keys, and returns the live settings object. Always reacquires from
  * SillyTavern.getContext().
- * @returns {Object} WandlightSettings
+ * @returns {Object} SagaSettings
  */
 export function getSettings() {
     const ctx = SillyTavern.getContext();
@@ -2402,7 +2402,7 @@ export function getSettings() {
         stored.loredeckCreatorProjects || DEFAULT_SETTINGS.loredeckCreatorProjects
     );
 
-    const hasStoredSettings = hasStoredWandlightSettings(stored);
+    const hasStoredSettings = hasStoredSagaSettings(stored);
     const legacyAutomationMode = normalizeAutomationModeValue(stored.workflowMode, '');
     merged.automationMode = normalizeAutomationModeValue(stored.automationMode, legacyAutomationMode || DEFAULT_SETTINGS.automationMode || 'manual');
     merged.workflowMode = merged.automationMode;
@@ -2590,9 +2590,9 @@ export function getSettings() {
 }
 
 /**
- * Writes settings to extensionSettings.wandlight and persists
+ * Writes settings to extensionSettings.saga and persists
  * via saveSettingsDebounced().
- * @param {Object} settings - WandlightSettings to save
+ * @param {Object} settings - SagaSettings to save
  */
 export function saveSettings(settings) {
     const ctx = SillyTavern.getContext();
@@ -2620,7 +2620,7 @@ function queuePromptInjectionSync() {
     try {
         const syncPromptInjection = typeof globalThis.sagaSyncPromptInjection === 'function'
             ? globalThis.sagaSyncPromptInjection
-            : globalThis.wandlightSyncPromptInjection;
+            : globalThis.sagaSyncPromptInjection;
         if (typeof syncPromptInjection === 'function') {
             queueMicrotask(() => {
                 try {
@@ -2638,10 +2638,10 @@ function queuePromptInjectionSync() {
 // ── State I/O ───────────────────────────────────────────────────────────────────
 
 /**
- * Reads chatMetadata.wandlight, migrates if needed, merges with
+ * Reads chatMetadata.saga, migrates if needed, merges with
  * defaults, and returns the live state object. Always reacquires from
  * SillyTavern.getContext().
- * @returns {Object} WandlightState
+ * @returns {Object} SagaState
  */
 export function getState() {
     const ctx = SillyTavern.getContext();
@@ -2668,7 +2668,7 @@ export function getState() {
     }
 
     // Always run migration on first read. If migration/compaction shrinks an oversized
-    // Wandlight block, persist immediately so a poisoned chat does not keep
+    // Saga block, persist immediately so a poisoned chat does not keep
     // rehydrating the same megabyte-scale pending lore payload.
     const beforeSize = safeJsonSize(state);
     state = migrateState(state);
@@ -2683,7 +2683,7 @@ export function getState() {
         try {
             ctx.saveMetadata();
         } catch (e) {
-            console.warn(`${LOG_PREFIX} Failed to persist compacted Wandlight state on read`, e);
+            console.warn(`${LOG_PREFIX} Failed to persist compacted Saga state on read`, e);
         }
     }
 
@@ -2692,8 +2692,8 @@ export function getState() {
 }
 
 /**
- * Writes state to chatMetadata.wandlight and persists via saveMetadata().
- * @param {Object} state - WandlightState to save
+ * Writes state to chatMetadata.saga and persists via saveMetadata().
+ * @param {Object} state - SagaState to save
  */
 export function saveState(state, options = {}) {
     const { syncPrompt = true, sanitize = true } = options || {};
@@ -2806,15 +2806,15 @@ function prePruneLoreEntryForNormalization(entry) {
     }
 
     pruned.tags = prePruneStringArray(entry.tags, 10, 40);
-    const generation = entry.extensions?.wandlightGeneration;
+    const generation = entry.extensions?.sagaGeneration;
     const sagaLoredeck = entry.extensions?.sagaLoredeck;
     const sagaContextGate = entry.extensions?.sagaContextGate;
     const relevanceMigration = entry.extensions?.relevanceMigration;
     const autoRelevance = entry.extensions?.autoRelevance;
-    const pendingReview = entry.extensions?.wandlightPendingReview;
+    const pendingReview = entry.extensions?.sagaPendingReview;
     const extensions = {};
     if (generation && typeof generation === 'object') {
-        extensions.wandlightGeneration = {
+        extensions.sagaGeneration = {
             mode: truncateText(generation.mode, 40),
             batchId: truncateText(generation.batchId, 120),
             chunkId: truncateText(generation.chunkId, 180),
@@ -2859,7 +2859,7 @@ function prePruneLoreEntryForNormalization(entry) {
         reason: truncateText(autoRelevance.reason, 240),
         updatedAt: Number.isFinite(Number(autoRelevance.updatedAt)) ? Number(autoRelevance.updatedAt) : 0,
     };
-    if (pendingReview && typeof pendingReview === 'object') extensions.wandlightPendingReview = pendingReview;
+    if (pendingReview && typeof pendingReview === 'object') extensions.sagaPendingReview = pendingReview;
     pruned.extensions = extensions;
     return pruned;
 }
@@ -3001,9 +3001,9 @@ function compactLoreCoordinatesForStorage(coordinates = []) {
 
 function compactLoreExtensionsForStorage(normalized) {
     const out = {};
-    const generation = normalized?.extensions?.wandlightGeneration;
+    const generation = normalized?.extensions?.sagaGeneration;
     if (generation && typeof generation === 'object') {
-        out.wandlightGeneration = {
+        out.sagaGeneration = {
             mode: truncateText(generation.mode, 40),
             batchId: truncateText(generation.batchId, 120),
             chunkId: truncateText(generation.chunkId, 180),
@@ -3048,8 +3048,8 @@ function compactLoreExtensionsForStorage(normalized) {
         reason: truncateText(autoRelevance.reason, 240),
         updatedAt: Number.isFinite(Number(autoRelevance.updatedAt)) ? Number(autoRelevance.updatedAt) : 0,
     };
-    const pendingReview = normalized?.extensions?.wandlightPendingReview;
-    if (pendingReview && typeof pendingReview === 'object') out.wandlightPendingReview = pendingReview;
+    const pendingReview = normalized?.extensions?.sagaPendingReview;
+    if (pendingReview && typeof pendingReview === 'object') out.sagaPendingReview = pendingReview;
     return Object.keys(out).length ? out : undefined;
 }
 
@@ -3169,7 +3169,7 @@ function compactLoreEntryForStorage(entry) {
             notes: truncateText(normalized.content?.notes || normalized.notes, 600),
         },
         fact: truncateText(normalized.fact || normalized.content?.fact, 1200),
-        source: typeof normalized.source === 'string' ? truncateText(normalized.source, 180) : 'wandlight',
+        source: typeof normalized.source === 'string' ? truncateText(normalized.source, 180) : 'saga',
         sourceInfo: {
             work: truncateText(normalized.sourceInfo?.work, 100),
             book: truncateText(normalized.sourceInfo?.book, 100),
@@ -3270,7 +3270,7 @@ function sanitizeLoreArraysForStorage(state) {
  * Checks _version and applies migration steps to bring old state objects
  * forward to the current schema version.
  * @param {Object} state - Raw state from storage (may be any schema version)
- * @returns {Object} Migrated WandlightState
+ * @returns {Object} Migrated SagaState
  */
 export function migrateState(state) {
     const defaults = getDefaultState();
@@ -3936,7 +3936,7 @@ const VALID_ENUMS = {
 const KNOWN_CHANGE_KEYS = new Set(ACTIVE_CONTINUITY_CHANGE_KEYS);
 
 /**
- * Validates a WandlightDelta against the schema.
+ * Validates a SagaDelta against the schema.
  * @param {Object} delta - The delta to validate
  * @returns {{ valid: boolean, errors: string[] }}
  */
@@ -4172,12 +4172,12 @@ export function validateDelta(delta) {
 // ── Delta application ───────────────────────────────────────────────────────────
 
 /**
- * Deep-merges a validated WandlightDelta into the current WandlightState.
+ * Deep-merges a validated SagaDelta into the current SagaState.
  * Returns a new state object — does not mutate the input.
  *
- * @param {Object} state - Current WandlightState
- * @param {Object} delta - Validated WandlightDelta to apply
- * @returns {Object} New WandlightState
+ * @param {Object} state - Current SagaState
+ * @param {Object} delta - Validated SagaDelta to apply
+ * @returns {Object} New SagaState
  */
 export function applyDelta(state, delta) {
     if (!delta || !delta.changes) return state;
@@ -4402,7 +4402,7 @@ function normalizeFlag(f) {
 /**
  * Normalizes all arrays in a state object (secrets, relationships, threads, flags).
  * Mutates the state in place.
- * @param {Object} state - WandlightState to normalize
+ * @param {Object} state - SagaState to normalize
  */
 function normalizeStateEntries(state) {
     if (Array.isArray(state.characters)) {
@@ -4449,7 +4449,7 @@ function normalizeStateEntries(state) {
 /**
  * Imports state from a JSON string with validation and migration.
  * Always merges with defaults to fill missing fields.
- * @param {string} json - JSON string representing a WandlightState
+ * @param {string} json - JSON string representing a SagaState
  * @returns {{ state: Object|null, error: string|null }}
  */
 export function importState(json) {
@@ -4547,7 +4547,7 @@ export function importState(json) {
 
 /**
  * Serializes state to a pretty-printed JSON string.
- * @param {Object} state - WandlightState
+ * @param {Object} state - SagaState
  * @returns {string} JSON string
  */
 export function exportState(state) {
@@ -5169,8 +5169,8 @@ function uniqueMergedStrings(...arrays) {
 
 function preparePendingLoreEntryForAcceptance(pendingEntry, existingEntries = []) {
     const pending = normalizeLoreEntry(pendingEntry);
-    const generation = pending.extensions?.wandlightGeneration || {};
-    const review = pending.extensions?.wandlightPendingReview || {};
+    const generation = pending.extensions?.sagaGeneration || {};
+    const review = pending.extensions?.sagaPendingReview || {};
     const operation = String(generation.operation || review.reviewRoute || '').toLowerCase();
     const targetId = String(generation.targetEntryId || review.targetEntryId || '').trim();
     if (!targetId || !['update', 'merge', 'supersede', 'conflict', 'possible_update', 'possible_merge'].includes(operation)) return pending;
@@ -5222,8 +5222,8 @@ function preparePendingLoreEntryForAcceptance(pendingEntry, existingEntries = []
         extensions: {
             ...(current.extensions || {}),
             ...(pending.extensions || {}),
-            wandlightGeneration: {
-                ...(pending.extensions?.wandlightGeneration || {}),
+            sagaGeneration: {
+                ...(pending.extensions?.sagaGeneration || {}),
                 acceptedAsOperation: operation,
                 acceptedTargetEntryId: current.id,
                 acceptedAt: Date.now(),
@@ -5237,7 +5237,7 @@ function applyAcceptedLoreSelectionRecommendations(state, entries = []) {
     const pinSet = new Set(Array.isArray(state.loreSelection.pinnedIds) ? state.loreSelection.pinnedIds : []);
     const muteSet = new Set(Array.isArray(state.loreSelection.suppressedIds) ? state.loreSelection.suppressedIds : []);
     for (const entry of normalizeLoreMatrix(entries)) {
-        const generation = entry.extensions?.wandlightGeneration || {};
+        const generation = entry.extensions?.sagaGeneration || {};
         if (generation.recommendedMute) {
             muteSet.add(entry.id);
             pinSet.delete(entry.id);

@@ -6,9 +6,9 @@ Terminology note: Saga's public language is **Loredeck**, **Lorecard**, and **De
 
 ## Purpose
 
-Saga is the planned evolution of Wandlight from a Harry Potter-focused SillyTavern lore extension into SAGA: Fandom Loresystem, a general framework for fandom-specific, date-aware, arc-aware, and context-aware lore support.
+Saga is the planned evolution of Saga from a Harry Potter-focused SillyTavern lore extension into SAGA: Fandom Loresystem, a general framework for fandom-specific, date-aware, arc-aware, and context-aware lore support.
 
-Wandlight already proves the core product idea:
+Saga already proves the core product idea:
 
 - A local canon constraint database is useful because LLMs are lore-rich but timeline-poor.
 - Proposed lore should enter review before it affects generation.
@@ -62,7 +62,7 @@ Custom Loredecks can be small or canon-scale. A crossover deck is simply a Custo
 
 Do not expose "bridge deck", "overlay", "installed deck", or "forked deck" as user-facing product terms. Internally, Saga may still track source, derivation, and update metadata.
 
-## Existing Wandlight Foundation
+## Existing Saga Foundation
 
 The current project already has several reusable core systems:
 
@@ -83,7 +83,7 @@ Saga should not rewrite these systems immediately. The first goal is to extract 
 
 ## Runtime UI Direction
 
-Keep the current Wandlight/Saga shelf design.
+Keep the current Saga/Saga shelf design.
 
 Add a dedicated Loredeck rail button above the existing runtime tabs. This button opens the Loredeck tab, which owns all deck loading, editing, importing, exporting, health checks, and creation workflows.
 
@@ -281,7 +281,7 @@ Per-chat state owns:
 - `loredeckContexts`: Context per loaded pack.
 - Chat-specific accepted lore and pending lore.
 
-Older Wandlight/Saga builds temporarily stored `loredeckRegistry` in chat state. That registry remains a compatibility fallback, and opening an older chat should promote missing registry records into the global library when possible.
+Older Saga/Saga builds temporarily stored `loredeckRegistry` in chat state. That registry remains a compatibility fallback, and opening an older chat should promote missing registry records into the global library when possible.
 
 ### Import/Export Staging
 
@@ -632,7 +632,7 @@ The local resolver should remain a fast prefilter and candidate generator. It sh
 Reasoner behavior:
 
 - Run only when Context is unset, the user asks to resolve a phrase, a thresholded Context check detects a likely timeline jump, or the user clicks `Resolve Context`.
-- Use the existing cadence from Wandlight-style Context detection: resolve locally first, then use a backup model call every configured message count only after the character-count threshold is met.
+- Use the existing cadence from Saga-style Context detection: resolve locally first, then use a backup model call every configured message count only after the character-count threshold is met.
 - Send the active Loredeck stack, current Context, manual lock state, relevant timeline anchors/windows, and a bounded shortlist of candidate Lorecards and Lorecard-derived Context candidates.
 - Ask the model to choose from known candidates or return `needs_clarification` / `unresolved`.
 - Accept model output only when it references a known anchor/window/Lorecard-derived candidate for that Loredeck.
@@ -1513,7 +1513,7 @@ Accepted chat-specific story lore still outranks Loredeck entries at runtime. Pe
 
 Implementation status: the first Pending Review Queue stores pending changes on Custom/Generated Loredeck records, accepts or rejects individual/all proposals, and routes manual entry edits, entry disable/restore, bulk tag edits, bulk Context edits, tag definition edits, tag definition removal, and tag rename/merge through pending record patches.
 
-## Migration From Wandlight
+## Migration From Saga
 
 The migration should be behavior-preserving first.
 
@@ -1524,9 +1524,9 @@ This does not mean reference Loredecks should preserve legacy entry schema. The 
 Migration tasks:
 
 1. Rebrand manifest and UI to Saga.
-2. Preserve old `wandlight` settings and chat state keys.
-3. Add `saga` state while reading legacy Wandlight state.
-4. Keep old Wandlight slash commands as aliases.
+2. Preserve old `saga` settings and chat state keys.
+3. Add `saga` state while reading legacy Saga state.
+4. Keep old Saga slash commands as aliases.
 5. Add new Saga slash commands.
 6. Move current `Lore/` data into `Loredecks/hp-golden-trio/`.
 7. Remove the legacy `Lore/manifest.json` fallback once `Loredecks/hp-golden-trio/` is the source of truth.
@@ -1538,7 +1538,7 @@ Migration tasks:
 
 The first shippable Saga milestone should include:
 
-- Product rename to Saga with Wandlight compatibility.
+- Product rename to Saga with Saga compatibility.
 - Current Harry Potter data converted into a Bundled Loredeck.
 - Loredeck manifest and loader.
 - Single active Loredeck support.
@@ -1663,11 +1663,11 @@ Risk: Users load duplicated or barely edited packs together.
 
 Mitigation: Deterministic duplicate detection and stack warnings.
 
-### Wandlight Legacy Retirement
+### Saga Legacy Retirement
 
-Risk: Legacy Wandlight features keep shaping Saga's product surface, especially the full Wandlight chat preset, fast reply-header Context detection, HP-specific global Context inference, root `Lore/` fallback loading, and Wandlight slash/prompt/state namespaces.
+Risk: Legacy Saga features keep shaping Saga's product surface, especially the full Saga chat preset, fast reply-header Context detection, HP-specific global Context inference, root `Lore/` fallback loading, and Saga slash/prompt/state namespaces.
 
-Mitigation: Treat Wandlight compatibility as temporary migration scaffolding, not MVP scope. Track removal in [SAGA_LEGACY_REMOVAL_AUDIT.md](SAGA_LEGACY_REMOVAL_AUDIT.md), remove user-facing Wandlight behavior first, and defer broad internal namespace churn until it can be tested as a dedicated migration slice.
+Mitigation: Treat Saga compatibility as temporary migration scaffolding, not MVP scope. Track removal in [SAGA_LEGACY_REMOVAL_AUDIT.md](SAGA_LEGACY_REMOVAL_AUDIT.md), remove user-facing Saga behavior first, and defer broad internal namespace churn until it can be tested as a dedicated migration slice.
 
 ### Performance
 
@@ -1681,11 +1681,11 @@ The initial Loredeck foundation is historical. Saga has moved beyond the single 
 
 Recent production completed **Context-native Loredeck retrieval, HP reference-deck scaffolding, the Loredeck Library/Health/Creator workflow surfaces, and the first Creator batching architecture**.
 
-The next major phase is **Context system hardening before broader core integration testing**. The schema, Context gates, Context Index, and bounded Reasoner proposal pieces exist, but the active detector and compact Context tab still carry too much date/canon-boundary Wandlight shape. The development plan is captured in [SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md](SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md). After that hardening, deterministic tests should prove the loop from loaded Loredecks to Context-gated Lorecard suggestion, Pending/Accepted state, pin/mute/relevance behavior, and final injection output. See [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md).
+The next major phase is **Context system hardening before broader core integration testing**. The schema, Context gates, Context Index, and bounded Reasoner proposal pieces exist, but the active detector and compact Context tab still carry too much date/canon-boundary Saga shape. The development plan is captured in [SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md](SAGA_CONTEXT_SYSTEM_DEVELOPMENT_PLAN.md). After that hardening, deterministic tests should prove the loop from loaded Loredecks to Context-gated Lorecard suggestion, Pending/Accepted state, pin/mute/relevance behavior, and final injection output. See [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md).
 
 Planned Auto-Relevance expansion: the current High/Normal/Low system should eventually support optional pin/mute suggestions or high-confidence pin/mute application. This must remain separately configurable and testable because pin/mute changes are stronger than relevance-tier changes.
 
-Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga should not ship the full Wandlight chat preset in MVP, and fast reply-header Context detection has been removed with it. The current removal plan is captured in [SAGA_LEGACY_REMOVAL_AUDIT.md](SAGA_LEGACY_REMOVAL_AUDIT.md).
+Legacy cleanup checkpoint: the Saga compatibility posture has changed. Saga should not ship the full Saga chat preset in MVP, and fast reply-header Context detection has been removed with it. The current removal plan is captured in [SAGA_LEGACY_REMOVAL_AUDIT.md](SAGA_LEGACY_REMOVAL_AUDIT.md).
 
 1. Done: normalize entry-level `context` metadata in the Lorecard pipeline.
 2. Done: evaluate entry Context gates against each loaded Loredeck's `loredeckContexts`.
@@ -1729,7 +1729,7 @@ Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga
 40. Done: add Library deletion/removal polish for Custom/Generated Loredecks, including confirmation, Bundled-deck protection, active-stack cleanup, cache cleanup, and Library refresh after create/import/duplicate/delete style mutations.
 41. Done: run a targeted current-code visual smoke pass in the local harness across the runtime shelf, fullscreen Loredeck Library, Active Stack, Deck Health Center, Creator wizard, update preview, Settings/Theme Packs, and Injection preview. The harness produced no console errors. The live SillyTavern pass is blocked until the installed extension copy is synced, because ST is currently serving an older `data/default-user/extensions/Saga` build.
 42. Done: sync the current workspace into the active SillyTavern extension checkout, verify ST serves the current `lore-panel.js` and `settings.html`, and run a real live-ST screenshot pass. The saved screenshots cover initial shelf, Loredecks drawer, fullscreen Library, Deck Health Center, Creator, Theme Pack, and Injection; the pass produced no browser console errors.
-43. Done: resolve the live-ST smoke findings before deeper feature work. Theme Pack now stacks responsively inside the real ST drawer, Deck Health keeps unscanned reports coherent with `Not checked` categories and no stack-only priority issue leakage, the extension-menu handoff normalizes stale Wandlight copy at mount time, legacy API/model drawer cleanup catches punctuation variants, Custom delete uses a Saga-owned confirmation modal, and the live smoke helper now verifies delete-cancel without native dialogs. The final live-ST pass produced no findings, no browser console errors, and no native dialog events.
+43. Done: resolve the live-ST smoke findings before deeper feature work. Theme Pack now stacks responsively inside the real ST drawer, Deck Health keeps unscanned reports coherent with `Not checked` categories and no stack-only priority issue leakage, the extension-menu handoff normalizes stale Saga copy at mount time, legacy API/model drawer cleanup catches punctuation variants, Custom delete uses a Saga-owned confirmation modal, and the live smoke helper now verifies delete-cancel without native dialogs. The final live-ST pass produced no findings, no browser console errors, and no native dialog events.
 44. Done: implement selected-Loredeck package import/export. The fullscreen Library now supports click, Ctrl/Cmd-click, and Shift-click selection; exposes selected counts, Select Visible, Clear, and Export Selected actions; exports selected Loredecks as one `.saga-loredeck.zip` package without whole-library export/import; supports local zip package import through a safe preview that installs checked decks as Custom copies; and defers URL/GitHub/update flows until the package-update path is designed.
 45. Done: expand Deck Health remediation from diagnosis into action. Editable Custom/Generated Loredecks can queue deterministic malformed tag ID repairs as Pending Review proposals, mark grouped issues ignored or resolved with persisted advisory state, send a grouped Health Center issue directly to the Lore Assistant for repair drafting, preserve health-impact stale marking through Pending Review acceptance, and route Bundled decks to Duplicate-as-Custom before repair.
 46. Done: redesign the Context editor into a fullscreen Context Workbench. The compact runtime card now launches the workbench; the workbench includes Context, Timeline, Aliases, and Validation tabs; spreadsheet-style anchor/window tables; selected-deck manual editing; timeline row inspection; local phrase resolver testing; and resolver explanations for matched, missing, and ignored terms. Clarified direction: this workbench is a stepping stone. Runtime Context selection should migrate to the Context tab, while Loredeck-side tools should become timeline registry authoring/validation tools.
@@ -1738,8 +1738,8 @@ Legacy cleanup checkpoint: the Wandlight compatibility posture has changed. Saga
 49. Done: migrate runtime Context controls out of the Loredeck tab. The Context tab now owns loaded-Loredeck Context review, current-context resolving, Reasoner fallback launch, quick anchor selection, manual locks, reset actions, and fullscreen Context Browser access. The Loredeck tab remains focused on library/stack handling, Deck Health, import/export, Creator, and deck detail authoring.
 50. Done: upgrade Reasoner-backed Context resolution. Automatic Context detection now runs local/structured resolution first, then stores bounded Reasoner Context proposals only after the existing message-count cadence and the configured recent-message character threshold. Manual `Ask Reasoner` ignores the threshold, asks for bounded anchor/window candidates, and requires user review before applying patches.
 51. Done: revise timeline densification policy around candidate quality, not alias sprawl. Deck Health now surfaces advisory sparse-candidate, concentrated-anchor, and missing-window suggestions while keeping these findings non-blocking. Durable anchors/windows should be added for high-value recurring story moments, missing registry coverage, Creator output, or accepted user/model suggestions; the Reasoner handles casual phrasing.
-52. Done: audit Wandlight legacy features for removal. The audit marks the full Wandlight chat preset, fast reply-header Context detection, HP-specific global Context inference, root `Lore/` fallback loading, slash/prompt/state namespaces, Provider preset naming, and legacy schema aliases by removal priority.
-53. Done: remove the full Wandlight chat preset product path and fast reply-header Context detection. The Session preset card, bundled Wandlight chat preset, header toggle, header resolver helpers, HP-specific global correction path, deleted header test, and visible UI/model prompt copy now point at Saga's Context workflow instead.
+52. Done: audit Saga legacy features for removal. The audit marks the full Saga chat preset, fast reply-header Context detection, HP-specific global Context inference, root `Lore/` fallback loading, slash/prompt/state namespaces, Provider preset naming, and legacy schema aliases by removal priority.
+53. Done: remove the full Saga chat preset product path and fast reply-header Context detection. The Session preset card, bundled Saga chat preset, header toggle, header resolver helpers, HP-specific global correction path, deleted header test, and visible UI/model prompt copy now point at Saga's Context workflow instead.
 54. Done: remove the root `Lore/` fallback and make `Loredecks/hp-golden-trio` the only bundled HP reference source. The loader now reports a missing Loredeck manifest instead of falling back to legacy root data, and the old root `Lore/` folder has been removed.
 55. Done: chunk Loredeck Creator full-entry drafting into resumable micro-batches so large generated Loredecks no longer depend on a single massive model response.
 56. Done: scaffold the Harry Potter Golden Trio split-deck family from [HP_LOREDECK_SPLIT_ANCHOR_PLAN.md](HP_LOREDECK_SPLIT_ANCHOR_PLAN.md). `hp-core` plus Year 1-7 folders now have first-class dense `timeline.json` registries, Loredeck manifests, deck-family metadata, and a reproducible scaffold/test script. These decks are not yet registered in `Loredecks/index.json`; entry splitting and conformance checks should happen before replacing the current monolithic bundled deck.

@@ -97,17 +97,17 @@ assert(harness.includes('state.loreContext = {'), 'Harness must seed the legacy 
 assert(!settingsTemplate.includes('Provider Settings'), 'Extension menu settings must not expose the old Provider Settings dropdown.');
 assert(!settingsTemplate.includes('API and model controls'), 'Extension menu settings must not expose legacy API/model controls.');
 assert(runtimePanelSource.includes('writeRuntimeThemeVars(document.documentElement'), 'Runtime themes must publish CSS tokens globally for fullscreen windows.');
-assert(runtimePanelSource.includes("'--wandlight-red-surface'"), 'Runtime themes must expose derived danger surface tokens.');
-const workbenchThemeScope = style.match(/\.wandlight-lore-workbench-shell,\s*[\r\n]+\.wandlight-new-lore-shell\s*\{[\s\S]*?\}/)?.[0] || '';
-assert(!workbenchThemeScope.includes('--wandlight-bg:'), 'Fullscreen workbench shells must not redeclare default theme tokens locally.');
-assert(style.includes('var(--wandlight-red-surface'), 'Danger Zone and health danger surfaces must use runtime theme tokens.');
+assert(runtimePanelSource.includes("'--saga-red-surface'"), 'Runtime themes must expose derived danger surface tokens.');
+const workbenchThemeScope = style.match(/\.saga-lore-workbench-shell,\s*[\r\n]+\.saga-new-lore-shell\s*\{[\s\S]*?\}/)?.[0] || '';
+assert(!workbenchThemeScope.includes('--saga-bg:'), 'Fullscreen workbench shells must not redeclare default theme tokens locally.');
+assert(style.includes('var(--saga-red-surface'), 'Danger Zone and health danger surfaces must use runtime theme tokens.');
 assert(!style.includes('border-color: rgba(190, 80, 80, 0.45) !important;'), 'Danger buttons must not use hardcoded late-cascade red borders.');
 assert(!style.includes('background: rgba(120, 30, 38, 0.22) !important;'), 'Danger buttons must not use hardcoded late-cascade red backgrounds.');
 assert(!style.includes('folder-cover-tile:nth-child(odd)'), 'Folder cover previews must not randomly tilt odd covers.');
 assert(!style.includes('folder-cover-tile:nth-child(even)'), 'Folder cover previews must not randomly tilt even covers.');
 assert(runtimePanelSource.includes('LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE = 15'), 'Folder cover previews must cap visible deck covers at 15 before the overflow tile.');
 assert(!read(libraryPanelPath).includes('slice(0, 20)'), 'Folder cover preview collection must not retain the old 20-cover cap.');
-assert(runtimePanelSource.includes("getPropertyValue('--wandlight-folder-cover-size')"), 'Folder cover layout must read the current CSS cover size.');
+assert(runtimePanelSource.includes("getPropertyValue('--saga-folder-cover-size')"), 'Folder cover layout must read the current CSS cover size.');
 assert(!runtimePanelSource.includes('LEGACY_ICONSET_ID'), 'Theme icon resolution must not reference the removed legacy icon set.');
 assert(!runtimePanelSource.includes('Images/runtime-icons'), 'Runtime icon resolution must not reference the discontinued runtime icon folder.');
 assert(!runtimePanelSource.includes('Drop support is queued'), 'Loredeck Library must not expose queued drop-support placeholder copy.');
@@ -116,18 +116,20 @@ assert(!runtimePanelSource.includes("['activation', 'Activation'"), 'Loredeck Li
 assert(!runtimePanelSource.includes("createButton('Delete Folder'"), 'Folder details must not expose a redundant Delete Folder button.');
 assert(!runtimePanelSource.includes("createButton('Remove', 'Remove this Loredeck from the current stack.'"), 'Loredeck details must not expose a redundant Remove button.');
 assert(!runtimePanelSource.includes('createLoredeckLibraryCurrentViewHeader'), 'Loredeck Library must not render the obsolete current-view side-tree summary strip.');
-assert(!style.includes('wandlight-loredeck-library-current-view'), 'Loredeck Library CSS must not keep obsolete current-view side-tree styles.');
+assert(!style.includes('saga-loredeck-library-current-view'), 'Loredeck Library CSS must not keep obsolete current-view side-tree styles.');
 assert(runtimePanelSource.includes('buildLoredeckPackScopedHealth'), 'Loredeck Library deck stats must scope aggregate stack health back to a single pack.');
 assert(runtimePanelSource.includes('report?.databaseId === packId'), 'Loredeck Library deck counts must guard against aggregate stack report summaries.');
 assert(!runtimePanelSource.includes('entryCount: Number(report.summary?.entryCount) || Number(loadedMeta?.entryCount)'), 'Loredeck Library deck counts must not prefer aggregate report entry totals over per-pack metadata.');
 assert(runtimePanelSource.includes('function refreshLoredeckLibrarySelectionSurfaces'), 'Loredeck Library card selection must support in-place surface refreshes.');
 assert(runtimePanelSource.includes('function refreshLoredeckLibrarySelectionHighlights'), 'Loredeck Library folder selection must update highlights before rebuilding heavier surfaces.');
 assert(runtimePanelSource.includes('function scheduleLoredeckLibrarySelectionSurfaceRefresh'), 'Loredeck Library folder selection must schedule in-place surface refreshes.');
+assert(runtimePanelSource.includes('source.originalType || pack.type || manifest.type') && runtimePanelSource.includes("kind: 'package_export'"), 'Loredeck package exporter must write original source type into package index metadata.');
+assert(runtimePanelSource.includes('sourceInfo.originalType || indexRecord.originalType') && runtimePanelSource.includes("storageMode: 'bundled_manifest_reference'"), 'Loredeck package importer must use exported original type for lightweight bundled reimports.');
 assert(runtimePanelSource.includes('requestAnimationFrame(() =>') && runtimePanelSource.includes('refreshLoredeckLibrarySelectionSurfaces();'), 'Loredeck Library folder selection refresh should defer heavier detail work to an animation frame.');
 assert(runtimePanelSource.includes('scheduleLoredeckLibrarySelectionSurfaceRefresh();'), 'Loredeck Library folder clicks must use the in-place selection refresh path.');
 assert(runtimePanelSource.includes('function scheduleLoredeckLibraryOverlayRefresh'), 'Loredeck Library stack/drop refreshes must support deferred overlay rebuilds.');
 assert(runtimePanelSource.includes('refreshLoredeckSurfaces({ renderLibrary: false });') && runtimePanelSource.includes('scheduleLoredeckLibraryOverlayRefresh();'), 'Loredeck stack mutations must refresh drawer surfaces without immediately rebuilding the Library overlay.');
-assert(runtimePanelSource.includes('refreshLoredeckLibrarySelectionSurfaces();') && runtimePanelSource.includes("overlay.querySelector('.wandlight-loredeck-library-pane-stack')"), 'Loredeck stack mutations must refresh the visible Active Stack pane before the deferred full overlay rebuild.');
+assert(runtimePanelSource.includes('refreshLoredeckLibrarySelectionSurfaces();') && runtimePanelSource.includes("overlay.querySelector('.saga-loredeck-library-pane-stack')"), 'Loredeck stack mutations must refresh the visible Active Stack pane before the deferred full overlay rebuild.');
 assert(!runtimePanelSource.includes('addLoredecksToStack(actionIds);\n        renderLoredeckLibraryOverlay();'), 'Loredeck Library stack add button must not force an immediate duplicate overlay rebuild.');
 assert(!runtimePanelSource.includes('addLoredecksToStack(packIds);\n        renderLoredeckLibraryOverlay();'), 'Loredeck Library stack drop handler must not rebuild before the drag release can paint.');
 assert(!runtimePanelSource.includes("function commitLoredeckStackMutation(message, mutator)") && !runtimePanelSource.includes("commitLoredeckStackMutation(`Added"), 'Loredeck Library stack mutations must pass the mutator directly after snapshot-history removal.');
@@ -174,7 +176,7 @@ assert(runtimePanelSource.includes('No loaded Loredecks'), 'Context tab must sho
 assert(runtimePanelSource.includes('if (stack.length) {') && runtimePanelSource.includes('formatContextIndexSummary(contextIndex)'), 'Context index summaries must be gated behind a loaded Loredeck stack.');
 assert(runtimePanelSource.includes('state?.contextBrief'), 'Context Brief status UI must read from chat state.');
 assert(runtimePanelSource.includes('refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });'), 'Context detection completion must preserve runtime scroll position.');
-assert(style.includes('wandlight-context-brief-status'), 'Context Brief status row must have dedicated compact styling.');
+assert(style.includes('saga-context-brief-status'), 'Context Brief status row must have dedicated compact styling.');
 assert(runtimePanelSource.includes("createKeyValue('Active chat', getActiveChatMetricName()"), 'Session Metrics must identify the active chat before showing counters.');
 assert(harness.includes("chatName: 'Saga Smoke Harness Chat'"), 'Visual smoke harness must seed an active chat name for Session Metrics.');
 assert(runtimePanelSource.includes('createContextResolutionAuditPanel'), 'Context tab must surface the latest resolver audit summary.');
@@ -207,18 +209,18 @@ assert(extractor.includes('context_all_loredecks_locked'), 'Context automation m
 assert(extractor.includes('context_no_loaded_loredecks'), 'Context automation must audit no-loaded-Loredeck skips.');
 assert(stateManager.includes('contextBrief'), 'State manager must preserve Context Brief state.');
 assert(constants.includes('contextAutomationAudit'), 'Default state must preserve Context automation audit state.');
-assert(style.includes('wandlight-context-command-card'), 'Context command center must have dedicated layout styling.');
-assert(style.includes('wandlight-context-automation-audit'), 'Context automation audit must have dedicated styling.');
-assert(style.includes('wandlight-context-proposal-review-shell'), 'Context proposal review overlay must have dedicated shell styling.');
-assert(style.includes('wandlight-context-proposal-review-row'), 'Context proposal review rows must have dedicated styling.');
-assert(style.includes('wandlight-context-advanced-brief-content'), 'Advanced Context Brief content must have dedicated styling.');
-assert(style.includes('wandlight-context-proposal-focus'), 'Context proposal review jump must have a visible focus animation.');
-assert(style.includes('.wandlight-context-workbench-window-builder > .wandlight-primary-actions'), 'Context Workbench window-builder actions must use explicit grid placement.');
+assert(style.includes('saga-context-command-card'), 'Context command center must have dedicated layout styling.');
+assert(style.includes('saga-context-automation-audit'), 'Context automation audit must have dedicated styling.');
+assert(style.includes('saga-context-proposal-review-shell'), 'Context proposal review overlay must have dedicated shell styling.');
+assert(style.includes('saga-context-proposal-review-row'), 'Context proposal review rows must have dedicated styling.');
+assert(style.includes('saga-context-advanced-brief-content'), 'Advanced Context Brief content must have dedicated styling.');
+assert(style.includes('saga-context-proposal-focus'), 'Context proposal review jump must have a visible focus animation.');
+assert(style.includes('.saga-context-workbench-window-builder > .saga-primary-actions'), 'Context Workbench window-builder actions must use explicit grid placement.');
 assert(liveSmoke.includes('SAGA_SMOKE_TARGET'), 'Live smoke helper must support targeted smoke modes.');
 assert(liveSmoke.includes("SMOKE_TARGET === 'context-harness'"), 'Live smoke helper must support the repo-local Context harness target.');
 assert(liveSmoke.includes('context-harness-01-proposal-review'), 'Context harness smoke must capture the proposal-review screenshot.');
 assert(liveSmoke.includes('context-harness-02-workbench'), 'Context harness smoke must capture the Context Workbench screenshot.');
-assert(liveSmoke.includes('#wandlight-context-workbench'), 'Context harness smoke must verify the Context Workbench opens.');
+assert(liveSmoke.includes('#saga-context-workbench'), 'Context harness smoke must verify the Context Workbench opens.');
 assert(liveSmoke.includes('Applying the seeded Context proposal'), 'Context harness smoke must verify seeded proposal application.');
 assert(liveSmoke.includes("SMOKE_TARGET === 'live-context'"), 'Live smoke helper must support the installed SillyTavern Context target.');
 assert(liveSmoke.includes('live-context-01-context-tab'), 'Live Context smoke must capture the installed Context tab screenshot.');
@@ -252,7 +254,7 @@ assert(runtimePanelSource.includes('Review the current Lorecard drafts before dr
 assert(runtimePanelSource.includes('Creator Lorecard Draft Review'), 'Creator draft review must use Creator-specific review language.');
 assert(runtimePanelSource.includes('Send Selected to Review'), 'Creator draft review must expose explicit Pending Review handoff language.');
 assert(runtimePanelSource.includes('getLoredeckCreatorPipelineModel'), 'Creator wizard must derive a checkpointed production pipeline model.');
-assert(style.includes('wandlight-loredeck-creator-stage-guide'), 'Creator roadmap must have dedicated styling.');
+assert(style.includes('saga-loredeck-creator-stage-guide'), 'Creator roadmap must have dedicated styling.');
 assert(runtimePanelSource.includes('getLoredeckCreatorWorkbenchScrollAnchor'), 'Creator workbench must preserve section anchors during rerenders.');
 assert(runtimePanelSource.includes('restoreLoredeckCreatorWorkbenchScrollAnchor'), 'Creator workbench must restore section anchors after rerenders.');
 assert(runtimePanelSource.includes("wrap.dataset.sagaCreatorAnchor = 'lorecards'"), 'Creator Lorecard stage must expose a stable scroll anchor.');
@@ -263,8 +265,8 @@ assert(runtimePanelSource.includes('Review Context and Tags'), 'Creator Context 
 assert(runtimePanelSource.includes('openLoredeckLibraryDetails'), 'Creator deck inspection buttons must open the visible Loredeck Library details window.');
 assert(runtimePanelSource.includes("card.dataset.sagaCreatorAnchor = 'review-queue'"), 'Creator Pending Review card must expose a direct review-queue anchor.');
 assert(runtimePanelSource.includes('No pending review queue is available yet.'), 'Creator review-queue jump must report when no queue is rendered.');
-assert(runtimePanelSource.includes('wandlight-loredeck-creator-done-button'), 'Creator Context rows must show planned sets as compact Done controls.');
-assert(style.includes('wandlight-loredeck-creator-done-button'), 'Creator Context Done controls must have a dedicated success style.');
+assert(runtimePanelSource.includes('saga-loredeck-creator-done-button'), 'Creator Context rows must show planned sets as compact Done controls.');
+assert(style.includes('saga-loredeck-creator-done-button'), 'Creator Context Done controls must have a dedicated success style.');
 assert(!runtimePanelSource.includes("appendLoredeckCreatorGenerationStatus(main, cached, ['planning_batch_draft'], { batchId: batch.id, compact: true });"), 'Creator Context rows must not render duplicate compact success bars.');
 assert(!runtimePanelSource.includes("appendLoredeckCreatorGenerationStatus(wrap, cached, ['planning_batch_draft']);"), 'Creator Context card must not render a duplicate bottom success bar.');
 assert(assistant.includes('currentMicroBatchOnly'), 'Creator entry prompt context must mark entry drafting as a micro-batch.');
@@ -451,7 +453,7 @@ for (const token of [
     'createLoredeckLibraryFolderDetailsPanel',
     'createLoredeckLibraryFolderLoredeckRow',
     'loredeckLibrarySelectedFolderDetailsId',
-    'wandlight-grip-dot-rows',
+    'saga-grip-dot-rows',
     'promptCreateLoredeckLibraryFolder',
     'promptRenameLoredeckLibraryFolder',
     'deleteLoredeckLibraryFolderWithConfirm',
@@ -569,86 +571,86 @@ for (const token of [
 }
 
 for (const token of [
-    'wandlight-loredeck-install-shell',
-    'wandlight-runtime-rail',
-    'wandlight-runtime-drawer',
-    'wandlight-loredeck-creator-project-shelf',
-    'wandlight-loredeck-creator-project-card',
-    'wandlight-loredeck-creator-project-controls',
-    'wandlight-loredeck-creator-project-search',
-    'wandlight-loredeck-creator-project-filter',
-    'wandlight-loredeck-creator-project-folder-filter',
-    'wandlight-loredeck-creator-project-move-select',
-    'wandlight-loredeck-creator-project-bulk',
-    'wandlight-loredeck-creator-project-card-selected',
-    'wandlight-loredeck-creator-project-progress',
-    'wandlight-loredeck-creator-project-delete',
-    'wandlight-loredeck-creator-project-select-active',
-    'wandlight-loredeck-creator-pipeline-header',
-    'wandlight-loredeck-creator-stage-guide',
-    'wandlight-loredeck-creator-stage-active',
-    'wandlight-loredeck-creator-stage-needs-review',
-    'wandlight-loredeck-creator-current-task',
-    'wandlight-loredeck-creator-current-sidebar',
-    'wandlight-loredeck-creator-output-grid',
-    'wandlight-loredeck-creator-artifact',
-    'wandlight-loredeck-library-details',
-    'wandlight-loredeck-library-resize-handle',
-    'wandlight-loredeck-library-resize-track-left',
-    'wandlight-loredeck-library-resize-label-arrow',
-    'wandlight-loredeck-metadata-shell',
-    'wandlight-loredeck-library-shell',
-    'wandlight-loredeck-library-columns',
-    'wandlight-loredeck-library-hierarchy-list',
-    'wandlight-loredeck-library-title-meta',
-    'wandlight-loredeck-library-details-collapsed',
-    'wandlight-loredeck-library-inline-folder-row',
-    'wandlight-loredeck-library-folder-cover-strip',
-    'wandlight-loredeck-library-folder-cover-tile',
-    'wandlight-loredeck-library-folder-row-drop-enabled',
-    'wandlight-loredeck-library-folder-move-select',
-    'wandlight-loredeck-library-folder-parent-control',
-    'wandlight-loredeck-library-folder-actions',
-    'wandlight-confirm-input',
-    'wandlight-confirm-choice-list',
-    'wandlight-loredeck-library-stack-folder-preview',
-    'wandlight-loredeck-library-stack-disclosure-button',
-    'wandlight-loredeck-library-stack-folder-card-has-suppressed',
-    'wandlight-loredeck-library-stack-card-suppressed',
-    'wandlight-loredeck-library-stack-duplicate-summary',
-    'wandlight-loredeck-library-stack-folder-preview-chip-kept',
-    'wandlight-loredeck-library-drag-copy',
-    'wandlight-loredeck-library-drag-copy-remove',
-    'wandlight-loredeck-library-drag-drop-invalid',
-    'wandlight-loredeck-library-root-drop-active',
-    'wandlight-loredeck-library-stack-remove-active',
-    'wandlight-loredeck-library-search-match',
-    'wandlight-loredeck-library-search-context',
-    'wandlight-loredeck-library-transfer-footer',
-    'wandlight-loredeck-library-stack-card',
-    'wandlight-loredeck-library-stack-grip',
-    'wandlight-loredeck-library-inline-title',
-    'wandlight-loredeck-library-title-edit-action',
-    'wandlight-loredeck-library-title-input',
-    'wandlight-loredeck-library-stack-ghost',
-    'wandlight-loredeck-library-center-actions',
-    'wandlight-loredeck-library-square-action',
-    'wandlight-loredeck-library-icon-action',
-    'wandlight-loredeck-library-stack-toggle-button',
-    'wandlight-loredeck-library-detail-kicker',
-    'wandlight-loredeck-library-deck-card.wandlight-loredeck-library-deck-selected',
-    'wandlight-loredeck-library-inline-folder-row.wandlight-loredeck-library-folder-row-active',
-    'wandlight-loredeck-library-stack-card.wandlight-loredeck-library-stack-card-selected',
-    'wandlight-lore-workbench-shell .wandlight-runtime-button',
-    'wandlight-loredeck-health-center-shell',
-    'wandlight-loredeck-health-severity-card',
-    'wandlight-theme-top-grid',
-    'wandlight-theme-gallery',
-    'wandlight-theme-iconset-selector',
-    'wandlight-theme-iconset-strip',
-    'wandlight-theme-icon-grid',
-    'wandlight-loredeck-library-visual-cover',
-    'wandlight-loredeck-library-visual-cover::after',
+    'saga-loredeck-install-shell',
+    'saga-runtime-rail',
+    'saga-runtime-drawer',
+    'saga-loredeck-creator-project-shelf',
+    'saga-loredeck-creator-project-card',
+    'saga-loredeck-creator-project-controls',
+    'saga-loredeck-creator-project-search',
+    'saga-loredeck-creator-project-filter',
+    'saga-loredeck-creator-project-folder-filter',
+    'saga-loredeck-creator-project-move-select',
+    'saga-loredeck-creator-project-bulk',
+    'saga-loredeck-creator-project-card-selected',
+    'saga-loredeck-creator-project-progress',
+    'saga-loredeck-creator-project-delete',
+    'saga-loredeck-creator-project-select-active',
+    'saga-loredeck-creator-pipeline-header',
+    'saga-loredeck-creator-stage-guide',
+    'saga-loredeck-creator-stage-active',
+    'saga-loredeck-creator-stage-needs-review',
+    'saga-loredeck-creator-current-task',
+    'saga-loredeck-creator-current-sidebar',
+    'saga-loredeck-creator-output-grid',
+    'saga-loredeck-creator-artifact',
+    'saga-loredeck-library-details',
+    'saga-loredeck-library-resize-handle',
+    'saga-loredeck-library-resize-track-left',
+    'saga-loredeck-library-resize-label-arrow',
+    'saga-loredeck-metadata-shell',
+    'saga-loredeck-library-shell',
+    'saga-loredeck-library-columns',
+    'saga-loredeck-library-hierarchy-list',
+    'saga-loredeck-library-title-meta',
+    'saga-loredeck-library-details-collapsed',
+    'saga-loredeck-library-inline-folder-row',
+    'saga-loredeck-library-folder-cover-strip',
+    'saga-loredeck-library-folder-cover-tile',
+    'saga-loredeck-library-folder-row-drop-enabled',
+    'saga-loredeck-library-folder-move-select',
+    'saga-loredeck-library-folder-parent-control',
+    'saga-loredeck-library-folder-actions',
+    'saga-confirm-input',
+    'saga-confirm-choice-list',
+    'saga-loredeck-library-stack-folder-preview',
+    'saga-loredeck-library-stack-disclosure-button',
+    'saga-loredeck-library-stack-folder-card-has-suppressed',
+    'saga-loredeck-library-stack-card-suppressed',
+    'saga-loredeck-library-stack-duplicate-summary',
+    'saga-loredeck-library-stack-folder-preview-chip-kept',
+    'saga-loredeck-library-drag-copy',
+    'saga-loredeck-library-drag-copy-remove',
+    'saga-loredeck-library-drag-drop-invalid',
+    'saga-loredeck-library-root-drop-active',
+    'saga-loredeck-library-stack-remove-active',
+    'saga-loredeck-library-search-match',
+    'saga-loredeck-library-search-context',
+    'saga-loredeck-library-transfer-footer',
+    'saga-loredeck-library-stack-card',
+    'saga-loredeck-library-stack-grip',
+    'saga-loredeck-library-inline-title',
+    'saga-loredeck-library-title-edit-action',
+    'saga-loredeck-library-title-input',
+    'saga-loredeck-library-stack-ghost',
+    'saga-loredeck-library-center-actions',
+    'saga-loredeck-library-square-action',
+    'saga-loredeck-library-icon-action',
+    'saga-loredeck-library-stack-toggle-button',
+    'saga-loredeck-library-detail-kicker',
+    'saga-loredeck-library-deck-card.saga-loredeck-library-deck-selected',
+    'saga-loredeck-library-inline-folder-row.saga-loredeck-library-folder-row-active',
+    'saga-loredeck-library-stack-card.saga-loredeck-library-stack-card-selected',
+    'saga-lore-workbench-shell .saga-runtime-button',
+    'saga-loredeck-health-center-shell',
+    'saga-loredeck-health-severity-card',
+    'saga-theme-top-grid',
+    'saga-theme-gallery',
+    'saga-theme-iconset-selector',
+    'saga-theme-iconset-strip',
+    'saga-theme-icon-grid',
+    'saga-loredeck-library-visual-cover',
+    'saga-loredeck-library-visual-cover::after',
     'border-radius: inherit',
     'scrollbar-gutter: stable',
 ]) {
@@ -656,10 +658,10 @@ for (const token of [
 }
 
 assert(!style.includes('max-height: 160px;'), 'Folder details contained Loredeck list must expand with the resized details panel.');
-assert(/\.wandlight-loredeck-library-details\s*\{[\s\S]*?height:\s*100%;/.test(style), 'Loredeck Library details panel must fill the resized details region.');
-assert(/\.wandlight-loredeck-library-folder-detail-visual\s*\{[\s\S]*?align-self:\s*start;[\s\S]*?justify-self:\s*start;/.test(style), 'Folder detail cover previews must stay pinned to the top-left while details resize.');
+assert(/\.saga-loredeck-library-details\s*\{[\s\S]*?height:\s*100%;/.test(style), 'Loredeck Library details panel must fill the resized details region.');
+assert(/\.saga-loredeck-library-folder-detail-visual\s*\{[\s\S]*?align-self:\s*start;[\s\S]*?justify-self:\s*start;/.test(style), 'Folder detail cover previews must stay pinned to the top-left while details resize.');
 assert(style.includes('display: inline-grid !important;') && style.includes('grid-area: 1 / 1;'), 'Loredeck Library square icon actions must center their SVG artwork.');
-assert(style.includes('var(--wandlight-chip-bg') && style.includes('var(--wandlight-chip-fg'), 'Loredeck Library metadata/status pills must use theme chip tokens.');
-assert(style.includes('calc(var(--wandlight-grip-dot-rows, 6) * 7px)'), 'Loredeck Library drag handles must size dot grids without clipping short 2x2 or 2x3 handles.');
+assert(style.includes('var(--saga-chip-bg') && style.includes('var(--saga-chip-fg'), 'Loredeck Library metadata/status pills must use theme chip tokens.');
+assert(style.includes('calc(var(--saga-grip-dot-rows, 6) * 7px)'), 'Loredeck Library drag handles must size dot grids without clipping short 2x2 or 2x3 handles.');
 
 console.log('Visual smoke harness contract passed.');

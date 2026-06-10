@@ -11,7 +11,7 @@ const RELAY_ICONSET_ID = 'saga-relay';
 
 export const THEMEPACK_PRESETS = Object.freeze([
     {
-        id: 'wandlight-default',
+        id: 'saga-default',
         type: 'bundled',
         title: 'SAGA Archive',
         description: 'Dark archive shelves, gold trim, parchment highlights, and polished fantasy UI.',
@@ -824,35 +824,35 @@ export function writeThemeColorsToSettings(settings, colors = {}) {
 
 function writeRuntimeThemeVars(target, colors) {
     if (!target?.style) return;
-    target.style.setProperty('--wandlight-bg', hexToRgba(colors.background, 0.97));
-    target.style.setProperty('--wandlight-bg-2', hexToRgba(colors.backgroundAlt, 0.94));
-    target.style.setProperty('--wandlight-bg-gradient-start', hexToRgba(colors.gradientStart, 0.985));
-    target.style.setProperty('--wandlight-bg-gradient-end', hexToRgba(colors.gradientEnd, 0.98));
-    target.style.setProperty('--wandlight-surface', hexToRgba(colors.surface, 0.74));
-    target.style.setProperty('--wandlight-surface-2', hexToRgba(colors.surfaceAlt, 0.62));
-    target.style.setProperty('--wandlight-border', hexToRgba(colors.border, 0.38));
-    target.style.setProperty('--wandlight-border-soft', hexToRgba(colors.border, 0.18));
-    target.style.setProperty('--wandlight-border-strong', hexToRgba(colors.borderStrong, 0.58));
-    target.style.setProperty('--wandlight-gold', colors.accent);
-    target.style.setProperty('--wandlight-gold-soft', hexToRgba(colors.accent, 0.74));
-    target.style.setProperty('--wandlight-gold-surface', hexToRgba(colors.accent, 0.12));
-    target.style.setProperty('--wandlight-red', colors.danger);
-    target.style.setProperty('--wandlight-red-soft', hexToRgba(colors.danger, 0.42));
-    target.style.setProperty('--wandlight-red-surface', hexToRgba(colors.danger, 0.24));
-    target.style.setProperty('--wandlight-red-hover', hexToRgba(colors.danger, 0.34));
-    target.style.setProperty('--wandlight-green', colors.success);
-    target.style.setProperty('--wandlight-green-soft', hexToRgba(colors.success, 0.42));
-    target.style.setProperty('--wandlight-warning', colors.warning);
-    target.style.setProperty('--wandlight-warning-soft', hexToRgba(colors.warning, 0.42));
-    target.style.setProperty('--wandlight-focus', colors.focus);
-    target.style.setProperty('--wandlight-button', hexToRgba(colors.button, 0.82));
-    target.style.setProperty('--wandlight-button-hover', hexToRgba(colors.buttonHover, 0.82));
-    target.style.setProperty('--wandlight-button-text', colors.buttonText);
-    target.style.setProperty('--wandlight-input', hexToRgba(colors.input, 0.76));
-    target.style.setProperty('--wandlight-input-border', hexToRgba(colors.inputBorder, 0.34));
-    target.style.setProperty('--wandlight-text', colors.text);
-    target.style.setProperty('--wandlight-muted', hexToRgba(colors.mutedText, 0.68));
-    target.style.setProperty('--wandlight-text-muted', hexToRgba(colors.mutedText, 0.68));
+    target.style.setProperty('--saga-bg', hexToRgba(colors.background, 0.97));
+    target.style.setProperty('--saga-bg-2', hexToRgba(colors.backgroundAlt, 0.94));
+    target.style.setProperty('--saga-bg-gradient-start', hexToRgba(colors.gradientStart, 0.985));
+    target.style.setProperty('--saga-bg-gradient-end', hexToRgba(colors.gradientEnd, 0.98));
+    target.style.setProperty('--saga-surface', hexToRgba(colors.surface, 0.74));
+    target.style.setProperty('--saga-surface-2', hexToRgba(colors.surfaceAlt, 0.62));
+    target.style.setProperty('--saga-border', hexToRgba(colors.border, 0.38));
+    target.style.setProperty('--saga-border-soft', hexToRgba(colors.border, 0.18));
+    target.style.setProperty('--saga-border-strong', hexToRgba(colors.borderStrong, 0.58));
+    target.style.setProperty('--saga-gold', colors.accent);
+    target.style.setProperty('--saga-gold-soft', hexToRgba(colors.accent, 0.74));
+    target.style.setProperty('--saga-gold-surface', hexToRgba(colors.accent, 0.12));
+    target.style.setProperty('--saga-red', colors.danger);
+    target.style.setProperty('--saga-red-soft', hexToRgba(colors.danger, 0.42));
+    target.style.setProperty('--saga-red-surface', hexToRgba(colors.danger, 0.24));
+    target.style.setProperty('--saga-red-hover', hexToRgba(colors.danger, 0.34));
+    target.style.setProperty('--saga-green', colors.success);
+    target.style.setProperty('--saga-green-soft', hexToRgba(colors.success, 0.42));
+    target.style.setProperty('--saga-warning', colors.warning);
+    target.style.setProperty('--saga-warning-soft', hexToRgba(colors.warning, 0.42));
+    target.style.setProperty('--saga-focus', colors.focus);
+    target.style.setProperty('--saga-button', hexToRgba(colors.button, 0.82));
+    target.style.setProperty('--saga-button-hover', hexToRgba(colors.buttonHover, 0.82));
+    target.style.setProperty('--saga-button-text', colors.buttonText);
+    target.style.setProperty('--saga-input', hexToRgba(colors.input, 0.76));
+    target.style.setProperty('--saga-input-border', hexToRgba(colors.inputBorder, 0.34));
+    target.style.setProperty('--saga-text', colors.text);
+    target.style.setProperty('--saga-muted', hexToRgba(colors.mutedText, 0.68));
+    target.style.setProperty('--saga-text-muted', hexToRgba(colors.mutedText, 0.68));
 }
 
 export function applyRuntimeTheme(root, settings = getSettings()) {

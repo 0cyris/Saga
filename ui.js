@@ -1,5 +1,5 @@
 /**
- * ui.js - Wandlight
+ * ui.js - Saga
  * Renders the settings panel and model provider UI.
  *
  * Exports: renderSettingsPanel
@@ -8,9 +8,9 @@
 
 import {
     DEFAULT_SETTINGS,
-    WANDLIGHT_PROVIDER_PRESET_ASSET_PATH,
-    WANDLIGHT_PROVIDER_PRESET_NAME,
-    WANDLIGHT_PROVIDER_PRESET_VERSION,
+    SAGA_PROVIDER_PRESET_ASSET_PATH,
+    SAGA_PROVIDER_PRESET_NAME,
+    SAGA_PROVIDER_PRESET_VERSION,
 } from './constants.js';
 import { getSettings, saveSettings } from './state-manager.js';
 import { storeNamedApiKey, deleteNamedApiKey, getNamedApiKeyStorageInfo } from './secure-keyring.js';
@@ -41,8 +41,8 @@ function removeLegacyProviderSettingsDrawer(container) {
         if (!/Provider Settings|API\s*(?:and|&|\+|\/)\s*Model|API\/Model/i.test(text)) continue;
         header.closest('.inline-drawer')?.remove();
     }
-    for (const el of container.querySelectorAll('[id^="wandlight_continuity_provider"], [id^="wandlight_lore_provider"], [id*="_openai_"], [id*="_fetch_models"], [id*="_test_connection"]')) {
-        el.closest('.inline-drawer, .flex-container, .wandlight-provider-panel, .wandlight-provider-runtime-block')?.remove();
+    for (const el of container.querySelectorAll('[id^="saga_continuity_provider"], [id^="saga_lore_provider"], [id*="_openai_"], [id*="_fetch_models"], [id*="_test_connection"]')) {
+        el.closest('.inline-drawer, .flex-container, .saga-provider-panel, .saga-provider-runtime-block')?.remove();
     }
 }
 
@@ -124,7 +124,7 @@ function compareProviderPresetVersions(installed, bundled) {
 }
 
 function getProviderPresetMetadata(preset, fallbackVersion = '') {
-    const ext = isPlainObjectValue(preset?.extensions?.wandlight) ? preset.extensions.wandlight : {};
+    const ext = isPlainObjectValue(preset?.extensions?.saga) ? preset.extensions.saga : {};
     const notes = String(preset?.notes || '');
     const noteMatch = notes.match(/\bProvider[-\s]+v?(\d+(?:\.\d+){0,3})\b/i);
     const rawVersion = ext.presetVersion || ext.version || (noteMatch ? noteMatch[1] : '') || fallbackVersion || '';
@@ -144,15 +144,15 @@ function getPresetByName(pm, name) {
         preset = pm.getCompletionPresetByName(name) || null;
     }
     if (!preset && typeof pm?.readPresetExtensionField === 'function') {
-        const wandlightMeta = pm.readPresetExtensionField({ name, path: 'wandlight' });
-        if (wandlightMeta) preset = { extensions: { wandlight: wandlightMeta } };
+        const sagaMeta = pm.readPresetExtensionField({ name, path: 'saga' });
+        if (sagaMeta) preset = { extensions: { saga: sagaMeta } };
     }
     return preset;
 }
 
 function getInstalledProviderPreset(pm) {
     const names = typeof pm?.getAllPresets === 'function' ? pm.getAllPresets() : [];
-    const candidates = [WANDLIGHT_PROVIDER_PRESET_NAME, ...LEGACY_PROVIDER_PRESET_NAMES];
+    const candidates = [SAGA_PROVIDER_PRESET_NAME, ...LEGACY_PROVIDER_PRESET_NAMES];
     let installedName = '';
     if (Array.isArray(names)) {
         installedName = candidates
@@ -166,22 +166,22 @@ function getInstalledProviderPreset(pm) {
         return {
             name: installedName,
             preset: getPresetByName(pm, installedName),
-            legacyName: installedName.toLowerCase() !== WANDLIGHT_PROVIDER_PRESET_NAME.toLowerCase(),
+            legacyName: installedName.toLowerCase() !== SAGA_PROVIDER_PRESET_NAME.toLowerCase(),
         };
     }
     return providerPresetInstallConfirmed
-        ? { name: WANDLIGHT_PROVIDER_PRESET_NAME, preset: null, legacyName: false, assumed: true }
+        ? { name: SAGA_PROVIDER_PRESET_NAME, preset: null, legacyName: false, assumed: true }
         : null;
 }
 
 function ensureProviderPresetMetadata(preset) {
     const next = cloneJson(preset || {});
     next.extensions = isPlainObjectValue(next.extensions) ? next.extensions : {};
-    next.extensions.wandlight = {
-        ...(isPlainObjectValue(next.extensions.wandlight) ? next.extensions.wandlight : {}),
-        presetName: WANDLIGHT_PROVIDER_PRESET_NAME,
-        presetVersion: WANDLIGHT_PROVIDER_PRESET_VERSION,
-        version: formatComparableProviderPresetVersion(WANDLIGHT_PROVIDER_PRESET_VERSION) || '1.0',
+    next.extensions.saga = {
+        ...(isPlainObjectValue(next.extensions.saga) ? next.extensions.saga : {}),
+        presetName: SAGA_PROVIDER_PRESET_NAME,
+        presetVersion: SAGA_PROVIDER_PRESET_VERSION,
+        version: formatComparableProviderPresetVersion(SAGA_PROVIDER_PRESET_VERSION) || '1.0',
         providerPreset: true,
         supportsReplyHeaders: false,
     };
@@ -190,8 +190,8 @@ function ensureProviderPresetMetadata(preset) {
 
 async function loadBundledProviderPreset() {
     if (bundledProviderPresetCache) return cloneJson(bundledProviderPresetCache);
-    const response = await fetch(getLocalAssetSrc(WANDLIGHT_PROVIDER_PRESET_ASSET_PATH), { cache: 'no-store' });
-    if (!response.ok) throw new Error(`${WANDLIGHT_PROVIDER_PRESET_NAME} preset could not be loaded.`);
+    const response = await fetch(getLocalAssetSrc(SAGA_PROVIDER_PRESET_ASSET_PATH), { cache: 'no-store' });
+    if (!response.ok) throw new Error(`${SAGA_PROVIDER_PRESET_NAME} preset could not be loaded.`);
     const preset = ensureProviderPresetMetadata(await response.json());
     bundledProviderPresetCache = preset;
     return cloneJson(preset);
@@ -207,7 +207,7 @@ async function installBundledProviderPreset() {
     const previousValue = typeof pm.getSelectedPreset === 'function' ? pm.getSelectedPreset() : '';
     const previousName = typeof pm.getSelectedPresetName === 'function' ? pm.getSelectedPresetName() : '';
 
-    await pm.savePreset(WANDLIGHT_PROVIDER_PRESET_NAME, preset);
+    await pm.savePreset(SAGA_PROVIDER_PRESET_NAME, preset);
     providerPresetInstallConfirmed = true;
 
     if (previousValue && typeof pm.selectPreset === 'function') {
@@ -233,9 +233,9 @@ async function refreshProviderPresetInstallStatus(button, statusEl) {
     }
 
     const installed = getInstalledProviderPreset(pm);
-    const installedMeta = getProviderPresetMetadata(installed?.preset, installed?.assumed ? WANDLIGHT_PROVIDER_PRESET_VERSION : '');
+    const installedMeta = getProviderPresetMetadata(installed?.preset, installed?.assumed ? SAGA_PROVIDER_PRESET_VERSION : '');
     const installedVersion = installedMeta.displayVersion || 'version unknown';
-    const comparison = installed ? compareProviderPresetVersions(installedMeta.displayVersion, WANDLIGHT_PROVIDER_PRESET_VERSION) : null;
+    const comparison = installed ? compareProviderPresetVersions(installedMeta.displayVersion, SAGA_PROVIDER_PRESET_VERSION) : null;
     const isCurrent = installed && !installed.legacyName && comparison === 0;
     const needsUpdate = installed && !isCurrent;
 
@@ -248,13 +248,13 @@ async function refreshProviderPresetInstallStatus(button, statusEl) {
             statusEl.textContent = 'Provider preset not installed.';
             statusEl.style.color = '#d6b35a';
         } else if (isCurrent) {
-            statusEl.textContent = `Provider current (${WANDLIGHT_PROVIDER_PRESET_VERSION}). Select it in your SillyTavern profile.`;
+            statusEl.textContent = `Provider current (${SAGA_PROVIDER_PRESET_VERSION}). Select it in your SillyTavern profile.`;
             statusEl.style.color = '#88cc88';
         } else if (installed.legacyName) {
-            statusEl.textContent = `${installed.name} installed; update to Provider (${WANDLIGHT_PROVIDER_PRESET_VERSION}).`;
+            statusEl.textContent = `${installed.name} installed; update to Provider (${SAGA_PROVIDER_PRESET_VERSION}).`;
             statusEl.style.color = '#d6b35a';
         } else {
-            statusEl.textContent = `Provider ${installedVersion} installed; update to ${WANDLIGHT_PROVIDER_PRESET_VERSION}.`;
+            statusEl.textContent = `Provider ${installedVersion} installed; update to ${SAGA_PROVIDER_PRESET_VERSION}.`;
             statusEl.style.color = '#d6b35a';
         }
     }
@@ -264,29 +264,29 @@ function setupProviderControls(container, kind, label) {
     const prefix = settingPrefix(kind);
     const settings = getSettings();
 
-    const providerSelect = container.querySelector(`#wandlight_${prefix}_provider`);
-    const profileRow = container.querySelector(`#wandlight_${prefix}_profile_row`);
-    const profileIdSelect = container.querySelector(`#wandlight_${prefix}_profile_id`);
-    const providerPresetInstallBtn = container.querySelector(`#wandlight_${prefix}_provider_preset_install`);
-    const providerPresetStatus = container.querySelector(`#wandlight_${prefix}_provider_preset_status`);
-    const openaiRow = container.querySelector(`#wandlight_${prefix}_openai_row`);
-    const openaiBaseUrl = container.querySelector(`#wandlight_${prefix}_openai_base_url`);
-    const openaiModel = container.querySelector(`#wandlight_${prefix}_openai_model`);
-    const openaiModelSearch = container.querySelector(`#wandlight_${prefix}_openai_model_search`);
-    const openaiKey = container.querySelector(`#wandlight_${prefix}_openai_key`);
-    const openaiKeySaveBtn = container.querySelector(`#wandlight_${prefix}_openai_key_save`);
-    const openaiKeyClearBtn = container.querySelector(`#wandlight_${prefix}_openai_key_clear`);
-    const openaiKeyStatus = container.querySelector(`#wandlight_${prefix}_openai_key_status`);
-    const fetchModelsBtn = container.querySelector(`#wandlight_${prefix}_fetch_models`);
-    const testConnectionBtn = container.querySelector(`#wandlight_${prefix}_test_connection`);
-    const resetDefaultsBtn = container.querySelector(`#wandlight_${prefix}_provider_reset_defaults`);
-    const connectionStatus = container.querySelector(`#wandlight_${prefix}_connection_status`);
-    const temperatureInput = container.querySelector(`#wandlight_${prefix}_temperature`);
-    const topPInput = container.querySelector(`#wandlight_${prefix}_top_p`);
-    const maxTokensInput = container.querySelector(`#wandlight_${prefix}_max_tokens`);
-    const generationParametersHeader = container.querySelector(`#wandlight_${prefix}_generation_parameters_header`);
-    const generationParameters = container.querySelector(`#wandlight_${prefix}_generation_parameters`);
-    const generationParametersNote = container.querySelector(`#wandlight_${prefix}_generation_parameters_note`);
+    const providerSelect = container.querySelector(`#saga_${prefix}_provider`);
+    const profileRow = container.querySelector(`#saga_${prefix}_profile_row`);
+    const profileIdSelect = container.querySelector(`#saga_${prefix}_profile_id`);
+    const providerPresetInstallBtn = container.querySelector(`#saga_${prefix}_provider_preset_install`);
+    const providerPresetStatus = container.querySelector(`#saga_${prefix}_provider_preset_status`);
+    const openaiRow = container.querySelector(`#saga_${prefix}_openai_row`);
+    const openaiBaseUrl = container.querySelector(`#saga_${prefix}_openai_base_url`);
+    const openaiModel = container.querySelector(`#saga_${prefix}_openai_model`);
+    const openaiModelSearch = container.querySelector(`#saga_${prefix}_openai_model_search`);
+    const openaiKey = container.querySelector(`#saga_${prefix}_openai_key`);
+    const openaiKeySaveBtn = container.querySelector(`#saga_${prefix}_openai_key_save`);
+    const openaiKeyClearBtn = container.querySelector(`#saga_${prefix}_openai_key_clear`);
+    const openaiKeyStatus = container.querySelector(`#saga_${prefix}_openai_key_status`);
+    const fetchModelsBtn = container.querySelector(`#saga_${prefix}_fetch_models`);
+    const testConnectionBtn = container.querySelector(`#saga_${prefix}_test_connection`);
+    const resetDefaultsBtn = container.querySelector(`#saga_${prefix}_provider_reset_defaults`);
+    const connectionStatus = container.querySelector(`#saga_${prefix}_connection_status`);
+    const temperatureInput = container.querySelector(`#saga_${prefix}_temperature`);
+    const topPInput = container.querySelector(`#saga_${prefix}_top_p`);
+    const maxTokensInput = container.querySelector(`#saga_${prefix}_max_tokens`);
+    const generationParametersHeader = container.querySelector(`#saga_${prefix}_generation_parameters_header`);
+    const generationParameters = container.querySelector(`#saga_${prefix}_generation_parameters`);
+    const generationParametersNote = container.querySelector(`#saga_${prefix}_generation_parameters_note`);
 
     const providerKey = `${prefix}Provider`;
     const profileKey = `${prefix}ProfileId`;
@@ -332,12 +332,12 @@ function setupProviderControls(container, kind, label) {
             input.disabled = profileControlled;
             input.title = profileControlled
                 ? `${label} generation parameters are controlled by the selected SillyTavern Connection Profile and its Provider preset.`
-                : input.dataset.wandlightDefaultTitle || input.title;
+                : input.dataset.sagaDefaultTitle || input.title;
         }
     }
 
     function getProfileWarningText() {
-        return `${label} connection profiles include a settings preset. For Saga provider tasks, use a SillyTavern profile saved with ${WANDLIGHT_PROVIDER_PRESET_NAME}, then test the profile.`;
+        return `${label} connection profiles include a settings preset. For Saga provider tasks, use a SillyTavern profile saved with ${SAGA_PROVIDER_PRESET_NAME}, then test the profile.`;
     }
 
     function showProfileWarning() {
@@ -400,7 +400,7 @@ function setupProviderControls(container, kind, label) {
             providerPresetInstallBtn.disabled = true;
             providerPresetInstallBtn.textContent = 'Installing...';
             if (providerPresetStatus) {
-                providerPresetStatus.textContent = `Installing ${WANDLIGHT_PROVIDER_PRESET_NAME}...`;
+                providerPresetStatus.textContent = `Installing ${SAGA_PROVIDER_PRESET_NAME}...`;
                 providerPresetStatus.style.color = '';
             }
             try {
@@ -410,14 +410,14 @@ function setupProviderControls(container, kind, label) {
                 saveLoreProviderSettings(next);
                 populateProfiles();
                 await refreshProviderPresetInstallStatus(providerPresetInstallBtn, providerPresetStatus);
-                if (typeof toastr !== 'undefined') toastr.success(`${WANDLIGHT_PROVIDER_PRESET_NAME} installed. Select it in your SillyTavern ${label.toLowerCase()} connection profile, then update that profile.`);
+                if (typeof toastr !== 'undefined') toastr.success(`${SAGA_PROVIDER_PRESET_NAME} installed. Select it in your SillyTavern ${label.toLowerCase()} connection profile, then update that profile.`);
             } catch (e) {
                 providerPresetInstallBtn.textContent = original;
                 if (providerPresetStatus) {
                     providerPresetStatus.textContent = e?.message || String(e);
                     providerPresetStatus.style.color = '#cc8888';
                 }
-                if (typeof toastr !== 'undefined') toastr.error(`Failed to install ${WANDLIGHT_PROVIDER_PRESET_NAME}: ` + (e?.message || e));
+                if (typeof toastr !== 'undefined') toastr.error(`Failed to install ${SAGA_PROVIDER_PRESET_NAME}: ` + (e?.message || e));
             } finally {
                 providerPresetInstallBtn.disabled = false;
             }
@@ -502,7 +502,7 @@ function setupProviderControls(container, kind, label) {
     wireNumericInput(topPInput, topPKey, 0.98, 0, 1);
     wireNumericInput(maxTokensInput, maxTokensKey, 8192, 64, 16384, true);
     for (const input of [temperatureInput, topPInput, maxTokensInput]) {
-        if (input && !input.dataset.wandlightDefaultTitle) input.dataset.wandlightDefaultTitle = input.title || '';
+        if (input && !input.dataset.sagaDefaultTitle) input.dataset.sagaDefaultTitle = input.title || '';
     }
 
     if (resetDefaultsBtn) {

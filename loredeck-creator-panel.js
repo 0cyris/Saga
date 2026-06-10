@@ -79,15 +79,15 @@ function createLoredeckPendingReviewCard(pack) { return dep('createLoredeckPendi
 function getLoredeckCreatorPipelineReadinessView(pack, cached) { return dep('getLoredeckCreatorPipelineReadinessView', () => null)(pack, cached); }
 
 export function openLoredeckCreatorWorkbench() {
-    document.querySelector('.wandlight-loredeck-creator-workbench-overlay')?.remove();
+    document.querySelector('.saga-loredeck-creator-workbench-overlay')?.remove();
     recoverLoredeckCreatorCurrentActiveGenerationOnOpen({ toast: true });
     const overlay = document.createElement('div');
-    overlay.className = 'wandlight-lore-workbench-overlay wandlight-loredeck-creator-workbench-overlay';
+    overlay.className = 'saga-lore-workbench-overlay saga-loredeck-creator-workbench-overlay';
     wireOverlayBackdropClose(overlay, () => overlay.remove());
     document.body.appendChild(overlay);
 
     const shell = document.createElement('div');
-    shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-creator-workbench-shell';
+    shell.className = 'saga-lore-workbench-shell saga-loredeck-creator-workbench-shell';
     overlay.appendChild(shell);
 
     const cached = getLoredeckCreatorBriefCache();
@@ -95,20 +95,20 @@ export function openLoredeckCreatorWorkbench() {
     shell.appendChild(createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: true, workbench: true }));
 
     const body = document.createElement('div');
-    body.className = 'wandlight-loredeck-creator-workbench-body';
+    body.className = 'saga-loredeck-creator-workbench-body';
     body.appendChild(createLoredeckCreatorCard(getState(), { embedded: true, showHeader: false }));
     shell.appendChild(body);
 }
 
 export function refreshLoredeckCreatorWorkbenchBody(options = {}) {
-    const body = document.querySelector('.wandlight-loredeck-creator-workbench-body');
+    const body = document.querySelector('.saga-loredeck-creator-workbench-body');
     if (!body) return false;
     const scrollTop = options.preserveScroll === false ? 0 : (body.scrollTop || 0);
     const anchor = options.preserveScroll === false ? null : getLoredeckCreatorWorkbenchScrollAnchor(body);
-    const shell = body.closest('.wandlight-loredeck-creator-workbench-shell');
+    const shell = body.closest('.saga-loredeck-creator-workbench-shell');
     const cached = getLoredeckCreatorBriefCache();
     const pipeline = getLoredeckCreatorPipelineModel(cached);
-    const header = [...(shell?.children || [])].find(child => child.classList?.contains('wandlight-loredeck-creator-pipeline-header'));
+    const header = [...(shell?.children || [])].find(child => child.classList?.contains('saga-loredeck-creator-pipeline-header'));
     const nextHeader = createLoredeckCreatorPipelineHeader(cached, pipeline, { showClose: true, workbench: true });
     if (header) header.replaceWith(nextHeader);
     else if (shell) shell.insertBefore(nextHeader, body);
@@ -160,7 +160,7 @@ function restoreLoredeckCreatorWorkbenchScrollAnchor(body, anchor = null) {
 }
 
 export function queueLoredeckCreatorWorkbenchRefresh(options = {}) {
-    if (!document.querySelector('.wandlight-loredeck-creator-workbench-body')) return false;
+    if (!document.querySelector('.saga-loredeck-creator-workbench-body')) return false;
     if (loredeckCreatorWorkbenchRefreshQueued) return true;
     loredeckCreatorWorkbenchRefreshQueued = true;
     const refresh = () => {
@@ -174,28 +174,28 @@ export function queueLoredeckCreatorWorkbenchRefresh(options = {}) {
 
 export function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getLoredeckCreatorPipelineModel(cached), options = {}) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-lore-workbench-header wandlight-loredeck-creator-pipeline-header';
+    wrap.className = 'saga-lore-workbench-header saga-loredeck-creator-pipeline-header';
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    titleWrap.className = 'saga-lore-workbench-title-wrap';
     const titleRow = document.createElement('div');
-    titleRow.className = 'wandlight-loredeck-library-title-row wandlight-loredeck-creator-title-row';
+    titleRow.className = 'saga-loredeck-library-title-row saga-loredeck-creator-title-row';
     const emblem = document.createElement('div');
-    emblem.className = 'wandlight-loredeck-library-emblem wandlight-loredeck-creator-emblem';
+    emblem.className = 'saga-loredeck-library-emblem saga-loredeck-creator-emblem';
     emblem.textContent = 'S';
     titleRow.appendChild(emblem);
     const titleText = document.createElement('div');
-    titleText.className = 'wandlight-loredeck-creator-title-text';
+    titleText.className = 'saga-loredeck-creator-title-text';
     const titleLine = document.createElement('div');
-    titleLine.className = 'wandlight-loredeck-library-title-line';
+    titleLine.className = 'saga-loredeck-library-title-line';
     const title = document.createElement('div');
-    title.className = 'wandlight-lore-workbench-title';
+    title.className = 'saga-lore-workbench-title';
     title.textContent = 'Loredeck Creator';
     titleLine.appendChild(title);
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.className = 'saga-lore-workbench-subtitle';
     subtitle.textContent = 'Generated Loredeck draft';
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-library-title-meta wandlight-loredeck-creator-pipeline-meta';
+    meta.className = 'saga-loredeck-library-title-meta saga-loredeck-creator-pipeline-meta';
     const brief = cached.brief || {};
     const draft = getLoredeckCreatorDraftInputs();
     const fandom = draft.fandom || cached.fandom || brief.fandom || 'No fandom';
@@ -213,13 +213,13 @@ export function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getL
     wrap.appendChild(titleWrap);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-loredeck-library-header-actions wandlight-loredeck-creator-header-actions';
+    actions.className = 'saga-primary-actions saga-loredeck-library-header-actions saga-loredeck-creator-header-actions';
     actions.appendChild(createButton('Project Settings', 'Jump to the editable project inputs or approved Scope Brief.', () => {
         scrollLoredeckCreatorWorkbenchToAnchor(cached.approved ? 'scope-brief' : 'intake');
     }));
     if (options.showClose) {
         actions.appendChild(createButton('Close', 'Close the Loredeck Creator wizard.', () => {
-            document.querySelector('.wandlight-loredeck-creator-workbench-overlay')?.remove();
+            document.querySelector('.saga-loredeck-creator-workbench-overlay')?.remove();
         }));
     }
     wrap.appendChild(actions);
@@ -229,28 +229,28 @@ export function createLoredeckCreatorPipelineHeader(cached = {}, pipeline = getL
 export function createLoredeckCreatorStageGuide(cached = {}, pipeline = getLoredeckCreatorPipelineModel(cached)) {
     void cached;
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-creator-stage-guide';
+    wrap.className = 'saga-loredeck-creator-stage-guide';
     wrap.dataset.sagaCreatorAnchor = 'roadmap';
 
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-creator-stage-list';
+    list.className = 'saga-loredeck-creator-stage-list';
     for (const [index, stage] of (pipeline.stages || []).entries()) {
         const item = document.createElement('button');
         item.type = 'button';
-        item.className = `wandlight-loredeck-creator-stage-item wandlight-loredeck-creator-stage-${stage.status}`;
-        if (pipeline.currentStep?.id === stage.id) item.classList.add('wandlight-loredeck-creator-stage-active');
+        item.className = `saga-loredeck-creator-stage-item saga-loredeck-creator-stage-${stage.status}`;
+        if (pipeline.currentStep?.id === stage.id) item.classList.add('saga-loredeck-creator-stage-active');
         const number = document.createElement('div');
-        number.className = 'wandlight-loredeck-creator-stage-number';
+        number.className = 'saga-loredeck-creator-stage-number';
         number.textContent = String(index + 1);
         item.appendChild(number);
         const body = document.createElement('div');
-        body.className = 'wandlight-loredeck-creator-stage-body';
+        body.className = 'saga-loredeck-creator-stage-body';
         const label = document.createElement('div');
-        label.className = 'wandlight-loredeck-creator-stage-label';
+        label.className = 'saga-loredeck-creator-stage-label';
         label.textContent = stage.label;
         body.appendChild(label);
         const detail = document.createElement('div');
-        detail.className = 'wandlight-loredeck-creator-stage-detail';
+        detail.className = 'saga-loredeck-creator-stage-detail';
         detail.textContent = stage.detail;
         body.appendChild(detail);
         item.appendChild(body);
@@ -271,10 +271,10 @@ export function createLoredeckCreatorStageGuide(cached = {}, pipeline = getLored
 export function scrollLoredeckCreatorWorkbenchToAnchor(anchorId = '') {
     const id = String(anchorId || '').trim();
     if (!id) return false;
-    const body = document.querySelector('.wandlight-loredeck-creator-workbench-body');
+    const body = document.querySelector('.saga-loredeck-creator-workbench-body');
     const selectorId = id.replace(/"/g, '\\"');
     const target = body?.querySelector(`[data-saga-creator-anchor="${selectorId}"]`)
-        || (id === 'review-queue' ? body?.querySelector('.wandlight-loredeck-creator-pending-review') : null);
+        || (id === 'review-queue' ? body?.querySelector('.saga-loredeck-creator-pending-review') : null);
     if (!target) {
         toast(id === 'review-queue' ? 'No pending review queue is available yet.' : 'That Creator section is not available yet.', 'info');
         return false;
@@ -287,7 +287,7 @@ export function scrollLoredeckCreatorWorkbenchToAnchor(anchorId = '') {
 
 export function createLoredeckCreatorArtifactDisclosure(title, child, options = {}) {
     const details = document.createElement('details');
-    details.className = 'wandlight-loredeck-creator-artifact';
+    details.className = 'saga-loredeck-creator-artifact';
     details.open = options.open === true;
     if (options.anchor) details.dataset.sagaCreatorAnchor = options.anchor;
     const summary = document.createElement('summary');
@@ -295,7 +295,7 @@ export function createLoredeckCreatorArtifactDisclosure(title, child, options = 
     label.textContent = title;
     summary.appendChild(label);
     const state = document.createElement('span');
-    state.className = 'wandlight-loredeck-creator-artifact-state';
+    state.className = 'saga-loredeck-creator-artifact-state';
     state.textContent = options.state || (details.open ? 'Open' : 'Collapsed');
     summary.appendChild(state);
     details.appendChild(summary);
@@ -305,20 +305,20 @@ export function createLoredeckCreatorArtifactDisclosure(title, child, options = 
 
 export function createLoredeckCreatorCurrentTaskCard(cached = {}, pipeline = getLoredeckCreatorPipelineModel(cached), context = {}) {
     const card = document.createElement('div');
-    card.className = 'wandlight-loredeck-creator-current-task';
+    card.className = 'saga-loredeck-creator-current-task';
     card.dataset.sagaCreatorAnchor = 'current-task';
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-creator-current-main';
+    main.className = 'saga-loredeck-creator-current-main';
     const kicker = document.createElement('div');
-    kicker.className = 'wandlight-loredeck-creator-current-kicker';
+    kicker.className = 'saga-loredeck-creator-current-kicker';
     kicker.textContent = 'Current Task';
     main.appendChild(kicker);
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-creator-current-title';
+    title.className = 'saga-loredeck-creator-current-title';
     title.textContent = getLoredeckCreatorCurrentTaskTitle(cached, pipeline);
     main.appendChild(title);
     const description = document.createElement('div');
-    description.className = 'wandlight-loredeck-creator-current-description';
+    description.className = 'saga-loredeck-creator-current-description';
     description.textContent = getLoredeckCreatorCurrentTaskDescription(cached, pipeline);
     main.appendChild(description);
     main.appendChild(createLoredeckCreatorCurrentTaskOutputs(pipeline));
@@ -342,22 +342,22 @@ export function createLoredeckCreatorCurrentTaskCard(cached = {}, pipeline = get
 
 export function createLoredeckCreatorBriefReview(brief = {}, cached = {}) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-creator-brief';
+    wrap.className = 'saga-loredeck-creator-brief';
     wrap.dataset.sagaCreatorAnchor = 'brief-review';
 
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Scope Brief';
     wrap.appendChild(title);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-entry-summary';
+    chips.className = 'saga-loredeck-entry-summary';
     chips.appendChild(createStatusPill(cached.approved ? 'Approved' : 'Needs approval', 'Brief approval status.'));
     if (brief.granularity) chips.appendChild(createStatusPill(formatLoredeckCreatorGranularity(brief.granularity), 'Model-confirmed granularity.'));
     wrap.appendChild(chips);
 
     const grid = document.createElement('div');
-    grid.className = 'wandlight-loredeck-detail-grid';
+    grid.className = 'saga-loredeck-detail-grid';
     grid.appendChild(createKeyValue('Title', brief.title || 'unset', 'Creator brief title.'));
     grid.appendChild(createKeyValue('Deck ID', brief.packId || 'unset', 'Stable generated Loredeck ID.'));
     grid.appendChild(createKeyValue('Fandom', brief.fandom || 'unset', 'Fandom or universe.'));
@@ -375,14 +375,14 @@ export function appendLoredeckCreatorBriefList(container, label, items = []) {
     const values = Array.isArray(items) ? items.map(item => String(item || '').trim()).filter(Boolean) : [];
     if (!values.length) return;
     const section = document.createElement('div');
-    section.className = 'wandlight-loredeck-creator-brief-list';
+    section.className = 'saga-loredeck-creator-brief-list';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-row-title';
+    title.className = 'saga-loredeck-row-title';
     title.textContent = label;
     section.appendChild(title);
     for (const item of values.slice(0, 10)) {
         const row = document.createElement('div');
-        row.className = 'wandlight-runtime-help';
+        row.className = 'saga-runtime-help';
         row.textContent = item;
         section.appendChild(row);
     }
@@ -413,14 +413,14 @@ function createLoredeckCreatorOutlineRows(container, label, rows = []) {
     const cleanRows = Array.isArray(rows) ? rows : [];
     if (!cleanRows.length) return;
     const section = document.createElement('div');
-    section.className = 'wandlight-loredeck-creator-brief-list';
+    section.className = 'saga-loredeck-creator-brief-list';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-row-title';
+    title.className = 'saga-loredeck-row-title';
     title.textContent = label;
     section.appendChild(title);
     for (const row of cleanRows.slice(0, 16)) {
         const item = document.createElement('div');
-        item.className = 'wandlight-runtime-help';
+        item.className = 'saga-runtime-help';
         const parts = [];
         const prefix = row.type ? `${humanizeScopeKey(row.type)}: ` : '';
         parts.push(`${prefix}${row.label}`);
@@ -439,16 +439,16 @@ export function createLoredeckCreatorOutlineCard(brief = {}, cached = {}) {
     const contextMilestones = getLoredeckCreatorOutlineRows(outline, 'contextMilestones');
     const titleBatches = getLoredeckCreatorOutlineRows(outline, 'titleBatches');
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-creator-brief wandlight-loredeck-creator-outline';
+    wrap.className = 'saga-loredeck-creator-brief saga-loredeck-creator-outline';
     wrap.dataset.sagaCreatorAnchor = 'story-outline';
 
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Creator Story Outline';
     wrap.appendChild(title);
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-entry-summary';
+    summary.className = 'saga-loredeck-entry-summary';
     summary.appendChild(createStatusPill(outline ? (cached.outlineApproved ? 'Approved' : 'Needs approval') : 'Ready', 'Story Outline approval status.'));
     summary.appendChild(createStatusPill(`${beats.length} beat${beats.length === 1 ? '' : 's'}`, 'Major story beats in this outline.'));
     summary.appendChild(createStatusPill(`${contextMilestones.length} Context`, 'Major Context browser points suggested by this outline.'));
@@ -457,13 +457,13 @@ export function createLoredeckCreatorOutlineCard(brief = {}, cached = {}) {
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'This stage confirms the story shape and major Context points before Saga drafts Lorecard titles.';
     wrap.appendChild(help);
 
     if (outline) {
         const grid = document.createElement('div');
-        grid.className = 'wandlight-loredeck-detail-grid';
+        grid.className = 'saga-loredeck-detail-grid';
         grid.appendChild(createKeyValue('Outline', outline.label || brief.title || 'Story outline', 'Reviewable outline label.'));
         grid.appendChild(createKeyValue('Coverage', outline.coverageSummary || brief.coverageSummary || brief.coverage || 'unset', 'What this outline covers.'));
         wrap.appendChild(grid);
@@ -476,7 +476,7 @@ export function createLoredeckCreatorOutlineCard(brief = {}, cached = {}) {
 
     if (cached.outlineSummary || cached.outlineQuestions?.length || cached.outlineWarnings?.length) {
         const result = document.createElement('div');
-        result.className = 'wandlight-runtime-help';
+        result.className = 'saga-runtime-help';
         const parts = [];
         if (cached.outlineSummary) parts.push(cached.outlineSummary);
         if (cached.outlineQuestions?.length) parts.push(`Questions: ${cached.outlineQuestions.join(' | ')}`);
@@ -637,10 +637,10 @@ export function createLoredeckCreatorTitleBatchPlanner(brief = {}, cached = {}) 
     const drafts = getLoredeckCreatorTitleDrafts(cached);
     const nextBatch = getLoredeckCreatorNextTitleBatch(cached);
     const section = document.createElement('div');
-    section.className = 'wandlight-loredeck-creator-title-batches';
+    section.className = 'saga-loredeck-creator-title-batches';
 
     const heading = document.createElement('div');
-    heading.className = 'wandlight-loredeck-row-title';
+    heading.className = 'saga-loredeck-row-title';
     heading.textContent = 'Title Set Plan';
     section.appendChild(heading);
 
@@ -648,19 +648,19 @@ export function createLoredeckCreatorTitleBatchPlanner(brief = {}, cached = {}) 
         const drafted = draftedIds.has(batch.id);
         const isNext = !drafted && nextBatch?.id === batch.id;
         const row = document.createElement('div');
-        row.className = 'wandlight-loredeck-entry-row wandlight-loredeck-creator-title-batch-row';
+        row.className = 'saga-loredeck-entry-row saga-loredeck-creator-title-batch-row';
         const main = document.createElement('div');
-        main.className = 'wandlight-loredeck-row-main';
+        main.className = 'saga-loredeck-row-main';
         const label = document.createElement('div');
-        label.className = 'wandlight-loredeck-row-title';
+        label.className = 'saga-loredeck-row-title';
         label.textContent = batch.label || batch.id;
         main.appendChild(label);
         const desc = document.createElement('div');
-        desc.className = 'wandlight-loredeck-row-description';
+        desc.className = 'saga-loredeck-row-description';
         desc.textContent = batch.summary || batch.contextRole || 'Planned title-batch slice from the approved Story Outline.';
         main.appendChild(desc);
         const meta = document.createElement('div');
-        meta.className = 'wandlight-loredeck-row-meta';
+        meta.className = 'saga-loredeck-row-meta';
         const batchDrafts = drafts.filter(draft => draft.creatorTitleBatchId === batch.id);
         meta.appendChild(createStatusPill(drafted ? 'Drafted' : (isNext ? 'Next' : 'Waiting'), drafted ? 'This title set already has generated drafts.' : (isNext ? 'This is the next title set Saga will draft.' : 'Draft earlier title sets before this one.')));
         meta.appendChild(createStatusPill(`${batchDrafts.length} title${batchDrafts.length === 1 ? '' : 's'}`, 'Title drafts currently tied to this batch.'));
@@ -670,7 +670,7 @@ export function createLoredeckCreatorTitleBatchPlanner(brief = {}, cached = {}) 
         row.appendChild(main);
 
         const actions = document.createElement('div');
-        actions.className = 'wandlight-loredeck-row-actions';
+        actions.className = 'saga-loredeck-row-actions';
         actions.appendChild(createStatusPill(drafted ? 'Generated' : (isNext ? 'Next in queue' : 'Waiting'), drafted ? 'This title set has generated drafts.' : (isNext ? 'Use Generate Next to draft this title set.' : 'Earlier title sets generate first.')));
         row.appendChild(actions);
         appendLoredeckCreatorGenerationStatus(main, cached, ['title_batch_draft', 'title_batch_redraft'], { batchId: batch.id, compact: true });
@@ -679,7 +679,7 @@ export function createLoredeckCreatorTitleBatchPlanner(brief = {}, cached = {}) 
 
     if (batches.length > 16) {
         const more = document.createElement('div');
-        more.className = 'wandlight-runtime-help';
+        more.className = 'saga-runtime-help';
         more.textContent = `Showing 16 of ${batches.length} planned title sets.`;
         section.appendChild(more);
     }
@@ -711,16 +711,16 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
     };
 
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-creator-brief wandlight-loredeck-creator-title-pass';
+    wrap.className = 'saga-loredeck-creator-brief saga-loredeck-creator-title-pass';
     wrap.dataset.sagaCreatorAnchor = 'title-sets';
 
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Creator Title Pass';
     wrap.appendChild(title);
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-entry-summary';
+    summary.className = 'saga-loredeck-entry-summary';
     summary.appendChild(createStatusPill(drafts.length ? 'Drafted' : 'Ready', 'Title-pass generation status.'));
     summary.appendChild(createStatusPill(`${drafts.length} title${drafts.length === 1 ? '' : 's'}`, 'Reviewable title drafts in this batch.'));
     summary.appendChild(createStatusPill(`${draftedBatchIds.size}/${titleBatches.length} batches`, 'Title batches drafted from the approved Story Outline.'));
@@ -731,7 +731,7 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Titles are review-only. Draft one planned title set per model call, then approve the useful titles for the next Creator stage.';
     wrap.appendChild(help);
 
@@ -739,7 +739,7 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
 
     if (cached.titlePassSummary || cached.titlePassQuestions?.length || cached.titlePassWarnings?.length || cached.titleBatch?.coverage || cached.titleBatch?.nextBatchHint) {
         const result = document.createElement('div');
-        result.className = 'wandlight-runtime-help';
+        result.className = 'saga-runtime-help';
         const parts = [];
         if (cached.titlePassSummary) parts.push(cached.titlePassSummary);
         if (cached.titleBatch?.coverage) parts.push(`Coverage: ${cached.titleBatch.coverage}`);
@@ -760,13 +760,13 @@ export function createLoredeckCreatorTitlePassCard(brief = {}, cached = {}) {
     }
 
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-entry-list';
+    list.className = 'saga-loredeck-entry-list';
     for (const draft of drafts.slice(0, 80)) {
         list.appendChild(createLoredeckCreatorTitleRow(draft, selectedIds.has(draft.titleId), approvedIds.has(draft.titleId)));
     }
     if (drafts.length > 80) {
         const more = document.createElement('div');
-        more.className = 'wandlight-runtime-help';
+        more.className = 'saga-runtime-help';
         more.textContent = `Showing 80 of ${drafts.length} title drafts. Approve, drop, or revise this batch before generating more.`;
         list.appendChild(more);
     }
@@ -785,7 +785,7 @@ function createLoredeckCreatorTitlePassActions(brief = {}, cached = {}, context 
         ? Number(context.selectedApprovedCount)
         : getLoredeckCreatorSelectedTitleDrafts(cached).filter(draft => getLoredeckCreatorApprovedTitleIds(cached).has(draft.titleId)).length;
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     const draftNext = createButton(nextTitleBatch ? 'Generate Next Title Batch' : 'Title Batches Complete', nextTitleBatch ? 'Generate the next undrafted title batch from the approved Story Outline.' : 'Every planned title batch has already been drafted.', async (btn) => {
         const fresh = getLoredeckCreatorBriefCache();
         const draftInputs = getLoredeckCreatorDraftInputs();
@@ -795,7 +795,7 @@ function createLoredeckCreatorTitlePassActions(brief = {}, cached = {}, context 
             targetTitleBatch: getLoredeckCreatorNextTitleBatch(fresh),
             previousTitleDrafts: getLoredeckCreatorTitleDrafts(fresh).map(compactLoredeckCreatorTitleDraftForRevision),
         }, btn);
-    }, 'wandlight-primary-button');
+    }, 'saga-primary-button');
     draftNext.disabled = !nextTitleBatch;
     actions.appendChild(lockLoredeckCreatorGenerationButton(draftNext, cached, 'title set draft'));
 
@@ -825,7 +825,7 @@ function createLoredeckCreatorTitlePassActions(brief = {}, cached = {}, context 
 
     const dropSelected = createButton('Drop Selected', 'Remove selected title drafts from this Creator batch.', () => {
         dropLoredeckCreatorTitleSelection(getLoredeckCreatorSelectedTitleIds(getLoredeckCreatorBriefCache()));
-    }, 'wandlight-danger-button');
+    }, 'saga-danger-button');
     dropSelected.disabled = !selectedCount;
     actions.appendChild(dropSelected);
 
@@ -840,13 +840,13 @@ function createLoredeckCreatorTitlePassActions(brief = {}, cached = {}, context 
 
 function createLoredeckCreatorTitleRevisionInput(container, value = '') {
     const label = document.createElement('label');
-    label.className = 'wandlight-new-lore-field';
+    label.className = 'saga-new-lore-field';
     const span = document.createElement('span');
     span.textContent = 'Title Revision';
     addTooltip(span, 'Instruction for revising selected title drafts before full entry generation.');
     label.appendChild(span);
     const input = document.createElement('textarea');
-    input.className = 'wandlight-lore-editor-textarea';
+    input.className = 'saga-lore-editor-textarea';
     input.value = value || '';
     input.placeholder = 'Make Arlong Pirates titles harsher and more coercive without adding generic biography.';
     label.appendChild(input);
@@ -857,10 +857,10 @@ function createLoredeckCreatorTitleRevisionInput(container, value = '') {
 function createLoredeckCreatorTitleRevisionForm(brief = {}, cached = {}, context = {}) {
     const selectedCount = Number.isFinite(Number(context.selectedCount)) ? Number(context.selectedCount) : getLoredeckCreatorSelectedTitleDrafts(cached).length;
     const reviseForm = document.createElement('div');
-    reviseForm.className = 'wandlight-new-lore-form wandlight-loredeck-creator-revise-form';
+    reviseForm.className = 'saga-new-lore-form saga-loredeck-creator-revise-form';
     const reviseInput = createLoredeckCreatorTitleRevisionInput(reviseForm, getLoredeckCreatorTitleRevisionInstruction());
     const reviseActions = document.createElement('div');
-    reviseActions.className = 'wandlight-primary-actions';
+    reviseActions.className = 'saga-primary-actions';
     const reviseButton = createButton('Revise Selected Titles', 'Ask the Reasoning Provider to revise only the selected title drafts.', async (btn) => {
         const revisionInstruction = setLoredeckCreatorTitleRevisionInstruction(reviseInput.value.trim());
         const fresh = getLoredeckCreatorBriefCache();
@@ -882,12 +882,12 @@ function createLoredeckCreatorTitleRevisionForm(brief = {}, cached = {}, context
 
 function createLoredeckCreatorTitleRow(draft = {}, selected = false, approved = false) {
     const row = document.createElement('div');
-    row.className = 'wandlight-loredeck-entry-row wandlight-loredeck-creator-title-row';
+    row.className = 'saga-loredeck-entry-row saga-loredeck-creator-title-row';
 
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-row-main';
+    main.className = 'saga-loredeck-row-main';
     const titleLine = document.createElement('label');
-    titleLine.className = 'wandlight-loredeck-assistant-draft-title wandlight-loredeck-creator-title-label';
+    titleLine.className = 'saga-loredeck-assistant-draft-title saga-loredeck-creator-title-label';
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = selected;
@@ -898,18 +898,18 @@ function createLoredeckCreatorTitleRow(draft = {}, selected = false, approved = 
     });
     titleLine.appendChild(checkbox);
     const title = document.createElement('span');
-    title.className = 'wandlight-loredeck-row-title';
+    title.className = 'saga-loredeck-row-title';
     title.textContent = draft.title || draft.titleId || 'Creator Title Draft';
     titleLine.appendChild(title);
     main.appendChild(titleLine);
 
     const desc = document.createElement('div');
-    desc.className = 'wandlight-loredeck-row-description';
+    desc.className = 'saga-loredeck-row-description';
     desc.textContent = draft.reason || draft.contextHint || 'Future lore-entry title draft.';
     main.appendChild(desc);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta';
+    meta.className = 'saga-loredeck-row-meta';
     meta.appendChild(createStatusPill(approved ? 'Approved' : 'Draft', approved ? 'Approved for the next Creator stage.' : 'Not approved for the next Creator stage yet.'));
     if (draft.category) meta.appendChild(createStatusPill(humanizeScopeKey(draft.category), 'Title category.'));
     if (draft.relevance) meta.appendChild(createStatusPill(`Relevance: ${humanizeScopeKey(draft.relevance)}`, 'Expected lore relevance.'));
@@ -934,10 +934,10 @@ function createLoredeckCreatorTitleRow(draft = {}, selected = false, approved = 
     row.appendChild(main);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-loredeck-row-actions';
+    actions.className = 'saga-loredeck-row-actions';
     const approve = createButton(approved ? 'Approved' : 'Approve', 'Approve this title draft for the next Creator stage.', () => {
         approveLoredeckCreatorTitleSelection(new Set([draft.titleId]));
-    }, approved ? '' : 'wandlight-primary-button');
+    }, approved ? '' : 'saga-primary-button');
     approve.disabled = approved;
     actions.appendChild(approve);
     actions.appendChild(createButton('Edit JSON', 'Edit this title draft JSON before full entry generation.', () => {
@@ -945,7 +945,7 @@ function createLoredeckCreatorTitleRow(draft = {}, selected = false, approved = 
     }));
     actions.appendChild(createButton('Drop', 'Remove this title draft from the Creator batch.', () => {
         dropLoredeckCreatorTitleSelection(new Set([draft.titleId]));
-    }, 'wandlight-danger-button'));
+    }, 'saga-danger-button'));
     row.appendChild(actions);
     return row;
 }
@@ -955,10 +955,10 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
     const queuedIds = getLoredeckCreatorPlanningQueuedBatchIds(cached);
     const nextBatch = getLoredeckCreatorNextPlanningBatch(cached);
     const section = document.createElement('div');
-    section.className = 'wandlight-loredeck-creator-title-batches wandlight-loredeck-creator-planning-batches';
+    section.className = 'saga-loredeck-creator-title-batches saga-loredeck-creator-planning-batches';
 
     const heading = document.createElement('div');
-    heading.className = 'wandlight-loredeck-row-title';
+    heading.className = 'saga-loredeck-row-title';
     heading.textContent = 'Context & Tag Plan';
     section.appendChild(heading);
 
@@ -966,19 +966,19 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
         const queued = queuedIds.has(batch.id);
         const isNext = !queued && batch.approvedTitleCount > 0 && nextBatch?.id === batch.id;
         const row = document.createElement('div');
-        row.className = 'wandlight-loredeck-entry-row wandlight-loredeck-creator-title-batch-row';
+        row.className = 'saga-loredeck-entry-row saga-loredeck-creator-title-batch-row';
         const main = document.createElement('div');
-        main.className = 'wandlight-loredeck-row-main';
+        main.className = 'saga-loredeck-row-main';
         const label = document.createElement('div');
-        label.className = 'wandlight-loredeck-row-title';
+        label.className = 'saga-loredeck-row-title';
         label.textContent = batch.label || batch.id;
         main.appendChild(label);
         const desc = document.createElement('div');
-        desc.className = 'wandlight-loredeck-row-description';
+        desc.className = 'saga-loredeck-row-description';
         desc.textContent = batch.summary || batch.contextRole || 'Approved-title set used for Context and Tag planning.';
         main.appendChild(desc);
         const meta = document.createElement('div');
-        meta.className = 'wandlight-loredeck-row-meta';
+        meta.className = 'saga-loredeck-row-meta';
         meta.appendChild(createStatusPill(queued ? 'Planned' : (isNext ? 'Next' : 'Waiting'), queued ? 'Context and tag proposals were already drafted for this title set.' : (isNext ? 'This is the next Context and Tag set Saga will plan.' : 'Approve and plan earlier title sets before this one.')));
         meta.appendChild(createStatusPill(`${batch.approvedTitleCount} approved title${batch.approvedTitleCount === 1 ? '' : 's'}`, 'Approved titles available to this planning batch.'));
         if (batch.type) meta.appendChild(createStatusPill(humanizeScopeKey(batch.type), 'Planning batch type.'));
@@ -986,16 +986,16 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
         row.appendChild(main);
 
         const actions = document.createElement('div');
-        actions.className = 'wandlight-loredeck-row-actions';
+        actions.className = 'saga-loredeck-row-actions';
         if (isNext) {
             const planButton = createButton('Plan This Set', 'Draft Context anchors/windows and tag proposals for this title set.', async (btn) => {
                 await handleLoredeckCreatorPlanningDraft({
                     targetPlanningBatch: batch,
                 }, btn);
-            }, 'wandlight-primary-button');
+            }, 'saga-primary-button');
             actions.appendChild(lockLoredeckCreatorGenerationButton(planButton, cached, 'context/tag plan'));
         } else if (queued) {
-            const doneButton = createButton('Done', 'This Context and Tag set is already in Pending Review.', null, 'wandlight-loredeck-creator-done-button');
+            const doneButton = createButton('Done', 'This Context and Tag set is already in Pending Review.', null, 'saga-loredeck-creator-done-button');
             doneButton.disabled = true;
             actions.appendChild(doneButton);
         } else {
@@ -1007,7 +1007,7 @@ function createLoredeckCreatorPlanningBatchPlanner(brief = {}, cached = {}) {
 
     if (rows.length > 16) {
         const more = document.createElement('div');
-        more.className = 'wandlight-runtime-help';
+        more.className = 'saga-runtime-help';
         more.textContent = `Showing 16 of ${rows.length} Context and Tag sets.`;
         section.appendChild(more);
     }
@@ -1024,16 +1024,16 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
     const generatedPack = cached.generatedPackId ? getLoredeckDefinition(cached.generatedPackId) : null;
     const pendingPlanningCount = generatedPack ? countLoredeckCreatorPlanningPendingChanges(generatedPack) : 0;
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-creator-brief wandlight-loredeck-creator-planning';
+    wrap.className = 'saga-loredeck-creator-brief saga-loredeck-creator-planning';
     wrap.dataset.sagaCreatorAnchor = 'context-tags';
 
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Creator Context & Tags';
     wrap.appendChild(title);
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-entry-summary';
+    summary.className = 'saga-loredeck-entry-summary';
     summary.appendChild(createStatusPill(`${approvedTitles.length} approved title${approvedTitles.length === 1 ? '' : 's'}`, 'Approved title drafts used to infer the Context and Tag planning shape.'));
     summary.appendChild(createStatusPill(`${queuedBatchIds.size}/${eligiblePlanningBatchCount} planned`, 'Context and Tag sets drafted from approved title sets.'));
     summary.appendChild(createStatusPill(generatedPack ? 'Generated shell ready' : 'No shell yet', 'Generated Loredeck shell status.'));
@@ -1044,7 +1044,7 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Context anchors/windows and tag definitions are drafted one title set at a time into the Generated Loredeck Pending Review. They do not become accepted registry data until reviewed.';
     wrap.appendChild(help);
 
@@ -1052,7 +1052,7 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
 
     if (cached.planningSummary || cached.planningQuestions?.length || cached.planningWarnings?.length) {
         const result = document.createElement('div');
-        result.className = 'wandlight-runtime-help';
+        result.className = 'saga-runtime-help';
         const parts = [];
         if (cached.planningSummary) parts.push(cached.planningSummary);
         if (cached.planningQuestions?.length) parts.push(`Questions: ${cached.planningQuestions.join(' | ')}`);
@@ -1062,7 +1062,7 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
     }
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     const draftButton = createButton(
         nextPlanningBatch ? 'Plan Context and Tags' : (pendingPlanningCount ? 'Review Context and Tags' : 'Context Plans Complete'),
         nextPlanningBatch
@@ -1079,7 +1079,7 @@ export function createLoredeckCreatorPlanningCard(brief = {}, cached = {}) {
             }
             scrollLoredeckCreatorWorkbenchToAnchor('review-queue');
         },
-        'wandlight-primary-button'
+        'saga-primary-button'
     );
     draftButton.disabled = !nextPlanningBatch && !pendingPlanningCount;
     actions.appendChild(lockLoredeckCreatorGenerationButton(draftButton, cached, 'context/tag plan'));
@@ -1118,16 +1118,16 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     const targetTitles = generatedPack ? getLoredeckCreatorEntryTargetTitles(cached, generatedPack) : [];
     const canDraftEntries = !!generatedPack && planning.ready && !!targetTitles.length && !hasDraftsAwaitingReview;
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-creator-brief wandlight-loredeck-creator-entry-drafts';
+    wrap.className = 'saga-loredeck-creator-brief saga-loredeck-creator-entry-drafts';
     wrap.dataset.sagaCreatorAnchor = 'lorecards';
 
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Creator Lorecard Drafts';
     wrap.appendChild(title);
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-entry-summary';
+    summary.className = 'saga-loredeck-entry-summary';
     summary.appendChild(createStatusPill(`${approvedTitles.length} approved title${approvedTitles.length === 1 ? '' : 's'}`, 'Approved title drafts available for schema v3 entry generation.'));
     summary.appendChild(createStatusPill(`${acceptedPlanningBatchIds.size}/${queuedPlanningBatchIds.size || acceptedPlanningBatchIds.size} Context sets accepted`, 'Creator Context and Tag sets accepted into the Generated Loredeck registry.'));
     summary.appendChild(createStatusPill(`${planning.anchorCount + planning.windowCount} timeline`, 'Accepted timeline anchors/windows on the Generated Loredeck.'));
@@ -1143,20 +1143,20 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Lorecard drafts run in small resumable batches. Each model call receives only titles from one accepted Context and Tag set, then drafts enter review before Pending Review and acceptance.';
     wrap.appendChild(help);
 
     if (hasDraftsAwaitingReview) {
         const reviewHelp = document.createElement('div');
-        reviewHelp.className = 'wandlight-runtime-help wandlight-loredeck-creator-review-blocker';
+        reviewHelp.className = 'saga-runtime-help saga-loredeck-creator-review-blocker';
         reviewHelp.textContent = 'Review the current Lorecard drafts below before drafting more. Send useful drafts to Pending Review, edit or revise them, or drop the ones that do not fit.';
         wrap.appendChild(reviewHelp);
     }
 
     if (cached.entryDraftSummary || cached.entryDraftQuestions?.length || cached.entryDraftWarnings?.length) {
         const result = document.createElement('div');
-        result.className = 'wandlight-runtime-help';
+        result.className = 'saga-runtime-help';
         const parts = [];
         if (cached.entryDraftSummary) parts.push(cached.entryDraftSummary);
         if (cached.entryDraftQuestions?.length) parts.push(`Questions: ${cached.entryDraftQuestions.join(' | ')}`);
@@ -1166,10 +1166,10 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     }
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     const draftButton = createButton('Draft Lorecards', hasDraftsAwaitingReview ? 'Review the current Lorecard drafts before drafting more.' : 'Generate the next small schema v3 Lorecard set for approved titles that are not accepted, pending, or already drafted.', async (btn) => {
         await handleLoredeckCreatorEntryDraft(btn);
-    }, 'wandlight-primary-button');
+    }, 'saga-primary-button');
     draftButton.disabled = !canDraftEntries;
     actions.appendChild(lockLoredeckCreatorGenerationButton(draftButton, cached, 'Lorecard batch draft'));
 
@@ -1219,7 +1219,7 @@ export function createLoredeckCreatorEntryDraftCard(brief = {}, cached = {}) {
     }
     if (targetTitles.length) {
         const next = document.createElement('div');
-        next.className = 'wandlight-runtime-help';
+        next.className = 'saga-runtime-help';
         next.textContent = `Next batch: ${targetTitles.map(draft => draft.title || draft.titleId).join(' | ')}`;
         wrap.appendChild(next);
     }
@@ -1236,11 +1236,11 @@ export function createLoredeckCreatorPendingReviewCard(cached = {}, pipeline = {
     if (!pack) return null;
     const card = createLoredeckPendingReviewCard(pack);
     if (!card) return null;
-    card.classList.add('wandlight-loredeck-creator-pending-review');
+    card.classList.add('saga-loredeck-creator-pending-review');
     card.dataset.sagaCreatorAnchor = 'review-queue';
     if (pipeline.pendingPlanningCount) {
         const note = document.createElement('div');
-        note.className = 'wandlight-runtime-help';
+        note.className = 'saga-runtime-help';
         note.textContent = 'Next step: review and accept these Context and Tag proposals. Accepted planning metadata unlocks Lorecard drafting.';
         const insertBefore = card.children[2] || null;
         card.insertBefore(note, insertBefore);
@@ -1251,16 +1251,16 @@ export function createLoredeckCreatorPendingReviewCard(cached = {}, pipeline = {
 function appendLoredeckCreatorReadinessItems(container, blockers = [], warnings = []) {
     if (!blockers.length && !warnings.length) return;
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-generated-readiness-list';
+    list.className = 'saga-loredeck-generated-readiness-list';
     for (const blocker of blockers) {
         const item = document.createElement('div');
-        item.className = 'wandlight-loredeck-generated-readiness-item wandlight-loredeck-generated-readiness-blocker';
+        item.className = 'saga-loredeck-generated-readiness-item saga-loredeck-generated-readiness-blocker';
         item.textContent = blocker;
         list.appendChild(item);
     }
     for (const warning of warnings) {
         const item = document.createElement('div');
-        item.className = 'wandlight-loredeck-generated-readiness-item wandlight-loredeck-generated-readiness-warning';
+        item.className = 'saga-loredeck-generated-readiness-item saga-loredeck-generated-readiness-warning';
         item.textContent = warning;
         list.appendChild(item);
     }
@@ -1273,16 +1273,16 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
     const readiness = view.readiness || {};
     const pipeline = view.pipeline || readiness.pipeline || {};
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-creator-brief wandlight-loredeck-generated-readiness wandlight-loredeck-creator-pipeline-readiness';
+    wrap.className = 'saga-loredeck-creator-brief saga-loredeck-generated-readiness saga-loredeck-creator-pipeline-readiness';
     wrap.dataset.sagaCreatorAnchor = 'finalize';
 
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = 'Creator Readiness Gate';
     wrap.appendChild(title);
 
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-entry-summary';
+    summary.className = 'saga-loredeck-entry-summary';
     summary.appendChild(createStatusPill(readiness.ready ? 'Finalize ready' : 'Needs review', 'Generated Loredeck finalization gate after staged Creator review.'));
     summary.appendChild(createStatusPill(pipeline.statusLabel || 'Pipeline check', 'Creator pipeline completeness based on the persisted staged job.'));
     summary.appendChild(createStatusPill(`${pipeline.titleBatchDraftedCount || 0}/${pipeline.titleBatchCount || 0} title sets`, 'Title sets drafted from the approved Story Outline.'));
@@ -1292,7 +1292,7 @@ export function createLoredeckCreatorPipelineReadinessCard(pack = {}, cached = n
     wrap.appendChild(summary);
 
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = readiness.ready
         ? 'This Generated Loredeck has no unresolved draft or Pending Review state. Warnings may still describe intentionally partial Creator coverage.'
         : 'Resolve the blockers below before finalizing this Generated Loredeck as Custom. Library export is still available.';
@@ -1336,7 +1336,7 @@ function getLoredeckCreatorCurrentTaskDescription(cached = {}, pipeline = {}) {
 
 function createLoredeckCreatorCurrentTaskOutputs(pipeline = {}) {
     const grid = document.createElement('div');
-    grid.className = 'wandlight-loredeck-creator-output-grid';
+    grid.className = 'saga-loredeck-creator-output-grid';
     const outputsByStep = {
         scope: [
             ['Scope boundary', 'Fandom, story slice, granularity, assumptions, and risks.'],
@@ -1382,7 +1382,7 @@ function createLoredeckCreatorCurrentTaskOutputs(pipeline = {}) {
     const rows = outputsByStep[pipeline.currentStep?.id] || outputsByStep.scope;
     for (const [label, text] of rows) {
         const item = document.createElement('div');
-        item.className = 'wandlight-loredeck-creator-output-item';
+        item.className = 'saga-loredeck-creator-output-item';
         const strong = document.createElement('strong');
         strong.textContent = label;
         item.appendChild(strong);
@@ -1396,7 +1396,7 @@ function createLoredeckCreatorCurrentTaskOutputs(pipeline = {}) {
 
 function createLoredeckCreatorCurrentSidebar(cached = {}, pipeline = {}) {
     const side = document.createElement('div');
-    side.className = 'wandlight-loredeck-creator-current-sidebar';
+    side.className = 'saga-loredeck-creator-current-sidebar';
     side.appendChild(createLoredeckCreatorInputsPanel(cached, pipeline));
     side.appendChild(createLoredeckCreatorGuidancePanel(pipeline));
     side.appendChild(createLoredeckCreatorQueuePanel(pipeline));
@@ -1406,13 +1406,13 @@ function createLoredeckCreatorCurrentSidebar(cached = {}, pipeline = {}) {
 
 function createLoredeckCreatorInputsPanel(cached = {}, pipeline = {}) {
     const panel = document.createElement('div');
-    panel.className = 'wandlight-loredeck-creator-side-panel';
+    panel.className = 'saga-loredeck-creator-side-panel';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-creator-side-title';
+    title.className = 'saga-loredeck-creator-side-title';
     title.textContent = 'Inputs';
     panel.appendChild(title);
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-creator-side-list';
+    list.className = 'saga-loredeck-creator-side-list';
     const brief = cached.brief || {};
     const draft = getLoredeckCreatorDraftInputs();
     const rows = [
@@ -1425,7 +1425,7 @@ function createLoredeckCreatorInputsPanel(cached = {}, pipeline = {}) {
     if (pipeline.approvedTitles?.length) rows.push(['Approved titles', String(pipeline.approvedTitles.length)]);
     for (const [label, value] of rows) {
         const row = document.createElement('div');
-        row.className = 'wandlight-loredeck-creator-side-row';
+        row.className = 'saga-loredeck-creator-side-row';
         const key = document.createElement('span');
         key.textContent = label;
         row.appendChild(key);
@@ -1440,13 +1440,13 @@ function createLoredeckCreatorInputsPanel(cached = {}, pipeline = {}) {
 
 function createLoredeckCreatorGuidancePanel(pipeline = {}) {
     const panel = document.createElement('div');
-    panel.className = 'wandlight-loredeck-creator-side-panel';
+    panel.className = 'saga-loredeck-creator-side-panel';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-creator-side-title';
+    title.className = 'saga-loredeck-creator-side-title';
     title.textContent = 'Guidance';
     panel.appendChild(title);
     const list = document.createElement('ul');
-    list.className = 'wandlight-loredeck-creator-check-list';
+    list.className = 'saga-loredeck-creator-check-list';
     const items = pipeline.currentStep?.id === 'outline'
         ? ['Story beats', 'Context milestones', 'Title-batch slices', 'Risks and assumptions']
         : pipeline.currentStep?.id === 'titles'
@@ -1463,10 +1463,10 @@ function createLoredeckCreatorGuidancePanel(pipeline = {}) {
 
 function createLoredeckCreatorQueuePanel(pipeline = {}) {
     const panel = document.createElement('div');
-    panel.className = 'wandlight-loredeck-creator-side-panel';
+    panel.className = 'saga-loredeck-creator-side-panel';
     panel.dataset.sagaCreatorAnchor = 'review-status';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-creator-side-title';
+    title.className = 'saga-loredeck-creator-side-title';
     title.textContent = 'Pending Review';
     panel.appendChild(title);
     const rows = [
@@ -1477,7 +1477,7 @@ function createLoredeckCreatorQueuePanel(pipeline = {}) {
     ];
     for (const [label, count] of rows) {
         const row = document.createElement('div');
-        row.className = 'wandlight-loredeck-creator-queue-row';
+        row.className = 'saga-loredeck-creator-queue-row';
         const name = document.createElement('span');
         name.textContent = label;
         row.appendChild(name);
@@ -1491,9 +1491,9 @@ function createLoredeckCreatorQueuePanel(pipeline = {}) {
 
 function createLoredeckCreatorJobPanel(cached = {}, pipeline = {}) {
     const panel = document.createElement('div');
-    panel.className = 'wandlight-loredeck-creator-side-panel';
+    panel.className = 'saga-loredeck-creator-side-panel';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-creator-side-title';
+    title.className = 'saga-loredeck-creator-side-title';
     title.textContent = 'Job & Cache';
     panel.appendChild(title);
     const active = pipeline.activeGeneration;
@@ -1508,7 +1508,7 @@ function createLoredeckCreatorJobPanel(cached = {}, pipeline = {}) {
     ];
     for (const [label, value] of rows) {
         const row = document.createElement('div');
-        row.className = 'wandlight-loredeck-creator-side-row';
+        row.className = 'saga-loredeck-creator-side-row';
         const key = document.createElement('span');
         key.textContent = label;
         row.appendChild(key);
@@ -1562,43 +1562,43 @@ export function createLoredeckCreatorGenerationStatus(cached = {}, actionIds = [
     if (!model) return null;
 
     const row = document.createElement('div');
-    row.className = `wandlight-generation-live-status wandlight-generation-live-status-${active ? 'running' : model.status || 'complete'}`;
-    if (options.compact) row.classList.add('wandlight-generation-live-status-compact');
+    row.className = `saga-generation-live-status saga-generation-live-status-${active ? 'running' : model.status || 'complete'}`;
+    if (options.compact) row.classList.add('saga-generation-live-status-compact');
 
     const icon = document.createElement('div');
-    icon.className = active ? 'wandlight-generation-thinking-icon' : 'wandlight-generation-result-icon';
+    icon.className = active ? 'saga-generation-thinking-icon' : 'saga-generation-result-icon';
     const status = String(model.status || '').toLowerCase();
     icon.textContent = active ? '' : (['error', 'failed', 'interrupted'].includes(status) ? '!' : status === 'cancelled' ? 'X' : status === 'warning' ? '?' : 'OK');
     row.appendChild(icon);
 
     const main = document.createElement('div');
-    main.className = 'wandlight-generation-live-main';
+    main.className = 'saga-generation-live-main';
     const line = document.createElement('div');
-    line.className = 'wandlight-generation-live-line';
+    line.className = 'saga-generation-live-line';
     const label = document.createElement('span');
-    label.className = 'wandlight-generation-live-label';
+    label.className = 'saga-generation-live-label';
     label.textContent = model.label || 'Generation';
     line.appendChild(label);
     const text = document.createElement('span');
-    text.className = 'wandlight-generation-live-text';
+    text.className = 'saga-generation-live-text';
     text.textContent = active
         ? getLoredeckCreatorGenerationWaitMessage(model)
         : (model.message || (status === 'interrupted' ? 'Previous generation was interrupted. Review saved batches, then rerun this stage.' : 'Generation complete.'));
     line.appendChild(text);
     const elapsed = document.createElement('span');
-    elapsed.className = 'wandlight-generation-live-elapsed';
+    elapsed.className = 'saga-generation-live-elapsed';
     elapsed.textContent = formatLoredeckCreatorGenerationElapsed(active ? Date.now() - Number(model.startedAt || Date.now()) : model.elapsedMs);
     line.appendChild(elapsed);
     if (active) {
         const cancel = createButton('Cancel', 'Cancel this generation. Any late provider response will be ignored.', () => {
             cancelLoredeckCreatorGeneration(model.id);
-        }, 'wandlight-generation-cancel-button');
+        }, 'saga-generation-cancel-button');
         line.appendChild(cancel);
     }
     main.appendChild(line);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-generation-live-meta';
+    meta.className = 'saga-generation-live-meta';
     const streamText = model.streamSupported === true ? 'streaming' : model.streamSupported === false ? 'final response' : 'provider pending';
     const chars = Number(model.receivedChars || 0);
     meta.textContent = `${streamText}${chars ? ` | ${chars} chars` : ''}${model.batchLabel ? ` | ${model.batchLabel}` : ''}`;

@@ -1,11 +1,11 @@
 /**
- * secure-keyring.js — Wandlight
+ * secure-keyring.js — Saga
  * Best-effort secret storage for direct browser-side API calls.
  *
  * Security model:
  * - When WebCrypto is available, API keys are encrypted with AES-GCM.
  * - The encryption key is derived from a session passphrase via PBKDF2.
- * - When WebCrypto is unavailable, Wandlight uses compatibility storage so
+ * - When WebCrypto is unavailable, Saga uses compatibility storage so
  *   remote HTTP/LAN browser sessions can still save keys. This is not strong
  *   encryption; prefer HTTPS/localhost or a SillyTavern connection profile.
  * - Decrypted keys live only in memory.
@@ -72,7 +72,7 @@ function nextXorshift32(seed) {
 }
 
 function compatTransformBytes(bytes, passphrase, saltBase64, ivBase64) {
-    const seedMaterial = `${passphrase}|${saltBase64}|${ivBase64}|wandlight-keyring-compat-v1`;
+    const seedMaterial = `${passphrase}|${saltBase64}|${ivBase64}|saga-keyring-compat-v1`;
     let state = fnv1a32(seedMaterial) || 0x9e3779b9;
     const out = new Uint8Array(bytes.length);
     for (let i = 0; i < bytes.length; i += 1) {
@@ -261,7 +261,7 @@ export function clearStoredSecret(secretName) {
     saveSettings(settings);
 }
 
-// ── Convenience wrappers for Wandlight OpenAI-compatible API keys ───────────────
+// ── Convenience wrappers for Saga OpenAI-compatible API keys ───────────────
 
 const LORE_KEY_NAME = 'loreOpenAI';
 const CONTINUITY_KEY_NAME = 'continuityOpenAI';
@@ -282,10 +282,10 @@ function deriveSessionPassphrase() {
     try {
         // Use a stable session id + extension key as derivation material
         const ctx = SillyTavern?.getContext();
-        const sessionId = ctx?.mainApi || ctx?.chatId || ctx?.characterId || 'wandlight';
-        return 'wandlight-lore-key-v1-' + String(sessionId);
+        const sessionId = ctx?.mainApi || ctx?.chatId || ctx?.characterId || 'saga';
+        return 'saga-lore-key-v1-' + String(sessionId);
     } catch (_) {
-        return 'wandlight-lore-key-v1-default';
+        return 'saga-lore-key-v1-default';
     }
 }
 

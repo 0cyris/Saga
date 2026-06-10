@@ -10,7 +10,7 @@ import {
 } from './runtime-ui-kit.js';
 
 let runtimeTourDeps = {};
-let activeWandlightTour = null;
+let activeSagaTour = null;
 
 export function configureRuntimeTour(deps = {}) {
     runtimeTourDeps = { ...runtimeTourDeps, ...(deps || {}) };
@@ -52,38 +52,38 @@ function getPanelRoot() {
 }
 
 function getPanelId() {
-    return runtimeTourDeps?.panelId || 'wandlight-lore-panel';
+    return runtimeTourDeps?.panelId || 'saga-lore-panel';
 }
 
 export function markTourTarget(el, target) {
-    if (el && target) el.dataset.wandlightTour = String(target);
+    if (el && target) el.dataset.sagaTour = String(target);
     return el;
 }
 
-export function startWandlightTour(mode = normalizeExperienceMode(getSettings().experienceMode)) {
+export function startSagaTour(mode = normalizeExperienceMode(getSettings().experienceMode)) {
     const normalized = normalizeExperienceMode(mode);
     const steps = [...(getGuideSteps(normalized) || getGuideSteps('basic') || [])];
     if (!steps.length) return;
 
-    closeWandlightTour({ preserveToast: true });
-    activeWandlightTour = {
+    closeSagaTour({ preserveToast: true });
+    activeSagaTour = {
         mode: normalized,
         steps,
         index: 0,
         renderToken: 0,
         currentTarget: null,
     };
-    document.addEventListener('keydown', onWandlightTourKeydown);
-    window.addEventListener('resize', repositionWandlightTourPopover);
-    renderActiveWandlightTourStep();
+    document.addEventListener('keydown', onSagaTourKeydown);
+    window.addEventListener('resize', repositionSagaTourPopover);
+    renderActiveSagaTourStep();
 }
 
-function renderActiveWandlightTourStep(skipCount = 0) {
-    const tour = activeWandlightTour;
+function renderActiveSagaTourStep(skipCount = 0) {
+    const tour = activeSagaTour;
     if (!tour) return;
     if (tour.index < 0) tour.index = 0;
     if (tour.index >= tour.steps.length) {
-        closeWandlightTour();
+        closeSagaTour();
         return;
     }
 
@@ -92,13 +92,13 @@ function renderActiveWandlightTourStep(skipCount = 0) {
         highlight: true,
         tour: true,
         onReady: (target) => {
-            if (!activeWandlightTour || activeWandlightTour !== tour) return;
+            if (!activeSagaTour || activeSagaTour !== tour) return;
             if (!target && skipCount < tour.steps.length - 1) {
                 tour.index += 1;
-                renderActiveWandlightTourStep(skipCount + 1);
+                renderActiveSagaTourStep(skipCount + 1);
                 return;
             }
-            renderWandlightTourPopover(step, target);
+            renderSagaTourPopover(step, target);
         },
     });
 }
@@ -120,16 +120,16 @@ export function showGuideStep(step, options = {}) {
     }
     showRuntimePanel();
 
-    const token = activeWandlightTour ? ++activeWandlightTour.renderToken : 0;
+    const token = activeSagaTour ? ++activeSagaTour.renderToken : 0;
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-            if (activeWandlightTour && token !== activeWandlightTour.renderToken) return;
+            if (activeSagaTour && token !== activeSagaTour.renderToken) return;
             const target = getTourTargetElement(step.target) || getTourTargetElement(step.fallbackTarget);
             if (options.highlight) {
-                highlightWandlightTourTarget(target);
+                highlightSagaTourTarget(target);
                 if (!options.tour) {
                     window.setTimeout(() => {
-                        if (!activeWandlightTour) clearWandlightTourHighlight();
+                        if (!activeSagaTour) clearSagaTourHighlight();
                     }, 2200);
                 }
             }
@@ -145,103 +145,103 @@ function getTourTargetElement(targetName) {
     if (!targetName) return null;
     const root = getPanelRoot() || document.getElementById(getPanelId()) || document.body;
     const candidates = [
-        ...Array.from(root.querySelectorAll('[data-wandlight-tour]')),
-        ...Array.from(document.querySelectorAll('[data-wandlight-tour]')),
+        ...Array.from(root.querySelectorAll('[data-saga-tour]')),
+        ...Array.from(document.querySelectorAll('[data-saga-tour]')),
     ];
-    return candidates.find(el => el?.dataset?.wandlightTour === targetName) || null;
+    return candidates.find(el => el?.dataset?.sagaTour === targetName) || null;
 }
 
-function highlightWandlightTourTarget(target) {
-    clearWandlightTourHighlight();
+function highlightSagaTourTarget(target) {
+    clearSagaTourHighlight();
     if (!target) return;
-    target.classList.add('wandlight-tour-highlight');
+    target.classList.add('saga-tour-highlight');
     target.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'auto' });
 }
 
-function clearWandlightTourHighlight() {
-    for (const el of document.querySelectorAll('.wandlight-tour-highlight')) {
-        el.classList.remove('wandlight-tour-highlight');
+function clearSagaTourHighlight() {
+    for (const el of document.querySelectorAll('.saga-tour-highlight')) {
+        el.classList.remove('saga-tour-highlight');
     }
 }
 
-function renderWandlightTourPopover(step, target) {
-    const tour = activeWandlightTour;
+function renderSagaTourPopover(step, target) {
+    const tour = activeSagaTour;
     if (!tour) return;
 
-    let popover = document.getElementById('wandlight-tour-popover');
+    let popover = document.getElementById('saga-tour-popover');
     if (!popover) {
         popover = document.createElement('div');
-        popover.id = 'wandlight-tour-popover';
-        popover.className = 'wandlight-tour-popover';
+        popover.id = 'saga-tour-popover';
+        popover.className = 'saga-tour-popover';
         document.body.appendChild(popover);
     }
 
     popover.innerHTML = '';
     const progress = document.createElement('div');
-    progress.className = 'wandlight-tour-progress';
+    progress.className = 'saga-tour-progress';
     progress.textContent = `${tour.index + 1} / ${tour.steps.length}`;
     popover.appendChild(progress);
 
     const title = document.createElement('div');
-    title.className = 'wandlight-tour-title';
+    title.className = 'saga-tour-title';
     title.textContent = step.title || 'Saga';
     popover.appendChild(title);
 
     const body = document.createElement('div');
-    body.className = 'wandlight-tour-body';
+    body.className = 'saga-tour-body';
     body.textContent = step.body || '';
     popover.appendChild(body);
 
-    appendWandlightTourDetail(popover, 'When to use', step.when);
-    appendWandlightTourDetail(popover, 'Expected result', step.expected);
+    appendSagaTourDetail(popover, 'When to use', step.when);
+    appendSagaTourDetail(popover, 'Expected result', step.expected);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-tour-actions';
+    actions.className = 'saga-tour-actions';
     const back = createButton('Back', 'Return to the previous walkthrough step.', () => {
-        if (!activeWandlightTour) return;
-        activeWandlightTour.index = Math.max(0, activeWandlightTour.index - 1);
-        renderActiveWandlightTourStep();
-    }, 'wandlight-mini-button');
+        if (!activeSagaTour) return;
+        activeSagaTour.index = Math.max(0, activeSagaTour.index - 1);
+        renderActiveSagaTourStep();
+    }, 'saga-mini-button');
     back.disabled = tour.index <= 0;
     actions.appendChild(back);
 
-    const close = createButton('Close', 'Close the walkthrough.', () => closeWandlightTour(), 'wandlight-mini-button');
+    const close = createButton('Close', 'Close the walkthrough.', () => closeSagaTour(), 'saga-mini-button');
     actions.appendChild(close);
 
     const nextLabel = tour.index >= tour.steps.length - 1 ? 'Finish' : 'Next';
     const next = createButton(nextLabel, nextLabel === 'Finish' ? 'Close the walkthrough.' : 'Move to the next walkthrough step.', () => {
-        if (!activeWandlightTour) return;
-        if (activeWandlightTour.index >= activeWandlightTour.steps.length - 1) {
-            closeWandlightTour();
+        if (!activeSagaTour) return;
+        if (activeSagaTour.index >= activeSagaTour.steps.length - 1) {
+            closeSagaTour();
             return;
         }
-        activeWandlightTour.index += 1;
-        renderActiveWandlightTourStep();
-    }, 'wandlight-primary-button wandlight-mini-button');
+        activeSagaTour.index += 1;
+        renderActiveSagaTourStep();
+    }, 'saga-primary-button saga-mini-button');
     actions.appendChild(next);
     popover.appendChild(actions);
 
-    activeWandlightTour.currentTarget = target || null;
-    requestAnimationFrame(repositionWandlightTourPopover);
+    activeSagaTour.currentTarget = target || null;
+    requestAnimationFrame(repositionSagaTourPopover);
 }
 
-function appendWandlightTourDetail(popover, labelText, value) {
+function appendSagaTourDetail(popover, labelText, value) {
     const text = String(value || '').trim();
     if (!text) return;
     const row = document.createElement('div');
-    row.className = 'wandlight-tour-detail';
+    row.className = 'saga-tour-detail';
     const label = document.createElement('span');
-    label.className = 'wandlight-tour-detail-label';
+    label.className = 'saga-tour-detail-label';
     label.textContent = `${labelText}:`;
     row.appendChild(label);
     row.appendChild(document.createTextNode(` ${text}`));
     popover.appendChild(row);
 }
 
-function repositionWandlightTourPopover() {
-    const popover = document.getElementById('wandlight-tour-popover');
+function repositionSagaTourPopover() {
+    const popover = document.getElementById('saga-tour-popover');
     if (!popover) return;
-    const target = activeWandlightTour?.currentTarget;
+    const target = activeSagaTour?.currentTarget;
     const margin = 12;
     const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1024;
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 768;
@@ -272,31 +272,31 @@ function repositionWandlightTourPopover() {
     popover.style.top = `${top}px`;
 }
 
-export function closeWandlightTour(options = {}) {
-    activeWandlightTour = null;
-    clearWandlightTourHighlight();
-    document.removeEventListener('keydown', onWandlightTourKeydown);
-    window.removeEventListener('resize', repositionWandlightTourPopover);
-    const popover = document.getElementById('wandlight-tour-popover');
+export function closeSagaTour(options = {}) {
+    activeSagaTour = null;
+    clearSagaTourHighlight();
+    document.removeEventListener('keydown', onSagaTourKeydown);
+    window.removeEventListener('resize', repositionSagaTourPopover);
+    const popover = document.getElementById('saga-tour-popover');
     if (popover) popover.remove();
     if (!options.preserveToast) hideFloatingTooltip();
 }
 
-function onWandlightTourKeydown(event) {
-    if (!activeWandlightTour) return;
+function onSagaTourKeydown(event) {
+    if (!activeSagaTour) return;
     if (event.key === 'Escape') {
         event.preventDefault();
-        closeWandlightTour();
+        closeSagaTour();
     } else if (event.key === 'ArrowRight') {
         event.preventDefault();
-        if (activeWandlightTour.index >= activeWandlightTour.steps.length - 1) closeWandlightTour();
+        if (activeSagaTour.index >= activeSagaTour.steps.length - 1) closeSagaTour();
         else {
-            activeWandlightTour.index += 1;
-            renderActiveWandlightTourStep();
+            activeSagaTour.index += 1;
+            renderActiveSagaTourStep();
         }
     } else if (event.key === 'ArrowLeft') {
         event.preventDefault();
-        activeWandlightTour.index = Math.max(0, activeWandlightTour.index - 1);
-        renderActiveWandlightTourStep();
+        activeSagaTour.index = Math.max(0, activeSagaTour.index - 1);
+        renderActiveSagaTourStep();
     }
 }

@@ -78,13 +78,13 @@ export function createLoreTimelineCard(state) {
     const counts = summary.counts || {};
     const latest = summary.latest;
     const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-lore-timeline-card';
+    card.className = 'saga-runtime-card saga-lore-timeline-card';
     markTourTarget(card, 'lore.timeline');
 
     const top = document.createElement('div');
-    top.className = 'wandlight-lore-timeline-card-top';
+    top.className = 'saga-lore-timeline-card-top';
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = basic ? 'Lore Tools' : 'Lore Timeline';
     addTooltip(title, basic ? 'Create manual lore and review suggested/generated entries below.' : 'Story-aware audit trail for accepted lore changes and recoverable lore versions.');
     top.appendChild(title);
@@ -95,7 +95,7 @@ export function createLoreTimelineCard(state) {
 
     if (!basic) {
         const stats = document.createElement('div');
-        stats.className = 'wandlight-lore-timeline-stats';
+        stats.className = 'saga-lore-timeline-stats';
         stats.appendChild(createCompactPresetStat('Added', `+${counts.added || 0}`));
         stats.appendChild(createCompactPresetStat('Deleted', `-${counts.deleted || 0}`));
         stats.appendChild(createCompactPresetStat('Updated', String(counts.updated || 0)));
@@ -103,18 +103,18 @@ export function createLoreTimelineCard(state) {
         card.appendChild(stats);
 
         const rail = document.createElement('div');
-        rail.className = 'wandlight-lore-timeline-mini-rail';
+        rail.className = 'saga-lore-timeline-mini-rail';
         const events = getLoreTimelineEvents(state).slice(-18);
         if (events.length) {
             for (const event of events) {
                 const tick = document.createElement('span');
-                tick.className = `wandlight-lore-timeline-mini-tick ${getLoreTimelineEventClass(event)}`.trim();
+                tick.className = `saga-lore-timeline-mini-tick ${getLoreTimelineEventClass(event)}`.trim();
                 addTooltip(tick, event.summary || event.type);
                 rail.appendChild(tick);
             }
         } else {
             const empty = document.createElement('span');
-            empty.className = 'wandlight-lore-timeline-mini-empty';
+            empty.className = 'saga-lore-timeline-mini-empty';
             empty.textContent = 'No accepted-lore changes recorded yet.';
             rail.appendChild(empty);
         }
@@ -122,18 +122,18 @@ export function createLoreTimelineCard(state) {
     }
 
     const foot = document.createElement('div');
-    foot.className = 'wandlight-lore-timeline-card-foot';
+    foot.className = 'saga-lore-timeline-card-foot';
     const latestText = document.createElement('div');
-    latestText.className = 'wandlight-lore-timeline-latest';
+    latestText.className = 'saga-lore-timeline-latest';
     latestText.textContent = basic
         ? 'Create a manual lore draft, or use the generation tools below to add reviewable lore.'
         : (latest ? `Last: ${latest.summary || latest.type}` : 'Manual creations, accepted lore changes, and recoveries will appear here.');
     foot.appendChild(latestText);
     const actions = document.createElement('div');
-    actions.className = 'wandlight-lore-timeline-actions';
+    actions.className = 'saga-lore-timeline-actions';
     actions.appendChild(markTourTarget(createButton('New Lore', 'Create a manual lore draft in Pending Lore Review.', () => {
         openNewLoreDialog();
-    }, 'wandlight-primary-button'), 'lore.new'));
+    }, 'saga-primary-button'), 'lore.new'));
     if (!basic) {
         actions.appendChild(markTourTarget(createButton('Open Timeline', 'Open the full Lore Timeline workbench.', () => {
             openLoreTimeline();
@@ -146,13 +146,13 @@ export function createLoreTimelineCard(state) {
 
 export function getLoreTimelineEventClass(event = {}) {
     const counts = event.counts || {};
-    if (counts.deleted > 0 || /delete|remove/i.test(event.type || '')) return 'wandlight-lore-timeline-event-delete';
-    if (counts.restored > 0 || /restore|recover/i.test(event.type || '')) return 'wandlight-lore-timeline-event-restore';
-    if (counts.updated > 0 || counts.pinned > 0 || counts.muted > 0 || /edit|relevance|pin|mute|metadata/i.test(event.type || '')) return 'wandlight-lore-timeline-event-update';
-    if (counts.pending > 0 || /pending|generate/i.test(event.type || '')) return 'wandlight-lore-timeline-event-pending';
-    return 'wandlight-lore-timeline-event-add';
+    if (counts.deleted > 0 || /delete|remove/i.test(event.type || '')) return 'saga-lore-timeline-event-delete';
+    if (counts.restored > 0 || /restore|recover/i.test(event.type || '')) return 'saga-lore-timeline-event-restore';
+    if (counts.updated > 0 || counts.pinned > 0 || counts.muted > 0 || /edit|relevance|pin|mute|metadata/i.test(event.type || '')) return 'saga-lore-timeline-event-update';
+    if (counts.pending > 0 || /pending|generate/i.test(event.type || '')) return 'saga-lore-timeline-event-pending';
+    return 'saga-lore-timeline-event-add';
 }
-const LORE_TIMELINE_ID = 'wandlight-lore-timeline';
+const LORE_TIMELINE_ID = 'saga-lore-timeline';
 const LORE_TIMELINE_MIN_VIEW_MESSAGES = 20;
 const LORE_TIMELINE_DEFAULT_VIEW_MESSAGES = 520;
 const LORE_TIMELINE_MAX_MAIN_TICKS = 900;
@@ -227,7 +227,7 @@ function renderLoreTimeline() {
     if (!overlay) {
         overlay = document.createElement('div');
         overlay.id = LORE_TIMELINE_ID;
-        overlay.className = 'wandlight-lore-timeline-overlay';
+        overlay.className = 'saga-lore-timeline-overlay';
         wireOverlayBackdropClose(overlay, closeLoreTimeline);
         document.body.appendChild(overlay);
     }
@@ -245,17 +245,17 @@ function renderLoreTimeline() {
     const visibleEventIds = new Set(visibleNodes.map(node => node.event.id));
 
     const shell = document.createElement('div');
-    shell.className = 'wandlight-lore-timeline-shell';
+    shell.className = 'saga-lore-timeline-shell';
     overlay.appendChild(shell);
 
     shell.appendChild(createLoreTimelineFilterBar(model, summary));
 
     const stage = document.createElement('div');
-    stage.className = 'wandlight-continuity-stage';
+    stage.className = 'saga-continuity-stage';
     shell.appendChild(stage);
 
     const graphWrap = document.createElement('div');
-    graphWrap.className = 'wandlight-continuity-graph-wrap';
+    graphWrap.className = 'saga-continuity-graph-wrap';
     graphWrap.appendChild(createLoreTimelineGraph(model, visibleNodes, selectedNode));
     graphWrap.appendChild(createLoreTimelineRuler(model));
     graphWrap.appendChild(createLoreTimelineMinimap(model, visibleNodes));
@@ -265,11 +265,11 @@ function renderLoreTimeline() {
     stage.appendChild(createLoreTimelineLegend(model, visibleNodes, summary));
 
     const body = document.createElement('div');
-    body.className = 'wandlight-lore-timeline-body wandlight-continuity-detail-body';
+    body.className = 'saga-lore-timeline-body saga-continuity-detail-body';
     shell.appendChild(body);
 
     const list = document.createElement('div');
-    list.className = 'wandlight-lore-timeline-event-list';
+    list.className = 'saga-lore-timeline-event-list';
     const listedEvents = [...events].reverse().filter(event => !model.nodes.length || visibleEventIds.has(event.id));
     if (!events.length) {
         list.appendChild(createEmptyMessage('No lore timeline events yet. Create, accept, edit, or delete lore to begin the audit trail.'));
@@ -283,35 +283,35 @@ function renderLoreTimeline() {
     body.appendChild(list);
 
     const detail = document.createElement('div');
-    detail.className = 'wandlight-lore-timeline-detail';
+    detail.className = 'saga-lore-timeline-detail';
     detail.appendChild(createLoreTimelineEventDetail(selected));
     body.appendChild(detail);
 }
 
 function createLoreTimelineFilterBar(model, summary) {
     const bar = document.createElement('div');
-    bar.className = 'wandlight-continuity-filter-bar';
+    bar.className = 'saga-continuity-filter-bar';
 
     const heading = document.createElement('div');
-    heading.className = 'wandlight-continuity-heading';
+    heading.className = 'saga-continuity-heading';
     const label = document.createElement('div');
-    label.className = 'wandlight-continuity-filter-label';
+    label.className = 'saga-continuity-filter-label';
     label.textContent = 'Lore Timeline Visualizer';
     heading.appendChild(label);
     const status = document.createElement('div');
-    status.className = 'wandlight-continuity-status';
+    status.className = 'saga-continuity-status';
     status.textContent = `${summary.eventCount || 0} lore nodes | +${summary.counts.added || 0} added | -${summary.counts.deleted || 0} deleted | ${summary.counts.updated || 0} updated`;
     heading.appendChild(status);
     bar.appendChild(heading);
 
     const chips = document.createElement('div');
-    chips.className = 'wandlight-continuity-filter-chips';
+    chips.className = 'saga-continuity-filter-chips';
     for (const filter of LORE_TIMELINE_NODE_FILTERS) {
         const count = model.nodes.filter(node => node.type === filter.id).length;
         const chip = document.createElement('button');
         chip.type = 'button';
-        chip.className = 'wandlight-continuity-filter-chip';
-        if (isLoreTimelineFilterActive(filter.id)) chip.classList.add('wandlight-continuity-filter-chip-active');
+        chip.className = 'saga-continuity-filter-chip';
+        if (isLoreTimelineFilterActive(filter.id)) chip.classList.add('saga-continuity-filter-chip-active');
         chip.style.setProperty('--wl-chip-color', filter.color);
         chip.textContent = `${filter.short} ${filter.label}${count ? ` ${count}` : ''}`;
         addTooltip(chip, `Toggle ${filter.label} nodes in the timeline graph.`);
@@ -325,8 +325,8 @@ function createLoreTimelineFilterBar(model, summary) {
     bar.appendChild(chips);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-continuity-header-actions';
-    actions.appendChild(createButton('New Lore', 'Create a manual lore draft in Pending Lore Review.', () => openNewLoreDialog(), 'wandlight-primary-button'));
+    actions.className = 'saga-continuity-header-actions';
+    actions.appendChild(createButton('New Lore', 'Create a manual lore draft in Pending Lore Review.', () => openNewLoreDialog(), 'saga-primary-button'));
     actions.appendChild(createButton('Close', 'Close Lore Timeline.', closeLoreTimeline));
     bar.appendChild(actions);
     return bar;
@@ -399,7 +399,7 @@ function buildLoreTimelineMessages(events = []) {
     if (chat.length) {
         return chat.map((message, index) => {
             const text = getTimelineMessageText(message);
-            const header = extractTimelineWandlightHeader(text);
+            const header = extractTimelineSagaHeader(text);
             const sampleText = header?.body || text;
             const sender = getTimelineMessageSender(message, index);
             return {
@@ -446,7 +446,7 @@ function getTimelineMessageText(message) {
     return '';
 }
 
-function extractTimelineWandlightHeader(text) {
+function extractTimelineSagaHeader(text) {
     const raw = String(text || '');
     const match = raw.match(/^\s*\*?\s*([A-Za-z]+,\s+[A-Za-z]{3,9}\s+\d{1,2},\s+\d{4})\s*\|\s*(\d{1,2}:\d{2}\s*(?:AM|PM))\s*\|[^*\n]*(?:\*|\n|$)/i);
     if (!match) return null;
@@ -476,7 +476,7 @@ function getTimelineMessageSender(message, index) {
 }
 
 function isTimelineSystemSenderName(name) {
-    return /^(system|lore engine|wandlight|wandlight continuity)$/i.test(String(name || '').trim());
+    return /^(system|lore engine|saga|saga continuity)$/i.test(String(name || '').trim());
 }
 
 function countTimelineWords(text) {
@@ -634,7 +634,7 @@ function clampMessageIndex(value, messageCount) {
 }
 
 function createLoreTimelineGraph(model, nodes, selectedNode) {
-    const svg = createTimelineSvg(1180, 180, 'wandlight-continuity-main-svg', 'xMidYMid meet');
+    const svg = createTimelineSvg(1180, 180, 'saga-continuity-main-svg', 'xMidYMid meet');
     svg.setAttribute('aria-label', 'Continuity message timeline graph');
     const viewport = loreTimelineViewport || { start: 1, end: Math.max(1, model.messages.length) };
     const width = 1180;
@@ -645,8 +645,8 @@ function createLoreTimelineGraph(model, nodes, selectedNode) {
     const visibleSpan = Math.max(1, viewport.end - viewport.start);
     const indexToX = index => padX + ((index - viewport.start) / visibleSpan) * innerWidth;
 
-    svg.appendChild(createTimelineSvgEl('rect', { x: 0, y: 0, width, height, rx: 12, class: 'wandlight-continuity-svg-bg' }));
-    svg.appendChild(createTimelineSvgEl('line', { x1: padX, y1: baselineY, x2: width - padX, y2: baselineY, class: 'wandlight-continuity-baseline' }));
+    svg.appendChild(createTimelineSvgEl('rect', { x: 0, y: 0, width, height, rx: 12, class: 'saga-continuity-svg-bg' }));
+    svg.appendChild(createTimelineSvgEl('line', { x1: padX, y1: baselineY, x2: width - padX, y2: baselineY, class: 'saga-continuity-baseline' }));
 
     const visibleMessages = model.messages.filter(message => message.index >= viewport.start && message.index <= viewport.end);
     const stride = Math.max(1, Math.ceil(visibleMessages.length / LORE_TIMELINE_MAX_MAIN_TICKS));
@@ -660,7 +660,7 @@ function createLoreTimelineGraph(model, nodes, selectedNode) {
             y1: baselineY - tickHeight / 2,
             x2: x,
             y2: baselineY + tickHeight / 2,
-            class: 'wandlight-continuity-message-tick',
+            class: 'saga-continuity-message-tick',
             style: `--wl-tick-color:${message.color};--wl-tick-width:${Math.min(4, 1 + scaled * 2.4)}px;`,
         });
         svg.appendChild(line);
@@ -669,7 +669,7 @@ function createLoreTimelineGraph(model, nodes, selectedNode) {
             y1: baselineY - Math.max(18, tickHeight / 2 + 6),
             x2: x,
             y2: baselineY + Math.max(18, tickHeight / 2 + 6),
-            class: 'wandlight-continuity-message-hit',
+            class: 'saga-continuity-message-hit',
         });
         hit.addEventListener('mouseenter', event => showTimelineMessageTooltip(event, message));
         hit.addEventListener('mousemove', event => positionContinuityTooltip(event));
@@ -689,7 +689,7 @@ function createLoreTimelineGraph(model, nodes, selectedNode) {
         const cy = Math.min(sy, ty) - 42;
         svg.appendChild(createTimelineSvgEl('path', {
             d: `M ${sx} ${sy} Q ${(sx + tx) / 2} ${cy} ${tx} ${ty}`,
-            class: `wandlight-continuity-connection wandlight-continuity-connection-${connection.relation}`,
+            class: `saga-continuity-connection saga-continuity-connection-${connection.relation}`,
         }));
     }
 
@@ -702,18 +702,18 @@ function createLoreTimelineGraph(model, nodes, selectedNode) {
             y1: baselineY,
             x2: x,
             y2: y,
-            class: 'wandlight-continuity-node-stem',
+            class: 'saga-continuity-node-stem',
             style: `--wl-node-color:${node.color};`,
         }));
         const group = createTimelineSvgEl('g', {
-            class: `wandlight-continuity-node ${selectedNode?.id === node.id ? 'wandlight-continuity-node-selected' : ''}`,
+            class: `saga-continuity-node ${selectedNode?.id === node.id ? 'saga-continuity-node-selected' : ''}`,
             tabindex: '0',
             role: 'button',
             'aria-label': `${node.label}: ${node.event.summary || node.event.type}`,
             style: `--wl-node-color:${node.color};`,
         });
         group.appendChild(createTimelineSvgTitle(`${node.label} | message ${node.messageIndex} | ${node.event.summary || node.event.type}`));
-        group.appendChild(createTimelineSvgEl('circle', { cx: x, cy: y, r: radius, class: 'wandlight-continuity-node-ring' }));
+        group.appendChild(createTimelineSvgEl('circle', { cx: x, cy: y, r: radius, class: 'saga-continuity-node-ring' }));
         const iconHref = getLoreTimelineNodeIconHref(node.type);
         if (iconHref) {
             group.appendChild(createTimelineSvgEl('image', {
@@ -722,11 +722,11 @@ function createLoreTimelineGraph(model, nodes, selectedNode) {
                 y: y - radius * 0.58,
                 width: radius * 1.16,
                 height: radius * 1.16,
-                class: 'wandlight-continuity-node-image',
+                class: 'saga-continuity-node-image',
                 preserveAspectRatio: 'xMidYMid meet',
             }));
         } else {
-            const text = createTimelineSvgEl('text', { x, y: y + 4, class: 'wandlight-continuity-node-icon', 'text-anchor': 'middle' });
+            const text = createTimelineSvgEl('text', { x, y: y + 4, class: 'saga-continuity-node-icon', 'text-anchor': 'middle' });
             text.textContent = node.short;
             group.appendChild(text);
         }
@@ -768,13 +768,13 @@ function getTimelineNodeY(node, baselineY) {
 
 function createLoreTimelineRuler(model) {
     const ruler = document.createElement('div');
-    ruler.className = 'wandlight-continuity-ruler';
+    ruler.className = 'saga-continuity-ruler';
     const viewport = loreTimelineViewport || { start: 1, end: model.messages.length || 1 };
     const span = Math.max(1, viewport.end - viewport.start);
     for (const milestone of model.milestones) {
         if (milestone.messageIndex < viewport.start || milestone.messageIndex > viewport.end) continue;
         const mark = document.createElement('div');
-        mark.className = 'wandlight-continuity-ruler-mark';
+        mark.className = 'saga-continuity-ruler-mark';
         mark.style.left = `${((milestone.messageIndex - viewport.start) / span) * 100}%`;
         mark.textContent = `${milestone.label} ${milestone.messageIndex}`;
         ruler.appendChild(mark);
@@ -783,7 +783,7 @@ function createLoreTimelineRuler(model) {
 }
 
 function createLoreTimelineMinimap(model, nodes) {
-    const svg = createTimelineSvg(1180, 44, 'wandlight-continuity-minimap-svg', 'none');
+    const svg = createTimelineSvg(1180, 44, 'saga-continuity-minimap-svg', 'none');
     const total = Math.max(1, model.messages.length);
     const width = 1180;
     const height = 44;
@@ -792,8 +792,8 @@ function createLoreTimelineMinimap(model, nodes) {
     const innerWidth = width - padX * 2;
     const indexToX = index => padX + ((index - 1) / Math.max(1, total - 1)) * innerWidth;
     const xToIndex = x => clampMessageIndex(1 + ((Math.max(padX, Math.min(width - padX, x)) - padX) / innerWidth) * Math.max(1, total - 1), total);
-    svg.appendChild(createTimelineSvgEl('rect', { x: 0, y: 0, width, height, rx: 10, class: 'wandlight-continuity-minimap-bg' }));
-    svg.appendChild(createTimelineSvgEl('line', { x1: padX, y1: baselineY, x2: width - padX, y2: baselineY, class: 'wandlight-continuity-minimap-line' }));
+    svg.appendChild(createTimelineSvgEl('rect', { x: 0, y: 0, width, height, rx: 10, class: 'saga-continuity-minimap-bg' }));
+    svg.appendChild(createTimelineSvgEl('line', { x1: padX, y1: baselineY, x2: width - padX, y2: baselineY, class: 'saga-continuity-minimap-line' }));
 
     const stride = Math.max(1, Math.ceil(model.messages.length / LORE_TIMELINE_MAX_MINIMAP_TICKS));
     model.messages.forEach((message, i) => {
@@ -805,7 +805,7 @@ function createLoreTimelineMinimap(model, nodes) {
             y1: baselineY - tickHeight / 2,
             x2: indexToX(message.index),
             y2: baselineY + tickHeight / 2,
-            class: 'wandlight-continuity-minimap-tick',
+            class: 'saga-continuity-minimap-tick',
             style: `--wl-tick-color:${message.color};`,
         }));
     });
@@ -815,7 +815,7 @@ function createLoreTimelineMinimap(model, nodes) {
             cx: indexToX(node.messageIndex),
             cy: 7,
             r: 3,
-            class: 'wandlight-continuity-minimap-node',
+            class: 'saga-continuity-minimap-node',
             style: `--wl-node-color:${node.color};`,
         }));
     }
@@ -823,9 +823,9 @@ function createLoreTimelineMinimap(model, nodes) {
     const viewport = loreTimelineViewport || { start: 1, end: total };
     const vx = indexToX(viewport.start);
     const vw = Math.max(10, indexToX(viewport.end) - vx);
-    svg.appendChild(createTimelineSvgEl('rect', { x: vx, y: 4, width: vw, height: 36, rx: 5, class: 'wandlight-continuity-minimap-window' }));
-    svg.appendChild(createTimelineSvgEl('rect', { x: vx - 5, y: 5, width: 10, height: 34, rx: 3, class: 'wandlight-continuity-minimap-handle wandlight-continuity-minimap-handle-left' }));
-    svg.appendChild(createTimelineSvgEl('rect', { x: vx + vw - 5, y: 5, width: 10, height: 34, rx: 3, class: 'wandlight-continuity-minimap-handle wandlight-continuity-minimap-handle-right' }));
+    svg.appendChild(createTimelineSvgEl('rect', { x: vx, y: 4, width: vw, height: 36, rx: 5, class: 'saga-continuity-minimap-window' }));
+    svg.appendChild(createTimelineSvgEl('rect', { x: vx - 5, y: 5, width: 10, height: 34, rx: 3, class: 'saga-continuity-minimap-handle saga-continuity-minimap-handle-left' }));
+    svg.appendChild(createTimelineSvgEl('rect', { x: vx + vw - 5, y: 5, width: 10, height: 34, rx: 3, class: 'saga-continuity-minimap-handle saga-continuity-minimap-handle-right' }));
 
     svg.addEventListener('pointerdown', event => {
         event.preventDefault();
@@ -892,45 +892,45 @@ function resizeLoreTimelineViewport(edge, index, messageCount) {
 
 function createLoreTimelineGraphControls(model) {
     const controls = document.createElement('div');
-    controls.className = 'wandlight-continuity-graph-controls';
+    controls.className = 'saga-continuity-graph-controls';
     controls.appendChild(createButton('Fit', 'Show the full message timeline.', () => {
         setLoreTimelineViewport(1, model.messages.length || 1, model.messages.length || 1);
         renderLoreTimeline();
-    }, 'wandlight-small-button'));
+    }, 'saga-small-button'));
     controls.appendChild(createButton('+', 'Zoom into the current timeline range.', () => {
         zoomLoreTimeline(0.7, model.messages.length || 1);
         renderLoreTimeline();
-    }, 'wandlight-small-button wandlight-continuity-zoom-button'));
+    }, 'saga-small-button saga-continuity-zoom-button'));
     controls.appendChild(createButton('-', 'Zoom out from the current timeline range.', () => {
         zoomLoreTimeline(1.35, model.messages.length || 1);
         renderLoreTimeline();
-    }, 'wandlight-small-button wandlight-continuity-zoom-button'));
+    }, 'saga-small-button saga-continuity-zoom-button'));
     controls.appendChild(createButton('Current', 'Jump to the latest messages.', () => {
         const total = model.messages.length || 1;
         const span = Math.min(total, loreTimelineViewport ? loreTimelineViewport.end - loreTimelineViewport.start + 1 : LORE_TIMELINE_DEFAULT_VIEW_MESSAGES);
         setLoreTimelineViewport(total - span + 1, total, total);
         renderLoreTimeline();
-    }, 'wandlight-small-button wandlight-primary-button'));
+    }, 'saga-small-button saga-primary-button'));
     return controls;
 }
 
 function createLoreTimelineLegend(model, visibleNodes, summary) {
     const legend = document.createElement('div');
-    legend.className = 'wandlight-continuity-legend';
+    legend.className = 'saga-continuity-legend';
     legend.appendChild(createContinuityMetric('Messages', formatInteger(model.messages.length), 'Total'));
     legend.appendChild(createContinuityMetric('Lore Nodes', formatInteger(visibleNodes.length), `${summary.eventCount || 0} total`));
 
     const senderBox = document.createElement('div');
-    senderBox.className = 'wandlight-continuity-legend-box';
+    senderBox.className = 'saga-continuity-legend-box';
     const senderTitle = document.createElement('div');
-    senderTitle.className = 'wandlight-continuity-legend-title';
+    senderTitle.className = 'saga-continuity-legend-title';
     senderTitle.textContent = 'Sender Color';
     senderBox.appendChild(senderTitle);
     for (const sender of model.senders.slice(0, 9)) {
         const row = document.createElement('div');
-        row.className = 'wandlight-continuity-legend-row';
+        row.className = 'saga-continuity-legend-row';
         row.style.setProperty('--wl-sender-color', sender.color);
-        row.appendChild(document.createElement('span')).className = 'wandlight-continuity-legend-dot';
+        row.appendChild(document.createElement('span')).className = 'saga-continuity-legend-dot';
         const text = document.createElement('span');
         text.textContent = sender.name;
         row.appendChild(text);
@@ -939,22 +939,22 @@ function createLoreTimelineLegend(model, visibleNodes, summary) {
     legend.appendChild(senderBox);
 
     const scaleBox = document.createElement('div');
-    scaleBox.className = 'wandlight-continuity-legend-box';
+    scaleBox.className = 'saga-continuity-legend-box';
     const scaleTitle = document.createElement('div');
-    scaleTitle.className = 'wandlight-continuity-legend-title';
+    scaleTitle.className = 'saga-continuity-legend-title';
     scaleTitle.textContent = 'Daily Writing Volume';
     scaleBox.appendChild(scaleTitle);
     const scale = document.createElement('div');
-    scale.className = 'wandlight-continuity-day-volume';
+    scale.className = 'saga-continuity-day-volume';
     const bins = buildDailyWritingBins(model.messages);
     const maxTotal = Math.max(1, ...bins.map(bin => bin.words || 0));
     const labelStride = Math.max(1, Math.ceil(bins.length / 5));
     const strip = document.createElement('div');
-    strip.className = 'wandlight-continuity-day-volume-strip';
+    strip.className = 'saga-continuity-day-volume-strip';
     strip.style.minWidth = `${Math.max(100, bins.length * 8)}px`;
     bins.forEach((bin, idx) => {
         const binEl = document.createElement('div');
-        binEl.className = 'wandlight-continuity-day-volume-bin';
+        binEl.className = 'saga-continuity-day-volume-bin';
         const bar = document.createElement('span');
         const scaled = Math.sqrt((bin.words || 0) / maxTotal);
         bar.style.height = `${Math.max(2, 4 + scaled * 34)}px`;
@@ -1049,7 +1049,7 @@ function formatTimelineRealtimeDate(value) {
 
 function createContinuityMetric(label, value, sublabel) {
     const metric = document.createElement('div');
-    metric.className = 'wandlight-continuity-metric';
+    metric.className = 'saga-continuity-metric';
     const title = document.createElement('div');
     title.textContent = label;
     metric.appendChild(title);
@@ -1096,17 +1096,17 @@ function showTimelineMessageTooltip(event, message) {
     const tooltip = ensureContinuityTooltip();
     tooltip.replaceChildren();
     const title = document.createElement('div');
-    title.className = 'wandlight-continuity-tooltip-title';
+    title.className = 'saga-continuity-tooltip-title';
     title.textContent = `Message ${message.index} | ${message.senderName}`;
     tooltip.appendChild(title);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-continuity-tooltip-meta';
+    meta.className = 'saga-continuity-tooltip-meta';
     meta.textContent = `${message.wordCount || 0} words${message.detectedDateTime ? ` | ${message.detectedDateTime}` : ''}`;
     tooltip.appendChild(meta);
 
     const sample = document.createElement('div');
-    sample.className = 'wandlight-continuity-tooltip-sample';
+    sample.className = 'saga-continuity-tooltip-sample';
     sample.textContent = compactTimelineSentences(message.preview || 'No message text available.', 240);
     tooltip.appendChild(sample);
     positionContinuityTooltip(event);
@@ -1120,17 +1120,17 @@ function compactTimelineSentences(text, max = 240) {
 }
 
 function ensureContinuityTooltip() {
-    let tooltip = document.querySelector('.wandlight-continuity-tooltip');
+    let tooltip = document.querySelector('.saga-continuity-tooltip');
     if (!tooltip) {
         tooltip = document.createElement('div');
-        tooltip.className = 'wandlight-continuity-tooltip';
+        tooltip.className = 'saga-continuity-tooltip';
         document.body.appendChild(tooltip);
     }
     return tooltip;
 }
 
 function positionContinuityTooltip(event) {
-    const tooltip = document.querySelector('.wandlight-continuity-tooltip');
+    const tooltip = document.querySelector('.saga-continuity-tooltip');
     if (!tooltip || !event) return;
     const margin = 12;
     const width = 280;
@@ -1141,38 +1141,38 @@ function positionContinuityTooltip(event) {
 }
 
 function hideContinuityTooltip() {
-    document.querySelector('.wandlight-continuity-tooltip')?.remove();
+    document.querySelector('.saga-continuity-tooltip')?.remove();
 }
 
 function createLoreTimelineEventRow(event, selected = false) {
     const row = document.createElement('button');
     row.type = 'button';
-    row.className = `wandlight-lore-timeline-event-row ${getLoreTimelineEventClass(event)}`.trim();
-    if (selected) row.classList.add('wandlight-lore-timeline-event-row-selected');
+    row.className = `saga-lore-timeline-event-row ${getLoreTimelineEventClass(event)}`.trim();
+    if (selected) row.classList.add('saga-lore-timeline-event-row-selected');
     row.addEventListener('click', () => {
         loreTimelineSelectedId = event.id;
         renderLoreTimeline();
     });
 
     const marker = document.createElement('span');
-    marker.className = 'wandlight-lore-timeline-event-marker';
+    marker.className = 'saga-lore-timeline-event-marker';
     row.appendChild(marker);
 
     const main = document.createElement('span');
-    main.className = 'wandlight-lore-timeline-event-main';
+    main.className = 'saga-lore-timeline-event-main';
     const summary = document.createElement('span');
-    summary.className = 'wandlight-lore-timeline-event-summary';
+    summary.className = 'saga-lore-timeline-event-summary';
     summary.textContent = event.summary || event.type;
     main.appendChild(summary);
     const meta = document.createElement('span');
-    meta.className = 'wandlight-lore-timeline-event-meta';
+    meta.className = 'saga-lore-timeline-event-meta';
     const message = event.messageRange?.latest ? `msg ${event.messageRange.latest}` : 'no message anchor';
     meta.textContent = `${formatShortDate(event.timestamp)} | ${message} | ${event.source || 'manual'}`;
     main.appendChild(meta);
     row.appendChild(main);
 
     const counts = document.createElement('span');
-    counts.className = 'wandlight-lore-timeline-event-counts';
+    counts.className = 'saga-lore-timeline-event-counts';
     counts.textContent = formatTimelineCounts(event.counts);
     row.appendChild(counts);
     return row;
@@ -1180,14 +1180,14 @@ function createLoreTimelineEventRow(event, selected = false) {
 
 function createLoreTimelineEventDetail(event) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-lore-timeline-detail-card';
+    wrap.className = 'saga-lore-timeline-detail-card';
     if (!event) {
         wrap.appendChild(createEmptyMessage('Select a timeline event to inspect affected entries.'));
         return wrap;
     }
 
     const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
+    title.className = 'saga-runtime-card-title';
     title.textContent = event.summary || event.type;
     wrap.appendChild(title);
 
@@ -1201,21 +1201,21 @@ function createLoreTimelineEventDetail(event) {
 
     const refs = Array.isArray(event.refs) ? event.refs : [];
     const refBox = document.createElement('div');
-    refBox.className = 'wandlight-lore-timeline-ref-box';
+    refBox.className = 'saga-lore-timeline-ref-box';
     const refTitle = document.createElement('div');
-    refTitle.className = 'wandlight-runtime-help';
+    refTitle.className = 'saga-runtime-help';
     refTitle.textContent = refs.length ? `Affected entries (${refs.length})` : 'No entry references stored.';
     refBox.appendChild(refTitle);
     for (const ref of refs.slice(0, 24)) {
         const chip = document.createElement('span');
-        chip.className = 'wandlight-lore-timeline-ref-chip';
+        chip.className = 'saga-lore-timeline-ref-chip';
         chip.textContent = ref.title || ref.id;
         addTooltip(chip, `${ref.category || 'lore'} | ${ref.relevance || 'normal'} | ${ref.canon || 'canon'}`);
         refBox.appendChild(chip);
     }
     if (refs.length > 24) {
         const more = document.createElement('span');
-        more.className = 'wandlight-lore-timeline-ref-chip';
+        more.className = 'saga-lore-timeline-ref-chip';
         more.textContent = `+${refs.length - 24} more`;
         refBox.appendChild(more);
     }
@@ -1223,7 +1223,7 @@ function createLoreTimelineEventDetail(event) {
 
     const recoverable = getRecoverableTimelineEntries(event);
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     const restore = createButton(
         recoverable.length ? `Restore ${recoverable.length} to Pending` : 'Nothing to Restore',
         'Restores recoverable deleted or prior-version entries into Pending Lore Review for editing and acceptance.',
@@ -1238,7 +1238,7 @@ function createLoreTimelineEventDetail(event) {
             refreshLoreWorkbench();
             toast(`Restored ${result.restored || 0} lore entr${(result.restored || 0) === 1 ? 'y' : 'ies'} to Pending Review.`, result.restored ? 'success' : 'warning');
         },
-        recoverable.length ? 'wandlight-primary-button' : ''
+        recoverable.length ? 'saga-primary-button' : ''
     );
     restore.disabled = recoverable.length === 0;
     actions.appendChild(restore);
@@ -1246,10 +1246,10 @@ function createLoreTimelineEventDetail(event) {
 
     if (recoverable.length) {
         const preview = document.createElement('div');
-        preview.className = 'wandlight-lore-timeline-recovery-preview';
+        preview.className = 'saga-lore-timeline-recovery-preview';
         for (const item of recoverable.slice(0, 10)) {
             const line = document.createElement('div');
-            line.className = 'wandlight-lore-timeline-recovery-row';
+            line.className = 'saga-lore-timeline-recovery-row';
             line.textContent = `${item.recoveryKind}: ${item.entry.title || item.entry.id}`;
             preview.appendChild(line);
         }

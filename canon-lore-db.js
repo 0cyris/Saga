@@ -417,8 +417,8 @@ export async function loadCanonLoreDatabase() {
 
         const database = {
             version: firstManifest.entrySchemaVersion || firstManifest.schemaVersion || firstManifest.version || 2,
-            databaseId: packs.length === 1 ? (firstManifest.databaseId || packs[0].id || 'wandlight.canon') : 'saga.loredeck-stack',
-            title: packs.length === 1 ? (firstManifest.title || packs[0].title || 'Wandlight Canon Lore Database') : 'Saga Loredeck Stack',
+            databaseId: packs.length === 1 ? (firstManifest.databaseId || packs[0].id || 'saga.canon') : 'saga.loredeck-stack',
+            title: packs.length === 1 ? (firstManifest.title || packs[0].title || 'Saga Canon Lore Database') : 'Saga Loredeck Stack',
             generatedAt: firstManifest.generatedAt || '',
             sourceKind: packs.length === 1 ? (packs[0].sourceKind || 'loredeck') : 'loredeck-stack',
             health,

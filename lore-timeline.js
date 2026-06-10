@@ -1,5 +1,5 @@
 /**
- * lore-timeline.js - Wandlight
+ * lore-timeline.js - Saga
  * Compact lore-event ledger, per-entry history helpers, and recovery utilities.
  */
 
@@ -425,13 +425,13 @@ export function restoreTimelineEntriesToPending(state, eventId, entryIds = null)
         source: 'timeline-recovery',
         sourceInfo: {
             ...(item.entry.sourceInfo || {}),
-            work: 'Wandlight Timeline',
+            work: 'Saga Timeline',
             notes: `Recovered from timeline event ${event.id}.`,
             confidence: item.entry.sourceInfo?.confidence || 1,
         },
         extensions: {
             ...(item.entry.extensions || {}),
-            wandlightTimelineRecovery: {
+            sagaTimelineRecovery: {
                 eventId: event.id,
                 eventType: event.type,
                 recoveryKind: item.recoveryKind,

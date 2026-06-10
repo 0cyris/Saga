@@ -207,19 +207,19 @@ export function closeLoredeckLibraryWindow() {
     loredeckLibraryOverlayRefreshFrame = 0;
     loredeckLibraryFolderCoverResizeObserver?.disconnect?.();
     loredeckLibraryFolderCoverResizeObserver = null;
-    document.querySelector('.wandlight-loredeck-library-overlay')?.remove();
+    document.querySelector('.saga-loredeck-library-overlay')?.remove();
 }
 
 function createLoredeckLibraryRenderErrorCard(error) {
     const body = document.createElement('div');
-    body.className = 'wandlight-loredeck-library-body';
+    body.className = 'saga-loredeck-library-body';
     const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-runtime-error-card';
+    card.className = 'saga-runtime-card saga-runtime-error-card';
     const title = document.createElement('h4');
     title.textContent = 'Loredeck Library could not render.';
     card.appendChild(title);
     const message = document.createElement('div');
-    message.className = 'wandlight-runtime-help';
+    message.className = 'saga-runtime-help';
     message.textContent = error?.message || String(error || 'Unknown render error.');
     card.appendChild(message);
     body.appendChild(card);
@@ -269,13 +269,13 @@ function ensureBundledLoredeckIndexLoaded() {
 }
 
 const LOREDECK_LIBRARY_SCROLL_SELECTORS = Object.freeze({
-    libraryList: '.wandlight-loredeck-library-deck-list',
-    stackList: '.wandlight-loredeck-library-stack-list',
-    details: '.wandlight-loredeck-library-details',
+    libraryList: '.saga-loredeck-library-deck-list',
+    stackList: '.saga-loredeck-library-stack-list',
+    details: '.saga-loredeck-library-details',
 });
 
 function captureLoredeckLibraryScrollState() {
-    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+    const overlay = document.querySelector('.saga-loredeck-library-overlay');
     if (!overlay) return null;
     const snapshot = {};
     for (const [key, selector] of Object.entries(LOREDECK_LIBRARY_SCROLL_SELECTORS)) {
@@ -291,7 +291,7 @@ function captureLoredeckLibraryScrollState() {
 
 function restoreLoredeckLibraryScrollState(snapshot = null) {
     if (!snapshot || typeof snapshot !== 'object') return;
-    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+    const overlay = document.querySelector('.saga-loredeck-library-overlay');
     if (!overlay) return;
     for (const [key, value] of Object.entries(snapshot)) {
         const selector = LOREDECK_LIBRARY_SCROLL_SELECTORS[key];
@@ -314,7 +314,7 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     loredeckLibraryHierarchyRefreshFrame = 0;
     loredeckLibraryFolderCoverResizeObserver?.disconnect?.();
     loredeckLibraryFolderCoverResizeObserver = null;
-    document.querySelector('.wandlight-loredeck-library-overlay')?.remove();
+    document.querySelector('.saga-loredeck-library-overlay')?.remove();
     if (!loredeckLibraryOpen) return;
 
     ensureBundledLoredeckIndexLoaded();
@@ -341,35 +341,35 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     }
 
     const overlay = document.createElement('div');
-    overlay.className = 'wandlight-lore-workbench-overlay wandlight-loredeck-library-overlay';
+    overlay.className = 'saga-lore-workbench-overlay saga-loredeck-library-overlay';
     wireOverlayBackdropClose(overlay, closeLoredeckLibraryWindow);
     document.body.appendChild(overlay);
 
     const shell = document.createElement('div');
-    shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-library-shell';
+    shell.className = 'saga-lore-workbench-shell saga-loredeck-library-shell';
     overlay.appendChild(shell);
 
     const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-header wandlight-loredeck-library-header';
+    header.className = 'saga-lore-workbench-header saga-loredeck-library-header';
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    titleWrap.className = 'saga-lore-workbench-title-wrap';
     const titleRow = document.createElement('div');
-    titleRow.className = 'wandlight-loredeck-library-title-row';
+    titleRow.className = 'saga-loredeck-library-title-row';
     const emblem = document.createElement('div');
-    emblem.className = 'wandlight-loredeck-library-emblem';
+    emblem.className = 'saga-loredeck-library-emblem';
     emblem.textContent = 'S';
     titleRow.appendChild(emblem);
     const titleText = document.createElement('div');
     const title = document.createElement('div');
-    title.className = 'wandlight-lore-workbench-title';
+    title.className = 'saga-lore-workbench-title';
     title.textContent = 'Loredeck Library';
     const titleLine = document.createElement('div');
-    titleLine.className = 'wandlight-loredeck-library-title-line';
+    titleLine.className = 'saga-loredeck-library-title-line';
     titleLine.appendChild(title);
     titleLine.appendChild(createLoredeckLibraryHeaderMeta(stack, library, canonDb, health));
     titleText.appendChild(titleLine);
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.className = 'saga-lore-workbench-subtitle';
     subtitle.textContent = 'Build the active lore stack for this session.';
     titleText.appendChild(subtitle);
     titleRow.appendChild(titleText);
@@ -377,7 +377,7 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     header.appendChild(titleWrap);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-loredeck-library-header-actions';
+    actions.className = 'saga-primary-actions saga-loredeck-library-header-actions';
     actions.appendChild(createButton('Import Deck', 'Import a Saga Loredeck zip package into the Library.', () => {
         installLoredeckBundleFromFile();
     }));
@@ -398,20 +398,20 @@ export function renderLoredeckLibraryOverlay(options = {}) {
     actions.appendChild(createButton('Refresh Library', 'Reload active Loredecks and recompute Deck Health.', async (btn) => {
         await refreshLoredeckLibraryWindowData(btn);
     }));
-    actions.appendChild(createButton('Done', 'Close the Loredeck Library.', closeLoredeckLibraryWindow, 'wandlight-primary-button'));
+    actions.appendChild(createButton('Done', 'Close the Loredeck Library.', closeLoredeckLibraryWindow, 'saga-primary-button'));
     header.appendChild(actions);
     shell.appendChild(header);
 
     try {
         const body = document.createElement('div');
-        body.className = 'wandlight-loredeck-library-body';
+        body.className = 'saga-loredeck-library-body';
         loredeckLibraryDetailsHeight = getLoredeckLibraryDetailsHeight(state);
         const detailsCollapsed = getLoredeckLibraryDetailsCollapsed(state);
-        body.classList.toggle('wandlight-loredeck-library-details-collapsed', detailsCollapsed);
-        body.style.setProperty('--wandlight-loredeck-library-details-height', `${loredeckLibraryDetailsHeight}px`);
+        body.classList.toggle('saga-loredeck-library-details-collapsed', detailsCollapsed);
+        body.style.setProperty('--saga-loredeck-library-details-height', `${loredeckLibraryDetailsHeight}px`);
 
         const columns = document.createElement('div');
-        columns.className = 'wandlight-loredeck-library-columns';
+        columns.className = 'saga-loredeck-library-columns';
         columns.appendChild(createLoredeckLibraryPane(filteredPacks, stack, canonDb, health, libraryIndex, library, scopedLibrary, activeViewId));
         columns.appendChild(createLoredeckLibraryTransferPane(selectedPack, filteredPacks, stack, selectedPacks, selectedFolderDetails, libraryIndex));
         columns.appendChild(createLoredeckActiveStackPane(stack, library, canonDb, health, libraryIndex));
@@ -477,7 +477,7 @@ function getLoredeckLibraryOverlayContext() {
 
 export function refreshLoredeckLibrarySelectionSurfaces() {
     if (!loredeckLibraryOpen) return;
-    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+    const overlay = document.querySelector('.saga-loredeck-library-overlay');
     if (!overlay) return;
     loredeckLibrarySelectionRefreshFrame = 0;
     const context = getLoredeckLibraryOverlayContext();
@@ -485,43 +485,43 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
     const selectedIds = new Set(context.selectedPackIds || []);
     const stackByPack = new Map((context.stack || []).map(item => [String(item.packId || '').trim(), item]));
 
-    for (const card of overlay.querySelectorAll('.wandlight-loredeck-library-deck-card[data-pack-id]')) {
+    for (const card of overlay.querySelectorAll('.saga-loredeck-library-deck-card[data-pack-id]')) {
         const packId = String(card.dataset.packId || '').trim();
         const bulkSelected = selectedIds.has(packId);
         const activeItem = stackByPack.get(packId);
-        card.classList.toggle('wandlight-loredeck-library-deck-selected', selectedId === packId);
-        card.classList.toggle('wandlight-loredeck-library-deck-bulk-selected', bulkSelected);
-        card.classList.toggle('wandlight-loredeck-library-deck-active', activeItem?.enabled === true);
+        card.classList.toggle('saga-loredeck-library-deck-selected', selectedId === packId);
+        card.classList.toggle('saga-loredeck-library-deck-bulk-selected', bulkSelected);
+        card.classList.toggle('saga-loredeck-library-deck-active', activeItem?.enabled === true);
         card.setAttribute('aria-pressed', bulkSelected ? 'true' : 'false');
         card.toggleAttribute('aria-current', selectedId === packId);
     }
 
-    for (const card of overlay.querySelectorAll('.wandlight-loredeck-library-stack-card[data-pack-id]')) {
+    for (const card of overlay.querySelectorAll('.saga-loredeck-library-stack-card[data-pack-id]')) {
         const packId = String(card.dataset.packId || '').trim();
-        card.classList.toggle('wandlight-loredeck-library-stack-card-selected', selectedId === packId);
-        card.classList.toggle('wandlight-loredeck-library-stack-card-bulk-selected', selectedIds.has(packId));
+        card.classList.toggle('saga-loredeck-library-stack-card-selected', selectedId === packId);
+        card.classList.toggle('saga-loredeck-library-stack-card-bulk-selected', selectedIds.has(packId));
         card.toggleAttribute('aria-current', selectedId === packId);
     }
 
-    for (const folderCard of overlay.querySelectorAll('.wandlight-loredeck-library-stack-folder-card[data-folder-id]')) {
+    for (const folderCard of overlay.querySelectorAll('.saga-loredeck-library-stack-folder-card[data-folder-id]')) {
         const folderId = String(folderCard.dataset.folderId || '').trim();
-        folderCard.classList.toggle('wandlight-loredeck-library-stack-card-selected', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
+        folderCard.classList.toggle('saga-loredeck-library-stack-card-selected', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
         folderCard.toggleAttribute('aria-current', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
     }
 
-    for (const folderRow of overlay.querySelectorAll('.wandlight-loredeck-library-inline-folder-row[data-folder-id]')) {
+    for (const folderRow of overlay.querySelectorAll('.saga-loredeck-library-inline-folder-row[data-folder-id]')) {
         const folderId = String(folderRow.dataset.folderId || '').trim();
-        folderRow.classList.toggle('wandlight-loredeck-library-folder-row-active', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
+        folderRow.classList.toggle('saga-loredeck-library-folder-row-active', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
         folderRow.toggleAttribute('aria-current', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
     }
 
-    const titleMeta = overlay.querySelector('.wandlight-loredeck-library-title-meta');
+    const titleMeta = overlay.querySelector('.saga-loredeck-library-title-meta');
     titleMeta?.replaceWith(createLoredeckLibraryHeaderMeta(context.stack, context.library, context.canonDb, context.health));
 
-    const selectionToolbar = overlay.querySelector('.wandlight-loredeck-library-selection-toolbar');
+    const selectionToolbar = overlay.querySelector('.saga-loredeck-library-selection-toolbar');
     selectionToolbar?.replaceWith(createLoredeckLibrarySelectionToolbar(context.filteredPacks, context.libraryIndex));
 
-    const transferPane = overlay.querySelector('.wandlight-loredeck-library-transfer-pane');
+    const transferPane = overlay.querySelector('.saga-loredeck-library-transfer-pane');
     transferPane?.replaceWith(createLoredeckLibraryTransferPane(
         context.selectedPack,
         context.filteredPacks,
@@ -531,7 +531,7 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
         context.libraryIndex,
     ));
 
-    const stackPane = overlay.querySelector('.wandlight-loredeck-library-pane-stack');
+    const stackPane = overlay.querySelector('.saga-loredeck-library-pane-stack');
     stackPane?.replaceWith(createLoredeckActiveStackPane(
         context.stack,
         context.library,
@@ -540,7 +540,7 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
         context.libraryIndex,
     ));
 
-    const details = overlay.querySelector('.wandlight-loredeck-library-details');
+    const details = overlay.querySelector('.saga-loredeck-library-details');
     details?.replaceWith(createLoredeckLibraryDetailsPanel(
         context.selectedPack,
         context.stack,
@@ -554,36 +554,36 @@ export function refreshLoredeckLibrarySelectionSurfaces() {
 
 function refreshLoredeckLibrarySelectionHighlights() {
     if (!loredeckLibraryOpen) return;
-    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
+    const overlay = document.querySelector('.saga-loredeck-library-overlay');
     if (!overlay) return;
     const selectedId = String(getState()?.lorePanel?.selectedLoredeckId || '').trim();
     const selectedIds = new Set(loredeckLibraryBulkSelectedIds || []);
 
-    for (const card of overlay.querySelectorAll('.wandlight-loredeck-library-deck-card[data-pack-id]')) {
+    for (const card of overlay.querySelectorAll('.saga-loredeck-library-deck-card[data-pack-id]')) {
         const packId = String(card.dataset.packId || '').trim();
         const bulkSelected = selectedIds.has(packId);
-        card.classList.toggle('wandlight-loredeck-library-deck-selected', selectedId === packId);
-        card.classList.toggle('wandlight-loredeck-library-deck-bulk-selected', bulkSelected);
+        card.classList.toggle('saga-loredeck-library-deck-selected', selectedId === packId);
+        card.classList.toggle('saga-loredeck-library-deck-bulk-selected', bulkSelected);
         card.setAttribute('aria-pressed', bulkSelected ? 'true' : 'false');
         card.toggleAttribute('aria-current', selectedId === packId);
     }
 
-    for (const card of overlay.querySelectorAll('.wandlight-loredeck-library-stack-card[data-pack-id]')) {
+    for (const card of overlay.querySelectorAll('.saga-loredeck-library-stack-card[data-pack-id]')) {
         const packId = String(card.dataset.packId || '').trim();
-        card.classList.toggle('wandlight-loredeck-library-stack-card-selected', selectedId === packId);
-        card.classList.toggle('wandlight-loredeck-library-stack-card-bulk-selected', selectedIds.has(packId));
+        card.classList.toggle('saga-loredeck-library-stack-card-selected', selectedId === packId);
+        card.classList.toggle('saga-loredeck-library-stack-card-bulk-selected', selectedIds.has(packId));
         card.toggleAttribute('aria-current', selectedId === packId);
     }
 
-    for (const folderCard of overlay.querySelectorAll('.wandlight-loredeck-library-stack-folder-card[data-folder-id]')) {
+    for (const folderCard of overlay.querySelectorAll('.saga-loredeck-library-stack-folder-card[data-folder-id]')) {
         const folderId = String(folderCard.dataset.folderId || '').trim();
-        folderCard.classList.toggle('wandlight-loredeck-library-stack-card-selected', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
+        folderCard.classList.toggle('saga-loredeck-library-stack-card-selected', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
         folderCard.toggleAttribute('aria-current', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
     }
 
-    for (const folderRow of overlay.querySelectorAll('.wandlight-loredeck-library-inline-folder-row[data-folder-id]')) {
+    for (const folderRow of overlay.querySelectorAll('.saga-loredeck-library-inline-folder-row[data-folder-id]')) {
         const folderId = String(folderRow.dataset.folderId || '').trim();
-        folderRow.classList.toggle('wandlight-loredeck-library-folder-row-active', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
+        folderRow.classList.toggle('saga-loredeck-library-folder-row-active', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
         folderRow.toggleAttribute('aria-current', !!folderId && loredeckLibrarySelectedFolderDetailsId === folderId);
     }
 }
@@ -607,30 +607,30 @@ function scheduleLoredeckLibrarySelectionSurfaceRefresh() {
 function updateLoredeckLibraryFolderDisclosureDom(folderId = '', collapsed = false) {
     const id = String(folderId || '').trim();
     if (!id) return;
-    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
-    const row = [...(overlay?.querySelectorAll('.wandlight-loredeck-library-inline-folder-row[data-folder-id]') || [])]
+    const overlay = document.querySelector('.saga-loredeck-library-overlay');
+    const row = [...(overlay?.querySelectorAll('.saga-loredeck-library-inline-folder-row[data-folder-id]') || [])]
         .find(item => String(item.dataset.folderId || '').trim() === id);
     if (!row) return;
     row.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-    const disclosure = row.querySelector('.wandlight-loredeck-library-folder-disclosure');
+    const disclosure = row.querySelector('.saga-loredeck-library-folder-disclosure');
     if (disclosure) {
         disclosure.textContent = collapsed ? '>' : 'v';
         disclosure.setAttribute('aria-label', `${collapsed ? 'Expand' : 'Collapse'} folder`);
-        disclosure.dataset.wandlightTooltip = collapsed ? 'Expand folder.' : 'Collapse folder.';
+        disclosure.dataset.sagaTooltip = collapsed ? 'Expand folder.' : 'Collapse folder.';
     }
 }
 
 function refreshLoredeckLibraryHierarchyList() {
     loredeckLibraryHierarchyRefreshFrame = 0;
     if (!loredeckLibraryOpen) return false;
-    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
-    const currentList = overlay?.querySelector('.wandlight-loredeck-library-hierarchy-list');
+    const overlay = document.querySelector('.saga-loredeck-library-overlay');
+    const currentList = overlay?.querySelector('.saga-loredeck-library-hierarchy-list');
     if (!overlay || !currentList) return false;
 
     const context = getLoredeckLibraryOverlayContext();
     const top = currentList.scrollTop || 0;
     const left = currentList.scrollLeft || 0;
-    const oldStrips = [...currentList.querySelectorAll('.wandlight-loredeck-library-folder-cover-strip')];
+    const oldStrips = [...currentList.querySelectorAll('.saga-loredeck-library-folder-cover-strip')];
     for (const strip of oldStrips) {
         try {
             loredeckLibraryFolderCoverResizeObserver?.unobserve?.(strip);
@@ -689,9 +689,9 @@ function setLoredeckLibraryDetailsHeight(height, options = {}) {
     );
     loredeckLibraryDetailsHeight = next;
     document
-        .querySelector('.wandlight-loredeck-library-body')
+        .querySelector('.saga-loredeck-library-body')
         ?.style
-        ?.setProperty('--wandlight-loredeck-library-details-height', `${next}px`);
+        ?.setProperty('--saga-loredeck-library-details-height', `${next}px`);
     if (options.persist) {
         const state = getState();
         state.lorePanel = state.lorePanel && typeof state.lorePanel === 'object' ? state.lorePanel : {};
@@ -702,20 +702,20 @@ function setLoredeckLibraryDetailsHeight(height, options = {}) {
 }
 
 function updateLoredeckLibraryDetailsCollapsedDom(collapsed) {
-    const overlay = document.querySelector('.wandlight-loredeck-library-overlay');
-    const body = overlay?.querySelector('.wandlight-loredeck-library-body');
-    const handle = overlay?.querySelector('.wandlight-loredeck-library-resize-handle');
+    const overlay = document.querySelector('.saga-loredeck-library-overlay');
+    const body = overlay?.querySelector('.saga-loredeck-library-body');
+    const handle = overlay?.querySelector('.saga-loredeck-library-resize-handle');
     if (!body || !handle) return false;
     const isCollapsed = collapsed === true;
-    body.classList.toggle('wandlight-loredeck-library-details-collapsed', isCollapsed);
-    handle.classList.toggle('wandlight-loredeck-library-resize-handle-collapsed', isCollapsed);
+    body.classList.toggle('saga-loredeck-library-details-collapsed', isCollapsed);
+    handle.classList.toggle('saga-loredeck-library-resize-handle-collapsed', isCollapsed);
     handle.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
-    handle.dataset.wandlightTooltip = isCollapsed
+    handle.dataset.sagaTooltip = isCollapsed
         ? 'Expand the selected Loredeck details panel.'
         : 'Collapse, resize, or reset the selected Loredeck details panel.';
-    const labelText = handle.querySelector('.wandlight-loredeck-library-resize-label-text');
+    const labelText = handle.querySelector('.saga-loredeck-library-resize-label-text');
     if (labelText) labelText.textContent = isCollapsed ? 'Expand Details' : 'Collapse Details';
-    for (const arrow of handle.querySelectorAll('.wandlight-loredeck-library-resize-label-arrow')) {
+    for (const arrow of handle.querySelectorAll('.saga-loredeck-library-resize-label-arrow')) {
         arrow.textContent = isCollapsed ? '\u2191' : '\u2193';
     }
     return true;
@@ -739,22 +739,22 @@ function setLoredeckLibraryDetailsCollapsed(collapsed, options = {}) {
 function createLoredeckLibraryResizeHandle(collapsed = false) {
     const handle = document.createElement('button');
     handle.type = 'button';
-    handle.className = `wandlight-loredeck-library-resize-handle${collapsed ? ' wandlight-loredeck-library-resize-handle-collapsed' : ''}`;
+    handle.className = `saga-loredeck-library-resize-handle${collapsed ? ' saga-loredeck-library-resize-handle-collapsed' : ''}`;
     handle.setAttribute('aria-label', 'Resize Loredeck details panel');
     handle.setAttribute('aria-orientation', 'horizontal');
     handle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
     const createGrip = (side) => {
         const grip = document.createElement('span');
-        grip.className = `wandlight-loredeck-library-resize-track wandlight-loredeck-library-resize-track-${side}`;
+        grip.className = `saga-loredeck-library-resize-track saga-loredeck-library-resize-track-${side}`;
         grip.setAttribute('aria-hidden', 'true');
         for (let i = 0; i < 4; i += 1) grip.appendChild(document.createElement('span'));
         return grip;
     };
     handle.appendChild(createGrip('left'));
     const label = document.createElement('span');
-    label.className = 'wandlight-loredeck-library-resize-label';
+    label.className = 'saga-loredeck-library-resize-label';
     const arrow = collapsed ? '&uarr;' : '&darr;';
-    label.innerHTML = `<span class="wandlight-loredeck-library-resize-label-arrow">${arrow}</span><span class="wandlight-loredeck-library-resize-label-text">${collapsed ? 'Expand Details' : 'Collapse Details'}</span><span class="wandlight-loredeck-library-resize-label-arrow">${arrow}</span>`;
+    label.innerHTML = `<span class="saga-loredeck-library-resize-label-arrow">${arrow}</span><span class="saga-loredeck-library-resize-label-text">${collapsed ? 'Expand Details' : 'Collapse Details'}</span><span class="saga-loredeck-library-resize-label-arrow">${arrow}</span>`;
     handle.appendChild(label);
     handle.appendChild(createGrip('right'));
     addTooltip(handle, collapsed ? 'Expand the selected Loredeck details panel.' : 'Collapse, resize, or reset the selected Loredeck details panel.');
@@ -769,12 +769,12 @@ function createLoredeckLibraryResizeHandle(collapsed = false) {
     handle.addEventListener('pointerdown', e => {
         if (collapsed) return;
         if (e.button != null && e.button !== 0) return;
-        const body = handle.closest('.wandlight-loredeck-library-body');
+        const body = handle.closest('.saga-loredeck-library-body');
         if (!body) return;
         e.preventDefault();
         e.stopPropagation();
         handle.setPointerCapture?.(e.pointerId);
-        document.body.classList.add('wandlight-loredeck-library-resizing');
+        document.body.classList.add('saga-loredeck-library-resizing');
         let dragged = false;
         const startY = e.clientY;
 
@@ -803,7 +803,7 @@ function createLoredeckLibraryResizeHandle(collapsed = false) {
 
         const onUp = event => {
             handle.releasePointerCapture?.(event.pointerId);
-            document.body.classList.remove('wandlight-loredeck-library-resizing');
+            document.body.classList.remove('saga-loredeck-library-resizing');
             window.removeEventListener('pointermove', onMove);
             window.removeEventListener('pointerup', onUp);
             window.removeEventListener('pointercancel', onUp);
@@ -1045,7 +1045,7 @@ function handleLoredeckLibraryDeckSelection(packId, event = null, visiblePacks =
 function createLoredeckLibraryHeaderMeta(stack = [], library = [], canonDb = null, health = null) {
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health);
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-library-title-meta';
+    meta.className = 'saga-loredeck-library-title-meta';
     meta.appendChild(createStatusPill(`${library.length} decks available`, 'Total registered Loredecks available to this session.'));
     meta.appendChild(createStatusPill(`${stats.activeCount} active`, 'Enabled Loredecks in the current session stack.'));
     meta.appendChild(createStatusPill(`${stats.entryCount} active Lorecards`, 'Approximate active Lorecards available from enabled Loredecks.'));
@@ -1057,13 +1057,13 @@ function createLoredeckLibraryHeaderMeta(stack = [], library = [], canonDb = nul
 
 function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, health = null, libraryIndex = {}, library = getLoredeckLibrary(getState()), scopedLibrary = packs, activeViewId = 'all') {
     const pane = document.createElement('div');
-    pane.className = 'wandlight-loredeck-library-pane wandlight-loredeck-library-pane-library';
+    pane.className = 'saga-loredeck-library-pane saga-loredeck-library-pane-library';
 
     const controls = document.createElement('div');
-    controls.className = 'wandlight-loredeck-library-controls';
+    controls.className = 'saga-loredeck-library-controls';
     const search = document.createElement('input');
     search.type = 'search';
-    search.className = 'text_pole wandlight-loredeck-library-search';
+    search.className = 'text_pole saga-loredeck-library-search';
     search.placeholder = 'Search decks...';
     search.value = loredeckLibraryQuery || '';
     addTooltip(search, 'Search deck title, description, fandom, era, tags, manifest path, and deck ID. Press Enter or leave the field to apply.');
@@ -1082,7 +1082,7 @@ function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, healt
     controls.appendChild(search);
 
     const view = document.createElement('select');
-    view.className = 'text_pole wandlight-loredeck-library-view';
+    view.className = 'text_pole saga-loredeck-library-view';
     addTooltip(view, 'Filter the Library without changing folder organization.');
     for (const item of LOREDECK_LIBRARY_SPECIAL_VIEWS) {
         const option = document.createElement('option');
@@ -1101,7 +1101,7 @@ function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, healt
     controls.appendChild(view);
 
     const sort = document.createElement('select');
-    sort.className = 'text_pole wandlight-loredeck-library-sort';
+    sort.className = 'text_pole saga-loredeck-library-sort';
     addTooltip(sort, 'Sort the visible Loredeck Library list.');
     for (const [value, label] of [
         ['manual', 'Manual'],
@@ -1125,7 +1125,7 @@ function createLoredeckLibraryPane(packs = [], stack = [], canonDb = null, healt
     controls.appendChild(sort);
     controls.appendChild(createButton('New Folder', 'Create a new top-level Library folder.', () => {
         void promptCreateLoredeckLibraryFolder('');
-    }, 'wandlight-loredeck-library-small-button wandlight-loredeck-library-new-folder-button'));
+    }, 'saga-loredeck-library-small-button saga-loredeck-library-new-folder-button'));
     pane.appendChild(controls);
 
     pane.appendChild(createLoredeckLibrarySelectionToolbar(packs, libraryIndex));
@@ -1383,7 +1383,7 @@ function getLoredeckLibraryFolderSearchState(folderId = '', searchModel = {}) {
 
 function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canonDb = null, health = null, libraryIndex = {}, library = [], scopedLibrary = library) {
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-library-deck-list wandlight-loredeck-library-hierarchy-list';
+    list.className = 'saga-loredeck-library-deck-list saga-loredeck-library-hierarchy-list';
     const query = String(loredeckLibraryQuery || '').trim();
     const activeViewId = getLoredeckLibraryActiveViewId();
     const folderIds = new Set((libraryIndex.folders || []).map(folder => folder.id));
@@ -1409,8 +1409,8 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
         const index = visibleOrder.length;
         visibleOrder.push(pack);
         const card = createLoredeckLibraryDeckCard(pack, stack, canonDb, health, visibleOrder, index);
-        card.classList.add('wandlight-loredeck-library-deck-card-nested');
-        card.style.setProperty('--wandlight-folder-depth', String(Math.max(0, Number(depth) || 0)));
+        card.classList.add('saga-loredeck-library-deck-card-nested');
+        card.style.setProperty('--saga-folder-depth', String(Math.max(0, Number(depth) || 0)));
         list.appendChild(card);
     };
 
@@ -1528,17 +1528,17 @@ export function createLoredeckLibraryEditableTitle(options = {}) {
     const kind = String(options.kind || 'title').trim() || 'title';
     const editable = options.editable === true && typeof options.onCommit === 'function';
     const wrap = document.createElement('span');
-    wrap.className = `${options.className || ''} wandlight-loredeck-library-inline-title${editable ? ' wandlight-loredeck-library-inline-title-editable' : ''}`.trim();
+    wrap.className = `${options.className || ''} saga-loredeck-library-inline-title${editable ? ' saga-loredeck-library-inline-title-editable' : ''}`.trim();
 
     let label = document.createElement('span');
-    label.className = 'wandlight-loredeck-library-inline-title-label';
+    label.className = 'saga-loredeck-library-inline-title-label';
     label.textContent = value;
     wrap.appendChild(label);
     if (!editable) return wrap;
 
     const action = document.createElement('button');
     action.type = 'button';
-    action.className = 'wandlight-loredeck-library-title-edit-action wandlight-loredeck-library-title-edit-wand';
+    action.className = 'saga-loredeck-library-title-edit-action saga-loredeck-library-title-edit-wand';
     addTooltip(action, `Rename ${kind}.`);
     wrap.appendChild(action);
 
@@ -1550,13 +1550,13 @@ export function createLoredeckLibraryEditableTitle(options = {}) {
     };
     const endEditing = nextTitle => {
         editing = false;
-        wrap.classList.remove('wandlight-loredeck-library-inline-title-editing');
-        action.classList.remove('wandlight-loredeck-library-title-edit-accept');
-        action.classList.add('wandlight-loredeck-library-title-edit-wand');
-        action.dataset.wandlightTooltip = `Rename ${kind}.`;
+        wrap.classList.remove('saga-loredeck-library-inline-title-editing');
+        action.classList.remove('saga-loredeck-library-title-edit-accept');
+        action.classList.add('saga-loredeck-library-title-edit-wand');
+        action.dataset.sagaTooltip = `Rename ${kind}.`;
         action.setAttribute('aria-label', `Rename ${kind}.`);
         const nextLabel = document.createElement('span');
-        nextLabel.className = 'wandlight-loredeck-library-inline-title-label';
+        nextLabel.className = 'saga-loredeck-library-inline-title-label';
         nextLabel.textContent = normalizeLoredeckLibraryInlineTitle(nextTitle || value, 180) || value;
         if (input?.parentNode) input.replaceWith(nextLabel);
         else if (label?.parentNode) label.replaceWith(nextLabel);
@@ -1585,14 +1585,14 @@ export function createLoredeckLibraryEditableTitle(options = {}) {
         if (editing) return;
         editing = true;
         hideFloatingTooltip();
-        wrap.classList.add('wandlight-loredeck-library-inline-title-editing');
-        action.classList.remove('wandlight-loredeck-library-title-edit-wand');
-        action.classList.add('wandlight-loredeck-library-title-edit-accept');
-        action.dataset.wandlightTooltip = `Save ${kind} title.`;
+        wrap.classList.add('saga-loredeck-library-inline-title-editing');
+        action.classList.remove('saga-loredeck-library-title-edit-wand');
+        action.classList.add('saga-loredeck-library-title-edit-accept');
+        action.dataset.sagaTooltip = `Save ${kind} title.`;
         action.setAttribute('aria-label', `Save ${kind} title.`);
         input = document.createElement('input');
         input.type = 'text';
-        input.className = 'text_pole wandlight-loredeck-library-title-input';
+        input.className = 'text_pole saga-loredeck-library-title-input';
         input.value = label.textContent || value;
         input.setAttribute('aria-label', `${kind} title`);
         input.addEventListener('click', e => e.stopPropagation());
@@ -1636,11 +1636,11 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     const depth = Math.max(0, Number(options.depth) || 0);
     const searchState = String(options.searchState || '').trim();
     const row = document.createElement('div');
-    row.className = `wandlight-loredeck-library-inline-folder-row${loredeckLibrarySelectedFolderDetailsId === folderId ? ' wandlight-loredeck-library-folder-row-active' : ''}${options.special ? ' wandlight-loredeck-library-folder-row-special' : ''}`.trim();
-    row.classList.add('wandlight-loredeck-library-folder-row-drop-enabled');
-    if (searchState === 'match') row.classList.add('wandlight-loredeck-library-search-match');
-    else if (searchState === 'context') row.classList.add('wandlight-loredeck-library-search-context');
-    row.style.setProperty('--wandlight-folder-depth', String(depth));
+    row.className = `saga-loredeck-library-inline-folder-row${loredeckLibrarySelectedFolderDetailsId === folderId ? ' saga-loredeck-library-folder-row-active' : ''}${options.special ? ' saga-loredeck-library-folder-row-special' : ''}`.trim();
+    row.classList.add('saga-loredeck-library-folder-row-drop-enabled');
+    if (searchState === 'match') row.classList.add('saga-loredeck-library-search-match');
+    else if (searchState === 'context') row.classList.add('saga-loredeck-library-search-context');
+    row.style.setProperty('--saga-folder-depth', String(depth));
     row.dataset.folderId = folderId;
     row.dataset.folderParentId = String(folder.parentId || '').trim();
     row.dataset.folderDropTarget = 'true';
@@ -1673,8 +1673,8 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     });
 
     const grip = document.createElement('span');
-    grip.className = 'wandlight-loredeck-library-stack-grip wandlight-loredeck-library-folder-grip';
-    grip.style.setProperty('--wandlight-grip-dot-rows', String(Math.max(3, 6 - depth)));
+    grip.className = 'saga-loredeck-library-stack-grip saga-loredeck-library-folder-grip';
+    grip.style.setProperty('--saga-grip-dot-rows', String(Math.max(3, 6 - depth)));
     grip.setAttribute('aria-hidden', 'true');
     grip.innerHTML = '<span></span>';
     grip.addEventListener('click', e => {
@@ -1688,7 +1688,7 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
 
     const disclosure = document.createElement('button');
     disclosure.type = 'button';
-    disclosure.className = 'wandlight-loredeck-library-folder-disclosure';
+    disclosure.className = 'saga-loredeck-library-folder-disclosure';
     disclosure.textContent = collapsed ? '>' : 'v';
     disclosure.setAttribute('aria-label', `${collapsed ? 'Expand' : 'Collapse'} ${folder.title || 'folder'}`);
     addTooltip(disclosure, collapsed ? 'Expand folder.' : 'Collapse folder.');
@@ -1700,13 +1700,13 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     row.appendChild(disclosure);
 
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-library-folder-main';
+    main.className = 'saga-loredeck-library-folder-main';
     const top = document.createElement('div');
-    top.className = 'wandlight-loredeck-library-folder-topline';
+    top.className = 'saga-loredeck-library-folder-topline';
     top.appendChild(createLoredeckLibraryEditableTitle({
         value: folder.title || folderId || 'Folder',
         fallback: folderId || 'Folder',
-        className: 'wandlight-loredeck-library-folder-label',
+        className: 'saga-loredeck-library-folder-label',
         editable: !options.special && !!folderId && folderId !== 'unfiled',
         kind: 'folder',
         onCommit: title => {
@@ -1716,7 +1716,7 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
         },
     }));
     const meta = document.createElement('div');
-    meta.className = 'wandlight-loredeck-row-meta wandlight-loredeck-library-folder-meta';
+    meta.className = 'saga-loredeck-row-meta saga-loredeck-library-folder-meta';
     meta.appendChild(createStatusPill(`${stats.deckCount || 0} deck${(stats.deckCount || 0) === 1 ? '' : 's'}`, 'Nested Loredecks in this folder.'));
     if (stats.childFolderCount) meta.appendChild(createStatusPill(`${stats.childFolderCount} folder${stats.childFolderCount === 1 ? '' : 's'}`, 'Direct child folders.'));
     if (searchState === 'match') meta.appendChild(createStatusPill('Folder match', 'This folder title or path matches the Library search.'));
@@ -1753,12 +1753,12 @@ function toggleLoredeckLibraryFolderCollapsed(folderId = '', currentCollapsed = 
 
 function createLoredeckLibraryFolderCoverStrip(coverPacks = [], totalCoverableCount = 0) {
     const strip = document.createElement('div');
-    strip.className = 'wandlight-loredeck-library-folder-cover-strip';
+    strip.className = 'saga-loredeck-library-folder-cover-strip';
     const packs = (coverPacks || []).filter(pack => getLoredeckAssetRef(pack, 'cover')).slice(0, LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE);
     strip.dataset.totalCovers = String(Math.max(Number(totalCoverableCount) || 0, packs.length));
     if (!packs.length) {
         const fallback = document.createElement('span');
-        fallback.className = 'wandlight-loredeck-library-folder-cover-empty';
+        fallback.className = 'saga-loredeck-library-folder-cover-empty';
         fallback.textContent = 'No covers';
         strip.appendChild(fallback);
         return strip;
@@ -1766,9 +1766,9 @@ function createLoredeckLibraryFolderCoverStrip(coverPacks = [], totalCoverableCo
     packs.forEach((pack, index) => {
         const cover = getLoredeckAssetRef(pack, 'cover');
         const tile = document.createElement('span');
-        tile.className = 'wandlight-loredeck-library-folder-cover-tile';
-        if (cover.fit === 'contain') tile.classList.add('wandlight-loredeck-library-folder-cover-tile-contain');
-        tile.style.setProperty('--wandlight-cover-index', String(index));
+        tile.className = 'saga-loredeck-library-folder-cover-tile';
+        if (cover.fit === 'contain') tile.classList.add('saga-loredeck-library-folder-cover-tile-contain');
+        tile.style.setProperty('--saga-cover-index', String(index));
         tile.dataset.coverTile = 'true';
         const img = document.createElement('img');
         img.src = getAssetSrc(cover);
@@ -1783,7 +1783,7 @@ function createLoredeckLibraryFolderCoverStrip(coverPacks = [], totalCoverableCo
         strip.appendChild(tile);
     });
     const more = document.createElement('span');
-    more.className = 'wandlight-loredeck-library-folder-cover-tile wandlight-loredeck-library-folder-cover-more';
+    more.className = 'saga-loredeck-library-folder-cover-tile saga-loredeck-library-folder-cover-more';
     more.dataset.coverMore = 'true';
     more.hidden = true;
     strip.appendChild(more);
@@ -1823,8 +1823,8 @@ function updateLoredeckLibraryFolderCoverStrip(strip = null) {
     const total = Math.max(Number(strip.dataset.totalCovers) || 0, tiles.length);
     const available = Math.max(0, strip.clientWidth || strip.getBoundingClientRect?.().width || 0);
     const style = typeof getComputedStyle === 'function' ? getComputedStyle(strip) : null;
-    const tileWidth = Math.max(1, Number.parseFloat(style?.getPropertyValue('--wandlight-folder-cover-size')) || 38);
-    const overlap = Math.max(0, Math.abs(Number.parseFloat(style?.getPropertyValue('--wandlight-folder-cover-overlap')) || 12));
+    const tileWidth = Math.max(1, Number.parseFloat(style?.getPropertyValue('--saga-folder-cover-size')) || 38);
+    const overlap = Math.max(0, Math.abs(Number.parseFloat(style?.getPropertyValue('--saga-folder-cover-overlap')) || 12));
     const step = Math.max(8, tileWidth - overlap);
     const moreWidth = 32;
     const visibleCap = Math.min(LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE, tiles.length);
@@ -1844,23 +1844,23 @@ function updateLoredeckLibraryFolderCoverStrip(strip = null) {
 
     tiles.forEach((tile, index) => {
         tile.hidden = index >= visibleCount;
-        tile.style.setProperty('--wandlight-cover-index', String(index));
+        tile.style.setProperty('--saga-cover-index', String(index));
     });
     const hiddenCount = Math.max(0, total - visibleCount);
     more.hidden = hiddenCount <= 0;
     if (hiddenCount > 0) {
         more.textContent = `+${hiddenCount}`;
-        more.style.setProperty('--wandlight-cover-index', String(visibleCount));
+        more.style.setProperty('--saga-cover-index', String(visibleCount));
     }
 }
 
 function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex = getLoredeckLibraryIndexForPacks()) {
     const toolbar = document.createElement('div');
-    toolbar.className = 'wandlight-loredeck-library-selection-toolbar';
+    toolbar.className = 'saga-loredeck-library-selection-toolbar';
     const selectedIds = getLoredeckLibraryBulkSelectedIds();
     const selectedVisibleCount = visiblePacks.filter(pack => selectedIds.includes(pack.packId)).length;
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-library-selection-summary';
+    summary.className = 'saga-loredeck-library-selection-summary';
     summary.textContent = `${selectedIds.length} selected${selectedVisibleCount !== selectedIds.length ? ` (${selectedVisibleCount} visible)` : ''}`;
     addTooltip(summary, 'Use click for single selection, Ctrl/Cmd-click to toggle a deck, and Shift-click to select a visible range.');
     toolbar.appendChild(summary);
@@ -1868,14 +1868,14 @@ function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex =
     const selectVisible = createButton('Select Visible', 'Select every Loredeck currently shown by the active search and filters.', () => {
         setLoredeckLibraryBulkSelection(visiblePacks.map(pack => pack.packId), visiblePacks[0]?.packId || '');
         renderLoredeckLibraryOverlay();
-    }, 'wandlight-loredeck-library-small-button');
+    }, 'saga-loredeck-library-small-button');
     selectVisible.disabled = !visiblePacks.length;
     toolbar.appendChild(selectVisible);
 
     const clear = createButton('Clear', 'Clear the current bulk Loredeck selection.', () => {
         setLoredeckLibraryBulkSelection([], '');
         renderLoredeckLibraryOverlay();
-    }, 'wandlight-loredeck-library-small-button');
+    }, 'saga-loredeck-library-small-button');
     clear.disabled = !selectedIds.length;
     toolbar.appendChild(clear);
 
@@ -1883,12 +1883,12 @@ function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex =
         const library = getLoredeckLibrary(getState());
         const packs = getLoredeckLibraryBulkSelectedIds(library).map(id => library.find(pack => pack.packId === id)).filter(Boolean);
         await exportSelectedLoredeckBundles(packs, btn);
-    }, 'wandlight-loredeck-library-small-button');
+    }, 'saga-loredeck-library-small-button');
     exportButton.disabled = !selectedIds.length;
     toolbar.appendChild(exportButton);
 
     const moveSelect = document.createElement('select');
-    moveSelect.className = 'text_pole wandlight-loredeck-library-folder-move-select';
+    moveSelect.className = 'text_pole saga-loredeck-library-folder-move-select';
     moveSelect.disabled = !selectedIds.length;
     addTooltip(moveSelect, 'Choose a folder target for selected Loredecks.');
     appendLoredeckLibraryFolderMoveOptions(moveSelect, libraryIndex);
@@ -1903,7 +1903,7 @@ function createLoredeckLibrarySelectionToolbar(visiblePacks = [], libraryIndex =
     const moveButton = createButton('Move', selectedIds.length ? 'Move selected Loredecks to the chosen folder.' : 'Select Loredecks before moving them to a folder.', () => {
         if (!selectedIds.length) return;
         if (moveLoredecksToLibraryFolder(selectedIds, moveSelect.value || 'unfiled')) scheduleLoredeckLibraryOverlayRefresh();
-    }, 'wandlight-loredeck-library-small-button');
+    }, 'saga-loredeck-library-small-button');
     moveButton.disabled = !selectedIds.length;
     toolbar.appendChild(moveButton);
     return toolbar;
@@ -1948,7 +1948,7 @@ function appendLoredeckLibraryFolderParentOptions(select, movingFolderId = '', l
 
 function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = [], stack = [], selectedPacks = [], selectedFolder = null, libraryIndex = getLoredeckLibraryIndexForPacks()) {
     const pane = document.createElement('div');
-    pane.className = 'wandlight-loredeck-library-transfer-pane';
+    pane.className = 'saga-loredeck-library-transfer-pane';
     const selectedId = selectedPack?.packId || '';
     const library = getLoredeckLibrary(getState());
     const actionFolderId = String(selectedFolder?.id || '').trim();
@@ -1965,39 +1965,39 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
     const inactiveMatches = filteredPacks.filter(pack => !resolvedStackIds.has(pack.packId));
 
     const flow = document.createElement('div');
-    flow.className = 'wandlight-loredeck-library-transfer-flow';
+    flow.className = 'saga-loredeck-library-transfer-flow';
 
     const add = createButton(actionIds.length > 1 ? `Add Selected (${actionIds.length}) >` : 'Add to Stack >', actionIds.length ? 'Add or enable the selected Loredeck selection in the active stack.' : 'Select one or more Loredecks before adding them to the stack.', () => {
         if (!actionIds.length) return;
         addLoredecksToStack(actionIds);
-    }, 'wandlight-primary-button wandlight-loredeck-library-transfer-button');
+    }, 'saga-primary-button saga-loredeck-library-transfer-button');
     add.disabled = !actionIds.length || actionIds.every(packId => resolvedStackIds.has(packId));
     flow.appendChild(add);
 
     const remove = createButton(actionIds.length > 1 ? `< Remove Selected (${selectedStackItems.length})` : '< Remove from Stack', actionIds.length ? 'Remove selected Loredecks from the active stack.' : 'Select an active Loredeck before removing it.', () => {
         if (!actionIds.length) return;
         removeLoredecksFromStack(actionIds);
-    }, 'wandlight-loredeck-library-transfer-button');
+    }, 'saga-loredeck-library-transfer-button');
     remove.disabled = !selectedStackItems.length;
     flow.appendChild(remove);
 
     const addAll = createButton('Add All Matching', 'Add every currently filtered Loredeck that is not already enabled.', () => {
         addLoredecksToStack(inactiveMatches.map(pack => pack.packId));
-    }, 'wandlight-loredeck-library-transfer-button');
+    }, 'saga-loredeck-library-transfer-button');
     addAll.disabled = !inactiveMatches.length;
     flow.appendChild(addAll);
     pane.appendChild(flow);
 
     const footer = document.createElement('div');
-    footer.className = 'wandlight-loredeck-library-transfer-footer';
+    footer.className = 'saga-loredeck-library-transfer-footer';
     const clear = createButton('Clear Stack', 'Remove every Loredeck from the active session stack.', () => {
         clearLoredeckStack();
-    }, 'wandlight-danger-button wandlight-loredeck-library-transfer-button');
+    }, 'saga-danger-button saga-loredeck-library-transfer-button');
     clear.disabled = !stack.length;
     footer.appendChild(clear);
 
     const libraryActions = document.createElement('div');
-    libraryActions.className = 'wandlight-loredeck-library-center-actions';
+    libraryActions.className = 'saga-loredeck-library-center-actions';
     const selectedActionFolder = actionFolder && !isLoredeckLibrarySpecialFolderId(actionFolder.id) ? actionFolder : null;
     const duplicateTargets = selectedIds.length ? selectedPacks.filter(pack => selectedIds.includes(pack.packId)) : (selectedActionFolder || hasSelectedFolderDetails ? [] : (selectedPack ? [selectedPack] : []));
     const duplicateTooltip = selectedActionFolder
@@ -2036,7 +2036,7 @@ function createLoredeckLibraryTransferPane(selectedPack = null, filteredPacks = 
         }
         if (!deletableTargets.length) return;
         void deleteLoredeckLibraryPacksWithConfirm(deleteTargets);
-    }, 'wandlight-loredeck-library-square-action-danger');
+    }, 'saga-loredeck-library-square-action-danger');
     deleteButton.disabled = !selectedActionFolder && !deletableTargets.length;
     libraryActions.appendChild(deleteButton);
     footer.appendChild(libraryActions);
@@ -2049,7 +2049,7 @@ function createLoredeckLibrarySquareIconAction(kind = 'duplicate', tooltip = '',
     const label = normalized === 'delete' ? 'Delete' : 'Duplicate';
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = `wandlight-runtime-button wandlight-loredeck-library-square-action wandlight-loredeck-library-icon-action ${className}`.trim();
+    btn.className = `saga-runtime-button saga-loredeck-library-square-action saga-loredeck-library-icon-action ${className}`.trim();
     btn.innerHTML = getLoredeckLibraryActionIconSvg(normalized);
     addTooltip(btn, tooltip || label);
     btn.addEventListener('click', e => {
@@ -2063,25 +2063,25 @@ function getLoredeckLibraryActionIconSvg(kind = 'duplicate') {
     if (kind === 'delete') {
         return `
             <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-                <path class="wandlight-icon-fill-soft" d="M15 18h18l-1.4 22.5a3.8 3.8 0 0 1-3.8 3.5h-7.6a3.8 3.8 0 0 1-3.8-3.5L15 18Z"/>
+                <path class="saga-icon-fill-soft" d="M15 18h18l-1.4 22.5a3.8 3.8 0 0 1-3.8 3.5h-7.6a3.8 3.8 0 0 1-3.8-3.5L15 18Z"/>
                 <path d="M12 18h24M19 18v-4.2c0-1.2 1-2.2 2.2-2.2h5.6c1.2 0 2.2 1 2.2 2.2V18M20.5 23.5v13M27.5 23.5v13"/>
-                <path class="wandlight-icon-spark" d="M17 8.5l1.1 2.4 2.4 1.1-2.4 1.1-1.1 2.4-1.1-2.4-2.4-1.1 2.4-1.1L17 8.5Z"/>
+                <path class="saga-icon-spark" d="M17 8.5l1.1 2.4 2.4 1.1-2.4 1.1-1.1 2.4-1.1-2.4-2.4-1.1 2.4-1.1L17 8.5Z"/>
             </svg>
         `;
     }
     return `
         <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-            <path class="wandlight-icon-fill-soft" d="M17 12h17c1.2 0 2.2 1 2.2 2.2v23.6c0 1.2-1 2.2-2.2 2.2H17c-1.2 0-2.2-1-2.2-2.2V14.2c0-1.2 1-2.2 2.2-2.2Z"/>
+            <path class="saga-icon-fill-soft" d="M17 12h17c1.2 0 2.2 1 2.2 2.2v23.6c0 1.2-1 2.2-2.2 2.2H17c-1.2 0-2.2-1-2.2-2.2V14.2c0-1.2 1-2.2 2.2-2.2Z"/>
             <path d="M17 12h17c1.2 0 2.2 1 2.2 2.2v23.6c0 1.2-1 2.2-2.2 2.2H17c-1.2 0-2.2-1-2.2-2.2V14.2c0-1.2 1-2.2 2.2-2.2Z"/>
             <path d="M11.8 18.2V10c0-1.2 1-2.2 2.2-2.2h17.8M20 19.2h11M20 25.6h11M20 32h7"/>
-            <path class="wandlight-icon-spark" d="M33.5 7l1.2 2.7 2.8 1.3-2.8 1.2-1.2 2.8-1.3-2.8-2.7-1.2 2.7-1.3L33.5 7Z"/>
+            <path class="saga-icon-spark" d="M33.5 7l1.2 2.7 2.8 1.3-2.8 1.2-1.2 2.8-1.3-2.8-2.7-1.2 2.7-1.3L33.5 7Z"/>
         </svg>
     `;
 }
 
 function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null, health = null, libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library)) {
     const pane = document.createElement('div');
-    pane.className = 'wandlight-loredeck-library-pane wandlight-loredeck-library-pane-stack';
+    pane.className = 'saga-loredeck-library-pane saga-loredeck-library-pane-stack';
 
     const stats = getLoredeckLibraryStackStats(stack, library, canonDb, health, libraryIndex);
     const stackPackMap = Object.fromEntries(library.map(pack => [pack.packId, pack]));
@@ -2095,19 +2095,19 @@ function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null,
         });
     }
     const head = document.createElement('div');
-    head.className = 'wandlight-loredeck-library-pane-header wandlight-loredeck-library-stack-header';
+    head.className = 'saga-loredeck-library-pane-header saga-loredeck-library-stack-header';
     const titleWrap = document.createElement('div');
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-library-pane-title';
+    title.className = 'saga-loredeck-library-pane-title';
     title.textContent = 'Active Stack';
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-loredeck-library-pane-subtitle';
+    subtitle.className = 'saga-loredeck-library-pane-subtitle';
     subtitle.textContent = 'Top to bottom priority';
     titleWrap.appendChild(subtitle);
     head.appendChild(titleWrap);
     const stackMeta = document.createElement('div');
-    stackMeta.className = 'wandlight-loredeck-row-meta';
+    stackMeta.className = 'saga-loredeck-row-meta';
     stackMeta.appendChild(createStatusPill(`${stats.entryCount} Lorecards`, 'Approximate active Lorecards in the enabled stack.'));
     if (stats.duplicateCount) stackMeta.appendChild(createStatusPill(`${stats.duplicateCount} suppressed`, 'Duplicate Loredeck load attempts suppressed by higher-priority stack items.'));
     stackMeta.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Current stack warning count.'));
@@ -2117,13 +2117,13 @@ function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null,
 
     if (stats.duplicateCount) {
         const duplicateSummary = document.createElement('div');
-        duplicateSummary.className = 'wandlight-loredeck-library-stack-duplicate-summary';
+        duplicateSummary.className = 'saga-loredeck-library-stack-duplicate-summary';
         duplicateSummary.textContent = `${stats.duplicateCount} duplicate Loredeck load attempt${stats.duplicateCount === 1 ? '' : 's'} suppressed. Higher stack priority wins; suppressed cards stay visible for ordering and editing.`;
         pane.appendChild(duplicateSummary);
     }
 
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-library-stack-list';
+    list.className = 'saga-loredeck-library-stack-list';
     if (!stack.length) {
         list.appendChild(createEmptyMessage('No active stack. Add decks from the Library to build this session loadout.'));
     } else {
@@ -2153,16 +2153,16 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     const healthTone = getLoredeckLibraryDisplayHealthTone(pack, healthInfo);
     const stats = getLoredeckLibraryDeckStats(pack, canonDb, healthInfo);
     const card = document.createElement('div');
-    card.className = 'wandlight-loredeck-library-deck-card';
+    card.className = 'saga-loredeck-library-deck-card';
     card.tabIndex = 0;
     card.setAttribute('role', 'button');
     card.dataset.packId = pack.packId;
     card.dataset.libraryIndex = String(visibleIndex);
-    if (selectedId === pack.packId) card.classList.add('wandlight-loredeck-library-deck-selected');
-    if (bulkSelected) card.classList.add('wandlight-loredeck-library-deck-bulk-selected');
-    if (activeItem?.enabled) card.classList.add('wandlight-loredeck-library-deck-active');
-    if (healthTone === 'error') card.classList.add('wandlight-loredeck-library-deck-error');
-    else if (healthTone === 'warning') card.classList.add('wandlight-loredeck-library-deck-warning');
+    if (selectedId === pack.packId) card.classList.add('saga-loredeck-library-deck-selected');
+    if (bulkSelected) card.classList.add('saga-loredeck-library-deck-bulk-selected');
+    if (activeItem?.enabled) card.classList.add('saga-loredeck-library-deck-active');
+    if (healthTone === 'error') card.classList.add('saga-loredeck-library-deck-error');
+    else if (healthTone === 'warning') card.classList.add('saga-loredeck-library-deck-warning');
     card.setAttribute('aria-pressed', bulkSelected ? 'true' : 'false');
     if (selectedId === pack.packId) card.setAttribute('aria-current', 'true');
     addTooltip(card, `${pack.title || pack.packId}. Click to select, Ctrl/Cmd-click to toggle, Shift-click to select a visible range, double-click to add to the active stack.`);
@@ -2185,8 +2185,8 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     });
 
     const grip = document.createElement('span');
-    grip.className = 'wandlight-loredeck-library-stack-grip wandlight-loredeck-library-deck-grip';
-    grip.style.setProperty('--wandlight-grip-dot-rows', '2');
+    grip.className = 'saga-loredeck-library-stack-grip saga-loredeck-library-deck-grip';
+    grip.style.setProperty('--saga-grip-dot-rows', '2');
     grip.setAttribute('aria-hidden', 'true');
     grip.innerHTML = '<span></span>';
     grip.addEventListener('click', e => {
@@ -2198,14 +2198,14 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     });
     card.appendChild(grip);
 
-    card.appendChild(createLoredeckDeckVisual(pack, 'wandlight-loredeck-library-monogram'));
+    card.appendChild(createLoredeckDeckVisual(pack, 'saga-loredeck-library-monogram'));
 
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-library-deck-main';
+    main.className = 'saga-loredeck-library-deck-main';
     main.appendChild(createLoredeckLibraryEditableTitle({
         value: pack.title || pack.packId,
         fallback: pack.packId,
-        className: 'wandlight-loredeck-library-deck-title',
+        className: 'saga-loredeck-library-deck-title',
         editable: isEditableLoredeckLibraryPack(pack),
         kind: 'Loredeck',
         onCommit: title => {
@@ -2215,11 +2215,11 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
         },
     }));
     const desc = document.createElement('div');
-    desc.className = 'wandlight-loredeck-library-deck-description';
+    desc.className = 'saga-loredeck-library-deck-description';
     desc.textContent = pack.description || `${getLoredeckLibraryPackTypeLabel(pack)} Loredeck.`;
     main.appendChild(desc);
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.'));
     if (pack.fandom) chips.appendChild(createStatusPill(pack.fandom, 'Fandom or setting.'));
     if (pack.era) chips.appendChild(createStatusPill(pack.era, 'Era, arc, continuity slice, or scope.'));
@@ -2227,7 +2227,7 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     if (activeItem) chips.appendChild(createStatusPill(activeItem.enabled ? 'In Stack' : 'Disabled', 'Current session stack state.'));
     main.appendChild(chips);
     const statsLine = document.createElement('div');
-    statsLine.className = 'wandlight-loredeck-library-card-stats';
+    statsLine.className = 'saga-loredeck-library-card-stats';
     statsLine.textContent = `${stats.entryCount} Lorecards | ${stats.fileCount || 0} files | ${stats.updatedLabel}`;
     main.appendChild(statsLine);
     card.appendChild(main);
@@ -2245,14 +2245,14 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
     const keptSource = keptEntry ? { ...(keptEntry.source || {}), packId: keptEntry.packId } : {};
     const keptSourceLabel = isSuppressed ? formatLoredeckStackSourceLabel(keptSource, libraryIndex, stackPackMap) : '';
     const card = document.createElement('div');
-    card.className = 'wandlight-loredeck-library-stack-card';
+    card.className = 'saga-loredeck-library-stack-card';
     card.dataset.packId = item.packId;
     card.dataset.stackKey = stackKey;
     card.dataset.stackIndex = String(index);
-    if (selectedId === item.packId) card.classList.add('wandlight-loredeck-library-stack-card-selected');
-    if (loredeckLibraryBulkSelectedIds.has(item.packId)) card.classList.add('wandlight-loredeck-library-stack-card-bulk-selected');
-    if (!item.enabled) card.classList.add('wandlight-loredeck-library-stack-card-disabled');
-    if (isSuppressed) card.classList.add('wandlight-loredeck-library-stack-card-suppressed');
+    if (selectedId === item.packId) card.classList.add('saga-loredeck-library-stack-card-selected');
+    if (loredeckLibraryBulkSelectedIds.has(item.packId)) card.classList.add('saga-loredeck-library-stack-card-bulk-selected');
+    if (!item.enabled) card.classList.add('saga-loredeck-library-stack-card-disabled');
+    if (isSuppressed) card.classList.add('saga-loredeck-library-stack-card-suppressed');
     if (selectedId === item.packId) card.setAttribute('aria-current', 'true');
     card.addEventListener('click', e => {
         e.stopPropagation();
@@ -2263,8 +2263,8 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
 
     const grip = document.createElement('button');
     grip.type = 'button';
-    grip.className = 'wandlight-loredeck-library-stack-grip';
-    grip.style.setProperty('--wandlight-grip-dot-rows', '2');
+    grip.className = 'saga-loredeck-library-stack-grip';
+    grip.style.setProperty('--saga-grip-dot-rows', '2');
     grip.setAttribute('aria-label', `Drag to reorder ${pack.title || item.packId}. Current priority ${index + 1}.`);
     grip.innerHTML = '<span></span>';
     grip.addEventListener('click', e => {
@@ -2283,14 +2283,14 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
     });
     card.appendChild(grip);
 
-    card.appendChild(createLoredeckDeckVisual(pack, 'wandlight-loredeck-library-monogram'));
+    card.appendChild(createLoredeckDeckVisual(pack, 'saga-loredeck-library-monogram'));
 
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-library-stack-main';
+    main.className = 'saga-loredeck-library-stack-main';
     main.appendChild(createLoredeckLibraryEditableTitle({
         value: pack.title || item.packId,
         fallback: item.packId,
-        className: 'wandlight-loredeck-library-deck-title',
+        className: 'saga-loredeck-library-deck-title',
         editable: isEditableLoredeckLibraryPack(pack),
         kind: 'Loredeck',
         onCommit: title => {
@@ -2300,7 +2300,7 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
         },
     }));
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(
         isSuppressed ? 'Suppressed' : (item.enabled ? 'Active' : 'Disabled'),
         isSuppressed
@@ -2311,7 +2311,7 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
     if (keptSourceLabel) chips.appendChild(createStatusPill(`Kept: ${keptSourceLabel}`, 'Higher-priority stack source that currently loads this Loredeck.'));
     main.appendChild(chips);
     const statsLine = document.createElement('div');
-    statsLine.className = 'wandlight-loredeck-library-card-stats';
+    statsLine.className = 'saga-loredeck-library-card-stats';
     statsLine.textContent = isSuppressed
         ? `${stats.entryCount} Lorecards | duplicate suppressed`
         : `${stats.entryCount} Lorecards`;
@@ -2319,10 +2319,10 @@ function createLoredeckActiveStackCard(pack, item, index, stackLength, canonDb =
     card.appendChild(main);
 
     const controls = document.createElement('div');
-    controls.className = 'wandlight-loredeck-library-stack-controls';
+    controls.className = 'saga-loredeck-library-stack-controls';
     const toggle = document.createElement('button');
     toggle.type = 'button';
-    toggle.className = `wandlight-loredeck-library-stack-toggle-button ${item.enabled !== false ? 'wandlight-loredeck-library-stack-toggle-active' : 'wandlight-loredeck-library-stack-toggle-inactive'}`;
+    toggle.className = `saga-loredeck-library-stack-toggle-button ${item.enabled !== false ? 'saga-loredeck-library-stack-toggle-active' : 'saga-loredeck-library-stack-toggle-inactive'}`;
     toggle.setAttribute('aria-pressed', item.enabled !== false ? 'true' : 'false');
     toggle.setAttribute('aria-label', item.enabled !== false ? 'Disable Loredeck retrieval' : 'Enable Loredeck retrieval');
     addTooltip(toggle, item.enabled !== false ? 'Active. Click to disable this Loredeck without removing it.' : 'Disabled. Click to enable this Loredeck for retrieval.');
@@ -2346,15 +2346,15 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     const collapsed = item.collapsed === true;
 
     const card = document.createElement('div');
-    card.className = 'wandlight-loredeck-library-stack-card wandlight-loredeck-library-stack-folder-card';
+    card.className = 'saga-loredeck-library-stack-card saga-loredeck-library-stack-folder-card';
     card.dataset.folderId = folderId;
     card.dataset.stackKey = stackKey;
     card.dataset.stackIndex = String(index);
     card.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-    card.classList.toggle('wandlight-loredeck-library-stack-folder-card-expanded', !collapsed);
-    card.classList.toggle('wandlight-loredeck-library-stack-folder-card-has-suppressed', !!stats.suppressedCount);
-    if (!item.enabled) card.classList.add('wandlight-loredeck-library-stack-card-disabled');
-    if (loredeckLibrarySelectedFolderDetailsId === folderId) card.classList.add('wandlight-loredeck-library-stack-card-selected');
+    card.classList.toggle('saga-loredeck-library-stack-folder-card-expanded', !collapsed);
+    card.classList.toggle('saga-loredeck-library-stack-folder-card-has-suppressed', !!stats.suppressedCount);
+    if (!item.enabled) card.classList.add('saga-loredeck-library-stack-card-disabled');
+    if (loredeckLibrarySelectedFolderDetailsId === folderId) card.classList.add('saga-loredeck-library-stack-card-selected');
     if (loredeckLibrarySelectedFolderDetailsId === folderId) card.setAttribute('aria-current', 'true');
     addTooltip(card, `${path.join(' > ') || folder.title}. Folder group priority ${index + 1}.`);
     card.addEventListener('click', e => {
@@ -2367,8 +2367,8 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
 
     const grip = document.createElement('button');
     grip.type = 'button';
-    grip.className = 'wandlight-loredeck-library-stack-grip';
-    grip.style.setProperty('--wandlight-grip-dot-rows', String(Math.max(3, 7 - Math.max(1, path.length || 1))));
+    grip.className = 'saga-loredeck-library-stack-grip';
+    grip.style.setProperty('--saga-grip-dot-rows', String(Math.max(3, 7 - Math.max(1, path.length || 1))));
     grip.setAttribute('aria-label', `Drag to reorder ${folder.title || folderId}. Current priority ${index + 1}.`);
     grip.innerHTML = '<span></span>';
     grip.addEventListener('click', e => {
@@ -2388,7 +2388,7 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     card.appendChild(grip);
 
     const visual = document.createElement('div');
-    visual.className = 'wandlight-loredeck-library-monogram wandlight-loredeck-library-stack-folder-visual';
+    visual.className = 'saga-loredeck-library-monogram saga-loredeck-library-stack-folder-visual';
     visual.appendChild(createLoredeckLibraryFolderCoverStrip(
         getLoredeckLibraryFolderCoverPacks(folderId, library, libraryIndex),
         preview.allPacks.filter(pack => getLoredeckAssetRef(pack, 'cover')).length
@@ -2396,11 +2396,11 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     card.appendChild(visual);
 
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-library-stack-main';
+    main.className = 'saga-loredeck-library-stack-main';
     main.appendChild(createLoredeckLibraryEditableTitle({
         value: folder.title || folderId || 'Folder',
         fallback: folderId || 'Folder',
-        className: 'wandlight-loredeck-library-deck-title',
+        className: 'saga-loredeck-library-deck-title',
         editable: !!folderId && folderId !== 'unfiled',
         kind: 'folder',
         onCommit: title => {
@@ -2410,7 +2410,7 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
         },
     }));
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(item.enabled ? 'Active Folder' : 'Disabled Folder', 'Folder groups load the Loredecks nested inside this Library folder.'));
     chips.appendChild(createStatusPill(`Priority ${index + 1}`, 'Top stack items have higher priority.'));
     chips.appendChild(createStatusPill(`${stats.activeCount}/${stats.deckCount} active`, 'Active Loredecks from this folder after stack duplicate suppression.'));
@@ -2419,16 +2419,16 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     else if (stats.warningCount) chips.appendChild(createStatusPill(`${stats.warningCount} warnings`, 'Contained Loredecks with Deck Health warnings.'));
     main.appendChild(chips);
     const statsLine = document.createElement('div');
-    statsLine.className = 'wandlight-loredeck-library-card-stats';
+    statsLine.className = 'saga-loredeck-library-card-stats';
     statsLine.textContent = `${stats.deckCount} Loredecks | ${stats.entryCount} active Lorecards${stats.suppressedCount ? ` | ${stats.suppressedCount} suppressed` : ''}`;
     main.appendChild(statsLine);
     card.appendChild(main);
 
     const controls = document.createElement('div');
-    controls.className = 'wandlight-loredeck-library-stack-controls';
+    controls.className = 'saga-loredeck-library-stack-controls';
     const disclosure = document.createElement('button');
     disclosure.type = 'button';
-    disclosure.className = 'wandlight-loredeck-library-stack-disclosure-button';
+    disclosure.className = 'saga-loredeck-library-stack-disclosure-button';
     disclosure.textContent = collapsed ? '>' : 'v';
     disclosure.setAttribute('aria-label', `${collapsed ? 'Expand' : 'Collapse'} ${folder.title || folderId} stack preview`);
     addTooltip(disclosure, collapsed ? 'Expand folder stack preview.' : 'Collapse folder stack preview.');
@@ -2439,7 +2439,7 @@ function createLoredeckActiveStackFolderCard(item, index, stackLength, library =
     controls.appendChild(disclosure);
     const toggle = document.createElement('button');
     toggle.type = 'button';
-    toggle.className = `wandlight-loredeck-library-stack-toggle-button ${item.enabled !== false ? 'wandlight-loredeck-library-stack-toggle-active' : 'wandlight-loredeck-library-stack-toggle-inactive'}`;
+    toggle.className = `saga-loredeck-library-stack-toggle-button ${item.enabled !== false ? 'saga-loredeck-library-stack-toggle-active' : 'saga-loredeck-library-stack-toggle-inactive'}`;
     toggle.setAttribute('aria-pressed', item.enabled !== false ? 'true' : 'false');
     toggle.setAttribute('aria-label', item.enabled !== false ? 'Disable folder group retrieval' : 'Enable folder group retrieval');
     addTooltip(toggle, item.enabled !== false ? 'Active. Click to disable this folder group without removing it.' : 'Disabled. Click to enable this folder group for retrieval.');
@@ -2555,10 +2555,10 @@ function getLoredeckLibraryDirectFolderPacks(folderId = '', library = getLoredec
 
 function createLoredeckStackFolderPreview(preview = {}, item = {}, libraryIndex = {}) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-library-stack-folder-preview';
+    wrap.className = 'saga-loredeck-library-stack-folder-preview';
     wrap.addEventListener('click', e => e.stopPropagation());
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-library-stack-folder-preview-list';
+    list.className = 'saga-loredeck-library-stack-folder-preview-list';
     appendLoredeckStackFolderPreviewContents(list, preview.folderId, preview, item, libraryIndex, 0, true);
     if (!list.children.length) {
         list.appendChild(createEmptyMessage('This folder group does not contain any Loredecks.'));
@@ -2586,8 +2586,8 @@ function appendLoredeckStackFolderPreviewContents(list, folderId = '', preview =
 function createLoredeckStackFolderPreviewFolderRow(folder = {}, depth = 0, libraryIndex = {}) {
     const row = document.createElement('button');
     row.type = 'button';
-    row.className = 'wandlight-loredeck-library-stack-folder-preview-row wandlight-loredeck-library-stack-folder-preview-row-folder';
-    row.style.setProperty('--wandlight-stack-preview-depth', String(Math.max(0, Number(depth) || 0)));
+    row.className = 'saga-loredeck-library-stack-folder-preview-row saga-loredeck-library-stack-folder-preview-row-folder';
+    row.style.setProperty('--saga-stack-preview-depth', String(Math.max(0, Number(depth) || 0)));
     addTooltip(row, `Open folder details: ${getFolderPath(folder.id, libraryIndex).join(' > ') || folder.title || folder.id}.`);
     row.addEventListener('click', e => {
         e.stopPropagation();
@@ -2597,11 +2597,11 @@ function createLoredeckStackFolderPreviewFolderRow(folder = {}, depth = 0, libra
         renderLoredeckLibraryOverlay();
     });
     const label = document.createElement('span');
-    label.className = 'wandlight-loredeck-library-stack-folder-preview-title';
+    label.className = 'saga-loredeck-library-stack-folder-preview-title';
     label.textContent = folder.title || folder.id || 'Folder';
     row.appendChild(label);
     const chip = document.createElement('span');
-    chip.className = 'wandlight-loredeck-library-stack-folder-preview-chip';
+    chip.className = 'saga-loredeck-library-stack-folder-preview-chip';
     const count = getLoredeckLibraryFolderDeckIds(folder.id, libraryIndex, { includeNested: true }).length;
     chip.textContent = `${count} deck${count === 1 ? '' : 's'}`;
     row.appendChild(chip);
@@ -2614,8 +2614,8 @@ function createLoredeckStackFolderPreviewDeckRow(summary = {}, depth = 0, librar
     const healthTone = summary.healthTone || 'unknown';
     const row = document.createElement('button');
     row.type = 'button';
-    row.className = `wandlight-loredeck-library-stack-folder-preview-row wandlight-loredeck-library-stack-folder-preview-row-deck wandlight-loredeck-library-stack-folder-preview-row-${stackStatus} wandlight-loredeck-library-stack-folder-preview-health-${healthTone}`;
-    row.style.setProperty('--wandlight-stack-preview-depth', String(Math.max(0, Number(depth) || 0)));
+    row.className = `saga-loredeck-library-stack-folder-preview-row saga-loredeck-library-stack-folder-preview-row-deck saga-loredeck-library-stack-folder-preview-row-${stackStatus} saga-loredeck-library-stack-folder-preview-health-${healthTone}`;
+    row.style.setProperty('--saga-stack-preview-depth', String(Math.max(0, Number(depth) || 0)));
     const keptEntry = summary.suppressed?.keptEntry || summary.active || null;
     const keptSource = keptEntry ? { ...(keptEntry.source || {}), packId: keptEntry.packId } : {};
     const keptSourceLabel = stackStatus === 'suppressed'
@@ -2629,12 +2629,12 @@ function createLoredeckStackFolderPreviewDeckRow(summary = {}, depth = 0, librar
         refreshLoredeckLibrarySelectionSurfaces();
     });
     const title = document.createElement('span');
-    title.className = 'wandlight-loredeck-library-stack-folder-preview-title';
+    title.className = 'saga-loredeck-library-stack-folder-preview-title';
     title.textContent = pack.title || pack.packId || 'Loredeck';
     row.appendChild(title);
 
     const status = document.createElement('span');
-    status.className = `wandlight-loredeck-library-stack-folder-preview-chip wandlight-loredeck-library-stack-folder-preview-chip-${stackStatus}`;
+    status.className = `saga-loredeck-library-stack-folder-preview-chip saga-loredeck-library-stack-folder-preview-chip-${stackStatus}`;
     status.textContent = stackStatus === 'suppressed'
         ? 'Suppressed'
         : stackStatus === 'disabled'
@@ -2646,14 +2646,14 @@ function createLoredeckStackFolderPreviewDeckRow(summary = {}, depth = 0, librar
 
     if (keptSourceLabel) {
         const kept = document.createElement('span');
-        kept.className = 'wandlight-loredeck-library-stack-folder-preview-chip wandlight-loredeck-library-stack-folder-preview-chip-kept';
+        kept.className = 'saga-loredeck-library-stack-folder-preview-chip saga-loredeck-library-stack-folder-preview-chip-kept';
         kept.textContent = `Kept: ${keptSourceLabel}`;
         addTooltip(kept, `This duplicate is suppressed because ${keptSourceLabel} appears earlier in the active stack.`);
         row.appendChild(kept);
     }
 
     const health = document.createElement('span');
-    health.className = `wandlight-loredeck-library-stack-folder-preview-chip wandlight-loredeck-library-stack-folder-preview-health-chip wandlight-loredeck-library-stack-folder-preview-health-chip-${healthTone}`;
+    health.className = `saga-loredeck-library-stack-folder-preview-chip saga-loredeck-library-stack-folder-preview-health-chip saga-loredeck-library-stack-folder-preview-health-chip-${healthTone}`;
     health.textContent = healthTone === 'error' ? 'Error' : healthTone === 'warning' ? 'Warn' : 'OK';
     row.appendChild(health);
     return row;
@@ -2661,11 +2661,11 @@ function createLoredeckStackFolderPreviewDeckRow(summary = {}, depth = 0, librar
 
 function getLoredeckLibraryDropList(clientX, clientY) {
     const element = document.elementFromPoint(clientX, clientY);
-    const folder = element?.closest?.('.wandlight-loredeck-library-inline-folder-row[data-folder-drop-target="true"]');
+    const folder = element?.closest?.('.saga-loredeck-library-inline-folder-row[data-folder-drop-target="true"]');
     if (folder) return folder;
-    const direct = element?.closest?.('.wandlight-loredeck-library-deck-list, .wandlight-loredeck-library-stack-list');
+    const direct = element?.closest?.('.saga-loredeck-library-deck-list, .saga-loredeck-library-stack-list');
     if (direct) return direct;
-    const lists = [...document.querySelectorAll('.wandlight-loredeck-library-deck-list, .wandlight-loredeck-library-stack-list')];
+    const lists = [...document.querySelectorAll('.saga-loredeck-library-deck-list, .saga-loredeck-library-stack-list')];
     return lists.find(list => {
         const rect = list.getBoundingClientRect();
         return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top - 42 && clientY <= rect.bottom + 42;
@@ -2674,16 +2674,16 @@ function getLoredeckLibraryDropList(clientX, clientY) {
 
 function getLoredeckLibraryDropKind(list) {
     if (!list) return '';
-    if (list.classList.contains('wandlight-loredeck-library-inline-folder-row')) return 'folder';
-    if (list.classList.contains('wandlight-loredeck-library-stack-list')) return 'stack';
-    if (list.classList.contains('wandlight-loredeck-library-deck-list')) return 'library';
+    if (list.classList.contains('saga-loredeck-library-inline-folder-row')) return 'folder';
+    if (list.classList.contains('saga-loredeck-library-stack-list')) return 'stack';
+    if (list.classList.contains('saga-loredeck-library-deck-list')) return 'library';
     return '';
 }
 
 function getLoredeckLibraryDropScrollElement(target = null) {
     if (!target) return null;
-    if (target.classList?.contains('wandlight-loredeck-library-inline-folder-row')) {
-        return target.closest('.wandlight-loredeck-library-deck-list')
+    if (target.classList?.contains('saga-loredeck-library-inline-folder-row')) {
+        return target.closest('.saga-loredeck-library-deck-list')
             || null;
     }
     return target;
@@ -2694,15 +2694,15 @@ function setLoredeckLibraryDragDropTarget(state, list = null) {
     state.dropList = list || null;
     state.dropKind = getLoredeckLibraryDropKind(list);
     state.dropFolderId = state.dropKind === 'folder' ? String(list?.dataset?.folderId || '').trim() : '';
-    if (list) list.classList.add('wandlight-loredeck-library-drag-drop-target');
+    if (list) list.classList.add('saga-loredeck-library-drag-drop-target');
 }
 
 function clearLoredeckLibraryDragDropClasses() {
-    for (const target of document.querySelectorAll('.wandlight-loredeck-library-drag-drop-target, .wandlight-loredeck-library-drag-drop-valid, .wandlight-loredeck-library-drag-drop-invalid')) {
-        target.classList.remove('wandlight-loredeck-library-drag-drop-target', 'wandlight-loredeck-library-drag-drop-valid', 'wandlight-loredeck-library-drag-drop-invalid');
+    for (const target of document.querySelectorAll('.saga-loredeck-library-drag-drop-target, .saga-loredeck-library-drag-drop-valid, .saga-loredeck-library-drag-drop-invalid')) {
+        target.classList.remove('saga-loredeck-library-drag-drop-target', 'saga-loredeck-library-drag-drop-valid', 'saga-loredeck-library-drag-drop-invalid');
     }
-    for (const target of document.querySelectorAll('.wandlight-loredeck-library-root-drop-active, .wandlight-loredeck-library-stack-remove-active')) {
-        target.classList.remove('wandlight-loredeck-library-root-drop-active', 'wandlight-loredeck-library-stack-remove-active');
+    for (const target of document.querySelectorAll('.saga-loredeck-library-root-drop-active, .saga-loredeck-library-stack-remove-active')) {
+        target.classList.remove('saga-loredeck-library-root-drop-active', 'saga-loredeck-library-stack-remove-active');
         delete target.dataset.dragDropLabel;
     }
 }
@@ -2715,28 +2715,28 @@ function updateLoredeckLibraryDragFeedback(state = {}) {
     state.dropValid = feedback.valid !== false;
     state.dropActionText = feedback.text || '';
     if (state.dropList) {
-        state.dropList.classList.toggle('wandlight-loredeck-library-drag-drop-valid', state.dropValid);
-        state.dropList.classList.toggle('wandlight-loredeck-library-drag-drop-invalid', !state.dropValid);
-        state.dropList.classList.toggle('wandlight-loredeck-library-root-drop-active', !!feedback.root);
-        state.dropList.classList.toggle('wandlight-loredeck-library-stack-remove-active', !!feedback.remove);
+        state.dropList.classList.toggle('saga-loredeck-library-drag-drop-valid', state.dropValid);
+        state.dropList.classList.toggle('saga-loredeck-library-drag-drop-invalid', !state.dropValid);
+        state.dropList.classList.toggle('saga-loredeck-library-root-drop-active', !!feedback.root);
+        state.dropList.classList.toggle('saga-loredeck-library-stack-remove-active', !!feedback.remove);
         if (feedback.root || feedback.remove) state.dropList.dataset.dragDropLabel = feedback.badge || feedback.text || '';
         else delete state.dropList.dataset.dragDropLabel;
     }
     const label = ensureLoredeckLibraryDragCopyLabel(state.ghost);
     if (label) {
         label.textContent = state.dropActionText || (state.dropValid ? 'Drop to apply' : 'Not a valid drop target');
-        label.classList.toggle('wandlight-loredeck-library-drag-copy-invalid', !state.dropValid);
-        label.classList.toggle('wandlight-loredeck-library-drag-copy-root', !!feedback.root);
-        label.classList.toggle('wandlight-loredeck-library-drag-copy-remove', !!feedback.remove);
+        label.classList.toggle('saga-loredeck-library-drag-copy-invalid', !state.dropValid);
+        label.classList.toggle('saga-loredeck-library-drag-copy-root', !!feedback.root);
+        label.classList.toggle('saga-loredeck-library-drag-copy-remove', !!feedback.remove);
     }
 }
 
 function ensureLoredeckLibraryDragCopyLabel(ghost = null) {
     if (!ghost) return null;
-    let label = ghost.querySelector?.('.wandlight-loredeck-library-drag-copy');
+    let label = ghost.querySelector?.('.saga-loredeck-library-drag-copy');
     if (!label) {
         label = document.createElement('div');
-        label.className = 'wandlight-loredeck-library-drag-copy';
+        label.className = 'saga-loredeck-library-drag-copy';
         ghost.appendChild(label);
     }
     return label;
@@ -2790,20 +2790,20 @@ function clearLoredeckLibraryDragDropTargets() {
 function startLoredeckLibraryDeckDrag(event, packId, visiblePacks = []) {
     if (event.button != null && event.button !== 0) return;
     const handle = event.currentTarget;
-    const card = handle?.closest?.('.wandlight-loredeck-library-deck-card');
-    const list = card?.closest?.('.wandlight-loredeck-library-deck-list');
+    const card = handle?.closest?.('.saga-loredeck-library-deck-card');
+    const list = card?.closest?.('.saga-loredeck-library-deck-list');
     if (!card || !list) return;
 
     event.preventDefault();
     event.stopPropagation();
 
-    const cards = [...list.querySelectorAll('.wandlight-loredeck-library-deck-card')];
+    const cards = [...list.querySelectorAll('.saga-loredeck-library-deck-card')];
     const originalIndex = Number(card.dataset.libraryIndex);
     if (!Number.isFinite(originalIndex)) return;
     const rect = card.getBoundingClientRect();
     const gap = parseFloat(getComputedStyle(list).rowGap || getComputedStyle(list).gap) || 7;
     const ghost = card.cloneNode(true);
-    ghost.classList.add('wandlight-loredeck-library-stack-ghost');
+    ghost.classList.add('saga-loredeck-library-stack-ghost');
     ghost.style.width = `${rect.width}px`;
     ghost.style.height = `${rect.height}px`;
     ghost.style.transform = `translate3d(${Math.round(rect.left)}px, ${Math.round(rect.top)}px, 0)`;
@@ -2841,9 +2841,9 @@ function startLoredeckLibraryDeckDrag(event, packId, visiblePacks = []) {
         updatePosition: (x, y) => updateLoredeckLibraryDeckDrag(x, y),
     };
 
-    document.body.classList.add('wandlight-loredeck-library-stack-dragging');
-    list.classList.add('wandlight-loredeck-library-stack-list-dragging');
-    card.classList.add('wandlight-loredeck-library-stack-card-dragging-source');
+    document.body.classList.add('saga-loredeck-library-stack-dragging');
+    list.classList.add('saga-loredeck-library-stack-list-dragging');
+    card.classList.add('saga-loredeck-library-stack-card-dragging-source');
     try {
         handle.setPointerCapture?.(event.pointerId);
     } catch (_) {
@@ -2903,7 +2903,7 @@ function updateLoredeckLibraryDeckDrag(clientX, clientY) {
             offset = state.shift;
         }
         card.style.transform = offset ? `translateY(${offset}px)` : '';
-        card.classList.toggle('wandlight-loredeck-library-stack-card-displaced', !!offset);
+        card.classList.toggle('saga-loredeck-library-stack-card-displaced', !!offset);
     }
 }
 
@@ -2921,12 +2921,12 @@ function finishLoredeckLibraryDeckDrag(commit = true) {
     } catch (_) {
         // Pointer capture may already be released by the browser.
     }
-    document.body.classList.remove('wandlight-loredeck-library-stack-dragging');
-    state.list.classList.remove('wandlight-loredeck-library-stack-list-dragging');
-    state.card.classList.remove('wandlight-loredeck-library-stack-card-dragging-source');
+    document.body.classList.remove('saga-loredeck-library-stack-dragging');
+    state.list.classList.remove('saga-loredeck-library-stack-list-dragging');
+    state.card.classList.remove('saga-loredeck-library-stack-card-dragging-source');
     for (const card of state.cards) {
         card.style.transform = '';
-        card.classList.remove('wandlight-loredeck-library-stack-card-displaced');
+        card.classList.remove('saga-loredeck-library-stack-card-displaced');
     }
     state.ghost.remove();
     const { packId, packIds, targetIndex, originalIndex, dropKind, dropFolderId, visiblePacks } = state;
@@ -2946,8 +2946,8 @@ function startLoredeckLibraryFolderDrag(event, folderId) {
     if (event.button != null && event.button !== 0) return;
     const id = String(folderId || '').trim();
     const handle = event.currentTarget;
-    const row = handle?.closest?.('.wandlight-loredeck-library-inline-folder-row');
-    const list = row?.closest?.('.wandlight-loredeck-library-deck-list');
+    const row = handle?.closest?.('.saga-loredeck-library-inline-folder-row');
+    const list = row?.closest?.('.saga-loredeck-library-deck-list');
     if (!id || id === 'unfiled' || row?.dataset?.folderSpecial === 'true' || !row || !list) return;
 
     event.preventDefault();
@@ -2958,7 +2958,7 @@ function startLoredeckLibraryFolderDrag(event, folderId) {
     const folder = (libraryIndex.folders || []).find(item => item.id === id);
     if (!folder) return;
     const parentId = String(folder.parentId || '').trim();
-    const folderRows = [...list.querySelectorAll('.wandlight-loredeck-library-inline-folder-row[data-folder-special="false"]')];
+    const folderRows = [...list.querySelectorAll('.saga-loredeck-library-inline-folder-row[data-folder-special="false"]')];
     const siblingRows = folderRows.filter(item => String(item.dataset.folderParentId || '').trim() === parentId);
     const originalIndex = siblingRows.indexOf(row);
     if (originalIndex < 0) return;
@@ -2966,7 +2966,7 @@ function startLoredeckLibraryFolderDrag(event, folderId) {
     const rect = row.getBoundingClientRect();
     const gap = parseFloat(getComputedStyle(list).rowGap || getComputedStyle(list).gap) || 7;
     const ghost = row.cloneNode(true);
-    ghost.classList.add('wandlight-loredeck-library-stack-ghost', 'wandlight-loredeck-library-folder-ghost');
+    ghost.classList.add('saga-loredeck-library-stack-ghost', 'saga-loredeck-library-folder-ghost');
     ghost.style.width = `${rect.width}px`;
     ghost.style.height = `${rect.height}px`;
     ghost.style.transform = `translate3d(${Math.round(rect.left)}px, ${Math.round(rect.top)}px, 0)`;
@@ -3003,9 +3003,9 @@ function startLoredeckLibraryFolderDrag(event, folderId) {
         updatePosition: (x, y) => updateLoredeckLibraryFolderDrag(x, y),
     };
 
-    document.body.classList.add('wandlight-loredeck-library-stack-dragging');
-    list.classList.add('wandlight-loredeck-library-stack-list-dragging');
-    row.classList.add('wandlight-loredeck-library-stack-card-dragging-source');
+    document.body.classList.add('saga-loredeck-library-stack-dragging');
+    list.classList.add('saga-loredeck-library-stack-list-dragging');
+    row.classList.add('saga-loredeck-library-stack-card-dragging-source');
     try {
         handle.setPointerCapture?.(event.pointerId);
     } catch (_) {
@@ -3067,7 +3067,7 @@ function updateLoredeckLibraryFolderDrag(clientX, clientY) {
             offset = state.shift;
         }
         row.style.transform = offset ? `translateY(${offset}px)` : '';
-        row.classList.toggle('wandlight-loredeck-library-stack-card-displaced', !!offset);
+        row.classList.toggle('saga-loredeck-library-stack-card-displaced', !!offset);
     }
 }
 
@@ -3085,12 +3085,12 @@ function finishLoredeckLibraryFolderDrag(commit = true) {
     } catch (_) {
         // Pointer capture may already be released.
     }
-    document.body.classList.remove('wandlight-loredeck-library-stack-dragging');
-    state.list.classList.remove('wandlight-loredeck-library-stack-list-dragging');
-    state.row.classList.remove('wandlight-loredeck-library-stack-card-dragging-source');
+    document.body.classList.remove('saga-loredeck-library-stack-dragging');
+    state.list.classList.remove('saga-loredeck-library-stack-list-dragging');
+    state.row.classList.remove('saga-loredeck-library-stack-card-dragging-source');
     for (const row of state.siblingRows) {
         row.style.transform = '';
-        row.classList.remove('wandlight-loredeck-library-stack-card-displaced');
+        row.classList.remove('saga-loredeck-library-stack-card-displaced');
     }
     state.ghost.remove();
     const { folderId, parentId, originalIndex, targetIndex, dropKind, dropFolderId, libraryIndex, reparentToRoot } = state;
@@ -3109,10 +3109,10 @@ function finishLoredeckLibraryFolderDrag(commit = true) {
 function startLoredeckStackDrag(event, stackKey) {
     if (event.button != null && event.button !== 0) return;
     const handle = event.currentTarget;
-    const card = handle?.closest?.('.wandlight-loredeck-library-stack-card');
-    const list = card?.closest?.('.wandlight-loredeck-library-stack-list');
+    const card = handle?.closest?.('.saga-loredeck-library-stack-card');
+    const list = card?.closest?.('.saga-loredeck-library-stack-list');
     if (!card || !list) return;
-    const cards = [...list.querySelectorAll('.wandlight-loredeck-library-stack-card')];
+    const cards = [...list.querySelectorAll('.saga-loredeck-library-stack-card')];
     if (!cards.length) return;
 
     event.preventDefault();
@@ -3127,7 +3127,7 @@ function startLoredeckStackDrag(event, stackKey) {
     const rect = card.getBoundingClientRect();
     const gap = parseFloat(getComputedStyle(list).rowGap || getComputedStyle(list).gap) || 7;
     const ghost = card.cloneNode(true);
-    ghost.classList.add('wandlight-loredeck-library-stack-ghost');
+    ghost.classList.add('saga-loredeck-library-stack-ghost');
     ghost.style.width = `${rect.width}px`;
     ghost.style.height = `${rect.height}px`;
     ghost.style.transform = `translate3d(${Math.round(rect.left)}px, ${Math.round(rect.top)}px, 0)`;
@@ -3162,9 +3162,9 @@ function startLoredeckStackDrag(event, stackKey) {
         updatePosition: (x, y) => updateLoredeckStackDrag(x, y),
     };
 
-    document.body.classList.add('wandlight-loredeck-library-stack-dragging');
-    list.classList.add('wandlight-loredeck-library-stack-list-dragging');
-    card.classList.add('wandlight-loredeck-library-stack-card-dragging-source');
+    document.body.classList.add('saga-loredeck-library-stack-dragging');
+    list.classList.add('saga-loredeck-library-stack-list-dragging');
+    card.classList.add('saga-loredeck-library-stack-card-dragging-source');
     try {
         handle.setPointerCapture?.(event.pointerId);
     } catch (_) {
@@ -3224,7 +3224,7 @@ function updateLoredeckStackDrag(clientX, clientY) {
             offset = state.shift;
         }
         card.style.transform = offset ? `translateY(${offset}px)` : '';
-        card.classList.toggle('wandlight-loredeck-library-stack-card-displaced', !!offset);
+        card.classList.toggle('saga-loredeck-library-stack-card-displaced', !!offset);
     }
 }
 
@@ -3242,12 +3242,12 @@ function finishLoredeckStackDrag(commit = true) {
     } catch (_) {
         // Pointer capture may already be released by the browser.
     }
-    document.body.classList.remove('wandlight-loredeck-library-stack-dragging');
-    state.list.classList.remove('wandlight-loredeck-library-stack-list-dragging');
-    state.card.classList.remove('wandlight-loredeck-library-stack-card-dragging-source');
+    document.body.classList.remove('saga-loredeck-library-stack-dragging');
+    state.list.classList.remove('saga-loredeck-library-stack-list-dragging');
+    state.card.classList.remove('saga-loredeck-library-stack-card-dragging-source');
     for (const card of state.cards) {
         card.style.transform = '';
-        card.classList.remove('wandlight-loredeck-library-stack-card-displaced');
+        card.classList.remove('saga-loredeck-library-stack-card-displaced');
     }
     state.ghost.remove();
     const { stackKey, packId, packIds, originalIndex, targetIndex, dropKind, dropFolderId } = state;
@@ -3295,7 +3295,7 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
         loredeckLibraryDetailsTab = 'overview';
     }
     const panel = document.createElement('div');
-    panel.className = 'wandlight-loredeck-library-details';
+    panel.className = 'saga-loredeck-library-details';
     if (!pack) {
         panel.appendChild(createEmptyMessage('Select a Loredeck to inspect its details, health, and stack actions.'));
         return panel;
@@ -3306,17 +3306,17 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
     const stackItem = stack.find(item => item.packId === pack.packId);
 
     const identity = document.createElement('div');
-    identity.className = 'wandlight-loredeck-library-detail-identity';
-    identity.appendChild(createLoredeckDeckVisual(pack, 'wandlight-loredeck-library-detail-monogram', {
+    identity.className = 'saga-loredeck-library-detail-identity';
+    identity.appendChild(createLoredeckDeckVisual(pack, 'saga-loredeck-library-detail-monogram', {
         editableCover: true,
     }));
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-library-detail-main';
+    main.className = 'saga-loredeck-library-detail-main';
     main.appendChild(createLoredeckLibraryDetailKicker('Selected Loredeck', 'This Loredeck is selected for Library details and bulk actions.'));
     main.appendChild(createLoredeckLibraryEditableTitle({
         value: pack.title || pack.packId,
         fallback: pack.packId,
-        className: 'wandlight-loredeck-library-detail-title',
+        className: 'saga-loredeck-library-detail-title',
         editable: isEditableLoredeckLibraryPack(pack),
         kind: 'Loredeck',
         onCommit: title => {
@@ -3326,24 +3326,24 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
         },
     }));
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.'));
     chips.appendChild(createStatusPill(`${stats.entryCount} Lorecards`, 'Approximate Lorecard count.'));
     chips.appendChild(createStatusPill(healthInfo.status.label, healthInfo.status.summary));
     if (stackItem) chips.appendChild(createStatusPill(stackItem.enabled ? `Priority ${stack.findIndex(item => item.packId === pack.packId) + 1}` : 'Stacked disabled', 'Current active stack state.'));
     main.appendChild(chips);
     const desc = document.createElement('div');
-    desc.className = 'wandlight-loredeck-library-detail-description';
+    desc.className = 'saga-loredeck-library-detail-description';
     desc.textContent = pack.description || 'No description saved for this Loredeck.';
     main.appendChild(desc);
     identity.appendChild(main);
     panel.appendChild(identity);
 
     const content = document.createElement('div');
-    content.className = 'wandlight-loredeck-library-detail-content';
+    content.className = 'saga-loredeck-library-detail-content';
     content.appendChild(createLoredeckLibraryDetailTabs());
     const tab = document.createElement('div');
-    tab.className = `wandlight-loredeck-library-detail-tab wandlight-loredeck-library-detail-tab-${loredeckLibraryDetailsTab}`;
+    tab.className = `saga-loredeck-library-detail-tab saga-loredeck-library-detail-tab-${loredeckLibraryDetailsTab}`;
     if (loredeckLibraryDetailsTab === 'health') tab.appendChild(createLoredeckLibraryHealthDetail(pack, healthInfo));
     else tab.appendChild(createLoredeckLibraryOverviewDetail(pack, stackItem, stats, healthInfo));
     content.appendChild(tab);
@@ -3354,7 +3354,7 @@ function createLoredeckLibraryDetailsPanel(pack = null, stack = [], canonDb = nu
 function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonDb = null, health = null, libraryIndex = {}, library = []) {
     const folderId = String(folder.id || '').trim();
     const panel = document.createElement('div');
-    panel.className = 'wandlight-loredeck-library-details wandlight-loredeck-library-folder-details';
+    panel.className = 'saga-loredeck-library-details saga-loredeck-library-folder-details';
 
     const packs = folderId === 'unfiled'
         ? getLoredeckLibraryFolderScopedPacks(library, libraryIndex, 'unfiled', stack)
@@ -3382,9 +3382,9 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
         : getFolderPath(folderId, libraryIndex);
 
     const identity = document.createElement('div');
-    identity.className = 'wandlight-loredeck-library-detail-identity wandlight-loredeck-library-folder-detail-identity';
+    identity.className = 'saga-loredeck-library-detail-identity saga-loredeck-library-folder-detail-identity';
     const visual = document.createElement('div');
-    visual.className = 'wandlight-loredeck-library-detail-monogram wandlight-loredeck-library-folder-detail-visual';
+    visual.className = 'saga-loredeck-library-detail-monogram saga-loredeck-library-folder-detail-visual';
     visual.appendChild(createLoredeckLibraryFolderCoverStrip(
         folderId === 'unfiled'
             ? packs.filter(pack => getLoredeckAssetRef(pack, 'cover')).slice(0, LOREDECK_LIBRARY_FOLDER_COVER_MAX_VISIBLE)
@@ -3394,12 +3394,12 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
     identity.appendChild(visual);
 
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-library-detail-main';
+    main.className = 'saga-loredeck-library-detail-main';
     main.appendChild(createLoredeckLibraryDetailKicker(folderId === 'unfiled' ? 'Selected Section' : 'Selected Folder', 'This folder is selected for Library details, movement, and folder actions.'));
     main.appendChild(createLoredeckLibraryEditableTitle({
         value: folder.title || folderId || 'Folder',
         fallback: folderId || 'Folder',
-        className: 'wandlight-loredeck-library-detail-title',
+        className: 'saga-loredeck-library-detail-title',
         editable: !!folderId && folderId !== 'unfiled',
         kind: 'folder',
         onCommit: title => {
@@ -3409,7 +3409,7 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
         },
     }));
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(`${childFolders.length} sub-folder${childFolders.length === 1 ? '' : 's'}`, 'Direct child folders in this folder.'));
     chips.appendChild(createStatusPill(`${packs.length} Loredeck${packs.length === 1 ? '' : 's'}`, 'Loredecks contained in this folder, including nested folders.'));
     chips.appendChild(createStatusPill(`${totalEntries} Lorecards`, 'Total Lorecards across contained Loredecks.'));
@@ -3418,7 +3418,7 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
     else chips.appendChild(createStatusPill('Health clear', 'No visible Deck Health warnings or errors in this folder.'));
     main.appendChild(chips);
     const desc = document.createElement('div');
-    desc.className = 'wandlight-loredeck-library-detail-description';
+    desc.className = 'saga-loredeck-library-detail-description';
     desc.textContent = path.length ? path.join(' > ') : 'Root Library folder.';
     main.appendChild(desc);
 
@@ -3428,9 +3428,9 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
     panel.appendChild(identity);
 
     const content = document.createElement('div');
-    content.className = 'wandlight-loredeck-library-detail-content wandlight-loredeck-library-folder-detail-content';
+    content.className = 'saga-loredeck-library-detail-content saga-loredeck-library-folder-detail-content';
     const summary = document.createElement('div');
-    summary.className = 'wandlight-loredeck-detail-grid wandlight-loredeck-library-folder-summary-grid';
+    summary.className = 'saga-loredeck-detail-grid saga-loredeck-library-folder-summary-grid';
     summary.appendChild(createKeyValue('Path', path.join(' > ') || 'Unfiled', 'Folder path in the Library hierarchy.'));
     summary.appendChild(createKeyValue('Sub-folders', String(childFolders.length), 'Direct nested folders.'));
     summary.appendChild(createKeyValue('Loredecks', String(packs.length), 'Contained Loredecks, including nested folders.'));
@@ -3438,13 +3438,13 @@ function createLoredeckLibraryFolderDetailsPanel(folder = {}, stack = [], canonD
     content.appendChild(summary);
 
     const listWrap = document.createElement('div');
-    listWrap.className = 'wandlight-loredeck-library-folder-loredeck-list-wrap';
+    listWrap.className = 'saga-loredeck-library-folder-loredeck-list-wrap';
     const listTitle = document.createElement('div');
-    listTitle.className = 'wandlight-runtime-card-title';
+    listTitle.className = 'saga-runtime-card-title';
     listTitle.textContent = 'Contained Loredecks';
     listWrap.appendChild(listTitle);
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-library-folder-loredeck-list';
+    list.className = 'saga-loredeck-library-folder-loredeck-list';
     if (!packSummaries.length) {
         list.appendChild(createEmptyMessage('This folder does not contain any Loredecks yet.'));
     } else {
@@ -3462,29 +3462,29 @@ function createLoredeckLibraryFolderActionBar(folder = {}, libraryIndex = {}, se
     const folderId = String(folder.id || '').trim();
     const isUnfiled = folderId === 'unfiled';
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-loredeck-library-folder-actions';
+    actions.className = 'saga-primary-actions saga-loredeck-library-folder-actions';
 
     actions.appendChild(createButton(isUnfiled ? 'New Root Folder' : 'New Subfolder', isUnfiled ? 'Create a new top-level Library folder.' : 'Create a nested folder inside this folder.', () => {
         void promptCreateLoredeckLibraryFolder(isUnfiled ? '' : folderId);
-    }, 'wandlight-loredeck-library-small-button'));
+    }, 'saga-loredeck-library-small-button'));
 
     const move = createButton(selectedIds.length ? `Move Selected Here (${selectedIds.length})` : 'Move Selected Here', selectedIds.length ? 'Move the selected Loredecks into this folder.' : 'Select one or more Loredecks before moving them into this folder.', () => {
         if (!selectedIds.length) return;
         if (moveLoredecksToLibraryFolder(selectedIds, isUnfiled ? 'unfiled' : folderId)) scheduleLoredeckLibraryOverlayRefresh();
-    }, 'wandlight-loredeck-library-small-button');
+    }, 'saga-loredeck-library-small-button');
     move.disabled = !selectedIds.length;
     actions.appendChild(move);
 
     if (!isUnfiled) {
         actions.appendChild(createButton('Add Folder to Stack', 'Add this folder as a collapsible Stack Group in the active session stack.', () => {
             addLoredeckFolderToStack(folderId, libraryIndex);
-        }, 'wandlight-loredeck-library-small-button'));
+        }, 'saga-loredeck-library-small-button'));
 
         const currentParentId = String(folder.parentId || '').trim();
         const moveWrap = document.createElement('span');
-        moveWrap.className = 'wandlight-loredeck-library-folder-parent-control';
+        moveWrap.className = 'saga-loredeck-library-folder-parent-control';
         const parentSelect = document.createElement('select');
-        parentSelect.className = 'text_pole wandlight-loredeck-library-folder-move-select wandlight-loredeck-library-folder-parent-select';
+        parentSelect.className = 'text_pole saga-loredeck-library-folder-move-select saga-loredeck-library-folder-parent-select';
         appendLoredeckLibraryFolderParentOptions(parentSelect, folderId, libraryIndex);
         parentSelect.value = [...parentSelect.options].some(option => option.value === currentParentId)
             ? currentParentId
@@ -3495,7 +3495,7 @@ function createLoredeckLibraryFolderActionBar(folder = {}, libraryIndex = {}, se
         const moveFolder = createButton('Move Folder', 'Move this folder to the selected parent folder without changing its contents.', () => {
             if (parentSelect.value === currentParentId) return;
             if (moveLoredeckLibraryFolder(folderId, parentSelect.value || '', null, libraryIndex)) scheduleLoredeckLibraryOverlayRefresh();
-        }, 'wandlight-loredeck-library-small-button');
+        }, 'saga-loredeck-library-small-button');
         const syncMoveState = () => {
             moveFolder.disabled = parentSelect.value === currentParentId;
         };
@@ -3510,7 +3510,7 @@ function createLoredeckLibraryFolderActionBar(folder = {}, libraryIndex = {}, se
 
 function createLoredeckLibraryDetailKicker(label = '', tooltip = '') {
     const kicker = document.createElement('div');
-    kicker.className = 'wandlight-loredeck-library-detail-kicker';
+    kicker.className = 'saga-loredeck-library-detail-kicker';
     kicker.textContent = label;
     if (tooltip) addTooltip(kicker, tooltip);
     return kicker;
@@ -3522,7 +3522,7 @@ function createLoredeckLibraryFolderLoredeckRow(summary = {}, maxEntries = 1) {
     const ratio = Math.max(0, Math.min(1, entryCount / Math.max(1, Number(maxEntries) || 1)));
     const row = document.createElement('button');
     row.type = 'button';
-    row.className = `wandlight-loredeck-library-folder-loredeck-row wandlight-loredeck-library-folder-loredeck-row-${tone || 'unknown'}`;
+    row.className = `saga-loredeck-library-folder-loredeck-row saga-loredeck-library-folder-loredeck-row-${tone || 'unknown'}`;
     addTooltip(row, `Open ${pack.title || pack.packId} details.`);
     row.addEventListener('click', e => {
         e.stopPropagation();
@@ -3532,26 +3532,26 @@ function createLoredeckLibraryFolderLoredeckRow(summary = {}, maxEntries = 1) {
     });
 
     const title = document.createElement('span');
-    title.className = 'wandlight-loredeck-library-folder-loredeck-title';
+    title.className = 'saga-loredeck-library-folder-loredeck-title';
     title.textContent = pack.title || pack.packId;
     row.appendChild(title);
 
     const meter = document.createElement('span');
-    meter.className = 'wandlight-loredeck-library-folder-loredeck-meter';
-    meter.style.setProperty('--wandlight-folder-loredeck-meter', `${Math.round(ratio * 100)}%`);
+    meter.className = 'saga-loredeck-library-folder-loredeck-meter';
+    meter.style.setProperty('--saga-folder-loredeck-meter', `${Math.round(ratio * 100)}%`);
     const fill = document.createElement('span');
-    fill.className = 'wandlight-loredeck-library-folder-loredeck-meter-fill';
+    fill.className = 'saga-loredeck-library-folder-loredeck-meter-fill';
     meter.appendChild(fill);
     row.appendChild(meter);
 
     const entries = document.createElement('span');
-    entries.className = 'wandlight-loredeck-library-folder-loredeck-entry-count';
+    entries.className = 'saga-loredeck-library-folder-loredeck-entry-count';
     entries.textContent = String(entryCount);
     addTooltip(entries, `${entryCount} Lorecards.`);
     row.appendChild(entries);
 
     const health = document.createElement('span');
-    health.className = `wandlight-loredeck-library-folder-loredeck-health wandlight-loredeck-library-folder-loredeck-health-${tone || 'unknown'}`;
+    health.className = `saga-loredeck-library-folder-loredeck-health saga-loredeck-library-folder-loredeck-health-${tone || 'unknown'}`;
     health.textContent = tone === 'error'
         ? `${healthInfo?.errorCount || 0}E`
         : tone === 'warning'
@@ -3566,14 +3566,14 @@ function createLoredeckLibraryFolderLoredeckRow(summary = {}, maxEntries = 1) {
 
 function createLoredeckLibraryDetailTabs() {
     const tabs = document.createElement('div');
-    tabs.className = 'wandlight-lore-workbench-mode-tabs wandlight-loredeck-library-detail-tabs';
+    tabs.className = 'saga-lore-workbench-mode-tabs saga-loredeck-library-detail-tabs';
     for (const [id, label, tooltip] of [
         ['overview', 'Overview', 'Description, stats, and common Loredeck actions.'],
         ['health', 'Health', 'Deck Health summary and top issue.'],
     ]) {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = `wandlight-lore-workbench-mode-tab${loredeckLibraryDetailsTab === id ? ' wandlight-lore-workbench-mode-tab-active' : ''}`;
+        btn.className = `saga-lore-workbench-mode-tab${loredeckLibraryDetailsTab === id ? ' saga-lore-workbench-mode-tab-active' : ''}`;
         btn.textContent = label;
         addTooltip(btn, tooltip);
         btn.addEventListener('click', e => {
@@ -3588,9 +3588,9 @@ function createLoredeckLibraryDetailTabs() {
 
 function createLoredeckLibraryOverviewDetail(pack, stackItem, stats, healthInfo) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-library-detail-grid-wrap';
+    wrap.className = 'saga-loredeck-library-detail-grid-wrap';
     const grid = document.createElement('div');
-    grid.className = 'wandlight-loredeck-detail-grid';
+    grid.className = 'saga-loredeck-detail-grid';
     grid.appendChild(createKeyValue('Deck ID', pack.packId, 'Stable Loredeck identifier used by the stack and registry.'));
     grid.appendChild(createKeyValue('Fandom', pack.fandom || 'unset', 'Fandom, canon, universe, or setting.'));
     grid.appendChild(createKeyValue('Era', pack.era || 'unset', 'Era, arc, continuity slice, or scope.'));
@@ -3606,10 +3606,10 @@ function createLoredeckLibraryOverviewDetail(pack, stackItem, stats, healthInfo)
 
 function createLoredeckLibraryHealthDetail(pack, healthInfo) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-library-health-detail';
+    wrap.className = 'saga-loredeck-library-health-detail';
     const summary = healthInfo.report?.summary || {};
     const grid = document.createElement('div');
-    grid.className = 'wandlight-loredeck-detail-grid';
+    grid.className = 'saga-loredeck-detail-grid';
     grid.appendChild(createKeyValue('Status', healthInfo.status.label, healthInfo.status.summary));
     grid.appendChild(createKeyValue('Errors', String(healthInfo.errorCount), 'Blocking Deck Health findings.'));
     grid.appendChild(createKeyValue('Warnings', String(healthInfo.warningCount), 'Deck Health findings that should be reviewed.'));
@@ -3621,19 +3621,19 @@ function createLoredeckLibraryHealthDetail(pack, healthInfo) {
     const groups = groupLoredeckHealthIssues(healthInfo.report);
     if (groups.length) {
         const top = document.createElement('div');
-        top.className = 'wandlight-loredeck-health-compact-issues';
+        top.className = 'saga-loredeck-health-compact-issues';
         const label = document.createElement('div');
-        label.className = 'wandlight-runtime-card-title';
+        label.className = 'saga-runtime-card-title';
         label.textContent = 'Top Issue';
         top.appendChild(label);
         const issue = document.createElement('div');
-        issue.className = 'wandlight-loredeck-library-health-top-issue';
+        issue.className = 'saga-loredeck-library-health-top-issue';
         const title = document.createElement('div');
-        title.className = 'wandlight-loredeck-library-health-top-title';
+        title.className = 'saga-loredeck-library-health-top-title';
         title.textContent = groups[0].title || 'Deck Health issue';
         issue.appendChild(title);
         const detail = document.createElement('div');
-        detail.className = 'wandlight-runtime-help';
+        detail.className = 'saga-runtime-help';
         detail.textContent = groups[0].summary || groups[0].fixShort || 'Open Health Center for grouped findings and repair actions.';
         issue.appendChild(detail);
         issue.appendChild(createStatusPill(groups[0].affectedLabel || `${groups[0].rawCount || 1} finding${(groups[0].rawCount || 1) === 1 ? '' : 's'}`, 'Grouped Deck Health finding count.'));
@@ -3643,10 +3643,10 @@ function createLoredeckLibraryHealthDetail(pack, healthInfo) {
         wrap.appendChild(createEmptyMessage(healthInfo.health ? 'No Deck Health issues found.' : 'No scan has been run for this Loredeck yet.'));
     }
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
         openLoredeckHealthCenter(pack.packId);
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     const validate = createButton('Run Validation', 'Load this Loredeck data and run Deck Health validation.', async (btn) => {
         await validateLoredeckForEditor(pack, btn);
         renderLoredeckLibraryOverlay();
@@ -3659,25 +3659,25 @@ function createLoredeckLibraryHealthDetail(pack, healthInfo) {
 
 function createLoredeckLibraryDependenciesDetail(pack) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-library-dependencies-detail';
+    wrap.className = 'saga-loredeck-library-dependencies-detail';
     const manifest = getCachedLoredeckHealthRecord(pack.packId).manifest || pack.manifestData || {};
     const dependencies = Array.isArray(manifest.dependencies) ? manifest.dependencies : (Array.isArray(pack.dependencies) ? pack.dependencies : []);
     const conflicts = Array.isArray(manifest.conflicts) ? manifest.conflicts : (Array.isArray(pack.conflicts) ? pack.conflicts : []);
     const companions = Array.isArray(manifest.recommendedCompanions) ? manifest.recommendedCompanions : [];
     const addList = (title, items, empty) => {
         const section = document.createElement('div');
-        section.className = 'wandlight-loredeck-library-mini-section';
+        section.className = 'saga-loredeck-library-mini-section';
         const label = document.createElement('div');
-        label.className = 'wandlight-runtime-card-title';
+        label.className = 'saga-runtime-card-title';
         label.textContent = title;
         section.appendChild(label);
         if (!items.length) section.appendChild(createEmptyMessage(empty));
         else {
             const list = document.createElement('div');
-            list.className = 'wandlight-loredeck-library-simple-list';
+            list.className = 'saga-loredeck-library-simple-list';
             for (const item of items.slice(0, 12)) {
                 const row = document.createElement('div');
-                row.className = 'wandlight-loredeck-file-item';
+                row.className = 'saga-loredeck-file-item';
                 row.textContent = typeof item === 'string' ? item : (item.title || item.packId || item.id || JSON.stringify(item));
                 list.appendChild(row);
             }
@@ -3693,38 +3693,38 @@ function createLoredeckLibraryDependenciesDetail(pack) {
 
 function createLoredeckLibraryFilesDetail(pack, healthInfo) {
     const wrap = document.createElement('div');
-    wrap.className = 'wandlight-loredeck-library-files-detail';
+    wrap.className = 'saga-loredeck-library-files-detail';
     const manifest = healthInfo.cached.manifest || pack.manifestData || {};
     const files = Array.isArray(manifest.files) ? manifest.files.map(file => String(file || '').trim()).filter(Boolean) : [];
     const grid = document.createElement('div');
-    grid.className = 'wandlight-loredeck-detail-grid';
+    grid.className = 'saga-loredeck-detail-grid';
     grid.appendChild(createKeyValue('Manifest', pack.manifest || 'unset', 'Fetchable loredeck.json path or URL.'));
     grid.appendChild(createKeyValue('Files', String(files.length || healthInfo.cached.fileCount || 0), 'Manifest file count when known.'));
     grid.appendChild(createKeyValue('Loaded Files', String(healthInfo.cached.loadedFileCount || 0), 'Files loaded during the latest validation run.'));
     wrap.appendChild(grid);
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     const inspect = createButton('Inspect Manifest', 'Fetch and preview this Loredeck manifest.', async (btn) => {
         await loadLoredeckManifestPreview(pack, btn);
         renderLoredeckLibraryOverlay();
-    }, 'wandlight-primary-button');
+    }, 'saga-primary-button');
     inspect.disabled = !canValidateLoredeckInEditor(pack);
     actions.appendChild(inspect);
     wrap.appendChild(actions);
     const list = document.createElement('div');
-    list.className = 'wandlight-loredeck-file-list';
+    list.className = 'saga-loredeck-file-list';
     if (!files.length) {
         list.appendChild(createEmptyMessage('No files loaded yet. Inspect the manifest to populate this list.'));
     } else {
         for (const file of files.slice(0, 40)) {
             const item = document.createElement('div');
-            item.className = 'wandlight-loredeck-file-item';
+            item.className = 'saga-loredeck-file-item';
             item.textContent = file;
             list.appendChild(item);
         }
         if (files.length > 40) {
             const more = document.createElement('div');
-            more.className = 'wandlight-loredeck-file-item wandlight-loredeck-file-item-muted';
+            more.className = 'saga-loredeck-file-item saga-loredeck-file-item-muted';
             more.textContent = `+${files.length - 40} more files`;
             list.appendChild(more);
         }
@@ -3735,19 +3735,19 @@ function createLoredeckLibraryFilesDetail(pack, healthInfo) {
 
 function createLoredeckLibraryDetailActions(pack, stackItem = null, healthInfo = null) {
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-loredeck-library-detail-actions';
+    actions.className = 'saga-primary-actions saga-loredeck-library-detail-actions';
     const inStack = !!stackItem;
     const add = createButton(inStack ? (stackItem.enabled ? 'In Stack' : 'Enable Deck') : 'Add to Stack', inStack ? 'This Loredeck is already in the current stack.' : 'Add this Loredeck to the active stack.', () => {
         if (inStack && stackItem.enabled) return;
         if (inStack) setLoredeckEnabled(pack.packId, true);
         else addLoredeckToStack(pack.packId);
-    }, inStack && stackItem.enabled ? '' : 'wandlight-primary-button');
+    }, inStack && stackItem.enabled ? '' : 'saga-primary-button');
     add.disabled = inStack && stackItem.enabled;
     actions.appendChild(add);
     actions.appendChild(createButton('Open Loredeck', 'Open this Loredeck in the fullscreen Lorecard viewer and editor.', () => {
         closeLoredeckLibraryWindow();
         openLoredeckWorkbench(pack.packId);
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     actions.appendChild(createButton('Open Health Center', 'Open the fullscreen Deck Health Center for this Loredeck.', () => {
         void healthInfo;
         openLoredeckHealthCenter(pack.packId);
@@ -3777,27 +3777,27 @@ export function openLoredeckMetadataEditor(packId = '') {
         return;
     }
     selectLoredeckForDetails(pack.packId, { refresh: false });
-    document.querySelector('.wandlight-loredeck-metadata-overlay')?.remove();
+    document.querySelector('.saga-loredeck-metadata-overlay')?.remove();
 
     const overlay = document.createElement('div');
-    overlay.className = 'wandlight-lore-workbench-overlay wandlight-loredeck-metadata-overlay';
+    overlay.className = 'saga-lore-workbench-overlay saga-loredeck-metadata-overlay';
     wireOverlayBackdropClose(overlay, () => overlay.remove());
     document.body.appendChild(overlay);
 
     const shell = document.createElement('div');
-    shell.className = 'wandlight-lore-workbench-shell wandlight-loredeck-metadata-shell';
+    shell.className = 'saga-lore-workbench-shell saga-loredeck-metadata-shell';
     overlay.appendChild(shell);
 
     const header = document.createElement('div');
-    header.className = 'wandlight-lore-workbench-header';
+    header.className = 'saga-lore-workbench-header';
     const titleWrap = document.createElement('div');
-    titleWrap.className = 'wandlight-lore-workbench-title-wrap';
+    titleWrap.className = 'saga-lore-workbench-title-wrap';
     const title = document.createElement('div');
-    title.className = 'wandlight-lore-workbench-title';
+    title.className = 'saga-lore-workbench-title';
     title.textContent = pack.type === 'bundled' ? 'Loredeck Metadata' : 'Edit Loredeck Metadata';
     titleWrap.appendChild(title);
     const subtitle = document.createElement('div');
-    subtitle.className = 'wandlight-lore-workbench-subtitle';
+    subtitle.className = 'saga-lore-workbench-subtitle';
     subtitle.textContent = pack.title || pack.packId;
     titleWrap.appendChild(subtitle);
     header.appendChild(titleWrap);
@@ -3805,7 +3805,7 @@ export function openLoredeckMetadataEditor(packId = '') {
     shell.appendChild(header);
 
     const body = document.createElement('div');
-    body.className = 'wandlight-loredeck-metadata-body';
+    body.className = 'saga-loredeck-metadata-body';
     body.appendChild(createLoredeckMetadataEditorCard(pack));
     shell.appendChild(body);
 }
@@ -3822,19 +3822,19 @@ function createLoredeckMetadataEditorCard(pack) {
     const editorCanValidate = canValidateLoredeckInEditor(pack);
 
     const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-loredeck-metadata-card';
+    card.className = 'saga-runtime-card saga-loredeck-metadata-card';
 
     const heading = document.createElement('div');
-    heading.className = 'wandlight-loredeck-metadata-heading';
-    heading.appendChild(createLoredeckDeckVisual(pack, 'wandlight-loredeck-library-detail-monogram'));
+    heading.className = 'saga-loredeck-metadata-heading';
+    heading.appendChild(createLoredeckDeckVisual(pack, 'saga-loredeck-library-detail-monogram'));
     const main = document.createElement('div');
-    main.className = 'wandlight-loredeck-row-main';
+    main.className = 'saga-loredeck-row-main';
     const title = document.createElement('div');
-    title.className = 'wandlight-loredeck-row-title';
+    title.className = 'saga-loredeck-row-title';
     title.textContent = pack.title || pack.packId;
     main.appendChild(title);
     const chips = document.createElement('div');
-    chips.className = 'wandlight-loredeck-row-meta';
+    chips.className = 'saga-loredeck-row-meta';
     chips.appendChild(createStatusPill(getLoredeckLibraryPackTypeLabel(pack), 'Loredeck source type.'));
     if (virtualDuplicate) {
         chips.appendChild(createStatusPill(
@@ -3852,7 +3852,7 @@ function createLoredeckMetadataEditorCard(pack) {
     card.appendChild(heading);
 
     const overview = document.createElement('div');
-    overview.className = 'wandlight-loredeck-detail-grid';
+    overview.className = 'saga-loredeck-detail-grid';
     overview.appendChild(createKeyValue('Deck ID', pack.packId, 'Stable Loredeck identifier used by the stack and registry.'));
     overview.appendChild(createKeyValue('Fandom', pack.fandom || 'unset', 'Fandom, canon, universe, or setting.'));
     overview.appendChild(createKeyValue('Era', pack.era || 'unset', 'Era, arc, continuity slice, or scope.'));
@@ -3867,7 +3867,7 @@ function createLoredeckMetadataEditorCard(pack) {
     card.appendChild(overview);
 
     const edit = document.createElement('div');
-    edit.className = 'wandlight-loredeck-edit-grid';
+    edit.className = 'saga-loredeck-edit-grid';
     const titleInput = createLoredeckEditorField(edit, 'Title', pack.title, {
         disabled: readOnly,
         tooltip: 'Display title shown in the Loredeck Library and stack.',
@@ -3907,11 +3907,11 @@ function createLoredeckMetadataEditorCard(pack) {
     card.appendChild(edit);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     const inspectButton = createButton('Inspect Manifest', 'Fetch and preview this Loredeck manifest.', async (btn) => {
         await loadLoredeckManifestPreview(pack, btn);
         openLoredeckMetadataEditor(pack.packId);
-    }, 'wandlight-primary-button');
+    }, 'saga-primary-button');
     inspectButton.disabled = !editorCanValidate;
     actions.appendChild(inspectButton);
 
@@ -3932,7 +3932,7 @@ function createLoredeckMetadataEditorCard(pack) {
     if (isGeneratedLoredeckPack(pack)) {
         const finalizeButton = createButton('Finalize as Custom', 'Validate this reviewed Generated Loredeck and create a normal editable Custom copy.', async (btn) => {
             await finalizeGeneratedLoredeckAsCustom(pack, btn);
-        }, 'wandlight-primary-button');
+        }, 'saga-primary-button');
         finalizeButton.disabled = !editorCanValidate;
         actions.appendChild(finalizeButton);
     }
@@ -3951,7 +3951,7 @@ function createLoredeckMetadataEditorCard(pack) {
             }, btn);
             openLoredeckMetadataEditor(pack.packId);
             renderLoredeckLibraryOverlay();
-        }, 'wandlight-primary-button'));
+        }, 'saga-primary-button'));
 
         const syncButton = createButton('Sync From Manifest', 'Fetch the manifest and refresh this library record from its metadata.', async (btn) => {
             await syncLoredeckMetadataFromManifest(pack, btn);
@@ -3978,7 +3978,7 @@ function createLoredeckMetadataEditorCard(pack) {
             await exportValidatedLoredeckDraft(pack, btn);
         }));
         const note = document.createElement('div');
-        note.className = 'wandlight-runtime-help';
+        note.className = 'saga-runtime-help';
         note.textContent = 'Bundled Loredeck metadata is read-only. You can still export the deck package.';
         actions.appendChild(note);
     }
@@ -4211,11 +4211,11 @@ function getLoredeckAssetRef(pack = {}, key = 'cover') {
 }
 
 function setLoredeckDeckVisualFallback(visual, pack = {}) {
-    visual.classList.remove('wandlight-loredeck-library-visual-cover', 'wandlight-loredeck-library-visual-contain');
-    visual.classList.add('wandlight-loredeck-library-visual-fallback');
+    visual.classList.remove('saga-loredeck-library-visual-cover', 'saga-loredeck-library-visual-contain');
+    visual.classList.add('saga-loredeck-library-visual-fallback');
     visual.replaceChildren();
     const text = document.createElement('span');
-    text.className = 'wandlight-loredeck-library-visual-fallback-text';
+    text.className = 'saga-loredeck-library-visual-fallback-text';
     text.textContent = getLoredeckMonogram(pack);
     visual.appendChild(text);
 }
@@ -4224,10 +4224,10 @@ function createLoredeckCoverActionButton(kind = 'import', tooltip = '', handler 
     const normalized = kind === 'remove' ? 'remove' : 'import';
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = `wandlight-loredeck-library-cover-action wandlight-loredeck-library-cover-action-${normalized}`;
+    btn.className = `saga-loredeck-library-cover-action saga-loredeck-library-cover-action-${normalized}`;
     btn.setAttribute('aria-label', tooltip || (normalized === 'remove' ? 'Remove cover image.' : 'Import cover image.'));
     if (normalized === 'import') {
-        btn.classList.add('wandlight-loredeck-library-title-edit-wand');
+        btn.classList.add('saga-loredeck-library-title-edit-wand');
     } else {
         btn.textContent = 'x';
     }
@@ -4244,7 +4244,7 @@ function createLoredeckCoverActionButton(kind = 'import', tooltip = '', handler 
 function createLoredeckCoverActionOverlay(pack = {}, cover = null) {
     if (!isEditableLoredeckLibraryPack(pack)) return null;
     const actions = document.createElement('div');
-    actions.className = 'wandlight-loredeck-library-cover-actions';
+    actions.className = 'saga-loredeck-library-cover-actions';
     actions.appendChild(createLoredeckCoverActionButton('import', 'Import a cover image for this Custom Loredeck.', btn => {
         importLoredeckCoverImageFromFile(pack.packId, btn);
     }));
@@ -4256,9 +4256,9 @@ function createLoredeckCoverActionOverlay(pack = {}, cover = null) {
     return actions;
 }
 
-export function createLoredeckDeckVisual(pack = {}, className = 'wandlight-loredeck-library-monogram', options = {}) {
+export function createLoredeckDeckVisual(pack = {}, className = 'saga-loredeck-library-monogram', options = {}) {
     const visual = document.createElement('div');
-    visual.className = `${className} wandlight-loredeck-library-visual`;
+    visual.className = `${className} saga-loredeck-library-visual`;
     const cover = getLoredeckAssetRef(pack, 'cover');
     const coverActions = options.editableCover ? createLoredeckCoverActionOverlay(pack, cover) : null;
     if (cover) {
@@ -4273,8 +4273,8 @@ export function createLoredeckDeckVisual(pack = {}, className = 'wandlight-lored
             setLoredeckDeckVisualFallback(visual, pack);
             if (coverActions) visual.appendChild(coverActions);
         }, { once: true });
-        visual.classList.add('wandlight-loredeck-library-visual-cover');
-        if (cover.fit === 'contain') visual.classList.add('wandlight-loredeck-library-visual-contain');
+        visual.classList.add('saga-loredeck-library-visual-cover');
+        if (cover.fit === 'contain') visual.classList.add('saga-loredeck-library-visual-contain');
         visual.appendChild(img);
         if (coverActions) visual.appendChild(coverActions);
         addTooltip(visual, cover.title || cover.alt || `${pack.title || pack.packId} Deck Cover.`);
@@ -4677,13 +4677,13 @@ async function promptLoredeckLibraryFolderRemovalStrategy(plan = {}, inStack = f
                 value: 'move_to_parent',
                 label: 'Move Contents to Parent',
                 tooltip: 'Delete this folder, move direct Loredecks and subfolders up one level, and keep nested folders intact.',
-                className: 'wandlight-primary-button',
+                className: 'saga-primary-button',
             },
             {
                 value: 'move_decks_to_unfiled',
                 label: 'Move Loredecks to Unfiled',
                 tooltip: 'Delete this folder and nested subfolders, then move all contained Loredecks to Unfiled.',
-                className: 'wandlight-danger-button',
+                className: 'saga-danger-button',
             },
         ],
     );

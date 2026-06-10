@@ -15,11 +15,11 @@ import { buildMemo, buildContinuityMemo, buildLoreMemo } from './memo-builder.js
 import { buildLoreInjectionAudit, recordLoreInjectionAudit } from './retrieval-audit.js';
 
 const COMBINED_MARKER = '[SAGA CONTINUITY STATE]';
-const CONTINUITY_PROMPT_KEY = 'wandlight_continuity_state';
-const LORE_PROMPT_KEY = 'wandlight_lore_entries'; // legacy aggregate key, cleared for compatibility
-const LORE_HIGH_PROMPT_KEY = 'wandlight_lore_high_relevance';
-const LORE_NORMAL_PROMPT_KEY = 'wandlight_lore_normal_relevance';
-const LORE_LOW_PROMPT_KEY = 'wandlight_lore_low_relevance';
+const CONTINUITY_PROMPT_KEY = 'saga_continuity_state';
+const LORE_PROMPT_KEY = 'saga_lore_entries'; // legacy aggregate key, cleared for compatibility
+const LORE_HIGH_PROMPT_KEY = 'saga_lore_high_relevance';
+const LORE_NORMAL_PROMPT_KEY = 'saga_lore_normal_relevance';
+const LORE_LOW_PROMPT_KEY = 'saga_lore_low_relevance';
 
 
 // Do not statically import SillyTavern's root script.js here. Some ST builds do
@@ -75,16 +75,16 @@ let lastSyncInfo = {
  * Called once from index.js on jQuery document ready.
  */
 export function installInterceptor() {
-    globalThis.sagaInterceptor = wandlightInterceptor;
+    globalThis.sagaInterceptor = sagaInterceptor;
     globalThis.sagaSyncPromptInjection = syncPromptInjection;
     globalThis.sagaClearPromptInjection = clearExtensionPrompts;
     globalThis.sagaGetInjectionStatus = () => ({ ...lastSyncInfo });
 
-    globalThis.wandlightInterceptor = wandlightInterceptor;
-    globalThis.wandlightContinuityInterceptor = wandlightInterceptor; // legacy alias
-    globalThis.wandlightSyncPromptInjection = syncPromptInjection;
-    globalThis.wandlightClearPromptInjection = clearExtensionPrompts;
-    globalThis.wandlightGetInjectionStatus = () => ({ ...lastSyncInfo });
+    globalThis.sagaInterceptor = sagaInterceptor;
+    globalThis.sagaContinuityInterceptor = sagaInterceptor; // legacy alias
+    globalThis.sagaSyncPromptInjection = syncPromptInjection;
+    globalThis.sagaClearPromptInjection = clearExtensionPrompts;
+    globalThis.sagaGetInjectionStatus = () => ({ ...lastSyncInfo });
 
     syncPromptInjection();
 
@@ -127,7 +127,7 @@ export function syncPromptInjection() {
         const loreLowText = injectLore && settings.loreLowInjectionEnabled !== false ? wrapLorePrompt(buildLoreMemo(state, { relevanceTier: 'low' }), 'LOW RELEVANCE LORE') : '';
         const loreText = [loreHighText, loreNormalText, loreLowText].filter(Boolean).join('\n\n');
 
-        setWandlightExtensionPrompt(
+        setSagaExtensionPrompt(
             CONTINUITY_PROMPT_KEY,
             continuityText,
             settings.continuityInjectionPosition,
@@ -137,8 +137,8 @@ export function syncPromptInjection() {
         );
 
         // Legacy aggregate lore prompt is cleared; relevance tiers are injected as independent prompt groups.
-        setWandlightExtensionPrompt(LORE_PROMPT_KEY, '', settings.loreInjectionPosition, settings.loreInjectionDepth, settings.loreInjectionRole, !!settings.injectionPromptScan);
-        setWandlightExtensionPrompt(
+        setSagaExtensionPrompt(LORE_PROMPT_KEY, '', settings.loreInjectionPosition, settings.loreInjectionDepth, settings.loreInjectionRole, !!settings.injectionPromptScan);
+        setSagaExtensionPrompt(
             LORE_HIGH_PROMPT_KEY,
             loreHighText,
             settings.loreHighInjectionPosition ?? settings.loreInjectionPosition,
@@ -146,7 +146,7 @@ export function syncPromptInjection() {
             settings.loreHighInjectionRole ?? settings.loreInjectionRole,
             !!settings.injectionPromptScan,
         );
-        setWandlightExtensionPrompt(
+        setSagaExtensionPrompt(
             LORE_NORMAL_PROMPT_KEY,
             loreNormalText,
             settings.loreNormalInjectionPosition ?? settings.loreInjectionPosition,
@@ -154,7 +154,7 @@ export function syncPromptInjection() {
             settings.loreNormalInjectionRole ?? settings.loreInjectionRole,
             !!settings.injectionPromptScan,
         );
-        setWandlightExtensionPrompt(
+        setSagaExtensionPrompt(
             LORE_LOW_PROMPT_KEY,
             loreLowText,
             settings.loreLowInjectionPosition ?? settings.loreInjectionPosition,
@@ -222,7 +222,7 @@ export function clearExtensionPrompts() {
     }
 }
 
-function setWandlightExtensionPrompt(key, value, position, depth, role, scan = false) {
+function setSagaExtensionPrompt(key, value, position, depth, role, scan = false) {
     const api = getExtensionPromptApi();
     if (!api.setExtensionPrompt) {
         if (getSettings().debugMode) {
@@ -293,7 +293,7 @@ function wrapLorePrompt(text, label = 'LORE') {
  * to 'interceptor'. It prepends the combined memo to the last user message, so
  * it has no role/depth semantics beyond the last user message's role.
  */
-function wandlightInterceptor(chat, contextSize, abort, type) {
+function sagaInterceptor(chat, contextSize, abort, type) {
     if (type === 'quiet') return;
     try {
         const settings = getSettings();

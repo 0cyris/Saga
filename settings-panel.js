@@ -1,8 +1,8 @@
 import {
     DEFAULT_SETTINGS,
-    WANDLIGHT_PROVIDER_PRESET_ASSET_PATH,
-    WANDLIGHT_PROVIDER_PRESET_NAME,
-    WANDLIGHT_PROVIDER_PRESET_VERSION,
+    SAGA_PROVIDER_PRESET_ASSET_PATH,
+    SAGA_PROVIDER_PRESET_NAME,
+    SAGA_PROVIDER_PRESET_VERSION,
 } from './constants.js';
 import {
     getSettings,
@@ -65,18 +65,18 @@ function downloadJson(data, filename) {
 
 export function createProviderSettingsCard(settings = getSettings()) {
     const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-settings-provider-card';
+    card.className = 'saga-runtime-card saga-settings-provider-card';
     const title = document.createElement('h4');
     title.textContent = 'Providers';
     card.appendChild(title);
 
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Configure the Utility and Reasoning providers used by Saga model-backed workflows.';
     card.appendChild(help);
 
     const providers = document.createElement('div');
-    providers.className = 'wandlight-provider-runtime-list';
+    providers.className = 'saga-provider-runtime-list';
     providers.appendChild(createRuntimeProviderBlock('continuity', settings));
     providers.appendChild(createRuntimeProviderBlock('lore', settings));
     card.appendChild(providers);
@@ -92,22 +92,22 @@ function createRuntimeProviderBlock(kind, settings = getSettings()) {
     const validation = safeValidateProviderConfiguration(kind);
 
     const block = document.createElement('section');
-    block.className = `wandlight-provider-runtime-block wandlight-provider-runtime-${kind}`;
+    block.className = `saga-provider-runtime-block saga-provider-runtime-${kind}`;
 
     const header = document.createElement('div');
-    header.className = 'wandlight-provider-runtime-header';
+    header.className = 'saga-provider-runtime-header';
     const titleGroup = document.createElement('div');
-    titleGroup.className = 'wandlight-provider-runtime-title-group';
+    titleGroup.className = 'saga-provider-runtime-title-group';
     const blockTitle = document.createElement('h5');
     blockTitle.textContent = cfg.title;
     titleGroup.appendChild(blockTitle);
     const description = document.createElement('div');
-    description.className = 'wandlight-runtime-help';
+    description.className = 'saga-runtime-help';
     description.textContent = cfg.description;
     titleGroup.appendChild(description);
     header.appendChild(titleGroup);
     const status = createStatusPill(validation.ok ? 'Ready' : 'Needs setup', validation.message || `${cfg.title} provider status.`);
-    status.classList.add(validation.ok ? 'wandlight-provider-status-ready' : 'wandlight-provider-status-warning');
+    status.classList.add(validation.ok ? 'saga-provider-status-ready' : 'saga-provider-status-warning');
     header.appendChild(status);
     block.appendChild(header);
 
@@ -119,14 +119,14 @@ function createRuntimeProviderBlock(kind, settings = getSettings()) {
     block.appendChild(createProviderGenerationSection(kind, settings));
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions wandlight-provider-runtime-actions';
+    actions.className = 'saga-primary-actions saga-provider-runtime-actions';
     actions.appendChild(createButton(`Test ${cfg.shortTitle}`, `Send a tiny JSON test request through the ${cfg.shortTitle} provider.`, async (btn) => {
         await runBusyAction(btn, 'Testing...', async () => {
             const result = await testLoreConnection(kind);
             toast(`${cfg.shortTitle} provider connected: ${String(result.response || '').slice(0, 80)}`, 'success');
             refreshSettingsPanel({ preserveScroll: true, preserveWindowScroll: true });
         });
-    }, 'wandlight-primary-button'));
+    }, 'saga-primary-button'));
     actions.appendChild(createButton('Reset Defaults', `Reset ${cfg.shortTitle} provider settings to bundled defaults. Stored API keys are preserved.`, async () => {
         const proceed = await confirmAction(`Reset ${cfg.shortTitle} provider?`, `This resets the ${cfg.shortTitle} provider selection, endpoint, model, and generation parameters to bundled defaults. Stored API keys are preserved. Continue?`);
         if (!proceed) return;
@@ -136,7 +136,7 @@ function createRuntimeProviderBlock(kind, settings = getSettings()) {
 
     if (!validation.ok && validation.message) {
         const note = document.createElement('div');
-        note.className = 'wandlight-provider-connection-status wandlight-provider-connection-warning';
+        note.className = 'saga-provider-connection-status saga-provider-connection-warning';
         note.textContent = validation.message;
         block.appendChild(note);
     }
@@ -192,7 +192,7 @@ function createProviderChoiceField(kind, settings = getSettings()) {
     const prefix = getProviderPrefix(kind);
     const cfg = getProviderUiConfig(kind);
     const select = document.createElement('select');
-    select.id = `wandlight_${prefix}_provider_runtime`;
+    select.id = `saga_${prefix}_provider_runtime`;
     select.appendChild(createOption('st', 'Current SillyTavern Model'));
     select.appendChild(createOption('profile', 'Connection Profile'));
     select.appendChild(createOption('openai_compatible', 'OpenAI-Compatible Endpoint'));
@@ -209,12 +209,12 @@ function createProviderProfileSection(kind, settings = getSettings()) {
     const section = createProviderRuntimeSection('Connection Profile');
 
     const help = document.createElement('div');
-    help.className = 'wandlight-runtime-help';
+    help.className = 'saga-runtime-help';
     help.textContent = 'Connection Profiles keep provider routing and keys in SillyTavern. Use the thin Provider preset with the selected profile.';
     section.appendChild(help);
 
     const select = document.createElement('select');
-    select.id = `wandlight_${prefix}_profile_id_runtime`;
+    select.id = `saga_${prefix}_profile_id_runtime`;
     const profiles = getNormalizedConnectionProfiles();
     select.appendChild(createOption('', profiles.length ? 'Select Profile' : 'No connection profiles found'));
     for (const profile of profiles) {
@@ -255,7 +255,7 @@ function createProviderOpenAiSection(kind, settings = getSettings()) {
     const section = createProviderRuntimeSection('OpenAI-Compatible Endpoint');
 
     const baseInput = createProviderTextControl({
-        id: `wandlight_${prefix}_openai_base_url_runtime`,
+        id: `saga_${prefix}_openai_base_url_runtime`,
         value: settings[`${prefix}OpenAIBaseUrl`] || '',
         placeholder: 'https://api.openai.com',
         tooltip: `OpenAI-compatible base URL for ${cfg.shortTitle.toLowerCase()} tasks.`,
@@ -265,7 +265,7 @@ function createProviderOpenAiSection(kind, settings = getSettings()) {
     section.appendChild(createProviderField('Base URL', `OpenAI-compatible base URL for ${cfg.shortTitle.toLowerCase()} tasks.`, baseInput));
 
     const modelInput = createProviderTextControl({
-        id: `wandlight_${prefix}_openai_model_search_runtime`,
+        id: `saga_${prefix}_openai_model_search_runtime`,
         value: settings[`${prefix}OpenAIModel`] || '',
         placeholder: 'Search or type model ID...',
         tooltip: 'Type to filter fetched models, or type an exact model ID.',
@@ -274,7 +274,7 @@ function createProviderOpenAiSection(kind, settings = getSettings()) {
     modelInput.addEventListener('keydown', (event) => commitProviderTextOnEnter(event, kind, 'OpenAIModel', modelInput));
 
     const modelSelect = document.createElement('select');
-    modelSelect.id = `wandlight_${prefix}_openai_model_runtime`;
+    modelSelect.id = `saga_${prefix}_openai_model_runtime`;
     modelSelect.disabled = true;
     modelSelect.appendChild(createOption('', 'Fetch models or type a model ID above'));
 
@@ -289,11 +289,11 @@ function createProviderOpenAiSection(kind, settings = getSettings()) {
     });
 
     const modelStatus = document.createElement('small');
-    modelStatus.className = 'wandlight-provider-runtime-status';
+    modelStatus.className = 'saga-provider-runtime-status';
     modelStatus.textContent = settings[`${prefix}OpenAIModel`] ? `Saved model: ${settings[`${prefix}OpenAIModel`]}` : 'Fetch models or type an exact model ID.';
 
     const modelRow = document.createElement('div');
-    modelRow.className = 'wandlight-provider-runtime-control-row';
+    modelRow.className = 'saga-provider-runtime-control-row';
     modelRow.appendChild(modelInput);
     modelRow.appendChild(createButton('Fetch Models', `Fetch available models from the ${cfg.shortTitle.toLowerCase()} API endpoint.`, async (btn) => {
         await runBusyAction(btn, 'Fetching...', async () => {
@@ -307,13 +307,13 @@ function createProviderOpenAiSection(kind, settings = getSettings()) {
     }));
 
     const modelField = document.createElement('div');
-    modelField.className = 'wandlight-provider-runtime-field wandlight-provider-runtime-model-field';
+    modelField.className = 'saga-provider-runtime-field saga-provider-runtime-model-field';
     const modelLabel = document.createElement('span');
     modelLabel.textContent = 'Model';
     addTooltip(modelLabel, 'Model used by this OpenAI-compatible provider.');
     modelField.appendChild(modelLabel);
     const modelControls = document.createElement('div');
-    modelControls.className = 'wandlight-provider-runtime-field-stack';
+    modelControls.className = 'saga-provider-runtime-field-stack';
     modelControls.appendChild(modelRow);
     modelControls.appendChild(modelSelect);
     modelControls.appendChild(modelStatus);
@@ -355,18 +355,18 @@ function createProviderApiKeyField(kind, settings = getSettings()) {
     const storageInfo = getNamedApiKeyStorageInfo(secretName);
 
     const field = document.createElement('div');
-    field.className = 'wandlight-provider-runtime-field wandlight-provider-key-field';
+    field.className = 'saga-provider-runtime-field saga-provider-key-field';
     const label = document.createElement('span');
     label.textContent = 'API Key';
     addTooltip(label, `API key stored encrypted locally for ${cfg.shortTitle.toLowerCase()} tasks.`);
     field.appendChild(label);
 
     const stack = document.createElement('div');
-    stack.className = 'wandlight-provider-runtime-field-stack';
+    stack.className = 'saga-provider-runtime-field-stack';
     const row = document.createElement('div');
-    row.className = 'wandlight-provider-runtime-control-row';
+    row.className = 'saga-provider-runtime-control-row';
     const input = document.createElement('input');
-    input.id = `wandlight_${prefix}_openai_key_runtime`;
+    input.id = `saga_${prefix}_openai_key_runtime`;
     input.type = 'password';
     input.placeholder = storageInfo.isStored ? 'Stored key is hidden' : 'Enter API key';
     addTooltip(input, `API key stored encrypted locally for ${cfg.shortTitle.toLowerCase()} tasks.`);
@@ -391,11 +391,11 @@ function createProviderApiKeyField(kind, settings = getSettings()) {
             toast(`${cfg.shortTitle} API key cleared.`, 'info');
             refreshSettingsPanel({ preserveScroll: true, preserveWindowScroll: true });
         });
-    }, 'wandlight-danger-button'));
+    }, 'saga-danger-button'));
     stack.appendChild(row);
 
     const status = document.createElement('small');
-    status.className = 'wandlight-provider-runtime-status';
+    status.className = 'saga-provider-runtime-status';
     status.textContent = formatProviderKeyStorageInfo(storageInfo, settings[`${prefix}OpenAIKeySet`]);
     addTooltip(status, getProviderKeyStorageTooltip(storageInfo));
     stack.appendChild(status);
@@ -426,13 +426,13 @@ function createProviderGenerationSection(kind, settings = getSettings()) {
 
     if (disabled) {
         const note = document.createElement('div');
-        note.className = 'wandlight-runtime-help';
+        note.className = 'saga-runtime-help';
         note.textContent = 'Controlled by the selected Connection Profile and Provider preset.';
         section.appendChild(note);
     }
 
     const grid = document.createElement('div');
-    grid.className = 'wandlight-provider-runtime-grid';
+    grid.className = 'saga-provider-runtime-grid';
     grid.appendChild(createProviderNumberField(kind, 'Temperature', 'Temperature', settings[`${prefix}Temperature`] ?? 0.7, {
         min: 0,
         max: 2,
@@ -473,7 +473,7 @@ function createProviderNumberField(kind, labelText, suffix, value, options = {})
         input.value = String(normalized);
         saveProviderSetting(kind, suffix, normalized, { refresh: false });
     });
-    return createProviderField(labelText, options.tooltip || labelText, input, 'wandlight-provider-number-field');
+    return createProviderField(labelText, options.tooltip || labelText, input, 'saga-provider-number-field');
 }
 
 function normalizeProviderNumber(value, fallback, options = {}) {
@@ -488,7 +488,7 @@ function normalizeProviderNumber(value, fallback, options = {}) {
 
 function createProviderField(labelText, tooltip, control, className = '') {
     const field = document.createElement('label');
-    field.className = `wandlight-provider-runtime-field ${className}`.trim();
+    field.className = `saga-provider-runtime-field ${className}`.trim();
     const label = document.createElement('span');
     label.textContent = labelText;
     addTooltip(label, tooltip || labelText);
@@ -499,9 +499,9 @@ function createProviderField(labelText, tooltip, control, className = '') {
 
 function createProviderRuntimeSection(titleText) {
     const section = document.createElement('div');
-    section.className = 'wandlight-provider-runtime-section';
+    section.className = 'saga-provider-runtime-section';
     const title = document.createElement('div');
-    title.className = 'wandlight-provider-runtime-section-title';
+    title.className = 'saga-provider-runtime-section-title';
     title.textContent = titleText;
     section.appendChild(title);
     return section;
@@ -584,7 +584,7 @@ export function getProviderStatusText(kind, settings = getSettings()) {
 
 function createProviderPresetStatusCard() {
     const card = document.createElement('div');
-    card.className = 'wandlight-provider-preset-status-card';
+    card.className = 'saga-provider-preset-status-card';
     card.textContent = 'Checking Provider preset...';
     refreshProviderPresetStatusCard(card);
     return card;
@@ -603,15 +603,15 @@ async function refreshProviderPresetStatusCard(card) {
             pill: 'Error',
             message: e?.message || 'Could not check Provider preset.',
             installedVersion: 'unknown',
-            bundledVersion: WANDLIGHT_PROVIDER_PRESET_VERSION,
+            bundledVersion: SAGA_PROVIDER_PRESET_VERSION,
             canDownload: true,
         };
     }
 
     const header = document.createElement('div');
-    header.className = 'wandlight-provider-preset-header';
+    header.className = 'saga-provider-preset-header';
     const title = document.createElement('div');
-    title.className = 'wandlight-provider-runtime-section-title';
+    title.className = 'saga-provider-runtime-section-title';
     title.textContent = 'Provider Preset';
     addTooltip(title, 'Thin bundled preset for SillyTavern Connection Profile provider calls.');
     header.appendChild(title);
@@ -619,28 +619,28 @@ async function refreshProviderPresetStatusCard(card) {
     card.appendChild(header);
 
     const message = document.createElement('div');
-    message.className = 'wandlight-provider-preset-message';
+    message.className = 'saga-provider-preset-message';
     message.textContent = status.message || '';
     card.appendChild(message);
 
     const meta = document.createElement('div');
-    meta.className = 'wandlight-provider-preset-meta';
+    meta.className = 'saga-provider-preset-meta';
     meta.appendChild(createCompactPresetStat('Installed', status.installedVersion || 'not found'));
-    meta.appendChild(createCompactPresetStat('Bundled', status.bundledVersion || WANDLIGHT_PROVIDER_PRESET_VERSION));
+    meta.appendChild(createCompactPresetStat('Bundled', status.bundledVersion || SAGA_PROVIDER_PRESET_VERSION));
     card.appendChild(meta);
 
     const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
+    actions.className = 'saga-primary-actions';
     if (status.actionLabel) {
         actions.appendChild(createButton(status.actionLabel, status.actionTooltip || status.actionLabel, async (btn) => {
             await handleInstallProviderPreset(btn, card, status);
-        }, status.primaryAction ? 'wandlight-primary-button' : ''));
+        }, status.primaryAction ? 'saga-primary-button' : ''));
     }
     if (status.canDownload) {
         actions.appendChild(createButton('Download JSON', 'Download the bundled Provider preset for manual import.', async (btn) => {
             await runBusyAction(btn, 'Downloading...', async () => {
                 const preset = await loadBundledProviderPreset();
-                downloadJson(preset, `${WANDLIGHT_PROVIDER_PRESET_VERSION}.json`);
+                downloadJson(preset, `${SAGA_PROVIDER_PRESET_VERSION}.json`);
                 toast('Bundled Provider preset downloaded.', 'info');
             });
         }));
@@ -650,8 +650,8 @@ async function refreshProviderPresetStatusCard(card) {
 
 async function getProviderPresetStatus() {
     const bundled = await loadBundledProviderPreset();
-    const bundledMeta = getProviderPresetMetadata(bundled, { fallbackVersion: WANDLIGHT_PROVIDER_PRESET_VERSION });
-    const bundledVersion = bundledMeta.displayVersion || WANDLIGHT_PROVIDER_PRESET_VERSION;
+    const bundledMeta = getProviderPresetMetadata(bundled, { fallbackVersion: SAGA_PROVIDER_PRESET_VERSION });
+    const bundledVersion = bundledMeta.displayVersion || SAGA_PROVIDER_PRESET_VERSION;
     const pm = getChatCompletionPresetManager();
 
     if (!pm) {
@@ -724,7 +724,7 @@ async function getProviderPresetStatus() {
 }
 
 function getInstalledProviderPreset(pm) {
-    const name = WANDLIGHT_PROVIDER_PRESET_NAME;
+    const name = SAGA_PROVIDER_PRESET_NAME;
     const preset = getProviderPresetByName(pm, name);
     return { name: preset ? name : '', preset };
 }
@@ -736,8 +736,8 @@ function getProviderPresetByName(pm, name) {
         preset = pm.getCompletionPresetByName(name) || null;
     }
     if (!preset && typeof pm?.readPresetExtensionField === 'function') {
-        const wandlightMeta = pm.readPresetExtensionField({ name, path: 'wandlight' });
-        if (wandlightMeta) preset = { extensions: { wandlight: wandlightMeta } };
+        const sagaMeta = pm.readPresetExtensionField({ name, path: 'saga' });
+        if (sagaMeta) preset = { extensions: { saga: sagaMeta } };
     }
     return preset;
 }
@@ -755,7 +755,7 @@ function getChatCompletionPresetManager() {
 
 async function loadBundledProviderPreset() {
     if (bundledProviderPresetCache) return cloneJson(bundledProviderPresetCache);
-    const response = await fetch(getLocalAssetSrc(WANDLIGHT_PROVIDER_PRESET_ASSET_PATH), { cache: 'no-store' });
+    const response = await fetch(getLocalAssetSrc(SAGA_PROVIDER_PRESET_ASSET_PATH), { cache: 'no-store' });
     if (!response.ok) throw new Error('Bundled Provider preset could not be loaded.');
     const preset = ensureProviderPresetMetadata(await response.json());
     bundledProviderPresetCache = preset;
@@ -765,11 +765,11 @@ async function loadBundledProviderPreset() {
 function ensureProviderPresetMetadata(preset) {
     const next = cloneJson(preset || {});
     next.extensions = isPlainObjectValue(next.extensions) ? next.extensions : {};
-    next.extensions.wandlight = {
-        ...(isPlainObjectValue(next.extensions.wandlight) ? next.extensions.wandlight : {}),
-        presetName: WANDLIGHT_PROVIDER_PRESET_NAME,
-        presetVersion: WANDLIGHT_PROVIDER_PRESET_VERSION,
-        version: formatProviderPresetVersion(WANDLIGHT_PROVIDER_PRESET_VERSION) || '1.2',
+    next.extensions.saga = {
+        ...(isPlainObjectValue(next.extensions.saga) ? next.extensions.saga : {}),
+        presetName: SAGA_PROVIDER_PRESET_NAME,
+        presetVersion: SAGA_PROVIDER_PRESET_VERSION,
+        version: formatProviderPresetVersion(SAGA_PROVIDER_PRESET_VERSION) || '1.2',
         providerPreset: true,
         supportsReplyHeaders: false,
     };
@@ -777,7 +777,7 @@ function ensureProviderPresetMetadata(preset) {
 }
 
 function getProviderPresetMetadata(preset, options = {}) {
-    const ext = isPlainObjectValue(preset?.extensions?.wandlight) ? preset.extensions.wandlight : {};
+    const ext = isPlainObjectValue(preset?.extensions?.saga) ? preset.extensions.saga : {};
     const notes = String(preset?.notes || '');
     const explicit = ext.presetVersion || ext.version || '';
     const noteMatch = notes.match(/\bProvider[-\s]+v?(\d+(?:\.\d+){0,3})\b/i);
@@ -845,7 +845,7 @@ async function installBundledProviderPreset() {
     const previousValue = typeof pm.getSelectedPreset === 'function' ? pm.getSelectedPreset() : '';
     const previousName = typeof pm.getSelectedPresetName === 'function' ? pm.getSelectedPresetName() : '';
 
-    await pm.savePreset(WANDLIGHT_PROVIDER_PRESET_NAME, preset);
+    await pm.savePreset(SAGA_PROVIDER_PRESET_NAME, preset);
 
     let restored = false;
     if (previousValue && typeof pm.selectPreset === 'function') {
@@ -860,12 +860,12 @@ async function installBundledProviderPreset() {
         }
     }
 
-    return { selectionTouched: previousName !== WANDLIGHT_PROVIDER_PRESET_NAME, restored };
+    return { selectionTouched: previousName !== SAGA_PROVIDER_PRESET_NAME, restored };
 }
 
 function createCompactPresetStat(label, value) {
     const row = document.createElement('div');
-    row.className = 'wandlight-preset-status-stat';
+    row.className = 'saga-preset-status-stat';
     const key = document.createElement('span');
     key.textContent = label;
     const val = document.createElement('strong');
