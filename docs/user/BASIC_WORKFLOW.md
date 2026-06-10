@@ -4,17 +4,35 @@ Use Basic Experience when you want the shortest path from "I opened Saga" to "th
 
 Basic keeps the workflow manual and review-first. It hides Continuity and the full Injection tab because those are diagnostic and tuning surfaces, not required first-run steps.
 
-## Basic Loop
+## Basic Walkthrough
 
-```text
-Session -> Loredecks -> Context -> Lorecards -> continue roleplay
-```
+The in-app **Basic Walkthrough** is split into small tab walkthroughs instead of one long checklist. Use the full walkthrough on first setup, or start only the section you need.
+
+### Loredecks
+
+Use **Loredecks** to open the Library, choose a **Bundled Lorepack**, **Generated Lorepack**, or **Custom Lorepack**, and add the right decks or folder groups to the active stack. The same section also shows unfinished Generated Lorepack projects if you need to resume one.
+
+### Session
+
+Use **Session** to confirm **Saga Active**, read the **Start Checklist**, understand the continue/update loop, and check runtime metrics such as pending Lorecards, accepted lore, selected injection, and token estimate.
+
+### Context
+
+Use **Context** to set the current story position for each loaded Loredeck. **Browse Context** is the trusted manual path. **Detect Context** can help after scene jumps, time skips, chapter changes, episode changes, quests, or major location shifts.
+
+### Lorecards
+
+Use **Lorecards** to preview canon packs, scan recent story, add a manual Lorecard, review Pending Lorecards, and inspect Accepted Lorecards. New facts should stay pending until you decide they should affect future responses.
+
+### Settings
+
+Use **Settings** to check provider readiness for model-backed actions and manage the runtime Theme Pack.
 
 ## Quick Start
 
 1. Open the Saga shelf and choose **Basic** if Saga is not already in Basic Experience.
 2. Open **Session** and confirm Saga is active.
-3. Open **Loredecks**, open **Loredeck Library**, and add the bundled or custom Loredeck that matches the current chat to the active stack.
+3. Open **Loredecks**, open **Loredeck Library**, and add the Bundled Lorepack, Generated Lorepack, or Custom Lorepack that matches the current chat to the active stack.
 4. Open **Context** and set where the story currently is inside the loaded Loredeck.
 5. Open **Lorecards** and use **Lorecard Generation** if you need suggestions from the loaded Context.
 6. Accept only Lorecards that should affect future responses. Dismiss anything that should not matter.

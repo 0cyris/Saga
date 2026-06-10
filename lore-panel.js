@@ -152,11 +152,11 @@ import {
     closeSagaTour,
     configureRuntimeTour,
     markTourTarget,
-    showGuideStep,
     startSagaTour,
 } from './runtime-tour.js';
 import {
     getRuntimeGuideContent,
+    getRuntimeGuideSections,
     getRuntimeGuideSteps,
 } from './runtime-guide-content.js';
 import {
@@ -15655,44 +15655,44 @@ function renderSettingsTab(container, state) {
     ));
 
     if (basic) {
-        container.appendChild(createCollapsibleSection(
+        container.appendChild(markTourTarget(createCollapsibleSection(
             'settings.providers',
             'Providers',
             `${getProviderStatusText('lore', settings)} / ${getProviderStatusText('continuity', settings)}`,
             true,
             createBasicProviderQuickSetupCard(settings),
             { tooltip: 'Check providers needed for model-backed Saga actions without exposing advanced provider tuning.' }
-        ));
+        ), 'settings.providers'));
 
-        container.appendChild(createCollapsibleSection(
+        container.appendChild(markTourTarget(createCollapsibleSection(
             'settings.themePack',
             'Theme Pack',
             getThemePreset(settings.themePackId, settings)?.title || 'Theme',
             true,
             createThemeSettingsCard(settings),
             { tooltip: 'Manage Theme Packs, icon sets, and color overrides.' }
-        ));
+        ), 'settings.themePack'));
 
         return;
     }
 
-    container.appendChild(createCollapsibleSection(
+    container.appendChild(markTourTarget(createCollapsibleSection(
         'settings.providers',
         'Providers',
         'Utility and Reasoning model settings',
         true,
         createProviderSettingsCard(settings),
         { tooltip: 'Configure model providers used by Saga generation, Context detection, compression, and continuity workflows.' }
-    ));
+    ), 'settings.providers'));
 
-    container.appendChild(createCollapsibleSection(
+    container.appendChild(markTourTarget(createCollapsibleSection(
         'settings.themePack',
         'Theme Pack',
         getThemePreset(settings.themePackId)?.title || 'Theme',
         false,
         createThemeSettingsCard(settings),
         { tooltip: 'Manage Theme Packs, icon sets, and color overrides.' }
-    ));
+    ), 'settings.themePack'));
 }
 
 function createThemeSettingsCard(settings = getSettings()) {
@@ -16310,15 +16310,12 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
     wrap.className = 'saga-instructions-card';
     const mode = normalizeExperienceMode(guideMode);
     const guide = getRuntimeGuideContent(mode);
-    const steps = getRuntimeGuideSteps(mode);
+    const sections = getRuntimeGuideSections(mode);
 
     const intro = document.createElement('p');
     intro.className = 'saga-instructions-lede';
     intro.textContent = guide.lede;
     wrap.appendChild(intro);
-
-    const flow = document.createElement('div');
-    flow.className = 'saga-instructions-flow';
 
     const actions = document.createElement('div');
     actions.className = 'saga-guide-actions';
@@ -16327,26 +16324,31 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
     }, 'saga-primary-button'));
     wrap.appendChild(actions);
 
-    for (const item of steps) {
+    const flow = document.createElement('div');
+    flow.className = 'saga-instructions-flow saga-instructions-section-list';
+
+    for (const section of sections) {
         const card = document.createElement('div');
-        card.className = 'saga-instructions-step-card';
+        card.className = 'saga-instructions-section-card';
         const main = document.createElement('div');
-        main.className = 'saga-instructions-step-main';
+        main.className = 'saga-instructions-section-main';
+        const header = document.createElement('div');
+        header.className = 'saga-instructions-section-header';
         const title = document.createElement('div');
-        title.className = 'saga-instructions-step-title';
-        title.textContent = item.title;
+        title.className = 'saga-instructions-section-title';
+        title.textContent = section.label;
+        header.appendChild(title);
+        header.appendChild(createStatusPill(`${section.stepCount} step${section.stepCount === 1 ? '' : 's'}`, `${section.label} walkthrough length.`));
+        main.appendChild(header);
         const body = document.createElement('div');
-        body.className = 'saga-instructions-step-body';
-        body.textContent = item.body;
-        main.appendChild(title);
+        body.className = 'saga-instructions-section-body';
+        body.textContent = section.description || `Walk through the ${section.label} tab.`;
         main.appendChild(body);
         card.appendChild(main);
-        if (item.actionLabel) {
-            const action = createButton(item.actionLabel, `Open ${item.title}.`, () => {
-                showGuideStep(item, { highlight: true });
-            }, 'saga-mini-button saga-guide-step-button');
-            card.appendChild(action);
-        }
+        const action = createButton('Start', `Start the ${section.label} walkthrough.`, () => {
+            startSagaTour(mode, { sectionId: section.id });
+        }, 'saga-mini-button saga-guide-step-button');
+        card.appendChild(action);
         flow.appendChild(card);
     }
 

@@ -4,11 +4,37 @@ Use Advanced Experience when you want the full Saga control surface for authorin
 
 Advanced uses the same data model as Basic. Loredecks, Context, pending Lorecards, accepted Lorecards, pin/mute choices, and settings-backed work carry across mode changes.
 
-## Advanced Loop
+## Advanced Walkthrough
 
-```text
-Loredecks -> Session -> Context -> Continuity -> Lorecards -> Injection -> Settings
-```
+The in-app **Advanced Walkthrough** is organized by tab. Start the full walkthrough when learning the whole surface, or start a focused tab walkthrough when you only need one workflow area.
+
+### Loredecks
+
+Manage the Library, active stack, folders, package import/update, package export paths, Generated Lorepack projects, and Generated Lorepack to Custom Lorepack finalization.
+
+### Session
+
+Control Experience Mode, Automation Mode, Saga Active, and runtime metrics. Use this tab to confirm whether Saga has data and whether accepted Lorecards are being selected.
+
+### Context
+
+Use the Runtime Context command center, Context Browser, Detect Context, source-message tuning, loaded Loredeck Context rows, and the Advanced Context Brief when story position is ambiguous or branch-specific.
+
+### Continuity
+
+Tune live-state scanning, automation, scan scope, performance, tracked sections, scene/timeline state, active characters, key items, and active goals/threads.
+
+### Lorecards
+
+Use timeline audit/recovery, canon pack preview, story-lore scans, pending review, accepted Lorecard management, bulk tools, workbenches, and Auto-Relevance.
+
+### Injection
+
+Inspect the exact Continuity and Lore blocks Saga plans to send. Tune injection toggles, prompt placement, relevance-tier previews, direct/compressed handling, and compression prompts.
+
+### Settings
+
+Configure Utility and Reasoning providers, Provider preset support, Theme Packs, icon sets, and color controls.
 
 ## What Advanced Adds
 

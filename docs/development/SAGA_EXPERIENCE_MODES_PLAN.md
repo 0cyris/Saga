@@ -156,24 +156,17 @@ Below the checklist, show one recommended next action. Examples:
 
 Do not make users read a long feature explanation before acting.
 
-### Basic First-Run Workflow
+### Basic Walkthrough
 
-The Basic walkthrough should be five steps maximum:
+The Basic walkthrough should stay focused, but it should not be a single compressed first-run list. For Alpha, it is about 20 steps grouped by visible Basic tab sections:
 
-1. **Open Saga and keep Saga Active on.**
-   Explain only that Saga can add accepted lore to the next prompt.
+- **Loredecks**: open the Library, build the active stack, understand Pack Health/active counts, and resume Generated Lorepack projects when relevant.
+- **Session**: keep Saga Active, use the Start Checklist, understand the continue/update loop, and read Session Metrics.
+- **Context**: use Runtime Context, Browse Context, Detect Context, and verify loaded Loredeck Context rows.
+- **Lorecards**: use Lorecard Generation, preview canon packs, scan story lore, add a manual Lorecard, review Pending Lorecards, and inspect Accepted Lorecards.
+- **Settings**: confirm Providers and Theme Pack.
 
-2. **Open Library.**
-   Use the same Loredeck Library surface as Advanced and add the matching deck or deck group to the active stack.
-
-3. **Set Context.**
-   Use the Context Browser as the trusted path. The primary control should be **Browse Context**, with **Use This Context** inside the browser. Model detection is secondary.
-
-4. **Review Lorecards.**
-   Show relevant proposed Lorecards and Pending Review in one place. The user accepts only cards that should affect future responses.
-
-5. **Continue and update when the story changes.**
-   Give the user two clear repeat actions: "Set Context again" for timeline jumps and "Scan recent story" for durable chat-specific facts if a provider is configured.
+The Session guide card should present these as smaller tab-section mini walkthroughs, not as one visible list of every "Show" highlight target.
 
 ### Basic Loredecks
 
@@ -490,13 +483,14 @@ When an Advanced user switches to Basic:
 - Keep the Basic walkthrough collapsed and short.
 - Show provider setup as optional unless the next action needs a provider.
 
-### Phase 3: Shorten Basic Walkthrough
+### Phase 3: Section Basic Walkthrough
 
-- Replace the current Basic guide step list with the six-step flow in this plan.
-- Keep each step action-oriented.
-- Ensure every step lands on a visible Basic tab.
+- Replace the current Basic guide step list with the tab-section walkthrough structure in this plan.
+- Keep the full Basic tour around 20 action-oriented steps.
+- Ensure every Basic step lands on a visible Basic tab.
+- Render mini walkthrough starters by tab section instead of one visible list of every target.
 - Avoid Advanced-only targets in Basic guide steps.
-- Add empty-state copy for each step.
+- Add empty-state copy for each step where the target can be absent.
 
 ### Phase 4: Simplify Basic Loredeck And Context Paths
 

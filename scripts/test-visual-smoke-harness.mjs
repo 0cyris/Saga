@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const root = process.cwd();
 const harnessPath = path.join(root, 'tests', 'visual-smoke.html');
@@ -46,6 +47,34 @@ function assert(condition, message) {
     }
 }
 
+function parseSingleQuotedValues(source) {
+    return [...String(source || '').matchAll(/'([^']+)'/g)].map(match => match[1]);
+}
+
+function collectGuideTargets(steps = []) {
+    const targets = new Set();
+    for (const step of steps) {
+        if (step?.target) targets.add(step.target);
+        if (step?.fallbackTarget) targets.add(step.fallbackTarget);
+    }
+    return targets;
+}
+
+function collectMarkedTourTargets(source = '') {
+    const targets = new Set();
+    const pattern = /['"]([a-z][a-zA-Z0-9_-]*(?:\.[a-zA-Z0-9_-]+)+)['"]/g;
+    const text = String(source || '');
+    let index = text.indexOf('markTourTarget(');
+    while (index >= 0) {
+        const chunk = text.slice(index, index + 5000);
+        for (const match of chunk.matchAll(pattern)) {
+            targets.add(match[1]);
+        }
+        index = text.indexOf('markTourTarget(', index + 1);
+    }
+    return targets;
+}
+
 const harness = read(harnessPath);
 const loredeckIndex = JSON.parse(read(loredeckIndexPath));
 const panel = read(panelPath);
@@ -80,6 +109,11 @@ const runtimeGuideContent = read(runtimeGuideContentPath);
 const style = read(stylePath);
 const settingsTemplate = read(settingsTemplatePath);
 const liveSmoke = read(liveSmokePath);
+const runtimeGuideModule = await import(pathToFileURL(runtimeGuideContentPath).href);
+const basicGuideSteps = runtimeGuideModule.getRuntimeGuideSteps('basic');
+const advancedGuideSteps = runtimeGuideModule.getRuntimeGuideSteps('advanced');
+const basicGuideSections = runtimeGuideModule.getRuntimeGuideSections('basic');
+const advancedGuideSections = runtimeGuideModule.getRuntimeGuideSections('advanced');
 
 assert(harness.includes("import { showLorePanel } from '../lore-panel.js';"), 'Harness must import the real runtime panel.');
 assert(fs.existsSync(sagaHeroIconPath), 'Bundled Saga Hero Loredecks icon must exist.');
@@ -99,6 +133,9 @@ assert(style.includes('border-color: var(--saga-border') && style.includes('var(
 assert(!style.includes('2px 0 0 rgba(215, 181, 109') && !style.includes('2px 0 0 rgba(212, 200, 168'), 'Loredecks shelf accent must not use a left inset that visually offsets the tab.');
 assert(harness.includes('window.SillyTavern'), 'Harness must stub SillyTavern before importing modules.');
 const basicTabsSource = runtimeNavigation.match(/BASIC_EXPERIENCE_TABS\s*=\s*Object\.freeze\(\[([^\]]*)\]\)/)?.[1] || '';
+const tabLabelsSource = runtimeNavigation.match(/TAB_LABELS\s*=\s*Object\.freeze\(\{([\s\S]*?)\}\);/)?.[1] || '';
+const basicVisibleTabs = new Set(parseSingleQuotedValues(basicTabsSource));
+const advancedVisibleTabs = new Set([...tabLabelsSource.matchAll(/^\s*([a-zA-Z0-9_]+):/gm)].map(match => match[1]));
 assert(basicTabsSource.includes("'session'") && basicTabsSource.includes("'loredecks'") && basicTabsSource.includes("'context'") && basicTabsSource.includes("'lore'") && basicTabsSource.includes("'settings'"), 'Basic Experience must keep the guided Session/Loredecks/Context/Lorecards/Settings tabs.');
 assert(!basicTabsSource.includes("'injection'") && !basicTabsSource.includes("'continuity'"), 'Basic Experience must hide Injection and Continuity tabs.');
 assert(runtimeNavigation.includes('export const ADVANCED_EXPERIENCE_TABS = Object.freeze(Object.keys(TAB_LABELS));'), 'Advanced Experience must continue exposing the full tab set.');
@@ -109,11 +146,31 @@ assert(runtimePanelSource.includes('getTabLabelForExperience(tabId, settings)') 
 const basicGuideSource = runtimeGuideContent.split('basic: freezeGuideSteps([')[1]?.split('advanced: freezeGuideSteps([')[0] || '';
 const advancedGuideSource = runtimeGuideContent.split('advanced: freezeGuideSteps([')[1] || '';
 const basicGuideStepCount = (basicGuideSource.match(/guideStep\(/g) || []).length;
-assert(basicGuideStepCount === 5, 'Basic guide must stay limited to the five-step first-run workflow.');
+const advancedGuideStepCount = (advancedGuideSource.match(/guideStep\(/g) || []).length;
+const markedTourTargets = collectMarkedTourTargets(runtimePanelSource);
+assert(runtimeGuideContent.includes("title: 'Basic Walkthrough'") && runtimeGuideContent.includes("title: 'Advanced Walkthrough'"), 'Runtime guides must use Alpha walkthrough titles.');
+assert(runtimeGuideContent.includes('GUIDE_SECTIONS') && runtimeGuideContent.includes("label: 'Loredecks'") && runtimeGuideContent.includes("label: 'Injection'"), 'Runtime guides must expose tab-section walkthrough metadata.');
+assert(basicGuideStepCount === 20, 'Basic guide must provide the sectioned 20-step Alpha walkthrough.');
+assert(advancedGuideStepCount === 50, 'Advanced guide must provide the full 50-step Alpha walkthrough map.');
+assert(basicGuideSteps.length === 20 && advancedGuideSteps.length === 50, 'Runtime guide exports must match source walkthrough counts.');
+assert(basicGuideSections.reduce((sum, section) => sum + section.stepCount, 0) === basicGuideSteps.length, 'Basic walkthrough sections must account for every exported step.');
+assert(advancedGuideSections.reduce((sum, section) => sum + section.stepCount, 0) === advancedGuideSteps.length, 'Advanced walkthrough sections must account for every exported step.');
+for (const step of basicGuideSteps) {
+    assert(basicVisibleTabs.has(step.tab), `Basic walkthrough step ${step.id} targets hidden tab: ${step.tab}`);
+}
+for (const step of advancedGuideSteps) {
+    assert(advancedVisibleTabs.has(step.tab), `Advanced walkthrough step ${step.id} targets unknown tab: ${step.tab}`);
+}
+for (const target of collectGuideTargets([...basicGuideSteps, ...advancedGuideSteps])) {
+    assert(markedTourTargets.has(target), `Walkthrough target is not marked in the runtime UI: ${target}`);
+}
 assert(!basicGuideSource.includes("'injection'"), 'Basic guide steps must not target hidden Injection controls.');
-assert(basicGuideSource.includes("'loredecks.library.open'") && basicGuideSource.includes("'context.commandCenter'") && basicGuideSource.includes("'lore.pending'") && basicGuideSource.includes("'session.basicReadiness'"), 'Basic guide must route through Loredeck, Context, Lorecards, and the Start Checklist continue/update target.');
-assert(!basicGuideSource.includes('Advanced Context Brief') && !basicGuideSource.includes('Canon Preview') && !basicGuideSource.includes('Pending Bulk Actions'), 'Basic guide must not expose advanced diagnostic or bulk-review tour steps.');
+assert(!basicGuideSource.includes("'continuity'"), 'Basic guide steps must not target hidden Continuity controls.');
+assert(basicGuideSource.includes("'loredecks.library.open'") && basicGuideSource.includes("'context.commandCenter'") && basicGuideSource.includes("'lore.pending'") && basicGuideSource.includes("'settings.themePack'") && basicGuideSource.includes("'session.basicReadiness'"), 'Basic guide must route through Loredecks, Context, Lorecards, Settings, and the Start Checklist.');
+assert(!basicGuideSource.includes('Advanced Context Brief') && !basicGuideSource.includes('Prompt Placement') && !basicGuideSource.includes('Auto-Relevance'), 'Basic guide must not expose advanced diagnostic, injection, or automation tour steps.');
 assert(advancedGuideSource.includes("'injection'"), 'Advanced guide must retain Injection walkthrough targets.');
+assert(runtimePanelSource.includes('getRuntimeGuideSections') && runtimePanelSource.includes('startSagaTour(mode, { sectionId: section.id })'), 'Runtime guide card must render section-level mini walkthrough starts.');
+assert(!runtimePanelSource.includes('showGuideStep(item'), 'Runtime guide card must not render one Show button per walkthrough target.');
 assert(runtimePanelSource.includes('function createBasicStartReadinessCard'), 'Basic Session must render the Start Checklist dropdown.');
 assert(/createBasicStartReadinessCard[\s\S]*createCollapsibleSection\(\s*'session\.basicReadiness'[\s\S]*true[\s\S]*'saga-basic-readiness-card'/.test(runtimePanelSource), 'Basic Session Start Checklist must be an expanded-by-default dropdown.');
 assert(runtimePanelSource.includes('function getBasicReadinessModel'), 'Basic Session readiness must derive from runtime state.');

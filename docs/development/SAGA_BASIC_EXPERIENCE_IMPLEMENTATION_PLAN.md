@@ -48,7 +48,7 @@ Relevant implementation points when this feature slice started:
 ## Progress To Date
 
 - Basic navigation now exposes Session, Loredecks, Context, Lorecards, and Settings while hiding Continuity and Injection.
-- Basic guide steps now stay inside visible Basic tabs and follow the five-step first-run flow.
+- Basic guide steps now stay inside visible Basic tabs and follow the sectioned Alpha walkthrough: Loredecks, Session, Context, Lorecards, and Settings.
 - Basic Session now has an expanded-by-default Start Checklist dropdown backed by the shared readiness model.
 - Basic Lorecards now uses the shared Lorecard Generation, Pending Lorecard Review, and Accepted Lorecards sections while hiding prompt-engineering controls and adding an Advanced Injection handoff.
 - The dedicated Basic Injection tab implementation has been retired.
@@ -139,7 +139,7 @@ Acceptance:
 - Advanced rail still has Injection.
 - A saved Basic active tab of `injection` normalizes to `session`.
 
-### Phase 2: Basic Guide Cleanup
+### Phase 2: Basic Walkthrough Cleanup
 
 Files:
 
@@ -148,19 +148,22 @@ Files:
 
 Tasks:
 
-1. Replace the current Basic guide with the five-step flow:
-   - Saga Active.
-   - Open Library.
-   - Set Context.
-   - Review Lorecards.
-   - Continue and update.
-2. Remove all Basic guide steps targeting hidden tabs.
-3. Keep Advanced guide Injection steps unchanged.
-4. Add a validation helper or test assertion that every Basic guide step targets a Basic-visible tab.
+1. Replace the current Basic guide with the sectioned Alpha flow:
+   - Loredecks.
+   - Session.
+   - Context.
+   - Lorecards.
+   - Settings.
+2. Keep the full Basic walkthrough around 20 action-oriented steps.
+3. Render tab-section mini walkthrough starters instead of one visible list of every target.
+4. Remove all Basic guide steps targeting hidden tabs.
+5. Keep Advanced guide Injection steps unchanged.
+6. Add a validation helper or test assertion that every Basic guide step targets a Basic-visible tab.
 
 Acceptance:
 
 - Basic walkthrough never navigates to `injection`.
+- Basic walkthrough never navigates to `continuity`.
 - Advanced walkthrough can still navigate to `injection`.
 
 ### Phase 3: Session Start Checklist Dropdown
@@ -429,7 +432,7 @@ This feature is done when:
 
 - Basic mode rail hides Injection and Continuity.
 - Basic mode has no selected-lore summary section in Session or Lorecards.
-- Basic walkthrough targets only visible Basic tabs.
+- Basic walkthrough targets only visible Basic tabs and is grouped into tab-section mini walkthroughs.
 - Basic Settings exposes Providers and the full shared Theme Pack surface without showing advanced provider internals.
 - Advanced mode still exposes the full Injection tab and existing controls.
 - Switching modes preserves saved stack, Context, pending Lorecards, accepted Lorecards, and backed-up managed settings.

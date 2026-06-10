@@ -18,7 +18,7 @@ Saga expresses that workflow through Loredecks, Context, Lorecards, and reviewab
 
 ## Basic Difference
 
-Basic Saga users do not need to learn the Injection tab. They load a Loredeck, set Context, review Lorecards, and trust the compact selected-lore summary in Start or Review.
+Basic Saga users do not need to learn the Injection tab. They load a Loredeck, set Context, review Lorecards, and use the Session Start Checklist plus Lorecards review flow to decide when the chat is ready.
 
 ## Advanced Difference
 
@@ -29,6 +29,6 @@ Advanced users can inspect and tune the full injection pipeline, automate parts 
 Do not try to recreate every Wandlight control one-for-one. Translate user-facing needs into Saga-native surfaces:
 
 - "What story point are we at?" belongs in **Context**.
-- "What facts matter now?" belongs in **Review**.
+- "What facts matter now?" belongs in **Lorecards**.
 - "What exactly reaches the model?" belongs in **Advanced Injection**.
 - "What source data should this fandom use?" belongs in **Loredecks**.

@@ -60,14 +60,24 @@ export function markTourTarget(el, target) {
     return el;
 }
 
-export function startSagaTour(mode = normalizeExperienceMode(getSettings().experienceMode)) {
+function getTourStepSectionId(step) {
+    return String(step?.section || step?.tab || 'session').trim() || 'session';
+}
+
+export function startSagaTour(mode = normalizeExperienceMode(getSettings().experienceMode), options = {}) {
     const normalized = normalizeExperienceMode(mode);
-    const steps = [...(getGuideSteps(normalized) || getGuideSteps('basic') || [])];
-    if (!steps.length) return;
+    const allSteps = [...(getGuideSteps(normalized) || getGuideSteps('basic') || [])];
+    const sectionId = String(options?.sectionId || '').trim();
+    const steps = sectionId ? allSteps.filter(step => getTourStepSectionId(step) === sectionId) : allSteps;
+    if (!steps.length) {
+        toast('No walkthrough steps are available for this section.', 'info');
+        return;
+    }
 
     closeSagaTour({ preserveToast: true });
     activeSagaTour = {
         mode: normalized,
+        sectionId,
         steps,
         index: 0,
         renderToken: 0,

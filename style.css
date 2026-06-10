@@ -9358,7 +9358,8 @@
     align-items: center;
 }
 
-.saga-instructions-step-card {
+.saga-instructions-step-card,
+.saga-instructions-section-card {
     border: 1px solid rgba(190, 145, 75, 0.24);
     border-radius: 6px;
     background: rgba(20, 18, 20, 0.45);
@@ -9370,18 +9371,32 @@
     gap: 8px;
 }
 
-.saga-instructions-step-main {
+.saga-instructions-step-main,
+.saga-instructions-section-main {
     min-width: 0;
 }
 
-.saga-instructions-step-title {
-    color: #f3d38b;
-    font-weight: 700;
-    font-size: 0.82em;
+.saga-instructions-section-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
     margin-bottom: 3px;
 }
 
-.saga-instructions-step-body {
+.saga-instructions-step-title,
+.saga-instructions-section-title {
+    color: #f3d38b;
+    font-weight: 700;
+    font-size: 0.82em;
+}
+
+.saga-instructions-step-title {
+    margin-bottom: 3px;
+}
+
+.saga-instructions-step-body,
+.saga-instructions-section-body {
     color: rgba(238, 226, 196, 0.78);
     font-size: 0.78em;
     line-height: 1.35;

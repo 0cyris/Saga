@@ -367,13 +367,13 @@ export function createContextCommandCenterCard(state = {}, contextIndex = null) 
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-context-command-actions';
-    actions.appendChild(createButton('Browse Context', 'Open the fullscreen Context Browser for loaded Loredecks, anchors, windows, resolver tests, and manual locks.', () => {
+    actions.appendChild(markTourTarget(createButton('Browse Context', 'Open the fullscreen Context Browser for loaded Loredecks, anchors, windows, resolver tests, and manual locks.', () => {
         if (!stack.length) {
             toast('Load a Loredeck before opening the Context Browser.', 'warning');
             return;
         }
         openContextWorkbenchForPack(stack[0]?.packId || '', 'context');
-    }, 'saga-primary-button'));
+    }, 'saga-primary-button'), 'context.browser'));
     actions.appendChild(markTourTarget(createButton('Detect Context', 'Analyze recent messages and update the Context Brief plus unlocked loaded Loredeck Contexts.', async (btn) => {
         await handleDetectStoryContext(btn);
     }, 'saga-primary-button'), 'context.detect'));
@@ -428,6 +428,7 @@ export function createLoredeckContextCard(state = {}, contextIndex = null) {
     const stack = getContextWorkbenchStack(state);
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-loredeck-context-card';
+    markTourTarget(card, 'context.loadedLoredecks');
 
     const header = document.createElement('div');
     header.className = 'saga-context-section-header';
