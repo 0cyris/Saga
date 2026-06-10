@@ -2050,7 +2050,14 @@ function createLoredeckLibrarySquareIconAction(kind = 'duplicate', tooltip = '',
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = `saga-runtime-button saga-loredeck-library-square-action saga-loredeck-library-icon-action ${className}`.trim();
-    btn.innerHTML = getLoredeckLibraryActionIconSvg(normalized);
+    btn.setAttribute('aria-label', label);
+    const icon = document.createElement('img');
+    icon.className = 'saga-loredeck-library-action-icon-img';
+    icon.src = getLoredeckLibraryActionIconSrc(normalized);
+    icon.alt = '';
+    icon.draggable = false;
+    icon.setAttribute('aria-hidden', 'true');
+    btn.appendChild(icon);
     addTooltip(btn, tooltip || label);
     btn.addEventListener('click', e => {
         e.stopPropagation();
@@ -2059,24 +2066,10 @@ function createLoredeckLibrarySquareIconAction(kind = 'duplicate', tooltip = '',
     return btn;
 }
 
-function getLoredeckLibraryActionIconSvg(kind = 'duplicate') {
-    if (kind === 'delete') {
-        return `
-            <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-                <path class="saga-icon-fill-soft" d="M15 18h18l-1.4 22.5a3.8 3.8 0 0 1-3.8 3.5h-7.6a3.8 3.8 0 0 1-3.8-3.5L15 18Z"/>
-                <path d="M12 18h24M19 18v-4.2c0-1.2 1-2.2 2.2-2.2h5.6c1.2 0 2.2 1 2.2 2.2V18M20.5 23.5v13M27.5 23.5v13"/>
-                <path class="saga-icon-spark" d="M17 8.5l1.1 2.4 2.4 1.1-2.4 1.1-1.1 2.4-1.1-2.4-2.4-1.1 2.4-1.1L17 8.5Z"/>
-            </svg>
-        `;
-    }
-    return `
-        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-            <path class="saga-icon-fill-soft" d="M17 12h17c1.2 0 2.2 1 2.2 2.2v23.6c0 1.2-1 2.2-2.2 2.2H17c-1.2 0-2.2-1-2.2-2.2V14.2c0-1.2 1-2.2 2.2-2.2Z"/>
-            <path d="M17 12h17c1.2 0 2.2 1 2.2 2.2v23.6c0 1.2-1 2.2-2.2 2.2H17c-1.2 0-2.2-1-2.2-2.2V14.2c0-1.2 1-2.2 2.2-2.2Z"/>
-            <path d="M11.8 18.2V10c0-1.2 1-2.2 2.2-2.2h17.8M20 19.2h11M20 25.6h11M20 32h7"/>
-            <path class="saga-icon-spark" d="M33.5 7l1.2 2.7 2.8 1.3-2.8 1.2-1.2 2.8-1.3-2.8-2.7-1.2 2.7-1.3L33.5 7Z"/>
-        </svg>
-    `;
+function getLoredeckLibraryActionIconSrc(kind = 'duplicate') {
+    return kind === 'delete'
+        ? './Images/loredeck-library/delete-loredeck-256.png'
+        : './Images/loredeck-library/duplicate-loredeck-256.png';
 }
 
 function createLoredeckActiveStackPane(stack = [], library = [], canonDb = null, health = null, libraryIndex = getLoredeckLibraryIndexForPacks(getState(), library)) {

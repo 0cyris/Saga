@@ -4215,6 +4215,16 @@
     stroke-linejoin: round;
 }
 
+.saga-loredeck-library-action-icon-img {
+    width: 36px;
+    height: 36px;
+    display: block;
+    grid-area: 1 / 1;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
+
 .saga-loredeck-library-icon-action .saga-icon-fill-soft {
     fill: var(--saga-gold-surface, rgba(215, 181, 109, 0.08));
 }
