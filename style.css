@@ -9853,6 +9853,11 @@
     color: rgba(255, 255, 255, 0.62);
 }
 
+.saga-runtime-rail-tab-global {
+    border-color: var(--saga-border, rgba(180, 160, 140, 0.3));
+    box-shadow: 0 0 0 1px var(--saga-border-soft, rgba(180, 160, 140, 0.08)) inset;
+}
+
 .saga-runtime-rail-tab:hover,
 .saga-runtime-rail-control:hover {
     background: rgba(255, 255, 255, 0.08);
@@ -9863,13 +9868,6 @@
     background: rgba(180, 160, 140, 0.14);
     border-color: rgba(212, 200, 168, 0.42);
     color: #f1e8cf;
-}
-
-.saga-runtime-rail-tab-global {
-    border-color: rgba(212, 200, 168, 0.34);
-    box-shadow:
-        2px 0 0 rgba(212, 200, 168, 0.22) inset,
-        0 0 0 1px rgba(212, 200, 168, 0.05) inset;
 }
 
 .saga-runtime-rail-icon {
@@ -10152,6 +10150,11 @@
     background: linear-gradient(90deg, transparent, var(--saga-border-soft, rgba(185, 139, 54, 0.34)), transparent);
 }
 
+.saga-runtime-rail-tab-global {
+    border-color: var(--saga-border, rgba(185, 139, 54, 0.38));
+    box-shadow: 0 0 0 1px var(--saga-border-soft, rgba(185, 139, 54, 0.18)) inset;
+}
+
 .saga-runtime-rail-tab:hover,
 .saga-runtime-rail-control:hover {
     background:
@@ -10189,26 +10192,6 @@
         0 0 14px rgba(215, 181, 109, 0.08);
 }
 
-.saga-runtime-rail-tab-global {
-    border-color: rgba(215, 181, 109, 0.46);
-    background:
-        radial-gradient(circle at 18% 0%, rgba(215, 181, 109, 0.12), transparent 40%),
-        linear-gradient(180deg, var(--saga-button, rgba(18, 18, 24, 0.78)), var(--saga-surface-2, rgba(18, 12, 18, 0.66)));
-    box-shadow:
-        2px 0 0 rgba(215, 181, 109, 0.4) inset,
-        0 0 0 1px rgba(215, 181, 109, 0.09) inset,
-        0 0 12px rgba(215, 181, 109, 0.06);
-}
-
-.saga-runtime-rail-tab-global:hover,
-.saga-runtime-rail-tab-global.saga-runtime-rail-tab-active {
-    border-color: rgba(255, 234, 167, 0.62);
-    box-shadow:
-        2px 0 0 rgba(255, 234, 167, 0.58) inset,
-        0 0 0 1px rgba(255, 234, 167, 0.14) inset,
-        0 0 14px rgba(215, 181, 109, 0.11);
-}
-
 .saga-runtime-rail-icon {
     flex: 0 0 38px;
     width: 38px;
@@ -10222,10 +10205,6 @@
     border: 1px solid rgba(185, 139, 54, 0.14);
     overflow: hidden;
     box-sizing: border-box;
-}
-
-.saga-runtime-rail-tab-global .saga-runtime-rail-icon {
-    border-color: rgba(215, 181, 109, 0.28);
 }
 
 .saga-runtime-rail-icon-img {
