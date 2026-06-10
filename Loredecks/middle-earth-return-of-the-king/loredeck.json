@@ -42,10 +42,10 @@
     "cover": {
       "path": "assets/cover.png",
       "alt": "Deck cover for Middle-earth: The Return of the King",
-      "aspect": "3:4",
+      "aspect": "1:1",
       "focalPoint": {
         "x": 0.5,
-        "y": 0.42
+        "y": 0.5
       }
     },
     "banner": {
