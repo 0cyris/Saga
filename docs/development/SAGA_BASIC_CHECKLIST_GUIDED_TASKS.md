@@ -55,6 +55,8 @@ The Basic Walkthrough remains a separate module-based learning tool. The checkli
 - Shows `Start Checklist` progress copy for checklist-launched flows.
 - Provides a **Close** control that closes the guide, opens Basic Session, and expands the checklist.
 - Uses **Next** to advance button-by-button through the task.
+- On the final step, recomputes the current readiness model. If another checklist item is still outstanding, the primary button becomes **Next: [item]** and launches that item. If unresolved items remain but none can be continued from the current tour, the button becomes **Return to Checklist**. It shows **Done** only when the checklist is complete.
+- Supports out-of-order completion by choosing the next outstanding row from current state instead of assuming a fixed tour chain.
 - Uses prepare hooks to open fullscreen/dedicated surfaces such as Loredeck Library, Context Workbench, Pending Lorecard Review, and Accepted Lorecards.
 - Falls back to a centered explanatory popover when a target is not visible.
 
@@ -72,11 +74,12 @@ Checklist steps should prefer actual controls over large sections:
 
 - `src/runtime/runtime-tour.js`
   - `startSagaTourSteps(steps, options)` launches custom popover sequences.
-  - Options include `progressLabel`, `closeLabel`, `finishLabel`, `className`, and `onClose`.
+  - Options include `progressLabel`, `closeLabel`, `finishLabel`, `getFinishLabel`, `getFinishTooltip`, `onFinish`, `className`, and `onClose`.
 
 - `src/runtime/lore-panel.js`
   - `BASIC_CHECKLIST_TOUR_TASKS_BY_ROW` defines checklist mini-tour steps.
   - `launchBasicChecklistTour(row)` starts the external popover sequence.
+  - `finishBasicChecklistTour(row)` uses the latest readiness model to continue to another outstanding checklist row or allow the tour to close when finished.
   - The retired in-panel `guidedTask` strip is not part of the runtime state.
 
 - `src/context/context-workbench-panel.js`
@@ -95,6 +98,7 @@ Checklist steps should prefer actual controls over large sections:
 - The Context checklist flow can open Context Workbench and point to selector controls instead of only highlighting the whole Context card.
 - The Lorecards checklist flow points to generation/review/apply controls, with pending-review preparation when needed.
 - The Provider checklist flow points to concrete Basic provider rows and test controls.
+- A user can complete checklist items out of order; each final tour action recomputes outstanding rows before deciding whether to continue or show Done.
 - No Basic checklist action renders an in-panel guided task strip.
 - No legacy checklist UI state is added to defaults or state normalization.
 

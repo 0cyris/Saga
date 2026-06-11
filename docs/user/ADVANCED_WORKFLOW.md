@@ -26,15 +26,15 @@ Start here when you need to understand what Saga is allowed to do, whether autom
 
 ### Context Resolution
 
-Coverage: A34-A50.
+Coverage: A34-A60.
 
-Use this track to resolve story position with Runtime Context, loaded Loredeck Context rows, Context Browser, manual selection, locks, Detect Context, source-message tuning, local resolver behavior, Reasoner proposals, proposal review, audits, Advanced Context Brief, reset paths, index summaries, workbench routes, and eligibility debugging.
+Use this track to resolve story position with Runtime Context, loaded Loredeck Context rows, Context Workbench layout, Anchors versus Windows, Start Here, Use Window, Use Anchor, After/Before bounds, Timeline inspection, manual selection, Phrase Resolver diagnostics, locks, Detect Context, source-message tuning, local resolver behavior, Reasoner proposals, proposal review, audits, Advanced Context Brief, reset paths, index summaries, workbench routes, and eligibility debugging.
 
 Start here when canon suggestions, retrieval, or injection appear tied to the wrong arc, date, chapter, episode, quest, branch, or location.
 
 ### Lorecard Generation And Review
 
-Coverage: A51-A72.
+Coverage: A61-A82.
 
 Use this track to manage canon preview, canon selection, story-lore scans, scan scope, manual Lorecards, assistant drafts, Pending Review, pending edits, accept/reject flows, bulk review, accepted Lorecards, search/filter, accepted entry editing, pin/mute, relevance tiers, tags, Context metadata, duplicate guards, Auto-Relevance, timeline audit, workbenches, and the review-first policy.
 
@@ -42,7 +42,7 @@ Start here after Context is current and the story has durable facts or canon con
 
 ### Injection Diagnostics
 
-Coverage: A73-A87.
+Coverage: A83-A97.
 
 Use this track to inspect exactly what Saga sends to the model. It covers Continuity and Lore toggles, High/Normal/Low relevance previews, direct versus compressed handling, prompt placement, compression prompts, combined prompt reading, token estimates, omission reasons, and sync diagnostics.
 
@@ -50,7 +50,7 @@ Start here when the model ignores important lore, sees stale state, receives too
 
 ### Continuity Tracking
 
-Coverage: A88-A101.
+Coverage: A98-A111.
 
 Use this track to manage live scene state separately from durable Lorecards. It covers continuity scans, automation, scope, custom ranges, performance, tracked sections, scene state, active characters, key items, goals and threads, emotional freshness, the injection link, and recovery from failed or interrupted scans.
 
@@ -58,7 +58,7 @@ Start here when the next response needs current-scene state such as date, locati
 
 ### Creator And Generated Lorepack Authoring
 
-Coverage: A102-A120.
+Coverage: A112-A130.
 
 Use this track to create and complete Generated Lorepack projects. It covers **Create Deck**, intake, scope brief, outline, title pass, title review, Context and tag planning, planning review, Lorecard drafting, bounded auto-draft, Creator draft review, sending drafts to Pending Review, review queue jumps, current task controls, generation settings, project shelf, project management, generated-pack inspection, and readiness gates.
 
@@ -66,7 +66,7 @@ Start here when you need Saga to help author a new Generated Lorepack rather tha
 
 ### Pack Health And Packages
 
-Coverage: A121-A131.
+Coverage: A131-A141.
 
 Use this track to validate, repair, update, export, and finalize Lorepacks. It covers Pack Health Center, status, issue groups, safe repair, manual repair routes, package update, local modification warnings, Bundled Lorepack reference export, Custom Lorepack embedded export, Generated to Custom finalization, and generated export readiness.
 
@@ -74,7 +74,7 @@ Start here before sharing a pack, finalizing a Generated Lorepack, repairing pac
 
 ### Settings And Providers
 
-Coverage: A132-A143.
+Coverage: A142-A153.
 
 Use this track to configure Utility and Reasoning provider roles, provider profiles, endpoints, models, provider tests, current SillyTavern model routing, generation parameters, provider presets, API compatibility flags, Theme Packs, icon sets, colors, and diagnostics.
 
@@ -82,7 +82,7 @@ Start here when model-backed actions fail, profile routing is unclear, generatio
 
 ### Troubleshooting Routes
 
-Coverage: A144-A155.
+Coverage: A154-A165.
 
 Use this track to route common symptoms to the right system: no Loredeck, wrong Context, no suggestions, stuck pending entries, no injection, prompt too heavy, provider failure, stale continuity, duplicate package warnings, Pack Health warnings, Creator failure, or returning to Basic.
 

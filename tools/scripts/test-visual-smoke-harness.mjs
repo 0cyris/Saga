@@ -102,6 +102,12 @@ const REQUIRED_BASIC_GUIDE_STEP_IDS = Object.freeze({
         'basic-context-overview',
         'basic-context-loaded-rows',
         'basic-context-browse',
+        'basic-context-workbench-loredeck',
+        'basic-context-anchors-windows',
+        'basic-context-start-window',
+        'basic-context-use-anchor',
+        'basic-context-after-before',
+        'basic-context-phrase-resolver',
         'basic-context-select-position',
         'basic-context-manual-protects',
         'basic-context-detect',
@@ -175,7 +181,17 @@ const REQUIRED_ADVANCED_GUIDE_STEP_IDS = Object.freeze({
         'advanced-context-command-center',
         'advanced-context-loaded-rows',
         'advanced-context-browser-open',
+        'advanced-context-workbench-layout',
+        'advanced-context-workbench-pack',
+        'advanced-context-anchors-windows',
+        'advanced-context-start-here',
+        'advanced-context-use-window',
+        'advanced-context-use-anchor',
+        'advanced-context-after-before',
+        'advanced-context-timeline-action',
         'advanced-context-manual-select',
+        'advanced-context-phrase-resolver',
+        'advanced-context-phrase-debug',
         'advanced-context-locks',
         'advanced-context-detect',
         'advanced-context-source-window',
@@ -471,7 +487,7 @@ for (const prepare of VALID_GUIDE_PREPARES) {
 assert(basicGuideSteps.length === basicGuideStepCount && advancedGuideSteps.length === advancedGuideStepCount, 'Runtime guide exports must include every source guideStep call.');
 assert(basicGuideSteps.length >= countRequiredGuideStepIds(REQUIRED_BASIC_GUIDE_STEP_IDS), 'Basic guide must include all required workflow coverage steps.');
 assert(advancedGuideSteps.length >= countRequiredGuideStepIds(REQUIRED_ADVANCED_GUIDE_STEP_IDS), 'Advanced guide must include all required workflow coverage steps.');
-assert(advancedGuideSteps.length === 155, 'Advanced guide must implement the planned A01-A155 workflow coverage.');
+assert(advancedGuideSteps.length === 165, 'Advanced guide must implement the planned A01-A165 workflow coverage.');
 assertRequiredGuideStepIds('Basic', basicGuideSteps, REQUIRED_BASIC_GUIDE_STEP_IDS);
 assertRequiredGuideStepIds('Advanced', advancedGuideSteps, REQUIRED_ADVANCED_GUIDE_STEP_IDS);
 assertGuideStepMetadata('Basic', basicGuideSteps);
@@ -492,7 +508,7 @@ assert(basicWorkflowDoc.includes('Basic does not show:') && basicWorkflowDoc.inc
 assert(basicWorkflowDoc.includes('Basic keeps **Import Deck** available.'), 'Basic Workflow doc must explicitly keep Import Deck in Basic.');
 assert(!basicWorkflowDoc.includes('tab walkthroughs') && !advancedWorkflowDoc.includes('organized by tab'), 'Workflow docs must not describe the old tab-only walkthrough organization.');
 assert(documentationIndex.includes('[Basic Workflow](user/BASIC_WORKFLOW.md)') && documentationIndex.includes('[Advanced Workflow](user/ADVANCED_WORKFLOW.md)'), 'Documentation index must link the Basic and Advanced workflow docs.');
-assert(documentationIndex.includes('SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md') && documentationIndex.includes('B01-B49') && documentationIndex.includes('A01-A155'), 'Documentation index must link the walkthrough expansion plan with Basic and Advanced coverage ranges.');
+assert(documentationIndex.includes('SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md') && documentationIndex.includes('B01-B55') && documentationIndex.includes('A01-A165'), 'Documentation index must link the walkthrough expansion plan with Basic and Advanced coverage ranges.');
 for (const step of basicGuideSteps) {
     assert(basicVisibleTabs.has(step.tab), `Basic walkthrough step ${step.id} targets hidden tab: ${step.tab}`);
 }
@@ -503,10 +519,12 @@ assertGuideTargetsResolvable([...basicGuideSteps, ...advancedGuideSteps], marked
 assert(!basicGuideSource.includes("'injection'"), 'Basic guide steps must not target hidden Injection controls.');
 assert(!basicGuideSource.includes("'continuity'"), 'Basic guide steps must not target hidden Continuity controls.');
 assert(basicGuideSource.includes("'loredecks.library.open'") && basicGuideSource.includes("'context.commandCenter'") && basicGuideSource.includes("'lore.pending'") && basicGuideSource.includes("'settings.themePack'") && basicGuideSource.includes("'session.basicReadiness'"), 'Basic guide must route through Loredecks, Context, Lorecards, Settings, and the Start Checklist.');
+assert(basicGuideSource.includes("'context.workbench.waypoints'") && basicGuideSource.includes("'context.workbench.startHere'") && basicGuideSource.includes("'context.workbench.useWindow'") && basicGuideSource.includes("'context.workbench.useAnchor'") && basicGuideSource.includes("'context.workbench.after'") && basicGuideSource.includes("'context.workbench.phraseResolver'"), 'Basic guide must teach Context Workbench anchors/windows, Start Here, Use Window, Use Anchor, After/Before, and Phrase Resolver.');
 assert(!basicGuideSource.includes('Advanced Context Brief') && !basicGuideSource.includes('Prompt Placement') && !basicGuideSource.includes('Auto-Relevance'), 'Basic guide must not expose advanced diagnostic, injection, or automation tour steps.');
 assert(advancedGuideSource.includes("'injection'"), 'Advanced guide must retain Injection walkthrough targets.');
+assert(advancedGuideSource.includes("'context.workbench.timelineAction'") && advancedGuideSource.includes("'context.workbench.phraseResolverInput'") && advancedGuideSource.includes('ignored direction words'), 'Advanced guide must teach Context Workbench Timeline actions and Phrase Resolver diagnostics.');
 assert(runtimePanelSource.includes('getRuntimeGuideSections') && runtimePanelSource.includes('startRuntimeWalkthrough(mode, { sectionId: section.id })'), 'Runtime guide card must render module-level walkthrough starts through the walkthrough handoff.');
-assert(runtimeTour.includes('export function startSagaTourSteps') && runtimeTour.includes('progressLabel') && runtimeTour.includes('closeLabel') && runtimeTour.includes('onClose'), 'Runtime tour must support custom checklist mini-tour sequences.');
+assert(runtimeTour.includes('export function startSagaTourSteps') && runtimeTour.includes('progressLabel') && runtimeTour.includes('closeLabel') && runtimeTour.includes('getFinishLabel') && runtimeTour.includes('onFinish') && runtimeTour.includes('onClose'), 'Runtime tour must support custom checklist mini-tour sequences.');
 assert(runtimePanelSource.includes('formatGuideStartLabel') && runtimePanelSource.includes('guided stop'), 'Runtime guide cards must show each module starting point and guided stop count.');
 assert(!runtimePanelSource.includes('showGuideStep(item'), 'Runtime guide card must not render one Show button per walkthrough target.');
 assert(runtimePanelSource.includes('function createBasicStartReadinessCard'), 'Basic Session must render the Start Checklist dropdown.');
@@ -517,11 +535,12 @@ const basicChecklistTourBlock = (runtimePanelSource.split('const BASIC_CHECKLIST
 assert(runtimePanelSource.includes('BASIC_CHECKLIST_TOUR_TASKS_BY_ROW') && runtimePanelSource.includes('function launchBasicChecklistTour') && runtimePanelSource.includes('startSagaTourSteps(steps'), 'Basic Start Checklist actions must launch external checklist mini-tours.');
 assert(!/\bLorepacks?\b/.test(basicChecklistTourBlock), 'Basic Start Checklist mini-tour copy must use Loredeck terminology.');
 assert(runtimePanelSource.includes("progressLabel: 'Start Checklist'") && runtimePanelSource.includes("closeLabel: 'Close'") && runtimePanelSource.includes('onClose: returnToBasicStartChecklist'), 'Checklist mini-tours must use the external tour popover and a clear close affordance.');
+assert(runtimePanelSource.includes('function getNextBasicChecklistTourRow') && runtimePanelSource.includes('function finishBasicChecklistTour') && runtimePanelSource.includes('getFinishLabel: () => getBasicChecklistTourFinishLabel(row)') && runtimePanelSource.includes('onFinish: () => finishBasicChecklistTour(row)'), 'Checklist mini-tours must continue to the next outstanding checklist item before showing Done.');
 assert(runtimePanelSource.includes("'loredecks.library.open'") && runtimePanelSource.includes("'loredecks.library.folderDisclosure'") && runtimePanelSource.includes("'loredecks.library.deckCard'") && runtimePanelSource.includes("'loredecks.library.transfer'") && runtimePanelSource.includes("'loredecks.library.done'"), 'Loredeck checklist mini-tour must walk through Library open, folder expansion, Loredeck selection, stack transfer, and Done controls.');
 assert(libraryPanel.includes("markTourTarget(disclosure, 'loredecks.library.folderDisclosure')") && libraryPanel.includes("markTourTarget(card, 'loredecks.library.deckCard')"), 'Loredeck Library must expose concrete checklist anchors for folder disclosure and Loredeck rows.');
 assert(runtimePanelSource.includes("'context.browser'") && runtimePanelSource.includes("'context.workbench.loadedLoredeck'") && runtimePanelSource.includes("'context.workbench.waypoints'") && runtimePanelSource.includes("'context.workbench.applyContext'") && runtimePanelSource.includes("'context.loadedLoredecks'"), 'Context checklist mini-tour must open the Context Workbench and target manual browsing/selection controls before Lorecards.');
 assert(!basicChecklistTourBlock.includes("'context.detect'"), 'Basic Start Checklist Browse Context path must not substitute automatic detection for manual first-time context selection.');
-assert(contextWorkbenchPanel.includes("markTourTarget(row, 'context.workbench.loadedLoredeck')") && contextWorkbenchPanel.includes("'context.workbench.applyContext'"), 'Context Workbench must expose concrete checklist anchors for loaded Loredeck rows and context apply actions.');
+assert(contextWorkbenchPanel.includes("markTourTarget(row, 'context.workbench.loadedLoredeck')") && contextWorkbenchPanel.includes("'context.workbench.applyContext'") && contextWorkbenchPanel.includes("'context.workbench.startHere'") && contextWorkbenchPanel.includes("'context.workbench.useWindow'") && contextWorkbenchPanel.includes("'context.workbench.useAnchor'") && contextWorkbenchPanel.includes("'context.workbench.phraseResolver'"), 'Context Workbench must expose concrete checklist anchors for loaded Loredeck rows, Context actions, and Phrase Resolver.');
 assert(runtimePanelSource.includes("'lore.canon.preview'") && runtimePanelSource.includes("'lore.story.scan'") && runtimePanelSource.includes("'lore.manual.add'") && runtimePanelSource.includes("'lore.pending.actions'"), 'Lorecard checklist mini-tour must guide generation, manual add, pending review, and apply/dismiss actions.');
 assert(runtimePanelSource.includes("'settings.provider.utility'") && runtimePanelSource.includes("'settings.provider.reasoning'") && runtimePanelSource.includes("'settings.provider.test'") && runtimePanelSource.includes("'settings.provider.advanced'"), 'Provider checklist mini-tour must target concrete Basic provider rows and handoff controls.');
 assert(!runtimePanelSource.includes('createBasicGuidedTaskStrip') && !runtimePanelSource.includes('saga-guided-task-highlight') && !style.includes('.saga-basic-guided-task-strip'), 'Retired in-panel guided task strip implementation must not remain active.');

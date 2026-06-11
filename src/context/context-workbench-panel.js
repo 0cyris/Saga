@@ -412,6 +412,7 @@ function createContextWorkbenchHeader(state = {}, contextIndex = null) {
         tab.className = 'saga-lore-workbench-mode-tab';
         if (activeTab === id) tab.classList.add('saga-lore-workbench-mode-tab-active');
         tab.textContent = label;
+        markTourTarget(tab, `context.workbench.tab.${id}`);
         addTooltip(tab, getContextWorkbenchTabTooltip(id));
         tab.addEventListener('click', () => {
             setContextWorkbenchTab(id);
@@ -729,6 +730,7 @@ function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex 
 function createContextWorkbenchWindowBuilderSummary(pack, context = {}) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-context-workbench-window-builder';
+    markTourTarget(wrap, 'context.workbench.windowBuilder');
     const title = document.createElement('div');
     title.className = 'saga-context-workbench-window-builder-title';
     title.textContent = 'Current Window';
@@ -931,21 +933,29 @@ function createContextWorkbenchWaypointRow(pack, item = {}, context = {}) {
     actions.className = 'saga-context-workbench-row-actions';
     markTourTarget(actions, 'context.workbench.applyContext');
     if (item.kind === 'window') {
-        actions.appendChild(createButton('Use Window', 'Apply this whole timeline window as the current Context.', () => {
+        const useWindow = createButton('Use Window', 'Apply this whole timeline window as the current Context.', () => {
             applyContextTimelineItem(pack.packId, item);
-        }, 'saga-primary-button'));
+        }, 'saga-primary-button');
+        markTourTarget(useWindow, 'context.workbench.useWindow');
+        actions.appendChild(useWindow);
     } else {
-        actions.appendChild(createButton('Start Here', 'Apply this waypoint as the exact starting Context.', () => {
+        const startHere = createButton('Start Here', 'Apply this waypoint as the exact starting Context.', () => {
             applyContextWaypointItem(pack.packId, item);
-        }, 'saga-primary-button'));
-        actions.appendChild(createButton('After', 'Use this waypoint as the lower bound of the current Context window.', () => {
+        }, 'saga-primary-button');
+        markTourTarget(startHere, 'context.workbench.startHere');
+        actions.appendChild(startHere);
+        const after = createButton('After', 'Use this waypoint as the lower bound of the current Context window.', () => {
             applyContextWaypointBoundary(pack.packId, item, 'from');
-        }));
-        actions.appendChild(createButton('Before', 'Use this waypoint as the upper bound of the current Context window.', () => {
+        });
+        markTourTarget(after, 'context.workbench.after');
+        actions.appendChild(after);
+        const before = createButton('Before', 'Use this waypoint as the upper bound of the current Context window.', () => {
             applyContextWaypointBoundary(pack.packId, item, 'to');
-        }));
+        });
+        markTourTarget(before, 'context.workbench.before');
+        actions.appendChild(before);
     }
-    actions.appendChild(createButton(item.source === 'lorecard' ? 'Lorecard' : 'Timeline', item.source === 'lorecard' ? 'Find the source Lorecard.' : 'Inspect this waypoint in the Timeline tab.', () => {
+    const timeline = createButton(item.source === 'lorecard' ? 'Lorecard' : 'Timeline', item.source === 'lorecard' ? 'Find the source Lorecard.' : 'Inspect this waypoint in the Timeline tab.', () => {
         if (item.source === 'lorecard') {
             openLoredeckEditorForQuery(item.row?.packId || pack.packId, item.row?.id || item.entry?.title || '', 'Loredeck editor filtered to the source Lorecard.');
             return;
@@ -953,7 +963,9 @@ function createContextWorkbenchWaypointRow(pack, item = {}, context = {}) {
         setContextWorkbenchSelectedKey(getContextTimelineItemKey(item));
         setContextWorkbenchTab('timeline');
         renderContextWorkbench();
-    }));
+    });
+    markTourTarget(timeline, item.source === 'lorecard' ? 'context.workbench.lorecardAction' : 'context.workbench.timelineAction');
+    actions.appendChild(timeline);
     row.appendChild(actions);
     return row;
 }
@@ -1032,6 +1044,7 @@ function applyContextWaypointBoundary(packId, item = {}, mode = 'from') {
 function createContextWorkbenchResolverTester(pack, context = {}, contextIndex = null) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-context-workbench-resolver';
+    markTourTarget(wrap, 'context.workbench.phraseResolver');
 
     const top = document.createElement('div');
     top.className = 'saga-context-workbench-resolver-top';
@@ -1047,6 +1060,7 @@ function createContextWorkbenchResolverTester(pack, context = {}, contextIndex =
     input.placeholder = 'Try: after the Yule Ball, pre-Endgame, post Shibuya...';
     input.value = getContextWorkbenchResolverQuery();
     addTooltip(input, 'Local-only resolver test using loaded anchor labels, IDs, aliases, dates, arcs, tags, and coordinates.');
+    markTourTarget(input, 'context.workbench.phraseResolverInput');
     input.addEventListener('keydown', event => {
         if (event.key !== 'Enter') return;
         event.preventDefault();
@@ -1059,10 +1073,12 @@ function createContextWorkbenchResolverTester(pack, context = {}, contextIndex =
     });
     top.appendChild(input);
 
-    top.appendChild(createButton('Test Phrase', 'Run the local phrase resolver for this Loredeck.', () => {
+    const testPhrase = createButton('Test Phrase', 'Run the local phrase resolver for this Loredeck.', () => {
         setContextWorkbenchResolverQuery(input.value.trim());
         renderContextWorkbench();
-    }, 'saga-primary-button'));
+    }, 'saga-primary-button');
+    markTourTarget(testPhrase, 'context.workbench.testPhrase');
+    top.appendChild(testPhrase);
     top.appendChild(createButton('Use Context', 'Use the current Context and runtime context text as the test phrase.', () => {
         const seed = getContextResolverSeedText(context);
         if (!seed) {
@@ -1081,6 +1097,7 @@ function createContextWorkbenchResolverTester(pack, context = {}, contextIndex =
         await loadLoredeckEntriesForEditor(pack, btn);
         renderContextWorkbench();
     });
+    markTourTarget(loadEntriesButton, 'context.workbench.resolverLoadLorecards');
     loadEntriesButton.disabled = !canValidateLoredeckInEditor(pack);
     top.appendChild(loadEntriesButton);
     wrap.appendChild(top);
@@ -1255,20 +1272,28 @@ function createContextWorkbenchResolverResult(pack, match = {}, currentAnchorId 
 
     const actions = document.createElement('div');
     actions.className = 'saga-context-workbench-row-actions';
-    actions.appendChild(createButton('Apply', 'Apply this anchor as the exact Context.', () => {
+    const apply = createButton('Apply', 'Apply this anchor as the exact Context.', () => {
         applyContextAnchor(pack.packId, anchor);
-    }, 'saga-primary-button'));
-    actions.appendChild(createButton('After', 'Use this anchor as the lower bound of the current Context window.', () => {
+    }, 'saga-primary-button');
+    markTourTarget(apply, 'context.workbench.resolverApply');
+    actions.appendChild(apply);
+    const after = createButton('After', 'Use this anchor as the lower bound of the current Context window.', () => {
         applyContextAnchorBoundary(pack.packId, { kind: 'anchor', id, definition: anchor }, 'from');
-    }));
-    actions.appendChild(createButton('Before', 'Use this anchor as the upper bound of the current Context window.', () => {
+    });
+    markTourTarget(after, 'context.workbench.resolverAfter');
+    actions.appendChild(after);
+    const before = createButton('Before', 'Use this anchor as the upper bound of the current Context window.', () => {
         applyContextAnchorBoundary(pack.packId, { kind: 'anchor', id, definition: anchor }, 'to');
-    }));
-    actions.appendChild(createButton('Timeline', 'Inspect this anchor in the Timeline tab.', () => {
+    });
+    markTourTarget(before, 'context.workbench.resolverBefore');
+    actions.appendChild(before);
+    const timeline = createButton('Timeline', 'Inspect this anchor in the Timeline tab.', () => {
         setContextWorkbenchSelectedKey(`anchor:${id}`);
         setContextWorkbenchTab('timeline');
         renderContextWorkbench();
-    }));
+    });
+    markTourTarget(timeline, 'context.workbench.resolverTimeline');
+    actions.appendChild(timeline);
     row.appendChild(actions);
     return row;
 }
@@ -1518,19 +1543,27 @@ function createContextWorkbenchContextPickerRow(pack, item = {}, currentKey = ''
     actions.className = 'saga-context-workbench-row-actions';
     markTourTarget(actions, 'context.workbench.applyContext');
     if (item.kind === 'window') {
-        actions.appendChild(createButton('Use Window', 'Apply this timeline window as the selected Context.', () => {
+        const useWindow = createButton('Use Window', 'Apply this timeline window as the selected Context.', () => {
             applyContextTimelineItem(pack.packId, item);
-        }, 'saga-primary-button'));
+        }, 'saga-primary-button');
+        markTourTarget(useWindow, 'context.workbench.useWindow');
+        actions.appendChild(useWindow);
     } else {
-        actions.appendChild(createButton('Use Anchor', 'Apply this anchor as the exact Context.', () => {
+        const useAnchor = createButton('Use Anchor', 'Apply this anchor as the exact Context.', () => {
             applyContextTimelineItem(pack.packId, item);
-        }, 'saga-primary-button'));
-        actions.appendChild(createButton('After', 'Use this anchor as the lower bound of the current Context window.', () => {
+        }, 'saga-primary-button');
+        markTourTarget(useAnchor, 'context.workbench.useAnchor');
+        actions.appendChild(useAnchor);
+        const after = createButton('After', 'Use this anchor as the lower bound of the current Context window.', () => {
             applyContextAnchorBoundary(pack.packId, item, 'from');
-        }));
-        actions.appendChild(createButton('Before', 'Use this anchor as the upper bound of the current Context window.', () => {
+        });
+        markTourTarget(after, 'context.workbench.after');
+        actions.appendChild(after);
+        const before = createButton('Before', 'Use this anchor as the upper bound of the current Context window.', () => {
             applyContextAnchorBoundary(pack.packId, item, 'to');
-        }));
+        });
+        markTourTarget(before, 'context.workbench.before');
+        actions.appendChild(before);
     }
     row.appendChild(actions);
     return row;

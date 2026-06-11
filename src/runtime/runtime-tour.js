@@ -110,6 +110,10 @@ export function startSagaTourSteps(steps = [], options = {}) {
         closeLabel: String(options.closeLabel || 'Close').trim() || 'Close',
         closeTooltip: String(options.closeTooltip || 'Close the walkthrough.').trim() || 'Close the walkthrough.',
         finishLabel: String(options.finishLabel || 'Finish').trim() || 'Finish',
+        finishTooltip: String(options.finishTooltip || 'Close the walkthrough.').trim() || 'Close the walkthrough.',
+        getFinishLabel: typeof options.getFinishLabel === 'function' ? options.getFinishLabel : null,
+        getFinishTooltip: typeof options.getFinishTooltip === 'function' ? options.getFinishTooltip : null,
+        onFinish: typeof options.onFinish === 'function' ? options.onFinish : null,
         onClose: typeof options.onClose === 'function' ? options.onClose : null,
     };
     document.addEventListener('keydown', onSagaTourKeydown);
@@ -266,11 +270,12 @@ function renderSagaTourPopover(step, target, prepareResult = null) {
     actions.appendChild(close);
 
     const finalStep = tour.index >= tour.steps.length - 1;
-    const nextLabel = finalStep ? (tour.finishLabel || 'Finish') : 'Next';
-    const next = createButton(nextLabel, finalStep ? 'Close the walkthrough.' : 'Move to the next walkthrough step.', () => {
+    const nextLabel = finalStep ? getSagaTourFinishLabel(tour) : 'Next';
+    const nextTooltip = finalStep ? getSagaTourFinishTooltip(tour) : 'Move to the next walkthrough step.';
+    const next = createButton(nextLabel, nextTooltip, () => {
         if (!activeSagaTour) return;
         if (activeSagaTour.index >= activeSagaTour.steps.length - 1) {
-            closeSagaTour();
+            finishActiveSagaTour();
             return;
         }
         activeSagaTour.index += 1;
@@ -281,6 +286,23 @@ function renderSagaTourPopover(step, target, prepareResult = null) {
 
     activeSagaTour.currentTarget = target || null;
     requestAnimationFrame(repositionSagaTourPopover);
+}
+
+function getSagaTourFinishLabel(tour) {
+    const dynamicLabel = typeof tour?.getFinishLabel === 'function' ? String(tour.getFinishLabel(tour) || '').trim() : '';
+    return dynamicLabel || tour?.finishLabel || 'Finish';
+}
+
+function getSagaTourFinishTooltip(tour) {
+    const dynamicTooltip = typeof tour?.getFinishTooltip === 'function' ? String(tour.getFinishTooltip(tour) || '').trim() : '';
+    return dynamicTooltip || tour?.finishTooltip || 'Close the walkthrough.';
+}
+
+function finishActiveSagaTour() {
+    const tour = activeSagaTour;
+    if (!tour) return;
+    if (typeof tour.onFinish === 'function' && tour.onFinish(tour)) return;
+    closeSagaTour();
 }
 
 function appendSagaTourDetail(popover, labelText, value) {
@@ -351,7 +373,7 @@ function onSagaTourKeydown(event) {
         closeSagaTour();
     } else if (event.key === 'ArrowRight') {
         event.preventDefault();
-        if (activeSagaTour.index >= activeSagaTour.steps.length - 1) closeSagaTour();
+        if (activeSagaTour.index >= activeSagaTour.steps.length - 1) finishActiveSagaTour();
         else {
             activeSagaTour.index += 1;
             renderActiveSagaTourStep();

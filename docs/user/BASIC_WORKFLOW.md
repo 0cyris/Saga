@@ -26,7 +26,9 @@ Basic keeps **Import Deck** available. Basic does not show **Create Deck** or in
 
 Use **Context** to set the current story position for each loaded Loredeck. **Browse Context** is the trusted manual path when you know the correct arc, chapter, date, episode, quest, or event.
 
-In the Context Workbench, **Anchors** are exact story points, **Windows** are ranges between points, and **Start Here** applies one Anchor as the chat's current starting position.
+In the Context Workbench, **Anchors** are exact story points and **Windows** are ranges between points. Use **Start Here** for one exact Anchor, **Use Window** for a predefined range, **Use Anchor** from timeline search for a precise row, and **After**/**Before** to build a custom range. **Timeline** opens the source row when you need to inspect it.
+
+Use **Phrase Resolver** when you remember a loose story phrase but not the exact timeline row. It tests local labels, aliases, dates, tags, and coordinates before you apply a match.
 
 Use **Detect Context** after scene jumps, time skips, chapter changes, episode changes, travel, or major plot turns. Treat uncertain detection as a proposal until you verify it.
 

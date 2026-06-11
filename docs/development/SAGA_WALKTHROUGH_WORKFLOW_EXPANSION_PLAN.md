@@ -56,7 +56,7 @@ Recommended preparation actions:
 | --- | --- |
 | `openLoredeckLibrary` | Open the fullscreen Loredeck Library before targeting Library internals. |
 | `openLoredeckDetails` | Select a Library pack and open its details panel. |
-| `openContextBrowser` | Open Context Browser before targeting timeline/anchor choices. |
+| `openContextBrowser` | Open Context Workbench before targeting timeline, waypoint, anchor, resolver, and validation choices. |
 | `openPendingLoreReview` | Bring the Pending Lorecard Review surface into view. |
 | `openAcceptedLoreDetails` | Open an accepted Lorecard detail/editor surface. |
 | `openInjectionPreview` | Bring the exact prompt preview into focus. |
@@ -100,55 +100,61 @@ The guide card should render these as workflow modules, while each module still 
 
 | Order | Step id | Module | Covers |
 | --- | --- | --- | --- |
-| B01 | `basic-session-orientation` | Session | What Basic Experience is for and how the Start Checklist owns readiness. |
-| B02 | `basic-session-saga-active` | Session | Confirm **Saga Active** and explain pause versus delete. |
-| B03 | `basic-session-start-checklist` | Session | Read the Start Checklist and identify the next missing action. |
-| B04 | `basic-session-next-action` | Session | Use the primary recommended action instead of scanning every tab manually. |
-| B05 | `basic-loredecks-overview` | Loredecks | Understand that Loredecks are source packs for Context, retrieval, and Lorecards. |
-| B06 | `basic-loredecks-open-library` | Loredecks | Open **Loredeck Library** from the shared launch card. |
-| B07 | `basic-library-layout` | Loredecks | Recognize Library list, details panel, and active stack areas. |
-| B08 | `basic-library-pack-types` | Loredecks | Distinguish **Bundled Lorepack**, **Generated Lorepack**, and **Custom Lorepack**. |
-| B09 | `basic-library-search-filter` | Loredecks | Find the right Lorepack through search, filters, or folder navigation. |
-| B10 | `basic-library-pack-details` | Loredecks | Select a Lorepack and read summary, type, source, counts, and basic metadata. |
-| B11 | `basic-library-pack-health` | Loredecks | Read **Pack Health** as advisory readiness, warnings, or errors. |
-| B12 | `basic-loredecks-import` | Loredecks | Use **Import Deck** when a `.saga-loredeck.zip` package is not already in the Library. |
-| B13 | `basic-library-import-preview` | Loredecks | Understand that imported packages are previewed before install. |
-| B14 | `basic-library-add-deck-stack` | Loredecks | Add a Lorepack to the active stack. |
-| B15 | `basic-library-add-folder-stack` | Loredecks | Add a folder group to the active stack when the Library is organized that way. |
-| B16 | `basic-library-stack-order` | Loredecks | Order the active stack so the main source sits above supporting packs when needed. |
-| B17 | `basic-library-stack-enable` | Loredecks | Enable or disable active stack entries without deleting Library data. |
-| B18 | `basic-library-close-confirm` | Loredecks | Close the Library and confirm the Loredecks tab shows active count and Lorecard count. |
-| B19 | `basic-context-overview` | Context | Understand Context as the current story position for each loaded Lorepack. |
-| B20 | `basic-context-loaded-rows` | Context | Read loaded Loredeck Context rows and identify unset, detected, manual, or locked states. |
-| B21 | `basic-context-browse` | Context | Open **Browse Context** as the trusted manual path. |
-| B22 | `basic-context-select-position` | Context | Pick the correct arc, chapter, date, episode, quest, or event. |
-| B23 | `basic-context-manual-protects` | Context | Understand that manual Context should be protected from accidental overwrite. |
-| B24 | `basic-context-detect` | Context | Use **Detect Context** after a scene jump, time skip, or location/story change. |
-| B25 | `basic-context-proposals` | Context | Review uncertain Context output as proposals before relying on it. |
-| B26 | `basic-context-update-loop` | Context | Return here whenever the story crosses a meaningful boundary. |
-| B27 | `basic-lorecards-overview` | Lorecards | Understand Lorecards as reviewed facts that can affect future responses. |
-| B28 | `basic-lorecards-generation-section` | Lorecards | Find Lorecard Generation and understand that generated items go to review. |
-| B29 | `basic-lorecards-preview-canon` | Lorecards | Use **Preview Canon Packs** for local Context-aware suggestions from loaded Lorepacks. |
-| B30 | `basic-lorecards-send-canon-review` | Lorecards | Send useful canon suggestions to Pending Lorecard Review. |
-| B31 | `basic-lorecards-scan-story` | Lorecards | Use **Scan Story Lore** for durable chat facts when a provider is ready. |
-| B32 | `basic-lorecards-manual-add` | Lorecards | Add a known important fact manually. |
-| B33 | `basic-lorecards-pending-review` | Lorecards | Read Pending Lorecard Review as the gate before lore can affect prompts. |
-| B34 | `basic-lorecards-edit-pending` | Lorecards | Edit a proposed fact before accepting it. |
-| B35 | `basic-lorecards-accept-dismiss` | Lorecards | Accept useful durable facts and dismiss recap, noise, or wrong canon. |
-| B36 | `basic-lorecards-review-question` | Lorecards | Apply the core question: "Should this fact affect future responses?" |
-| B37 | `basic-lorecards-accepted-list` | Lorecards | Inspect Accepted Lorecards as durable memory. |
-| B38 | `basic-lorecards-open-accepted` | Lorecards | Open an accepted Lorecard to verify or correct its details. |
-| B39 | `basic-lorecards-pin-mute` | Lorecards | Use pin and mute as simple prominence/suppression controls. |
-| B40 | `basic-lorecards-search-cleanup` | Lorecards | Search accepted Lorecards and clean up entries that should no longer guide the model. |
-| B41 | `basic-session-metrics` | Session | Read metrics for pending, accepted, selected lore, and token estimate. |
-| B42 | `basic-session-ready` | Session | Confirm the Start Checklist is ready. |
-| B43 | `basic-session-continue-roleplay` | Session | Continue roleplay once lore is loaded, Context is set, and useful Lorecards are accepted. |
-| B44 | `basic-session-repeat-loop` | Session | Repeat Context update and Lorecard review after major story movement. |
-| B45 | `basic-settings-provider-status` | Settings | Check provider readiness only when model-backed actions fail or are unavailable. |
-| B46 | `basic-settings-provider-test` | Settings | Test Utility or Reasoning provider readiness. |
-| B47 | `basic-settings-current-model` | Settings | Use the current SillyTavern model when that is the simplest provider path. |
-| B48 | `basic-settings-theme-pack` | Settings | Choose a Theme Pack for readability and preference. |
-| B49 | `basic-settings-advanced-handoff` | Settings | Switch to Advanced for provider internals, Creator, Continuity, Injection, Pack Health repair, or diagnostics. |
+| B01 | `basic-session-orientation` | First Run | Basic mode is the focused setup and play loop: load Lorepacks, set Context, review useful Lorecards, then continue roleplay. |
+| B02 | `basic-session-saga-active` | First Run | Saga Active pauses or resumes Saga behavior without deleting saved data. |
+| B03 | `basic-session-start-checklist` | First Run | The Start Checklist turns the Basic workflow into one next action at a time. |
+| B04 | `basic-session-next-action` | First Run | The checklist action button sends you to the right tab instead of making you inspect every control manually. |
+| B05 | `basic-loredecks-overview` | Loredecks | Loredecks are source packs for Context, canon suggestions, retrieval, and accepted Lorecards. |
+| B06 | `basic-loredecks-open-library` | Loredecks | Open the fullscreen Library to choose a Bundled Lorepack, Generated Lorepack, or Custom Lorepack. |
+| B07 | `basic-library-layout` | Loredecks | The Library is split into the available Lorepack list, the add/remove controls, the active stack, and the selected pack details panel. |
+| B08 | `basic-library-pack-types` | Loredecks | Bundled Lorepacks ship with Saga, Generated Lorepacks come from the Creator workflow, and Custom Lorepacks are user-owned imports or editable copies. |
+| B09 | `basic-library-search-filter` | Loredecks | Use Library search, special views, sorting, and folders to find the right Lorepack quickly. |
+| B10 | `basic-library-pack-details` | Loredecks | Select a Lorepack to read its summary, type, source, Lorecard count, and basic metadata. |
+| B11 | `basic-library-pack-health` | Loredecks | Pack Health is advisory readiness for the selected Lorepack or active stack, including warnings and errors that may affect reliability. |
+| B12 | `basic-loredecks-import` | Loredecks | Import Deck installs a Saga Loredeck zip package into the Library. |
+| B13 | `basic-library-import-preview` | Loredecks | Imported packages are previewed before install so you can confirm the package before it enters the Library. |
+| B14 | `basic-library-add-deck-stack` | Loredecks | Add the selected Lorepack to the active stack so it can participate in Context, canon suggestions, retrieval, and Lorecards. |
+| B15 | `basic-library-add-folder-stack` | Loredecks | If the Library is organized into folders, a folder group can load several related Lorepacks together. |
+| B16 | `basic-library-stack-order` | Loredecks | The active stack is top-to-bottom priority; place the main source above supporting packs when order matters. |
+| B17 | `basic-library-stack-enable` | Loredecks | Disable an active stack entry to pause it without deleting the Lorepack from the Library. |
+| B18 | `basic-library-close-confirm` | Loredecks | Use Done to close the Library, then confirm the Loredecks tab shows the active count and active Lorecard count you expect. |
+| B19 | `basic-context-overview` | Context | Context is the current story position for each loaded Lorepack. |
+| B20 | `basic-context-loaded-rows` | Context | Each enabled Loredeck has a Context row showing whether its story position is unset, detected, manually selected, or locked. |
+| B21 | `basic-context-browse` | Context | Browse Context is the trusted manual path for choosing the exact story position. |
+| B22 | `basic-context-workbench-loredeck` | Context | In the Context Workbench, choose which loaded Lorepack you are setting before applying a story position. |
+| B23 | `basic-context-anchors-windows` | Context | Anchors are exact story points. Windows are ranges between story points. Browse Story Waypoints shows both so you can pick the right shape. |
+| B24 | `basic-context-start-window` | Context | Use Start Here when the chat begins at one Anchor. Use Window when a listed Window already matches the whole active story range. |
+| B25 | `basic-context-use-anchor` | Context | Use Anchor applies an exact Anchor from Select From Timeline. It is the precise-point version of Use Window. |
+| B26 | `basic-context-after-before` | Context | Use After on the lower bound and Before on the upper bound to build a custom Window. Use Timeline when you need to inspect the source row. |
+| B27 | `basic-context-phrase-resolver` | Context | Phrase Resolver tests loose story phrases against known timeline labels, aliases, dates, tags, and coordinates without calling a model. |
+| B28 | `basic-context-select-position` | Context | Confirm the correct arc, chapter, date, episode, quest, event, Anchor, or Window for the loaded Lorepack. |
+| B29 | `basic-context-manual-protects` | Context | Manual Context choices should be protected from accidental overwrite when they are more trustworthy than detection. |
+| B30 | `basic-context-detect` | Context | Detect Context analyzes recent messages and updates unlocked loaded Loredeck Context rows. |
+| B31 | `basic-context-proposals` | Context | Uncertain Context output should be reviewed as a proposal before you rely on it. |
+| B32 | `basic-context-update-loop` | Context | Return to Context whenever the story crosses a meaningful boundary. |
+| B33 | `basic-lorecards-overview` | Lorecards | Lorecards are reviewed facts that can affect future responses after they are accepted. |
+| B34 | `basic-lorecards-generation-section` | Lorecards | The generation section gathers canon pack preview, story-lore scan, and manual Lorecard creation. |
+| B35 | `basic-lorecards-preview-canon` | Lorecards | Preview Canon Packs queries local Loredeck data for Context-aware canon suggestions without a provider call. |
+| B36 | `basic-lorecards-send-canon-review` | Lorecards | Selected canon suggestions go to Pending Lorecard Review instead of becoming accepted memory automatically. |
+| B37 | `basic-lorecards-story-scan` | Lorecards | Scan Story Lore asks the configured provider to extract durable story-specific facts from recent chat. |
+| B38 | `basic-lorecards-manual-add` | Lorecards | Manual Lorecards let you draft a known fact directly, then review it like generated entries. |
+| B39 | `basic-lorecards-pending-review` | Lorecards | Pending Review is the gate between suggested facts and accepted memory. |
+| B40 | `basic-lorecards-edit-pending` | Lorecards | Open or edit a pending proposal before accepting it so the durable fact is precise. |
+| B41 | `basic-lorecards-accept-dismiss` | Lorecards | Accept useful durable facts and dismiss recap, noise, wrong canon, or facts that should stay transient. |
+| B42 | `basic-lorecards-review-question` | Lorecards | Ask: should this fact affect future responses? |
+| B43 | `basic-lorecards-accepted-list` | Lorecards | Accepted Lorecards are the durable facts Saga can select for future responses. |
+| B44 | `basic-lorecards-open-accepted` | Lorecards | Open an accepted Lorecard to verify or correct its details. |
+| B45 | `basic-lorecards-pin-mute` | Lorecards | Pin important accepted Lorecards for prominence or mute entries that should stay saved but not guide responses. |
+| B46 | `basic-lorecards-search-cleanup` | Lorecards | Search accepted Lorecards and clean up entries that should no longer guide the model. |
+| B47 | `basic-session-metrics` | Continue Roleplay | Metrics show whether Saga has pending Lorecards, accepted lore, selected injection, and a token estimate. |
+| B48 | `basic-session-ready` | Continue Roleplay | The Start Checklist is ready when the active stack, Context, review state, and Saga Active status are in place. |
+| B49 | `basic-session-continue-roleplay` | Continue Roleplay | Once lore is loaded, Context is set, and useful Lorecards are accepted, continue roleplay normally. |
+| B50 | `basic-session-repeat-loop` | Continue Roleplay | After major story movement, update Context and review new Lorecards before continuing again. |
+| B51 | `basic-settings-provider-status` | Settings | Provider setup is only needed for model-backed actions like story-lore scans and Context detection fallback. |
+| B52 | `basic-settings-provider-test` | Settings | Use provider tests to confirm Utility or Reasoning routes are available before relying on model-backed features. |
+| B53 | `basic-settings-current-model` | Settings | For the simplest Basic setup, use the current SillyTavern model when that route is available and sufficient. |
+| B54 | `basic-settings-theme-pack` | Settings | Theme Pack controls the runtime shelf appearance, icons, and colors. |
+| B55 | `basic-settings-advanced-handoff` | Settings | Switch to Advanced for provider internals, Creator, Continuity, Injection, Pack Health repair, or diagnostics. |
 
 ### Basic Required Exclusions
 
@@ -202,161 +208,171 @@ This order teaches dependencies before diagnostics: source packs first, then Con
 
 | Order | Step id | Module | Covers |
 | --- | --- | --- | --- |
-| A01 | `advanced-loredecks-overview` | Loredeck Library Mastery | Read Library, active stack, active Lorecard count, and Pack Health summary. |
-| A02 | `advanced-loredecks-open-library` | Loredeck Library Mastery | Open the fullscreen Loredeck Library. |
-| A03 | `advanced-library-empty-selection` | Loredeck Library Mastery | Understand the explicit empty details state when no deck is selected. |
-| A04 | `advanced-library-special-views` | Loredeck Library Mastery | Use All, Bundled, Custom, and Unfiled views. |
-| A05 | `advanced-library-folder-tree` | Loredeck Library Mastery | Navigate folders and nested folder groups. |
-| A06 | `advanced-library-search-sort` | Loredeck Library Mastery | Search and sort Library records. |
-| A07 | `advanced-library-pack-select` | Loredeck Library Mastery | Select a Lorepack and inspect overview details. |
-| A08 | `advanced-library-pack-source` | Loredeck Library Mastery | Identify Bundled, Generated, Custom, imported, duplicated, and finalized source states. |
-| A09 | `advanced-library-cover-metadata` | Loredeck Library Mastery | Inspect or update cover and metadata surfaces where available. |
-| A10 | `advanced-library-health-summary` | Loredeck Library Mastery | Read Pack Health status, issue counts, and last validation time. |
-| A11 | `advanced-library-manifest-preview` | Loredeck Library Mastery | Load manifest preview and embedded Lorecard counts. |
-| A12 | `advanced-library-entry-overrides` | Loredeck Library Mastery | Open per-entry override/editor surfaces for Custom or Generated packs. |
-| A13 | `advanced-library-stack-pane` | Loredeck Library Mastery | Understand the active stack pane as the source of runtime eligibility. |
-| A14 | `advanced-library-add-deck-stack` | Loredeck Library Mastery | Add a deck to the active stack. |
-| A15 | `advanced-library-add-folder-stack` | Loredeck Library Mastery | Add a folder group to the active stack. |
-| A16 | `advanced-library-reorder-stack` | Loredeck Library Mastery | Reorder active stack items. |
+| A01 | `advanced-loredecks-overview` | Loredeck Library Mastery | Read Library size, active stack count, active Lorecard count, and Pack Health summary. |
+| A02 | `advanced-loredecks-open-library` | Loredeck Library Mastery | Open the fullscreen Library where stack, folders, package management, and details live. |
+| A03 | `advanced-library-empty-selection` | Loredeck Library Mastery | The Library intentionally starts with no selected deck so details only appear after an explicit choice. |
+| A04 | `advanced-library-special-views` | Loredeck Library Mastery | Use All, Bundled, Custom, active, and Unfiled views to inspect Library records without reorganizing folders. |
+| A05 | `advanced-library-folder-tree` | Loredeck Library Mastery | Navigate folders and nested folder groups to understand curated pack organization. |
+| A06 | `advanced-library-search-sort` | Loredeck Library Mastery | Search by title, tag, fandom, source, or manifest data and sort the visible Library list. |
+| A07 | `advanced-library-pack-select` | Loredeck Library Mastery | Select a Lorepack and inspect its overview details before changing the stack. |
+| A08 | `advanced-library-pack-source` | Loredeck Library Mastery | Identify Bundled Lorepack, Generated Lorepack, Custom Lorepack, imported, duplicated, and finalized source states. |
+| A09 | `advanced-library-cover-metadata` | Loredeck Library Mastery | Inspect or update cover and metadata surfaces where the selected pack is editable. |
+| A10 | `advanced-library-health-summary` | Loredeck Library Mastery | Read status, issue counts, and last validation time from the selected pack details. |
+| A11 | `advanced-library-manifest-preview` | Loredeck Library Mastery | Load manifest preview and embedded Lorecard counts before export, repair, or deeper edits. |
+| A12 | `advanced-library-entry-overrides` | Loredeck Library Mastery | Open per-entry override or editor surfaces for Custom or Generated packs when available. |
+| A13 | `advanced-library-stack-pane` | Loredeck Library Mastery | Use the active stack pane as the source of runtime source eligibility. |
+| A14 | `advanced-library-add-deck-stack` | Loredeck Library Mastery | Add a selected deck to the active stack so it participates in Context, retrieval, and canon suggestions. |
+| A15 | `advanced-library-add-folder-stack` | Loredeck Library Mastery | Add a folder group when a curated folder represents the intended source set. |
+| A16 | `advanced-library-reorder-stack` | Loredeck Library Mastery | Reorder stack items so priority and duplicate suppression follow the intended source hierarchy. |
 | A17 | `advanced-library-enable-stack` | Loredeck Library Mastery | Enable, disable, collapse, or remove stack items without deleting Library records. |
-| A18 | `advanced-library-bulk-select` | Loredeck Library Mastery | Select multiple packs for batch actions. |
-| A19 | `advanced-library-export-selected` | Loredeck Library Mastery | Export selected packs as `.saga-loredeck.zip`. |
-| A20 | `advanced-library-import-package` | Loredeck Library Mastery | Import a `.saga-loredeck.zip` package. |
-| A21 | `advanced-library-import-preview` | Loredeck Library Mastery | Review package preview, source type, embedded counts, and install choices. |
-| A22 | `advanced-library-duplicate-warnings` | Loredeck Library Mastery | Understand same-hash and possible-duplicate warnings. |
-| A23 | `advanced-library-duplicate-custom` | Loredeck Library Mastery | Duplicate an existing Lorepack as Custom. |
-| A24 | `advanced-library-folder-actions` | Loredeck Library Mastery | Create, rename, move, and remove Library folders. |
-| A25 | `advanced-library-open-workbench` | Loredeck Library Mastery | Launch deeper Loredeck workbench/editor routes. |
-| A26 | `advanced-session-experience-mode` | Session And Runtime Control | Switch Basic/Advanced and understand what carries across modes. |
-| A27 | `advanced-session-saga-active` | Session And Runtime Control | Toggle Saga Active without deleting data. |
-| A28 | `advanced-session-automation-mode` | Session And Runtime Control | Compare Manual, Assisted, and Automatic automation modes. |
+| A18 | `advanced-library-bulk-select` | Loredeck Library Mastery | Select multiple packs for batch export, duplicate, delete, stack, or folder operations. |
+| A19 | `advanced-library-export-selected` | Loredeck Library Mastery | Export selected packs as one .saga-loredeck.zip package. |
+| A20 | `advanced-library-import-package` | Loredeck Library Mastery | Import a .saga-loredeck.zip package into the Library. |
+| A21 | `advanced-library-import-preview` | Loredeck Library Mastery | Review package preview, source type, embedded counts, and install choices before accepting an import. |
+| A22 | `advanced-library-duplicate-warnings` | Loredeck Library Mastery | Understand same-hash and possible-duplicate warnings before installing or updating a package. |
+| A23 | `advanced-library-duplicate-custom` | Loredeck Library Mastery | Duplicate an existing Lorepack as a Custom Lorepack before making user-owned edits. |
+| A24 | `advanced-library-folder-actions` | Loredeck Library Mastery | Create, rename, move, and remove Library folders without changing pack contents accidentally. |
+| A25 | `advanced-library-open-workbench` | Loredeck Library Mastery | Launch deeper Loredeck workbench or editor routes from selected Library records. |
+| A26 | `advanced-session-experience-mode` | Session And Runtime Control | Switch Basic and Advanced while keeping saved story state and understanding which controls are hidden. |
+| A27 | `advanced-session-saga-active` | Session And Runtime Control | Toggle Saga Active without deleting data or changing saved Lorecards. |
+| A28 | `advanced-session-automation-mode` | Session And Runtime Control | Compare Manual, Assisted, and Automatic automation modes before enabling background behavior. |
 | A29 | `advanced-session-runtime-metrics` | Session And Runtime Control | Read pending, accepted, selected, continuity, and prompt-size metrics. |
-| A30 | `advanced-session-guide-modules` | Session And Runtime Control | Use the guide card as a module launcher rather than a long checklist. |
-| A31 | `advanced-session-active-chat` | Session And Runtime Control | Confirm the active chat/state target. |
-| A32 | `advanced-session-cleanup-actions` | Session And Runtime Control | Find cleanup or reset actions and understand their risk. |
-| A33 | `advanced-session-mode-recovery` | Session And Runtime Control | Recover when switching modes hides the previous active tab. |
-| A34 | `advanced-context-command-center` | Context Resolution | Use Runtime Context command center as the status and action hub. |
+| A30 | `advanced-session-guide-modules` | Session And Runtime Control | Use the guide card as a module launcher instead of treating Advanced as one long checklist. |
+| A31 | `advanced-session-active-chat` | Session And Runtime Control | Confirm which chat state Saga is currently reading and updating. |
+| A32 | `advanced-session-cleanup-actions` | Session And Runtime Control | Find cleanup or reset actions and understand their risk before using them. |
+| A33 | `advanced-session-mode-recovery` | Session And Runtime Control | Recover when switching modes hides the previously active tab or control. |
+| A34 | `advanced-context-command-center` | Context Resolution | Use Runtime Context as the status and action hub for story position. |
 | A35 | `advanced-context-loaded-rows` | Context Resolution | Inspect per-Loredeck Context rows, source, lock state, and update state. |
-| A36 | `advanced-context-browser-open` | Context Resolution | Open Context Browser. |
-| A37 | `advanced-context-manual-select` | Context Resolution | Manually select exact Context for loaded Lorepacks. |
-| A38 | `advanced-context-locks` | Context Resolution | Lock or unlock Context rows deliberately. |
-| A39 | `advanced-context-detect` | Context Resolution | Run local detection against recent source messages. |
-| A40 | `advanced-context-source-window` | Context Resolution | Tune source-message window size. |
-| A41 | `advanced-context-local-resolver` | Context Resolution | Use local resolver controls and understand confidence thresholds. |
-| A42 | `advanced-context-reasoner` | Context Resolution | Ask Reasoner for proposal-based Context resolution. |
-| A43 | `advanced-context-proposal-review` | Context Resolution | Apply or dismiss Context proposals in review. |
-| A44 | `advanced-context-audit` | Context Resolution | Read resolver and automation audit summaries. |
-| A45 | `advanced-context-advanced-brief` | Context Resolution | Edit or inspect the Advanced Context Brief when branch-specific detail matters. |
-| A46 | `advanced-context-seed-from-brief` | Context Resolution | Seed loaded Loredeck rows from the brief when useful. |
-| A47 | `advanced-context-reset` | Context Resolution | Reset stale Context safely. |
-| A48 | `advanced-context-index-summary` | Context Resolution | Use Context index summaries to understand available anchors. |
-| A49 | `advanced-context-workbench-routes` | Context Resolution | Route to timeline, waypoint, alias, and validation workbenches. |
-| A50 | `advanced-context-eligibility-debug` | Context Resolution | Explain why Context allows or blocks a Lorecard. |
-| A51 | `advanced-lore-generation-overview` | Lorecard Generation And Review | Understand canon preview, story scan, manual add, draft review, pending review, and accepted entries. |
-| A52 | `advanced-lore-canon-preview` | Lorecard Generation And Review | Preview local Context-aware suggestions from active Lorepacks. |
-| A53 | `advanced-lore-canon-selection` | Lorecard Generation And Review | Select useful canon suggestions for Pending Review. |
-| A54 | `advanced-lore-story-scan` | Lorecard Generation And Review | Run model-backed story-lore scan. |
-| A55 | `advanced-lore-scan-scope` | Lorecard Generation And Review | Tune scan source scope where controls are available. |
-| A56 | `advanced-lore-manual-add` | Lorecard Generation And Review | Add a manual Lorecard. |
-| A57 | `advanced-lore-assistant-drafts` | Lorecard Generation And Review | Review assistant/Creator draft batches before they reach Pending Review. |
-| A58 | `advanced-lore-pending-review` | Lorecard Generation And Review | Inspect Pending Lorecard Review. |
-| A59 | `advanced-lore-pending-edit` | Lorecard Generation And Review | Edit pending entries before acceptance. |
-| A60 | `advanced-lore-pending-accept-reject` | Lorecard Generation And Review | Accept, reject, or dismiss entries. |
-| A61 | `advanced-lore-pending-bulk` | Lorecard Generation And Review | Use bulk review controls deliberately. |
-| A62 | `advanced-lore-accepted-list` | Lorecard Generation And Review | Inspect accepted Lorecards. |
-| A63 | `advanced-lore-accepted-search-filter` | Lorecard Generation And Review | Search and filter accepted entries. |
-| A64 | `advanced-lore-accepted-open-edit` | Lorecard Generation And Review | Open and edit an accepted Lorecard. |
-| A65 | `advanced-lore-pin-mute` | Lorecard Generation And Review | Pin or mute accepted entries. |
-| A66 | `advanced-lore-relevance-tier` | Lorecard Generation And Review | Set relevance tier and understand prompt eligibility. |
-| A67 | `advanced-lore-tags-context` | Lorecard Generation And Review | Inspect tags, Context metadata, and source metadata. |
-| A68 | `advanced-lore-similarity-duplicates` | Lorecard Generation And Review | Understand duplicate and similarity guards. |
-| A69 | `advanced-lore-auto-relevance` | Lorecard Generation And Review | Run, apply, or reject Auto-Relevance suggestions. |
-| A70 | `advanced-lore-timeline-audit` | Lorecard Generation And Review | Use timeline/audit recovery for deleted or changed lore. |
-| A71 | `advanced-lore-workbench` | Lorecard Generation And Review | Open deeper Lorecard workbenches for large-list management. |
-| A72 | `advanced-lore-review-first-policy` | Lorecard Generation And Review | Reinforce that model-produced proposals must be reviewed before affecting prompts. |
-| A73 | `advanced-injection-overview` | Injection Diagnostics | Understand Injection as the exact prompt/debugging surface. |
-| A74 | `advanced-injection-continuity-toggle` | Injection Diagnostics | Toggle Continuity injection. |
-| A75 | `advanced-injection-lore-toggle` | Injection Diagnostics | Toggle Lore injection. |
-| A76 | `advanced-injection-high-tier` | Injection Diagnostics | Inspect High relevance behavior. |
-| A77 | `advanced-injection-normal-tier` | Injection Diagnostics | Inspect Normal relevance behavior. |
-| A78 | `advanced-injection-low-tier` | Injection Diagnostics | Inspect Low relevance behavior. |
-| A79 | `advanced-injection-direct-compressed` | Injection Diagnostics | Tune direct versus compressed handling. |
-| A80 | `advanced-injection-placement` | Injection Diagnostics | Tune role, position, depth, and placement. |
-| A81 | `advanced-injection-compression-prompts` | Injection Diagnostics | Inspect or edit compression prompts. |
-| A82 | `advanced-injection-preview-lore` | Injection Diagnostics | Preview selected Lorecards by tier. |
-| A83 | `advanced-injection-preview-continuity` | Injection Diagnostics | Preview selected continuity state. |
-| A84 | `advanced-injection-combined-preview` | Injection Diagnostics | Inspect the combined prompt block. |
-| A85 | `advanced-injection-token-estimate` | Injection Diagnostics | Read token and character estimates. |
-| A86 | `advanced-injection-omission-reasons` | Injection Diagnostics | Diagnose omitted Lorecards: muted, disabled tier, Context blocked, stack disabled, token pressure, or not selected. |
-| A87 | `advanced-injection-sync-diagnostics` | Injection Diagnostics | Debug prompt transport and sync behavior. |
-| A88 | `advanced-continuity-overview` | Continuity Tracking | Understand continuity as live scene state, distinct from durable Lorecards. |
-| A89 | `advanced-continuity-scan` | Continuity Tracking | Run a continuity scan. |
-| A90 | `advanced-continuity-automation` | Continuity Tracking | Configure continuity automation cadence. |
-| A91 | `advanced-continuity-scope` | Continuity Tracking | Choose recent, custom range, or entire chat scan scope. |
-| A92 | `advanced-continuity-custom-range` | Continuity Tracking | Use custom range for a missed section. |
-| A93 | `advanced-continuity-performance` | Continuity Tracking | Tune chunking, overlap, concurrency, retries, and checkpoints. |
-| A94 | `advanced-continuity-tracked-sections` | Continuity Tracking | Choose tracked sections. |
-| A95 | `advanced-continuity-scene-state` | Continuity Tracking | Edit scene and timeline state. |
-| A96 | `advanced-continuity-active-characters` | Continuity Tracking | Edit active characters. |
-| A97 | `advanced-continuity-items` | Continuity Tracking | Edit key items. |
-| A98 | `advanced-continuity-goals-threads` | Continuity Tracking | Edit goals, threads, and objectives. |
-| A99 | `advanced-continuity-emotional-freshness` | Continuity Tracking | Inspect or edit emotional freshness where available. |
-| A100 | `advanced-continuity-injection-link` | Continuity Tracking | Understand how continuity state reaches Injection. |
-| A101 | `advanced-continuity-recovery` | Continuity Tracking | Recover from interrupted or failed long scans. |
-| A102 | `advanced-creator-create-deck` | Creator And Generated Lorepack Authoring | Launch **Create Deck**. |
-| A103 | `advanced-creator-intake` | Creator And Generated Lorepack Authoring | Enter fandom, scope, granularity, and notes. |
-| A104 | `advanced-creator-brief` | Creator And Generated Lorepack Authoring | Generate and approve the scope brief. |
-| A105 | `advanced-creator-outline` | Creator And Generated Lorepack Authoring | Generate and approve the outline. |
-| A106 | `advanced-creator-title-pass` | Creator And Generated Lorepack Authoring | Generate title batches. |
-| A107 | `advanced-creator-title-review` | Creator And Generated Lorepack Authoring | Accept, revise, or reject titles. |
-| A108 | `advanced-creator-planning` | Creator And Generated Lorepack Authoring | Generate Context and tag planning proposals. |
-| A109 | `advanced-creator-planning-review` | Creator And Generated Lorepack Authoring | Review Context/tag proposals before downstream drafting. |
-| A110 | `advanced-creator-entry-draft` | Creator And Generated Lorepack Authoring | Draft Lorecards in small batches. |
-| A111 | `advanced-creator-entry-auto-draft` | Creator And Generated Lorepack Authoring | Use bounded auto-draft controls when appropriate. |
-| A112 | `advanced-creator-draft-review` | Creator And Generated Lorepack Authoring | Review Creator Lorecard drafts before Pending Review. |
-| A113 | `advanced-creator-send-to-review` | Creator And Generated Lorepack Authoring | Send Creator drafts to Pending Lorecard Review. |
-| A114 | `advanced-creator-pending-review-link` | Creator And Generated Lorepack Authoring | Jump from Creator to the relevant review queue. |
-| A115 | `advanced-creator-current-task` | Creator And Generated Lorepack Authoring | Retry, retry smaller, or cancel active generation. |
-| A116 | `advanced-creator-generation-settings` | Creator And Generated Lorepack Authoring | Tune Creator generation settings per project. |
-| A117 | `advanced-creator-project-shelf` | Creator And Generated Lorepack Authoring | Resume in-progress Creator projects. |
-| A118 | `advanced-creator-project-manage` | Creator And Generated Lorepack Authoring | Rename, move, select, or delete Creator projects. |
-| A119 | `advanced-creator-inspect-generated-pack` | Creator And Generated Lorepack Authoring | Open the linked Generated Lorepack in Library details. |
-| A120 | `advanced-creator-readiness-gate` | Creator And Generated Lorepack Authoring | Read Creator readiness, accepted coverage, draft blockers, and export status. |
-| A121 | `advanced-health-center-open` | Pack Health, Repair, Import, Export, And Finalization | Open Pack Health Center from Library or details. |
-| A122 | `advanced-health-status` | Pack Health, Repair, Import, Export, And Finalization | Read errors, warnings, notices, entry counts, and manifest health. |
-| A123 | `advanced-health-issue-groups` | Pack Health, Repair, Import, Export, And Finalization | Inspect grouped health issues. |
-| A124 | `advanced-health-safe-repair` | Pack Health, Repair, Import, Export, And Finalization | Run safe repair actions when available. |
-| A125 | `advanced-health-manual-repair` | Pack Health, Repair, Import, Export, And Finalization | Route unresolved issues to workbench/manual edits. |
-| A126 | `advanced-package-update` | Pack Health, Repair, Import, Export, And Finalization | Update or reinstall packages when available. |
-| A127 | `advanced-package-local-mod-warning` | Pack Health, Repair, Import, Export, And Finalization | Understand local modification warnings before overwrite/update. |
-| A128 | `advanced-package-export-bundled` | Pack Health, Repair, Import, Export, And Finalization | Export Bundled Lorepack references correctly. |
-| A129 | `advanced-package-export-custom` | Pack Health, Repair, Import, Export, And Finalization | Export Custom Lorepacks with embedded data. |
-| A130 | `advanced-generated-finalize-custom` | Pack Health, Repair, Import, Export, And Finalization | Finalize a reviewed Generated Lorepack as Custom. |
-| A131 | `advanced-generated-export-readiness` | Pack Health, Repair, Import, Export, And Finalization | Interpret generated export readiness without treating it as a hard gate. |
-| A132 | `advanced-settings-provider-overview` | Settings, Providers, Themes, And Diagnostics | Understand Utility and Reasoning provider roles. |
-| A133 | `advanced-settings-provider-profile` | Settings, Providers, Themes, And Diagnostics | Select or edit provider profiles. |
-| A134 | `advanced-settings-endpoint-model` | Settings, Providers, Themes, And Diagnostics | Configure endpoint and model details. |
-| A135 | `advanced-settings-provider-test` | Settings, Providers, Themes, And Diagnostics | Test configured providers. |
-| A136 | `advanced-settings-current-model` | Settings, Providers, Themes, And Diagnostics | Use current SillyTavern model where appropriate. |
-| A137 | `advanced-settings-generation` | Settings, Providers, Themes, And Diagnostics | Tune generation parameters. |
-| A138 | `advanced-settings-provider-presets` | Settings, Providers, Themes, And Diagnostics | Use provider preset support. |
-| A139 | `advanced-settings-api-compat` | Settings, Providers, Themes, And Diagnostics | Inspect compatibility flags only when diagnosing provider behavior. |
-| A140 | `advanced-settings-theme-pack` | Settings, Providers, Themes, And Diagnostics | Choose, import, export, reset, and inspect Theme Packs. |
-| A141 | `advanced-settings-icon-set` | Settings, Providers, Themes, And Diagnostics | Choose icon sets. |
-| A142 | `advanced-settings-colors` | Settings, Providers, Themes, And Diagnostics | Tune color controls. |
-| A143 | `advanced-settings-diagnostics` | Settings, Providers, Themes, And Diagnostics | Use diagnostics or developer status when needed. |
-| A144 | `advanced-troubleshoot-no-loredeck` | Troubleshooting Routes | Route empty-stack issues to Loredeck Library. |
-| A145 | `advanced-troubleshoot-wrong-context` | Troubleshooting Routes | Route wrong suggestions to Context Browser, locks, proposals, or Advanced Brief. |
-| A146 | `advanced-troubleshoot-no-suggestions` | Troubleshooting Routes | Check active stack, Context, provider readiness, and canon/story generation paths. |
-| A147 | `advanced-troubleshoot-pending-stuck` | Troubleshooting Routes | Clear draft/pending queues through review, accept, reject, or drop actions. |
-| A148 | `advanced-troubleshoot-no-injection` | Troubleshooting Routes | Check Injection toggles, tiers, Context eligibility, stack enabled state, mute, and token pressure. |
-| A149 | `advanced-troubleshoot-prompt-heavy` | Troubleshooting Routes | Tune tiers, compression, low relevance, continuity, and prompt placement. |
-| A150 | `advanced-troubleshoot-provider-failure` | Troubleshooting Routes | Route provider failures to Settings and request/audit surfaces. |
-| A151 | `advanced-troubleshoot-continuity-stale` | Troubleshooting Routes | Re-scan, adjust scope, inspect tracked sections, or recover interrupted scans. |
-| A152 | `advanced-troubleshoot-package-duplicate` | Troubleshooting Routes | Resolve duplicate package import warnings. |
-| A153 | `advanced-troubleshoot-health-warnings` | Troubleshooting Routes | Route Pack Health warnings to repair or manual edit paths. |
-| A154 | `advanced-troubleshoot-creator-failure` | Troubleshooting Routes | Retry, retry smaller, cancel, or adjust Creator generation settings. |
-| A155 | `advanced-troubleshoot-return-basic` | Troubleshooting Routes | Switch back to Basic when routine roleplay no longer needs advanced controls. |
+| A36 | `advanced-context-browser-open` | Context Resolution | Open the Context Workbench for manual timeline, waypoint, alias, resolver, and validation workflows. |
+| A37 | `advanced-context-workbench-layout` | Context Resolution | Read the Workbench as one selected loaded Lorepack, one current Context editor, quick waypoint browsing, Phrase Resolver, and full timeline search. |
+| A38 | `advanced-context-workbench-pack` | Context Resolution | Use the loaded-Lorepack rows or selector to choose which pack receives the next Context change. |
+| A39 | `advanced-context-anchors-windows` | Context Resolution | Anchors are exact timeline points. Windows are bounded ranges. Context eligibility changes depending on whether the current row is a point or a range. |
+| A40 | `advanced-context-start-here` | Context Resolution | Start Here applies one waypoint as the exact current starting Anchor and clears the need for a range. |
+| A41 | `advanced-context-use-window` | Context Resolution | Use Window applies a first-class Window from the Lorepack timeline when the registry already has the correct lower and upper bounds. |
+| A42 | `advanced-context-use-anchor` | Context Resolution | Use Anchor applies an exact Anchor from Select From Timeline; it is the search/table equivalent of choosing a single point. |
+| A43 | `advanced-context-after-before` | Context Resolution | After sets the lower bound and Before sets the upper bound for a custom Window when no existing Window is precise enough. |
+| A44 | `advanced-context-timeline-action` | Context Resolution | Timeline opens the selected waypoint in the Timeline tab so you can inspect IDs, coordinates, aliases, attached Lorecards, and registry state. |
+| A45 | `advanced-context-manual-select` | Context Resolution | Manually select exact or ranged Context for loaded Lorepacks when detection is not authoritative. |
+| A46 | `advanced-context-phrase-resolver` | Context Resolution | Phrase Resolver tests casual story phrasing against local Anchor labels, IDs, aliases, dates, arcs, tags, coordinates, and optional Lorecard-derived candidates. |
+| A47 | `advanced-context-phrase-debug` | Context Resolution | Review cleaned terms, ignored direction words, match reasons, weak matches, missing terms, and Load Lorecards before applying a phrase result. |
+| A48 | `advanced-context-locks` | Context Resolution | Lock or unlock Context rows deliberately so detection does not overwrite trusted manual choices. |
+| A49 | `advanced-context-detect` | Context Resolution | Run local detection against recent source messages. |
+| A50 | `advanced-context-source-window` | Context Resolution | Tune the number of recent messages used by Context detection and Reasoner fallback. |
+| A51 | `advanced-context-local-resolver` | Context Resolution | Use local resolver controls and understand confidence thresholds. |
+| A52 | `advanced-context-reasoner` | Context Resolution | Ask the Reasoning provider for proposal-based Context resolution when local anchors are ambiguous. |
+| A53 | `advanced-context-proposal-review` | Context Resolution | Apply or dismiss Context proposals before relying on them. |
+| A54 | `advanced-context-audit` | Context Resolution | Read resolver and automation audit summaries to understand why Context changed. |
+| A55 | `advanced-context-advanced-brief` | Context Resolution | Inspect or edit the Advanced Context Brief for branch-specific story detail. |
+| A56 | `advanced-context-seed-from-brief` | Context Resolution | Seed loaded Loredeck rows from the brief when that is the fastest accurate starting point. |
+| A57 | `advanced-context-reset` | Context Resolution | Reset stale Context safely when the story position is wrong or no longer applicable. |
+| A58 | `advanced-context-index-summary` | Context Resolution | Use Context index summaries to understand which anchors and windows are available. |
+| A59 | `advanced-context-workbench-routes` | Context Resolution | Route to timeline, waypoint, alias, and validation workbenches for deeper source maintenance. |
+| A60 | `advanced-context-eligibility-debug` | Context Resolution | Explain why Context allows or blocks a Lorecard. |
+| A61 | `advanced-lore-generation-overview` | Lorecard Generation And Review | Understand canon preview, story scan, manual add, draft review, pending review, and accepted entries. |
+| A62 | `advanced-lore-canon-preview` | Lorecard Generation And Review | Preview local Context-aware suggestions from active Lorepacks. |
+| A63 | `advanced-lore-canon-selection` | Lorecard Generation And Review | Select useful canon suggestions for Pending Review rather than accepting them automatically. |
+| A64 | `advanced-lore-story-scan` | Lorecard Generation And Review | Run model-backed story-lore scan for durable chat facts. |
+| A65 | `advanced-lore-scan-scope` | Lorecard Generation And Review | Tune scan source scope where recent, range, and entire-chat controls are available. |
+| A66 | `advanced-lore-manual-add` | Lorecard Generation And Review | Add a known important fact manually and route it through review. |
+| A67 | `advanced-lore-assistant-drafts` | Lorecard Generation And Review | Review assistant or Creator draft batches before they reach Pending Review. |
+| A68 | `advanced-lore-pending-review` | Lorecard Generation And Review | Inspect Pending Lorecard Review as the gate before proposals affect prompts. |
+| A69 | `advanced-lore-pending-edit` | Lorecard Generation And Review | Edit pending entries before acceptance so durable memory is precise. |
+| A70 | `advanced-lore-pending-accept-reject` | Lorecard Generation And Review | Accept, reject, or dismiss entries based on future usefulness. |
+| A71 | `advanced-lore-pending-bulk` | Lorecard Generation And Review | Use bulk review controls deliberately when many pending entries share the same decision. |
+| A72 | `advanced-lore-accepted-list` | Lorecard Generation And Review | Inspect accepted Lorecards as durable memory. |
+| A73 | `advanced-lore-accepted-search-filter` | Lorecard Generation And Review | Search and filter accepted entries by text, status, category, relevance, or suppression state. |
+| A74 | `advanced-lore-accepted-open-edit` | Lorecard Generation And Review | Open and edit an accepted Lorecard when stored memory needs correction. |
+| A75 | `advanced-lore-pin-mute` | Lorecard Generation And Review | Pin or mute accepted entries to control prominence and suppression without deleting them. |
+| A76 | `advanced-lore-relevance-tier` | Lorecard Generation And Review | Set relevance tier and understand prompt eligibility for High, Normal, and Low lore. |
+| A77 | `advanced-lore-tags-context` | Lorecard Generation And Review | Inspect tags, Context metadata, source metadata, and routing hints on accepted entries. |
+| A78 | `advanced-lore-similarity-duplicates` | Lorecard Generation And Review | Understand duplicate and similarity guards before accepting overlapping lore. |
+| A79 | `advanced-lore-auto-relevance` | Lorecard Generation And Review | Run, apply, or reject Auto-Relevance suggestions for large accepted-lore collections. |
+| A80 | `advanced-lore-timeline-audit` | Lorecard Generation And Review | Use timeline and audit recovery for deleted, restored, pinned, muted, or changed lore. |
+| A81 | `advanced-lore-workbench` | Lorecard Generation And Review | Open deeper Lorecard workbenches for large-list management and detailed editing. |
+| A82 | `advanced-lore-review-first-policy` | Lorecard Generation And Review | Model-produced proposals must be reviewed before they can affect future responses. |
+| A83 | `advanced-injection-overview` | Injection Diagnostics | Injection is the exact prompt and debugging surface for what Saga sends. |
+| A84 | `advanced-injection-continuity-toggle` | Injection Diagnostics | Toggle Continuity injection independently from Lore injection. |
+| A85 | `advanced-injection-lore-toggle` | Injection Diagnostics | Toggle Lore injection independently from Continuity injection. |
+| A86 | `advanced-injection-high-tier` | Injection Diagnostics | Inspect High relevance behavior for immediate scene-critical facts. |
+| A87 | `advanced-injection-normal-tier` | Injection Diagnostics | Inspect Normal relevance behavior for broader but still useful facts. |
+| A88 | `advanced-injection-low-tier` | Injection Diagnostics | Inspect Low relevance behavior for distant or optional background facts. |
+| A89 | `advanced-injection-direct-compressed` | Injection Diagnostics | Tune direct versus compressed handling for continuity and lore tiers. |
+| A90 | `advanced-injection-placement` | Injection Diagnostics | Tune role, position, depth, and placement for injected prompt groups. |
+| A91 | `advanced-injection-compression-prompts` | Injection Diagnostics | Inspect or edit compression prompts used for model-compressed blocks. |
+| A92 | `advanced-injection-preview-lore` | Injection Diagnostics | Preview selected Lorecards by relevance tier before the next prompt. |
+| A93 | `advanced-injection-preview-continuity` | Injection Diagnostics | Preview selected continuity state before the next prompt. |
+| A94 | `advanced-injection-combined-preview` | Injection Diagnostics | Inspect the combined prompt block by reading the active continuity and lore previews together. |
+| A95 | `advanced-injection-token-estimate` | Injection Diagnostics | Read token and character estimates to understand prompt pressure. |
+| A96 | `advanced-injection-omission-reasons` | Injection Diagnostics | Diagnose omitted Lorecards: muted, disabled tier, Context blocked, stack disabled, token pressure, or not selected. |
+| A97 | `advanced-injection-sync-diagnostics` | Injection Diagnostics | Debug prompt transport and sync behavior from the injection surface. |
+| A98 | `advanced-continuity-overview` | Continuity Tracking | Continuity is live scene state, distinct from durable accepted Lorecards. |
+| A99 | `advanced-continuity-scan` | Continuity Tracking | Run a continuity scan to update the current scene state. |
+| A100 | `advanced-continuity-automation` | Continuity Tracking | Configure continuity automation cadence and understand when scans run. |
+| A101 | `advanced-continuity-scope` | Continuity Tracking | Choose recent, custom range, or entire-chat continuity scan scope. |
+| A102 | `advanced-continuity-custom-range` | Continuity Tracking | Use custom range for a missed section instead of rescanning the entire chat. |
+| A103 | `advanced-continuity-performance` | Continuity Tracking | Tune chunking, overlap, concurrency, retries, and checkpoints. |
+| A104 | `advanced-continuity-tracked-sections` | Continuity Tracking | Choose which live-state sections are scanned and injected. |
+| A105 | `advanced-continuity-scene-state` | Continuity Tracking | Edit scene and timeline state for the immediate prompt context. |
+| A106 | `advanced-continuity-active-characters` | Continuity Tracking | Edit active characters, current state, appearance, emotion, and immediate goals. |
+| A107 | `advanced-continuity-items` | Continuity Tracking | Edit key items, owners, locations, and object status. |
+| A108 | `advanced-continuity-goals-threads` | Continuity Tracking | Edit active goals, threads, and immediate objectives. |
+| A109 | `advanced-continuity-emotional-freshness` | Continuity Tracking | Inspect or edit emotional freshness where available. |
+| A110 | `advanced-continuity-injection-link` | Continuity Tracking | Understand how continuity state reaches the Injection tab and prompt preview. |
+| A111 | `advanced-continuity-recovery` | Continuity Tracking | Recover from interrupted or failed long scans by adjusting scope, performance, or retry path. |
+| A112 | `advanced-creator-create-deck` | Creator And Generated Lorepack Authoring | Launch Create Deck to begin a Generated Lorepack project. |
+| A113 | `advanced-creator-intake` | Creator And Generated Lorepack Authoring | Enter fandom, scope, granularity, and notes for the generated project. |
+| A114 | `advanced-creator-brief` | Creator And Generated Lorepack Authoring | Generate and approve the scope brief before outline and title work. |
+| A115 | `advanced-creator-outline` | Creator And Generated Lorepack Authoring | Generate and approve the outline that drives title batches and planning. |
+| A116 | `advanced-creator-title-pass` | Creator And Generated Lorepack Authoring | Generate title batches from the approved outline. |
+| A117 | `advanced-creator-title-review` | Creator And Generated Lorepack Authoring | Accept, revise, or reject titles before planning and entry drafting. |
+| A118 | `advanced-creator-planning` | Creator And Generated Lorepack Authoring | Generate Context and tag planning proposals before downstream Lorecard drafting. |
+| A119 | `advanced-creator-planning-review` | Creator And Generated Lorepack Authoring | Review Context and tag proposals before they shape generated entries. |
+| A120 | `advanced-creator-entry-draft` | Creator And Generated Lorepack Authoring | Draft Lorecards in small batches from approved planning and titles. |
+| A121 | `advanced-creator-entry-auto-draft` | Creator And Generated Lorepack Authoring | Use bounded auto-draft controls only when the project is ready for repeated generation. |
+| A122 | `advanced-creator-draft-review` | Creator And Generated Lorepack Authoring | Review Creator Lorecard drafts before they enter Pending Review. |
+| A123 | `advanced-creator-send-to-review` | Creator And Generated Lorepack Authoring | Send Creator drafts to Pending Lorecard Review when they are ready for normal lore review. |
+| A124 | `advanced-creator-pending-review-link` | Creator And Generated Lorepack Authoring | Jump from Creator to the relevant review queue for generated entries. |
+| A125 | `advanced-creator-current-task` | Creator And Generated Lorepack Authoring | Retry, retry smaller, or cancel active generation from the current task card. |
+| A126 | `advanced-creator-generation-settings` | Creator And Generated Lorepack Authoring | Tune Creator generation settings per project. |
+| A127 | `advanced-creator-project-shelf` | Creator And Generated Lorepack Authoring | Resume in-progress Creator projects from the Loredecks tab. |
+| A128 | `advanced-creator-project-manage` | Creator And Generated Lorepack Authoring | Rename, move, select, or delete Creator projects deliberately. |
+| A129 | `advanced-creator-inspect-generated-pack` | Creator And Generated Lorepack Authoring | Open the linked Generated Lorepack in Library details. |
+| A130 | `advanced-creator-readiness-gate` | Creator And Generated Lorepack Authoring | Read accepted coverage, draft blockers, Pack Health, and export readiness before finalization. |
+| A131 | `advanced-health-center-open` | Pack Health And Packages | Open Pack Health Center from Library details or a generated pack readiness surface. |
+| A132 | `advanced-health-status` | Pack Health And Packages | Read errors, warnings, notices, entry counts, and manifest health. |
+| A133 | `advanced-health-issue-groups` | Pack Health And Packages | Inspect grouped health issues by severity, code, affected data, and suggested repair path. |
+| A134 | `advanced-health-safe-repair` | Pack Health And Packages | Run deterministic safe repair actions when they are available for editable packs. |
+| A135 | `advanced-health-manual-repair` | Pack Health And Packages | Route unresolved issues to workbench or manual edits when safe repair is not enough. |
+| A136 | `advanced-package-update` | Pack Health And Packages | Update or reinstall packages when a newer or corrected package is available. |
+| A137 | `advanced-package-local-mod-warning` | Pack Health And Packages | Understand local modification warnings before overwriting or updating a package. |
+| A138 | `advanced-package-export-bundled` | Pack Health And Packages | Export Bundled Lorepack references correctly so imports remain lightweight where possible. |
+| A139 | `advanced-package-export-custom` | Pack Health And Packages | Export Custom Lorepacks with embedded data for sharing or backup. |
+| A140 | `advanced-generated-finalize-custom` | Pack Health And Packages | Finalize a reviewed Generated Lorepack as a Custom Lorepack after review and readiness checks. |
+| A141 | `advanced-generated-export-readiness` | Pack Health And Packages | Interpret generated export readiness without treating it as the only quality gate. |
+| A142 | `advanced-settings-provider-overview` | Settings And Providers | Understand Utility and Reasoning provider roles. |
+| A143 | `advanced-settings-provider-profile` | Settings And Providers | Select or edit provider profiles for model-backed Saga actions. |
+| A144 | `advanced-settings-endpoint-model` | Settings And Providers | Configure endpoint and model details for provider routes. |
+| A145 | `advanced-settings-provider-test` | Settings And Providers | Test configured providers before relying on scans, compression, Context Reasoner, or Creator calls. |
+| A146 | `advanced-settings-current-model` | Settings And Providers | Use the current SillyTavern model where that is the simplest provider route. |
+| A147 | `advanced-settings-generation` | Settings And Providers | Tune generation parameters for model-backed Saga tasks. |
+| A148 | `advanced-settings-provider-presets` | Settings And Providers | Use provider preset support to install or update bundled profile routing. |
+| A149 | `advanced-settings-api-compat` | Settings And Providers | Inspect compatibility flags only when diagnosing provider behavior. |
+| A150 | `advanced-settings-theme-pack` | Settings And Providers | Choose, import, export, reset, and inspect Theme Packs. |
+| A151 | `advanced-settings-icon-set` | Settings And Providers | Choose icon sets from the Theme Pack controls. |
+| A152 | `advanced-settings-colors` | Settings And Providers | Tune color controls and raw tokens for runtime visual polish. |
+| A153 | `advanced-settings-diagnostics` | Settings And Providers | Use diagnostics or developer status when provider, runtime, or package behavior needs investigation. |
+| A154 | `advanced-troubleshoot-no-loredeck` | Troubleshooting Routes | Route empty-stack issues to the Loredeck Library and active stack. |
+| A155 | `advanced-troubleshoot-wrong-context` | Troubleshooting Routes | Route wrong suggestions to Context Workbench, locks, proposals, or Advanced Brief. |
+| A156 | `advanced-troubleshoot-no-suggestions` | Troubleshooting Routes | Check active stack, Context, provider readiness, and canon/story generation paths. |
+| A157 | `advanced-troubleshoot-pending-stuck` | Troubleshooting Routes | Clear draft and pending queues through review, accept, reject, or drop actions. |
+| A158 | `advanced-troubleshoot-no-injection` | Troubleshooting Routes | Check Injection toggles, tiers, Context eligibility, stack enabled state, mute, and token pressure. |
+| A159 | `advanced-troubleshoot-prompt-heavy` | Troubleshooting Routes | Tune tiers, compression, Low relevance, continuity sections, and prompt placement. |
+| A160 | `advanced-troubleshoot-provider-failure` | Troubleshooting Routes | Route provider failures to Settings, request surfaces, and audit output. |
+| A161 | `advanced-troubleshoot-continuity-stale` | Troubleshooting Routes | Rescan, adjust scope, inspect tracked sections, or recover interrupted scans. |
+| A162 | `advanced-troubleshoot-package-duplicate` | Troubleshooting Routes | Resolve duplicate package import warnings before installing or updating. |
+| A163 | `advanced-troubleshoot-health-warnings` | Troubleshooting Routes | Route Pack Health warnings to repair, ignore, duplicate-as-custom, or manual edit paths. |
+| A164 | `advanced-troubleshoot-creator-failure` | Troubleshooting Routes | Retry, retry smaller, cancel, or adjust Creator generation settings. |
+| A165 | `advanced-troubleshoot-return-basic` | Troubleshooting Routes | Switch back to Basic when routine roleplay no longer needs advanced controls. |
 
 ## Section Cards
 
@@ -369,9 +385,9 @@ Recommended Basic cards:
 | First Run | B01 | Get oriented, read readiness, and use the next action. |
 | Loredecks | B05 | Load, import, inspect, and stack Lorepacks. |
 | Context | B19 | Set story position and keep it current. |
-| Lorecards | B27 | Generate, review, accept, and clean up durable facts. |
-| Continue Roleplay | B41 | Confirm readiness and repeat the update loop. |
-| Settings | B45 | Fix providers and Theme Pack basics. |
+| Lorecards | B33 | Generate, review, accept, and clean up durable facts. |
+| Continue Roleplay | B47 | Confirm readiness and repeat the update loop. |
+| Settings | B51 | Fix providers and Theme Pack basics. |
 
 Recommended Advanced cards:
 
@@ -380,13 +396,13 @@ Recommended Advanced cards:
 | Loredeck Library Mastery | A01 | Manage Library, stack, folders, imports, exports, and details. |
 | Session And Runtime Control | A26 | Manage mode, automation, active state, metrics, and guide routing. |
 | Context Resolution | A34 | Resolve, audit, lock, and debug Story Position. |
-| Lorecard Generation And Review | A51 | Generate, review, edit, tier, and audit Lorecards. |
-| Injection Diagnostics | A73 | Inspect exactly what Saga sends and why. |
-| Continuity Tracking | A88 | Track, tune, edit, and recover live scene state. |
-| Creator And Generated Lorepack Authoring | A102 | Create and complete Generated Lorepack projects. |
-| Pack Health And Packages | A121 | Validate, repair, update, export, and finalize Lorepacks. |
-| Settings And Providers | A132 | Configure providers, Theme Packs, icons, colors, and diagnostics. |
-| Troubleshooting Routes | A144 | Route common failures to the right control surface. |
+| Lorecard Generation And Review | A61 | Generate, review, edit, tier, and audit Lorecards. |
+| Injection Diagnostics | A83 | Inspect exactly what Saga sends and why. |
+| Continuity Tracking | A98 | Track, tune, edit, and recover live scene state. |
+| Creator And Generated Lorepack Authoring | A112 | Create and complete Generated Lorepack projects. |
+| Pack Health And Packages | A131 | Validate, repair, update, export, and finalize Lorepacks. |
+| Settings And Providers | A142 | Configure providers, Theme Packs, icons, colors, and diagnostics. |
+| Troubleshooting Routes | A154 | Route common failures to the right control surface. |
 
 ## Implementation Phases
 
@@ -405,13 +421,13 @@ Recommended Advanced cards:
 
 ### Phase 3: Expand Basic Steps
 
-- Implement B01-B49 in `runtime-guide-content.js`.
+- Implement B01-B55 in `runtime-guide-content.js`.
 - Add missing tour targets for Library internals and review surfaces.
 - Keep Basic excluded controls unaddressable from Basic guide data.
 
 ### Phase 4: Expand Advanced Steps
 
-- Implement A01-A155 in module groups.
+- Implement A01-A165 in module groups.
 - Add overlay targets incrementally, starting with Library, Context, Lorecards, and Injection.
 - Defer Creator and Pack Health overlay targeting only if the implementation would be too large for one pass, but keep the ordered ids stable.
 
@@ -443,7 +459,7 @@ Required static checks:
 
 Recommended smoke coverage:
 
-- Basic full walkthrough through B01-B49 with seeded HP Core/Year deck data.
+- Basic full walkthrough through B01-B55 with seeded HP Core/Year deck data.
 - Basic Loredecks module with no stack, then with an imported package fixture.
 - Basic Context module with unset Context, manual Context, detected Context, and proposals.
 - Basic Lorecards module with pending, accepted, pinned, muted, and empty states.

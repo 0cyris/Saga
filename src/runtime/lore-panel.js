@@ -16601,6 +16601,68 @@ function getBasicChecklistTourSteps(config = {}, row = {}, state = getState()) {
     return Array.isArray(config.steps) ? config.steps : [];
 }
 
+function isOutstandingBasicChecklistRow(row = {}) {
+    return !!row && row.ready !== true;
+}
+
+function getBasicChecklistTourConfigId(row = {}) {
+    return getBasicChecklistTourConfig(row)?.id || '';
+}
+
+function isTourableOutstandingBasicChecklistRow(row = {}, state = getState()) {
+    if (!isOutstandingBasicChecklistRow(row) || row.actionId) return false;
+    const config = getBasicChecklistTourConfig(row);
+    return !!config && getBasicChecklistTourSteps(config, row, state).length > 0;
+}
+
+function getNextBasicChecklistTourRow(model = {}, currentRow = {}, state = getState()) {
+    const rows = Array.isArray(model.rows) ? model.rows : [];
+    const currentId = String(currentRow?.id || '').trim();
+    const currentConfigId = getBasicChecklistTourConfigId(currentRow);
+    const candidates = rows.filter(row => {
+        if (row.id === currentId) return false;
+        if (!isTourableOutstandingBasicChecklistRow(row, state)) return false;
+        return !currentConfigId || getBasicChecklistTourConfigId(row) !== currentConfigId;
+    });
+    if (!candidates.length) return null;
+    return candidates.find(row => row.id === model.nextAction?.id) || candidates[0] || null;
+}
+
+function getBasicChecklistTourFinishState(currentRow = {}) {
+    const state = getState();
+    const settings = getSettings();
+    const model = getBasicReadinessModel(state, settings);
+    const rows = Array.isArray(model.rows) ? model.rows : [];
+    return {
+        nextRow: getNextBasicChecklistTourRow(model, currentRow, state),
+        outstandingCount: rows.filter(isOutstandingBasicChecklistRow).length,
+    };
+}
+
+function getBasicChecklistTourFinishLabel(currentRow = {}) {
+    const finishState = getBasicChecklistTourFinishState(currentRow);
+    if (finishState.nextRow) return `Next: ${finishState.nextRow.actionLabel || finishState.nextRow.label || 'Checklist Item'}`;
+    return finishState.outstandingCount > 0 ? 'Return to Checklist' : 'Done';
+}
+
+function getBasicChecklistTourFinishTooltip(currentRow = {}) {
+    const finishState = getBasicChecklistTourFinishState(currentRow);
+    if (finishState.nextRow) {
+        return `Continue the Start Checklist with ${finishState.nextRow.label || finishState.nextRow.actionLabel || 'the next item'}.`;
+    }
+    if (finishState.outstandingCount > 0) {
+        return 'Return to the Start Checklist to finish the remaining item.';
+    }
+    return 'Close this checklist guide.';
+}
+
+function finishBasicChecklistTour(currentRow = {}) {
+    const finishState = getBasicChecklistTourFinishState(currentRow);
+    if (!finishState.nextRow) return false;
+    launchBasicChecklistTour(finishState.nextRow);
+    return true;
+}
+
 function launchBasicChecklistTour(row = {}) {
     const config = getBasicChecklistTourConfig(row);
     if (!config) return;
@@ -16614,6 +16676,9 @@ function launchBasicChecklistTour(row = {}) {
         closeLabel: 'Close',
         closeTooltip: 'Close this checklist guide and return to the Start Checklist.',
         finishLabel: 'Done',
+        getFinishLabel: () => getBasicChecklistTourFinishLabel(row),
+        getFinishTooltip: () => getBasicChecklistTourFinishTooltip(row),
+        onFinish: () => finishBasicChecklistTour(row),
         onClose: returnToBasicStartChecklist,
     });
 }
