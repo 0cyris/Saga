@@ -10,8 +10,6 @@ Saga is a SillyTavern extension for long-form fandom roleplay and fanfiction. It
 
 Saga is not a wiki viewer and not a prompt preset. It is a runtime lore system for deciding what belongs in the story **now**: what is true, what is hidden, what has changed in this chat, and what the model should actually see before writing the next response.
 
-Saga grew out of Wandlight, a Harry Potter-focused preset and lore workflow. Wandlight proved the central problem: LLMs can sound lore-aware while still leaking future canon, flattening hidden knowledge, or forgetting chat-specific changes. Saga generalizes that lesson into a fandom-agnostic extension architecture.
-
 ## Status
 
 Saga is in **pre-alpha integration hardening**.
@@ -26,8 +24,6 @@ Expect active development, incomplete workflows, changing schemas, rough edges, 
 - [What Saga Adds](#what-saga-adds)
 - [Mental Model](#mental-model)
 - [Operator's Manual](#operators-manual)
-- [Built-In Reference Lorepacks](#built-in-reference-lorepacks)
-- [Relationship To Wandlight](#relationship-to-wandlight)
 - [Documentation](#documentation)
 - [For Contributors](#for-contributors)
 - [Project Layout](#project-layout)
@@ -39,24 +35,23 @@ Expect active development, incomplete workflows, changing schemas, rough edges, 
   <img src="Images/documentation/renders/docs-shell-basic-start.png" alt="Saga Basic start checklist and runtime shelf" width="800">
 </p>
 
-1. Install or clone this repository as a SillyTavern third-party extension.
-
-   Typical local development path:
+1. Copy the Saga GitHub URL:
 
    ```text
-   SillyTavern/public/scripts/extensions/third-party/Saga
+   https://github.com/MentallyQuill/Saga
    ```
 
-2. Restart or reload SillyTavern.
-3. Open the Saga shelf from the extension UI.
-4. Use **Basic** Experience for the first run.
-5. Open **Loredecks** and load a Loredeck into the **Active Stack**.
-6. Open **Context** and set where the story currently is.
-7. Open **Lorecards** and review any generated or user-created lore before accepting it.
-8. Confirm the **Start Checklist** is ready.
-9. Continue roleplay. Switch to **Advanced** only when you need deeper controls.
+2. In SillyTavern, open **Extensions** and use **Install Extension** with the copied URL.
+3. Restart or reload SillyTavern after installation.
+4. Open the Saga shelf from the extension UI.
+5. Use **Basic** Experience for the first run.
+6. Open **Loredecks** and load a Loredeck into the **Active Stack**.
+7. Open **Context** and set where the story currently is.
+8. Open **Lorecards** and review any generated or user-created lore before accepting it.
+9. Confirm the **Start Checklist** is ready.
+10. Continue roleplay. Switch to **Advanced** only when you need deeper controls.
 
-For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). Existing Wandlight users should start with [Wandlight To Saga](docs/user/WANDLIGHT_TO_SAGA.md).
+For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). The in-app walkthroughs are module-based: run the full pass, or start the exact workflow card you need.
 
 ## What Saga Adds
 
@@ -95,6 +90,12 @@ Basic Experience keeps the first-run path narrow. The Start Checklist is the ope
 
 Use it to confirm that Saga is active, Loredecks are loaded, Context is set, Lorecards are available, and injection has something useful to send.
 
+<p align="center">
+  <img src="Images/documentation/renders/docs-basic-walkthrough-modules.png" alt="Saga Basic Walkthrough module cards" width="800">
+</p>
+
+The **Basic Walkthrough** is organized as a short roleplay loop: First Run, Loredecks, Context, Lorecards, Continue Roleplay, and Settings. Use **Start Basic Walkthrough** for the first pass, or start a module when you only need one part of the setup loop.
+
 ### Session
 
 <p align="center">
@@ -104,6 +105,12 @@ Use it to confirm that Saga is active, Loredecks are loaded, Context is set, Lor
 The **Session** tab is the runtime control room. It shows the current experience mode, automation state, readiness, and active system status.
 
 Use **Basic** when you want the guided path. Use **Advanced** when you need to inspect automation, run diagnostics, work with Continuity, manage prompt injection, or operate the Loredeck Creator.
+
+<p align="center">
+  <img src="Images/documentation/renders/docs-advanced-walkthrough-modules.png" alt="Saga Advanced Walkthrough task tracks" width="800">
+</p>
+
+The **Advanced Walkthrough** is organized as task tracks instead of a flat tab tour. It covers Library mastery, Session control, Context resolution, Lorecard review, Injection diagnostics, Continuity, Creator authoring, Pack Health and package work, Settings, and troubleshooting.
 
 ### Loredecks And Active Stack
 
@@ -301,44 +308,12 @@ Theme Packs and Icon Sets are passive data. They can change the shelf's appearan
 
 | Problem | First check |
 | --- | --- |
-| Saga shelf does not open | Confirm the extension is installed under SillyTavern's third-party extension folder and reload SillyTavern. |
+| Saga shelf does not open | Confirm the extension was installed from the Saga GitHub URL in SillyTavern's Extension installer, then reload SillyTavern. |
 | No Loredecks are active | Open Loredecks, then Loredeck Library, and add a Loredeck to the Active Stack. |
 | Lore seems from the wrong point in the story | Open Context and check the active Context for each loaded Loredeck. |
 | Accepted Lorecards are not reaching the model | Open Injection and inspect the relevance preview, pin/mute state, Context gate, and injection enable toggles. |
 | Imported or generated deck behaves strangely | Run Pack Health and review grouped issues. |
 | Model-assisted actions fail | Check provider settings, model availability, and whether the action requires Utility or Reasoning configuration. |
-
-## Built-In Reference Lorepacks
-
-Saga currently ships a split Harry Potter Golden Trio reference family:
-
-- `hp-core`
-- `hp-year-1-philosophers-stone`
-- `hp-year-2-chamber-of-secrets`
-- `hp-year-3-prisoner-of-azkaban`
-- `hp-year-4-goblet-of-fire`
-- `hp-year-5-order-of-the-phoenix`
-- `hp-year-6-half-blood-prince`
-- `hp-year-7-deathly-hallows`
-- `hp-epilogue-post-war`
-
-`hp-core` is reusable baseline lore. The year and era decks narrow Context so future canon and hidden knowledge are less likely to leak into the wrong point in the story.
-
-This family is the current authoring model for future Bundled Lorepacks: clear Context boundaries, useful tags, clean manifests, reliable Pack Health, and no unreviewed generated material treated as finished canon.
-
-## Relationship To Wandlight
-
-Wandlight was a lightweight Harry Potter preset and lore workflow. It emphasized date-aware canon anchoring, prose controls, anti-slop prompting, character modules, and manual lorebook support.
-
-Saga keeps the strongest product lessons and moves them into a general extension:
-
-- Manual canon anchoring becomes **Context**.
-- Lorebook-style facts become **Lorecards**.
-- Static HP-specific lore becomes portable **Loredecks**.
-- Dynamic canon becomes Context-gated retrieval and spoiler control.
-- Reviewable lore suggestions become **Pending Review**.
-- Prompt placement and relevance controls become **Injection**.
-- HP-only assumptions become fandom-agnostic schema, tags, timelines, and deck stacks.
 
 ## Documentation
 

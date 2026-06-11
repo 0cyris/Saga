@@ -304,9 +304,14 @@ Detailed command suites belong in development docs.
 
 The README should use about 25-30 images, matching the current renderer matrix. It should not show every tiny control when a parent screenshot already captures that UI.
 
-Current accepted image set: 28 rendered PNGs in `Images/documentation/renders`.
+Current accepted image set: 30 rendered PNGs in `Images/documentation/renders`.
 
-Use all 28 only if the operator's manual remains in the GitHub README. If the README is later split into a short front page plus separate manual docs, reduce the README itself to 8-12 images and move the rest to docs.
+The two newest required captures are the module-based walkthrough cards:
+
+- `docs-basic-walkthrough-modules.png`
+- `docs-advanced-walkthrough-modules.png`
+
+Use all 30 only if the operator's manual remains in the GitHub README. If the README is later split into a short front page plus separate manual docs, reduce the README itself to 8-12 images and move the rest to docs.
 
 ## Content To Move Out Or Link Out
 
