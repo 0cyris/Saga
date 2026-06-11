@@ -8,6 +8,7 @@ import {
     toast,
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
+import { formatLoredeckContextUpdatedAt } from './context-formatters.js';
 
 const CONTEXT_PROPOSAL_REVIEW_ID = 'saga-context-proposal-review';
 
@@ -29,7 +30,6 @@ function getLoredeckContext(state, packId) { return dep('getLoredeckContext', ()
 function getLoredeckDisplayName(packId) { return dep('getLoredeckDisplayName', packId => String(packId || 'Loredeck'))(packId); }
 function getContextTypeLabel(value) { return dep('getContextTypeLabel', value => String(value || 'Custom'))(value); }
 function formatContextSource(value) { return dep('formatContextSource', value => String(value || 'Unknown'))(value); }
-function formatLoredeckContextUpdatedAt(context) { return dep('formatLoredeckContextUpdatedAt', () => 'Never')(context); }
 function formatContextSummary(context) { return dep('formatContextSummary', () => 'No Context set.')(context); }
 function getContextAutomationModeLabel(mode) { return dep('getContextAutomationModeLabel', mode => String(mode || 'Manual'))(mode); }
 function getContextBriefStatusLabel(status) { return dep('getContextBriefStatusLabel', () => 'Idle')(status); }

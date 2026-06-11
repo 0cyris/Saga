@@ -302,6 +302,9 @@ import {
     renderContextProposalReview,
 } from '../context/context-panel.js';
 import {
+    formatContextBriefUpdatedAt,
+} from '../context/context-formatters.js';
+import {
     configureContextWorkbenchPanel,
     createContextWorkbenchPackSelector,
     createContextWorkbenchShell,
@@ -749,7 +752,6 @@ configureContextPanel({
     getLoredeckDisplayName,
     getContextTypeLabel,
     formatContextSource,
-    formatLoredeckContextUpdatedAt,
     formatContextSummary,
     getContextAutomationModeLabel,
     getContextBriefStatusLabel,
@@ -17346,12 +17348,6 @@ function getContextBriefStatusTone(status = {}) {
     return 'unknown';
 }
 
-function formatContextBriefUpdatedAt(brief = {}) {
-    const timestamp = Number(brief?.updatedAt || 0);
-    if (!Number.isFinite(timestamp) || timestamp <= 0) return 'Never';
-    return formatRelativeHealthTime(timestamp);
-}
-
 function createContextBriefStatusPill(text, tooltip, tone = '') {
     const pill = createStatusPill(text, tooltip);
     if (tone) pill.classList.add(`saga-status-pill-risk-${tone}`);
@@ -17394,12 +17390,6 @@ function createContextBriefStatusCard(state) {
     row.appendChild(chips);
 
     return row;
-}
-
-function formatLoredeckContextUpdatedAt(context = {}) {
-    const timestamp = Number(context?.updatedAt || context?.lastDetectedAt || 0);
-    if (!Number.isFinite(timestamp) || timestamp <= 0) return 'Never';
-    return formatRelativeHealthTime(timestamp);
 }
 
 function toggleLoredeckContextManualLock(packId, locked) {
