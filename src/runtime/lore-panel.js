@@ -143,6 +143,10 @@ import {
     truncateText,
 } from './runtime-formatters.js';
 import {
+    downloadBytes,
+    downloadJson,
+} from './runtime-downloads.js';
+import {
     TAB_ICON_PATHS,
     applyRuntimeTheme,
     getActiveThemeColors,
@@ -16995,30 +16999,6 @@ function createCompactPresetStat(label, value) {
     row.appendChild(key);
     row.appendChild(val);
     return row;
-}
-
-function downloadJson(data, filename) {
-    const blob = new Blob([JSON.stringify(data, null, 4)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 0);
-}
-
-function downloadBytes(data, filename, mimeType = 'application/octet-stream') {
-    const blob = data instanceof Blob ? data : new Blob([data], { type: mimeType });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 0);
 }
 
 function cloneJson(value) {

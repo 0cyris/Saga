@@ -34,6 +34,9 @@ import {
 import {
     sanitizeFileStem,
 } from '../runtime/runtime-formatters.js';
+import {
+    downloadJson as defaultDownloadJson,
+} from '../runtime/runtime-downloads.js';
 
 let themeActionDeps = {};
 
@@ -361,16 +364,4 @@ export async function forgetThemePack(themeId) {
     } else {
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
     }
-}
-
-function defaultDownloadJson(data, filename) {
-    const blob = new Blob([JSON.stringify(data, null, 4)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 0);
 }
