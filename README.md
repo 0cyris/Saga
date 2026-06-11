@@ -41,15 +41,9 @@ Expect active development, incomplete workflows, changing schemas, rough edges, 
    https://github.com/MentallyQuill/Saga
    ```
 
-2. In SillyTavern, open **Extensions** and use **Install Extension** with the copied URL.
-3. Restart or reload SillyTavern after installation.
-4. Open the Saga shelf from the extension UI.
-5. Use **Basic** Experience for the first run.
-6. Open **Loredecks** and load a Loredeck into the **Active Stack**.
-7. Open **Context** and set where the story currently is.
-8. Open **Lorecards** and review any generated or user-created lore before accepting it.
-9. Confirm the **Start Checklist** is ready.
-10. Continue roleplay. Switch to **Advanced** only when you need deeper controls.
+2. In SillyTavern, open **Extensions** and use **Install Extension** with the copied URL. Reload the page.
+3. The Saga shelf should load on the left of the page. If it does not, open it from the **SAGA** extension dropdown: **Open SAGA Window**.
+4. Start in **Basic Workflow**. Go to the **Session** tab, follow the **Start Checklist**, and consider viewing the **Basic Walkthrough** below it.
 
 For guided walkthroughs, see [Basic Workflow](docs/user/BASIC_WORKFLOW.md) and [Advanced Workflow](docs/user/ADVANCED_WORKFLOW.md). The in-app walkthroughs are module-based: run the full pass, or start the exact workflow card you need.
 

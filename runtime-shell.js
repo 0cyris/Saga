@@ -327,6 +327,7 @@ export function resetRuntimePanelLayout(options = {}) {
         drawerHeight,
         collapsed: true,
         isOpen: true,
+        guidedTask: null,
         x: railX,
         y: railY,
         width: drawerWidth,

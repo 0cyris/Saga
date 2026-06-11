@@ -15971,6 +15971,12 @@ function renderPanelBody(container, state) {
     const tabBody = document.createElement('div');
     tabBody.className = `saga-runtime-tab-body saga-runtime-tab-body-${activeTab}`;
     container.appendChild(tabBody);
+    const guidedTask = getActiveBasicGuidedTask(state, activeTab, settings);
+    if (guidedTask) {
+        tabBody.appendChild(createBasicGuidedTaskStrip(guidedTask, state, settings));
+    } else {
+        clearBasicGuidedTaskHighlight();
+    }
 
     try {
         if (activeTab === 'loredecks') {
@@ -15996,6 +16002,7 @@ function renderPanelBody(container, state) {
 
     installNestedScrollHandoff(tabBody);
     if (activeTab === 'lore') scheduleAcceptedLoreLayoutUpdate();
+    scheduleBasicGuidedTaskTargetFocus(guidedTask, state, settings);
 }
 
 function createRuntimeRenderErrorCard(titleText = 'Runtime Tab', error = null) {
@@ -16328,16 +16335,20 @@ function getActiveChatMetricName() {
     return 'Current chat';
 }
 
-function navigateRuntimeTab(tabId) {
+function navigateRuntimeTab(tabId, options = {}) {
     const settings = getSettings();
-    setPanelState({ activeTab: normalizeTabForExperience(tabId, settings) });
+    const activeTab = normalizeTabForExperience(tabId, settings);
+    const patch = { activeTab };
+    if (options.guidedTask) patch.guidedTask = options.guidedTask;
+    else if (options.clearGuidedTask || activeTab === 'session') patch.guidedTask = null;
+    setPanelState(patch);
     refreshPanelBody({ preserveScroll: false });
     refreshHeader();
 }
 
 function openAdvancedSettingsTab() {
     setExperienceMode('advanced');
-    setPanelState({ activeTab: 'settings' });
+    setPanelState({ activeTab: 'settings', guidedTask: null });
     refreshPanelBody({ preserveScroll: false });
     refreshHeader();
 }
@@ -16379,10 +16390,121 @@ function getBasicReadinessModel(state = getState(), settings = getSettings()) {
     });
 }
 
+const BASIC_GUIDED_TASKS_BY_ROW = Object.freeze({
+    loredecks: {
+        id: 'basic.loredecks.stack',
+        title: 'Add Lorepack to Stack',
+        body: 'Open the Loredeck Library, choose a Lorepack, and add it to the active stack for this chat.',
+        targetTab: 'loredecks',
+        target: 'loredecks.library.open',
+        fallbackTarget: 'loredecks.library.launch',
+        expandSections: Object.freeze(['loredecks.libraryLaunch']),
+        prepare: 'openLoredeckLibrary',
+        statusText: 'Open the Library, then add at least one Lorepack to the active stack.',
+        doneText: 'A Lorepack is now in the active stack. Return to the Start Checklist to set Context.',
+        nextLabel: 'Open Library',
+        nextTarget: 'loredecks.library.open',
+        nextTooltip: 'Open the fullscreen Loredeck Library for this setup step.',
+        targetMissingText: 'The Library launch control is not visible yet. Use the Loredecks tab to open the Library.',
+    },
+    context: {
+        id: 'basic.context.set',
+        title: 'Set Story Context',
+        body: 'Use Runtime Context to choose where this chat sits inside the loaded Lorepacks.',
+        targetTab: 'context',
+        target: 'context.commandCenter',
+        fallbackTarget: 'context.loadedLoredecks',
+        expandSections: Object.freeze(['context.commandCenter']),
+        statusText: 'Use Browse Context or Detect Context for the loaded Lorepacks.',
+        doneText: 'Story Context is set. Return to the Start Checklist to review Lorecards.',
+        targetMissingText: 'Context controls are not visible yet. Load a Lorepack first, then return to set Context.',
+    },
+    review: {
+        id: 'basic.lorecards.review',
+        title: 'Review Lorecards',
+        body: 'Review pending Lorecards and accept the useful entries before they influence the next response.',
+        targetTab: 'lore',
+        target: 'lore.pending',
+        fallbackTarget: 'lore.generation.section',
+        expandSections: Object.freeze(['lore.pendingReview']),
+        prepare: 'openPendingLoreReview',
+        statusText: 'Review pending Lorecards and accept facts that should affect future responses.',
+        doneText: 'At least one Lorecard is accepted. Return to the Start Checklist to confirm prompt selection.',
+        targetMissingText: 'Pending Lorecard Review is not visible yet. You may need to generate or add Lorecards first.',
+    },
+    'lore-ready': {
+        id: 'basic.lorecards.ready',
+        title: 'Confirm Lorecards',
+        body: 'Check Accepted Lorecards and confirm useful entries are selected for the next prompt.',
+        targetTab: 'lore',
+        target: 'lore.accepted',
+        fallbackTarget: 'lore.pending',
+        expandSections: Object.freeze(['lore.acceptedEntries']),
+        prepare: 'openAcceptedLoreDetails',
+        statusText: 'Check accepted Lorecards and confirm useful entries are selected for the next prompt.',
+        doneText: 'Lorecards are selected for the next prompt. Return to the Start Checklist when you are ready to continue roleplay.',
+        targetMissingText: 'Accepted Lorecards are not visible yet. Review or add Lorecards first.',
+    },
+    provider: {
+        id: 'basic.provider.configure',
+        title: 'Configure Provider',
+        body: 'Pick a model route for Saga model-backed actions, then test the provider when needed.',
+        targetTab: 'settings',
+        target: 'settings.providers',
+        fallbackTarget: 'settings.providers',
+        expandSections: Object.freeze(['settings.providers']),
+        statusText: 'Use Basic provider rows, or open Advanced provider settings if you need deeper routing.',
+        doneText: 'Provider routing is configured. Return to the Start Checklist when you are ready.',
+        targetMissingText: 'Provider setup is not visible yet. Open Basic Settings and expand Providers.',
+    },
+});
+
+function getBasicGuidedTaskConfig(row = {}) {
+    if (row.id === 'context' && row.targetTab === 'loredecks') return BASIC_GUIDED_TASKS_BY_ROW.loredecks;
+    return BASIC_GUIDED_TASKS_BY_ROW[row.id] || null;
+}
+
+function createBasicGuidedTask(row = {}) {
+    const config = getBasicGuidedTaskConfig(row);
+    if (!config) return null;
+    const targetTab = row.targetTab || config.targetTab || 'session';
+    const readinessRowId = row.id === 'context' && targetTab === 'loredecks'
+        ? 'loredecks'
+        : (config.readinessRowId || row.id || '');
+    return {
+        id: config.id,
+        source: 'session.basicReadiness',
+        sourceTab: 'session',
+        targetTab,
+        target: config.target,
+        fallbackTarget: config.fallbackTarget || '',
+        expandSections: Array.isArray(config.expandSections) ? [...config.expandSections] : [],
+        prepare: config.prepare || '',
+        readinessRowId,
+        title: config.title,
+        body: config.body,
+        statusText: config.statusText || '',
+        doneText: config.doneText || '',
+        targetMissingText: config.targetMissingText || 'The guided task target is not visible in the current state.',
+        nextLabel: config.nextLabel || '',
+        nextTarget: config.nextTarget || '',
+        nextTooltip: config.nextTooltip || '',
+        status: 'active',
+        startedAt: Date.now(),
+    };
+}
+
+function launchBasicGuidedTask(row = {}) {
+    const task = createBasicGuidedTask(row);
+    if (!task) return;
+    expandBasicGuidedTaskSections(task);
+    navigateRuntimeTab(task.targetTab, { guidedTask: task });
+}
+
 function getBasicReadinessAction(row) {
     if (!row || row.ready || !row.actionLabel) return null;
     if (row.actionId === 'enable-saga') return enableSagaRuntime;
-    if (row.targetTab) return () => navigateRuntimeTab(row.targetTab);
+    if (row.targetTab) return () => launchBasicGuidedTask(row);
     return null;
 }
 
@@ -16449,6 +16571,248 @@ function createBasicStartReadinessCard(state = getState(), settings = getSetting
             className: 'saga-basic-readiness-card',
         }
     ), 'session.basicReadiness');
+}
+
+function getActiveBasicGuidedTask(state = getState(), activeTab = '', settings = getSettings()) {
+    if (!isBasicExperience(settings)) return null;
+    const task = state?.lorePanel?.guidedTask;
+    if (!task || typeof task !== 'object' || !task.id || !task.targetTab) return null;
+    if (activeTab && task.targetTab !== activeTab) return null;
+    return task;
+}
+
+function getBasicGuidedTaskReadinessRow(task, state = getState(), settings = getSettings()) {
+    const rowId = String(task?.readinessRowId || '').trim();
+    if (!rowId) return null;
+    return getBasicReadinessModel(state, settings).rows.find(row => row.id === rowId) || null;
+}
+
+function normalizeBasicGuidedTaskStatus(status) {
+    const normalized = String(status || '').trim();
+    return ['active', 'target_missing', 'done'].includes(normalized) ? normalized : 'active';
+}
+
+function setActiveBasicGuidedTaskStatus(status, task = getState()?.lorePanel?.guidedTask) {
+    const nextStatus = normalizeBasicGuidedTaskStatus(status);
+    const state = getState();
+    const current = state?.lorePanel?.guidedTask;
+    if (!current || !task || current.id !== task.id || current.targetTab !== task.targetTab) return false;
+    if (normalizeBasicGuidedTaskStatus(current.status) === nextStatus) return false;
+    current.status = nextStatus;
+    saveState(state);
+    return true;
+}
+
+function getBasicGuidedTaskEffectiveStatus(task, row) {
+    if (row?.ready) return 'done';
+    const status = normalizeBasicGuidedTaskStatus(task?.status);
+    return status === 'done' ? 'active' : status;
+}
+
+function expandBasicGuidedTaskSections(task = {}) {
+    const sections = Array.isArray(task.expandSections) ? task.expandSections : [];
+    for (const sectionId of sections) {
+        const id = String(sectionId || '').trim();
+        if (id) setSectionCollapsed(id, false);
+    }
+}
+
+function clearBasicGuidedTaskHighlight() {
+    for (const el of document.querySelectorAll('.saga-guided-task-highlight')) {
+        el.classList.remove('saga-guided-task-highlight');
+    }
+}
+
+function returnToBasicStartChecklist() {
+    clearBasicGuidedTaskHighlight();
+    setSectionCollapsed('session.basicReadiness', false);
+    setPanelState({ activeTab: 'session', guidedTask: null });
+    refreshPanelBody({ preserveScroll: false });
+    refreshHeader();
+}
+
+function dismissBasicGuidedTask() {
+    clearBasicGuidedTaskHighlight();
+    setPanelState({ guidedTask: null });
+    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
+    refreshHeader();
+}
+
+function getGuidedTaskTargetElement(task = {}) {
+    const root = panelRoot || document.getElementById(PANEL_ID) || document.body;
+    const targets = [task.target, task.fallbackTarget].map(value => String(value || '').trim()).filter(Boolean);
+    if (!targets.length) return null;
+    const candidates = [
+        ...Array.from(root.querySelectorAll('[data-saga-tour]')),
+        ...Array.from(document.querySelectorAll('[data-saga-tour]')),
+    ];
+    return candidates.find(el => targets.includes(el?.dataset?.sagaTour)) || null;
+}
+
+function getGuidedTaskStripElement(task = {}) {
+    const root = panelRoot || document.getElementById(PANEL_ID) || document.body;
+    return Array.from(root.querySelectorAll('[data-saga-guided-task-id]'))
+        .find(el => el?.dataset?.sagaGuidedTaskId === task?.id) || null;
+}
+
+function setBasicGuidedTaskStripStatus(task = {}, message = '', missing = false) {
+    const status = panelRoot?.querySelector('[data-saga-guided-task-status]');
+    const strip = getGuidedTaskStripElement(task);
+    strip?.classList.toggle('saga-basic-guided-task-strip-missing', !!missing);
+    if (status) {
+        status.textContent = message || (missing ? (task?.targetMissingText || 'The guided control is not visible in the current state.') : (task?.statusText || 'Follow the highlighted control.'));
+        status.classList.toggle('saga-basic-guided-task-status-missing', !!missing);
+    }
+}
+
+function applyBasicGuidedTaskTargetResult(task = {}, target = null, prepareResult = null) {
+    if (target) {
+        target.classList.add('saga-guided-task-highlight');
+        target.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'auto' });
+        setActiveBasicGuidedTaskStatus('active', task);
+        setBasicGuidedTaskStripStatus(task, prepareResult?.message || task?.statusText || 'Follow the highlighted control.', false);
+        return true;
+    }
+    setActiveBasicGuidedTaskStatus('target_missing', task);
+    setBasicGuidedTaskStripStatus(
+        task,
+        prepareResult?.message || task?.targetMissingText || 'The guided control is not visible in the current state.',
+        true
+    );
+    return false;
+}
+
+function prepareBasicGuidedTaskTarget(task = {}) {
+    if (!task || typeof task !== 'object') return null;
+    expandBasicGuidedTaskSections(task);
+    const prepare = String(task?.prepare || '').trim();
+    if (!prepare) return null;
+    return prepareRuntimeGuideStep({
+        title: task.title || 'Setup task',
+        tab: task.targetTab || 'session',
+        target: task.target || '',
+        fallbackTarget: task.fallbackTarget || '',
+        prepare,
+    });
+}
+
+function focusBasicGuidedTaskTarget(task = getState()?.lorePanel?.guidedTask, options = {}) {
+    if (!task || typeof task !== 'object') return false;
+    clearBasicGuidedTaskHighlight();
+    const target = getGuidedTaskTargetElement(task);
+    if (target) {
+        return applyBasicGuidedTaskTargetResult(task, target);
+    }
+    if (options.prepare !== false && task?.prepare) {
+        setBasicGuidedTaskStripStatus(task, 'Opening the guided target...', false);
+        Promise.resolve()
+            .then(() => prepareBasicGuidedTaskTarget(task))
+            .catch(error => {
+                console.warn('[Saga] Basic guided task prepare failed:', error);
+                return createGuidePrepareResult(false, `${task.title || 'Setup task'} could not be prepared automatically.`);
+            })
+            .then(prepareResult => {
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        const current = getState()?.lorePanel?.guidedTask;
+                        if (!current || current.id !== task.id || current.targetTab !== task.targetTab) return;
+                        applyBasicGuidedTaskTargetResult(current, getGuidedTaskTargetElement(current), prepareResult);
+                    });
+                });
+            });
+        return false;
+    }
+    return applyBasicGuidedTaskTargetResult(task, null);
+}
+
+function runBasicGuidedTaskNext(task = getState()?.lorePanel?.guidedTask) {
+    if (!task || typeof task !== 'object') return false;
+    const target = getGuidedTaskTargetElement({
+        ...task,
+        target: task?.nextTarget || task?.target,
+        fallbackTarget: task?.target,
+    });
+    if (!target || target.disabled || target.getAttribute?.('aria-disabled') === 'true') {
+        focusBasicGuidedTaskTarget(task);
+        return false;
+    }
+    setActiveBasicGuidedTaskStatus('active', task);
+    target.click();
+    return true;
+}
+
+function scheduleBasicGuidedTaskTargetFocus(task, state = getState(), settings = getSettings()) {
+    if (!task) {
+        clearBasicGuidedTaskHighlight();
+        return;
+    }
+    const row = getBasicGuidedTaskReadinessRow(task, state, settings);
+    if (row?.ready) {
+        clearBasicGuidedTaskHighlight();
+        return;
+    }
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            const current = getState()?.lorePanel?.guidedTask;
+            if (!current || current.id !== task.id || current.targetTab !== task.targetTab) return;
+            focusBasicGuidedTaskTarget(current, { prepare: false });
+        });
+    });
+}
+
+function createBasicGuidedTaskStrip(task, state = getState(), settings = getSettings()) {
+    const row = getBasicGuidedTaskReadinessRow(task, state, settings);
+    const effectiveStatus = getBasicGuidedTaskEffectiveStatus(task, row);
+    const done = effectiveStatus === 'done';
+    const missing = effectiveStatus === 'target_missing';
+    if (done) setActiveBasicGuidedTaskStatus('done', task);
+    const strip = document.createElement('div');
+    strip.className = `saga-basic-guided-task-strip ${done ? 'saga-basic-guided-task-strip-done' : ''} ${missing ? 'saga-basic-guided-task-strip-missing' : ''}`.trim();
+    strip.dataset.sagaGuidedTaskId = task.id;
+
+    const main = document.createElement('div');
+    main.className = 'saga-basic-guided-task-main';
+    const crumb = document.createElement('div');
+    crumb.className = 'saga-basic-guided-task-crumb';
+    crumb.textContent = `Start Checklist > ${task.title || 'Setup task'}`;
+    main.appendChild(crumb);
+    const body = document.createElement('div');
+    body.className = 'saga-basic-guided-task-body';
+    body.textContent = done
+        ? (task.doneText || `${row.label || 'Checklist item'} is ready. Return to the Start Checklist when you are done here.`)
+        : (task.body || 'Complete this setup step, then return to the Start Checklist.');
+    main.appendChild(body);
+    const status = document.createElement('div');
+    status.className = `saga-basic-guided-task-status ${missing ? 'saga-basic-guided-task-status-missing' : ''}`.trim();
+    status.dataset.sagaGuidedTaskStatus = task.id;
+    status.textContent = done
+        ? 'Done.'
+        : (missing ? (task.targetMissingText || 'The guided control is not visible in the current state.') : (task.statusText || 'Looking for the guided control...'));
+    main.appendChild(status);
+    strip.appendChild(main);
+
+    const actions = document.createElement('div');
+    actions.className = 'saga-basic-guided-task-actions saga-primary-actions';
+    actions.appendChild(createButton('Back to Start Checklist', 'Return to the Basic Session Start Checklist.', returnToBasicStartChecklist, done ? 'saga-primary-button' : ''));
+    if (!done) {
+        if (task.nextTarget && task.nextLabel) {
+            actions.appendChild(createButton(task.nextLabel, task.nextTooltip || task.body || 'Continue this guided setup step.', () => runBasicGuidedTaskNext(task), 'saga-primary-button'));
+        }
+        actions.appendChild(createButton('Find Control', 'Scroll to and highlight the control for this setup step.', () => focusBasicGuidedTaskTarget(task, { prepare: true })));
+    }
+    actions.appendChild(createButton('Dismiss', 'Dismiss this guided setup helper.', dismissBasicGuidedTask));
+    strip.appendChild(actions);
+    return strip;
+}
+
+function startRuntimeWalkthrough(mode, options = {}) {
+    clearBasicGuidedTaskHighlight();
+    const state = getState();
+    if (state?.lorePanel?.guidedTask) {
+        state.lorePanel.guidedTask = null;
+        saveState(state);
+    }
+    startSagaTour(mode, options);
 }
 
 function renderSessionTab(container, state) {
@@ -16579,7 +16943,7 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
     const actions = document.createElement('div');
     actions.className = 'saga-guide-actions';
     actions.appendChild(createButton(guide.tourLabel || 'Start Walkthrough', 'Open a guided walkthrough that moves through the related Saga tabs and controls.', () => {
-        startSagaTour(mode);
+        startRuntimeWalkthrough(mode);
     }, 'saga-primary-button'));
     wrap.appendChild(actions);
 
@@ -16614,7 +16978,7 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
         main.appendChild(meta);
         card.appendChild(main);
         const action = createButton('Start', `Start the ${section.label} walkthrough.`, () => {
-            startSagaTour(mode, { sectionId: section.id });
+            startRuntimeWalkthrough(mode, { sectionId: section.id });
         }, 'saga-mini-button saga-guide-step-button');
         card.appendChild(action);
         flow.appendChild(card);
@@ -20717,6 +21081,10 @@ function setExperienceMode(mode) {
     if (state?.lorePanel) {
         normalizePanelLayoutState(state);
         state.lorePanel.activeTab = normalizeTabForExperience(state.lorePanel.activeTab, settings);
+        if (normalizeExperienceMode(settings.experienceMode) === 'advanced') {
+            state.lorePanel.guidedTask = null;
+            clearBasicGuidedTaskHighlight();
+        }
         saveState(state);
     }
 }
