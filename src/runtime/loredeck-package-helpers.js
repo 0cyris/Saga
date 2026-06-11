@@ -106,11 +106,14 @@ export function normalizeLoredeckEntryId(value) {
 }
 
 export function getLoredeckTagRegistryCount(registry = {}) {
-    return Object.keys(normalizeLoredeckTagRegistry(registry).tags || {}).length;
+    const normalized = normalizeLoredeckTagRegistry(registry);
+    if (!normalized) return 0;
+    return Object.keys(normalized.tags || {}).length;
 }
 
 export function getLoredeckTimelineRegistryCount(registry = {}) {
     const normalized = normalizeLoredeckTimelineRegistry(registry);
+    if (!normalized) return 0;
     return (normalized.anchors?.length || 0)
         + (normalized.windows?.length || 0)
         + (normalized.disabledAnchorIds?.length || 0)

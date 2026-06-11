@@ -114,7 +114,7 @@ export function buildLoredeckHealthForData(options = {}) {
     const finalEntryFiles = options.registryRecord
         ? applyRegistryEntryOverrides(entryFiles, options.registryRecord, manifest, health)
         : entryFiles;
-    const timeline = createInMemoryTimelineHealthIndex(manifest, options.timeline, health, options.registryRecord);
+    const timeline = createInMemoryTimelineHealthIndex(manifest, options.timeline, health, options.timelineRegistryRecord || options.registryRecord);
     const tagIndex = createInMemoryTagRegistryHealthIndex(manifest, options.tagRegistry, options.registryRecord, health);
     analyzeEntryContextHealth(health, finalEntryFiles, timeline);
     analyzeEntries(health, finalEntryFiles, manifest, tagIndex);

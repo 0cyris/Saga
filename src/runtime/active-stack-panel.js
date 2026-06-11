@@ -6,6 +6,8 @@ import {
     normalizeLoredeckHealthIssueStates,
     normalizeLoredeckPendingChanges,
     normalizeLoredeckTagRegistry,
+    normalizeLoredeckTimelineRegistryIssue,
+    normalizeLoredeckTimelineRegistryIssueRecord,
     normalizeLoredeckTimelineRegistry,
 } from '../state/lore-state-normalizers.js';
 import {
@@ -101,6 +103,8 @@ export function normalizeLoredeckLibraryPack(raw = {}) {
     const disabledEntryIds = Array.isArray(raw.disabledEntryIds) ? raw.disabledEntryIds.map(id => String(id || '').trim()).filter(Boolean) : [];
     const assets = raw.assets && typeof raw.assets === 'object' && !Array.isArray(raw.assets) ? raw.assets : null;
     const timelineRegistry = normalizeLoredeckTimelineRegistry(raw.timelineRegistry);
+    const timelineRegistryIssue = normalizeLoredeckTimelineRegistryIssueRecord(raw.timelineRegistryIssue)
+        || (Object.prototype.hasOwnProperty.call(raw, 'timelineRegistry') ? normalizeLoredeckTimelineRegistryIssue(raw.timelineRegistry, timelineRegistry) : null);
     const tagRegistry = normalizeLoredeckTagRegistry(raw.tagRegistry);
     const pendingChanges = normalizeLoredeckPendingChanges(raw.pendingChanges);
     const healthIssueStates = normalizeLoredeckHealthIssueStates(raw.healthIssueStates);
@@ -128,6 +132,7 @@ export function normalizeLoredeckLibraryPack(raw = {}) {
         entryOverrides,
         disabledEntryIds,
         ...(getLoredeckTimelineRegistryCount(timelineRegistry) ? { timelineRegistry } : {}),
+        ...(timelineRegistryIssue ? { timelineRegistryIssue } : {}),
         ...(getLoredeckTagRegistryCount(tagRegistry) ? { tagRegistry } : {}),
         ...(pendingChanges.length ? { pendingChanges } : {}),
         ...(Object.keys(healthIssueStates).length ? { healthIssueStates } : {}),

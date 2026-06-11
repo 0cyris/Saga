@@ -726,6 +726,52 @@ function normalizeLoredeckTimelineDisabledIds(value = []) {
     return output;
 }
 
+function hasOwnTimelineRegistryField(value = {}, field = '') {
+    return Object.prototype.hasOwnProperty.call(value, field);
+}
+
+export function normalizeLoredeckTimelineRegistryIssueRecord(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const reason = String(value.reason || value.message || '').trim().slice(0, 500);
+    const code = String(value.code || 'malformed_timeline_registry').trim().slice(0, 120) || 'malformed_timeline_registry';
+    if (!reason && code !== 'malformed_timeline_registry') return null;
+    return {
+        code,
+        severity: 'warning',
+        reason: reason || 'Timeline registry overlay is malformed.',
+    };
+}
+
+export function normalizeLoredeckTimelineRegistryIssue(value, normalized = normalizeLoredeckTimelineRegistry(value)) {
+    if (normalized) return null;
+    if (value === undefined) return null;
+    let reason = '';
+    if (value === null) {
+        reason = 'Timeline registry is null.';
+    } else if (typeof value !== 'object' || Array.isArray(value)) {
+        reason = 'Timeline registry must be an object.';
+    } else {
+        const invalidArrayFields = [
+            'anchors',
+            'windows',
+            'arcs',
+            'phases',
+            'disabledAnchorIds',
+            'disabledAnchors',
+            'disabledWindowIds',
+            'disabledWindows',
+        ].filter(field => hasOwnTimelineRegistryField(value, field) && !Array.isArray(value[field]));
+        reason = invalidArrayFields.length
+            ? `Timeline registry field${invalidArrayFields.length === 1 ? '' : 's'} must be array-based: ${invalidArrayFields.join(', ')}.`
+            : 'Timeline registry has no usable anchors, windows, or disabled timeline ids.';
+    }
+    return {
+        code: 'malformed_timeline_registry',
+        severity: 'warning',
+        reason,
+    };
+}
+
 export function normalizeLoredeckTimelineRegistry(value) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
     const input = value;
@@ -835,6 +881,13 @@ export function normalizeLoredeckRegistry(value, defaults = getDefaultState().lo
         if (tagRegistry) pack.tagRegistry = tagRegistry;
         const timelineRegistry = normalizeLoredeckTimelineRegistry(raw.timelineRegistry);
         if (timelineRegistry) pack.timelineRegistry = timelineRegistry;
+        else {
+            const existingIssue = normalizeLoredeckTimelineRegistryIssueRecord(raw.timelineRegistryIssue);
+            const issue = existingIssue || (Object.prototype.hasOwnProperty.call(raw, 'timelineRegistry')
+                ? normalizeLoredeckTimelineRegistryIssue(raw.timelineRegistry, timelineRegistry)
+                : null);
+            if (issue) pack.timelineRegistryIssue = issue;
+        }
         const pendingChanges = normalizeLoredeckPendingChanges(raw.pendingChanges);
         if (pendingChanges.length) pack.pendingChanges = pendingChanges;
         const healthIssueStates = normalizeLoredeckHealthIssueStates(raw.healthIssueStates);

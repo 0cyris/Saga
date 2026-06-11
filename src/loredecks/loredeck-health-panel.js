@@ -1186,6 +1186,7 @@ function getLoredeckHealthIssueTitle(code = '') {
         unmatchable_context_gate: 'Context gate cannot match',
         context_gates_without_timeline: 'Context gates need a timeline registry',
         context_timeline_empty: 'Timeline registry is empty',
+        context_timeline_registry_malformed: 'Timeline registry overlay is malformed',
         context_timeline_load_failed: 'Timeline registry failed to load',
         context_timeline_invalid_ref: 'Timeline registry path is invalid',
         timeline_anchor_sortkey_mismatch: 'Timeline anchor sort key mismatch',

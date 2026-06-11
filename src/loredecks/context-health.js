@@ -282,6 +282,7 @@ export function analyzeTimelineDateDerivedSortKeys(health, timeline = {}) {
 export async function loadTimelineRegistryForHealth(manifest = {}, baseUrl = null, health, registryRecord = null, fetchJsonDetailed = null) {
     const packId = cleanHealthString(manifest.id || health?.packId, 160);
     const timelineRef = getTimelineRegistryRef(manifest);
+    addMalformedTimelineRegistryHealthIssue(health, registryRecord, timelineRef);
     const empty = createEmptyTimelineHealthIndex(packId, timelineRef);
     empty.hasTimelineRef = !!timelineRef;
     let sourceRegistry = isPlainObject(manifest.timelineRegistry) ? manifest.timelineRegistry : null;
@@ -572,9 +573,20 @@ export function createEmptyTimelineHealthIndex(packId = '', timelineRef = '') {
     };
 }
 
+function addMalformedTimelineRegistryHealthIssue(health, registryRecord = null, timelineRef = '') {
+    const issue = isPlainObject(registryRecord?.timelineRegistryIssue) ? registryRecord.timelineRegistryIssue : null;
+    if (!issue) return false;
+    addHealthIssue(health, 'warning', 'context_timeline_registry_malformed', `Timeline registry overlay is malformed: ${cleanHealthString(issue.reason || 'invalid timeline registry', 500)}`, {
+        timelineRef,
+        sourceCode: cleanHealthString(issue.code || 'malformed_timeline_registry', 120),
+    });
+    return true;
+}
+
 export function createInMemoryTimelineHealthIndex(manifest = {}, timeline = null, health, registryRecord = null) {
     const packId = cleanHealthString(manifest.id || health?.packId, 160);
     const timelineRef = getTimelineRegistryRef(manifest);
+    addMalformedTimelineRegistryHealthIssue(health, registryRecord, timelineRef);
     const mergedRegistry = mergeLoredeckTimelineRegistries(
         isPlainObject(timeline) ? timeline : (isPlainObject(manifest.timelineRegistry) ? manifest.timelineRegistry : null),
         registryRecord?.timelineRegistry

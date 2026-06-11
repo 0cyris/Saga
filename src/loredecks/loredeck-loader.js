@@ -222,6 +222,7 @@ export async function loadLoredeckSourceById(packId = DEFAULT_LOREDECK_ID, optio
                     entryFiles,
                     timeline: registryRecord?.timelineRegistry || null,
                     tagRegistry: registryRecord?.tagRegistry || null,
+                    timelineRegistryRecord: registryRecord,
                     registryRecord: null,
                 });
                 return {

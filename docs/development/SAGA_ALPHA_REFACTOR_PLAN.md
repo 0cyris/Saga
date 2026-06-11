@@ -17,6 +17,7 @@ Because Saga is still pre-alpha, update the implementation in place to the best 
 - [SAGA_ALPHA_RELEASE_SYSTEMS.md](SAGA_ALPHA_RELEASE_SYSTEMS.md): alpha system definition and release blockers.
 - [SAGA_ALPHA_REPOSITORY_RESTRUCTURE_PLAN.md](SAGA_ALPHA_REPOSITORY_RESTRUCTURE_PLAN.md): completed root-to-domain folder restructure.
 - [SAGA_LORE_PANEL_DECOMPOSITION_PLAN.md](SAGA_LORE_PANEL_DECOMPOSITION_PLAN.md): detailed running history for the `lore-panel.js` extraction.
+- [SAGA_ALPHA_STABILIZATION_AND_UI_EXTRACTION.md](SAGA_ALPHA_STABILIZATION_AND_UI_EXTRACTION.md): immediate stabilization gates and Loredeck UI extraction slices after the broad split.
 - [SAGA_CORE_INTEGRATION_TESTING.md](SAGA_CORE_INTEGRATION_TESTING.md): deterministic Context-to-injection verification.
 - [LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md](LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md): import/export package contract.
 
@@ -623,4 +624,3 @@ This refactor plan is alpha-complete when:
 Start with Phase 1, the shared action registry, then Phase 2, entrypoint and prompt injector cleanup.
 
 Reason: runtime panel extraction and startup splitting both need a stable way to invoke the same behavior from UI buttons, slash commands, toolbar/menu actions, and debug globals. Creating the action registry first reduces duplicate behavior before the larger file moves begin.
-

@@ -23,5 +23,6 @@ Saga documentation is being organized into release-facing topic folders. Older i
 - [Jujutsu Kaisen Loredeck Series Plan](development/JJK_LOREDECK_SERIES_PLAN.md): source-boundary, deck-family split, Context model, tag plan, and Pack Health bar for a manga-primary JJK Bundled Lorepack family.
 - [Alpha Repository Restructure Plan](development/SAGA_ALPHA_REPOSITORY_RESTRUCTURE_PLAN.md): production-alpha cleanup plan for moving root implementation code, bundled Loredecks, presets, passive assets, tests, and tools into durable repo domains.
 - [Alpha Refactor Plan](development/SAGA_ALPHA_REFACTOR_PLAN.md): pre-alpha to alpha decomposition plan for runtime, state, CSS, loader, startup, prompt injection globals, and Loredeck workflow UI.
+- [Alpha Stabilization And UI Extraction](development/SAGA_ALPHA_STABILIZATION_AND_UI_EXTRACTION.md): next-pass checkpoint for proving the broad refactor behavior, then extracting shared Loredeck UI primitives.
 
 When a development document becomes part of the product contract, move it into the relevant topic folder and update links from the old location.
