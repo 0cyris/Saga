@@ -710,11 +710,11 @@ export function getDefaultState() {
         // remain as migration aliases for older saved Saga panels.
         lorePanel: {
             isOpen: true,
-            collapsed: true,
-            railMode: 'compact',
+            collapsed: false,
+            railMode: 'expanded',
             railX: 20,
             railY: 220,
-            drawerOpen: false,
+            drawerOpen: true,
             drawerWidth: 560,
             drawerHeight: 640,
             drawerDirection: 'auto',

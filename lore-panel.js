@@ -16038,10 +16038,9 @@ function getProviderRailMetricLabel(status = {}) {
     return status.label || 'Model';
 }
 
-function getProviderRailMetricPart(kind, settings = getSettings(), maxLength = 12) {
+function getProviderRailMetricPart(kind, settings = getSettings(), maxLength = 14) {
     const status = getProviderModelStatus(kind, settings);
-    const prefix = kind === 'continuity' ? 'U' : 'R';
-    return `${prefix}:${truncateRailMetricText(getProviderRailMetricLabel(status), maxLength)}`;
+    return truncateRailMetricText(getProviderRailMetricLabel(status), maxLength);
 }
 
 function getSettingsProviderRailMetricLines(settings = getSettings()) {

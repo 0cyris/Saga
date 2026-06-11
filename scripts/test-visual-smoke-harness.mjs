@@ -432,6 +432,7 @@ assert(!runtimePanelSource.includes("scope.textContent = 'Global'"), 'Loredecks 
 assert(style.includes('.saga-runtime-rail-tab-global') && style.includes('.saga-runtime-rail-tab-divider'), 'Loredecks shelf grouping must have dedicated accent and divider styling.');
 assert(style.includes('border-color: var(--saga-border') && style.includes('var(--saga-border-soft'), 'Loredecks shelf accent must reuse existing theme border variables.');
 assert(!style.includes('2px 0 0 rgba(215, 181, 109') && !style.includes('2px 0 0 rgba(212, 200, 168'), 'Loredecks shelf accent must not use a left inset that visually offsets the tab.');
+assert(/lorePanel:\s*\{[\s\S]*isOpen:\s*true,[\s\S]*collapsed:\s*false,[\s\S]*railMode:\s*'expanded',[\s\S]*drawerOpen:\s*true,/.test(constants), 'Fresh Saga installs must start with the expanded shelf and drawer open.');
 assert(harness.includes('window.SillyTavern'), 'Harness must stub SillyTavern before importing modules.');
 const basicTabsSource = runtimeNavigation.match(/BASIC_EXPERIENCE_TABS\s*=\s*Object\.freeze\(\[([^\]]*)\]\)/)?.[1] || '';
 const tabLabelsSource = runtimeNavigation.match(/TAB_LABELS\s*=\s*Object\.freeze\(\{([\s\S]*?)\}\);/)?.[1] || '';
@@ -447,7 +448,7 @@ assert(runtimePanelSource.includes('getTabLabelForExperience(tabId, settings)') 
 assert(llm.includes('export function getProviderModelStatus') && llm.includes('getConnectionProfileModelName'), 'Provider model display status must be resolved through the shared provider client.');
 assert(runtimePanelSource.includes('function getSettingsProviderRailMetricLines') && runtimePanelSource.includes("settings: getSettingsProviderRailMetricLines(settings)") && runtimePanelSource.includes('saga-runtime-rail-metric-line') && !runtimePanelSource.includes("settings: getThemePreset(settings.themePackId)?.title || 'Theme'"), 'Settings shelf metric must show stacked compact provider model status instead of the active theme.');
 assert(runtimePanelSource.includes('function getRailMetricTooltips') && runtimePanelSource.includes('getSettingsProviderRailTooltip(settings)'), 'Clipped Settings shelf model metrics must keep a full provider-model tooltip.');
-assert(/\.saga-runtime-rail-metric\s*\{[\s\S]*flex: 0 1 auto;[\s\S]*max-width: 106px;[\s\S]*font-size: 0\.66em;/.test(style) && style.includes('.saga-runtime-rail-expanded .saga-runtime-rail-metric-stack'), 'Runtime rail metrics must stay shrinkable and compact for stacked model/profile text.');
+assert(/\.saga-runtime-rail-metric\s*\{[\s\S]*flex: 0 1 auto;[\s\S]*max-width: 106px;[\s\S]*font-size: 0\.66em;/.test(style) && /\.saga-runtime-rail-expanded \.saga-runtime-rail-metric-stack\s*\{[\s\S]*align-items: stretch;[\s\S]*text-align: left;[\s\S]*transform: translateX\(-20px\);/.test(style) && style.includes('.saga-runtime-rail-metric-line + .saga-runtime-rail-metric-line'), 'Runtime rail metrics must stay shrinkable, left-aligned, and divided for stacked model/profile text.');
 const basicGuideSource = runtimeGuideContent.split('basic: freezeGuideSteps([')[1]?.split('advanced: freezeGuideSteps(buildAdvancedGuideSteps())')[0] || '';
 const advancedGuideSource = runtimeGuideContent.split('function buildAdvancedGuideSteps()')[1]?.split('export const GUIDE_SECTIONS')[0] || '';
 const basicGuideStepCount = (basicGuideSource.match(/guideStep\(/g) || []).length;

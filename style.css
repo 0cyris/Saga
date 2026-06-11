@@ -10068,8 +10068,12 @@
 .saga-runtime-rail-expanded .saga-runtime-rail-metric-stack {
     display: inline-flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 1px;
+    align-items: stretch;
+    width: 106px;
+    max-width: 106px;
+    gap: 0;
+    text-align: left;
+    transform: translateX(-20px);
 }
 
 .saga-runtime-rail-metric-line {
@@ -10079,6 +10083,13 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     line-height: 1.05;
+    text-align: left;
+}
+
+.saga-runtime-rail-metric-line + .saga-runtime-rail-metric-line {
+    margin-top: 1px;
+    padding-top: 1px;
+    border-top: 1px solid var(--saga-border-soft, rgba(185, 139, 54, 0.18));
 }
 
 .saga-runtime-rail-compact .saga-runtime-rail-tab,
