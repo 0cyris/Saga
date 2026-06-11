@@ -1735,6 +1735,7 @@ function createLoredeckLibraryInlineFolderRow(folder = {}, options = {}) {
     disclosure.textContent = collapsed ? '>' : 'v';
     disclosure.setAttribute('aria-label', `${collapsed ? 'Expand' : 'Collapse'} ${folder.title || 'folder'}`);
     addTooltip(disclosure, collapsed ? 'Expand folder.' : 'Collapse folder.');
+    markTourTarget(disclosure, 'loredecks.library.folderDisclosure');
     disclosure.addEventListener('click', e => {
         e.preventDefault();
         e.stopPropagation();
@@ -2217,6 +2218,7 @@ function createLoredeckLibraryDeckCard(pack, stack = [], canonDb = null, health 
     card.setAttribute('aria-pressed', bulkSelected ? 'true' : 'false');
     if (selectedId === pack.packId) card.setAttribute('aria-current', 'true');
     addTooltip(card, `${pack.title || pack.packId}. Click to select, Ctrl/Cmd-click to toggle, Shift-click to select a visible range, double-click to add to the active stack.`);
+    markTourTarget(card, 'loredecks.library.deckCard');
     card.addEventListener('click', e => {
         e.stopPropagation();
         handleLoredeckLibraryDeckSelection(pack.packId, e, visiblePacks);

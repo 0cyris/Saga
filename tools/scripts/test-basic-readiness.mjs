@@ -19,15 +19,16 @@ let model = assertNext(
     { id: 'loredecks', actionLabel: 'Open Library', targetTab: 'loredecks' },
     'empty stack'
 );
-assert.equal(row(model, 'loredecks').missingText, 'Open Loredeck Library and add a deck to the stack', 'Empty stack should explain the Library workflow.');
+assert.equal(row(model, 'loredecks').missingText, 'Open Library, expand a folder, and add 1-2 Loredecks', 'Empty stack should explain the Library workflow.');
 assert.equal(row(model, 'context').targetTab, 'loredecks', 'Context row should route to Loredecks until a deck is loaded.');
+assert.equal(row(model, 'context').label, 'Browse Context', 'Context row should be framed as the explicit Browse Context step.');
 
 model = assertNext(
     { enabledLoredecks: 1, contextCount: 0, acceptedCount: 0, pendingCount: 0, selectedLore: 0, providerReady: false },
-    { id: 'context', actionLabel: 'Set Context', targetTab: 'context' },
+    { id: 'context', actionLabel: 'Browse Context', targetTab: 'context' },
     'missing Context'
 );
-assert.equal(row(model, 'context').missingText, 'Story position missing', 'Loaded deck without Context should ask for story position.');
+assert.equal(row(model, 'context').missingText, 'Browse Context before starting', 'Loaded deck without Context should ask users to browse before story start.');
 
 model = assertNext(
     { enabledLoredecks: 1, contextCount: 1, acceptedCount: 0, pendingCount: 2, selectedLore: 0, providerReady: false },

@@ -22,14 +22,20 @@ When a Basic checklist action needs guidance, it starts a short custom sequence 
 Examples:
 
 ```text
-Start Checklist 1 / 4
+Start Checklist 1 / 5
 Open Loredeck Library
 
-Start Checklist 2 / 4
-Pick a Lorepack
+Start Checklist 2 / 5
+Open a Folder
 
-Start Checklist 3 / 4
+Start Checklist 3 / 5
+Select 1-2 Loredecks
+
+Start Checklist 4 / 5
 Add to Active Stack
+
+Start Checklist 5 / 5
+Confirm Stack
 ```
 
 The Basic Walkthrough remains a separate module-based learning tool. The checklist mini-tour is only for the immediate setup task.
@@ -40,14 +46,14 @@ The Basic Walkthrough remains a separate module-based learning tool. The checkli
 
 - Stays in Basic Session.
 - Remains the authoritative readiness summary from `buildBasicReadinessModel()`.
-- Uses simple action buttons such as **Open Library**, **Set Context**, **Review Lorecards**, and **Configure Provider**.
+- Uses simple action buttons such as **Open Library**, **Browse Context**, **Review Lorecards**, and **Configure Provider**.
 - Launches mini-tours for multi-step tasks; **Saga Active** still toggles in place.
 
 ### Mini-Tour Popover
 
 - Uses the existing external tour popover, not an in-panel strip.
 - Shows `Start Checklist` progress copy for checklist-launched flows.
-- Provides a **Start Checklist** return control that opens Basic Session and expands the checklist.
+- Provides a **Close** control that closes the guide, opens Basic Session, and expands the checklist.
 - Uses **Next** to advance button-by-button through the task.
 - Uses prepare hooks to open fullscreen/dedicated surfaces such as Loredeck Library, Context Workbench, Pending Lorecard Review, and Accepted Lorecards.
 - Falls back to a centered explanatory popover when a target is not visible.
@@ -57,7 +63,7 @@ The Basic Walkthrough remains a separate module-based learning tool. The checkli
 Checklist steps should prefer actual controls over large sections:
 
 - Loredeck setup targets Library open, Library list, transfer controls, active stack, and Done.
-- Context setup targets Browse Context, Context Workbench selectors, Detect Context, and loaded Context rows.
+- Context setup targets Browse Context, the loaded-Loredeck row, story waypoints, Context apply actions, and loaded Context rows.
 - Lorecard review targets Preview Canon Packs, Scan Story Lore, Add Lorecard, pending entry cards, and apply/dismiss actions.
 - Lore readiness targets Accepted Lorecards search/list/entry controls.
 - Provider setup targets Utility Provider, Reasoning Provider, Test controls, and Advanced Provider Settings handoff.
@@ -85,7 +91,7 @@ Checklist steps should prefer actual controls over large sections:
 ## Acceptance Criteria
 
 - A first-time Basic user can click the next Start Checklist action and see an external popover pointing at the actual next control.
-- The Loredeck checklist flow opens the Library and walks through selecting and adding a Lorepack to the active stack.
+- The Loredeck checklist flow opens the Library, explains that folders contain Loredecks, and walks through selecting a Core plus story-position Loredeck for the active stack.
 - The Context checklist flow can open Context Workbench and point to selector controls instead of only highlighting the whole Context card.
 - The Lorecards checklist flow points to generation/review/apply controls, with pending-review preparation when needed.
 - The Provider checklist flow points to concrete Basic provider rows and test controls.

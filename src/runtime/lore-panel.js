@@ -1232,7 +1232,7 @@ function prepareOpenLoredeckDetails(step = {}) {
     const packId = getFirstRuntimeGuidePackId(step);
     if (!packId) {
         openLoredeckLibraryWindow();
-        return createGuidePrepareResult(false, 'Loredeck Library is open, but no Lorepack is available to select yet.');
+        return createGuidePrepareResult(false, 'Loredeck Library is open, but no Loredeck is available to select yet.');
     }
     openLoredeckLibraryDetails(packId);
     return createGuidePrepareResult(true);
@@ -1242,7 +1242,7 @@ function prepareOpenContextBrowser() {
     navigateRuntimeTab('context');
     const stack = getContextWorkbenchStack(getState());
     if (!stack.length) {
-        return createGuidePrepareResult(false, 'Load a Lorepack into the active stack before opening Context Browser.');
+        return createGuidePrepareResult(false, 'Load a Loredeck into the active stack before opening Context Browser.');
     }
     openContextWorkbenchForPack(stack[0]?.packId || '', 'context');
     return createGuidePrepareResult(true);
@@ -1313,7 +1313,7 @@ function prepareOpenDeckHealthCenter(step = {}) {
     const packId = getFirstRuntimeGuidePackId(step);
     if (!packId) {
         openLoredeckHealthCenter('');
-        return createGuidePrepareResult(false, 'Pack Health is open, but no Lorepack is available to inspect yet.');
+        return createGuidePrepareResult(false, 'Pack Health is open, but no Loredeck is available to inspect yet.');
     }
     openLoredeckHealthCenter(packId);
     return createGuidePrepareResult(true);
@@ -16393,7 +16393,7 @@ function basicChecklistTourStep(id, title, body, tab, target, options = {}) {
 }
 
 const BASIC_CHECKLIST_REVIEW_GENERATION_STEPS = Object.freeze([
-    basicChecklistTourStep('basic-checklist-review-generate-canon', 'Preview Canon Packs', 'Use Preview Canon Packs when loaded Lorepacks can suggest current-scene canon guardrails.', 'lore', 'lore.canon.preview', {
+    basicChecklistTourStep('basic-checklist-review-generate-canon', 'Preview Canon Packs', 'Use Preview Canon Packs when loaded Loredecks can suggest current-scene canon guardrails.', 'lore', 'lore.canon.preview', {
         fallbackTarget: 'lore.generation.section',
         expandSections: Object.freeze(['lore.generation']),
         expected: 'Useful canon suggestions can be sent to Pending Lorecard Review.',
@@ -16454,27 +16454,33 @@ const BASIC_CHECKLIST_REVIEW_PENDING_STEPS = Object.freeze([
 const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
     loredecks: {
         id: 'basic-checklist-loredecks',
-        title: 'Add Lorepack to Stack',
+        title: 'Add Loredecks to Stack',
         steps: Object.freeze([
             basicChecklistTourStep('basic-checklist-loredecks-open', 'Open Loredeck Library', 'Press Open Loredeck Library to open the fullscreen stack manager.', 'loredecks', 'loredecks.library.open', {
                 fallbackTarget: 'loredecks.library.launch',
                 expandSections: Object.freeze(['loredecks.libraryLaunch']),
                 expected: 'The Library window opens over the chat.',
-                when: 'Start here when no Lorepack is loaded.',
+                when: 'Start here when no Loredeck is loaded.',
             }),
-            basicChecklistTourStep('basic-checklist-loredecks-pick', 'Pick a Lorepack', 'Select the Bundled Lorepack, Generated Lorepack, Custom Lorepack, or folder group for this chat.', 'loredecks', 'loredecks.library.list', {
-                fallbackTarget: 'loredecks.library.filters',
-                prepare: 'openLoredeckLibrary',
-                expected: 'A source pack or folder is selected before stack changes.',
-                when: 'Use this before adding anything to the active stack.',
-            }),
-            basicChecklistTourStep('basic-checklist-loredecks-add', 'Add to Active Stack', 'Use the transfer controls to add the selected pack or folder to the active stack.', 'loredecks', 'loredecks.library.transfer', {
+            basicChecklistTourStep('basic-checklist-loredecks-open-folder', 'Open a Folder', 'Use a folder dropdown to reveal the Loredecks inside it. The folder is only a container; the Loredecks are the selectable rows under it.', 'loredecks', 'loredecks.library.folderDisclosure', {
                 fallbackTarget: 'loredecks.library.list',
                 prepare: 'openLoredeckLibrary',
-                expected: 'The active stack contains at least one enabled Lorepack.',
+                expected: 'A folder is expanded so its Loredecks are visible.',
+                when: 'Use this when the Library shows folder rows instead of individual Loredecks.',
+            }),
+            basicChecklistTourStep('basic-checklist-loredecks-pick', 'Select 1-2 Loredecks', 'Choose one core Loredeck for the fandom, then add one story-position Loredeck for where this chat is in the story.', 'loredecks', 'loredecks.library.deckCard', {
+                fallbackTarget: 'loredecks.library.list',
+                prepare: 'openLoredeckLibrary',
+                expected: 'One or two Loredecks are selected before stack changes.',
+                when: 'Use this before adding anything to the active stack.',
+            }),
+            basicChecklistTourStep('basic-checklist-loredecks-add', 'Add to Active Stack', 'Use the transfer controls to add the selected Loredecks to the active stack.', 'loredecks', 'loredecks.library.transfer', {
+                fallbackTarget: 'loredecks.library.list',
+                prepare: 'openLoredeckLibrary',
+                expected: 'The active stack contains the selected Core and story-position Loredecks.',
                 when: 'Do this before setting Context.',
             }),
-            basicChecklistTourStep('basic-checklist-loredecks-confirm', 'Confirm Stack', 'Check the active stack, then press Done when the loaded packs are correct.', 'loredecks', 'loredecks.library.done', {
+            basicChecklistTourStep('basic-checklist-loredecks-confirm', 'Confirm Stack', 'Check the active stack, then press Done when the loaded Loredecks are correct.', 'loredecks', 'loredecks.library.done', {
                 fallbackTarget: 'loredecks.library.stack',
                 prepare: 'openLoredeckLibrary',
                 expected: 'The Loredecks tab reflects the loaded stack.',
@@ -16484,30 +16490,36 @@ const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
     },
     context: {
         id: 'basic-checklist-context',
-        title: 'Set Story Context',
+        title: 'Browse Context',
         steps: Object.freeze([
-            basicChecklistTourStep('basic-checklist-context-open', 'Open Context Browser', 'Press Browse Context to open the fullscreen Context Workbench.', 'context', 'context.browser', {
+            basicChecklistTourStep('basic-checklist-context-open', 'Open Context Workbench', 'Press Browse Context to open the fullscreen Context Workbench before the story starts.', 'context', 'context.browser', {
                 fallbackTarget: 'context.commandCenter',
                 expandSections: Object.freeze(['context.commandCenter']),
-                expected: 'The Context Workbench opens for the loaded Lorepacks.',
+                expected: 'The Context Workbench opens for the loaded Loredecks.',
                 when: 'Use this when you know the current story position.',
             }),
-            basicChecklistTourStep('basic-checklist-context-select', 'Select Story Position', 'Use Select From Timeline or Browse Story Waypoints to choose the current arc, chapter, date, episode, quest, or event.', 'context', 'context.workbench.contextPicker', {
-                fallbackTarget: 'context.workbench.waypoints',
+            basicChecklistTourStep('basic-checklist-context-loredeck', 'Choose Loaded Loredeck', 'Select the loaded Loredeck whose story position you want to set.', 'context', 'context.workbench.loadedLoredeck', {
+                fallbackTarget: 'context.workbench.contextTable',
                 prepare: 'openContextBrowser',
-                expected: 'A Context row is set for the loaded Lorepack.',
-                when: 'Use this to set a trusted manual Context.',
+                expected: 'The Workbench focuses the Loredeck that needs Context.',
+                when: 'Use this when the active stack has more than one Loredeck.',
             }),
-            basicChecklistTourStep('basic-checklist-context-detect', 'Or Detect Context', 'If you are unsure, use Detect Context from the main Context tab to analyze recent messages.', 'context', 'context.detect', {
-                fallbackTarget: 'context.commandCenter',
-                expandSections: Object.freeze(['context.commandCenter']),
-                expected: 'High-confidence matches update unlocked Context rows.',
-                when: 'Use this after a scene jump or when manual selection is unclear.',
+            basicChecklistTourStep('basic-checklist-context-browse', 'Browse Story Waypoints', 'Use Browse Story Waypoints to scan arcs, dates, episodes, chapters, quests, events, and other story-position anchors.', 'context', 'context.workbench.waypoints', {
+                fallbackTarget: 'context.workbench.contextPicker',
+                prepare: 'openContextBrowser',
+                expected: 'The available story positions are visible before you choose one.',
+                when: 'Use this before the first roleplay message so Saga starts at the right point.',
+            }),
+            basicChecklistTourStep('basic-checklist-context-apply', 'Select Current Position', 'Press Start Here or Use Window for the exact point, or use After and Before to make a bounded Context window.', 'context', 'context.workbench.applyContext', {
+                fallbackTarget: 'context.workbench.contextPicker',
+                prepare: 'openContextBrowser',
+                expected: 'A Context row is set for the loaded Loredeck.',
+                when: 'Use this to set a trusted manual Context.',
             }),
             basicChecklistTourStep('basic-checklist-context-verify', 'Verify Loaded Rows', 'Confirm the loaded Loredeck Context rows show the story position you expect.', 'context', 'context.loadedLoredecks', {
                 fallbackTarget: 'context.commandCenter',
                 expandSections: Object.freeze(['context.loadedLoredecks']),
-                expected: 'The checklist can mark Story Context as set.',
+                expected: 'The checklist can mark Browse Context as complete.',
                 when: 'Use this before reviewing Lorecards.',
             }),
         ]),
@@ -16598,8 +16610,8 @@ function launchBasicChecklistTour(row = {}) {
         sectionId: config.id,
         className: 'saga-checklist-tour-popover',
         progressLabel: 'Start Checklist',
-        closeLabel: 'Start Checklist',
-        closeTooltip: 'Return to the Basic Start Checklist.',
+        closeLabel: 'Close',
+        closeTooltip: 'Close this checklist guide and return to the Start Checklist.',
         finishLabel: 'Done',
         onClose: returnToBasicStartChecklist,
     });

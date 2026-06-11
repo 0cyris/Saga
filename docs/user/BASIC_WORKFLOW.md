@@ -16,15 +16,15 @@ Use this module when the checklist is not ready and you want Saga to tell you th
 
 ### Loredecks
 
-Use **Loredecks** to open **Loredeck Library**, import a `.saga-loredeck.zip` package when needed, inspect the Library layout, identify **Bundled Lorepack**, **Generated Lorepack**, and **Custom Lorepack** types, read **Pack Health**, and build the active stack.
+Use **Loredecks** to open **Loredeck Library**, import a `.saga-loredeck.zip` package when needed, inspect the Library layout, identify **Bundled Loredeck**, **Generated Loredeck**, and **Custom Loredeck** types, read **Pack Health**, and build the active stack.
 
-The active stack decides which Lorepacks participate in Context, canon suggestions, retrieval, and Lorecards. You can add individual Lorepacks, add folder groups, adjust stack order, and disable stack entries without deleting Library data.
+The active stack decides which Loredecks participate in Context, canon suggestions, retrieval, and Lorecards. You can add individual Loredecks, add folder groups, adjust stack order, and disable stack entries without deleting Library data.
 
-Basic keeps **Import Deck** available. Basic does not show **Create Deck** or in-progress Creator projects; switch to Advanced for Generated Lorepack authoring.
+Basic keeps **Import Deck** available. Basic does not show **Create Deck** or in-progress Creator projects; switch to Advanced for Generated Loredeck authoring.
 
 ### Context
 
-Use **Context** to set the current story position for each loaded Lorepack. **Browse Context** is the trusted manual path when you know the correct arc, chapter, date, episode, quest, or event.
+Use **Context** to set the current story position for each loaded Loredeck. **Browse Context** is the trusted manual path when you know the correct arc, chapter, date, episode, quest, or event.
 
 Use **Detect Context** after scene jumps, time skips, chapter changes, episode changes, travel, or major plot turns. Treat uncertain detection as a proposal until you verify it.
 
@@ -44,7 +44,7 @@ Should this fact affect future responses?
 
 ### Continue Roleplay
 
-Use **Continue Roleplay** after Lorepacks are loaded, Context is current, useful Lorecards are accepted, and the **Start Checklist** is ready.
+Use **Continue Roleplay** after Loredecks are loaded, Context is current, useful Lorecards are accepted, and the **Start Checklist** is ready.
 
 Session metrics help confirm whether Saga has pending Lorecards, accepted lore, selected injection, and a prompt-size estimate. After major story movement, repeat the loop: update Context, review new Lorecards, then continue roleplay.
 
@@ -58,8 +58,8 @@ Switch to Advanced for provider profile internals, endpoint/model controls, Crea
 
 1. Open the Saga shelf and choose **Basic** if Saga is not already in Basic Experience.
 2. Start **First Run** and confirm **Saga Active**.
-3. Open **Loredeck Library**, import a package if needed, and add the right Lorepacks or folders to the active stack.
-4. Open **Context** and set the current story position for each loaded Lorepack.
+3. Open **Loredeck Library**, import a package if needed, and add the right Loredecks to the active stack.
+4. Use **Browse Context** to select the current story position for each loaded Loredeck before the story starts.
 5. Open **Lorecards** and generate or add only the facts you need.
 6. Review Pending Lorecards. Accept useful durable facts and dismiss anything that should not guide future responses.
 7. Confirm the **Start Checklist** is ready.
@@ -86,7 +86,7 @@ Those workflows still use the same saved Loredecks, Context, pending Lorecards, 
 
 ## Common Fixes
 
-- **No Lorecards selected:** load a Lorepack, set Context, then accept relevant Lorecards.
+- **No Lorecards selected:** load a Loredeck, browse Context, then accept relevant Lorecards.
 - **The Library is empty or incomplete:** use **Import Deck** or switch to Advanced if you need Creator.
 - **Suggestions look wrong:** revisit Context and choose the correct story position manually.
 - **A saved Lorecard should not affect responses:** mute it in Lorecards.

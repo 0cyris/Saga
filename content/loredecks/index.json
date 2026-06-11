@@ -1330,6 +1330,17 @@
         ],
         "familyOrder": 10
       },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Jujutsu Kaisen: Core",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
       "entrySchemaVersion": 3,
       "version": "0.1.0",
       "author": "Saga",
@@ -1409,6 +1420,17 @@
         ],
         "familyOrder": 30
       },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Jujutsu Kaisen: Origin through Death Painting",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
       "entrySchemaVersion": 3,
       "version": "0.1.0",
       "author": "Saga",
@@ -1449,6 +1471,17 @@
           "Manga Main"
         ],
         "familyOrder": 40
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Jujutsu Kaisen: Hidden Inventory and Premature Death",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       },
       "entrySchemaVersion": 3,
       "version": "0.1.0",
@@ -1492,6 +1525,17 @@
         ],
         "familyOrder": 50
       },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Jujutsu Kaisen: Shibuya Incident",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
       "entrySchemaVersion": 3,
       "version": "0.1.0",
       "author": "Saga",
@@ -1530,6 +1574,17 @@
           "Manga Main"
         ],
         "familyOrder": 60
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover for Jujutsu Kaisen: Post-Shibuya and Perfect Preparation",
+          "aspect": "1:1",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
       },
       "entrySchemaVersion": 3,
       "version": "0.1.0",

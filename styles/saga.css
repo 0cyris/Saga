@@ -7682,7 +7682,7 @@
 .saga-floating-tooltip {
     position: fixed;
     display: none;
-    z-index: 2147483000;
+    z-index: 2147483647;
     max-width: 300px;
     pointer-events: none;
     background: rgba(9, 8, 11, 0.98);
@@ -9441,7 +9441,7 @@
 
 .saga-tour-popover {
     position: fixed;
-    z-index: 2147483647;
+    z-index: 2147483000;
     width: min(340px, calc(100vw - 24px));
     color: #f2dfb2;
     border: 1px solid rgba(194, 150, 78, 0.42);

@@ -701,7 +701,14 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
         era: 'Manga Main Core',
         familyOrder: 10,
         tags: ['fandom:jjk', 'continuity:jjk-manga-main', 'adaptation:manga', 'scope:core', 'quality:draft-reference'],
-        assets: null,
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Jujutsu Kaisen: Core',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 8,
             categoryCounts: { faction: 1, knowledge: 1, rule: 4, secret: 2 },
@@ -731,7 +738,14 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
         era: 'Origin through Death Painting',
         familyOrder: 30,
         tags: ['fandom:jjk', 'continuity:jjk-manga-main', 'adaptation:manga', 'arc:origin', 'arc:death-painting', 'quality:draft-reference'],
-        assets: null,
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Jujutsu Kaisen: Origin through Death Painting',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 12,
             categoryCounts: { event: 3, faction: 2, knowledge: 1, relationship: 2, rule: 2, secret: 2 },
@@ -746,7 +760,14 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
         era: 'Hidden Inventory / Premature Death',
         familyOrder: 40,
         tags: ['fandom:jjk', 'continuity:jjk-manga-main', 'adaptation:manga', 'arc:hidden-inventory', 'arc:premature-death', 'quality:draft-reference'],
-        assets: null,
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Jujutsu Kaisen: Hidden Inventory and Premature Death',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 12,
             categoryCounts: { character: 1, event: 3, faction: 2, knowledge: 2, relationship: 1, rule: 1, secret: 2 },
@@ -761,7 +782,14 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
         era: 'Shibuya Incident',
         familyOrder: 50,
         tags: ['fandom:jjk', 'continuity:jjk-manga-main', 'adaptation:manga', 'arc:shibuya-incident', 'quality:draft-reference'],
-        assets: null,
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Jujutsu Kaisen: Shibuya Incident',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 12,
             categoryCounts: { event: 4, faction: 2, knowledge: 2, rule: 2, secret: 2 },
@@ -776,7 +804,14 @@ const JJK_SPLIT_LOREDECKS = Object.freeze([
         era: 'Post-Shibuya / Perfect Preparation',
         familyOrder: 60,
         tags: ['fandom:jjk', 'continuity:jjk-manga-main', 'adaptation:manga', 'arc:post-shibuya', 'arc:perfect-preparation', 'quality:draft-reference'],
-        assets: null,
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover for Jujutsu Kaisen: Post-Shibuya and Perfect Preparation',
+                aspect: '1:1',
+                focalPoint: { x: 0.5, y: 0.5 },
+            },
+        },
         stats: {
             entryCount: 12,
             categoryCounts: { event: 3, faction: 2, knowledge: 3, rule: 2, secret: 2 },
