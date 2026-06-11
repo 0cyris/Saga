@@ -16024,13 +16024,6 @@ function createRuntimeRenderErrorCard(titleText = 'Runtime Tab', error = null) {
     return card;
 }
 
-function truncateRailMetricText(value = '', maxLength = 7) {
-    const text = String(value || '').trim();
-    if (!text || text.length <= maxLength) return text;
-    if (maxLength <= 3) return text.slice(0, maxLength);
-    return `${text.slice(0, maxLength - 3)}...`;
-}
-
 function getProviderRailMetricLabel(status = {}) {
     if (status.provider === 'profile' && !status.exact && status.profileLabel) return status.profileLabel;
     if (status.provider === 'st' && !status.exact) return 'ST model';
@@ -16038,9 +16031,9 @@ function getProviderRailMetricLabel(status = {}) {
     return status.label || 'Model';
 }
 
-function getProviderRailMetricPart(kind, settings = getSettings(), maxLength = 14) {
+function getProviderRailMetricPart(kind, settings = getSettings()) {
     const status = getProviderModelStatus(kind, settings);
-    return truncateRailMetricText(getProviderRailMetricLabel(status), maxLength);
+    return getProviderRailMetricLabel(status);
 }
 
 function getSettingsProviderRailMetricLines(settings = getSettings()) {

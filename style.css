@@ -9409,6 +9409,24 @@
     margin-top: 5px;
 }
 
+.saga-instructions-section-card .saga-status-pill {
+    min-height: 15px;
+    border-color: rgba(148, 158, 172, 0.22);
+    background: rgba(148, 158, 172, 0.11);
+    color: rgba(226, 231, 238, 0.76);
+    padding: 1px 5px;
+    font-size: 0.66em;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+.saga-instructions-section-header .saga-status-pill {
+    min-height: 14px;
+    padding-inline: 4px;
+    font-size: 0.62em;
+}
+
 .saga-guide-step-button {
     align-self: center;
     white-space: nowrap;
@@ -10068,17 +10086,18 @@
 .saga-runtime-rail-expanded .saga-runtime-rail-metric-stack {
     display: inline-flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
     width: 106px;
     max-width: 106px;
     gap: 0;
     text-align: left;
-    transform: translateX(-20px);
+    transform: translateX(-5px);
 }
 
 .saga-runtime-rail-metric-line {
-    display: block;
+    display: inline-block;
     max-width: 100%;
+    box-sizing: border-box;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
