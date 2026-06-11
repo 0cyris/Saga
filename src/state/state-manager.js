@@ -3602,34 +3602,6 @@ export function migrateState(state) {
         state.lorePanel.activeTab = ['loredecks', 'session', 'continuity', 'context', 'lore', 'injection', 'settings'].includes(state.lorePanel.activeTab)
             ? state.lorePanel.activeTab
             : (state.lorePanel.activeTab === 'generate' ? 'context' : (state.lorePanel.activeTab === 'review' ? 'lore' : 'session'));
-        state.lorePanel.guidedTask = state.lorePanel.guidedTask && typeof state.lorePanel.guidedTask === 'object'
-            ? {
-                id: String(state.lorePanel.guidedTask.id || '').trim(),
-                source: String(state.lorePanel.guidedTask.source || '').trim(),
-                sourceTab: String(state.lorePanel.guidedTask.sourceTab || '').trim(),
-                targetTab: ['loredecks', 'session', 'context', 'lore', 'settings'].includes(state.lorePanel.guidedTask.targetTab) ? state.lorePanel.guidedTask.targetTab : '',
-                target: String(state.lorePanel.guidedTask.target || '').trim(),
-                fallbackTarget: String(state.lorePanel.guidedTask.fallbackTarget || '').trim(),
-                expandSections: Array.isArray(state.lorePanel.guidedTask.expandSections)
-                    ? state.lorePanel.guidedTask.expandSections.map(sectionId => String(sectionId || '').trim()).filter(Boolean).slice(0, 8)
-                    : [],
-                prepare: String(state.lorePanel.guidedTask.prepare || '').trim(),
-                readinessRowId: String(state.lorePanel.guidedTask.readinessRowId || '').trim(),
-                title: String(state.lorePanel.guidedTask.title || '').trim(),
-                body: String(state.lorePanel.guidedTask.body || '').trim(),
-                statusText: String(state.lorePanel.guidedTask.statusText || '').trim(),
-                doneText: String(state.lorePanel.guidedTask.doneText || '').trim(),
-                targetMissingText: String(state.lorePanel.guidedTask.targetMissingText || '').trim(),
-                nextLabel: String(state.lorePanel.guidedTask.nextLabel || '').trim(),
-                nextTarget: String(state.lorePanel.guidedTask.nextTarget || '').trim(),
-                nextTooltip: String(state.lorePanel.guidedTask.nextTooltip || '').trim(),
-                status: ['active', 'target_missing', 'done'].includes(String(state.lorePanel.guidedTask.status || '').trim())
-                    ? String(state.lorePanel.guidedTask.status || '').trim()
-                    : 'active',
-                startedAt: Number.isFinite(Number(state.lorePanel.guidedTask.startedAt)) ? Number(state.lorePanel.guidedTask.startedAt) : 0,
-            }
-            : null;
-        if (!state.lorePanel.guidedTask?.id || !state.lorePanel.guidedTask?.targetTab) state.lorePanel.guidedTask = null;
         state.lorePanel.reviewSelectedIds = Array.isArray(state.lorePanel.reviewSelectedIds) ? state.lorePanel.reviewSelectedIds : [];
         state.lorePanel.generationStatus = typeof state.lorePanel.generationStatus === 'string' ? state.lorePanel.generationStatus : 'Idle.';
         state.lorePanel.generationProgress = Number.isFinite(Number(state.lorePanel.generationProgress)) ? Number(state.lorePanel.generationProgress) : 0;

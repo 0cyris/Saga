@@ -11,6 +11,29 @@ function getPackTitle(pack = {}) {
   return String(pack.title || pack.name || getPackId(pack) || '').trim();
 }
 
+export function compareLoredeckLibraryTitles(a = '', b = '') {
+  return String(a || '').localeCompare(String(b || ''), undefined, { numeric: true, sensitivity: 'base' });
+}
+
+export function compareLoredeckLibraryPackTitles(a = {}, b = {}) {
+  return compareLoredeckLibraryTitles(getPackTitle(a), getPackTitle(b))
+    || compareLoredeckLibraryTitles(getPackId(a), getPackId(b));
+}
+
+export function compareLoredeckLibraryFolderTitles(a = {}, b = {}) {
+  return compareLoredeckLibraryTitles(a.title || a.name || a.id, b.title || b.name || b.id)
+    || compareLoredeckLibraryTitles(a.id, b.id);
+}
+
+export function sortLoredeckLibraryFolderTreeByTitle(folders = []) {
+  return [...(folders || [])]
+    .sort(compareLoredeckLibraryFolderTitles)
+    .map(folder => ({
+      ...folder,
+      children: sortLoredeckLibraryFolderTreeByTitle(folder.children || []),
+    }));
+}
+
 function getPlacementForPack(pack = {}, registry = {}) {
   const packId = getPackId(pack);
   if (!packId) return null;
@@ -54,7 +77,7 @@ export function compareLoredeckLibraryPacks(a = {}, b = {}, options = {}) {
     const diff = (Number(b.updatedAt) || Number(b.installedAt) || 0) - (Number(a.updatedAt) || Number(a.installedAt) || 0);
     if (diff) return diff;
   }
-  return getPackTitle(a).localeCompare(getPackTitle(b));
+  return compareLoredeckLibraryPackTitles(a, b);
 }
 
 export function sortLoredeckLibraryPacks(packs = [], options = {}) {

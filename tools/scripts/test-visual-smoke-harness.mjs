@@ -13,6 +13,7 @@ const lorecardsPanelPath = sourcePath('lorecards', 'lorecards-panel.js');
 const creatorPanelPath = sourcePath('loredecks', 'loredeck-creator-panel.js');
 const healthPanelPath = sourcePath('loredecks', 'loredeck-health-panel.js');
 const contextPanelPath = sourcePath('context', 'context-panel.js');
+const contextWorkbenchPanelPath = sourcePath('context', 'context-workbench-panel.js');
 const settingsPanelPath = sourcePath('settings', 'settings-panel.js');
 const themePanelPath = sourcePath('settings', 'theme-panel.js');
 const themeActionsPath = sourcePath('settings', 'theme-actions.js');
@@ -379,6 +380,7 @@ const libraryPanel = read(libraryPanelPath);
 const loredecksTabPanel = read(loredecksTabPanelPath);
 const lorecardsPanel = read(lorecardsPanelPath);
 const contextPanel = read(contextPanelPath);
+const contextWorkbenchPanel = read(contextWorkbenchPanelPath);
 const settingsPanel = read(settingsPanelPath);
 const runtimePanelSource = [
     panel,
@@ -388,6 +390,7 @@ const runtimePanelSource = [
     read(creatorPanelPath),
     read(healthPanelPath),
     contextPanel,
+    contextWorkbenchPanel,
     settingsPanel,
     read(themePanelPath),
     read(themeActionsPath),
@@ -450,7 +453,8 @@ assert(llm.includes('export function getProviderModelStatus') && llm.includes('g
 assert(runtimePanelSource.includes('function getSettingsProviderRailMetricLines') && runtimePanelSource.includes("settings: getSettingsProviderRailMetricLines(settings)") && runtimePanelSource.includes('saga-runtime-rail-metric-line') && !runtimePanelSource.includes("settings: getThemePreset(settings.themePackId)?.title || 'Theme'"), 'Settings shelf metric must show stacked compact provider model status instead of the active theme.');
 assert(runtimePanelSource.includes('function getRailMetricTooltips') && runtimePanelSource.includes('getSettingsProviderRailTooltip(settings)'), 'Clipped Settings shelf model metrics must keep a full provider-model tooltip.');
 assert(!runtimePanelSource.includes('truncateRailMetricText'), 'Settings shelf model names must rely on CSS ellipsis instead of fixed character-count truncation.');
-assert(/\.saga-runtime-rail-metric\s*\{[\s\S]*flex: 0 1 auto;[\s\S]*max-width: 106px;[\s\S]*font-size: 0\.66em;/.test(style) && /\.saga-runtime-rail-expanded \.saga-runtime-rail-metric-stack\s*\{[\s\S]*align-items: flex-start;[\s\S]*text-align: left;[\s\S]*transform: translateX\(-5px\);/.test(style) && /\.saga-runtime-rail-metric-line\s*\{[\s\S]*display: inline-block;[\s\S]*box-sizing: border-box;/.test(style) && style.includes('.saga-runtime-rail-metric-line + .saga-runtime-rail-metric-line'), 'Runtime rail metrics must stay shrinkable, left-aligned, and divided only across visible stacked model/profile text.');
+const stackedRailMetricRule = style.match(/\.saga-runtime-rail-metric-line \+ \.saga-runtime-rail-metric-line\s*\{[^}]*\}/)?.[0] || '';
+assert(/\.saga-runtime-rail-metric\s*\{[\s\S]*flex: 0 1 auto;[\s\S]*max-width: 106px;[\s\S]*font-size: 0\.66em;/.test(style) && /\.saga-runtime-rail-expanded \.saga-runtime-rail-metric-stack\s*\{[\s\S]*align-items: flex-start;[\s\S]*text-align: left;[\s\S]*transform: translateX\(-5px\);/.test(style) && /\.saga-runtime-rail-metric-line\s*\{[\s\S]*display: inline-block;[\s\S]*box-sizing: border-box;/.test(style) && stackedRailMetricRule.includes('margin-top: 2px;') && !stackedRailMetricRule.includes('border-top'), 'Runtime rail metrics must stay shrinkable, left-aligned, and stacked without a visual divider between model/profile text.');
 const basicGuideSource = runtimeGuideContent.split('basic: freezeGuideSteps([')[1]?.split('advanced: freezeGuideSteps(buildAdvancedGuideSteps())')[0] || '';
 const advancedGuideSource = runtimeGuideContent.split('function buildAdvancedGuideSteps()')[1]?.split('export const GUIDE_SECTIONS')[0] || '';
 const basicGuideStepCount = (basicGuideSource.match(/guideStep\(/g) || []).length;
@@ -502,23 +506,21 @@ assert(basicGuideSource.includes("'loredecks.library.open'") && basicGuideSource
 assert(!basicGuideSource.includes('Advanced Context Brief') && !basicGuideSource.includes('Prompt Placement') && !basicGuideSource.includes('Auto-Relevance'), 'Basic guide must not expose advanced diagnostic, injection, or automation tour steps.');
 assert(advancedGuideSource.includes("'injection'"), 'Advanced guide must retain Injection walkthrough targets.');
 assert(runtimePanelSource.includes('getRuntimeGuideSections') && runtimePanelSource.includes('startRuntimeWalkthrough(mode, { sectionId: section.id })'), 'Runtime guide card must render module-level walkthrough starts through the walkthrough handoff.');
-assert(runtimePanelSource.includes('function startRuntimeWalkthrough') && runtimePanelSource.includes('state.lorePanel.guidedTask = null') && runtimePanelSource.includes('clearBasicGuidedTaskHighlight();'), 'Starting a walkthrough must clear active checklist guidance so the two guidance modes do not compete.');
+assert(runtimeTour.includes('export function startSagaTourSteps') && runtimeTour.includes('progressLabel') && runtimeTour.includes('closeLabel') && runtimeTour.includes('onClose'), 'Runtime tour must support custom checklist mini-tour sequences.');
 assert(runtimePanelSource.includes('formatGuideStartLabel') && runtimePanelSource.includes('guided stop'), 'Runtime guide cards must show each module starting point and guided stop count.');
 assert(!runtimePanelSource.includes('showGuideStep(item'), 'Runtime guide card must not render one Show button per walkthrough target.');
 assert(runtimePanelSource.includes('function createBasicStartReadinessCard'), 'Basic Session must render the Start Checklist dropdown.');
 assert(/createBasicStartReadinessCard[\s\S]*createCollapsibleSection\(\s*'session\.basicReadiness'[\s\S]*true[\s\S]*'saga-basic-readiness-card'/.test(runtimePanelSource), 'Basic Session Start Checklist must be an expanded-by-default dropdown.');
 assert(runtimePanelSource.includes('function getBasicReadinessModel'), 'Basic Session readiness must derive from runtime state.');
-assert(constants.includes('guidedTask: null'), 'Runtime panel state must include ephemeral guided task state.');
-assert(runtimePanelSource.includes('BASIC_GUIDED_TASKS_BY_ROW') && runtimePanelSource.includes('function launchBasicGuidedTask') && runtimePanelSource.includes('function createBasicGuidedTaskStrip'), 'Basic Start Checklist actions must launch focused guided task strips.');
-assert(runtimePanelSource.includes('Back to Start Checklist') && runtimePanelSource.includes('Find Control') && runtimePanelSource.includes('saga-guided-task-highlight'), 'Guided task strips must support return, target focus, and highlighting.');
-assert(runtimePanelSource.includes("nextLabel: 'Open Library'") && runtimePanelSource.includes('function runBasicGuidedTaskNext') && runtimePanelSource.includes("nextTarget: 'loredecks.library.open'"), 'Guided task strips must expose direct next actions only for concrete targets.');
-assert(runtimePanelSource.includes("statusText: 'Open the Library") && runtimePanelSource.includes("doneText: 'A Lorepack is now in the active stack.") && runtimePanelSource.includes("row.id === 'context' && targetTab === 'loredecks'"), 'Guided task copy must cover first-run Library completion, including Context rows that first need a Lorepack.');
-assert(runtimePanelSource.includes("setActiveBasicGuidedTaskStatus('target_missing'") && runtimePanelSource.includes("setActiveBasicGuidedTaskStatus('done'") && runtimePanelSource.includes("return status === 'done' ? 'active' : status"), 'Guided task status must persist missing/done transitions without letting stale done state override live readiness.');
-assert(runtimePanelSource.includes("prepare: 'openPendingLoreReview'") && runtimePanelSource.includes('function prepareBasicGuidedTaskTarget') && runtimePanelSource.includes('prepareRuntimeGuideStep({'), 'Guided task target preparation must reuse existing walkthrough prepare handlers.');
-assert(runtimePanelSource.includes('focusBasicGuidedTaskTarget(current, { prepare: false })') && runtimePanelSource.includes("focusBasicGuidedTaskTarget(task, { prepare: true })"), 'Guided tasks must avoid automatic fullscreen preparation while allowing explicit Find Control preparation.');
-assert(stateManager.includes("nextLabel: String(state.lorePanel.guidedTask.nextLabel") && stateManager.includes("statusText: String(state.lorePanel.guidedTask.statusText") && stateManager.includes("doneText: String(state.lorePanel.guidedTask.doneText") && stateManager.includes('expandSections: Array.isArray(state.lorePanel.guidedTask.expandSections)') && stateManager.includes("prepare: String(state.lorePanel.guidedTask.prepare") && stateManager.includes("'target_missing'") && stateManager.includes("'done'"), 'Guided task state normalization must preserve copy, next-action, preparation, and restricted status fields.');
-assert(runtimePanelSource.includes("if (normalizeExperienceMode(settings.experienceMode) === 'advanced')") && runtimePanelSource.includes('state.lorePanel.guidedTask = null'), 'Guided task state must clear when switching to Advanced.');
-assert(style.includes('.saga-basic-guided-task-strip') && style.includes('.saga-guided-task-highlight') && style.includes('.saga-basic-guided-task-strip-missing'), 'Basic guided task strip, missing-state, and highlight styles must exist.');
+assert(!constants.includes('guidedTask') && !stateManager.includes('guidedTask'), 'Runtime panel state must not keep retired in-panel checklist strip state.');
+assert(runtimePanelSource.includes('BASIC_CHECKLIST_TOUR_TASKS_BY_ROW') && runtimePanelSource.includes('function launchBasicChecklistTour') && runtimePanelSource.includes('startSagaTourSteps(steps'), 'Basic Start Checklist actions must launch external checklist mini-tours.');
+assert(runtimePanelSource.includes("progressLabel: 'Start Checklist'") && runtimePanelSource.includes("closeLabel: 'Start Checklist'") && runtimePanelSource.includes('onClose: returnToBasicStartChecklist'), 'Checklist mini-tours must use the external tour popover and return affordance.');
+assert(runtimePanelSource.includes("'loredecks.library.open'") && runtimePanelSource.includes("'loredecks.library.list'") && runtimePanelSource.includes("'loredecks.library.transfer'") && runtimePanelSource.includes("'loredecks.library.done'"), 'Loredeck checklist mini-tour must walk through Library open, selection, stack transfer, and Done controls.');
+assert(runtimePanelSource.includes("'context.browser'") && runtimePanelSource.includes("'context.workbench.contextPicker'") && runtimePanelSource.includes("'context.workbench.waypoints'") && runtimePanelSource.includes("'context.detect'"), 'Context checklist mini-tour must open the Context Browser and target concrete workbench/detection controls.');
+assert(runtimePanelSource.includes("'lore.canon.preview'") && runtimePanelSource.includes("'lore.story.scan'") && runtimePanelSource.includes("'lore.manual.add'") && runtimePanelSource.includes("'lore.pending.actions'"), 'Lorecard checklist mini-tour must guide generation, manual add, pending review, and apply/dismiss actions.');
+assert(runtimePanelSource.includes("'settings.provider.utility'") && runtimePanelSource.includes("'settings.provider.reasoning'") && runtimePanelSource.includes("'settings.provider.test'") && runtimePanelSource.includes("'settings.provider.advanced'"), 'Provider checklist mini-tour must target concrete Basic provider rows and handoff controls.');
+assert(!runtimePanelSource.includes('createBasicGuidedTaskStrip') && !runtimePanelSource.includes('saga-guided-task-highlight') && !style.includes('.saga-basic-guided-task-strip'), 'Retired in-panel guided task strip implementation must not remain active.');
+assert(style.includes('.saga-checklist-tour-popover') && style.includes('.saga-tour-highlight'), 'Checklist mini-tours must reuse the external tour highlight surface with checklist-specific styling.');
 assert(runtimeBasicReadiness.includes('export function buildBasicReadinessModel') && runtimePanelSource.includes('buildBasicReadinessModel({'), 'Basic Session readiness decision order must live in the shared model helper.');
 assert(!runtimePanelSource.includes('function createBasicInjectionSummaryCard') && !runtimePanelSource.includes('What Saga Will Send'), 'Basic Session must not render the selected-lore prompt summary.');
 assert(!lorecardsPanel.includes('function createBasicReviewInjectionSummary') && !lorecardsPanel.includes('What Accepted Lorecards Do'), 'Basic Lorecards must not render the selected-lore prompt summary.');

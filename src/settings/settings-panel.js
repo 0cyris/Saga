@@ -69,6 +69,10 @@ function downloadJson(data, filename) {
     return dep('downloadJson', () => null)(data, filename);
 }
 
+function markTourTarget(el, target) {
+    return dep('markTourTarget', element => element)(el, target);
+}
+
 export function createProviderSettingsCard(settings = getSettings()) {
     const card = document.createElement('div');
     card.className = 'saga-runtime-card saga-settings-provider-card';
@@ -111,7 +115,7 @@ export function createBasicProviderQuickSetupCard(settings = getSettings()) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-basic-provider-actions';
-    actions.appendChild(createButton('Open Advanced Provider Settings', 'Switch to Advanced Experience for provider profiles, endpoints, models, generation parameters, and API compatibility flags.', openAdvancedSettings));
+    actions.appendChild(markTourTarget(createButton('Open Advanced Provider Settings', 'Switch to Advanced Experience for provider profiles, endpoints, models, generation parameters, and API compatibility flags.', openAdvancedSettings), 'settings.provider.advanced'));
     card.appendChild(actions);
 
     return card;
@@ -126,6 +130,7 @@ function createBasicProviderQuickSetupRow(kind, settings = getSettings()) {
 
     const block = document.createElement('section');
     block.className = `saga-provider-runtime-block saga-basic-provider-block saga-provider-runtime-${kind}`;
+    markTourTarget(block, kind === 'continuity' ? 'settings.provider.utility' : 'settings.provider.reasoning');
 
     const header = document.createElement('div');
     header.className = 'saga-provider-runtime-header';
@@ -155,6 +160,7 @@ function createBasicProviderQuickSetupRow(kind, settings = getSettings()) {
 
     const actions = document.createElement('div');
     actions.className = 'saga-primary-actions saga-provider-runtime-actions';
+    markTourTarget(actions, 'settings.provider.test');
     actions.appendChild(createButton(`Test ${cfg.shortTitle}`, `Send a tiny JSON test request through the ${cfg.shortTitle} provider.`, async (btn) => {
         await runBusyAction(btn, 'Testing...', async () => {
             const result = await testLoreConnection(kind);

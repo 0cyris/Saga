@@ -163,6 +163,7 @@ import {
     configureRuntimeTour,
     markTourTarget,
     startSagaTour,
+    startSagaTourSteps,
 } from './runtime-tour.js';
 import {
     formatGuideStartLabel,
@@ -789,6 +790,7 @@ configureContextPanel({
 
 configureContextWorkbenchPanel({
     getContextWorkbenchTab: () => contextWorkbenchTab,
+    markTourTarget,
     setContextWorkbenchTab: tabId => {
         contextWorkbenchTab = ['context', 'timeline', 'aliases', 'validation'].includes(tabId) ? tabId : 'context';
     },
@@ -897,6 +899,7 @@ configureSettingsPanel({
         refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true, ...(options || {}) });
     },
     refreshRuntimeHeader: refreshHeader,
+    markTourTarget,
     openAdvancedSettings: openAdvancedSettingsTab,
     downloadJson,
 });
@@ -15972,12 +15975,6 @@ function renderPanelBody(container, state) {
     const tabBody = document.createElement('div');
     tabBody.className = `saga-runtime-tab-body saga-runtime-tab-body-${activeTab}`;
     container.appendChild(tabBody);
-    const guidedTask = getActiveBasicGuidedTask(state, activeTab, settings);
-    if (guidedTask) {
-        tabBody.appendChild(createBasicGuidedTaskStrip(guidedTask, state, settings));
-    } else {
-        clearBasicGuidedTaskHighlight();
-    }
 
     try {
         if (activeTab === 'loredecks') {
@@ -16003,7 +16000,6 @@ function renderPanelBody(container, state) {
 
     installNestedScrollHandoff(tabBody);
     if (activeTab === 'lore') scheduleAcceptedLoreLayoutUpdate();
-    scheduleBasicGuidedTaskTargetFocus(guidedTask, state, settings);
 }
 
 function createRuntimeRenderErrorCard(titleText = 'Runtime Tab', error = null) {
@@ -16334,8 +16330,7 @@ function navigateRuntimeTab(tabId, options = {}) {
     const settings = getSettings();
     const activeTab = normalizeTabForExperience(tabId, settings);
     const patch = { activeTab };
-    if (options.guidedTask) patch.guidedTask = options.guidedTask;
-    else if (options.clearGuidedTask || activeTab === 'session') patch.guidedTask = null;
+    void options;
     setPanelState(patch);
     refreshPanelBody({ preserveScroll: false });
     refreshHeader();
@@ -16343,7 +16338,7 @@ function navigateRuntimeTab(tabId, options = {}) {
 
 function openAdvancedSettingsTab() {
     setExperienceMode('advanced');
-    setPanelState({ activeTab: 'settings', guidedTask: null });
+    setPanelState({ activeTab: 'settings' });
     refreshPanelBody({ preserveScroll: false });
     refreshHeader();
 }
@@ -16385,121 +16380,235 @@ function getBasicReadinessModel(state = getState(), settings = getSettings()) {
     });
 }
 
-const BASIC_GUIDED_TASKS_BY_ROW = Object.freeze({
-    loredecks: {
-        id: 'basic.loredecks.stack',
-        title: 'Add Lorepack to Stack',
-        body: 'Open the Loredeck Library, choose a Lorepack, and add it to the active stack for this chat.',
-        targetTab: 'loredecks',
-        target: 'loredecks.library.open',
-        fallbackTarget: 'loredecks.library.launch',
-        expandSections: Object.freeze(['loredecks.libraryLaunch']),
-        prepare: 'openLoredeckLibrary',
-        statusText: 'Open the Library, then add at least one Lorepack to the active stack.',
-        doneText: 'A Lorepack is now in the active stack. Return to the Start Checklist to set Context.',
-        nextLabel: 'Open Library',
-        nextTarget: 'loredecks.library.open',
-        nextTooltip: 'Open the fullscreen Loredeck Library for this setup step.',
-        targetMissingText: 'The Library launch control is not visible yet. Use the Loredecks tab to open the Library.',
-    },
-    context: {
-        id: 'basic.context.set',
-        title: 'Set Story Context',
-        body: 'Use Runtime Context to choose where this chat sits inside the loaded Lorepacks.',
-        targetTab: 'context',
-        target: 'context.commandCenter',
-        fallbackTarget: 'context.loadedLoredecks',
-        expandSections: Object.freeze(['context.commandCenter']),
-        statusText: 'Use Browse Context or Detect Context for the loaded Lorepacks.',
-        doneText: 'Story Context is set. Return to the Start Checklist to review Lorecards.',
-        targetMissingText: 'Context controls are not visible yet. Load a Lorepack first, then return to set Context.',
-    },
-    review: {
-        id: 'basic.lorecards.review',
-        title: 'Review Lorecards',
-        body: 'Review pending Lorecards and accept the useful entries before they influence the next response.',
-        targetTab: 'lore',
-        target: 'lore.pending',
+function basicChecklistTourStep(id, title, body, tab, target, options = {}) {
+    return Object.freeze({
+        id,
+        title,
+        body,
+        tab,
+        target,
+        section: options.section || id,
+        ...options,
+    });
+}
+
+const BASIC_CHECKLIST_REVIEW_GENERATION_STEPS = Object.freeze([
+    basicChecklistTourStep('basic-checklist-review-generate-canon', 'Preview Canon Packs', 'Use Preview Canon Packs when loaded Lorepacks can suggest current-scene canon guardrails.', 'lore', 'lore.canon.preview', {
         fallbackTarget: 'lore.generation.section',
+        expandSections: Object.freeze(['lore.generation']),
+        expected: 'Useful canon suggestions can be sent to Pending Lorecard Review.',
+        when: 'Use this before scenes where canon constraints matter.',
+    }),
+    basicChecklistTourStep('basic-checklist-review-scan-story', 'Scan Story Lore', 'Use Scan Story Lore when the recent chat has durable facts worth extracting.', 'lore', 'lore.story.scan', {
+        fallbackTarget: 'lore.generation.section',
+        expandSections: Object.freeze(['lore.generation']),
+        expected: 'Story facts become pending Lorecards, not accepted memory.',
+        when: 'Run this after substantial new roleplay.',
+    }),
+    basicChecklistTourStep('basic-checklist-review-manual-add', 'Add Lorecard Manually', 'Use Add Lorecard when you already know the exact fact Saga should remember.', 'lore', 'lore.manual.add', {
+        fallbackTarget: 'lore.generation.section',
+        expandSections: Object.freeze(['lore.generation']),
+        expected: 'The draft enters Pending Lorecard Review for one final decision.',
+        when: 'Use this for trusted facts that do not need model discovery.',
+    }),
+    basicChecklistTourStep('basic-checklist-review-pending-after-create', 'Review Pending Lorecards', 'Read each pending Lorecard and accept only facts that should affect future responses.', 'lore', 'lore.pending.entry', {
+        fallbackTarget: 'lore.pending',
         expandSections: Object.freeze(['lore.pendingReview']),
         prepare: 'openPendingLoreReview',
-        statusText: 'Review pending Lorecards and accept facts that should affect future responses.',
-        doneText: 'At least one Lorecard is accepted. Return to the Start Checklist to confirm prompt selection.',
-        targetMissingText: 'Pending Lorecard Review is not visible yet. You may need to generate or add Lorecards first.',
+        expected: 'Accepted entries move into durable Lorecards.',
+        when: 'Use this after canon preview, story scan, or manual entry.',
+    }),
+    basicChecklistTourStep('basic-checklist-review-apply', 'Apply or Dismiss', 'Use the card actions to apply useful Lorecards and dismiss noise, recap, or wrong canon.', 'lore', 'lore.pending.actions', {
+        fallbackTarget: 'lore.pending.entry',
+        expandSections: Object.freeze(['lore.pendingReview']),
+        prepare: 'openPendingLoreReview',
+        expected: 'Only reviewed facts become accepted memory.',
+        when: 'Use this after reading a pending card.',
+    }),
+]);
+
+const BASIC_CHECKLIST_REVIEW_PENDING_STEPS = Object.freeze([
+    basicChecklistTourStep('basic-checklist-review-open-pending', 'Open Pending Review', 'Saga opens Pending Lorecard Review so the next decision is visible.', 'lore', 'lore.pending.entry', {
+        fallbackTarget: 'lore.pending',
+        expandSections: Object.freeze(['lore.pendingReview']),
+        prepare: 'openPendingLoreReview',
+        expected: 'A pending Lorecard is visible for review.',
+        when: 'Use this when the checklist reports pending review.',
+    }),
+    basicChecklistTourStep('basic-checklist-review-read-card', 'Read the Lorecard', 'Check the title, category, tags, and fact text before it becomes durable memory.', 'lore', 'lore.pending.entry', {
+        fallbackTarget: 'lore.pending.list',
+        expandSections: Object.freeze(['lore.pendingReview']),
+        prepare: 'openPendingLoreReview',
+        expected: 'You can decide whether the fact should guide future responses.',
+        when: 'Use this before applying or dismissing the card.',
+    }),
+    basicChecklistTourStep('basic-checklist-review-apply-pending', 'Apply or Dismiss', 'Press Apply for useful durable facts, or dismiss entries that should stay out of memory.', 'lore', 'lore.pending.actions', {
+        fallbackTarget: 'lore.pending.entry',
+        expandSections: Object.freeze(['lore.pendingReview']),
+        prepare: 'openPendingLoreReview',
+        expected: 'The accepted count increases or the pending queue clears.',
+        when: 'Use this for each pending Lorecard.',
+    }),
+]);
+
+const BASIC_CHECKLIST_TOUR_TASKS_BY_ROW = Object.freeze({
+    loredecks: {
+        id: 'basic-checklist-loredecks',
+        title: 'Add Lorepack to Stack',
+        steps: Object.freeze([
+            basicChecklistTourStep('basic-checklist-loredecks-open', 'Open Loredeck Library', 'Press Open Loredeck Library to open the fullscreen stack manager.', 'loredecks', 'loredecks.library.open', {
+                fallbackTarget: 'loredecks.library.launch',
+                expandSections: Object.freeze(['loredecks.libraryLaunch']),
+                expected: 'The Library window opens over the chat.',
+                when: 'Start here when no Lorepack is loaded.',
+            }),
+            basicChecklistTourStep('basic-checklist-loredecks-pick', 'Pick a Lorepack', 'Select the Bundled Lorepack, Generated Lorepack, Custom Lorepack, or folder group for this chat.', 'loredecks', 'loredecks.library.list', {
+                fallbackTarget: 'loredecks.library.filters',
+                prepare: 'openLoredeckLibrary',
+                expected: 'A source pack or folder is selected before stack changes.',
+                when: 'Use this before adding anything to the active stack.',
+            }),
+            basicChecklistTourStep('basic-checklist-loredecks-add', 'Add to Active Stack', 'Use the transfer controls to add the selected pack or folder to the active stack.', 'loredecks', 'loredecks.library.transfer', {
+                fallbackTarget: 'loredecks.library.list',
+                prepare: 'openLoredeckLibrary',
+                expected: 'The active stack contains at least one enabled Lorepack.',
+                when: 'Do this before setting Context.',
+            }),
+            basicChecklistTourStep('basic-checklist-loredecks-confirm', 'Confirm Stack', 'Check the active stack, then press Done when the loaded packs are correct.', 'loredecks', 'loredecks.library.done', {
+                fallbackTarget: 'loredecks.library.stack',
+                prepare: 'openLoredeckLibrary',
+                expected: 'The Loredecks tab reflects the loaded stack.',
+                when: 'Use this before returning to the Start Checklist.',
+            }),
+        ]),
+    },
+    context: {
+        id: 'basic-checklist-context',
+        title: 'Set Story Context',
+        steps: Object.freeze([
+            basicChecklistTourStep('basic-checklist-context-open', 'Open Context Browser', 'Press Browse Context to open the fullscreen Context Workbench.', 'context', 'context.browser', {
+                fallbackTarget: 'context.commandCenter',
+                expandSections: Object.freeze(['context.commandCenter']),
+                expected: 'The Context Workbench opens for the loaded Lorepacks.',
+                when: 'Use this when you know the current story position.',
+            }),
+            basicChecklistTourStep('basic-checklist-context-select', 'Select Story Position', 'Use Select From Timeline or Browse Story Waypoints to choose the current arc, chapter, date, episode, quest, or event.', 'context', 'context.workbench.contextPicker', {
+                fallbackTarget: 'context.workbench.waypoints',
+                prepare: 'openContextBrowser',
+                expected: 'A Context row is set for the loaded Lorepack.',
+                when: 'Use this to set a trusted manual Context.',
+            }),
+            basicChecklistTourStep('basic-checklist-context-detect', 'Or Detect Context', 'If you are unsure, use Detect Context from the main Context tab to analyze recent messages.', 'context', 'context.detect', {
+                fallbackTarget: 'context.commandCenter',
+                expandSections: Object.freeze(['context.commandCenter']),
+                expected: 'High-confidence matches update unlocked Context rows.',
+                when: 'Use this after a scene jump or when manual selection is unclear.',
+            }),
+            basicChecklistTourStep('basic-checklist-context-verify', 'Verify Loaded Rows', 'Confirm the loaded Loredeck Context rows show the story position you expect.', 'context', 'context.loadedLoredecks', {
+                fallbackTarget: 'context.commandCenter',
+                expandSections: Object.freeze(['context.loadedLoredecks']),
+                expected: 'The checklist can mark Story Context as set.',
+                when: 'Use this before reviewing Lorecards.',
+            }),
+        ]),
+    },
+    review: {
+        id: 'basic-checklist-review',
+        title: 'Review Lorecards',
     },
     'lore-ready': {
-        id: 'basic.lorecards.ready',
+        id: 'basic-checklist-lore-ready',
         title: 'Confirm Lorecards',
-        body: 'Check Accepted Lorecards and confirm useful entries are selected for the next prompt.',
-        targetTab: 'lore',
-        target: 'lore.accepted',
-        fallbackTarget: 'lore.pending',
-        expandSections: Object.freeze(['lore.acceptedEntries']),
-        prepare: 'openAcceptedLoreDetails',
-        statusText: 'Check accepted Lorecards and confirm useful entries are selected for the next prompt.',
-        doneText: 'Lorecards are selected for the next prompt. Return to the Start Checklist when you are ready to continue roleplay.',
-        targetMissingText: 'Accepted Lorecards are not visible yet. Review or add Lorecards first.',
+        steps: Object.freeze([
+            basicChecklistTourStep('basic-checklist-lore-ready-open', 'Open Accepted Lorecards', 'Saga opens Accepted Lorecards so you can inspect durable memory.', 'lore', 'lore.accepted.list', {
+                fallbackTarget: 'lore.accepted',
+                expandSections: Object.freeze(['lore.acceptedEntries']),
+                prepare: 'openAcceptedLoreDetails',
+                expected: 'Accepted Lorecards are visible.',
+                when: 'Use this after review has accepted at least one card.',
+            }),
+            basicChecklistTourStep('basic-checklist-lore-ready-search', 'Search Accepted Lorecards', 'Use the search field if you need to confirm a specific fact before continuing.', 'lore', 'lore.accepted.filters', {
+                fallbackTarget: 'lore.accepted.list',
+                expandSections: Object.freeze(['lore.acceptedEntries']),
+                prepare: 'openAcceptedLoreDetails',
+                expected: 'You can verify what Saga remembers.',
+                when: 'Use this when the accepted list is long.',
+            }),
+            basicChecklistTourStep('basic-checklist-lore-ready-entry', 'Open a Lorecard', 'Open or inspect an accepted Lorecard when the stored fact needs correction.', 'lore', 'lore.accepted.entry', {
+                fallbackTarget: 'lore.accepted.list',
+                expandSections: Object.freeze(['lore.acceptedEntries']),
+                prepare: 'openAcceptedLoreDetails',
+                expected: 'Accepted memory is ready for the next prompt.',
+                when: 'Use this if something looks stale or wrong.',
+            }),
+        ]),
     },
     provider: {
-        id: 'basic.provider.configure',
+        id: 'basic-checklist-provider',
         title: 'Configure Provider',
-        body: 'Pick a model route for Saga model-backed actions, then test the provider when needed.',
-        targetTab: 'settings',
-        target: 'settings.providers',
-        fallbackTarget: 'settings.providers',
-        expandSections: Object.freeze(['settings.providers']),
-        statusText: 'Use Basic provider rows, or open Advanced provider settings if you need deeper routing.',
-        doneText: 'Provider routing is configured. Return to the Start Checklist when you are ready.',
-        targetMissingText: 'Provider setup is not visible yet. Open Basic Settings and expand Providers.',
+        steps: Object.freeze([
+            basicChecklistTourStep('basic-checklist-provider-utility', 'Check Utility Provider', 'Read Utility Provider status for scans, summaries, and other model-backed support actions.', 'settings', 'settings.provider.utility', {
+                fallbackTarget: 'settings.providers',
+                expandSections: Object.freeze(['settings.providers']),
+                expected: 'The status says Ready or explains what is missing.',
+                when: 'Use this if model-backed helper actions fail.',
+            }),
+            basicChecklistTourStep('basic-checklist-provider-reasoning', 'Check Reasoning Provider', 'Read Reasoning Provider status for Lorecard generation and model-backed Context help.', 'settings', 'settings.provider.reasoning', {
+                fallbackTarget: 'settings.providers',
+                expandSections: Object.freeze(['settings.providers']),
+                expected: 'The status says Ready or explains what is missing.',
+                when: 'Use this before scans or generated lore.',
+            }),
+            basicChecklistTourStep('basic-checklist-provider-test', 'Test a Provider', 'Press a Test button to confirm the selected provider route can answer a small request.', 'settings', 'settings.provider.test', {
+                fallbackTarget: 'settings.provider.reasoning',
+                expandSections: Object.freeze(['settings.providers']),
+                expected: 'Saga reports whether the provider connected.',
+                when: 'Use this before relying on model-backed actions.',
+            }),
+            basicChecklistTourStep('basic-checklist-provider-advanced', 'Advanced Provider Settings', 'Open Advanced Provider Settings only when Basic status rows do not give enough control.', 'settings', 'settings.provider.advanced', {
+                fallbackTarget: 'settings.providers',
+                expandSections: Object.freeze(['settings.providers']),
+                expected: 'Advanced settings expose profiles, endpoints, model fields, and generation controls.',
+                when: 'Use this for non-default routing or provider repair.',
+            }),
+        ]),
     },
 });
 
-function getBasicGuidedTaskConfig(row = {}) {
-    if (row.id === 'context' && row.targetTab === 'loredecks') return BASIC_GUIDED_TASKS_BY_ROW.loredecks;
-    return BASIC_GUIDED_TASKS_BY_ROW[row.id] || null;
+function getBasicChecklistTourConfig(row = {}) {
+    if (row.id === 'context' && row.targetTab === 'loredecks') return BASIC_CHECKLIST_TOUR_TASKS_BY_ROW.loredecks;
+    return BASIC_CHECKLIST_TOUR_TASKS_BY_ROW[row.id] || null;
 }
 
-function createBasicGuidedTask(row = {}) {
-    const config = getBasicGuidedTaskConfig(row);
-    if (!config) return null;
-    const targetTab = row.targetTab || config.targetTab || 'session';
-    const readinessRowId = row.id === 'context' && targetTab === 'loredecks'
-        ? 'loredecks'
-        : (config.readinessRowId || row.id || '');
-    return {
-        id: config.id,
-        source: 'session.basicReadiness',
-        sourceTab: 'session',
-        targetTab,
-        target: config.target,
-        fallbackTarget: config.fallbackTarget || '',
-        expandSections: Array.isArray(config.expandSections) ? [...config.expandSections] : [],
-        prepare: config.prepare || '',
-        readinessRowId,
-        title: config.title,
-        body: config.body,
-        statusText: config.statusText || '',
-        doneText: config.doneText || '',
-        targetMissingText: config.targetMissingText || 'The guided task target is not visible in the current state.',
-        nextLabel: config.nextLabel || '',
-        nextTarget: config.nextTarget || '',
-        nextTooltip: config.nextTooltip || '',
-        status: 'active',
-        startedAt: Date.now(),
-    };
+function getBasicChecklistTourSteps(config = {}, row = {}, state = getState()) {
+    if (row.id === 'review') {
+        const pendingCount = normalizeLoreMatrix(state?.pendingLoreEntries || []).length;
+        return pendingCount > 0 ? BASIC_CHECKLIST_REVIEW_PENDING_STEPS : BASIC_CHECKLIST_REVIEW_GENERATION_STEPS;
+    }
+    return Array.isArray(config.steps) ? config.steps : [];
 }
 
-function launchBasicGuidedTask(row = {}) {
-    const task = createBasicGuidedTask(row);
-    if (!task) return;
-    expandBasicGuidedTaskSections(task);
-    navigateRuntimeTab(task.targetTab, { guidedTask: task });
+function launchBasicChecklistTour(row = {}) {
+    const config = getBasicChecklistTourConfig(row);
+    if (!config) return;
+    const steps = getBasicChecklistTourSteps(config, row, getState());
+    if (!steps.length) return;
+    startSagaTourSteps(steps, {
+        mode: 'basic',
+        sectionId: config.id,
+        className: 'saga-checklist-tour-popover',
+        progressLabel: 'Start Checklist',
+        closeLabel: 'Start Checklist',
+        closeTooltip: 'Return to the Basic Start Checklist.',
+        finishLabel: 'Done',
+        onClose: returnToBasicStartChecklist,
+    });
 }
 
 function getBasicReadinessAction(row) {
     if (!row || row.ready || !row.actionLabel) return null;
     if (row.actionId === 'enable-saga') return enableSagaRuntime;
-    if (row.targetTab) return () => launchBasicGuidedTask(row);
+    if (row.targetTab) return () => launchBasicChecklistTour(row);
     return null;
 }
 
@@ -16568,245 +16677,16 @@ function createBasicStartReadinessCard(state = getState(), settings = getSetting
     ), 'session.basicReadiness');
 }
 
-function getActiveBasicGuidedTask(state = getState(), activeTab = '', settings = getSettings()) {
-    if (!isBasicExperience(settings)) return null;
-    const task = state?.lorePanel?.guidedTask;
-    if (!task || typeof task !== 'object' || !task.id || !task.targetTab) return null;
-    if (activeTab && task.targetTab !== activeTab) return null;
-    return task;
-}
-
-function getBasicGuidedTaskReadinessRow(task, state = getState(), settings = getSettings()) {
-    const rowId = String(task?.readinessRowId || '').trim();
-    if (!rowId) return null;
-    return getBasicReadinessModel(state, settings).rows.find(row => row.id === rowId) || null;
-}
-
-function normalizeBasicGuidedTaskStatus(status) {
-    const normalized = String(status || '').trim();
-    return ['active', 'target_missing', 'done'].includes(normalized) ? normalized : 'active';
-}
-
-function setActiveBasicGuidedTaskStatus(status, task = getState()?.lorePanel?.guidedTask) {
-    const nextStatus = normalizeBasicGuidedTaskStatus(status);
-    const state = getState();
-    const current = state?.lorePanel?.guidedTask;
-    if (!current || !task || current.id !== task.id || current.targetTab !== task.targetTab) return false;
-    if (normalizeBasicGuidedTaskStatus(current.status) === nextStatus) return false;
-    current.status = nextStatus;
-    saveState(state);
-    return true;
-}
-
-function getBasicGuidedTaskEffectiveStatus(task, row) {
-    if (row?.ready) return 'done';
-    const status = normalizeBasicGuidedTaskStatus(task?.status);
-    return status === 'done' ? 'active' : status;
-}
-
-function expandBasicGuidedTaskSections(task = {}) {
-    const sections = Array.isArray(task.expandSections) ? task.expandSections : [];
-    for (const sectionId of sections) {
-        const id = String(sectionId || '').trim();
-        if (id) setSectionCollapsed(id, false);
-    }
-}
-
-function clearBasicGuidedTaskHighlight() {
-    for (const el of document.querySelectorAll('.saga-guided-task-highlight')) {
-        el.classList.remove('saga-guided-task-highlight');
-    }
-}
-
 function returnToBasicStartChecklist() {
-    clearBasicGuidedTaskHighlight();
+    closeLoredeckLibraryWindow();
+    closeContextWorkbench();
     setSectionCollapsed('session.basicReadiness', false);
-    setPanelState({ activeTab: 'session', guidedTask: null });
+    setPanelState({ activeTab: 'session' });
     refreshPanelBody({ preserveScroll: false });
     refreshHeader();
 }
 
-function dismissBasicGuidedTask() {
-    clearBasicGuidedTaskHighlight();
-    setPanelState({ guidedTask: null });
-    refreshPanelBody({ preserveScroll: true, preserveWindowScroll: true });
-    refreshHeader();
-}
-
-function getGuidedTaskTargetElement(task = {}) {
-    const root = panelRoot || document.getElementById(PANEL_ID) || document.body;
-    const targets = [task.target, task.fallbackTarget].map(value => String(value || '').trim()).filter(Boolean);
-    if (!targets.length) return null;
-    const candidates = [
-        ...Array.from(root.querySelectorAll('[data-saga-tour]')),
-        ...Array.from(document.querySelectorAll('[data-saga-tour]')),
-    ];
-    return candidates.find(el => targets.includes(el?.dataset?.sagaTour)) || null;
-}
-
-function getGuidedTaskStripElement(task = {}) {
-    const root = panelRoot || document.getElementById(PANEL_ID) || document.body;
-    return Array.from(root.querySelectorAll('[data-saga-guided-task-id]'))
-        .find(el => el?.dataset?.sagaGuidedTaskId === task?.id) || null;
-}
-
-function setBasicGuidedTaskStripStatus(task = {}, message = '', missing = false) {
-    const status = panelRoot?.querySelector('[data-saga-guided-task-status]');
-    const strip = getGuidedTaskStripElement(task);
-    strip?.classList.toggle('saga-basic-guided-task-strip-missing', !!missing);
-    if (status) {
-        status.textContent = message || (missing ? (task?.targetMissingText || 'The guided control is not visible in the current state.') : (task?.statusText || 'Follow the highlighted control.'));
-        status.classList.toggle('saga-basic-guided-task-status-missing', !!missing);
-    }
-}
-
-function applyBasicGuidedTaskTargetResult(task = {}, target = null, prepareResult = null) {
-    if (target) {
-        target.classList.add('saga-guided-task-highlight');
-        target.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'auto' });
-        setActiveBasicGuidedTaskStatus('active', task);
-        setBasicGuidedTaskStripStatus(task, prepareResult?.message || task?.statusText || 'Follow the highlighted control.', false);
-        return true;
-    }
-    setActiveBasicGuidedTaskStatus('target_missing', task);
-    setBasicGuidedTaskStripStatus(
-        task,
-        prepareResult?.message || task?.targetMissingText || 'The guided control is not visible in the current state.',
-        true
-    );
-    return false;
-}
-
-function prepareBasicGuidedTaskTarget(task = {}) {
-    if (!task || typeof task !== 'object') return null;
-    expandBasicGuidedTaskSections(task);
-    const prepare = String(task?.prepare || '').trim();
-    if (!prepare) return null;
-    return prepareRuntimeGuideStep({
-        title: task.title || 'Setup task',
-        tab: task.targetTab || 'session',
-        target: task.target || '',
-        fallbackTarget: task.fallbackTarget || '',
-        prepare,
-    });
-}
-
-function focusBasicGuidedTaskTarget(task = getState()?.lorePanel?.guidedTask, options = {}) {
-    if (!task || typeof task !== 'object') return false;
-    clearBasicGuidedTaskHighlight();
-    const target = getGuidedTaskTargetElement(task);
-    if (target) {
-        return applyBasicGuidedTaskTargetResult(task, target);
-    }
-    if (options.prepare !== false && task?.prepare) {
-        setBasicGuidedTaskStripStatus(task, 'Opening the guided target...', false);
-        Promise.resolve()
-            .then(() => prepareBasicGuidedTaskTarget(task))
-            .catch(error => {
-                console.warn('[Saga] Basic guided task prepare failed:', error);
-                return createGuidePrepareResult(false, `${task.title || 'Setup task'} could not be prepared automatically.`);
-            })
-            .then(prepareResult => {
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        const current = getState()?.lorePanel?.guidedTask;
-                        if (!current || current.id !== task.id || current.targetTab !== task.targetTab) return;
-                        applyBasicGuidedTaskTargetResult(current, getGuidedTaskTargetElement(current), prepareResult);
-                    });
-                });
-            });
-        return false;
-    }
-    return applyBasicGuidedTaskTargetResult(task, null);
-}
-
-function runBasicGuidedTaskNext(task = getState()?.lorePanel?.guidedTask) {
-    if (!task || typeof task !== 'object') return false;
-    const target = getGuidedTaskTargetElement({
-        ...task,
-        target: task?.nextTarget || task?.target,
-        fallbackTarget: task?.target,
-    });
-    if (!target || target.disabled || target.getAttribute?.('aria-disabled') === 'true') {
-        focusBasicGuidedTaskTarget(task);
-        return false;
-    }
-    setActiveBasicGuidedTaskStatus('active', task);
-    target.click();
-    return true;
-}
-
-function scheduleBasicGuidedTaskTargetFocus(task, state = getState(), settings = getSettings()) {
-    if (!task) {
-        clearBasicGuidedTaskHighlight();
-        return;
-    }
-    const row = getBasicGuidedTaskReadinessRow(task, state, settings);
-    if (row?.ready) {
-        clearBasicGuidedTaskHighlight();
-        return;
-    }
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            const current = getState()?.lorePanel?.guidedTask;
-            if (!current || current.id !== task.id || current.targetTab !== task.targetTab) return;
-            focusBasicGuidedTaskTarget(current, { prepare: false });
-        });
-    });
-}
-
-function createBasicGuidedTaskStrip(task, state = getState(), settings = getSettings()) {
-    const row = getBasicGuidedTaskReadinessRow(task, state, settings);
-    const effectiveStatus = getBasicGuidedTaskEffectiveStatus(task, row);
-    const done = effectiveStatus === 'done';
-    const missing = effectiveStatus === 'target_missing';
-    if (done) setActiveBasicGuidedTaskStatus('done', task);
-    const strip = document.createElement('div');
-    strip.className = `saga-basic-guided-task-strip ${done ? 'saga-basic-guided-task-strip-done' : ''} ${missing ? 'saga-basic-guided-task-strip-missing' : ''}`.trim();
-    strip.dataset.sagaGuidedTaskId = task.id;
-
-    const main = document.createElement('div');
-    main.className = 'saga-basic-guided-task-main';
-    const crumb = document.createElement('div');
-    crumb.className = 'saga-basic-guided-task-crumb';
-    crumb.textContent = `Start Checklist > ${task.title || 'Setup task'}`;
-    main.appendChild(crumb);
-    const body = document.createElement('div');
-    body.className = 'saga-basic-guided-task-body';
-    body.textContent = done
-        ? (task.doneText || `${row.label || 'Checklist item'} is ready. Return to the Start Checklist when you are done here.`)
-        : (task.body || 'Complete this setup step, then return to the Start Checklist.');
-    main.appendChild(body);
-    const status = document.createElement('div');
-    status.className = `saga-basic-guided-task-status ${missing ? 'saga-basic-guided-task-status-missing' : ''}`.trim();
-    status.dataset.sagaGuidedTaskStatus = task.id;
-    status.textContent = done
-        ? 'Done.'
-        : (missing ? (task.targetMissingText || 'The guided control is not visible in the current state.') : (task.statusText || 'Looking for the guided control...'));
-    main.appendChild(status);
-    strip.appendChild(main);
-
-    const actions = document.createElement('div');
-    actions.className = 'saga-basic-guided-task-actions saga-primary-actions';
-    actions.appendChild(createButton('Back to Start Checklist', 'Return to the Basic Session Start Checklist.', returnToBasicStartChecklist, done ? 'saga-primary-button' : ''));
-    if (!done) {
-        if (task.nextTarget && task.nextLabel) {
-            actions.appendChild(createButton(task.nextLabel, task.nextTooltip || task.body || 'Continue this guided setup step.', () => runBasicGuidedTaskNext(task), 'saga-primary-button'));
-        }
-        actions.appendChild(createButton('Find Control', 'Scroll to and highlight the control for this setup step.', () => focusBasicGuidedTaskTarget(task, { prepare: true })));
-    }
-    actions.appendChild(createButton('Dismiss', 'Dismiss this guided setup helper.', dismissBasicGuidedTask));
-    strip.appendChild(actions);
-    return strip;
-}
-
 function startRuntimeWalkthrough(mode, options = {}) {
-    clearBasicGuidedTaskHighlight();
-    const state = getState();
-    if (state?.lorePanel?.guidedTask) {
-        state.lorePanel.guidedTask = null;
-        saveState(state);
-    }
     startSagaTour(mode, options);
 }
 
@@ -21006,10 +20886,6 @@ function setExperienceMode(mode) {
     if (state?.lorePanel) {
         normalizePanelLayoutState(state);
         state.lorePanel.activeTab = normalizeTabForExperience(state.lorePanel.activeTab, settings);
-        if (normalizeExperienceMode(settings.experienceMode) === 'advanced') {
-            state.lorePanel.guidedTask = null;
-            clearBasicGuidedTaskHighlight();
-        }
         saveState(state);
     }
 }

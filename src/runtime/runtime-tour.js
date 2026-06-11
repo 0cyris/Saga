@@ -83,14 +83,34 @@ export function startSagaTour(mode = normalizeExperienceMode(getSettings().exper
         return;
     }
 
-    closeSagaTour({ preserveToast: true });
-    activeSagaTour = {
+    startSagaTourSteps(steps, {
+        ...options,
         mode: normalized,
         sectionId,
-        steps,
+    });
+}
+
+export function startSagaTourSteps(steps = [], options = {}) {
+    const normalizedSteps = Array.isArray(steps) ? steps.filter(Boolean) : [];
+    if (!normalizedSteps.length) {
+        toast(options.emptyMessage || 'No walkthrough steps are available for this guide.', 'info');
+        return;
+    }
+
+    closeSagaTour({ preserveToast: true, skipOnClose: true });
+    activeSagaTour = {
+        mode: normalizeExperienceMode(options.mode || getSettings().experienceMode),
+        sectionId: String(options.sectionId || '').trim(),
+        steps: normalizedSteps,
         index: 0,
         renderToken: 0,
         currentTarget: null,
+        className: String(options.className || '').trim(),
+        progressLabel: String(options.progressLabel || '').trim(),
+        closeLabel: String(options.closeLabel || 'Close').trim() || 'Close',
+        closeTooltip: String(options.closeTooltip || 'Close the walkthrough.').trim() || 'Close the walkthrough.',
+        finishLabel: String(options.finishLabel || 'Finish').trim() || 'Finish',
+        onClose: typeof options.onClose === 'function' ? options.onClose : null,
     };
     document.addEventListener('keydown', onSagaTourKeydown);
     window.addEventListener('resize', repositionSagaTourPopover);
@@ -206,14 +226,16 @@ function renderSagaTourPopover(step, target, prepareResult = null) {
     if (!popover) {
         popover = document.createElement('div');
         popover.id = 'saga-tour-popover';
-        popover.className = 'saga-tour-popover';
         document.body.appendChild(popover);
     }
+    popover.className = `saga-tour-popover ${tour.className || ''}`.trim();
 
     popover.innerHTML = '';
     const progress = document.createElement('div');
     progress.className = 'saga-tour-progress';
-    progress.textContent = `${tour.index + 1} / ${tour.steps.length}`;
+    progress.textContent = tour.progressLabel
+        ? `${tour.progressLabel} ${tour.index + 1} / ${tour.steps.length}`
+        : `${tour.index + 1} / ${tour.steps.length}`;
     popover.appendChild(progress);
 
     const title = document.createElement('div');
@@ -240,11 +262,12 @@ function renderSagaTourPopover(step, target, prepareResult = null) {
     back.disabled = tour.index <= 0;
     actions.appendChild(back);
 
-    const close = createButton('Close', 'Close the walkthrough.', () => closeSagaTour(), 'saga-mini-button');
+    const close = createButton(tour.closeLabel || 'Close', tour.closeTooltip || 'Close the walkthrough.', () => closeSagaTour(), 'saga-mini-button');
     actions.appendChild(close);
 
-    const nextLabel = tour.index >= tour.steps.length - 1 ? 'Finish' : 'Next';
-    const next = createButton(nextLabel, nextLabel === 'Finish' ? 'Close the walkthrough.' : 'Move to the next walkthrough step.', () => {
+    const finalStep = tour.index >= tour.steps.length - 1;
+    const nextLabel = finalStep ? (tour.finishLabel || 'Finish') : 'Next';
+    const next = createButton(nextLabel, finalStep ? 'Close the walkthrough.' : 'Move to the next walkthrough step.', () => {
         if (!activeSagaTour) return;
         if (activeSagaTour.index >= activeSagaTour.steps.length - 1) {
             closeSagaTour();
@@ -308,6 +331,7 @@ function repositionSagaTourPopover() {
 }
 
 export function closeSagaTour(options = {}) {
+    const closingTour = activeSagaTour;
     activeSagaTour = null;
     clearSagaTourHighlight();
     document.removeEventListener('keydown', onSagaTourKeydown);
@@ -315,6 +339,9 @@ export function closeSagaTour(options = {}) {
     const popover = document.getElementById('saga-tour-popover');
     if (popover) popover.remove();
     if (!options.preserveToast) hideFloatingTooltip();
+    if (!options.skipOnClose && typeof closingTour?.onClose === 'function') {
+        closingTour.onClose(options);
+    }
 }
 
 function onSagaTourKeydown(event) {

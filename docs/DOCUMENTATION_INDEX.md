@@ -15,7 +15,7 @@ Saga documentation is being organized into release-facing topic folders. Older i
 - [development](development/): active planning, audits, implementation notes, and pre-release engineering records. These files are not yet organized as end-user documentation.
 - [Basic And Advanced Experience Modes Plan](development/SAGA_EXPERIENCE_MODES_PLAN.md): product and implementation plan for revising Saga's guided Basic workflow and full Advanced workflow.
 - [Basic Experience Implementation Plan](development/SAGA_BASIC_EXPERIENCE_IMPLEMENTATION_PLAN.md): focused feature plan for hiding Injection in Basic mode while adding the Start Checklist and workflow-card Basic Walkthrough.
-- [Basic Checklist Guided Tasks](development/SAGA_BASIC_CHECKLIST_GUIDED_TASKS.md): feature plan for checklist-launched guided task strips that help first-time Basic users complete setup steps and return to the Start Checklist.
+- [Basic Checklist Mini-Tours](development/SAGA_BASIC_CHECKLIST_GUIDED_TASKS.md): implementation note for Start Checklist actions that launch external, button-by-button mini-tours.
 - [Walkthrough Workflow Expansion Plan](development/SAGA_WALKTHROUGH_WORKFLOW_EXPANSION_PLAN.md): coverage-driven implementation plan for the B01-B49 Basic modules and A01-A155 Advanced task tracks without fixed step-count limits.
 - [Loredeck Zip Package Import/Export Plan](development/LOREDECK_ZIP_PACKAGE_IMPORT_EXPORT_PLAN.md): development plan for replacing front-facing Loredeck JSON import/export with bundled-folder-shaped `.saga-loredeck.zip` packages.
 - [Jujutsu Kaisen Loredeck Series Plan](development/JJK_LOREDECK_SERIES_PLAN.md): source-boundary, deck-family split, Context model, tag plan, and Pack Health bar for a manga-primary JJK Bundled Lorepack family.

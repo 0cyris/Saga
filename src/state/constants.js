@@ -740,7 +740,6 @@ export function getDefaultState() {
             contextResolutionAudit: null,
             contextAutomationAudit: null,
             showOnlyActive: false,
-            guidedTask: null,
             x: 20,
             y: 220,
             width: 560,

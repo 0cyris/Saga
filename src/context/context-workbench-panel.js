@@ -32,6 +32,10 @@ function dep(name, fallback = null) {
     throw new Error(`Saga Context Workbench dependency is not configured: ${name}`);
 }
 
+function markTourTarget(el, target) {
+    return dep('markTourTarget', element => element)(el, target);
+}
+
 function getContextWorkbenchTab() { return dep('getContextWorkbenchTab', () => 'context')(); }
 function setContextWorkbenchTab(tabId) { return dep('setContextWorkbenchTab', () => null)(tabId); }
 function getContextWorkbenchPackId() { return dep('getContextWorkbenchPackId', () => '')(); }
@@ -337,6 +341,7 @@ function createContextWorkbenchInspector(pack, selected = null, allItems = [], c
 export function createContextWorkbenchShell(state = {}, contextIndex = null) {
     const shell = document.createElement('div');
     shell.className = 'saga-lore-workbench-shell saga-context-workbench-shell';
+    markTourTarget(shell, 'context.workbench.shell');
     shell.addEventListener('click', event => event.stopPropagation());
 
     shell.appendChild(createContextWorkbenchHeader(state, contextIndex));
@@ -361,6 +366,7 @@ export function createContextWorkbenchShell(state = {}, contextIndex = null) {
 function createContextWorkbenchHeader(state = {}, contextIndex = null) {
     const header = document.createElement('div');
     header.className = 'saga-lore-workbench-header saga-context-workbench-header';
+    markTourTarget(header, 'context.workbench.header');
 
     const titleWrap = document.createElement('div');
     titleWrap.className = 'saga-lore-workbench-title-wrap';
@@ -469,6 +475,7 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
 
     const controls = document.createElement('div');
     controls.className = 'saga-context-workbench-controls';
+    markTourTarget(controls, 'context.workbench.resolvers');
     controls.appendChild(createButton('Resolve From Context', 'Use current Context and loaded timeline aliases to update unlocked Contexts.', async (btn) => {
         await resolveContextsFromContext(btn);
         renderContextWorkbench();
@@ -485,6 +492,7 @@ export function createContextWorkbenchContextView(state = {}, contextIndex = nul
 
     const table = document.createElement('div');
     table.className = 'saga-context-workbench-context-table';
+    markTourTarget(table, 'context.workbench.contextTable');
     const header = document.createElement('div');
     header.className = 'saga-context-workbench-context-row saga-context-workbench-row-header';
     for (const label of ['Loredeck', 'Current Context', 'Source', 'Index', 'Manual Lock', 'Actions']) {
@@ -552,6 +560,7 @@ function createContextWorkbenchContextEditor(state = {}, contextIndex = null) {
     const pack = getContextWorkbenchPack(state);
     const panel = document.createElement('div');
     panel.className = 'saga-context-workbench-inspector saga-context-workbench-context-editor';
+    markTourTarget(panel, 'context.workbench.editor');
     if (!pack?.packId) {
         panel.appendChild(createEmptyMessage('Select a loaded Loredeck to edit its Context.'));
         return panel;
@@ -616,6 +625,7 @@ const CONTEXT_WAYPOINT_FILTER_OPTIONS = Object.freeze([
 function createContextWorkbenchWaypointBrowser(pack, context = {}, contextIndex = null) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-context-workbench-waypoint-browser';
+    markTourTarget(wrap, 'context.workbench.waypoints');
 
     const top = document.createElement('div');
     top.className = 'saga-context-workbench-waypoint-top';
@@ -1381,6 +1391,7 @@ function uniqueStrings(values = []) {
 function createContextWorkbenchContextPicker(pack, context = {}, contextIndex = null) {
     const wrap = document.createElement('div');
     wrap.className = 'saga-context-workbench-context-picker';
+    markTourTarget(wrap, 'context.workbench.contextPicker');
 
     const top = document.createElement('div');
     top.className = 'saga-context-workbench-context-picker-top';

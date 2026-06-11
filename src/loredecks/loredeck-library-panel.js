@@ -24,7 +24,7 @@ import {
     resolveLoredeckStackItems,
 } from './loredeck-library-index.js';
 import { resolveLoredeckLibraryDragFeedback } from './loredeck-library-drag.js';
-import { sortLoredeckLibraryPacks } from './loredeck-library-view.js';
+import { sortLoredeckLibraryFolderTreeByTitle, sortLoredeckLibraryPacks } from './loredeck-library-view.js';
 import {
     applyLoredeckLibraryFolderRemovalPlan,
     createLoredeckLibraryFolderRecord,
@@ -157,7 +157,7 @@ const LOREDECK_LIBRARY_SPECIAL_VIEWS = Object.freeze([
 ]);
 let loredeckLibraryOpen = false;
 let loredeckLibraryQuery = '';
-let loredeckLibrarySort = 'manual';
+let loredeckLibrarySort = 'name';
 let loredeckLibraryDetailsTab = 'overview';
 let loredeckLibraryBulkSelectedIds = new Set();
 let loredeckLibraryLastSelectionAnchorId = '';
@@ -1497,28 +1497,11 @@ function createLoredeckLibraryHierarchyList(visiblePacks = [], stack = [], canon
         for (const pack of visibleDirect) appendDeck(pack, depth + 1);
     };
 
-    const folders = buildFolderTree(libraryIndex);
+    const folders = sortLoredeckLibraryFolderTreeByTitle(buildFolderTree(libraryIndex));
     for (const folder of folders) appendFolder(folder, 0);
 
-    if (unfiledPacks.length || (showEmptyFolders && renderModel.unfiledPacks.length)) {
-        const unfiledVisible = unfiledPacks.length ? unfiledPacks : (showEmptyFolders ? renderModel.unfiledPacks : []);
-        const collapsed = getLoredeckLibraryFolderCollapsedStateFromRenderModel('unfiled', renderModel, { query });
-        list.appendChild(createLoredeckLibraryInlineFolderRow({
-            id: 'unfiled',
-            title: 'Unfiled',
-            children: [],
-        }, {
-            depth: 0,
-            collapsed,
-            special: true,
-            stats: renderModel.getStats('unfiled'),
-            coverPacks: unfiledVisible.filter(pack => getLoredeckAssetRef(pack, 'cover')).slice(0, 5),
-            totalCoverableCount: unfiledVisible.filter(pack => getLoredeckAssetRef(pack, 'cover')).length,
-        }));
-        if (!collapsed) {
-            for (const pack of unfiledVisible) appendDeck(pack, 1);
-        }
-    }
+    const unfiledVisible = unfiledPacks.length ? unfiledPacks : (showEmptyFolders ? renderModel.unfiledPacks : []);
+    for (const pack of unfiledVisible) appendDeck(pack, 0);
 
     if (!list.children.length) {
         list.appendChild(createEmptyMessage('No Loredecks match the current Library view or search.'));
@@ -4600,7 +4583,7 @@ function moveLoredecksToLibraryFolder(packIds = [], folderId = '') {
     settings.loredeckLibrary = result.registry;
     saveSettings(settings);
     loredeckLibrarySelectedFolderId = result.targetFolderId || 'unfiled';
-    loredeckLibrarySort = 'manual';
+    loredeckLibrarySort = 'name';
     selectLoredeckForDetails(result.validIds[0], { refresh: false });
     setLoredeckLibraryBulkSelection(result.validIds, result.validIds[0]);
     return true;
@@ -4656,7 +4639,7 @@ function createLoredeckLibraryFolder(parentId = '', title = '', libraryIndex = g
     }
     loredeckLibrarySelectedFolderId = folder.id;
     loredeckLibrarySelectedFolderDetailsId = folder.id;
-    loredeckLibrarySort = 'manual';
+    loredeckLibrarySort = 'name';
     return folder;
 }
 
@@ -4788,7 +4771,7 @@ function applyLoredeckLibraryFolderRemoval(plan = {}, strategy = 'empty') {
     loredeckLibrarySelectedFolderDetailsId = '';
     if (result.selectedDeckIds.length) setLoredeckLibraryBulkSelection(result.selectedDeckIds, result.selectedDeckIds[0]);
     else setLoredeckLibraryBulkSelection([], '');
-    loredeckLibrarySort = 'manual';
+    loredeckLibrarySort = 'name';
     renderLoredeckLibraryOverlay();
     return true;
 }
@@ -4807,7 +4790,7 @@ function moveLoredeckLibraryFolder(folderId = '', targetParentId = '', targetInd
         loredeckLibraryCollapsedFolderIds.delete(targetParentId);
         loredeckLibraryExpandedFolderIds.add(targetParentId);
     }
-    loredeckLibrarySort = 'manual';
+    loredeckLibrarySort = 'name';
     return true;
 }
 

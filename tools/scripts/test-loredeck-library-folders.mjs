@@ -12,6 +12,7 @@ import {
   resolveLoredeckLibraryDragFeedback,
 } from '../../src/loredecks/loredeck-library-drag.js';
 import {
+  sortLoredeckLibraryFolderTreeByTitle,
   getLoredeckLibraryManualSortOrder,
   sortLoredeckLibraryPacks,
 } from '../../src/loredecks/loredeck-library-view.js';
@@ -432,6 +433,11 @@ const sortPacks = [
   { packId: 'bundled-a', title: 'Bundled A', type: 'bundled', library: { familyOrder: 300 }, updatedAt: 1000, stats: { entryCount: 20 } },
   { packId: 'generated-c', title: 'Generated C', type: 'generated', updatedAt: 3000, stats: { entryCount: 2 } },
 ];
+const explorerNamePacks = [
+  { packId: 'deck-10', title: 'Deck 10' },
+  { packId: 'deck-2', title: 'Deck 2' },
+  { packId: 'deck-1', title: 'deck 1' },
+];
 const sortRegistry = {
   deckPlacements: [
     { deckId: 'generated-c', sortOrder: 100 },
@@ -443,6 +449,11 @@ assert.deepEqual(sortLoredeckLibraryPacks(sortPacks, { sortMode: 'manual', regis
   'generated-c',
   'bundled-a',
   'custom-b',
+]);
+assert.deepEqual(sortLoredeckLibraryPacks(explorerNamePacks, { sortMode: 'name' }).map(pack => pack.packId), [
+  'deck-1',
+  'deck-2',
+  'deck-10',
 ]);
 assert.deepEqual(sortLoredeckLibraryPacks(sortPacks, { sortMode: 'type' }).map(pack => pack.packId), [
   'bundled-a',
@@ -469,6 +480,13 @@ assert.deepEqual(sortLoredeckLibraryPacks(sortPacks, { sortMode: 'updated' }).ma
   'generated-c',
   'custom-b',
   'bundled-a',
+]);
+assert.deepEqual(sortLoredeckLibraryFolderTreeByTitle([
+  { id: 'folder_z', title: 'Zeta', children: [{ id: 'folder_z__10', title: 'Arc 10' }, { id: 'folder_z__2', title: 'Arc 2' }] },
+  { id: 'folder_a', title: 'alpha', children: [] },
+]).map(folder => [folder.id, folder.children.map(child => child.id)]), [
+  ['folder_a', []],
+  ['folder_z', ['folder_z__2', 'folder_z__10']],
 ]);
 
 const { MODULE_KEY } = await import('../../src/state/constants.js');
