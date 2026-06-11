@@ -135,6 +135,7 @@ import {
     wireOverlayBackdropClose,
 } from '../ui/runtime-ui-kit.js';
 import {
+    clampSettingConfidence,
     estimateTokens,
     formatActiveChatMetricName,
     formatCategoryCounts,
@@ -17226,13 +17227,6 @@ function renderContextTab(container, state) {
         }
     ));
     if (!basic) container.appendChild(createContextAdvancedBriefSection(state));
-}
-
-function clampSettingConfidence(value, fallback = 0) {
-    const number = Number(value);
-    if (!Number.isFinite(number)) return Math.max(0, Math.min(1, fallback));
-    if (number > 1 && number <= 100) return Math.max(0, Math.min(1, number / 100));
-    return Math.max(0, Math.min(1, number));
 }
 
 function getContextAutomationModeLabel(mode = 'manual') {

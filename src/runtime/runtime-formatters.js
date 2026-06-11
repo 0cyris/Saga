@@ -35,6 +35,13 @@ export function formatCategoryCounts(categoryCounts = {}) {
         .join(', ');
 }
 
+export function clampSettingConfidence(value, fallback = 0) {
+    const number = Number(value);
+    if (!Number.isFinite(number)) return Math.max(0, Math.min(1, fallback));
+    if (number > 1 && number <= 100) return Math.max(0, Math.min(1, number / 100));
+    return Math.max(0, Math.min(1, number));
+}
+
 export function formatProviderRailModelName(value = '') {
     const label = String(value || '').trim();
     const slashIndex = label.lastIndexOf('/');
